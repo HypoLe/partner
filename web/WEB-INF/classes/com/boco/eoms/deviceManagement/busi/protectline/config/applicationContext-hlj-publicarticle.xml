@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	
+		<bean id="publicizeArticleDao"
+		class="com.boco.eoms.deviceManagement.busi.protectline.dao.impl.PublicizeArticleDaoImpl" autowire="byName" />
+	
+
+	<bean id="publicizeArticleService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.deviceManagement.busi.protectline.service.impl.PublicizeArticleServiceImpl">
+				<property name="publicizeArticleDao"
+					ref="publicizeArticleDao" />
+			</bean>
+		</property>
+	</bean>
+	
+		<bean id="publicizeArticleApprovalDao"
+		class="com.boco.eoms.deviceManagement.busi.protectline.dao.impl.PublicizeArticleApprovalDaoImpl" autowire="byName" />
+	
+	<bean id="publicizeArticleApprovaService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.deviceManagement.busi.protectline.service.impl.PublicizeArticleApprovalServiceImpl">
+				<property name="publicizeArticleApprovalDao"
+					ref="publicizeArticleApprovalDao" />
+			</bean>
+		</property>
+	</bean>
+		<bean id="maintainApprovalDao"
+		class="com.boco.eoms.deviceManagement.busi.line.dao.impl.MaintainApprovalDaoImpl" autowire="byName" />
+	
+	<bean id="maintainApprovalService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.deviceManagement.busi.line.service.impl.MaintainApprovalServiceImpl">
+				<property name="maintainApprovalDao"
+					ref="maintainApprovalDao" />
+			</bean>
+		</property>
+	</bean>
+		<bean id="maintainDao"
+		class="com.boco.eoms.deviceManagement.busi.line.dao.impl.MaintainDaoImpl" autowire="byName" />
+	
+	<bean id="maintainService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.deviceManagement.busi.line.service.impl.MaintainServiceImpl">
+				<property name="maintainDao"
+					ref="maintainDao" />
+			</bean>
+		</property>
+	</bean>
+	
+		<bean id="maintainReportDao"
+		class="com.boco.eoms.deviceManagement.busi.line.dao.impl.MaintainReportDaoImpl" autowire="byName" />
+	
+	<bean id="maintainReportService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.deviceManagement.busi.line.service.impl.MaintainReportServiceImpl">
+				<property name="maintainReportDao"
+					ref="maintainReportDao" />
+			</bean>
+		</property>
+	</bean>
+		<bean id="maintainFinishDao"
+		class="com.boco.eoms.deviceManagement.busi.line.dao.impl.MaintainFinishDaoImpl" autowire="byName" />
+	
+	<bean id="maintainFinishService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.deviceManagement.busi.line.service.impl.MaintainFinishServiceImpl">
+				<property name="maintainFinishDao"
+					ref="maintainFinishDao" />
+			</bean>
+		</property>
+	</bean>
+	
+</beans>

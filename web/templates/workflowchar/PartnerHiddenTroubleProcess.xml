@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+  <cell id="1" type="InitialActionCell" height="30" width="100" x="175" y="62" />
+  <cell id="2" type="StepCell" height="30" width="100" x="406" y="63" />
+  <cell id="3" type="StepCell" height="30" width="100" x="615" y="59" />
+  <cell id="4" type="StepCell" height="30" width="100" x="429" y="198" />
+  <cell id="5" type="StepCell" height="30" width="100" x="810" y="170" />
+  <cell id="6" type="StepCell" height="30" width="100" x="638" y="286" />
+  <cell id="7" type="StepCell" height="30" width="100" x="469" y="383" />
+  <cell id="8" type="StepCell" height="30" width="100" x="812" y="410" />
+  <connector id="90" linewidth="1.0" color="-16777216" labelx="632" labely="1143" from="0" to="0" start="175,62" end="406,63">
+    <routing id="90" x="324" y="76" />
+  </connector>
+  <connector id="91" linewidth="1.0" color="-16777216" labelx="386" labely="984" from="0" to="0" start="175,62" end="429,198">
+    <routing id="91" x="222" y="215" />
+  </connector>
+  <connector id="92" linewidth="1.0" color="-16777216" labelx="823" labely="615" from="0" to="0" start="406,63" end="429,198">
+    <routing id="92" x="485" y="147" />
+  </connector>
+  <connector id="93" linewidth="1.0" color="-16777216" labelx="20" labely="591" from="0" to="0" start="615,59" end="429,198">
+    <routing id="93" x="630" y="204" />
+  </connector>
+  <connector id="94" linewidth="1.0" color="-16777216" labelx="1081" labely="715" from="0" to="0" start="429,198" end="615,59">
+    <routing id="94" x="664" y="212" />
+  </connector>
+  <connector id="95" linewidth="1.0" color="-16777216" labelx="671" labely="1090" from="0" to="0" start="429,198" end="812,410">
+    <routing id="95" x="453" y="339" />
+    <routing id="95" x="450" y="428" />
+  </connector>
+  <connector id="96" linewidth="1.0" color="-16777216" labelx="684" labely="1019" from="0" to="0" start="429,198" end="638,286">
+    <routing id="96" x="513" y="305" />
+  </connector>
+  <connector id="97" linewidth="1.0" color="-16777216" labelx="1173" labely="719" from="0" to="0" start="429,198" end="469,383">
+    <routing id="97" x="481" y="272" />
+  </connector>
+  <connector id="98" linewidth="1.0" color="-16777216" labelx="101" labely="746" from="0" to="0" start="810,170" end="638,286">
+    <routing id="98" x="845" y="308" />
+  </connector>
+  <connector id="99" linewidth="1.0" color="-16777216" labelx="1122" labely="642" from="0" to="0" start="810,170" end="812,410">
+    <routing id="99" x="851" y="253" />
+  </connector>
+  <connector id="910" linewidth="1.0" color="-16777216" labelx="616" labely="888" from="0" to="0" start="638,286" end="810,170">
+    <routing id="910" x="686" y="181" />
+  </connector>
+  <connector id="911" linewidth="1.0" color="-16777216" labelx="770" labely="9" from="0" to="0" start="469,383" end="638,286">
+    <routing id="911" x="691" y="402" />
+  </connector>
+  <connector id="912" linewidth="1.0" color="-16777216" labelx="-13" labely="538" from="0" to="0" start="812,410" end="810,170">
+    <routing id="912" x="887" y="312" />
+  </connector>
+  <channel id="chl-1" y1="0" y2="133" text="巡检公司处理人员" />
+  <channel id="chl-2" y1="133" y2="244" text="巡检公司调度人员" />
+  <channel id="chl-3" y1="244" y2="359" text="隐患处理人员" />
+  <channel id="chl-4" y1="359" y2="492" text="联通公司" />
+</layout>
+

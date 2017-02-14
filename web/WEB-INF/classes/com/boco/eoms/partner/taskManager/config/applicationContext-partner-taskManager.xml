@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="carApproveDao"
+		class="com.boco.eoms.partner.taskManager.dao.hibernate.CarApproveDaoHibernate" autowire="byName" />
+	<bean id="carApproveService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.taskManager.service.impl.CarApproveServiceImpl">
+				<property name="carApproveDao" ref="carApproveDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="carApproveLinkDao"
+		class="com.boco.eoms.partner.taskManager.dao.hibernate.CarApproveLinkDaoHibernate" autowire="byName" />
+	<bean id="carApproveLinkService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.taskManager.service.impl.CarApproveLinkServiceImpl">
+				<property name="carApproveLinkDao" ref="carApproveLinkDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="carApproveTaskDao"
+		class="com.boco.eoms.partner.taskManager.dao.hibernate.CarApproveTaskDaoHibernate" autowire="byName" />
+	<bean id="carApproveTaskDaoService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.taskManager.service.impl.CarApproveTaskServiceImpl">
+				<property name="carApproveTaskDao" ref="carApproveTaskDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="carTaskDao"
+		class="com.boco.eoms.partner.taskManager.dao.hibernate.CarTaskDaoHibernate" autowire="byName" />
+	<bean id="carTaskDaoService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.taskManager.service.impl.CarTaskServiceImpl">
+				<property name="carTaskDao" ref="carTaskDao" />
+			</bean>
+		</property>
+	</bean>
+	
+</beans>

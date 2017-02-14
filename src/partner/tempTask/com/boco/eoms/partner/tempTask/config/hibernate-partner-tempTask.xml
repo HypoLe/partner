@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="show_sql">true</property>
+    <mapping resource="com/boco/eoms/partner/tempTask/model/PnrTempTaskMain.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/tempTask/model/PnrTempTaskWork.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/tempTask/model/PnrTempTaskAudit.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/tempTask/model/PnrTempTaskExe.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

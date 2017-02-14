@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="arcGisDao"
+		class="com.boco.eoms.arcGis.dao.ArcGisDaoImpl"
+		autowire="byName" />
+		
+		
+	<bean id="arcGisService" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.arcGis.mgr.ArcGisServiceImpl">
+				<property name="arcGisDao" ref="arcGisDao" />
+			</bean>
+		</property>
+	</bean>
+
+
+					
+</beans>
+
+
+
+
+
+
+
+
+

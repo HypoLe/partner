@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class
+		name="com.boco.eoms.deviceManagement.faultSheet.model.FaultSheetResponse"
+		table="dm_faultSheetResponse ">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="operatePerson" />
+		<property name="operatePerson_Department" />
+		<property name="operatePerson_Contact" />
+		<property name="operatePerson_Rule" />
+		<property name="operateTime" />
+		<property name="attachment" />
+		<property name="detailment_Object" />
+		<property name="faultEndTime" />
+		<property name="faultDealEndTime" />
+		<property name="faultDealResult" />
+		<property name="work_OrderNo"/>
+		<property name="dealstata"></property>
+		<property name="detailment_dept"></property>
+		<property name="themess"></property>
+		<property name="completedtime"></property>
+	</class>
+</hibernate-mapping>

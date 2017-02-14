@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 区域-IrmsSpaceArea -->
+	<bean id="irmsSpaceAreaDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.space.IrmsSpaceAreaDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_space_area" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_space_area" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_space_area" /><!-- 正式表名 -->
+	</bean>
+	<!-- 机房-IrmsSpaceRoom -->
+	<bean id="irmsSpaceRoomDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.space.IrmsSpaceRoomDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_space_room" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_space_room" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_space_room" /><!-- 正式表名 -->
+	</bean>
+	<!-- 站点-IrmsSpaceSite -->
+	<bean id="irmsSpaceSiteDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.space.IrmsSpaceSiteDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_space_site" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_space_site" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_space_site" /><!-- 正式表名 -->
+	</bean>
+</beans>

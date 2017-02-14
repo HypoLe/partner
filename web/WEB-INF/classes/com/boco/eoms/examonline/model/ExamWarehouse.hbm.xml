@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.boco.eoms.examonline.model.ExamWarehouse"  table="ExamWarehouse">
+<id column="SUB_ID" name="subId" type="string">
+<generator class="uuid.hex"/>
+</id>
+<property column="IMPORT_ID" length="32" name="importId" not-null="true" type="string"/>
+<property column="TITLE" length="510" name="title" not-null="true" type="string"/>
+<property column="OPTIONS" length="1000" name="options" not-null="true" type="string"/>
+<property column="RESULT" length="15" name="result" not-null="true" type="string"/>
+<property column="DIFFICULTY" length="1" name="difficulty" not-null="true" type="integer"/>
+<property column="ISSUE_TYPE" length="1" name="issueType" not-null="true" type="integer"/>
+<property column="VALUE" length="2" name="value" type="integer"/>
+<property column="CONTYPE" length="2" name="contype" type="integer"/>
+<property column="SPECIALTY" length="100" name="specialty" not-null="true" type="string"/>
+<property column="MANUFACTURER" length="2" name="manufacturer" not-null="true" type="integer"/>
+<property column="COMMENTS" length="1000" name="comment" type="string"/>
+<property column="IMAGE" length="255" name="image" type="string"/>
+<property column="DELETED" length="1" name="deleted" type="integer"/>
+</class>
+</hibernate-mapping>

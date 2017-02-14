@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.bs.BsBtResource" table="pnr_bsbt_resource">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="bsbtName" column="bsbt_name"/>
+				<property name="city" column="city"/>
+				<property name="country" column="country"/>
+				<property name="specialty" column="specialty"/>
+				<property name="resType" column="res_type"/>
+				<property name="resLevel" column="res_level"/>
+				<property name="bureau" column="bureau"/>
+				<property name="twoBsbtName" column="two_bsbt_name"/>
+				<property name="anotherBsbtName" column="another_bsbt_name"/>
+				<property name="bsbtType" column="bsbt_type"/>
+				<property name="bsbtLevel" column="bsbt_level"/>
+				<property name="bsbtAddress" column="bsbt_address"/>
+				<property name="foor" column="foor"/>
+				<property name="no" column="no"/>
+				<property name="assetsAttributable" column="assets_attributable"/>
+				<property name="contact" column="contact"/>
+				<property name="contactTel" column="contact_tel"/>
+				<property name="is97bureau" column="is97bureau"/>
+				<property name="userName" column="user_name"/>
+				<property name="remark" column="remark"/>
+				<property name="entryPeople" column="entry_people"/>
+				<property name="entryTime" column="entry_time"/>
+				<property name="modifyPeople" column="modify_people"/>
+				<property name="modifyTime" column="modify_time"/>
+				<property name="length" column="length"/>
+				<property name="width" column="width"/>
+				<property name="height" column="height"/>
+				<property name="bsbtClassify" column="bsbt_classify"/>
+				<property name="longitude" column="longitude"/>
+				<property name="latitude" column="latitude"/>
+				<property name="usableArea" column="usable_area"/>
+				<property name="usedArea" column="used_area"/>
+				<property name="bsbtVested" column="bsbt_vested"/>
+				<property name="isShare" column="is_share"/>
+				<property name="shareOperators" column="share_operators"/>
+				<property name="bsbtCategories" column="bsbt_categories"/>
+				<property name="bsbtSmallClass" column="bsbt_small_class"/>
+				<property name="groupBsbtTypes" column="group_bsbt_types"/>
+				<property name="groupRoombear" column="group_room_bear"/>
+				<property name="alignmentMethod" column="alignment_method"/>
+				<property name="chutes" column="chutes"/>
+				<property name="fireSystem" column="fire_system"/>
+				<property name="isNoun" column="is_noun"/>
+				<property name="isMonitor" column="is_monitor"/>
+				<property name="maturityTime" column="maturity_time"/>
+				<property name="roomType" column="room_type"/>
+				<property name="maintenanceMode" column="maintenance_mode"/>
+				<property name="maintenanceUnit" column="maintenance_unit"/>
+				<property name="charter" column="charter"/>
+				<property name="threeMainUnit" column="three_main_unit"/>
+				<property name="renewalTime" column="renewal_time"/>
+				<property name="maintenanceType" column="maintenance_type"/>
+				<property name="maintenanceYear" column="maintenance_year"/>
+				<property name="outDoor" column="out_door"/>
+				<property name="place" column="place"/>
+    </class>    
+</hibernate-mapping>

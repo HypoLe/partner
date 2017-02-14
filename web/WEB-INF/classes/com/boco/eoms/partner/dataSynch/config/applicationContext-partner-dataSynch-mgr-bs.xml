@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- BTSSITE-IrmsBsBtssite -->
+	<bean id="irmsBsBtssiteMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsBtssiteMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsBtssiteDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsBtssiteMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="BTSSITE" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 机楼基站外电-IrmsBsJzwd -->
+	<bean id="irmsBsJzwdMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsJzwdMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsJzwdDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsJzwdMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="机楼基站外电" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 变压器或调压器-IrmsBsTransfor -->
+	<bean id="irmsBsTransforMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsTransforMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsTransforDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsTransforMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="变压器或调压器" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 机框-IrmsBsShelf -->
+	<bean id="irmsBsShelfMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsShelfMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsShelfDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsShelfMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="机框" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 机槽-IrmsBsSlot -->
+	<bean id="irmsBsSlotMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsSlotMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsSlotDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsSlotMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="机槽" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- UTRANCELL-IrmsBsUtrancell -->
+	<bean id="irmsBsUtrancellMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsUtrancellMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsUtrancellDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsUtrancellMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="UTRANCELL" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- CELL-IrmsBsCell -->
+	<bean id="irmsBsCellMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsCellMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsCellDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsCellMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="CELL" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- NODEB-IrmsBsNodeb -->
+	<bean id="irmsBsNodebMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsNodebMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsNodebDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsNodebMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="NODEB" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 机柜-IrmsBsRack -->
+	<bean id="irmsBsRackMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsRackMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsRackDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsRackMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="机柜" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 板卡-IrmsBsCard -->
+	<bean id="irmsBsCardMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsCardMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsCardDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsCardMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="板卡" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 发电机组-IrmsBsGrnerat -->
+	<bean id="irmsBsGrneratMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsGrneratMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsGrneratDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsGrneratMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="发电机组" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 蓄电池组-IrmsBsStorage -->
+	<bean id="irmsBsStorageMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsStorageMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsStorageDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsStorageMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="蓄电池组" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 开关电源-IrmsBsGrnerat2 -->
+	<bean id="irmsBsGrnerat2MgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsGrnerat2MgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsGrnerat2DaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsGrnerat2MappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="开关电源" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- UPS主机-IrmsBsUps -->
+	<bean id="irmsBsUpsMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsUpsMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsUpsDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsUpsMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="UPS主机" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 普通空调-IrmsBsAircon -->
+	<bean id="irmsBsAirconMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsAirconMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsAirconDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsAirconMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="普通空调" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 专用空调-IrmsBsSpeaircon -->
+	<bean id="irmsBsSpeairconMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsSpeairconMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsSpeairconDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsSpeairconMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="专用空调" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 动环监控设备-IrmsBsMme -->
+	<bean id="irmsBsMmeMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsMmeMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsMmeDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsMmeMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="动环监控设备" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 通风系统-IrmsBsVens -->
+	<bean id="irmsBsVensMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsVensMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsVensDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsVensMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="通风系统" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 换热系统-IrmsBsHes -->
+	<bean id="irmsBsHesMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsHesMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsHesDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsHesMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="换热系统" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 风能设备-IrmsBsWep -->
+	<bean id="irmsBsWepMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsWepMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsWepDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsWepMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="风能设备" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 风电控制器-IrmsBsWpc -->
+	<bean id="irmsBsWpcMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsWpcMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsWpcDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsWpcMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="风电控制器" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 太阳能设备-IrmsBsSee -->
+	<bean id="irmsBsSeeMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsSeeMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsSeeDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsSeeMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="太阳能设备" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 太阳能控制器-IrmsBsMppt -->
+	<bean id="irmsBsMpptMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsMpptMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsMpptDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsMpptMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="太阳能控制器" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 风光互补控制器-IrmsBsCc -->
+	<bean id="irmsBsCcMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsCcMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsCcDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsCcMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="风光互补控制器" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 电源恒温箱-IrmsBsBb -->
+	<bean id="irmsBsBbMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.bs.IrmsBsBbMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsBsBbDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsBsBbMappingRule" />
+				<property name="dataType" value="基站设备及配套" /><!-- 专业类型-->
+				<property name="deviceType" value="电源恒温箱" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<!-- Hibernate泛型Dao的通用注入,请参考nop3模块下的service和dao的实现。 -->
+	<bean id="commonGenericDao" class="com.boco.eoms.deviceManagement.common.dao.CommonGenericDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+	<!-- Spring Jdbc -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<bean id="commonSpringJdbcService"
+		class="com.boco.eoms.deviceManagement.common.service.CommonSpringJdbcServiceImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate"/>
+	</bean>
+
+	<!-- 例子
+	<bean id="protocolMainDao" class="protocol.dao.ProtocolMainDaoImpl"
+		autowire="byName" />
+	<bean id="protocolMainService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="protocol.service.ProtocolMainServiceImpl">
+				<property name="protocolMainDao" ref="protocolMainDao" />
+			</bean>
+		</property>
+	</bean>
+	-->
+	
+	
+	<!-- deviceManagement faultInfo -->
+	<import resource="classpath:com/boco/eoms/deviceManagement/faultInfo/config/applicationContext-hlj-faultInfo.xml" />
+	<!-- 故障工单管理 -->
+	<import resource="classpath:com/boco/eoms/deviceManagement/faultSheet/config/applicationContext-deviceManagement-faultSheet.xml"/>
+	<import resource="classpath:com/boco/eoms/deviceManagement/qualify/config/applicationContext-deviceManagement-qualify.xml"/>
+	<!-- deviceManagement technicData -->
+	<import resource="classpath:com/boco/eoms/deviceManagement/technicData/config/applicationContext-hlj-technicData.xml" />	
+
+	<import resource="classpath:com/boco/eoms/deviceManagement/charge/config/applicationContext-deviceManagement-charge.xml" />	
+	<import resource="classpath:com/boco/eoms/deviceManagement/GPSManagement/config/applicationContext-deviceManagement-GpsManagement.xml"/>
+	<import resource="classpath:com/boco/eoms/deviceManagement/externalForceCheck/config/applicationContext-deviceManagement-ExternalForceCheck.xml" />
+	<!-- 技能认证平台 -->
+	<import resource="classpath:com/boco/eoms/config/applicationContext-examonline.xml" />
+	<!-- 基本信息管理管理 -->
+	<import resource="classpath:com/boco/eoms/deviceManagement/busi/line/config/applicationContext-deviceManagement-lineProject.xml" /> 
+	<import resource="classpath:com/boco/eoms/deviceManagement/busi/network/config/applicationContext-deviceManagement-HiddenTrouble.xml" /> 
+	<import resource="classpath:com/boco/eoms/deviceManagement/busi/protectline/config/applicationContext-deviceManagement-advertisementPlan.xml" /> 
+	<import resource="classpath:com/boco/eoms/deviceManagement/busi/protectline/config/applicationContext-deviceManagement-armypolicecivilian.xml" /> 
+	<import resource="classpath:com/boco/eoms/deviceManagement/busi/protectline/config/applicationContext-deviceManagement-consctRouting.xml" /> 
+	<import resource="classpath:com/boco/eoms/deviceManagement/busi/protectline/config/applicationContext-deviceManagement-promoAgreement.xml" /> 
+	<import resource="classpath:com/boco/eoms/deviceManagement/busi/protectline/config/applicationContext-deviceManagement-warningBoard.xml" /> 
+	<import resource="classpath:com/boco/eoms/deviceManagement/busi/protectline/config/applicationContext-hlj-advertisement.xml" /> 
+	<import resource="classpath:com/boco/eoms/deviceManagement/busi/protectline/config/applicationContext-hlj-mediaPublicity.xml" /> 
+	<import resource="classpath:com/boco/eoms/deviceManagement/busi/protectline/config/applicationContext-hlj-publicityCatchline.xml" /> 
+	<import resource="classpath:com/boco/eoms/deviceManagement/busi/protectline/config/applicationContext-mechanicalArmManagement.xml" />
+	<import resource="classpath:com/boco/eoms/deviceManagement/baseInfo/config/applicationContext-deviceManagement-checkpoint.xml" />
+	<import resource="classpath:com/boco/eoms/deviceManagement/baseInfo/config/applicationContext-deviceManagement-checkSegment.xml" /> 
+	<import resource="classpath:com/boco/eoms/deviceManagement/baseInfo/config/applicationContext-deviceManagement-baseInfo.xml" /> 
+	<import resource="classpath:com/boco/eoms/deviceManagement/busi/protectline/config/applicationContext-hlj-publicarticle.xml" /> 
+	<import resource="classpath:com/boco/eoms/deviceManagement/busi/line/config/applicationContext-hlj-maintain.xml" />
+	<!-- 光缆信息 -->
+	<import resource="classpath:com/boco/eoms/deviceManagement/fiber/config/applicationContext-deviceManagement-fiberInformation.xml" />
+	
+</beans>

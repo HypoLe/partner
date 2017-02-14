@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!--link配置文件 -->
+	<bean id="partnerProcessLinkDao" class="com.boco.eoms.partner.process.dao.hibernate.PartnerProcessLinkDaoHibernate"
+		autowire="byName">
+	</bean>
+	<bean id="partnerProcessLinkService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.process.service.PartnerProcessLinkServiceImpl">
+				<property name="partnerProcessLinkDao" ref="partnerProcessLinkDao"></property>
+			</bean>
+		</property>
+	</bean>
+	<!-- main配置文件 -->
+	<bean id="partnerProcessMainDao" class="com.boco.eoms.partner.process.dao.hibernate.PartnerProcessMainDaoHibernate"
+		autowire="byName">
+	</bean>
+	<bean id="partnerProcessMainService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.process.service.PartnerProcessMainServiceImpl">
+				<property name="partnerProcessMainDao" ref="partnerProcessMainDao"></property>
+			</bean>
+		</property>
+	</bean>
+	<!--配置模块对应的beanId-->	
+	<bean id="processServiceType" class="com.boco.eoms.partner.process.util.PnrProcessServiceType">
+		<property name="processServiceTypeList">
+			<list>
+					<bean class="com.boco.eoms.partner.process.util.PnrProcessModelConfig">
+						<property name="modelCode" value="1"></property>
+						<property name="modelName" value="车辆"></property>
+						<property name="modelServiceBeanId" value="carService"></property>
+					</bean>
+					<bean class="com.boco.eoms.partner.process.util.PnrProcessModelConfig">
+						<property name="modelCode" value="2"></property>
+						<property name="modelName" value="油机"></property>
+						<property name="modelServiceBeanId" value="oilEngineService"></property>
+					</bean>
+					<bean class="com.boco.eoms.partner.process.util.PnrProcessModelConfig">
+						<property name="modelCode" value="3"></property>
+						<property name="modelName" value="仪器仪表"></property>
+						<property name="modelServiceBeanId" value="apparatusService"></property>
+					</bean>
+					<bean class="com.boco.eoms.partner.process.util.PnrProcessModelConfig">
+						<property name="modelCode" value="4"></property>
+						<property name="modelName" value="移动终端"></property>
+						<property name="modelServiceBeanId" value="mobileTerminalService"></property>
+					</bean>
+		<!-- 人员信息管理模板1 start-->			
+					<bean class="com.boco.eoms.partner.process.util.PnrProcessModelConfig">
+						<property name="modelCode" value="5"></property>
+						<property name="modelName" value="人员证书信息模板1"></property>
+						<property name="modelServiceBeanId" value="refcertificateMgr"></property>
+					</bean>
+					<bean class="com.boco.eoms.partner.process.util.PnrProcessModelConfig">
+						<property name="modelCode" value="6"></property>
+						<property name="modelName" value="人员教育经历模板1"></property>
+						<property name="modelServiceBeanId" value="refstudyExperienceMgr"></property>
+					</bean>
+					<bean class="com.boco.eoms.partner.process.util.PnrProcessModelConfig">
+						<property name="modelCode" value="7"></property>
+						<property name="modelName" value="人员培训经历模板1"></property>
+						<property name="modelServiceBeanId" value="refpxexperienceMgr"></property>
+					</bean>
+					<bean class="com.boco.eoms.partner.process.util.PnrProcessModelConfig">
+						<property name="modelCode" value="8"></property>
+						<property name="modelName" value="人员奖励信息模板1"></property>
+						<property name="modelServiceBeanId" value="refrewardMgr"></property>
+					</bean>
+					<bean class="com.boco.eoms.partner.process.util.PnrProcessModelConfig">
+						<property name="modelCode" value="9"></property>
+						<property name="modelName" value="人员技能信息模板1"></property>
+						<property name="modelServiceBeanId" value="refdwinfoMgr"></property>
+					</bean>
+					<bean class="com.boco.eoms.partner.process.util.PnrProcessModelConfig">
+						<property name="modelCode" value="10"></property>
+						<property name="modelName" value="人员工作经历模板1"></property>
+						<property name="modelServiceBeanId" value="workExperienceMgr"></property>
+					</bean>
+		<!-- 人员信息管理模板1 end-->			
+					<bean class="com.boco.eoms.partner.process.util.PnrProcessModelConfig">
+						<property name="modelCode" value="11"></property>
+						<property name="modelName" value="组织入围"></property>
+						<property name="modelServiceBeanId" value="pnrOrgFinalistSheetMgr"></property>
+					</bean>
+					<bean class="com.boco.eoms.partner.process.util.PnrProcessModelConfig">
+						<property name="modelCode" value="12"></property>
+						<property name="modelName" value="代维组织信息"></property>
+						<property name="modelServiceBeanId" value="partnerDeptMgr"></property>
+					</bean>
+					<bean class="com.boco.eoms.partner.process.util.PnrProcessModelConfig">
+						<property name="modelCode" value="13"></property>
+						<property name="modelName" value="代维人员信息"></property>
+						<property name="modelServiceBeanId" value="partnerUserMgr"></property>
+					</bean>
+					<bean class="com.boco.eoms.partner.process.util.PnrProcessModelConfig">
+						<property name="modelCode" value="14"></property>
+						<property name="modelName" value="组织资质"></property>
+						<property name="modelServiceBeanId" value="pnrQualificationMgr"></property>
+					</bean>
+				<!-- 人员信息管理模板2 start-->			
+					<bean class="com.boco.eoms.partner.process.util.PnrProcessModelConfig">
+						<property name="modelCode" value="15"></property>
+						<property name="modelName" value="人员证书信息模板2"></property>
+						<property name="modelServiceBeanId" value="refcertificateMgr"></property>
+					</bean>
+					<bean class="com.boco.eoms.partner.process.util.PnrProcessModelConfig">
+						<property name="modelCode" value="16"></property>
+						<property name="modelName" value="人员教育经历模板2"></property>
+						<property name="modelServiceBeanId" value="refstudyExperienceMgr"></property>
+					</bean>
+					<bean class="com.boco.eoms.partner.process.util.PnrProcessModelConfig">
+						<property name="modelCode" value="17"></property>
+						<property name="modelName" value="人员培训经历模板2"></property>
+						<property name="modelServiceBeanId" value="refpxexperienceMgr"></property>
+					</bean>
+					<bean class="com.boco.eoms.partner.process.util.PnrProcessModelConfig">
+						<property name="modelCode" value="18"></property>
+						<property name="modelName" value="人员奖励信息模板2"></property>
+						<property name="modelServiceBeanId" value="refrewardMgr"></property>
+					</bean>
+					<bean class="com.boco.eoms.partner.process.util.PnrProcessModelConfig">
+						<property name="modelCode" value="19"></property>
+						<property name="modelName" value="人员技能信息模板2"></property>
+						<property name="modelServiceBeanId" value="refdwinfoMgr"></property>
+					</bean>
+					<bean class="com.boco.eoms.partner.process.util.PnrProcessModelConfig">
+						<property name="modelCode" value="20"></property>
+						<property name="modelName" value="人员工作经历模板2"></property>
+						<property name="modelServiceBeanId" value="workExperienceMgr"></property>
+					</bean>
+				<!-- 人员信息管理模板2 end-->
+			</list>
+		</property>
+	</bean>
+</beans>

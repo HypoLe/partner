@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="GBK"?>
+<dicts description="excel导入">
+		<!-- excel导入 -->	
+	<dict id="modelName" description="选择所属模块">
+		<item id="com.boco.eoms.partner.serviceArea.model.Grid" name="网格" description="网格" />		
+		<item id="com.boco.eoms.partner.serviceArea.model.Line" name="线路" description="线路" />
+		<item id="com.boco.eoms.partner.serviceArea.model.Point" name="数据点" description="数据点" />			
+		<item id="com.boco.eoms.partner.serviceArea.model.Site" name="站点信息" description="站点信息" />
+		<item id="com.boco.eoms.partner.baseinfo.model.PersonConfig" name="人员配置" description="人员配置" />
+		<item id="com.boco.eoms.partner.baseinfo.model.InstrumentConfig" name="仪器仪表配置" description="仪器仪表配置" />
+		<item id="com.boco.eoms.partner.baseinfo.model.OilEngineConfigure" name="油机配置" description="油机配置" />
+		<item id="com.boco.eoms.partner.baseinfo.model.Vehicle" name="车辆配置" description="车辆配置" />
+	</dict>
+	<dict id="model" description="模板">
+		<item id="grid(hibernate).xls" name="网格" description="网格" />	
+		<item id="line(hibernate).xls" name="线路" description="线路" />	
+		<item id="point(hibernate).xls" name="数据点" description="数据点" />	
+		<item id="site(hibernate).xls" name="站点信息" description="站点信息" />
+		<item id="personConfig(hibernate).xls" name="人员配置" description="人员配置" />
+		<item id="instrumentConfig(hibernate).xls" name="仪器仪表配置" description="仪器仪表配置" />
+		<item id="vehicle(hibernate).xls" name="车辆配置" description="车辆配置" />
+		<item id="oilEngineConfigure(hibernate).xls" name="油机配置" description="油机配置" />		
+	</dict>	
+</dicts>
+
+

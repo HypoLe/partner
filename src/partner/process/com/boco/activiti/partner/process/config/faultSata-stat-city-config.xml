@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="GB2312"?>
+<sheetQuery>
+	<byCity>
+		<![CDATA[
+			    select t.areaid,
+       t.areaname,
+       t.shebeiliang,
+       t.baozhang_num,
+       t.guijiqueren_num,
+       decode(t.shebeiliang,
+              0,
+              0,
+              round(t.guijiqueren_num / t.shebeiliang * 100, 2)) as guzhanglv, --故障率
+       decode(t.guijiqueren_num,
+              0,
+              0,
+              round(t.guzhanglishi / t.guijiqueren_num, 2)) as avg_guzhanglishi, -- 平均故障历时
+       decode(t.gk_guijiqueren_num,
+              0,
+              0,
+              round(t.gk_paidanshichang / t.gk_guijiqueren_num, 2)) as gk_avg_paidanshichang, -- 公客平均派单时长
+       t.guzhangchongxiushu,
+       decode(t.baozhang_num,
+              0,
+              0,
+              round(t.guzhangchongxiushu / t.baozhang_num * 100, 2)) as guzhangchongxiulv,
+       t.cailiaojine,
+       t.guzhanglishi, --故障历时
+       t.gk_paidanshichang, --公客派单时长
+       t.gk_guijiqueren_num, --公客归集确认数
+       t.gk_yxfcs_num as chaoshigongdanshu, --超时工单数
+       decode(t.guijiqueren_num,
+              0,
+              0,
+              round((t.guijiqueren_num - t.gk_yxfcs_num) /
+                    t.guijiqueren_num * 100,
+                    2)) as guzhangxiufujishilv --故障修复及时率
+  from (select ta.areaid,
+               ta.areaname,
+               nvl(t1.equipment_num, 0) as shebeiliang, --光缆线路设备量
+               nvl(t2.qx_num,0) + nvl(t4.gk_wgj_num,0) + nvl(t5.gk_child_num,0) as baozhang_num, --报障工单数
+               nvl(t2.qx_num,0) + nvl(t3.gk_main_num,0) + nvl(t4.gk_wgj_num,0) as guijiqueren_num, --归集确认故障数
+               nvl(t2.qx_gzls,0) + nvl(t3.gk_main_gzls,0) + nvl(t4.gk_wgj_gzls,0) as guzhanglishi, -- 故障历时
+               nvl(t3.gk_main_pdsc,0) + nvl(t4.gk_wgj_pdsc,0) as gk_paidanshichang, -- 公客派单时长
+               nvl(t3.gk_main_num,0) + nvl(t4.gk_wgj_num,0) as gk_guijiqueren_num, -- 公客归集确认数
+               nvl(t2.qx_clje,0) + nvl(t3.gk_main_clje,0) + nvl(t4.gk_wgj_clje,0) as cailiaojine, -- 材料金额
+               nvl(t6.gk_wgj_ztcxs,0) + nvl(t7.gk_child_ztcxs,0) + nvl(t8.gk_wgj_tyyhs,0) as guzhangchongxiushu, --故障重修数
+               nvl(t9.gk_main_yxfcs_num,0) + nvl(t10.gk_wgj_yxfcs_num,0) as gk_yxfcs_num --已修复超时故障工单数
+          from taw_system_area ta,
+               (select c.areaid, c.equipment_num
+                  from pnr_optical_cable_lines_num c
+                 where c.parentareaid = '28') t1, --光缆线路设备量
+               (select a.areaid,
+                       count(m.process_instance_id) as qx_num,
+                       nvl(sum((m.third_send_time - m.send_time) * 24), 0) as qx_gzls,
+                       sum(nvl(m.worker_project_amount, 0)) as qx_clje
+                  from taw_system_area a, pnr_act_transfer_office_main m
+                 where a.areaid = m.city
+                   and a.parentareaid = '28'
+                   and THEMEINTERFACE = 'transferOffice'
+                   and m.task_def_key in
+                       ('acheck', 'twoSpotChecks', 'auditReport', 'archive')
+                   and exists
+                 (select 1
+                          from pnr_act_transfer_office_handle l
+                         where l.process_instance_id = m.process_instance_id
+                           and l.FAULT_TYPE = '10123190101')
+                   and @send_time@
+                 group by a.areaid) t2, ---抢修工单数：（施工队回单的，故障类）
+               (select a.areaid,
+                       count(m.process_instance_id) as gk_main_num,
+                       nvl(sum((m.last_reply_time - m.send_time) * 24), 0) as gk_main_gzls,
+                       nvl(sum((m.send_time - m.create_time) * 24), 0) as gk_main_pdsc,
+                       sum(nvl(m.worker_project_amount, 0)) as gk_main_clje
+                  from taw_system_area a, pnr_act_transfer_office_main m
+                 where a.areaid = m.city
+                   and a.parentareaid = '28'
+                   and THEMEINTERFACE = 'maleGuest'
+                   and m.task_def_key in
+                       ('acheck', 'twoSpotChecks', 'auditReport', 'archive')
+                   and exists
+                 (select 1
+                          from pnr_act_transfer_office_handle l
+                         where l.process_instance_id = m.process_instance_id
+                           and l.FAULT_TYPE = '10123190101')
+                   and @send_time@
+                   and m.male_guest_state = '1'
+                 group by a.areaid) t3, --- 公客主工单数
+               (select a.areaid,
+                       count(m.process_instance_id) as gk_wgj_num,
+                       nvl(sum((m.last_reply_time - m.send_time) * 24), 0) as gk_wgj_gzls,
+                       nvl(sum((m.send_time - m.create_time) * 24), 0) as gk_wgj_pdsc,
+                       sum(nvl(m.worker_project_amount, 0)) as gk_wgj_clje
+                  from taw_system_area a, pnr_act_transfer_office_main m
+                 where a.areaid = m.city
+                   and a.parentareaid = '28'
+                   and THEMEINTERFACE = 'maleGuest'
+                   and m.task_def_key in
+                       ('acheck', 'twoSpotChecks', 'auditReport', 'archive')
+                   and exists
+                 (select 1
+                          from pnr_act_transfer_office_handle l
+                         where l.process_instance_id = m.process_instance_id
+                           and l.FAULT_TYPE = '10123190101')
+                   and @send_time@
+                   and nvl(m.male_guest_state, '0') in ('0', '3')
+                 group by a.areaid) t4, --公客未归集工单
+               (select a.areaid, count(m.process_instance_id) as gk_child_num
+                  from taw_system_area a, pnr_act_transfer_office_main m
+                 where a.areaid = m.city
+                   and a.parentareaid = '28'
+                   and THEMEINTERFACE = 'maleGuest'
+                   and m.task_def_key = 'auditor'
+                   and exists
+                 (select 1
+                          from pnr_act_transfer_office_handle l
+                         where l.process_instance_id =
+                               m.parent_process_instance_id
+                           and l.FAULT_TYPE = '10123190101')
+                   and @send_time@
+                   and m.male_guest_state = '2'
+                 group by a.areaid) t5, --公客子工单
+               (select a.areaid, count(m.process_instance_id) as gk_wgj_ztcxs
+                  from taw_system_area a, pnr_act_transfer_office_main m
+                 where a.areaid = m.city
+                   and a.parentareaid = '28'
+                   and THEMEINTERFACE = 'maleGuest'
+                   and m.task_def_key in
+                       ('acheck', 'twoSpotChecks', 'auditReport', 'archive')
+                   and exists
+                 (select 1
+                          from pnr_act_transfer_office_handle l
+                         where l.process_instance_id = m.process_instance_id
+                           and l.FAULT_TYPE = '10123190101')
+                   and @send_time@
+                   and nvl(m.male_guest_state, '0') in ('0', '3')
+                   and m.theme like '(重修)%'
+                 group by a.areaid
+                
+                ) t6,
+               (select a.areaid,
+                       count(m.process_instance_id) as gk_child_ztcxs
+                  from taw_system_area a, pnr_act_transfer_office_main m
+                 where a.areaid = m.city
+                   and a.parentareaid = '28'
+                   and THEMEINTERFACE = 'maleGuest'
+                   and m.task_def_key = 'auditor'
+                   and exists
+                 (select 1
+                          from pnr_act_transfer_office_handle l
+                         where l.process_instance_id =
+                               m.parent_process_instance_id
+                           and l.FAULT_TYPE = '10123190101')
+                   and @send_time@
+                   and m.male_guest_state = '2'
+                   and m.theme like '(重修)%'
+                 group by a.areaid) t7,
+               (select areaid, sum(t_us_num) as gk_wgj_tyyhs
+                  from (select areaid,
+                               barrier_number,
+                               count(process_instance_id) - 1 as t_us_num
+                          from (select a.areaid, m.*
+                                  from taw_system_area              a,
+                                       pnr_act_transfer_office_main m
+                                 where a.areaid = m.city
+                                   and a.parentareaid = '28'
+                                   and THEMEINTERFACE = 'maleGuest'
+                                   and m.task_def_key in
+                                       ('acheck',
+                                        'twoSpotChecks',
+                                        'auditReport',
+                                        'archive')
+                                   and exists
+                                 (select 1
+                                          from pnr_act_transfer_office_handle l
+                                         where l.process_instance_id =
+                                               m.process_instance_id
+                                           and l.FAULT_TYPE = '10123190101')
+                                   and @send_time@
+                                   and nvl(m.male_guest_state, '0') in
+                                       ('0', '3')
+                                   and barrier_number <> '无'
+                                union all
+                                select a.areaid, m.*
+                                  from taw_system_area              a,
+                                       pnr_act_transfer_office_main m
+                                 where a.areaid = m.city
+                                   and a.parentareaid = '28'
+                                   and THEMEINTERFACE = 'maleGuest'
+                                   and m.task_def_key = 'auditor'
+                                   and exists
+                                 (select 1
+                                          from pnr_act_transfer_office_handle l
+                                         where l.process_instance_id =
+                                               m.parent_process_instance_id
+                                           and l.FAULT_TYPE = '10123190101')
+                                   and @send_time@
+                                   and m.male_guest_state = '2'
+                                   and barrier_number <> '无')
+                         group by areaid, barrier_number
+                        having count(process_instance_id) > 1)
+                 group by areaid) t8,
+               (select a.areaid,
+                       count(m.process_instance_id) as gk_main_yxfcs_num
+                  from taw_system_area a, pnr_act_transfer_office_main m
+                 where a.areaid = m.city
+                   and a.parentareaid = '28'
+                   and themeinterface = 'maleGuest'
+                   and m.task_def_key in
+                       ('acheck', 'twoSpotChecks', 'auditReport', 'archive')
+                   and exists
+                 (select 1
+                          from pnr_act_transfer_office_handle l
+                         where l.process_instance_id = m.process_instance_id
+                           and l.FAULT_TYPE = '10123190101')
+                   and @send_time@
+                   and m.male_guest_state = '1'
+                   and ((m.last_reply_time - m.send_time) * 24 - 8) > 0
+                 group by a.areaid) t9,
+               (select a.areaid,
+                       count(m.process_instance_id) as gk_wgj_yxfcs_num
+                  from taw_system_area a, pnr_act_transfer_office_main m
+                 where a.areaid = m.city
+                   and a.parentareaid = '28'
+                   and themeinterface = 'maleGuest'
+                   and m.task_def_key in
+                       ('acheck', 'twoSpotChecks', 'auditReport', 'archive')
+                   and exists
+                 (select 1
+                          from pnr_act_transfer_office_handle l
+                         where l.process_instance_id = m.process_instance_id
+                           and l.FAULT_TYPE = '10123190101')
+                   and @send_time@
+                   and nvl(m.male_guest_state, '0') in ('0', '3')
+                   and ((m.last_reply_time - m.send_time) * 24 - 8) > 0
+                 group by a.areaid) t10
+         where ta.areaid = t1.areaid(+)
+           and ta.areaid = t2.areaid(+)
+           and ta.areaid = t3.areaid(+)
+           and ta.areaid = t4.areaid(+)
+           and ta.areaid = t5.areaid(+)
+           and ta.areaid = t6.areaid(+)
+           and ta.areaid = t7.areaid(+)
+           and ta.areaid = t8.areaid(+)
+           and ta.areaid = t9.areaid(+)
+           and ta.areaid = t10.areaid(+)
+           and ta.parentareaid = '28'
+         order by ta.sort) t
+			          
+		]]>
+	</byCity>
+	<byCounty>
+		<![CDATA[
+			          
+		]]>
+	</byCounty>
+</sheetQuery>

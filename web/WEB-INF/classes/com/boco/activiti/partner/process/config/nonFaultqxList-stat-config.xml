@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="GB2312"?>
+<sheetQuery>
+	<byArea>
+		<![CDATA[
+select areaid,
+       areaname,
+       t_num as total_num,
+       t_amout as total_amout,
+       G1 as g_num_1,
+       decode(t_num, 0, 0, round(G1 / t_num * 100, 2)) as g_zb_1,
+       G2 as g_num_2,
+       decode(t_num, 0, 0, round(G2 / t_num * 100, 2)) as g_zb_2,
+       G3 as g_num_3,
+       decode(t_num, 0, 0, round(G3 / t_num * 100, 2)) as g_zb_3,
+       G4 as g_num_4,
+       decode(t_num, 0, 0, round(G4 / t_num * 100, 2)) as g_zb_4,
+       G5 as g_num_5,
+       decode(t_num, 0, 0, round(G5 / t_num * 100, 2)) as g_zb_5,
+       G6 as g_num_6,
+       decode(t_num, 0, 0, round(G6 / t_num * 100, 2)) as g_zb_6,
+       G7 as g_num_7,
+       decode(t_num, 0, 0, round(G7 / t_num * 100, 2)) as g_zb_7,
+       G8 as g_num_8,
+       decode(t_num, 0, 0, round(G8 / t_num * 100, 2)) as g_zb_8
+  from (select ta.areaid,
+               ta.areaname,
+               nvl(t_num, 0) as t_num,
+               nvl(t_amout, 0) as t_amout,
+               nvl(G1, 0) as G1,
+               nvl(G2, 0) as G2,
+               nvl(G3, 0) as G3,
+               nvl(G4, 0) as G4,
+               nvl(G5, 0) as G5,
+               nvl(G6, 0) as G6,
+               nvl(G7, 0) as G7,
+               nvl(G8, 0) as G8
+          from taw_system_area ta,
+               (select t1.areaid,
+                       sum(c_num) as t_num,
+                       sum(c_amount) as t_amout,
+                       sum(decode(trouble_reason, '10123190212', c_num, 0)) as G1, --更换电杆
+                       sum(decode(trouble_reason, '10123190213', c_num, 0)) as G2, --更换吊线
+                       sum(decode(trouble_reason, '10123190214', c_num, 0)) as G3, --更换拉线
+                       sum(decode(trouble_reason, '10123190215', c_num, 0)) as G4, --光缆脱落整治
+                       sum(decode(trouble_reason, '10123190216', c_num, 0)) as G5, --电力线防护
+                       sum(decode(trouble_reason, '10123190217', c_num, 0)) as G6, --光交箱整治
+                       sum(decode(trouble_reason, '10123190218', c_num, 0)) as G7, --人井盖增补
+                       sum(decode(trouble_reason, '10123190219', c_num, 0)) as G8 --其他安全隐患处理
+                  from (select a.areaid,
+                               trouble_reason,
+                               count(m.process_instance_id) as c_num,
+                               sum(nvl(m.worker_project_amount, 0)) as c_amount
+                          from taw_system_area a,
+                               pnr_act_transfer_office_main m,
+                               (select h.*,
+                                       rank() over(partition by h.process_instance_id order by h.receive_time desc) mm
+                                  from pnr_act_transfer_office_handle h
+                                 where h.link_name in
+                                       ('auditor', 'transferHandle')
+                                   and fault_type = '10123190102' --故障工单 
+                                ) t
+                         where a.areaid = m.country
+                           and m.process_instance_id =
+                               t.process_instance_id(+)
+                           and t.mm = 1
+                           and a.@parentareaid@
+                           and m.themeinterface in
+                               ('maleGuest', 'transferOffice')
+                           and nvl(m.male_guest_state, '0') in ('0', '1', '3')
+                           and m.task_def_key in ('acheck',
+                                                  'twoSpotChecks',
+                                                  'auditReport',
+                                                  'archive')
+                           and @send_time@
+                         group by a.areaid, trouble_reason) t1
+                 group by t1.areaid) tn
+         where ta.areaid = tn.areaid(+)
+           and ta.@parentareaid@
+         order by ta.sort)
+	]]>
+	</byArea>
+</sheetQuery>

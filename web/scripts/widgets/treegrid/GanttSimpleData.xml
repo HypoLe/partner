@@ -1,0 +1,14 @@
+<Grid>
+   <Body>
+      <B>
+         <I id="1" T="Task 1" Def="Task" CanDrag='0' >
+            <I id="1" T="Subtask 1" C="100" S="5/18/2008" E="5/20/2008" D="1$2" taskId="123" ss="a" ssEnum='|a|b|c'  CanDrag='0' CanDelete="0" CanCopy="0"/>
+            <I id="2" T="Subtask 2" C="25" S="5/21/2008" E="5/30/2008" D="2$3" taskId="456" ss="b" ssEnum='|a|b|c' CanDrag='0' />
+         </I>
+      </B>
+   </Body>
+   <Toolbar 
+      Cells="Save,Add,ExpandAll,CollapseAll,Reload" 
+      Tag="" Visible="1" Styles="0" Copy="7"
+      />
+</Grid>

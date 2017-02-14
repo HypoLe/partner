@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 直放站-IrmsWlanRepeater -->
+	<bean id="irmsWlanRepeaterDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.wlan.IrmsWlanRepeaterDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_wlan_repeater" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_wlan_repeater" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_wlan_repeater" /><!-- 正式表名 -->
+	</bean>
+	<!-- 热点-IrmsWlanHot -->
+	<bean id="irmsWlanHotDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.wlan.IrmsWlanHotDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_wlan_hot" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_wlan_hot" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_wlan_hot" /><!-- 正式表名 -->
+	</bean>
+	<!-- AC-IrmsWlanAc -->
+	<bean id="irmsWlanAcDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.wlan.IrmsWlanAcDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_wlan_ac" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_wlan_ac" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_wlan_ac" /><!-- 正式表名 -->
+	</bean>
+	<!-- AP-IrmsWlanAp -->
+	<bean id="irmsWlanApDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.wlan.IrmsWlanApDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_wlan_ap" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_wlan_ap" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_wlan_ap" /><!-- 正式表名 -->
+	</bean>
+	<!-- 交换机-IrmsWlanSwitch -->
+	<bean id="irmsWlanSwitchDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.wlan.IrmsWlanSwitchDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_wlan_switch" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_wlan_switch" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_wlan_switch" /><!-- 正式表名 -->
+	</bean>
+</beans>

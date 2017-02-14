@@ -1,0 +1,791 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans >
+
+	<!-- Hibernate SessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<!-- oracle-->
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.OracleDialect
+				</prop>
+
+				<!-- Informix
+					<prop key="hibernate.dialect">
+					org.hibernate.dialect.InformixDialect
+					</prop>
+					</prop>
+					-->
+
+                <!--
+                    <prop key="hibernate.connection.provider_class">
+                    org.hibernate.connection.C3P0ConnectionProvider
+                    </prop>
+                -->
+				<prop key="hibernate.query.substitutions">
+					true 'Y', false 'N'
+				</prop>
+
+				<prop key="hibernate.cache.provider_class">
+					org.hibernate.cache.EhCacheProvider
+				</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+
+				<!-- Create/update the database tables automatically when the JVM starts up
+					<prop key="hibernate.hbm2ddl.auto">update</prop> -->
+				<!--Turn batching off for better error messages under PostgreSQL--> 
+					<prop key="hibernate.jdbc.batch_size">0</prop>
+			</props>
+		</property>
+		<property name="configLocations">
+			<list>
+				<!-- 加入hibernate 配置文件 -->
+				<value>classpath:config/hibernate-all.xml</value>
+				
+<!-- Partner by Steve Start
+				<value>classpath:config/hibernate-partner2-workReport.xml</value>
+				<value>classpath:config/hibernate-partner2-circuit.xml</value>
+				<value>classpath:config/hibernate-partner2-baseStation.xml</value>
+				<value>classpath:config/hibernate-partner2-target.xml</value>
+				<value>classpath:config/hibernate-partner2-appraisal.xml</value>
+				<value>classpath:config/hibernate-partner2-supervision.xml</value> -->
+<!-- Partner by Steve End -->
+				<!--  panlong add  begin-->
+				<value>classpath:config/hibernate-message.xml</value>
+				<value>classpath:com/boco/eoms/commons/log/config/hibernate-log.xml</value>
+				<value>classpath:com/boco/eoms/commons/system/user/config/hibernate-user.xml</value>
+				<value>classpath:com/boco/eoms/commons/system/dept/config/hibernate-dept.xml</value>
+				<value>classpath:com/boco/eoms/commons/system/priv/config/hibernate-priv.xml</value>
+				<value>classpath:com/boco/eoms/commons/system/area/config/hibernate-area.xml</value>
+				<!--  panlong add end -->
+
+				<!-- 070328 qinmin add for accessorieHibernate -->
+
+				<value>
+					classpath:com/boco/eoms/commons/accessories/config/hibernate-accessories.xml
+				</value>
+				<!-- 070331 qinmin add for jobHibernate -->
+				<value>classpath:com/boco/eoms/commons/job/config/hibernate-job.xml</value>
+
+				<!-- xqz add for role -->
+				<value>classpath:com/boco/eoms/commons/system/role/config/hibernate-role.xml</value>
+
+				<!-- 字典管理 -->
+				<value>classpath:com/boco/eoms/commons/system/dict/config/hibernate-dict.xml</value>
+
+				<!-- 作业计划 
+				<value>classpath:com/boco/eoms/workplan/config/hibernate-workplan.xml</value>EOMS作业计划，合作伙伴里不需要-->
+				<!-- 个性化树-fengshaohong
+				<value>classpath:com/boco/eoms/individual/config/hibernate-individualgroup.xml</value>
+				<value>classpath:com/boco/eoms/individual/config/hibernate-individualspecial.xml</value>
+				<value>classpath:com/boco/eoms/individual/config/hibernate-individualtree.xml</value> -->
+				<!-- 专家值班-内蒙 
+				<value>classpath:com/boco/eoms/km/cptroom/config/hibernate-cptroom.xml</value>知识管理，合作伙伴中不需要-->
+
+				<!-- ��供应商KPI
+				<value>
+					classpath:com/boco/eoms/extra/supplierkpi/config/hibernate-supplierkpi.xml
+				</value> -->
+				<!-- ��机房管理 
+				<value>classpath:com/boco/eoms/commons/system/cptroom/config/hibernate-cptroom.xml</value>EOMS机房管理,合作伙伴里不需要该模块-->
+				<!-- 消息发送 -->
+				<value>classpath:com/boco/eoms/message/config/hibernate-msg.xml</value>
+				<!-- 工作日设定 -->
+				<value>classpath:com/boco/eoms/commons/workdayset/config/hibernate-workdayset.xml</value>
+
+				<!-- 专业类型 -->
+				<value>
+					classpath:com/boco/eoms/commons/sheet/special/config/hibernate-sheet-special.xml
+				</value>
+				<!-- 网络U盘 -->
+				<value>
+					classpath:com/boco/eoms/workbench/netdisk/config/hibernate-workbench-netdisk.xml
+				</value>
+				<!-- 存储映射配置 -->
+				<value>
+				    classpath:com/boco/eoms/system/mappingstorage/config/hibernate-mapping.xml
+				</value>
+				<value>
+				classpath:com/boco/eoms/parter/baseinfo/config/hibernate-tawcontract.xml
+				</value>
+				<value>
+				classpath:com/boco/eoms/parter/baseinfo/config/hibernate-tawcontractpay.xml
+				</value>
+				<!-- 代理 -->
+				<value>
+					classpath:com/boco/eoms/workbench/commission/config/hibernate-workbench-commission.xml
+				</value>
+				<value>
+					classpath:com/boco/eoms/commons/interfaceMonitoring/config/hibernate-commons-InterfaceMonitoring.xml
+				</value>
+				<value>
+					classpath:com/boco/eoms/commons/failureRecord/config/hibernate-commons-FailureRecord.xml
+				</value>
+				<!-- 仪器仪表 -->
+				<value>classpath:com/boco/eoms/partner/baseinfo/config/hibernate-partner-tawapparatus.xml</value>
+				<!-- 车辆信息 -->
+				<value>classpath:com/boco/eoms/partner/baseinfo/config/hibernate-partner-tawpartnercar.xml</value>
+				<!-- 油机信息 -->
+				<value>classpath:com/boco/eoms/partner/baseinfo/config/hibernate-partner-tawpartneroil.xml</value>
+				<!-- 合作伙伴费用管理 -->
+				<value>classpath:com/boco/eoms/parter/baseinfo/config/hibernate-partner-fee.xml</value>
+				<!-- 考核管理 -->
+				<value>classpath:com/boco/eoms/partner/eva/config/hibernate-partner-eva.xml</value>
+				
+				<!-- 设备厂家后评估 -->
+				<value>classpath:com/boco/eoms/partner/deviceAssess/config/hibernate-partner-deviceAssess.xml</value>
+				<!-- 协议管理
+				<value>classpath:com/boco/eoms/partner/agreement/config/hibernate-partner-agreement.xml</value> -->
+				<!-- 工作计划任务管理
+				<value>classpath:com/boco/eoms/partner/workplan/config/hibernate-partner-workplan.xml</value> -->
+				<!-- 临时任务管理 -->
+				<value>classpath:com/boco/eoms/partner/tempTask/config/hibernate-partner-tempTask.xml</value>	
+				<!-- 费用管理（新）
+				<value>classpath:com/boco/eoms/partner/feeInfo/config/hibernate-partner-feeInfo.xml</value> -->
+				<!-- 临时任务管理
+				<value>classpath:com/boco/eoms/partner/costmanage/config/hibernate-partner-costmanage.xml</value> -->
+				<!-- 辅助设备代维厂商后评估  -->
+				<value>classpath:com/boco/eoms/partner/assiEva/config/hibernate-partner-assiEva.xml</value>	
+				<!-- 线路代维厂商后评估管理  -->
+				<value>classpath:com/boco/eoms/partner/lineEva/config/hibernate-partner-lineEva.xml</value>	
+				<!-- 基站代维厂商后评估管理  -->
+				<value>classpath:com/boco/eoms/partner/siteEva/config/hibernate-partner-siteEva.xml</value>	
+				<!-- 传输专业厂商后评估管理  -->
+				<value>classpath:com/boco/eoms/partner/tranEva/config/hibernate-partner-tranEva.xml</value>	
+				<!-- 交换专业厂商后评估  -->
+				<value>classpath:com/boco/eoms/partner/chanEva/config/hibernate-partner-chanEva.xml</value>																										
+				<!-- 运维人力资源管理
+				<value>classpath:com/boco/eoms/operuser/config/hibernate-operuser.xml</value> -->
+				<!-- 角色梳理 -->
+				<value>classpath:config/hibernate-tawsystemroletease.xml</value>
+				
+				<!-- 干线割接
+				<value>classpath:com/boco/eoms/cutapply/config/hibernate-cutapply.xml</value> -->
+				
+				<!--变笺-->
+				<value>
+					classpath:com/boco/eoms/workbench/memo/config/hibernate-workbench-memo.xml
+				</value>
+				<value>
+					classpath:com/boco/eoms/workbench/infopub/config/hibernate-workbench-infopub.xml
+				</value>
+				<!--个人通讯录-->
+				<value>
+					classpath:com/boco/eoms/workbench/contact/config/hibernate-workbench-contact.xml
+				</value>
+				<!--日常工作计划内容
+				<value>classpath:com/boco/eoms/duty/config/hibernate-duty.xml</value>EOMS模块，合作伙伴中不需要-->
+
+				<!-- 
+					<value>classpath:config/hibernate-commons-FailureRecord.xml</value>
+				-->
+				<!--测试卡-->
+				<value>classpath:com/boco/eoms/otherwise/config/hibernate-testcard.xml</value>
+				<value>
+					classpath:com/boco/eoms/otherwise/config/hibernate-inoutrecord.xml
+				</value>
+				<value>
+					classpath:com/boco/eoms/workbench/networkcalendar/config/hibernate-workbench-networkcalendar.xml
+				</value>
+				<value>classpath:com/boco/eoms/otherwise/config/hibernate-renewal.xml</value>
+				<!--工作计划-->
+				<value>classpath:com/boco/eoms/taskplan/config/hibernate-taskplan.xml</value>
+				<!-- 数据上报 -->
+				<value>
+					classpath:com/boco/eoms/filemanager/config/hibernate-filemanager.xml
+				</value>
+
+				<!-- 局数据
+				<value>classpath:com/boco/eoms/bureaudata/config/hibernate-bureaudata.xml</value> -->
+
+				<!-- 用户上报设置 -->
+				<value>classpath:com/boco/eoms/commons/system/reported/config/hibernate-reported.xml</value>
+				<!--   -->
+				<value>classpath:com/boco/eoms/commons/system/code/config/hibernate-code.xml</value>
+				<!-- 考核  -->
+				<value>classpath:com/boco/eoms/eva/config/hibernate-eva.xml</value>
+				<!-- 考核后评估  -->
+				<value>classpath:com/boco/eoms/assEva/config/hibernate-assEva.xml</value>
+				<!-- 统计 (定制)-->
+				<value>classpath:config/statistic/customstat-config/hibernate-statistic-custom.xml</value>
+				<!-- 个人工作台-日报-周报-->
+				<value>classpath:com/boco/eoms/workbench/report/config/hibernate-workbench-report.xml</value>
+				<!-- 合作伙伴基础信息-地域部门树-->
+				<value>classpath:com/boco/eoms/partner/baseinfo/config/hibernate-partner-baseinfo.xml</value>
+				<!-- 值班资料管理
+				<value>classpath:com/boco/eoms/duty/config/hibernate-papers.xml</value>EOMS模块，合作伙伴不需要-->
+				
+				<!-- 彩信报 -->
+				<value>classpath:config/hibernate-mms.xml</value>
+				
+				<!-- 知识管理 
+				<value>classpath:com/boco/eoms/km/config/hibernate-kmmanager.xml</value>知识管理，合作伙伴中不需要-->
+
+				<!-- 合作伙伴日常维护
+				<value>classpath:com/boco/eoms/partner/maintenance/config/hibernate-partner-maintenance.xml</value> -->
+
+				<!-- 合作伙伴合同管理
+				<value>classpath:com/boco/eoms/partner/contract/config/hibernate-partner-contract.xml</value> -->
+
+				<!-- 合作伙伴服务范围管理 -->
+				<value>classpath:com/boco/eoms/partner/serviceArea/config/hibernate-partner-serviceArea.xml</value>
+
+				<!-- 合作伙伴excel导入
+				<value>classpath:com/boco/eoms/partner/excel/config/hibernate-partner-excel.xml</value>
+ 				-->
+				<!--周总结月总结 -->
+				<value>classpath:config/hibernate-summary.xml</value>
+				<!-- 持久队列 -->
+				<value>classpath:com/boco/eoms/pq/config/hibernate-pq.xml</value>	
+				<!-- 任务管理 -->
+				<value>classpath:com/boco/eoms/task/config/hibernate-task.xml</value>
+				<!-- 后评估模块 -->
+				<value>classpath:com/boco/eoms/partner/assess/config/hibernate-assess.xml</value>	
+				<!-- 设备管理 -->
+				<value>classpath:com/boco/eoms/deviceManagement/common/config/hibernate-deviceManagement.xml</value>
+				<!-- 代维工作总结管理
+				<value>classpath:config/hibernate-partner2-workReport.xml</value> -->
+				<!-- 合作伙伴 网络资源 zkq start -->
+				<value>classpath:com/boco/eoms/partner/net/config/hibernate-partner-net.xml</value>
+			
+				<!-- 线路管理 add by wgp 2012年2月16日14:38:41 -->
+				<value>classpath:com/boco/eoms/netresource/line/config/hibernate-line.xml</value>
+							
+				<!-- 标点管理 add by wgp 2012年2月20日10:20:45 -->
+				<value>classpath:com/boco/eoms/netresource/point/config/hibernate-point.xml</value>
+							
+				<!-- 资源信息变更管理 add by wgp 2012年2月21日14:14:45 -->
+				<value>classpath:com/boco/eoms/netresource/modify/config/hibernate-modify.xml</value>
+				
+				<!-- 油机定检信息
+				<value>classpath:com/boco/eoms/oilEngineCheck/config/hibernate-oilEngineCheck.xml</value> -->
+				<!-- 备品备件管理
+				<value>classpath:com/boco/eoms/spare/config/hibernate-sparePiece.xml</value>
+				<value>classpath:com/boco/eoms/spare/config/hibernate-sparePart.xml</value> -->
+				
+				<!-- 资产信息管理 add by WangGuangping 2012年3月8日16:19:42 -->
+				<value>classpath:com/boco/eoms/netresource/asset/config/hibernate-asset.xml</value>
+				
+				<!-- 外力盯防管理
+				<value>classpath:com/boco/eoms/forceCheck/config/hibernate-forceCheck.xml</value> -->
+				
+				<!-- 培训管理 add by WangGuangping 2012年3月23日15:38:52
+				<value>classpath:com/boco/eoms/partner/training/config/hibernate-training.xml</value> -->
+				
+				<!-- 线路故障管理
+				<value>classpath:com/boco/lineFault/analyseFault/config/hibernate-LineFault.xml</value> -->
+				<!-- 巡检管理 -->
+				<value>classpath:com/boco/eoms/partner/inspect/config/hibernate-partner-inspect.xml</value>
+				<!-- 巡检资源管理 -->
+				<value>classpath:com/boco/eoms/partner/res/config/hibernate-PnrResConfig.xml</value>
+				<!-- 网络资源配置管理 -->
+				<value>classpath:com/boco/eoms/partner/deviceInspect/config/hibernate-partner-deviceInspect.xml</value>
+				<!-- fengguangping begin -->
+				<!-- 代维物资管理 add by FengGuangping 2012年7月31日10:01 -->
+				<value>classpath:com/boco/eoms/partner/resourceInfo/config/hibernate-partner-resourceInfo.xml</value>
+				<!-- 物资变更流程 add by FengGuangping 2012年8月8日17:54:45-->
+				<value>classpath:com/boco/eoms/partner/process/config/hibernate-partner-process.xml</value>
+				<!-- 物业管理 add by FengGuangping 2012年09月25日10:10:45-->
+				<value>classpath:com/boco/eoms/partner/property/config/hibernate-partner-property.xml</value>
+				<!-- 业务联系函  -->
+				<value>classpath:com/boco/eoms/partner/contact/config/hibernate-contact.xml</value>
+				<!-- fengguangping end -->
+				<!-- 考核配置
+				<value>classpath:com/boco/eoms/evaluation/config/hibernate-evaluation.xml</value> -->
+				<!-- 审批流程 -->
+				<value>classpath:com/boco/eoms/partner/process/config/hibernate-partner-process.xml</value>
+				
+				<!-- 首页管理 -->
+				<value>classpath:com/boco/eoms/partner/home/config/hibernate-home.xml</value>
+				<!-- 资源管理 -->
+				<value>classpath:com/boco/eoms/partner/netresource/config/hibernate-netresource.xml</value>
+				<!-- 月度费用管理
+				<value>classpath:com/boco/eoms/partner/feeManage/config/hibernate-feeManage.xml</value> -->
+				<!-- 工单 -->
+				<value>classpath:config/hibernate-sheet-base.xml</value>
+				<!-- 通用任务工单 -->
+				<value>classpath:com/boco/eoms/partner/sheet/commontask/config/hibernate-sheet-pnrcommontask.xml</value>
+				<!-- 发电保障工单
+				<value>classpath:com/boco/eoms/partner/sheet/generateelectricity/config/hibernate-sheet-pnrgenerateelectricity.xml</value> -->
+				<!-- 故障处理工单
+				<value>classpath:com/boco/eoms/partner/sheet/faultdeal/config/hibernate-sheet-pnrfaultdeal.xml</value> -->
+				<!-- 投诉工单
+				<value>classpath:com/boco/eoms/partner/sheet/pnrcomplaint/config/hibernate-sheet-pnrcomplaint.xml</value> -->
+				<!-- 资源核查工单
+				<value>classpath:com/boco/eoms/partner/sheet/pnrrescheck/config/hibernate-sheet-pnrrescheck.xml</value> -->
+				
+				<value>classpath:com/boco/eoms/partner/dataSynch/config/hibernate-dataSynch.xml</value>
+				
+				<!-- 隐患工单
+				<value>classpath:com/boco/eoms/partner/sheet/pnrhiddentrouble/config/hibernate-sheet-pnrhiddentrouble.xml</value> -->
+				<!-- android -->
+				<value>classpath:com/boco/eoms/mobile/config/hibernate-android.xml</value>
+				<!-- 车辆申请 -->
+				<value>classpath:com/boco/eoms/partner/taskManager/config/hibernate-partner-taskManager.xml</value>
+                <!-- 钥匙管理-->
+                <value>classpath:com/boco/eoms/partner/keymanagement/config/hibernate-partner-keyManagement.xml</value>
+                <!-- 问题反馈管理-->
+                <value>classpath:com/boco/eoms/partner/question/config/hibernate-partner-transferQuestion.xml</value>
+                <!--运维人员管理-->
+                <value>classpath:com/boco/eoms/partner/appops/config/hibernate-partner-appops-user.xml</value>
+                <!-- 新故障工单管理-->
+                <value>classpath:com/boco/activiti/partner/process/config/hibernate-partner-troubleTicket.xml</value>
+                <!-- 任务工单管理-->
+                <value>classpath:com/boco/activiti/partner/process/config/hibernate-partner-taskTicket.xml</value>
+                <!--传输局工单-->
+                <value>classpath:com/boco/activiti/partner/process/config/hibernate-partner-transferOffice.xml</value>
+                <!--物料管理-->
+                <value>classpath:com/boco/eoms/materials/config/hibernate-materials.xml</value>
+                <!-- GIS add by chenruoke-->
+                <value>classpath:com/boco/eoms/arcGis/config/hibernate-arcGis.xml</value>
+                <!-- 针对只在短期内使用的功能 -->
+                <value>classpath:com/boco/eoms/partner/shortperiod/config/hibernate-partner-shortPeriod.xml</value>
+            </list>
+		</property>
+	</bean>
+ <bean id="lobHandler" lazy-init="true"  class="org.springframework.jdbc.support.lob.DefaultLobHandler"/>
+	<!-- 基础组件 -->
+
+
+	<import
+		resource="classpath:config/applicationContext-resources.xml" />
+    <import
+            resource="classpath:config/applicationContext-site-resources.xml" />
+    <import resource="classpath:config/applicationContext-operationShop-resources.xml" />
+    <import resource="classpath:config/applicationContext-gkSystem-resources.xml" />
+	<import
+		resource="classpath:config/applicationContext-hibernate.xml" />
+	<import resource="classpath:config/applicationContext-service.xml" />
+
+	<import
+		resource="classpath:config/applicationContext-attributes.xml" />
+
+	<!-- 组件注册 -->
+	<!-- 文件管理 -->
+	<import resource="classpath:com/boco/eoms/commons/file/config/applicationContext-file.xml" />
+	<!-- 文日志管理 -->
+	<import resource="classpath:com/boco/eoms/commons/log/config/applicationContext-log.xml" />
+	<!--附件管理 -->
+	<import
+		resource="classpath:com/boco/eoms/commons/accessories/config/applicationContext-accessories.xml" />
+
+	<!--任务调度管理 -->
+	<import resource="classpath:com/boco/eoms/commons/job/config/applicationContext-job.xml" />
+
+	<!-- 消息管理 -->
+	<import resource="classpath:config/applicationContext-message.xml" />
+
+	<!-- 缓存管理 -->
+	<import resource="classpath:com/boco/eoms/commons/cache/config/applicationContext-ehcache.xml" />
+
+	<!-- 用户管理 -->
+	<import resource="classpath:com/boco/eoms/commons/system/user/config/applicationContext-user.xml" />
+	<!-- 文件配置 -->
+	<import
+		resource="classpath:com/boco/eoms/commons/fileconfig/config/applicationContext-fileconfig.xml" />
+	<!-- 部门管理 -->
+	<import resource="classpath:com/boco/eoms/commons/system/dept/config/applicationContext-dept.xml" />
+	<!-- 字典管理 -->
+	<import resource="classpath:com/boco/eoms/commons/system/dict/config/applicationContext-dict.xml" />
+
+	<!-- 角色管理 -->
+	<import resource="classpath:com/boco/eoms/commons/system/role/config/applicationContext-role.xml" />
+	<!-- 权限管理 -->
+	<import resource="classpath:com/boco/eoms/commons/system/priv/config/applicationContext-priv.xml" />
+	<!-- 规则管理 --> 
+	<import resource="classpath:com/boco/eoms/commons/rule/config/applicationContext-rule.xml" />
+	<!-- 地域管理 -->
+	<import resource="classpath:com/boco/eoms/commons/system/area/config/applicationContext-area.xml" />
+	<!-- 机房管理 
+	<import resource="classpath:com/boco/eoms/commons/system/cptroom/config/applicationContext-cptroom.xml" />EOMS机房管理,合作伙伴里不需要该模块-->
+	<!-- 消息发送 -->
+	<!--import resource="classpath:config/applicationContext-msg.xml" /-->
+	<!-- -->
+	<import resource="classpath:com/boco/eoms/message/config/applicationContext-msg.xml" />
+	 
+	<!-- 工作日设定 -->
+	<import
+		resource="classpath:com/boco/eoms/commons/workdayset/config/applicationContext-workdayset.xml" />
+
+	<!-- 专业管理 -->
+	<import
+		resource="classpath:com/boco/eoms/commons/sheet/special/config/applicationContext-sheet-special.xml" />
+		<!-- 专家值班-内蒙
+	<import
+		resource="classpath:com/boco/eoms/km/cptroom/config/applicationContext-cptroom.xml" /> 知识管理专家值班，合作伙伴中不需要-->
+		
+	<!-- 统计工具 -->
+	<import resource="classpath:config/statistic/commonstat-config/applicationContext-statistic.xml" />
+
+	<!-- pojo relation mapping -->
+	<import resource="classpath:com/boco/eoms/prm/config/applicationContext-prm.xml" />
+	<!-- 工单 -->
+	<import resource="classpath:config/applicationContext-sheet.xml" />
+
+	<!-- 跟门户的接口配置 -->
+	<import
+		resource="classpath:com/boco/eoms/portal/config/applicationContext-interface-attributes.xml" />
+	<!--供应商KPI  -->
+<!-- 	<import
+		resource="classpath:com/boco/eoms/extra/supplierkpi/config/applicationContext-supplierkpi.xml" /> -->
+	<!--供应商KPI 配置 -->
+<!-- <import resource="classpath:com/boco/eoms/extra/supplierkpi/config/supplierkpi-config.xml" /> -->
+
+	<!-- 值班管理
+	<import resource="classpath:com/boco/eoms/duty/config/applicationContext-duty.xml" />EOMS模块，合作伙伴不需要-->
+
+	<!-- 序列 -->
+	<import resource="classpath:com/boco/eoms/sequence/config/applicationContext-sequence.xml" />
+	<!-- 网络U盘 -->
+	<import
+		resource="classpath:com/boco/eoms/workbench/netdisk/config/applicationContext-workbench-netdisk.xml" />
+	<!--网络U盘配置 -->
+	<import resource="classpath:com/boco/eoms/workbench/netdisk/config/netdisk-config.xml" />
+	<!-- 存储映射配置 -->
+	<import resource="classpath:com/boco/eoms/system/mappingstorage/config/applicationContext-mapping.xml"/>
+	
+	<!-- jdbc存储映射配置 -->
+	<import resource="classpath:com/boco/eoms/system/mappingstorage/config/applicationContext-mappingjdbc.xml"/>
+	<!--  
+	<import resource="classpath:config/applicationContext-JDBCmapping.xml"/>
+	<import resource="classpath:config/applicationContext-insert.xml"/>
+	<import resource="classpath:config/applicationContext-gentable.xml"/>
+	-->
+	<!-- 代理 -->
+	<import
+		resource="classpath:com/boco/eoms/workbench/commission/config/applicationContext-workbench-commission.xml" />
+
+	<!--便笺-->
+	<import
+		resource="classpath:com/boco/eoms/workbench/memo/config/applicationContext-workbench-memo.xml" />
+
+	<import
+		resource="classpath:com/boco/eoms/workbench/infopub/config/applicationContext-workbench-infopub.xml" />
+	<!--合同管理-->
+	<import
+		resource="classpath:com/boco/eoms/parter/baseinfo/config/applicationContext-tawcontract.xml" />
+	<import
+		resource="classpath:com/boco/eoms/commons/interfaceMonitoring/config/applicationContext-commons-InterfaceMonitoring.xml" />
+	<import
+		resource="classpath:com/boco/eoms/workbench/contact/config/applicationContext-workbench-contact.xml" />
+	<!--日常工作计划内容
+		<import resource="classpath:config/applicationContext-plancontent.xml" />-->
+	<!--外借物品登记
+		<import resource="classpath:config/applicationContext-loanrecord.xml" />-->
+	<!--来访人员登记
+		<import resource="classpath:config/applicationContext-visitrecord.xml" />-->
+	<!--收发文记录
+		<import resource="classpath:config/applicationContext-dispatchrecord.xml" />-->
+	<!--交接班情况
+		<import resource="classpath:config/applicationContext-reliefrecord.xml" />-->
+
+	<!--作业计划
+	<import resource="classpath:com/boco/eoms/workplan/config/applicationContext-workplan.xml" />EOMS作业计划，合作伙伴里不需要-->
+	<!--日志合并
+		<import resource="classpath:config/applicationContext-logunite.xml" />-->
+	<!--工单
+		<import resource="classpath:config/applicationContext-workorderrecord.xml" />-->
+	<!-- 
+		<import resource="classpath:config/applicationContext-commons-FailureRecord.xml" />
+	-->
+	<!--测试卡-->
+	<import resource="classpath:com/boco/eoms/otherwise/config/applicationContext-testcard.xml" />
+	<import
+		resource="classpath:com/boco/eoms/workbench/networkcalendar/config/applicationContext-workbench-networkcalendar.xml" />
+ 
+	<import
+		resource="classpath:com/boco/eoms/commons/failureRecord/config/applicationContext-commons-FailureRecord.xml" />
+
+	<!--洪讯-->
+	<import resource="classpath:com/boco/eoms/commons/hongxun/config/applicationContext-hongxun.xml" />
+	<!--语音-->
+	<import
+		resource="classpath:com/boco/eoms/commons/voiceMessage/config/applicationContext-voiceMessage.xml" />
+	<!--工作计划-->
+	<import resource="classpath:com/boco/eoms/taskplan/config/applicationContext-taskplan.xml" />
+
+	<!-- 数据上报 -->
+	<import
+		resource="classpath:com/boco/eoms/filemanager/config/applicationContext-filemanager.xml" />
+
+
+	<!-- 局数据 -->
+<!--	<import
+		resource="classpath:com/boco/eoms/bureaudata/config/applicationContext-bureaudata.xml" />  -->
+
+	<!-- 组织管理 -->
+	<import resource="classpath:com/boco/eoms/commons/system/org/config/applicationContext-org.xml" />
+	<!-- 提醒 -->
+	<!--<import resource="classpath:config/applicationContext-remind.xml" />-->
+
+	<!-- 用户上报设置 -->
+	<import resource="classpath:com/boco/eoms/commons/system/reported/config/applicationContext-reported.xml" />
+
+	<import resource="classpath:com/boco/eoms/commons/system/code/config/applicationContext-code.xml" />
+   
+    
+	<import resource="classpath:com/boco/eoms/portal/config/applicationContext-BulletinAttributes-attributes.xml" />
+	<!-- 考核 -->
+	<import resource="classpath:com/boco/eoms/eva/config/applicationContext-eva.xml" />
+		<!-- 考核后评估 -->
+	<import resource="classpath:com/boco/eoms/assEva/config/applicationContext-assEva.xml" />
+	<!--  个人工作台日报周报  -->
+	<import resource="classpath:com/boco/eoms/workbench/report/config/applicationContext-workbench-report.xml" />
+	<!-- 地域部门树 -->
+    <import resource="classpath:com/boco/eoms/partner/baseinfo/config/applicationContext-partner-baseinfo.xml" />
+     <!-- 仪器仪表 -->
+ <import resource="classpath:com/boco/eoms/partner/baseinfo/config/applicationContext-partner-tawapparatus.xml" />
+ <!-- 车辆信息 -->
+ <import resource="classpath:com/boco/eoms/partner/baseinfo/config/applicationContext-partner-tawpartnercar.xml" />
+ <!-- 油机信息 -->
+ <import resource="classpath:com/boco/eoms/partner/baseinfo/config/applicationContext-partner-tawpartneroil.xml" />
+ <!-- 考核管理 -->
+ <import resource="classpath:com/boco/eoms/partner/eva/config/applicationContext-partner-eva.xml" />
+  <!--考核信息角色列表 -->
+ <import resource="classpath:com/boco/eoms/partner/eva/config/applicationContext-partner-eva-roleIdList.xml" />
+ <!-- 角色梳理 -->
+ <import resource="classpath:config/applicationContext-tawsystemroletease.xml" />
+ 
+ <!--合作伙伴基本信息角色列表 -->
+ <import resource="classpath:com/boco/eoms/partner/baseinfo/config/applicationContext-partner-roleIdList.xml" />
+<!-- 合作伙伴费用管理 -->
+<import resource="classpath:com/boco/eoms/parter/baseinfo/config/applicationContext-partner-fee.xml" />
+
+ <!--考核信息角色列表 -->
+ <import resource="classpath:com/boco/eoms/eva/config/applicationContext-eva-roleIdList.xml" />
+ <!--考核信息角色列表后评估 -->
+ <import resource="classpath:com/boco/eoms/assEva/config/applicationContext-assEva-roleIdList.xml" />
+
+	<!-- 辅助设备代维厂商后评估  -->
+	<import resource="classpath:com/boco/eoms/partner/assiEva/config/applicationContext-partner-assiEva-roleIdList.xml" />	
+	
+	<!-- 线路代维厂商后评估管理 -->
+	<import resource="classpath:com/boco/eoms/partner/lineEva/config/applicationContext-partner-lineEva-roleIdList.xml" />
+	
+	<!-- 基站代维厂商后评估管理  -->
+	<import resource="classpath:com/boco/eoms/partner/siteEva/config/applicationContext-partner-siteEva-roleIdList.xml" />
+	<!-- 传输专业厂商后评估管理  -->
+	<import resource="classpath:com/boco/eoms/partner/tranEva/config/applicationContext-partner-tranEva-roleIdList.xml" />
+	<!-- 交换专业厂商后评估  -->
+	<import resource="classpath:com/boco/eoms/partner/chanEva/config/applicationContext-partner-chanEva-roleIdList.xml" />
+  
+ <!-- 组织管理角色列表 -->
+ <import resource="classpath:com/boco/eoms/commons/system/role/config/applicationContext-group-roleIdList.xml" />  
+ 
+ <!-- 值班资料管理 
+ <import resource="classpath:com/boco/eoms/duty/config/applicationContext-papers.xml" />EOMS模块，合作伙伴不需要-->
+ <!-- eoms 工具 -->
+ <import resource="classpath:config/applicationContext-util.xml" />
+ <!-- 缓存文件 -->
+ <import resource="classpath:com/boco/eoms/commons/cache/config/applicationContext-ehcache.xml"/>
+ 	<!-- 彩信报 -->
+ 	<import resource="classpath:config/applicationContext-mms.xml" />
+	<!-- 知识管理 
+	<import resource="classpath:com/boco/eoms/km/config/applicationContext-kmmanager.xml" />知识管理，合作伙伴中不需要-->
+
+	<!-- 合作伙伴日常维护
+	<import resource="classpath:com/boco/eoms/partner/maintenance/config/applicationContext-partner-maintenance.xml" /> -->
+	
+	<!-- 合作伙伴日常维护 地市县区管理
+	<import resource="classpath:com/boco/eoms/partner/maintenance/config/applicationContext-partner-maintenance-areaIdList.xml" /> -->
+	
+	<!-- 合作伙伴服务范围管理 地市县区管理 -->
+	<import resource="classpath:com/boco/eoms/partner/serviceArea/config/applicationContext-partner-serviceArea-areaIdList.xml" />
+
+	<!-- 合作伙伴基本信息  地市县区管理 -->
+	<import resource="classpath:com/boco/eoms/partner/baseinfo/config/applicationContext-partner-baseinfo-areaIdList.xml" />
+	<!-- 合作伙伴合同管理 
+	<import resource="classpath:com/boco/eoms/partner/contract/config/applicationContext-partner-contract.xml" /> -->
+
+	<!-- 合作伙伴服务范围管理 -->
+	<import resource="classpath:com/boco/eoms/partner/serviceArea/config/applicationContext-partner-serviceArea.xml" />
+
+	<!-- 合作伙伴服excel管理 -->
+	<import resource="classpath:com/boco/eoms/partner/excel/config/applicationContext-partner-excel.xml" />
+
+	<!-- 合作伙伴服务协议管理
+	<import resource="classpath:com/boco/eoms/partner/agreement/config/applicationContext-partner-agreement.xml" /> -->
+
+	<!-- 合作伙伴工作计划管理
+	<import resource="classpath:com/boco/eoms/partner/workplan/config/applicationContext-partner-workplan.xml" /> -->
+	<!-- 合作伙伴设备厂家后评估 -->
+	<import resource="classpath:com/boco/eoms/partner/deviceAssess/config/applicationContext-partner-deviceAssess.xml" />	
+	<!-- 合作伙伴临时任务管理 -->
+	<import resource="classpath:com/boco/eoms/partner/tempTask/config/applicationContext-partner-tempTask.xml" />	
+		
+	<!-- 合作伙伴费用管理（新）
+	<import resource="classpath:com/boco/eoms/partner/feeInfo/config/applicationContext-partner-feeInfo.xml" />	 -->
+	
+	<!-- 合作伙伴结算管理
+	<import resource="classpath:com/boco/eoms/partner/costmanage/config/applicationContext-partner-costmanage.xml" /> -->	
+	
+	<!-- 辅助设备代维厂商后评估  -->
+	<import resource="classpath:com/boco/eoms/partner/assiEva/config/applicationContext-partner-assiEva.xml" />	
+	<!-- 线路代维厂商后评估管理  -->
+	<import resource="classpath:com/boco/eoms/partner/lineEva/config/applicationContext-partner-lineEva.xml" />	
+	<!-- 基站代维厂商后评估管理  -->
+	<import resource="classpath:com/boco/eoms/partner/siteEva/config/applicationContext-partner-siteEva.xml" />	
+	<!-- 传输专业厂商后评估管理  -->
+	<import resource="classpath:com/boco/eoms/partner/tranEva/config/applicationContext-partner-tranEva.xml" />	
+	<!-- 交换专业厂商后评估  -->
+	<import resource="classpath:com/boco/eoms/partner/chanEva/config/applicationContext-partner-chanEva.xml" />
+		
+	<!-- 运维人力资源管理 
+	<import resource="classpath:com/boco/eoms/operuser/config/applicationContext-operuser.xml" /> -->
+	<!-- 干线割接
+	<import resource="classpath:com/boco/eoms/cutapply/config/applicationContext-cutapply.xml" /> -->
+	<!-- 持久队列 -->
+	<import resource="classpath:com/boco/eoms/pq/config/applicationContext-pq.xml" />
+	
+	<!-- im配置属性 -->
+	<import resource="classpath:com/boco/eoms/im/adaptor/config/applicationContext-adaptor.xml"/>
+	<!-- 任务管理 -->
+	<import resource="classpath:com/boco/eoms/task/config/applicationContext-task.xml" />
+	<!-- 个性化树 
+	<import resource="classpath:com/boco/eoms/individual/config/applicationContext-individualgroup.xml" />
+	<import resource="classpath:com/boco/eoms/individual/config/applicationContext-individualspecial.xml" />
+	<import resource="classpath:com/boco/eoms/individual/config/applicationContext-individualtree.xml" /> -->
+	
+	<!-- 二次开发 -->
+	<import resource="classpath:config/applicationContext-second.xml" />
+	 
+	<import resource="classpath:config/applicationContext-summary.xml" />
+		<import resource="classpath:com/boco/eoms/testcard/config/applicationContext-TestcardAttributes-attributes.xml" />
+	<!-- 公告接口-->
+		<import resource="classpath:com/boco/eoms/portal/config/applicationContext-interfaces.xml" />
+	<!-- 合作伙伴GIS接口 --> 	
+     <import resource="classpath:com/boco/eoms/partner/geo/config/applicationContext-partnerGis.xml" />
+    <!-- 电子地图GIS 
+    <import resource="classpath:com/boco/eoms/arcGis/config/applicationContext-partner-arcGis.xml" /> -->
+	<!-- 后评估模块 -->
+	<import resource="classpath:com/boco/eoms/partner/assess/config/applicationContext-assess.xml" />
+	<!-- 设备管理 -->
+	<import resource="classpath:com/boco/eoms/deviceManagement/common/config/applicationContext-deviceManagement.xml" />
+
+	<!-- Partner by Steve start -->
+    <import resource="classpath:base/config/applicationContext-nop3.xml" />
+    <!-- 
+    <import resource="classpath:config/applicationContext-partner2-workReport.xml" />
+    <import resource="classpath:config/applicationContext-partner2-circuit.xml" />
+    <import resource="classpath:config/applicationContext-partner2-baseStation.xml" />
+    <import resource="classpath:config/applicationContext-partner2-target.xml" /> -->
+    <!-- 督办
+     <import resource="classpath:config/applicationContext-partner2-supervision.xml" /> -->
+     <!-- 督办
+     <import resource="classpath:config/applicationContext-partner2-appraisal.xml" /> -->
+    <!-- Partner by Steve end -->
+    
+    <!-- 合作伙伴 网络资源 zkq start-->
+    <import resource="classpath:com/boco/eoms/partner/net/config/applicationContext-partner-net.xml" />
+
+	<!-- 线路管理 add by wgp 2012年2月16日14:37:30 -->
+	<import resource="classpath:com/boco/eoms/netresource/line/config/applicationContext-line.xml" />
+	
+	<!-- 标点管理 add by wgp 2012年2月20日10:22:34 -->
+	<import resource="classpath:com/boco/eoms/netresource/point/config/applicationContext-point.xml" />
+	
+	<!-- 资源信息变更管理 add by wgp 2012年2月21日14:15:57 -->
+	<import resource="classpath:com/boco/eoms/netresource/modify/config/applicationContext-modify.xml" />
+
+	<!-- 油机定检信息
+	<import resource="classpath:com/boco/eoms/oilEngineCheck/config/applicationContext-oilEngineCheck.xml" /> -->
+	<!-- 备品备件管理 
+	<import resource="classpath:com/boco/eoms/spare/config/applicationContext-sparePart.xml" />
+	<import resource="classpath:com/boco/eoms/spare/config/applicationContext-sparePiece.xml" />  -->
+
+	<!-- 资产信息管理 add by WangGuangping 2012年3月8日16:18:49 -->
+	<import resource="classpath:com/boco/eoms/netresource/asset/config/applicationContext-asset.xml" />
+	 
+	<!-- 外力盯防管理
+	<import resource="classpath:com/boco/eoms/forceCheck/config/applicationContext-forceCheck.xml" /> -->
+
+	<!-- 培训管理 add by WangGuangping 2012年3月23日15:38:52
+	<import resource="classpath:com/boco/eoms/partner/training/config/applicationContext-training.xml" /> -->
+
+	<!-- 线路故障管理
+ 	<import resource="classpath:com/boco/lineFault/analyseFault/config/applicationContext-lineFault.xml" /> -->
+ 	
+	<!-- 巡检管理 -->
+	<import resource="classpath:com/boco/eoms/partner/inspect/config/applicationContext-partner-inspect.xml" />
+	<!-- 网络资源配置管理 -->
+	<import resource="classpath:com/boco/eoms/partner/deviceInspect/config/applicationContext-partner-deviceInspect.xml" />
+	<!-- 网络资源配置 -->
+	<import resource="classpath:com/boco/eoms/partner/deviceInspect/config/applicationContext-partner-deviceInspect.xml" />
+ 	<!--fengguangping begin  -->
+ 	<!-- 代维物资管理add by FengGuangping 2012年7月31日10:01-->
+ 	<import resource="classpath:com/boco/eoms/partner/resourceInfo/config/applicationContext-partner-resourceInfo.xml" />
+ 	<!-- 物资变更流程 add by FengGuangping 2012年8月8日17:54:45-->
+ 	<import resource="classpath:com/boco/eoms/partner/process/config/applicationContext-partner-process.xml" />
+ 	<!-- 物业管理 add by FengGuangping 2012年09月25日10:10:45-->
+ 	<import resource="classpath:com/boco/eoms/partner/property/config/applicationContext-partner-property.xml" />
+ 	<!-- 业务联系函 -->
+	<import resource="classpath:com/boco/eoms/partner/contact/config/applicationContext-partner-contact.xml"/>
+ 	<!--fengguangping end -->
+ 	<!-- 考核配置
+    <import resource="classpath:com/boco/eoms/evaluation/config/applicationContext-partner-evaluation.xml" /> --> 	
+    
+    <!-- 巡检资源管理 -->
+ 	<import resource="classpath:com/boco/eoms/partner/res/config/applicationContext-partner-res.xml"/>
+ 	
+    <import resource="classpath:com/boco/eoms/partner/process/config/applicationContext-partner-process.xml" />
+    
+
+	<bean class="com.boco.eoms.base.util.ApplicationContextHolder" factory-method="getInstance"/>
+	
+	<!-- 首页管理 -->
+	<import resource="classpath:com/boco/eoms/partner/home/config/applicationContext-partner-home.xml"/>
+	
+	<!-- 资源管理 -->
+	<import resource="classpath:com/boco/eoms/partner/netresource/config/applicationContext-netresource.xml" />
+	
+	<!-- 百度Gis
+	<import resource="classpath:com/boco/eoms/baiduGis/config/applicationContext-partner-baidu.xml"/> -->
+	
+	<!-- android 手机终端 -->
+ 	<import resource="classpath:com/boco/eoms/mobile/config/applicationContext-android.xml" />
+	<!-- android 手机工单 -->
+ 	<import resource="classpath:com/boco/eoms/mobile/config/applicationContext-mobile-sheet.xml" />
+	
+
+ 	<!-- 月度费用管理
+ 	<import resource="classpath:com/boco/eoms/partner/feeManage/config/applicationContext-partner-feeManage.xml" /> -->
+	
+	<import resource="classpath:com/boco/eoms/partner/dataSynch/config/applicationContext-partner-dataSynch.xml" />
+	<!-- 车辆申请 -->
+	<import resource="classpath:com/boco/eoms/partner/taskManager/config/applicationContext-partner-taskManager.xml" />
+    <!-- 钥匙管理 -->
+    <import resource="classpath:com/boco/eoms/partner/keymanagement/config/applicationContext-partner-keyManagement.xml" />
+    <!-- 问题回馈管理 -->
+    <import resource="classpath:com/boco/eoms/partner/question/config/applicationContext-partner-transferQuestion.xml" />
+    <!-- 运维人员管理 -->
+    <import resource="classpath:com/boco/eoms/partner/appops/config/applicationContext-partner-appops-user.xml" />
+    <!-- activiti流程引擎-->
+    <import resource="classpath:config/applicationContext-activiti.xml"/>
+    <!-- 新故障工单管理 -->
+    <import resource="classpath:com/boco/activiti/partner/process/config/applicationContext-partner-troubleTicket.xml" />
+    <!-- 任务工单管理 -->
+    <import resource="classpath:com/boco/activiti/partner/process/config/applicationContext-partner-taskTicket.xml" />
+    <!-- 工单统计管理 -->
+    <import resource="classpath:com/boco/activiti/partner/process/config/applicationContext-partner-statistics.xml" />
+    <!-- 传输局工单 -->
+    <import resource="classpath:com/boco/activiti/partner/process/config/applicationContext-partner-transferOffice.xml" />
+    <!-- 方案合格率统计 -->
+    <import resource="classpath:com/boco/activiti/partner/process/config/applicationContext-partner-schemeRate.xml" />
+     <!-- 物料管理 -->
+    <import resource="classpath:com/boco/eoms/materials/config/applicationContext-materials.xml" />
+     <!-- 故障类型统计 非故障统计-->
+    <import resource="classpath:com/boco/activiti/partner/process/config/applicationContext-partner-repairFault.xml" />
+    <!-- 故障统计 -->
+    <import resource="classpath:com/boco/activiti/partner/process/config/applicationContext-partner-faultSata.xml" />
+	<!-- 针对只在短期内使用的功能 -->
+    <import resource="classpath:com/boco/eoms/partner/shortperiod/config/applicationContext-partner-shortPeriod.xml" />
+
+</beans>
+
+
+

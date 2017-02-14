@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<!--TawSystemDictType-DAO START-->
+	<bean id="ItawSystemDictTypeDao"
+		class="com.boco.eoms.commons.system.dict.dao.hibernate.TawSystemDictTypeDaoHibernate"
+		autowire="byName" />
+
+	<!--TawSystemDictType-DAO END-->
+	<!--TawSystemDictType-START-->
+	<bean id="ItawSystemDictTypeManager" parent="dictBaseCacheProxy">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.commons.system.dict.service.impl.TawSystemDictTypeManagerImpl">
+				<property name="dictTypeDao"
+					ref="ItawSystemDictTypeDao" />
+				<property name="dictjdbc" ref="ITawSystemDictJDBC" />
+				<property name="roleMgr" ref="RoleMgrImpl" />
+			</bean>
+		</property>
+	</bean>
+
+	<!--TawSystemDictType-END-->
+	<bean id="ITawSystemDictJDBC"
+		class="com.boco.eoms.commons.system.dict.dao.hibernate.TawSystemDictJDBCImpl"
+		autowire="byName" />
+
+
+	<bean id="id2nameService"
+		class="com.boco.eoms.commons.system.dict.service.impl.ID2NameServiceImpl" />
+
+	<bean id="DictXMLDom4jDocumentFactory"
+		class="com.boco.eoms.commons.system.dict.service.impl.DictXMLDom4jDocumentFactory">
+		<property name="register">
+			<props>
+				<prop key="common">
+					classpath:com/boco/eoms/commons/system/dict/config/dict-common.xml
+				</prop>
+				<prop key="sample">
+					classpath:com/boco/eoms/commons/system/dict/config/dict-sample.xml
+				</prop>
+				<prop key="sample-relation">
+					classpath:com/boco/eoms/commons/system/dict/config/dict-sample-relation.xml
+				</prop>
+				
+				<prop key="dict-sheet-common">
+					classpath:config/dict-sheet-common.xml
+				</prop>
+				 
+				<prop key="sheet-security">
+					classpath:com/boco/eoms/sheet/security/config/dict-sheet-security.xml
+				</prop>
+				<prop key="sheet-security-relation">
+					classpath:com/boco/eoms/sheet/security/config/dict-sheet-security-relation.xml
+				</prop>				
+				<prop key="dict-sheet-business">
+					classpath:config/dict-sheet-business.xml
+				</prop>
+				
+				<prop key="dict-sheet-apply">
+					classpath:config/dict-sheet-apply.xml
+				</prop>
+				<prop key="dict-sheet-esm">
+					classpath:config/dict-sheet-esm.xml
+				</prop>
+				<prop key="dict-sheet-nop">
+					classpath:config/dict-sheet-nop.xml
+				</prop>
+				
+				<prop key="dict-major-type">
+					classpath:com/boco/eoms/commons/sheet/special/config/dict-major-type.xml
+				</prop>
+				<prop key="dict-msg">
+					classpath:com/boco/eoms/message/dict/config/dict-msg.xml
+				</prop>
+				<prop key="dict-workplan">
+					classpath:com/boco/eoms/workplan/config/dict-workplan.xml
+				</prop>
+				<prop key="memo-dict">
+					classpath:com/boco/eoms/workbench/memo/config/memo-dict.xml
+				</prop>
+				<prop key="dict-workbench-infopub">
+					classpath:com/boco/eoms/workbench/infopub/config/dict-workbench-infopub.xml
+				</prop>
+				<prop key="dict-infopubInterFace">
+					classpath:com/boco/eoms/workbench/infopub/config/dict-infopubInterFace.xml
+				</prop>
+				<!-- 联通多出的-->
+				<prop key="dict-parter-baseinfo-carmgr">
+					classpath:com/boco/eoms/parter/baseinfo/config/dict-parter-baseinfo-carmgr.xml
+				</prop>
+				<prop key="dict-parter-baseinfo-metermgr">
+					classpath:com/boco/eoms/parter/baseinfo/config/dict-parter-baseinfo-metermgr.xml
+				</prop>
+				<prop key="dict-parter-baseinfo-lanmetermgr">
+					classpath:com/boco/eoms/parter/baseinfo/config/dict-parter-baseinfo-lanmetermgr.xml
+				</prop>
+				<prop key="dict-parter-baseinfo-mainmetermgr">
+					classpath:com/boco/eoms/parter/baseinfo/config/dict-parter-baseinfo-mainmetermgr.xml
+				</prop>
+				<prop key="dict-partner-assess">
+					classpath:com/boco/eoms/partner/assess/config/dict-partner-assess.xml
+				</prop>
+				<!-- -->
+				<prop key="dict-duty">
+					classpath:com/boco/eoms/duty/util/duty-dict.xml
+				</prop>
+				<prop key="dict-apparatus">
+					classpath:com/boco/eoms/apparatus/util/apparatus-dict.xml
+				</prop>
+				<prop key="dict-plancontent">
+					classpath:com/boco/eoms/duty/config/plancontent-dict.xml
+				</prop>
+				<prop key="dict-log">
+				classpath:com/boco/eoms/commons/log/config/logDict.xml
+				</prop>
+				<prop key="otherwise-relation">
+					classpath:com/boco/eoms/otherwise/config/dict-otherwise-relation.xml
+				</prop>
+				<prop key="dict-commission">
+					classpath:com/boco/eoms/workbench/commission/config/dict-commission.xml
+				</prop>
+				<prop key="dict-hongxun"> 
+				classpath:com/boco/eoms/commons/hongxun/config/hongxunDict.xml
+				</prop>
+				<prop key="dict-voiceMessage">
+				classpath:com/boco/eoms/commons/voiceMessage/config/voiceMessage.xml
+				</prop>
+				<prop key="dict-supplierkpi">
+					classpath:com/boco/eoms/extra/supplierkpi/config/dict-supplierkpi.xml
+				</prop>
+				<prop key="dict-sheet-commonfault">
+					classpath:config/dict-sheet-commonfault.xml
+				</prop>			
+				<prop key="dict-sheet-urgentfault">
+					classpath:config/dict-sheet-urgentfault.xml
+				</prop>
+				<prop key="dict-sheet-commontask">
+					classpath:config/dict-sheet-commontask.xml
+				</prop>	
+				<prop key="dict-sheet-complaint">
+					classpath:config/dict-sheet-complaint.xml
+				</prop>
+				<prop key="dict-sheet-groupcomplaint">
+					classpath:config/dict-sheet-groupcomplaint.xml
+				</prop>										
+				<prop key="dict-sheet-businessplan">
+					classpath:config/dict-sheet-businessplan.xml
+				</prop>
+				<prop key="dict-sheet-businesspilot">
+					classpath:config/dict-sheet-businesspilot.xml
+				</prop>	
+				<prop key="dict-sheet-circuitdispatch">
+					classpath:config/dict-sheet-circuitdispatch.xml
+				</prop>	
+				<prop key="dict-sheet-netchange">
+					classpath:config/dict-sheet-netchange.xml
+				</prop>	
+			   <prop key="dict-sheet-businessoperation">
+					classpath:config/dict-sheet-businessoperation.xml
+				</prop>
+				<prop key="dict-sheet-netdata">
+					classpath:config/dict-sheet-netdata.xml
+				</prop>
+				<prop key="dict-sheet-softchange">
+					classpath:config/dict-sheet-softchange.xml
+				</prop>
+			  <prop key="dict-sheet-businessdredge">
+					classpath:config/dict-sheet-businessdredge.xml
+				</prop>
+			  <prop key="dict-sheet-businesschange">
+					classpath:config/dict-sheet-businesschange.xml
+				</prop>
+				<prop key="dict-sheet-businessbackout">
+					classpath:config/dict-sheet-businessbackout.xml
+				</prop>
+				<prop key="dict-sheet-resourceaffirm">
+					classpath:config/dict-sheet-resourceaffirm.xml
+				</prop>
+				<prop key="dict-reported">
+					classpath:com/boco/eoms/commons/system/reported/config/reported-dict.xml
+				</prop>
+				<prop key="dict-sheet">
+				  classpath:com/boco/eoms/duty/util/duty-sheet.xml
+				</prop>
+				<prop key="dict-sheet-securityevaluate">
+					classpath:config/dict-sheet-securityevaluate.xml
+				</prop>
+				<prop key="dict-sheet-itrequirement">
+					classpath:config/dict-sheet-itrequirement.xml
+				</prop>				
+
+				<prop key="dict-sheet-securitydeal">
+					classpath:config/dict-sheet-securitydeal.xml
+				</prop>
+
+				<prop key="dict-sheet-itsoftchange">
+					classpath:config/dict-sheet-itsoftchange.xml
+				</prop>				
+				<prop key="dict-sheet-safeaudit">
+					classpath:config/dict-sheet-safeaudit.xml
+				</prop>
+
+				<prop key="dict-eva">
+					classpath:com/boco/eoms/eva/config/dict-eva.xml
+				</prop>
+
+				<prop key="dict-assEva">
+					classpath:com/boco/eoms/assEva/config/dict-assEva.xml
+				</prop>
+								
+				<prop key="dict-partner-eva">
+					classpath:com/boco/eoms/partner/eva/config/dict-partner-eva.xml
+				</prop>
+				
+				<prop key="dict-partner-assiEva">
+					classpath:com/boco/eoms/partner/assiEva/config/dict-partner-assiEva.xml
+				</prop>	
+				
+				<prop key="dict-partner-siteEva">
+					classpath:com/boco/eoms/partner/siteEva/config/dict-partner-siteEva.xml
+				</prop>
+				
+				<prop key="dict-partner-tranEva">
+					classpath:com/boco/eoms/partner/tranEva/config/dict-partner-tranEva.xml
+				</prop>
+				
+				<prop key="dict-partner-lineEva">
+					classpath:com/boco/eoms/partner/lineEva/config/dict-partner-lineEva.xml
+				</prop>
+																			
+				<prop key="dict-partner-chanEva">
+					classpath:com/boco/eoms/partner/chanEva/config/dict-partner-chanEva.xml
+				</prop>																			
+
+                <prop key="dict-sheet-greatevent">
+					classpath:config/dict-sheet-greatevent.xml
+				</prop>
+				<prop key="dict-sheet-emergencydrill">
+					classpath:config/dict-sheet-emergencydrill.xml
+				</prop>
+				<prop key="dict-sheet-processchange">
+					classpath:config/dict-sheet-processchange.xml
+				</prop>				
+
+				<prop key="dict-workbench-report">
+					classpath:com/boco/eoms/workbench/report/config/dict-workbench-report.xml
+				</prop>
+				<prop key="dict-user">
+					classpath:com/boco/eoms/commons/system/user/config/dict-user.xml
+				</prop>
+				<!-- 联通多出的 -->
+				<prop key="dict-optlog">
+					classpath:config/optlog-dict.xml
+				</prop>
+				<prop key="dict-sparepart">
+					classpath:config/sparepart-dict.xml
+                         
+				</prop>
+				<prop key="dict-post">
+					classpath:com/boco/eoms/fees/tawPostSet/util/post-dict.xml
+				</prop>
+				<!-- -->
+
+				<prop key="dict-kmmanager">
+					classpath:com/boco/eoms/km/config/dict-kmmanager.xml
+				</prop>
+				
+				<!-- 合作伙伴-合同管理 -->
+				<prop key="dict-partner-contract">
+					classpath:com/boco/eoms/partner/contract/config/dict-partner-contract.xml
+				</prop>
+								
+				<!-- 合作伙伴-服务范围管理 -->
+				<prop key="dict-partner-serviceArea">
+					classpath:com/boco/eoms/partner/serviceArea/config/dict-partner-serviceArea.xml
+				</prop>
+				
+				<!-- 合作伙伴-日常维护 -->
+				<prop key="dict-partner-maintenance">
+					classpath:com/boco/eoms/partner/maintenance/config/dict-partner-maintenance.xml
+				</prop>
+
+				<!-- 合作伙伴-excel导入 -->
+				<prop key="dict-partner-excel">
+					classpath:com/boco/eoms/partner/excel/config/dict-partner-excel.xml
+				</prop>
+
+				<!-- 合作伙伴-基本信息 -->
+				<prop key="dict-partner-baseinfo">
+					classpath:com/boco/eoms/partner/baseinfo/config/dict-partner-baseinfo.xml
+				</prop>
+
+				<!-- 合作伙伴-付费信息 -->
+				<prop key="dict-partner-feeInfo">
+					classpath:com/boco/eoms/partner/feeInfo/config/dict-partner-feeInfo.xml
+				</prop>
+				
+				<!-- 合作伙伴-协议 -->
+				<prop key="dict-partner-agreement">
+					classpath:com/boco/eoms/partner/agreement/config/dict-partner-agreement.xml
+				</prop>
+								
+	            <prop key="dict-sheet-netOptimize">
+					classpath:config/dict-sheet-netOptimize.xml
+				</prop>
+				<prop key="dict-sheet-accountpopedomapply">
+					classpath:config/dict-sheet-accountpopedomapply.xml
+				</prop>
+				<prop key="dict-file">
+					classpath:com/boco/eoms/commons/accessories/config/file-dict.xml
+				</prop>
+				<prop key="dict-summary">
+					classpath:config/summary-dict.xml
+				</prop>
+				<prop key="dict-taskid">
+					classpath:com/boco/eoms/workplan/config/tawwpmonthexecute-taskid.xml
+				</prop>
+				<prop key="dict-partner-serviceArea">
+					classpath:com/boco/eoms/partner/net/config/dict-partner-serviceArea.xml
+				</prop>
+				<!-- 巡检 -->
+				<prop key="dict-partner-inspect">
+					classpath:com/boco/eoms/partner/inspect/config/dict-partner-inspect.xml
+				</prop>
+				<!-- 工单查询 -->
+				<prop key="dict-partner-task">
+					classpath:com/boco/eoms/partner/inspect/config/dict-partner-task.xml
+				</prop>
+				
+				<!-- 预检预修查询 -->
+				<prop key="dict-partner-preflight">
+					classpath:com/boco/eoms/partner/inspect/config/dict-partner-preflight.xml
+				</prop>
+				
+				<!-- 工单开始  -->
+				<prop key="dict-mainlistquery-common">
+					classpath:config/dict-mainlistquery-common.xml
+				</prop>
+				<prop key="dict-sheet-pnrcommontask">
+					classpath:com/boco/eoms/partner/sheet/commontask/config/dict-sheet-pnrcommontask.xml
+				</prop>
+				<prop key="dict-sheet-pnrfaultdeal">
+					classpath:com/boco/eoms/partner/sheet/faultdeal/config/dict-sheet-pnrfaultdeal.xml
+				</prop>
+				<prop key="dict-sheet-pnrcomplaint">
+					classpath:com/boco/eoms/partner/sheet/pnrcomplaint/config/dict-sheet-pnrcomplaint.xml
+				</prop>
+				<prop key="dict-sheet-pnrrescheck">
+					classpath:com/boco/eoms/partner/sheet/pnrrescheck/config/dict-sheet-pnrrescheck.xml
+				</prop>
+				<prop key="dict-sheet-pnrgenerateelectricity">
+					classpath:com/boco/eoms/partner/sheet/generateelectricity/config/dict-sheet-pnrgenerateelectricity.xml
+				</prop>
+				<prop key="dict-sheet-pnrhiddentrouble">
+					classpath:com/boco/eoms/partner/sheet/pnrhiddentrouble/config/dict-sheet-pnrhiddentrouble.xml
+				</prop>
+				<!-- 工单结束  -->
+			</props>
+		</property>
+		<property name="saxReader">
+			<bean class="org.dom4j.io.SAXReader" />
+		</property>
+	</bean>
+
+	<bean id="DictDaoXML"
+		class="com.boco.eoms.commons.system.dict.dao.xml.DictDaoXML">
+		<property name="dictXMLDom4jDocumentFactory"
+			ref="DictXMLDom4jDocumentFactory" />
+	</bean>
+	
+	<bean id="DictRelationDaoXML"
+		class="com.boco.eoms.commons.system.dict.dao.xml.DictRelationDaoXML">
+		<property name="dictXMLDom4jDocumentFactory"
+			ref="DictXMLDom4jDocumentFactory" />
+	</bean>
+
+	<bean id="DictService"
+		class="com.boco.eoms.commons.system.dict.service.impl.DictServiceImpl">
+		<property name="dictDao" ref="DictDaoXML" />
+		<property name="dictRelationDao" ref="DictRelationDaoXML" />
+	</bean>
+
+
+	<bean id="id2nameXML"
+		class="com.boco.eoms.commons.system.dict.tags.ID2NameXMLHelper" />
+
+	<bean id="id2descriptionXML"
+		class="com.boco.eoms.commons.system.dict.tags.ID2DescriptionXMLHelper" />
+
+	<bean id="dictId2descriptionXML"
+		class="com.boco.eoms.commons.system.dict.tags.DictId2DescriptionXMLHelper" />
+
+	 <bean id="selectXML"
+		class="com.boco.eoms.commons.system.dict.tags.SelectXML" />
+
+	<bean id="selectRelationXML"
+		class="com.boco.eoms.commons.system.dict.tags.SelectRelationXML" />
+	<import
+		resource="classpath:com/boco/eoms/commons/system/dict/config/applicationContext-dict-versionlog.xml" />
+</beans>
+
+
+

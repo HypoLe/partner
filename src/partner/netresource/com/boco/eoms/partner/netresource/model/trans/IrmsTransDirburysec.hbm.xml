@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.trans.IrmsTransDirburysec" table="irms_trans_dirburysec">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="dirburySecName" column="dirbury_sec_name"/>
+				<property name="relatedDirbury" column="related_dirbury"/>
+				<property name="relatedOpcableSec" column="related_opcable_sec"/>
+				<property name="relatedStartPointName" column="related_start_point_name"/>
+				<property name="relatedEndPointName" column="related_end_point_name"/>
+				<property name="property" column="property"/>
+				<property name="useUnit" column="use_unit"/>
+				<property name="owner" column="owner"/>
+				<property name="use" column="use"/>
+				<property name="length" column="length"/>
+				<property name="isConstrutShared" column="is_construt_shared"/>
+				<property name="constructCompany" column="construct_company"/>
+				<property name="isShared" column="is_shared"/>
+				<property name="sharedUnit" column="shared_unit"/>
+				<property name="remark" column="remark"/>
+				<property name="createTime" column="create_time"/>
+				<property name="relatedDirburyId" column="related_dirbury_id"/>
+				<property name="relatedStartPointNameId" column="related_start_point_name_id"/>
+				<property name="relatedEndPointNameId" column="related_end_point_name_id"/>
+    </class>    
+</hibernate-mapping>

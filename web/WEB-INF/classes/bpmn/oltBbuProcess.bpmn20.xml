@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://134.34.63.6:8080/partner/oltBbuProcess">
+  <process id="oltBbuProcess" name="oltBbuProcess" isExecutable="true">
+    <startEvent id="oltBbuStartevent" name="Start" activiti:initiator="initiator"></startEvent>
+    <userTask id="need" name="区县公司发起" activiti:assignee="${initiator}">
+      <extensionElements>
+        <activiti:formProperty id="cityLineChargeAduit" name="市线路主管审核" type="string"></activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="flow1" sourceRef="oltBbuStartevent" targetRef="need"></sequenceFlow>
+    <userTask id="cityLineExamine" name="市线路主管审核" activiti:assignee="${cityLineChargeAduit}">
+      <extensionElements>
+        <activiti:formProperty id="cityManageChargeAudit" name="市运维主管审核" type="string"></activiti:formProperty>
+        <activiti:formProperty id="cityLineChargeState" name="市线路主管审核标志" type="enum">
+          <activiti:value id="rollback" name="回退"></activiti:value>
+          <activiti:value id="handle" name="通过"></activiti:value>
+        </activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <userTask id="cityManageExamine" name="市运维主管审核" activiti:assignee="${cityManageChargeAudit}">
+      <extensionElements>
+        <activiti:formProperty id="nextTaskAssignee" name="省线路主管审核" type="string"></activiti:formProperty>
+        <activiti:formProperty id="cityManageChargeState" name="市运维主管审核标志" type="enum">
+          <activiti:value id="handle" name="通过"></activiti:value>
+          <activiti:value id="rollback" name="回退"></activiti:value>
+        </activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <userTask id="provinceLineExamine" name="省线路主管审核" activiti:assignee="${nextTaskAssignee}">
+      <extensionElements>
+        <activiti:formProperty id="provinceLineChargeState" name="省线路主管审核标志" type="enum">
+          <activiti:value id="handle" name="通过"></activiti:value>
+          <activiti:value id="rollback" name="回退"></activiti:value>
+          <activiti:value id="cityManage" name="市运维"></activiti:value>
+        </activiti:formProperty>
+        <activiti:formProperty id="provinceManageCharge" name="省运维主管审核" type="string"></activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <userTask id="provinceManageExamine" name="省运维主管审核" activiti:assignee="${provinceManageCharge}">
+      <extensionElements>
+        <activiti:formProperty id="interfaceCharge" name="接口人" type="string"></activiti:formProperty>
+        <activiti:formProperty id="provinceManageChargeState" name="省运维主管审核标志" type="enum">
+          <activiti:value id="handle" name="通过"></activiti:value>
+          <activiti:value id="rollback" name="回退"></activiti:value>
+          <activiti:value id="next" name="专家会审"></activiti:value>
+        </activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <userTask id="sendOrder" name="派发代维" activiti:assignee="${nextTaskAssignee}">
+      <extensionElements>
+        <activiti:formProperty id="handleWorker" name="工单处理人" type="string"></activiti:formProperty>
+        <activiti:formProperty id="dueDate" name="结束时间" type="date" datePattern="yyyy-MM-dd HH:mm:ss"></activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <userTask id="worker" name="施工队施工回单" activiti:assignee="${handleWorker}">
+      <extensionElements>
+        <activiti:formProperty id="initiatorCheck" name="发起人审核" type="string"></activiti:formProperty>
+        <activiti:formProperty id="workerHandleState" name="工单处理标志" type="enum">
+          <activiti:value id="handle" name="通过"></activiti:value>
+          <activiti:value id="rollback" name="回退"></activiti:value>
+        </activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="flow27" sourceRef="sendOrder" targetRef="worker"></sequenceFlow>
+    <endEvent id="endevent1" name="End"></endEvent>
+    <exclusiveGateway id="exclusivegateway12" name="Exclusive Gateway"></exclusiveGateway>
+    <sequenceFlow id="flow51" sourceRef="worker" targetRef="exclusivegateway12"></sequenceFlow>
+    <sequenceFlow id="flow53" sourceRef="exclusivegateway12" targetRef="sendOrder">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${workerHandleState=='rollback'}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow58" sourceRef="need" targetRef="cityLineExamine"></sequenceFlow>
+    <userTask id="cityManagefile" name="市运维主管审核归档" activiti:assignee="${cityManageChargeAuditor}"></userTask>
+    <userTask id="waitInterface" name="等待接口调用" activiti:assignee="${interfaceCharge}">
+      <extensionElements>
+        <activiti:formProperty id="nextTaskAssignee" name="派发代维" type="string"></activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <exclusiveGateway id="exclusivegateway13" name="Exclusive Gateway"></exclusiveGateway>
+    <sequenceFlow id="flow59" sourceRef="cityLineExamine" targetRef="exclusivegateway13"></sequenceFlow>
+    <sequenceFlow id="flow60" sourceRef="exclusivegateway13" targetRef="cityManageExamine">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${cityLineChargeState=='handle'}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow61" sourceRef="exclusivegateway13" targetRef="need">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${cityLineChargeState=='rollback'}]]></conditionExpression>
+    </sequenceFlow>
+    <exclusiveGateway id="exclusivegateway14" name="Exclusive Gateway"></exclusiveGateway>
+    <sequenceFlow id="flow62" sourceRef="cityManageExamine" targetRef="exclusivegateway14"></sequenceFlow>
+    <sequenceFlow id="flow63" sourceRef="exclusivegateway14" targetRef="provinceLineExamine">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${cityManageChargeState=='handle'}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow64" sourceRef="exclusivegateway14" targetRef="cityLineExamine">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${cityManageChargeState=='rollback'}]]></conditionExpression>
+    </sequenceFlow>
+    <exclusiveGateway id="exclusivegateway15" name="Exclusive Gateway"></exclusiveGateway>
+    <sequenceFlow id="flow65" sourceRef="provinceLineExamine" targetRef="exclusivegateway15"></sequenceFlow>
+    <sequenceFlow id="flow66" sourceRef="exclusivegateway15" targetRef="provinceManageExamine">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${provinceLineChargeState=='handle'}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow67" sourceRef="exclusivegateway15" targetRef="cityManageExamine">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${provinceLineChargeState=='rollback'}]]></conditionExpression>
+    </sequenceFlow>
+    <exclusiveGateway id="exclusivegateway16" name="Exclusive Gateway"></exclusiveGateway>
+    <sequenceFlow id="flow68" sourceRef="provinceManageExamine" targetRef="exclusivegateway16"></sequenceFlow>
+    <sequenceFlow id="flow69" sourceRef="exclusivegateway16" targetRef="waitInterface">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${provinceManageChargeState=='handle'}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow70" sourceRef="exclusivegateway16" targetRef="provinceLineExamine">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${provinceManageChargeState=='rollback'}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow71" sourceRef="waitInterface" targetRef="sendOrder"></sequenceFlow>
+    <sequenceFlow id="flow75" sourceRef="cityManagefile" targetRef="endevent1"></sequenceFlow>
+    <userTask id="daiweiAudit" name="市线路主管审批" activiti:assignee="${cityLineChargeAduitor}">
+      <extensionElements>
+        <activiti:formProperty id="cityManageChargeAuditor" name="市运维审核归档" type="string"></activiti:formProperty>
+        <activiti:formProperty id="initiatorHandleState" name="市线路主管审批标志" type="enum">
+          <activiti:value id="handle" name="通过"></activiti:value>
+          <activiti:value id="rollback" name="回退"></activiti:value>
+        </activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <userTask id="orderAudit" name="区县公司验收" activiti:assignee="${initiatorCheck}">
+      <extensionElements>
+        <activiti:formProperty id="orderAuditHandleState" name="抽查标志" type="enum">
+          <activiti:value id="handle" name="抽查通过"></activiti:value>
+          <activiti:value id="rollback" name="回退"></activiti:value>
+        </activiti:formProperty>
+        <activiti:formProperty id="cityLineChargeAduitor" name="市线路主管审批" type="string"></activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="flow76" sourceRef="exclusivegateway12" targetRef="orderAudit">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${workerHandleState=='handle'}]]></conditionExpression>
+    </sequenceFlow>
+    <exclusiveGateway id="exclusivegateway17" name="Exclusive Gateway"></exclusiveGateway>
+    <sequenceFlow id="flow77" sourceRef="orderAudit" targetRef="exclusivegateway17"></sequenceFlow>
+    <sequenceFlow id="flow78" sourceRef="exclusivegateway17" targetRef="worker">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${orderAuditHandleState=='rollback'}]]></conditionExpression>
+    </sequenceFlow>
+    <exclusiveGateway id="exclusivegateway18" name="Exclusive Gateway"></exclusiveGateway>
+    <sequenceFlow id="flow80" sourceRef="daiweiAudit" targetRef="exclusivegateway18"></sequenceFlow>
+    <sequenceFlow id="flow82" sourceRef="exclusivegateway18" targetRef="orderAudit">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${initiatorHandleState=='rollback'}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow83" sourceRef="exclusivegateway17" targetRef="daiweiAudit">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${orderAuditHandleState=='handle'}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow84" sourceRef="exclusivegateway18" targetRef="cityManagefile">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${initiatorHandleState=='handle'}]]></conditionExpression>
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_oltBbuProcess">
+    <bpmndi:BPMNPlane bpmnElement="oltBbuProcess" id="BPMNPlane_oltBbuProcess">
+      <bpmndi:BPMNShape bpmnElement="need" id="BPMNShape_need">
+        <omgdc:Bounds height="55.0" width="105.0" x="120.0" y="40.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="cityLineExamine" id="BPMNShape_cityLineExamine">
+        <omgdc:Bounds height="55.0" width="105.0" x="382.0" y="40.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="cityManageExamine" id="BPMNShape_cityManageExamine">
+        <omgdc:Bounds height="55.0" width="105.0" x="630.0" y="40.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="provinceLineExamine" id="BPMNShape_provinceLineExamine">
+        <omgdc:Bounds height="55.0" width="105.0" x="620.0" y="179.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="provinceManageExamine" id="BPMNShape_provinceManageExamine">
+        <omgdc:Bounds height="55.0" width="105.0" x="367.0" y="179.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sendOrder" id="BPMNShape_sendOrder">
+        <omgdc:Bounds height="55.0" width="105.0" x="100.0" y="340.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="worker" id="BPMNShape_worker">
+        <omgdc:Bounds height="55.0" width="105.0" x="287.0" y="340.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="40.0" y="472.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusivegateway12" id="BPMNShape_exclusivegateway12">
+        <omgdc:Bounds height="40.0" width="40.0" x="471.0" y="347.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusivegateway13" id="BPMNShape_exclusivegateway13">
+        <omgdc:Bounds height="40.0" width="40.0" x="542.0" y="47.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="waitInterface" id="BPMNShape_waitInterface">
+        <omgdc:Bounds height="55.0" width="105.0" x="100.0" y="179.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="cityManagefile" id="BPMNShape_cityManagefile">
+        <omgdc:Bounds height="55.0" width="105.0" x="284.0" y="462.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusivegateway14" id="BPMNShape_exclusivegateway14">
+        <omgdc:Bounds height="40.0" width="40.0" x="662.0" y="118.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusivegateway15" id="BPMNShape_exclusivegateway15">
+        <omgdc:Bounds height="40.0" width="40.0" x="542.0" y="186.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusivegateway16" id="BPMNShape_exclusivegateway16">
+        <omgdc:Bounds height="40.0" width="40.0" x="279.0" y="186.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusivegateway17" id="BPMNShape_exclusivegateway17">
+        <omgdc:Bounds height="40.0" width="40.0" x="780.0" y="347.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="exclusivegateway18" id="BPMNShape_exclusivegateway18">
+        <omgdc:Bounds height="40.0" width="40.0" x="652.0" y="469.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="oltBbuStartevent" id="BPMNShape_oltBbuStartevent">
+        <omgdc:Bounds height="35.0" width="35.0" x="30.0" y="50.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="orderAudit" id="BPMNShape_orderAudit">
+        <omgdc:Bounds height="55.0" width="105.0" x="620.0" y="340.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="daiweiAudit" id="BPMNShape_daiweiAudit">
+        <omgdc:Bounds height="55.0" width="105.0" x="748.0" y="462.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="65.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="120.0" y="67.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow27" id="BPMNEdge_flow27">
+        <omgdi:waypoint x="205.0" y="367.0"></omgdi:waypoint>
+        <omgdi:waypoint x="287.0" y="367.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow51" id="BPMNEdge_flow51">
+        <omgdi:waypoint x="392.0" y="367.0"></omgdi:waypoint>
+        <omgdi:waypoint x="471.0" y="367.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow53" id="BPMNEdge_flow53">
+        <omgdi:waypoint x="491.0" y="387.0"></omgdi:waypoint>
+        <omgdi:waypoint x="491.0" y="418.0"></omgdi:waypoint>
+        <omgdi:waypoint x="453.0" y="418.0"></omgdi:waypoint>
+        <omgdi:waypoint x="407.0" y="418.0"></omgdi:waypoint>
+        <omgdi:waypoint x="285.0" y="418.0"></omgdi:waypoint>
+        <omgdi:waypoint x="152.0" y="418.0"></omgdi:waypoint>
+        <omgdi:waypoint x="152.0" y="395.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow58" id="BPMNEdge_flow58">
+        <omgdi:waypoint x="225.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="382.0" y="67.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow59" id="BPMNEdge_flow59">
+        <omgdi:waypoint x="487.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="542.0" y="67.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow60" id="BPMNEdge_flow60">
+        <omgdi:waypoint x="582.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="630.0" y="67.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow61" id="BPMNEdge_flow61">
+        <omgdi:waypoint x="562.0" y="47.0"></omgdi:waypoint>
+        <omgdi:waypoint x="561.0" y="18.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="18.0"></omgdi:waypoint>
+        <omgdi:waypoint x="172.0" y="40.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow62" id="BPMNEdge_flow62">
+        <omgdi:waypoint x="682.0" y="95.0"></omgdi:waypoint>
+        <omgdi:waypoint x="682.0" y="118.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow63" id="BPMNEdge_flow63">
+        <omgdi:waypoint x="702.0" y="138.0"></omgdi:waypoint>
+        <omgdi:waypoint x="780.0" y="137.0"></omgdi:waypoint>
+        <omgdi:waypoint x="780.0" y="206.0"></omgdi:waypoint>
+        <omgdi:waypoint x="725.0" y="206.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow64" id="BPMNEdge_flow64">
+        <omgdi:waypoint x="662.0" y="138.0"></omgdi:waypoint>
+        <omgdi:waypoint x="434.0" y="138.0"></omgdi:waypoint>
+        <omgdi:waypoint x="434.0" y="95.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow65" id="BPMNEdge_flow65">
+        <omgdi:waypoint x="620.0" y="206.0"></omgdi:waypoint>
+        <omgdi:waypoint x="582.0" y="206.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow66" id="BPMNEdge_flow66">
+        <omgdi:waypoint x="542.0" y="206.0"></omgdi:waypoint>
+        <omgdi:waypoint x="472.0" y="206.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow67" id="BPMNEdge_flow67">
+        <omgdi:waypoint x="562.0" y="226.0"></omgdi:waypoint>
+        <omgdi:waypoint x="562.0" y="253.0"></omgdi:waypoint>
+        <omgdi:waypoint x="808.0" y="253.0"></omgdi:waypoint>
+        <omgdi:waypoint x="808.0" y="67.0"></omgdi:waypoint>
+        <omgdi:waypoint x="735.0" y="67.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow68" id="BPMNEdge_flow68">
+        <omgdi:waypoint x="367.0" y="206.0"></omgdi:waypoint>
+        <omgdi:waypoint x="319.0" y="206.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow69" id="BPMNEdge_flow69">
+        <omgdi:waypoint x="279.0" y="206.0"></omgdi:waypoint>
+        <omgdi:waypoint x="205.0" y="206.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow70" id="BPMNEdge_flow70">
+        <omgdi:waypoint x="299.0" y="186.0"></omgdi:waypoint>
+        <omgdi:waypoint x="299.0" y="152.0"></omgdi:waypoint>
+        <omgdi:waypoint x="639.0" y="152.0"></omgdi:waypoint>
+        <omgdi:waypoint x="672.0" y="179.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow71" id="BPMNEdge_flow71">
+        <omgdi:waypoint x="152.0" y="234.0"></omgdi:waypoint>
+        <omgdi:waypoint x="152.0" y="340.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow75" id="BPMNEdge_flow75">
+        <omgdi:waypoint x="284.0" y="489.0"></omgdi:waypoint>
+        <omgdi:waypoint x="75.0" y="489.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow76" id="BPMNEdge_flow76">
+        <omgdi:waypoint x="511.0" y="367.0"></omgdi:waypoint>
+        <omgdi:waypoint x="620.0" y="367.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow77" id="BPMNEdge_flow77">
+        <omgdi:waypoint x="725.0" y="367.0"></omgdi:waypoint>
+        <omgdi:waypoint x="780.0" y="367.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow78" id="BPMNEdge_flow78">
+        <omgdi:waypoint x="800.0" y="347.0"></omgdi:waypoint>
+        <omgdi:waypoint x="799.0" y="302.0"></omgdi:waypoint>
+        <omgdi:waypoint x="588.0" y="302.0"></omgdi:waypoint>
+        <omgdi:waypoint x="339.0" y="302.0"></omgdi:waypoint>
+        <omgdi:waypoint x="339.0" y="340.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow80" id="BPMNEdge_flow80">
+        <omgdi:waypoint x="748.0" y="489.0"></omgdi:waypoint>
+        <omgdi:waypoint x="692.0" y="489.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow82" id="BPMNEdge_flow82">
+        <omgdi:waypoint x="672.0" y="469.0"></omgdi:waypoint>
+        <omgdi:waypoint x="672.0" y="435.0"></omgdi:waypoint>
+        <omgdi:waypoint x="672.0" y="395.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow83" id="BPMNEdge_flow83">
+        <omgdi:waypoint x="800.0" y="387.0"></omgdi:waypoint>
+        <omgdi:waypoint x="800.0" y="462.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow84" id="BPMNEdge_flow84">
+        <omgdi:waypoint x="652.0" y="489.0"></omgdi:waypoint>
+        <omgdi:waypoint x="389.0" y="489.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <!-- Add new Managers here -->
+    
+    <bean id="linesService" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.netresource.line.service.LinesServiceImpl">
+                <property name="linesDao" ref="linesDao"/>
+            </bean>
+        </property>
+    </bean>
+    
+    <bean id="linesDao" class="com.boco.eoms.netresource.line.dao.LinesDaoImpl" autowire="byName" />
+	
+	<!-- <import resource="classpath:com/boco/eoms/netresource/line/config/linesData-config.xml" />  -->
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

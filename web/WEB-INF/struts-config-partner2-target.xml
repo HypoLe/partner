@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<!-- Generated with Karapan Sapi Struts Generator -->
+<!-- Visit http://www.javanovic.com         -->
+
+<struts-config>
+	<!-- ============ Form beans ============ -->
+	<form-beans>
+		<form-bean name="baseStationTargetForm" type="com.boco.partner2.target.model.BaseStationTargetForm" />
+		<form-bean name="circuitTargetForm" type="com.boco.partner2.target.model.CircuitTargetForm" />
+	</form-beans>
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+
+	<!-- ============ Global forwards ============ -->
+	<global-forwards type="org.apache.struts.action.ActionForward">
+		<forward name="failure" path="/nop3/common/fail.jsp" redirect="false" contextRelative="true" />
+		<forward name="success" path="/nop3/common/success.jsp" redirect="false" contextRelative="true" />
+		<forward name="error" path="/nop3/common/error.jsp" contextRelative="true" redirect="false" />
+		<forward name="cancel" path="/servlet/main.do" />
+		<forward name="nopriv" path="/nop3/common/nopriv.jsp" contextRelative="true" redirect="false" />
+	</global-forwards>
+
+	<!-- ============ Action Mapping definitions ============ -->
+	<action-mappings type="org.apache.struts.action.ActionMapping">
+    
+     <action
+      path="/baseStation"
+      type="com.boco.partner2.target.action.BaseStationTargetAction"
+      name="baseStationTargetForm"
+      scope="request"
+      input="list"
+      parameter="method"
+      unknown="false"
+      validate="false" >
+      <set-property property="cancellable" value="true" />
+       <forward
+        name="goToAdd"
+        path="/WEB-INF/pages/partner2/target/baseStation/add.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+       <forward
+        name="goToImportExcel"
+        path="/WEB-INF/pages/partner2/target/baseStation/importExcel.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      <forward
+        name="list"
+        path="/WEB-INF/pages/partner2/target/baseStation/list.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+    </action>
+    
+     <action
+      path="/circuit"
+      type="com.boco.partner2.target.action.CircuitTargetAction"
+      name="circuitTargetForm"
+      scope="request"
+      input="list"
+      parameter="method"
+      unknown="false"
+      validate="false" >
+      <set-property property="cancellable" value="true" />
+        <forward
+        name="goToAdd"
+        path="/WEB-INF/pages/partner2/target/circuit/add.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+        <forward
+        name="goToImportExcel"
+        path="/WEB-INF/pages/partner2/target/circuit/importExcel.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      <forward
+        name="list"
+        path="/WEB-INF/pages/partner2/target/circuit/list.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+    </action>
+	</action-mappings>
+
+
+</struts-config>

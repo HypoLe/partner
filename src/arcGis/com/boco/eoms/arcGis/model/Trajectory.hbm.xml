@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+
+>
+
+    <class
+            name="com.boco.eoms.arcGis.model.Trajectory"
+            table="GIS_TRAJECTORY"
+    >
+
+    <id
+        name="id"
+            column="id"
+            unsaved-value="null"
+    >
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+
+    </id>
+
+        <property
+            name="imis"
+               	column="imis"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+        <property
+            name="phoneNum"
+               	column="phoneNum"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+        <property
+            name="carNum"
+                column="carNum"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+        <property
+            name="type"
+               	column="type"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+        
+        <property
+            name="x"
+               	column="x"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+        <property
+            name="y"
+                column="y"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+        <property
+            name="state"
+                column="state"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+        
+        <property
+            name="ifOnLine"
+                column="ifOnLine"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+        <property
+            name="insertTime"
+                 column="insertTime"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property> 
+           
+
+    </class>    
+
+</hibernate-mapping>
+

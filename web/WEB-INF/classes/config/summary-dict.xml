@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="GBK"?>
+<dicts description="公用">
+	<dict id="state" description="审批状态">
+		<item id="0" name="新增保存" description="等级1" />
+		<item id="1" name="提交审核" description="等级2" />
+		<item id="2" name="(组长)审核通过" description="等级3" />
+		<item id="3" name="(组长)审核驳回" description="等级4" />
+		<item id="4" name="(主任)审核通过-归档" description="等级5" />
+		<item id="5" name="(主任)驳回到派发人" description="等级6" />
+		<item id="6" name="(主任)驳回到审核人" description="等级7" />
+	</dict>
+</dicts>  

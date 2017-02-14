@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="PnrResConfigForm"
+			type="com.boco.eoms.partner.res.webapp.form.PnrResConfigForm" />
+		<form-bean name="PnrAllResForm" type="com.boco.eoms.partner.res.webapp.form.PnrAllResForm"></form-bean>			
+	</form-beans>
+	
+	<action-mappings>
+		<action path="/PnrResConfig"
+			type="com.boco.eoms.partner.res.webapp.action.PnrResConfigAction"
+			name="PnrResConfigForm" scope="request" input="mainMenu" parameter="method"
+			unknown="false" validate="false">			
+			<forward name="addToWeekTime"
+				path="/WEB-INF/pages/partner/inspect/partnerRes/PnrResConfigToWeekTime.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="add"
+				path="/WEB-INF/pages/partner/inspect/partnerRes/PnrResConfigAdd.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list" 
+			    path="/WEB-INF/pages/partner/inspect/partnerRes/PnrResConfigList.jsp"
+			    redirect="false" contextRelative="true"></forward>
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/inspect/partnerRes/PnrResConfigEdit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="success"
+				path="/WEB-INF/pages/partner/inspect/partnerRes/addSuccess.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="detial" 
+				path="/WEB-INF/pages/partner/inspect/partnerRes/pnrResConfigDetial.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="assign" 
+				path="/WEB-INF/pages/partner/inspect/partnerRes/pnrResConfigAssign.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="assignCheckPer" 
+				path="/WEB-INF/pages/partner/inspect/partnerRes/assignCheckPer.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="window" 
+				path="/WEB-INF/pages/partner/inspect/partnerRes/pnrResConfigWindow.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="assignCheckPerWindow" 
+				path="/WEB-INF/pages/partner/inspect/partnerRes/assignCheckPerWindow.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="conditionWindow" 
+				path="/WEB-INF/pages/partner/inspect/partnerRes/pnrResConfigConditionWindow.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="cycle" 
+				path="/WEB-INF/pages/partner/inspect/partnerRes/pnrResConfigCycle.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="cycleCheckCondition" 
+				path="/WEB-INF/pages/partner/inspect/partnerRes/pnrResConfigCycleConditon.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="cycleWindow"
+			 	path="/WEB-INF/pages/partner/inspect/partnerRes/pnrResConfigCycleWindow.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="resConfigSingleChooseList"
+			 	path="/WEB-INF/pages/partner/inspect/partnerRes/pnrResConfigSingleChooseList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="resConfigMultipleChooseList"
+			 	path="/WEB-INF/pages/partner/inspect/partnerRes/pnrResConfigMultipleChooseList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="resConfigSingleChooseListOil"
+			 	path="/WEB-INF/pages/partner/inspect/partnerRes/pnrResConfigSingleChooseListOil.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="collectResourceView"
+			 	path="/WEB-INF/pages/partner/inspect/partnerRes/collectResourceView.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+		
+		<action path="/PnrAllRes"
+				type="com.boco.eoms.partner.res.webapp.action.PnrAllResAction"
+				name="PnrAllResForm" scope="request" input="mainMenu" parameter="method"
+				unknown="false" validate="false">
+			<forward name="success"
+				path="/WEB-INF/pages/partner/inspect/partnerRes/addSuccess.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list" 
+			    path="/WEB-INF/pages/partner/inspect/partnerRes/PnrResConfigList.jsp"
+			    redirect="false" contextRelative="true"></forward>
+		</action>
+		
+		<action path="/goToTransLineAdd"
+			type="org.apache.struts.actions.ForwardAction"
+			parameter="/WEB-INF/pages/partner/inspect/transLine/transLineAdd.jsp" />
+		<action path="/goToTransLinePointAdd"
+			type="org.apache.struts.actions.ForwardAction"
+			parameter="/WEB-INF/pages/partner/inspect/transLine/transLinePointAdd.jsp" />
+			
+		<action path="/pnrTransLineAction"
+				type="com.boco.eoms.partner.res.webapp.action.PnrTransLineAction"
+				name="PnrAllResForm" scope="request" input="mainMenu" parameter="method"
+				unknown="false" validate="false">
+			<forward name="goToAddArrivedRate"
+				path="/WEB-INF/pages/partner/inspect/transLine/arrivedRateAdd.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToArrivedRateList"
+				path="/WEB-INF/pages/partner/inspect/transLine/arrivedRateList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToAddLocationCycle"
+				path="/WEB-INF/pages/partner/inspect/transLine/locationCycleAdd.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToLocationCycleList"
+				path="/WEB-INF/pages/partner/inspect/transLine/locationCycleList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="transLineList" 
+			    path="/WEB-INF/pages/partner/inspect/transLine/transLinelist.jsp"
+			    redirect="false" contextRelative="true"></forward>
+			<forward name="transLinePointList" 
+			    path="/WEB-INF/pages/partner/inspect/transLine/transLinePointList.jsp"
+			    redirect="false" contextRelative="true"></forward>
+			<forward name="transLinePointRate" 
+			    path="/WEB-INF/pages/partner/inspect/transLine/transLinePointRate.jsp"
+			    redirect="false" contextRelative="true"></forward>
+			<forward name="transLineExecuteObject" 
+			    path="/WEB-INF/pages/partner/inspect/transLine/transLineExecuteObject.jsp"
+			    redirect="false" contextRelative="true"></forward>
+			<forward name="transLineCycle" 
+			    path="/WEB-INF/pages/partner/inspect/transLine/transLineCycle.jsp"
+			    redirect="false" contextRelative="true"></forward>
+		</action>
+	</action-mappings>
+ 	<controller nocache="true" inputForward="true" maxFileSize="50M" />
+		 <message-resources parameter="config/ApplicationResources"/>
+</struts-config>

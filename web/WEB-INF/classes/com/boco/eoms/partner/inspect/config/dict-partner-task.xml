@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="GBK"?>
+<dicts description="公用">
+	<dict id="yearflag" description="年度">
+		<item id="2012" name="2012" description="2012" />
+		<item id="2013" name="2013" description="2013" />
+		<item id="2014" name="2014" description="2014" />
+		<item id="2015" name="2015" description="2015" />
+		<item id="2016" name="2016" description="2016" />
+		<item id="2017" name="2017" description="2017" />
+		<item id="2018" name="2018" description="2018" />
+		<item id="2019" name="2019" description="2019" />
+		<item id="2020" name="2020" description="2020" />
+	</dict>   
+	<dict id="monthflag" description="季度">
+		<item id="01" name="第一" description="第一" />
+		<item id="04" name="第二" description="第二" />
+		<item id="07" name="第三" description="第三" />
+		<item id="10" name="第四" description="第四" />
+	</dict>
+</dicts>  

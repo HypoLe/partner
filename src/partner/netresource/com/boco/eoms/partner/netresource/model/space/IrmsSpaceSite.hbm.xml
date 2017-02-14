@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.space.IrmsSpaceSite" table="irms_space_site">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="siteName" column="site_name"/>
+				<property name="spellabbreviation" column="spellabbreviation"/>
+				<property name="siteNameAlias" column="site_name_alias"/>
+				<property name="sitecoding" column="sitecoding"/>
+				<property name="siteType" column="site_type"/>
+				<property name="location" column="location"/>
+				<property name="relatedSpace" column="related_space"/>
+				<property name="longitude" column="longitude"/>
+				<property name="latitude" column="latitude"/>
+				<property name="serviceLevel" column="service_level"/>
+				<property name="floorMaxnum" column="floor_maxnum"/>
+				<property name="remark" column="remark"/>
+				<property name="createTime" column="create_time"/>
+				<property name="relatedSpaceId" column="related_space_id"/>
+    </class>    
+</hibernate-mapping>

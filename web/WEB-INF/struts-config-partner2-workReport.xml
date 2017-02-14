@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="workReportForumsForm"
+			type="com.boco.partner2.workReport.webapp.form.WorkReportForumsForm" />
+		<form-bean name="workReportForm"
+			type="com.boco.partner2.workReport.webapp.form.WorkReportForm" />
+		<form-bean name="workReportPrivilegeForm"
+			type="com.boco.partner2.workReport.webapp.form.WorkReportPrivilegeForm" />
+		<form-bean name="workReportAuditHistoryForm"
+			type="com.boco.partner2.workReport.webapp.form.WorkReportAuditHistoryForm" />
+		<form-bean name="WorkReportTemplateForm"
+			type="com.boco.partner2.workReport.webapp.form.WorkReportTemplateForm" />
+	</form-beans>
+
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward name="success" path="/common/success.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="nopriv" path="/common/nopriv.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="fail" path="/common/failure.jsp" redirect="false"
+			contextRelative="true" />
+		<forward name="waptimeout" path="/wap/waptimeout.jsp" redirect="false"
+			contextRelative="true" />
+	</global-forwards>
+
+	<action-mappings>
+		<action path="/forums"
+			type="com.boco.partner2.workReport.webapp.action.WorkReportForumsAction"
+			name="workReportForumsForm" scope="request" input="mainMenu" parameter="method"
+			unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			
+			<forward name="edit"
+				path="/WEB-INF/pages/partner2/workReport/forums/forumsForm.jsp" redirect="false"
+				contextRelative="true" />
+				
+			<forward name="list"
+				path="/WEB-INF/pages/partner2/workReport/forums/forumsList.jsp" redirect="false"
+				contextRelative="true" />
+			
+			<forward name="forumsList4Move"
+				path="/WEB-INF/pages/partner2/workReport/forums/forumsList4Move.jsp"
+				redirect="false" contextRelative="true" />
+
+			<forward name="tree"
+				path="/WEB-INF/pages/partner2/workReport/forums/forumsTree.jsp" redirect="false"
+				contextRelative="true" />
+
+			<forward name="search" path="/forums.do?method=search"
+				redirect="true" />
+				
+		</action>
+		
+		<action path="/template"
+			type="com.boco.partner2.workReport.webapp.action.WorkReportTemplateAction"
+			name="WorkReportTemplateForm" scope="request" input="mainMenu" parameter="method"
+			unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="addTemplate"
+				path="/WEB-INF/pages/partner2/workReport/forums/forumsTemplate.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="showTemplateDeail"
+				path="/WEB-INF/pages/partner2/workReport/forums/forumsTemplateDeatil.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner2/workReport/thread/threadForm.jsp" redirect="false"
+				contextRelative="true" />
+		</action>
+		
+		<action path="/thread"
+			type="com.boco.partner2.workReport.webapp.action.WorkReportAction"
+			name="workReportForm" scope="request" input="mainMenu" parameter="method"
+			unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner2/workReport/thread/threadForm.jsp" redirect="false"
+				contextRelative="true" />
+				
+			<forward name="netEdit"
+				path="/WEB-INF/pages/partner2/workReport/thread/netThreadForm.jsp" redirect="false"
+				contextRelative="true" />
+				
+			<forward name="list"
+				path="/WEB-INF/pages/partner2/workReport/thread/threadList.jsp" redirect="false"
+				contextRelative="true" />
+				
+			<forward name="netList"
+				path="/WEB-INF/pages/partner2/workReport/thread/netThreadList.jsp" redirect="false"
+				contextRelative="true" />
+				
+			<forward name="rotationRead"
+				path="/forums.do?method=search" redirect="false"
+				contextRelative="true" />
+				
+			<forward name="threadUnreadList"
+				path="/WEB-INF/pages/partner2/workReport/thread/threadUnreadList.jsp" redirect="false"
+				contextRelative="true" />
+			
+			<forward name="detail"
+				path="/WEB-INF/pages/partner2/workReport/thread/threadDetail.jsp"
+				redirect="false" contextRelative="true" />
+				
+			<forward name="netDetail"
+				path="/WEB-INF/pages/partner2/workReport/thread/netThreadDetail.jsp"
+				redirect="false" contextRelative="true" />
+				
+			<forward name="Vdetail"
+				path="/WEB-INF/pages/partner2/workReport/thread/threadVdetail.jsp"
+				redirect="false" contextRelative="true" />
+				
+			<forward name="threadTree"
+				path="/WEB-INF/pages/partner2/workReport/thread/threadTree.jsp" redirect="false"
+				contextRelative="true" />
+		
+			<forward name="threadList4Drafts"
+				path="/WEB-INF/pages/partner2/workReport/thread/threadList4Drafts.jsp"
+				redirect="false" contextRelative="true" />
+				
+			<forward name="threadList4Reject"       
+				path="/WEB-INF/pages/partner2/workReport/thread/threadList4Reject.jsp"
+				redirect="false" contextRelative="true" />
+				
+			<forward name="forwardlist" path="/thread.do?method=list"
+				redirect="true" />
+				
+			<forward name="forwardAuditHistory"
+				path="/threadAuditHistory.do?method=edit" redirect="true" />
+				
+			<forward name="threadListAllPortlet"
+				path="/WEB-INF/pages/partner2/workReport/thread/threadListAllPortlet.jsp"
+				redirect="false" contextRelative="true" />
+				
+			<forward name="threadSearch"
+				path="/WEB-INF/pages/partner2/workReport/thread/threadSearch.jsp"
+				redirect="false" contextRelative="true" />
+				
+			<forward name="threadSearchList"
+				path="/WEB-INF/pages/partner2/workReport/thread/threadSearchList.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+
+		<action path="/threadHistory"
+			type="com.boco.partner2.workReport.webapp.action.WorkReportReadHistoryAction"
+			name="workReportForumsForm" scope="request" input="mainMenu" parameter="method"
+			unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner2/workReport/threadHistory/threadHistoryForm.jsp"
+				redirect="false" contextRelative="true" />
+				
+			<forward name="list"
+				path="/WEB-INF/pages/partner2/workReport/threadHistory/threadHistoryList.jsp"
+				redirect="false" contextRelative="true" />
+				
+			<forward name="search"
+				path="/threadHistory.do?method=search" redirect="true" />
+		</action>
+
+		<action path="/threadPermimissionOrg"
+			type="com.boco.partner2.workReport.webapp.action.WorkReportPrivilegeAction"
+			name="workReportForumsForm" scope="request" input="mainMenu" parameter="method"
+			unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			
+			<forward name="edit"
+				path="/WEB-INF/pages/partner2/workReport/threadPermimissionOrg/threadPermimissionOrgForm.jsp"
+				redirect="false" contextRelative="true" />
+				
+			<forward name="list"
+				path="/WEB-INF/pages/partner2/workReport/threadPermimissionOrg/threadPermimissionOrgList.jsp"
+				redirect="false" contextRelative="true" />
+				
+			<forward name="search"
+				path="/threadPermimissionOrg.do?method=search" redirect="true" />
+		</action>
+
+		<action path="/threadAuditHistory"
+			type="com.boco.partner2.workReport.webapp.action.WorkReportAuditHistoryAction"
+			name="workReportAuditHistoryForm" scope="request" input="mainMenu"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner2/workReport/threadAuditHistory/threadAuditHistoryForm.jsp"
+				redirect="false" contextRelative="true" />
+				
+			<forward name="list"
+				path="/WEB-INF/pages/partner2/workReport/threadAuditHistory/threadAuditHistoryList.jsp"
+				redirect="false" contextRelative="true" />
+				
+			<forward name="device"
+				path="/WEB-INF/pages/partner2/workReport/threadAuditHistory/threadAuditHistoryDevice.jsp"
+				redirect="false" contextRelative="true" />
+				
+			<forward name="search"
+				path="/threadAuditHistory.do?method=search" redirect="true" />
+		</action>
+
+	</action-mappings>
+
+	<controller nocache="true" inputForward="true" maxFileSize="2M" />
+	<message-resources
+		parameter="com/boco/partner2/workReport/config/applicationResource-workbench-infopub" />
+</struts-config>

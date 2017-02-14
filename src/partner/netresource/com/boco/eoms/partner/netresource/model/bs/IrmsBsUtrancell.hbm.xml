@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.bs.IrmsBsUtrancell" table="irms_bs_utrancell">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="userlabelCm" column="userlabel_cm"/>
+				<property name="labelCn" column="label_cn"/>
+				<property name="ci" column="ci"/>
+				<property name="lac" column="lac"/>
+				<property name="relatedNodeb" column="related_nodeb"/>
+				<property name="sac" column="sac"/>
+				<property name="trxNbr" column="trx_nbr"/>
+				<property name="cellType" column="cell_type"/>
+				<property name="status" column="status"/>
+				<property name="boundcellType" column="boundcell_type"/>
+				<property name="coverFiled" column="cover_filed"/>
+				<property name="setupTime" column="setup_time"/>
+				<property name="createTime" column="create_time"/>
+				<property name="remark" column="remark"/>
+				<property name="relatedNodebId" column="related_nodeb_id"/>
+    </class>    
+</hibernate-mapping>

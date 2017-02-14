@@ -1,0 +1,4 @@
+window[esri._dojoScopeName||"dojo"]._xdResourceLoaded(function(dojo, dijit, dojox){
+return {depends: [["provide", "dijit._editor.nls.el.LinkDialog"]],
+defineResource: function(dojo, dijit, dojox){dojo.provide("dijit._editor.nls.el.LinkDialog");dojo._xdLoadFlattenedBundle("dijit._editor", "LinkDialog", "el", {"text":"Περιγραφή:","insertImageTitle":"Ιδιότητες εικόνας","set":"Ορισμός","newWindow":"Νέο παράθυρο","topWindow":"Παράθυρο σε πρώτο πλάνο","target":"Προορισμός:","createLinkTitle":"Ιδιότητες σύνδεσης","parentWindow":"Γονικό παράθυρο","currentWindow":"Τρέχον παράθυρο","url":"Διεύθυνση URL:"});
+}};});

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<!-- Hibernate泛型Dao的通用注入,请参考nop3模块下的service和dao的实现。 -->
+	<bean id="nop3GenericDao" class="base.dao.Nop3GenericDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- Spring Jdbc -->
+	<bean id="jdbcTemplate"
+		class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="nop3SpringJdbcService"
+		class="base.service.Nop3SpringJdbcServiceImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+</beans>

@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	<!-- ========== Data Sources Definitions =================================== -->
+	<!--
+		Define your Struts data sources in a file called struts-data-sources.xml and place
+		it in your merge directory.
+	-->
+
+	<!-- ========== Form Bean Definitions =================================== -->
+	<form-beans>
+	<form-bean name="multiPageForm"
+			type="com.boco.activiti.partner.process.webapp.form.MultiPageForm" />
+			
+	<form-bean
+		  name="pnrActReviewStaffForm"
+		  type="com.boco.activiti.partner.process.webapp.form.PnrActReviewStaffForm"/>
+	
+	<form-bean
+		  name="pnrActCityBudgetAmountForm"
+		  type="com.boco.activiti.partner.process.webapp.form.PnrActCityBudgetAmountForm"/>
+		  
+		<!--bean for EsmProcess end-->
+	</form-beans>
+	 
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward name="selectFile" path="/selectFile.do" />
+		<forward name="logout" path="/logout.jsp" />
+		<forward name="error"
+			path="/WEB-INF/pages/partner/activiti/common/sheet_fail.jsp"
+			contextRelative="true" />
+		<forward name="failure"
+			path="/WEB-INF/pages/partner/activiti/common/failure.jsp"
+			contextRelative="true" />
+	</global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+	<action-mappings>
+		<action path="/pnrTransferPrecheck"
+			type="com.boco.activiti.partner.process.webapp.action.PnrTransferPrecheckAction"
+			name="multiPageForm"
+			scope="request" 
+			input="error" 
+			parameter="method"
+			unknown="false" 
+			validate="false"
+			>			
+			<set-property property="cancellable" value="true" />
+			
+			<forward name="new"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/transferPrecheckNew.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="success"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/sheet_new_success.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="showSuccess"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/sheet_success.jsp"
+				redirect="false" contextRelative="true" />		
+			<forward name="backlogList"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/backlogList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="countersignList"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/countersignList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="jobInitiation"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/transferPrecheckJobInitiation.jsp"
+				redirect="false" contextRelative="true" /><!-- 工单发起 -->
+			<forward name="performAddSuccess"
+                     path="/pnrTransferPrecheck.do?method=listBacklog"
+                     redirect="true" />
+			 <forward name="pnrTransferProgram"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/transferPrecheckProgram.jsp"
+                     redirect="false" contextRelative="true" />
+             <forward name="csjCheck"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/transferPrecheckCSJCheck.jsp"
+				redirect="false" contextRelative="true" /> 
+			 <forward name="sgsCheck"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/transferPrecheckSGSCheck.jsp"
+                     redirect="false" contextRelative="true" />	 
+             <forward name="viewHistory"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/viewHistory.jsp"
+                     redirect="false" contextRelative="true" />	 
+            <forward name="mainSecond"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/mainSecond.jsp"
+				redirect="false" contextRelative="true" />
+			  <forward name="automation"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/automation.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="transferHandle"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/transferHandle.jsp"
+				redirect="false" contextRelative="true" />
+		    <forward name="secondAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/secondAudit.jsp"
+                    redirect="false" contextRelative="true" />	
+            <forward name="goTransferCheck"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/transferCheck.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="openRejectView"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/rejectView.jsp"
+                     redirect="false" contextRelative="true" />
+             <forward name="runningProcessInstancesList"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/runningProcessInstancesList.jsp"
+                     redirect="false" contextRelative="true" />                        		
+            <forward name="gotoDetail"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/transferDetail.jsp"
+				redirect="false" contextRelative="true" />
+			 <forward name="involvedProcessInstancesList"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/involvedProcessInstancesList.jsp"
+                     redirect="false" contextRelative="true" />
+             <forward name="involvedFinishedList"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/involvedFinishedList.jsp"
+                     redirect="false" contextRelative="true" />	 
+             <forward name="sheetAccessories" 
+		        path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/sheetAccessories.jsp"
+		        redirect="false" contextRelative="true"/>
+            <forward name="troublePhotos"
+                     path="/WEB-INF/pages/partner/activiti/common/troublePhotos.jsp"
+                     redirect="false" contextRelative="true" />   
+            <forward name="epibolyAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferOfficeMaleGuest/epibolyAudit.jsp"
+                     redirect="false" contextRelative="true" />	
+            <forward name="mainEpiboly"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferOfficeMaleGuest/mainEpiboly.jsp"
+				redirect="false" contextRelative="true" /> 
+			<forward name="workOrderQueryList"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferOfficeMaleGuest/workOrderQueryList.jsp"
+                     redirect="false" contextRelative="true" />    
+            <forward name="workOrderQueryTransfer"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferOfficeMaleGuest/workOrderQueryTransfer.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="getBack"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/getBack.jsp"
+                     redirect="false" contextRelative="true" />  
+             <forward name="rollbackview"
+                     path="/pnrTransferPrecheck.do?method=listBacklog"
+                     redirect="true" />  
+             <forward name="provinceLineExamine"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/provinceLineExamineCheck.jsp"
+                     redirect="false" contextRelative="true" />
+             <forward name="provinceManageExamine"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/provinceManageExamineCheck.jsp"
+                     redirect="false" contextRelative="true" />                                  		
+             <forward name="expertTeamTest"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/expertTeamTest.jsp"
+                     redirect="false" contextRelative="true" />  
+             <forward name="expertTeamTestUpdate"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/expertTeamTestUpdate.jsp"
+                     redirect="false" contextRelative="true" />  
+             <forward name="openBatchApproveView"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/batchApproveView.jsp"
+                     redirect="false" contextRelative="true" />  
+             <forward name="downLoadSheetAccessories" 
+		        path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/downLoadSheetAccessories.jsp"
+		        redirect="false" contextRelative="true"/>                                      		
+        </action>
+        
+        <!--会审人员配置  -->
+        <action path="/pnrActReviewStaff"
+			type="com.boco.activiti.partner.process.webapp.action.PnrActReviewStaffAction"
+			name="pnrActReviewStaffForm"
+			scope="request"
+		    input="mainMenu"
+		    parameter="method"
+		    unknown="false"
+		    validate="false"
+			>			
+			<set-property property="cancellable" value="true" />
+			<forward name="editPnrActReviewStaff"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/pnrActReviewStaffForm.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="list"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferPrecheck/pnrActReviewStaffList.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="queryView"
+                     path="/pnrActReviewStaff.do?method=queryPnrActReviewStaff"
+                     redirect="true" />
+		</action>
+		
+		<!--地市预算金额配置  -->
+        <action path="/pnrActCityBudgetAmount"
+			type="com.boco.activiti.partner.process.webapp.action.PnrActCityBudgetAmountAction"
+			name="pnrActCityBudgetAmountForm"
+			scope="request"
+		    input="mainMenu"
+		    parameter="method"
+		    unknown="false"
+		    validate="false"
+			>			
+			<set-property property="cancellable" value="true" />
+			<forward name="editPnrActCityBudgetAmount"
+                     path="/WEB-INF/pages/partner/activiti/pnrActCityBudgetAmount/pnrActCityBudgetAmountForm.jsp"
+                     redirect="false" contextRelative="true" />
+			<forward name="updatePnrActCityBudgetAmount"
+                     path="/WEB-INF/pages/partner/activiti/pnrActCityBudgetAmount/updatePnrActCityBudgetAmountView.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="list"
+                     path="/WEB-INF/pages/partner/activiti/pnrActCityBudgetAmount/pnrActCityBudgetAmountList.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="queryView"
+                     path="/pnrActCityBudgetAmount.do?method=queryPnrActCityBudgetAmount"
+                     redirect="true" />
+             <forward name="addPnrActCityBudgetAmountList"
+                     path="/WEB-INF/pages/partner/activiti/pnrActCityBudgetAmount/addPnrActCityBudgetAmountList.jsp"
+                     redirect="false" contextRelative="true" />
+              <forward name="addPnrActCountyBudgetAmountList"
+                     path="/WEB-INF/pages/partner/activiti/pnrActCityBudgetAmount/addPnrActCountyBudgetAmountList.jsp"
+                     redirect="false" contextRelative="true" />       
+		</action>
+		
+        <!--大修改造工单  -->
+        <action path="/pnrOverhaulRemake"
+			type="com.boco.activiti.partner.process.webapp.action.PnrTransferOverhaulRemakeAction"
+			name="multiPageForm"
+			scope="request"
+		    input="mainMenu"
+		    parameter="method"
+		    unknown="false"
+		    validate="false"
+			>			
+			<set-property property="cancellable" value="true" />
+			<forward name="new"
+                     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/overhaulRemakeNew.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="success"
+					 path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/sheet_new_success.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="backlogList"
+				     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/backlogList.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="cityLineDirectorAudit"
+				     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/cityLineDirectorAudit.jsp"
+				     redirect="false" contextRelative="true" />	     
+			<forward name="cityManageChargeAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/cityManageChargeAudit.jsp"
+                     redirect="false" contextRelative="true" />	     
+            <forward name="cityManageDirectorAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/cityManageDirectorAudit.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="cityViceAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/cityViceAudit.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="provinceLineChargeAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/provinceLineChargeAudit.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="provinceLineViceAudit"
+					 path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/provinceLineViceAudit.jsp"
+				     redirect="false" contextRelative="true" />
+		    <forward name="provinceManageChargeAudit"
+					 path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/provinceManageChargeAudit.jsp"
+					 redirect="false" contextRelative="true" />         
+			<forward name="provinceManageViceAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/provinceManageViceAudit.jsp"
+                     redirect="false" contextRelative="true" />
+			<forward name="cityLineLaunched"
+				     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/cityLineLaunched.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="cityOperationApproval"
+				     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/transferPrecheckSGSCheck.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="transferHandle"
+				     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/transferHandle.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="involvedProcessInstancesList"
+                     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/involvedProcessInstancesList.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="getBack"
+                     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/getBack.jsp"
+                     redirect="false" contextRelative="true" /> 
+            <forward name="troublePhotos"
+                     path="/WEB-INF/pages/partner/activiti/common/troublePhotos.jsp"
+                     redirect="false" contextRelative="true" /> 
+            <forward name="showSuccess"
+				     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/sheet_success.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="provinceLineExamine"
+                     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/provinceLineExamineCheck.jsp"
+                     redirect="false" contextRelative="true" />	
+            <forward name="provinceManageExamine"
+                     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/provinceManageExamineCheck.jsp"
+                     redirect="false" contextRelative="true" /> 
+            <forward name="mainSecond"
+					 path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/mainSecond.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="transferHandle"
+					 path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/transferHandle.jsp"
+					 redirect="false" contextRelative="true" />  
+			<forward name="secondAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/secondAudit.jsp"
+                     redirect="false" contextRelative="true" />	 
+            <forward name="openRejectView"
+                     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/rejectView.jsp"
+                     redirect="false" contextRelative="true" />
+		 <forward name="involvedFinishedList"
+                     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/involvedFinishedList.jsp"
+                     redirect="false" contextRelative="true" />
+         <forward name="waitWorkOrderList"
+				     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/waitWorkOrderList.jsp"
+				     redirect="false" contextRelative="true" />
+	     <forward name="runningProcessInstancesList"
+                     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/runningProcessInstancesList.jsp"
+                     redirect="false" contextRelative="true" />
+         <forward name="delete_success"
+				     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/sheet_delete_success.jsp"
+				     redirect="false" contextRelative="true" />
+		<forward name="openSelectPhotoView"
+				     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/photoChooseList.jsp"
+				     redirect="false" contextRelative="true" />	 
+		 <forward name="showPhotoView"
+                     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/shwPhotoeList.jsp"
+                     redirect="false" contextRelative="true" />
+         <forward name="openBatchApproveView"
+                     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/batchApproveView.jsp"
+                     redirect="false" contextRelative="true" />
+         <forward name="catchBackSuccess"
+					 path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/catchback_success.jsp"
+				     redirect="false" contextRelative="true" />
+		 <forward name="openBatchRegressionView"
+                     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/batchRegressionView.jsp"
+                     redirect="false" contextRelative="true" />
+         <forward name="viewHistory"
+                     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/viewHistory.jsp"
+                     redirect="false" contextRelative="true" />
+         <forward name="gotoDetail"
+					 path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/transferDetail.jsp"
+				     redirect="false" contextRelative="true" />
+		<forward name="newLayoutPage"
+                     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/newLayoutPage.jsp"
+                     redirect="false" contextRelative="true" />	
+        <forward name="orderAudit"
+				     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/orderAudit.jsp"
+				     redirect="false" contextRelative="true" />
+		<!-- 按地市权限工单查询 -->
+		<forward name="pnrOverhaulWorkOrderList"
+				     path="/WEB-INF/pages/partner/activiti/pnrOverhaulRemake/pnrOverhaulWorkOrderList.jsp"
+				     redirect="false" contextRelative="true" />
+		</action>
+		
+        <!--新预检预修工单  -->
+        <action path="/pnrTransferNewPrecheck"
+			type="com.boco.activiti.partner.process.webapp.action.PnrTransferNewPrecheckAction"
+			name="multiPageForm"
+			scope="request"
+		    input="mainMenu"
+		    parameter="method"
+		    unknown="false"
+		    validate="false"
+			>			
+			<set-property property="cancellable" value="true" />
+			<forward name="new"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/transferNewPrecheck.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="success"
+					 path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/sheet_new_success.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="backlogList"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/backlogList.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="waitWorkOrderList"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/waitWorkOrderList.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="workOrderAudit"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/workOrderAudit.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="cityLineChargeAudit"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/cityLineChargeAudit.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="cityLineDirectorAudit"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/cityLineDirectorAudit.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="cityManageChargeAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/cityManageChargeAudit.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="viewHistory"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/viewHistory.jsp"
+                     redirect="false" contextRelative="true" />	 
+            <forward name="showSuccess"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/sheet_success.jsp"
+				     redirect="false" contextRelative="true" />
+            <forward name="cityManageDirectorAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/cityManageDirectorAudit.jsp"
+                     redirect="false" contextRelative="true" /> 
+            <forward name="troublePhotos"
+                     path="/WEB-INF/pages/partner/activiti/common/troublePhotos.jsp"
+                     redirect="false" contextRelative="true" /> 
+			<forward name="cityViceAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/cityViceAudit.jsp"
+                     redirect="false" contextRelative="true" />	
+            <forward name="provinceLineChargeAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/provinceLineChargeAudit.jsp"
+                     redirect="false" contextRelative="true" /> 
+            <forward name="provinceLineViceAudit"
+					 path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/provinceLineViceAudit.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="provinceManageChargeAudit"
+					 path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/provinceManageChargeAudit.jsp"
+					 redirect="false" contextRelative="true" />  
+			<forward name="provinceManageViceAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/provinceManageViceAudit.jsp"
+                     redirect="false" contextRelative="true" />	 
+            <forward name="openRejectView"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/rejectView.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="sheetAccessories" 
+		        	 path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/sheetAccessories.jsp"
+		             redirect="false" contextRelative="true"/>
+		    <forward name="mainSecond"
+					 path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/mainSecond.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="transferHandle"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/transferHandle.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="secondAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/secondAudit.jsp"
+                     redirect="false" contextRelative="true" />	 
+             <forward name="sheetAccessories" 
+		        path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/sheetAccessories.jsp"
+		        redirect="false" contextRelative="true"/>
+		     <forward name="openBatchApproveView"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/batchApproveView.jsp"
+                     redirect="false" contextRelative="true" />
+		     <forward name="openBatchRegressionView"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/batchRegressionView.jsp"
+                     redirect="false" contextRelative="true" />
+		     <forward name="showPhotoView"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/shwPhotoeList.jsp"
+                     redirect="false" contextRelative="true" />
+             <forward name="involvedProcessInstancesList"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/involvedProcessInstancesList.jsp"
+                     redirect="false" contextRelative="true" />
+             <forward name="gotoDetail"
+					 path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/transferDetail.jsp"
+				     redirect="false" contextRelative="true" />
+			 <forward name="runningProcessInstancesList"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/runningProcessInstancesList.jsp"
+                     redirect="false" contextRelative="true" />
+             <forward name="delete_success"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/sheet_delete_success.jsp"
+				     redirect="false" contextRelative="true" />       
+             <forward name="openSelectPhotoView"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/photoChooseList.jsp"
+				     redirect="false" contextRelative="true" />
+		     <forward name="getBack"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/getBack.jsp"
+                     redirect="false" contextRelative="true" />  
+              <forward name="catchBackSuccess"
+					 path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/catchback_success.jsp"
+				     redirect="false" contextRelative="true" />
+			  <forward name="involvedFinishedList"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/involvedFinishedList.jsp"
+                     redirect="false" contextRelative="true" />
+              <forward name="openDealWithView"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/dealWithView.jsp"
+                     redirect="false" contextRelative="true" />
+                     
+                            
+            <!-- 下载附件 add by wyl 20150429 -->         
+			<forward name="downAttachMentList"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/downAttachMentList.jsp"
+                     redirect="false" contextRelative="true" />
+
+                     
+            <!-- 工单下载 add by wangchang 20150507 -->         
+			<forward name="downWorkOrderList"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/downWorkOrderList.jsp"
+                     redirect="false" contextRelative="true" />
+            
+            
+                      
+            <!-- 图片下载 add by wangchang 20150508 -->         
+			<forward name="downImageImportList"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/downImageImportList.jsp"
+                     redirect="false" contextRelative="true" />
+                                                      
+
+            <forward name="orderAudit"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/orderAudit.jsp"
+				     redirect="false" contextRelative="true" />
+		    <forward name="mainMaterial"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/mainMaterialList.jsp"
+				     redirect="false" contextRelative="true" />   
+			
+			<!-- 子场景的显示 -->
+			<forward name="childSceneForDetails"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/childSceneForDetails.jsp"
+				     redirect="false" contextRelative="true" />
+			<!-- 主材的显示 -->
+			<forward name="mainMaterialForDetails"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/mainMaterialForDetails.jsp"
+				     redirect="false" contextRelative="true" />
+			<!-- 辅材的显示 -->
+			<forward name="assistMaterialForDetails"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/assistMaterialForDetails.jsp"
+				     redirect="false" contextRelative="true" />
+			<!-- 按地市权限工单查询 -->	     
+            <forward name="localNetworkWorkOrderList"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/localNetworkWorkOrderList.jsp"
+				     redirect="false" contextRelative="true" />
+				     
+			<forward name="openRejectTaskView"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/openRejectTaskView.jsp"
+				     redirect="false" contextRelative="true" />
+			 <!-- 任意驳回 -->
+			<forward name="linkRejectedPage"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/linkRejectedPage.jsp"
+				     redirect="false" contextRelative="true" />
+			<!-- 材料详情 主材或者辅材 -->
+			<forward name="materialForDetails"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/materialForDetails.jsp"
+				     redirect="false" contextRelative="true" />
+		    <forward name="extractData"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/extractData.jsp"
+				     redirect="false" contextRelative="true" />	
+			<!--商城工单查看  -->
+		    <forward name="shoppingMallList"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/shoppingMallList.jsp"
+                     redirect="false" contextRelative="true" />			
+		    <forward name="openFreeFlow"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/openFreeFlow.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="samplingList"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/samplingList.jsp"
+				     redirect="false" contextRelative="true" />
+		</action>
+		
+        <!--干线预检预修工单  -->
+        <action path="/pnrTransferArteryPrecheck"
+			type="com.boco.activiti.partner.process.webapp.action.PnrTransferArteryPrecheckAction"
+			name="multiPageForm"
+			scope="request"
+		    input="mainMenu"
+		    parameter="method"
+		    unknown="false"
+		    validate="false"
+			>			
+			<set-property property="cancellable" value="true" />
+			<forward name="new"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/transferNewPrecheck.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="success"
+					 path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/sheet_new_success.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="backlogList"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/backlogList.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="waitWorkOrderList"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/waitWorkOrderList.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="workOrderAudit"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/workOrderAudit.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="cityLineChargeAudit"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/cityLineChargeAudit.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="cityLineDirectorAudit"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/cityLineDirectorAudit.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="cityManageChargeAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/cityManageChargeAudit.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="viewHistory"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/viewHistory.jsp"
+                     redirect="false" contextRelative="true" />	 
+            <forward name="showSuccess"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/sheet_success.jsp"
+				     redirect="false" contextRelative="true" />
+            <forward name="cityManageDirectorAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/cityManageDirectorAudit.jsp"
+                     redirect="false" contextRelative="true" /> 
+            <forward name="troublePhotos"
+                     path="/WEB-INF/pages/partner/activiti/common/troublePhotos.jsp"
+                     redirect="false" contextRelative="true" /> 
+			<forward name="cityViceAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/cityViceAudit.jsp"
+                     redirect="false" contextRelative="true" />	
+            <forward name="provinceLineChargeAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/provinceLineChargeAudit.jsp"
+                     redirect="false" contextRelative="true" /> 
+            <forward name="provinceLineViceAudit"
+					 path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/provinceLineViceAudit.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="provinceManageChargeAudit"
+					 path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/provinceManageChargeAudit.jsp"
+					 redirect="false" contextRelative="true" />  
+			<forward name="provinceManageViceAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/provinceManageViceAudit.jsp"
+                     redirect="false" contextRelative="true" />	 
+            <forward name="openRejectView"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/rejectView.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="sheetAccessories" 
+		        	 path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/sheetAccessories.jsp"
+		             redirect="false" contextRelative="true"/>
+		    <forward name="mainSecond"
+					 path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/mainSecond.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="transferHandle"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/transferHandle.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="secondAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/secondAudit.jsp"
+                     redirect="false" contextRelative="true" />	 
+             <forward name="sheetAccessories" 
+		        path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/sheetAccessories.jsp"
+		        redirect="false" contextRelative="true"/>
+		     <forward name="openBatchApproveView"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/batchApproveView.jsp"
+                     redirect="false" contextRelative="true" />
+		     <forward name="openBatchRegressionView"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/batchRegressionView.jsp"
+                     redirect="false" contextRelative="true" />
+             <forward name="openBatchRegressionView"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/batchRegressionView.jsp"
+                     redirect="false" contextRelative="true" />
+             <forward name="involvedProcessInstancesList"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/involvedProcessInstancesList.jsp"
+                     redirect="false" contextRelative="true" />
+             <forward name="runningProcessInstancesList"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/runningProcessInstancesList.jsp"
+                     redirect="false" contextRelative="true" />
+             <forward name="delete_success"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/sheet_delete_success.jsp"
+				     redirect="false" contextRelative="true" />
+		     <forward name="getBack"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/getBack.jsp"
+                     redirect="false" contextRelative="true" />
+             <forward name="catchBackSuccess"
+					 path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/catchback_success.jsp"
+				     redirect="false" contextRelative="true" />
+			 <forward name="openSelectPhotoView"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/photoChooseList.jsp"
+				     redirect="false" contextRelative="true" />
+			 <forward name="showPhotoView"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/shwPhotoeList.jsp"
+                     redirect="false" contextRelative="true" />
+             <forward name="gotoDetail"
+					 path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/transferDetail.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="involvedFinishedList"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/involvedFinishedList.jsp"
+                     redirect="false" contextRelative="true" />	
+            <forward name="orderAudit"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/orderAudit.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="anyfallback"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/anyfallback.jsp"
+				     redirect="false" contextRelative="true" />
+			<!-- 按地市权限工单查询 -->
+		    <forward name="trunkLineWorkOrderList"
+				     path="/WEB-INF/pages/partner/activiti/pnrTransferArteryPrecheck/trunkLineWorkOrderList.jsp"
+				     redirect="false" contextRelative="true" />
+         </action>
+         
+         
+		<!--附件下载要求  add by wyl 20150429
+        <action path="/downAttachment"
+			type="com.boco.activiti.partner.process.webapp.action.PnrTransferNewPrecheckAction"
+			name="multiPageForm"
+			scope="request"
+		    input="mainMenu"
+		    parameter="method"
+		    unknown="false"
+		    validate="false"
+			>
+			<set-property property="cancellable" value="true" />
+			
+			<forward name="downAttachMentList"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferNewPrecheck/downAttachMentList.jsp"
+                     redirect="false" contextRelative="true" />
+		</action>-->         
+	</action-mappings>
+	<controller nocache="true" inputForward="true" maxFileSize="2M" />
+</struts-config>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    
+    <bean id="IPnrCommonTaskMainDAO"
+		class="com.boco.eoms.partner.sheet.commontask.dao.hibernate.PnrCommonTaskMainDAOHibernate" autowire="byName">
+      </bean>
+	<bean id="IPnrCommonTaskLinkDAO"
+		class="com.boco.eoms.partner.sheet.commontask.dao.hibernate.PnrCommonTaskLinkDAOHibernate" autowire="byName">
+     </bean>
+     <bean id="IPnrCommonTaskTaskDAO"
+		class="com.boco.eoms.partner.sheet.commontask.dao.hibernate.PnrCommonTaskTaskDAOHibernate" autowire="byName">
+     </bean>
+     <bean id="PnrCommonTaskTask"
+		class="com.boco.eoms.partner.sheet.commontask.model.PnrCommonTaskTask" autowire="byName">
+     </bean>
+    <bean id="PnrCommonTaskLink"
+		class="com.boco.eoms.partner.sheet.commontask.model.PnrCommonTaskLink"
+		autowire="byName" />
+	<bean id="PnrCommonTaskMain"
+		class="com.boco.eoms.partner.sheet.commontask.model.PnrCommonTaskMain"
+		autowire="byName" />
+		
+	<bean id="iPnrCommonTaskTaskManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.sheet.commontask.service.impl.PnrCommonTaskTaskManagerImpl">
+				<property name="taskModelObject" ref="PnrCommonTaskTask" />
+				<property name="taskDAO">
+					<ref bean="IPnrCommonTaskTaskDAO" />
+				</property>
+				<property name="taskConfigPath">
+			       <value>/com/boco/eoms/partner/sheet/commontask/config/pnrcommontaskTaskConfig.properties</value>
+		        </property>				
+			</bean>
+		</property>
+	</bean>	
+	<bean id="iPnrCommonTaskFlowManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.sheet.commontask.service.impl.PnrCommonTaskFlowManagerImpl">
+				<property name="businessFlowAdapterService">
+					<ref bean="BusinessFlowAdapterService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="iPnrCommonTaskLinkManager" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.sheet.commontask.service.impl.PnrCommonTaskLinkManagerImpl">
+				<property name="linkObject" ref="PnrCommonTaskLink"/>
+				<property name="linkDAO">
+				  <ref bean="IPnrCommonTaskLinkDAO"/>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="iPnrCommonTaskMainManager" parent="txProxyTemplate">
+	<property name="target">
+			<bean
+				class="com.boco.eoms.partner.sheet.commontask.service.impl.PnrCommonTaskMainManagerImpl">
+			    <property name="mainObject" ref="PnrCommonTaskMain" />
+				<property name="mainDAO">
+				 <ref bean="IPnrCommonTaskMainDAO" />
+				 </property>
+				 <property name="workSheetQO">
+					<ref bean="iPnrCommonTaskQo" />
+				</property>
+				 <property name="flowTemplateName">
+					<value>PartnerCommonTaskProcess</value>
+				</property>
+				<property name="roleConfigPath">
+					<value>classpath:com/boco/eoms/partner/sheet/commontask/config/pnrcommontask-config.xml</value>
+				</property>
+			</bean>
+		</property>
+	</bean> 
+
+   <bean id="iPnrCommonTaskQo"
+		class="com.boco.eoms.partner.sheet.commontask.qo.impl.PnrCommonTaskQoImpl"
+		autowire="byName" singleton="false" >
+		<property name="poMain" value="PnrCommonTaskMain" />
+		<property name="poLink" value="PnrCommonTaskLink" />
+		<property name="poTask" value="PnrCommonTaskTask" />
+		<property name="aliasMain" value="PnrCommonTaskMain" />
+		<property name="aliasLink" value="PnrCommonTaskLink" />
+		<property name="aliasTask" value="PnrCommonTaskTask" />
+		<property name="sheetModelConfig" value="/config/sheet-query-task.xml" />
+	</bean>
+
+	<bean id="PnrCommonTaskSheetFacadeService" parent="txProxyTemplate"> 
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.sheet.commontask.service.impl.PnrCommonTaskSheetFacadeServiceImpl">
+				<property name="mainService" ref="iPnrCommonTaskMainManager" />
+				<property name="linkService" ref="iPnrCommonTaskLinkManager" />
+				<property name="taskService" ref="iPnrCommonTaskTaskManager" />
+				<property name="businessFlowService" ref="iPnrCommonTaskFlowManager" />
+				<property name="preEngineDataHandler" ref="PnrCommonTaskPreEngineDataHandler" />
+				<property name="roleConfigPath" value="classpath:com/boco/eoms/partner/sheet/commontask/config/pnrcommontask-config.xml" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="PnrCommonTaskPerform" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.sheet.commontask.service.impl.PnrCommonTaskPerformServiceImpl">
+			  <property name="sheetFacadeService" ref="PnrCommonTaskSheetFacadeService" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="PnrCommonTaskPerformShow" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.sheet.commontask.service.impl.PnrCommonTaskPerformShowServiceImpl">
+				<property name="sheetFacadeService" ref="PnrCommonTaskSheetFacadeService" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="PnrCommonTaskList" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.sheet.commontask.service.impl.PnrCommonTaskListServiceImpl">
+				<property name="sheetFacadeService" ref="PnrCommonTaskSheetFacadeService" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="PnrCommonTaskListShow" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.sheet.commontask.service.impl.PnrCommonTaskListShowServiceImpl">
+				<property name="sheetFacadeService" ref="PnrCommonTaskSheetFacadeService" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="PnrCommonTaskInfoShow" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.sheet.commontask.service.impl.PnrCommonTaskInfoShowServiceImpl">
+				<property name="sheetFacadeService" ref="PnrCommonTaskSheetFacadeService" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="PnrCommonTaskPreEngineDataHandler" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.sheet.commontask.service.impl.PnrCommonTaskPreEngineDataHandlerImpl" />
+		</property>
+	</bean>
+	
+    <!-- 工单统计<liujinlong 20130503 add > begin -->
+    <bean id="pnrCommonTaskStatisticDao"
+		class="com.boco.eoms.partner.sheet.commontask.dao.hibernate.PnrCommonTaskStatisticDaoImpl" autowire="byName" />
+		
+	<bean id="pnrCommonTaskStatisticDaoHibernate"
+		class="com.boco.eoms.partner.sheet.commontask.dao.hibernate.PnrCommonTaskStatisticDaoHibernateImpl" autowire="byName" />
+		
+	<bean id="pnrCommonTaskStatisticMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.sheet.commontask.service.impl.PnrCommonTaskStatisticMgrImpl">
+				<property name="pnrCommonTaskStatisticDao" ref="pnrCommonTaskStatisticDao" />
+				<property name="pnrCommonTaskStatisticDaoHibernate" ref="pnrCommonTaskStatisticDaoHibernate" />
+			</bean>
+		</property>
+	</bean>
+    <!-- 工单统计<liujinlong 20130503 add > end -->
+
+</beans>

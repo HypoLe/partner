@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	
+    <!-- 权重 -->
+    <bean id="AssWeightDao" class="com.boco.eoms.partner.assess.AssWeight.dao.hibernate.AssWeightDaoHibernate" autowire="byName"/>
+    <bean id="IassWeightMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssWeight.mgr.impl.AssWeightMgrImpl">   
+                <property name="assWeightDao" ref="AssWeightDao"/>
+            </bean>
+        </property>
+    </bean> 
+    <!-- 付费信息 -->
+	<bean id="feeTreeMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.assess.AssFee.mgr.impl.FeeTreeMgrImpl">
+				<property name="feeTreeDao" ref="feeTreeDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="feeTreeDao"
+		class="com.boco.eoms.partner.assess.AssFee.dao.hibernate.FeeTreeDaoHibernate"
+		autowire="byName" />
+
+	<bean id="feeDetailMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.assess.AssFee.mgr.impl.FeeDetailMgrImpl">
+				<property name="feeDetailDao" ref="feeDetailDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="feeDetailDao"
+		class="com.boco.eoms.partner.assess.AssFee.dao.hibernate.FeeDetailDaoHibernate"
+		autowire="byName" />
+		
+	<bean id="feeTotalMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.assess.AssFee.mgr.impl.FeeTotalMgrImpl">
+				<property name="feeTotalDao" ref="feeTotalDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="feeTotalDao"
+		class="com.boco.eoms.partner.assess.AssFee.dao.hibernate.FeeTotalDaoHibernate"
+		autowire="byName" />    
+    <!-- 线路专业后评估 -->
+    <!-- 操作角色配置 -->
+    <bean id="lineAssRoleIdList"
+		class="com.boco.eoms.partner.assess.AssRight.util.AssRoleIdList">
+        <!-- 考核模型管理角色 -->
+		<property name="treeConfigRoleId">
+			<value>29</value>
+		</property>
+		<!-- 考核模板审核角色 -->
+		<property name="templateAuditRoleId">
+			<value>30</value>
+		</property>
+		<!-- 考核记录审核角色 -->
+		<property name="reportAuditRoleId">
+			<value>31</value>
+		</property>
+		<!-- 考核表执行角色 -->
+		<property name="reportExecuteRoleId">
+			<value>32</value>
+		</property>
+		<!-- 考核表查看角色 -->
+		<property name="reportShowRoleId">
+			<value>33</value>
+		</property>		
+		<!-- 厂家确认角色 -->
+		<property name="factoryAdminRoleId">
+			<value>34</value>
+		</property>
+		<!-- 省公司地域id -->
+		<property name="rootAreaId">
+			<value>10</value>
+		</property>
+		<!-- 厂家字典类型id(现在改为黑龙江合作伙伴树的省公司节点nodeid) -->
+		<property name="factoryDictType">
+			<value>10114</value>
+		</property>	
+		<!-- 短信服务id -->
+		<property name="serverId">
+			<value>8a28c40d28d7a9370128d7c883b00050</value>
+		</property>	
+	</bean>
+	
+    <bean id="IlineAssRoleService" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssRight.service.impl.LineAssRoleService">
+            </bean>
+        </property>
+    </bean>
+    
+    <bean id="lineAssTaskDao" class="com.boco.eoms.partner.assess.AssExecute.dao.hibernate.LineAssTaskDaoHibernate" autowire="byName"/>
+    <bean id="IlineAssTaskMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssExecute.mgr.impl.LineAssTaskMgrImpl">   
+                <property name="assTaskDao" ref="lineAssTaskDao"/>
+            </bean>
+        </property>
+    </bean> 
+        <bean id="lineAssTreeDao" class="com.boco.eoms.partner.assess.AssTree.dao.hibernate.LineAssTreeDaoHibernate" autowire="byName"/>
+    <bean id="IlineAssTreeMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssTree.mgr.impl.LineAssTreeMgrImpl">   
+                <property name="assTreeDao" ref="lineAssTreeDao"/>
+            </bean>
+        </property>
+    </bean> 
+    
+    <bean id="lineAssTemplateDao" class="com.boco.eoms.partner.assess.AssTree.dao.hibernate.LineAssTemplateDaoHibernate" autowire="byName"/>
+    <bean id="IlineAssTemplateMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssTree.mgr.impl.LineAssTemplateMgrImpl">   
+                <property name="assTemplateDao" ref="lineAssTemplateDao"/>
+            </bean>
+        </property>
+    </bean> 
+    
+    <bean id="lineAssKpiDao" class="com.boco.eoms.partner.assess.AssTree.dao.hibernate.LineAssKpiDaoHibernate" autowire="byName"/>
+    <bean id="IlineAssKpiMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssTree.mgr.impl.LineAssKpiMgrImpl">   
+                <property name="assKpiDao" ref="lineAssKpiDao"/>
+            </bean>
+        </property>
+    </bean>
+     
+    <bean id="lineAssTaskDetailDao" class="com.boco.eoms.partner.assess.AssExecute.dao.hibernate.LineAssTaskDetailDaoHibernate" autowire="byName"/>
+    <bean id="IlineAssTaskDetailMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssExecute.mgr.impl.LineAssTaskDetailMgrImpl">   
+                <property name="assTaskDetailDao" ref="lineAssTaskDetailDao"/>
+            </bean>
+        </property>
+    </bean> 
+    
+    <bean id="lineAssKpiInstanceDao" class="com.boco.eoms.partner.assess.AssExecute.dao.hibernate.LineAssKpiInstanceDaoHibernate" autowire="byName"/>
+    <bean id="IlineAssKpiInstanceMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssExecute.mgr.impl.LineAssKpiInstanceMgrImpl">   
+                <property name="assKpiInstanceDao" ref="lineAssKpiInstanceDao"/>
+            </bean>
+        </property>
+    </bean> 
+            
+    <bean id="lineAssReportInfoDao" class="com.boco.eoms.partner.assess.AssReport.dao.hibernate.LineAssReportInfoDaoHibernate" autowire="byName"/>
+    <bean id="IlineAssReportInfoMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssReport.mgr.impl.LineAssReportInfoMgrImpl">   
+                <property name="assReportInfoDao" ref="lineAssReportInfoDao"/>
+            </bean>
+        </property>
+    </bean> 
+    <!-- 打分配置 -->
+	<bean id="IlineAssKpiConfigMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.assess.AssAlgorithm.mgr.impl.LineAssKpiConfigMgrImpl">
+				<property name="assKpiConfigDao" ref="lineAssKpiConfigDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="lineAssKpiConfigDao"
+		class="com.boco.eoms.partner.assess.AssAlgorithm.dao.hibernate.LineAssKpiConfigDaoHibernate"
+		autowire="byName" />   
+    <!-- 打分实例 -->
+	<bean id="IlineAssSelectedInstanceMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.assess.AssAlgorithm.mgr.impl.LineAssSelectedInstanceMgrImpl">
+				<property name="assSelectedInstanceDao" ref="lineAssSelectedInstanceDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="lineAssSelectedInstanceDao"
+		class="com.boco.eoms.partner.assess.AssAlgorithm.dao.hibernate.LineAssSelectedInstanceDaoHibernate"
+		autowire="byName" />   
+		
+    <!--AssFactory-->
+    <bean id="lineAssFactoryDao" class="com.boco.eoms.partner.assess.AssFactory.dao.hibernate.LineAssFactoryDaoHibernate" autowire="byName"/>
+    <bean id="IlineAssFactoryMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssFactory.mgr.impl.LineAssFactoryMgrImpl">
+                <property name="assFactoryDao" ref="lineAssFactoryDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--AssFlow-->
+    <bean id="IlineAssFlowMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssFlow.mgr.impl.LineAssFlowMgrImpl">
+            </bean>
+        </property>
+    </bean>
+    <bean id="lineAssOperateStepDao" class="com.boco.eoms.partner.assess.AssFlow.dao.hibernate.LineAssOperateStepDaoHibernate" autowire="byName"/>
+    <bean id="IlineAssOperateStepMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssFlow.mgr.impl.LineAssOperateStepMgrImpl">   
+                <property name="assOperateStepDao" ref="lineAssOperateStepDao"/>
+            </bean>
+        </property>
+    </bean> 
+    <!-- 交换专业后评估 -->
+    <!-- 操作角色配置 -->
+    <bean id="changeAssRoleIdList"
+		class="com.boco.eoms.partner.assess.AssRight.util.AssRoleIdList">
+        <!-- 考核模型管理角色 -->
+		<property name="treeConfigRoleId">
+			<value>29</value>
+		</property>
+		<!-- 考核模板审核角色 -->
+		<property name="templateAuditRoleId">
+			<value>30</value>
+		</property>
+		<!-- 考核记录审核角色 -->
+		<property name="reportAuditRoleId">
+			<value>31</value>
+		</property>
+		<!-- 考核表执行角色 -->
+		<property name="reportExecuteRoleId">
+			<value>32</value>
+		</property>
+		<!-- 考核表查看角色 -->
+		<property name="reportShowRoleId">
+			<value>33</value>
+		</property>
+		<!-- 厂家确认角色 -->
+		<property name="factoryAdminRoleId">
+			<value>34</value>
+		</property>
+		<!-- 省公司地域id -->
+		<property name="rootAreaId">
+			<value>10</value>
+		</property>
+		<!-- 厂家字典类型id(现在改为黑龙江合作伙伴树的省公司节点nodeid) -->
+		<property name="factoryDictType">
+			<value>10114</value>
+		</property>		
+	</bean>
+    <bean id="IchangeAssRoleService" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssRight.service.impl.ChangeAssRoleService">
+            </bean>
+        </property>
+    </bean>
+    <bean id="changeAssTaskDao" class="com.boco.eoms.partner.assess.AssExecute.dao.hibernate.ChangeAssTaskDaoHibernate" autowire="byName"/>
+    <bean id="IchangeAssTaskMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssExecute.mgr.impl.ChangeAssTaskMgrImpl">   
+                <property name="assTaskDao" ref="changeAssTaskDao"/>
+            </bean>
+        </property>
+    </bean> 
+    <bean id="changeAssTreeDao" class="com.boco.eoms.partner.assess.AssTree.dao.hibernate.ChangeAssTreeDaoHibernate" autowire="byName"/>
+    <bean id="IchangeAssTreeMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssTree.mgr.impl.ChangeAssTreeMgrImpl">   
+                <property name="assTreeDao" ref="changeAssTreeDao"/>
+            </bean>
+        </property>
+    </bean> 
+    
+    <bean id="changeAssTemplateDao" class="com.boco.eoms.partner.assess.AssTree.dao.hibernate.ChangeAssTemplateDaoHibernate" autowire="byName"/>
+    <bean id="IchangeAssTemplateMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssTree.mgr.impl.ChangeAssTemplateMgrImpl">   
+                <property name="assTemplateDao" ref="changeAssTemplateDao"/>
+            </bean>
+        </property>
+    </bean> 
+    
+    <bean id="changeAssKpiDao" class="com.boco.eoms.partner.assess.AssTree.dao.hibernate.ChangeAssKpiDaoHibernate" autowire="byName"/>
+    <bean id="IchangeAssKpiMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssTree.mgr.impl.ChangeAssKpiMgrImpl">   
+                <property name="assKpiDao" ref="changeAssKpiDao"/>
+            </bean>
+        </property>
+    </bean>
+     
+    <bean id="changeAssTaskDetailDao" class="com.boco.eoms.partner.assess.AssExecute.dao.hibernate.ChangeAssTaskDetailDaoHibernate" autowire="byName"/>
+    <bean id="IchangeAssTaskDetailMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssExecute.mgr.impl.ChangeAssTaskDetailMgrImpl">   
+                <property name="assTaskDetailDao" ref="changeAssTaskDetailDao"/>
+            </bean>
+        </property>
+    </bean> 
+    
+    <bean id="changeAssKpiInstanceDao" class="com.boco.eoms.partner.assess.AssExecute.dao.hibernate.ChangeAssKpiInstanceDaoHibernate" autowire="byName"/>
+    <bean id="IchangeAssKpiInstanceMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssExecute.mgr.impl.ChangeAssKpiInstanceMgrImpl">   
+                <property name="assKpiInstanceDao" ref="changeAssKpiInstanceDao"/>
+            </bean>
+        </property>
+    </bean> 
+            
+    <bean id="changeAssReportInfoDao" class="com.boco.eoms.partner.assess.AssReport.dao.hibernate.ChangeAssReportInfoDaoHibernate" autowire="byName"/>
+    <bean id="IchangeAssReportInfoMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssReport.mgr.impl.ChangeAssReportInfoMgrImpl">   
+                <property name="assReportInfoDao" ref="changeAssReportInfoDao"/>
+            </bean>
+        </property>
+    </bean> 
+    <!-- 打分配置 -->
+	<bean id="IchangeAssKpiConfigMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.assess.AssAlgorithm.mgr.impl.ChangeAssKpiConfigMgrImpl">
+				<property name="assKpiConfigDao" ref="changeAssKpiConfigDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="changeAssKpiConfigDao"
+		class="com.boco.eoms.partner.assess.AssAlgorithm.dao.hibernate.ChangeAssKpiConfigDaoHibernate"
+		autowire="byName" />   
+		
+    <!--AssFactory-->
+    <bean id="changeAssFactoryDao" class="com.boco.eoms.partner.assess.AssFactory.dao.hibernate.ChangeAssFactoryDaoHibernate" autowire="byName"/>
+    <bean id="IchangeAssFactoryMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssFactory.mgr.impl.ChangeAssFactoryMgrImpl">
+                <property name="assFactoryDao" ref="changeAssFactoryDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--AssFlow-->
+    <bean id="IchangeAssFlowMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssFlow.mgr.impl.ChangeAssFlowMgrImpl">
+            </bean>
+        </property>
+    </bean>
+    <bean id="changeAssOperateStepDao" class="com.boco.eoms.partner.assess.AssFlow.dao.hibernate.ChangeAssOperateStepDaoHibernate" autowire="byName"/>
+    <bean id="IchangeAssOperateStepMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssFlow.mgr.impl.ChangeAssOperateStepMgrImpl">   
+                <property name="assOperateStepDao" ref="changeAssOperateStepDao"/>
+            </bean>
+        </property>
+    </bean> 
+    
+    <bean id="assConfirmDao" class="com.boco.eoms.partner.assess.AssReport.dao.hibernate.AssConfirmDaoHibernate" autowire="byName"/>
+    <bean id="IassConfirmMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssReport.mgr.impl.AssConfirmMgrImpl">   
+                <property name="assConfirmDao" ref="assConfirmDao"/>
+            </bean>
+        </property>
+    </bean>   
+    <!-- 操作角色配置 传输-->
+    <bean id="tranAssRoleIdList"
+		class="com.boco.eoms.partner.assess.AssRight.util.AssRoleIdList">
+        <!-- 考核模型管理角色 -->
+		<property name="treeConfigRoleId">
+			<value>29</value>
+		</property>
+		<!-- 考核模板审核角色 -->
+		<property name="templateAuditRoleId">
+			<value>30</value>
+		</property>
+		<!-- 考核记录审核角色 -->
+		<property name="reportAuditRoleId">
+			<value>31</value>
+		</property>
+		<!-- 考核表执行角色 -->
+		<property name="reportExecuteRoleId">
+			<value>32</value>
+		</property>
+		<!-- 考核表查看角色 -->
+		<property name="reportShowRoleId">
+			<value>33</value>
+		</property>		
+		<!-- 厂家确认角色 -->
+		<property name="factoryAdminRoleId">
+			<value>34</value>
+		</property>
+		<!-- 省公司地域id -->
+		<property name="rootAreaId">
+			<value>10</value>
+		</property>
+		<!-- 厂家字典类型id(现在改为黑龙江合作伙伴树的省公司节点nodeid) -->
+		<property name="factoryDictType">
+			<value>10114</value>
+		</property>		
+	</bean>
+	
+    <bean id="ItranAssRoleService" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssRight.service.impl.TranAssRoleService">
+            </bean>
+        </property>
+    </bean>  
+    
+	
+    
+    <bean id="tranAssTaskDao" class="com.boco.eoms.partner.assess.AssExecute.dao.hibernate.TranAssTaskDaoHibernate" autowire="byName"/>
+    <bean id="ItranAssTaskMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssExecute.mgr.impl.TranAssTaskMgrImpl">   
+                <property name="assTaskDao" ref="tranAssTaskDao"/>
+            </bean>
+        </property>
+    </bean> 
+        <bean id="tranAssTreeDao" class="com.boco.eoms.partner.assess.AssTree.dao.hibernate.TranAssTreeDaoHibernate" autowire="byName"/>
+    <bean id="ItranAssTreeMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssTree.mgr.impl.TranAssTreeMgrImpl">   
+                <property name="assTreeDao" ref="tranAssTreeDao"/>
+            </bean>
+        </property>
+    </bean> 
+    
+    <bean id="tranAssTemplateDao" class="com.boco.eoms.partner.assess.AssTree.dao.hibernate.TranAssTemplateDaoHibernate" autowire="byName"/>
+    <bean id="ItranAssTemplateMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssTree.mgr.impl.TranAssTemplateMgrImpl">   
+                <property name="assTemplateDao" ref="tranAssTemplateDao"/>
+            </bean>
+        </property>
+    </bean> 
+    
+    <bean id="tranAssKpiDao" class="com.boco.eoms.partner.assess.AssTree.dao.hibernate.TranAssKpiDaoHibernate" autowire="byName"/>
+    <bean id="ItranAssKpiMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssTree.mgr.impl.TranAssKpiMgrImpl">   
+                <property name="assKpiDao" ref="tranAssKpiDao"/>
+            </bean>
+        </property>
+    </bean>
+     
+    <bean id="tranAssTaskDetailDao" class="com.boco.eoms.partner.assess.AssExecute.dao.hibernate.TranAssTaskDetailDaoHibernate" autowire="byName"/>
+    <bean id="ItranAssTaskDetailMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssExecute.mgr.impl.TranAssTaskDetailMgrImpl">   
+                <property name="assTaskDetailDao" ref="tranAssTaskDetailDao"/>
+            </bean>
+        </property>
+    </bean> 
+    
+    <bean id="tranAssKpiInstanceDao" class="com.boco.eoms.partner.assess.AssExecute.dao.hibernate.TranAssKpiInstanceDaoHibernate" autowire="byName"/>
+    <bean id="ItranAssKpiInstanceMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssExecute.mgr.impl.TranAssKpiInstanceMgrImpl">   
+                <property name="assKpiInstanceDao" ref="tranAssKpiInstanceDao"/>
+            </bean>
+        </property>
+    </bean> 
+            
+    <bean id="tranAssReportInfoDao" class="com.boco.eoms.partner.assess.AssReport.dao.hibernate.TranAssReportInfoDaoHibernate" autowire="byName"/>
+    <bean id="ItranAssReportInfoMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssReport.mgr.impl.TranAssReportInfoMgrImpl">   
+                <property name="assReportInfoDao" ref="tranAssReportInfoDao"/>
+            </bean>
+        </property>
+    </bean> 
+    <!-- 打分配置 -->
+	<bean id="ItranAssKpiConfigMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.assess.AssAlgorithm.mgr.impl.TranAssKpiConfigMgrImpl">
+				<property name="assKpiConfigDao" ref="tranAssKpiConfigDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="tranAssKpiConfigDao"
+		class="com.boco.eoms.partner.assess.AssAlgorithm.dao.hibernate.TranAssKpiConfigDaoHibernate"
+		autowire="byName" />   
+	    <!-- 打分实例 -->
+	<bean id="ItranAssSelectedInstanceMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.assess.AssAlgorithm.mgr.impl.TranAssSelectedInstanceMgrImpl">
+				<property name="assSelectedInstanceDao" ref="tranAssSelectedInstanceDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="tranAssSelectedInstanceDao"
+		class="com.boco.eoms.partner.assess.AssAlgorithm.dao.hibernate.TranAssSelectedInstanceDaoHibernate"
+		autowire="byName" />   
+		
+    <!--AssFactory-->
+    <bean id="tranAssFactoryDao" class="com.boco.eoms.partner.assess.AssFactory.dao.hibernate.TranAssFactoryDaoHibernate" autowire="byName"/>
+    <bean id="ItranAssFactoryMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssFactory.mgr.impl.TranAssFactoryMgrImpl">
+                <property name="assFactoryDao" ref="tranAssFactoryDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--AssFlow-->
+    <bean id="ItranAssFlowMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssFlow.mgr.impl.TranAssFlowMgrImpl">
+            </bean>
+        </property>
+    </bean>
+    <bean id="tranAssOperateStepDao" class="com.boco.eoms.partner.assess.AssFlow.dao.hibernate.TranAssOperateStepDaoHibernate" autowire="byName"/>
+    <bean id="ItranAssOperateStepMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssFlow.mgr.impl.TranAssOperateStepMgrImpl">   
+                <property name="assOperateStepDao" ref="tranAssOperateStepDao"/>
+            </bean>
+        </property>
+    </bean>  
+    
+    <!-- 操作角色配置 传输-->
+    <bean id="siteAssRoleIdList"
+		class="com.boco.eoms.partner.assess.AssRight.util.AssRoleIdList">
+        <!-- 考核模型管理角色 -->
+		<property name="treeConfigRoleId">
+			<value>29</value>
+		</property>
+		<!-- 考核模板审核角色 -->
+		<property name="templateAuditRoleId">
+			<value>30</value>
+		</property>
+		<!-- 考核记录审核角色 -->
+		<property name="reportAuditRoleId">
+			<value>31</value>
+		</property>
+		<!-- 考核表执行角色 -->
+		<property name="reportExecuteRoleId">
+			<value>32</value>
+		</property>
+		<!-- 考核表查看角色 -->
+		<property name="reportShowRoleId">
+			<value>33</value>
+		</property>		
+		<!-- 厂家确认角色 -->
+		<property name="factoryAdminRoleId">
+			<value>34</value>
+		</property>
+		<!-- 省公司地域id -->
+		<property name="rootAreaId">
+			<value>10</value>
+		</property>
+		<!-- 厂家字典类型id(现在改为黑龙江合作伙伴树的省公司节点nodeid) -->
+		<property name="factoryDictType">
+			<value>10114</value>
+		</property>		
+	</bean>
+	
+    <bean id="IsiteAssRoleService" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssRight.service.impl.SiteAssRoleService">
+            </bean>
+        </property>
+    </bean>  
+    
+	
+    
+    <bean id="siteAssTaskDao" class="com.boco.eoms.partner.assess.AssExecute.dao.hibernate.SiteAssTaskDaoHibernate" autowire="byName"/>
+    <bean id="IsiteAssTaskMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssExecute.mgr.impl.SiteAssTaskMgrImpl">   
+                <property name="assTaskDao" ref="siteAssTaskDao"/>
+            </bean>
+        </property>
+    </bean> 
+        <bean id="siteAssTreeDao" class="com.boco.eoms.partner.assess.AssTree.dao.hibernate.SiteAssTreeDaoHibernate" autowire="byName"/>
+    <bean id="IsiteAssTreeMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssTree.mgr.impl.SiteAssTreeMgrImpl">   
+                <property name="assTreeDao" ref="siteAssTreeDao"/>
+            </bean>
+        </property>
+    </bean> 
+    
+    <bean id="siteAssTemplateDao" class="com.boco.eoms.partner.assess.AssTree.dao.hibernate.SiteAssTemplateDaoHibernate" autowire="byName"/>
+    <bean id="IsiteAssTemplateMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssTree.mgr.impl.SiteAssTemplateMgrImpl">   
+                <property name="assTemplateDao" ref="siteAssTemplateDao"/>
+            </bean>
+        </property>
+    </bean> 
+    
+    <bean id="siteAssKpiDao" class="com.boco.eoms.partner.assess.AssTree.dao.hibernate.SiteAssKpiDaoHibernate" autowire="byName"/>
+    <bean id="IsiteAssKpiMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssTree.mgr.impl.SiteAssKpiMgrImpl">   
+                <property name="assKpiDao" ref="siteAssKpiDao"/>
+            </bean>
+        </property>
+    </bean>
+     
+    <bean id="siteAssTaskDetailDao" class="com.boco.eoms.partner.assess.AssExecute.dao.hibernate.SiteAssTaskDetailDaoHibernate" autowire="byName"/>
+    <bean id="IsiteAssTaskDetailMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssExecute.mgr.impl.SiteAssTaskDetailMgrImpl">   
+                <property name="assTaskDetailDao" ref="siteAssTaskDetailDao"/>
+            </bean>
+        </property>
+    </bean> 
+    
+    <bean id="siteAssKpiInstanceDao" class="com.boco.eoms.partner.assess.AssExecute.dao.hibernate.SiteAssKpiInstanceDaoHibernate" autowire="byName"/>
+    <bean id="IsiteAssKpiInstanceMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssExecute.mgr.impl.SiteAssKpiInstanceMgrImpl">   
+                <property name="assKpiInstanceDao" ref="siteAssKpiInstanceDao"/>
+            </bean>
+        </property>
+    </bean> 
+            
+    <bean id="siteAssReportInfoDao" class="com.boco.eoms.partner.assess.AssReport.dao.hibernate.SiteAssReportInfoDaoHibernate" autowire="byName"/>
+    <bean id="IsiteAssReportInfoMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssReport.mgr.impl.SiteAssReportInfoMgrImpl">   
+                <property name="assReportInfoDao" ref="siteAssReportInfoDao"/>
+            </bean>
+        </property>
+    </bean> 
+    <!-- 打分配置 -->
+	<bean id="IsiteAssKpiConfigMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.assess.AssAlgorithm.mgr.impl.SiteAssKpiConfigMgrImpl">
+				<property name="assKpiConfigDao" ref="siteAssKpiConfigDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="siteAssKpiConfigDao"
+		class="com.boco.eoms.partner.assess.AssAlgorithm.dao.hibernate.SiteAssKpiConfigDaoHibernate"
+		autowire="byName" />   
+	    <!-- 打分实例 -->
+	<bean id="IsiteAssSelectedInstanceMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.assess.AssAlgorithm.mgr.impl.SiteAssSelectedInstanceMgrImpl">
+				<property name="assSelectedInstanceDao" ref="siteAssSelectedInstanceDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="siteAssSelectedInstanceDao"
+		class="com.boco.eoms.partner.assess.AssAlgorithm.dao.hibernate.SiteAssSelectedInstanceDaoHibernate"
+		autowire="byName" />   
+		
+    <!--AssFactory-->
+    <bean id="siteAssFactoryDao" class="com.boco.eoms.partner.assess.AssFactory.dao.hibernate.SiteAssFactoryDaoHibernate" autowire="byName"/>
+    <bean id="IsiteAssFactoryMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssFactory.mgr.impl.SiteAssFactoryMgrImpl">
+                <property name="assFactoryDao" ref="siteAssFactoryDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--AssFlow-->
+    <bean id="IsiteAssFlowMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssFlow.mgr.impl.SiteAssFlowMgrImpl">
+            </bean>
+        </property>
+    </bean>
+    <bean id="siteAssOperateStepDao" class="com.boco.eoms.partner.assess.AssFlow.dao.hibernate.SiteAssOperateStepDaoHibernate" autowire="byName"/>
+    <bean id="IsiteAssOperateStepMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssFlow.mgr.impl.SiteAssOperateStepMgrImpl">   
+                <property name="assOperateStepDao" ref="siteAssOperateStepDao"/>
+            </bean>
+        </property>
+    </bean>
+    
+    
+    <!-- 操作角色配置 传输-->
+    <bean id="deviceAssRoleIdList"
+		class="com.boco.eoms.partner.assess.AssRight.util.AssRoleIdList">
+        <!-- 考核模型管理角色 -->
+		<property name="treeConfigRoleId">
+			<value>29</value>
+		</property>
+		<!-- 考核模板审核角色 -->
+		<property name="templateAuditRoleId">
+			<value>30</value>
+		</property>
+		<!-- 考核记录审核角色 -->
+		<property name="reportAuditRoleId">
+			<value>31</value>
+		</property>
+		<!-- 考核表执行角色 -->
+		<property name="reportExecuteRoleId">
+			<value>32</value>
+		</property>
+		<!-- 考核表查看角色 -->
+		<property name="reportShowRoleId">
+			<value>33</value>
+		</property>		
+		<!-- 厂家确认角色 -->
+		<property name="factoryAdminRoleId">
+			<value>34</value>
+		</property>
+		<!-- 省公司地域id -->
+		<property name="rootAreaId">
+			<value>10</value>
+		</property>
+		<!-- 厂家字典类型id(现在改为黑龙江合作伙伴树的省公司节点nodeid) -->
+		<property name="factoryDictType">
+			<value>10114</value>
+		</property>		
+	</bean>
+	
+    <bean id="IdeviceAssRoleService" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssRight.service.impl.DeviceAssRoleService">
+            </bean>
+        </property>
+    </bean>  
+    
+	
+    
+    <bean id="deviceAssTaskDao" class="com.boco.eoms.partner.assess.AssExecute.dao.hibernate.DeviceAssTaskDaoHibernate" autowire="byName"/>
+    <bean id="IdeviceAssTaskMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssExecute.mgr.impl.DeviceAssTaskMgrImpl">   
+                <property name="assTaskDao" ref="deviceAssTaskDao"/>
+            </bean>
+        </property>
+    </bean> 
+        <bean id="deviceAssTreeDao" class="com.boco.eoms.partner.assess.AssTree.dao.hibernate.DeviceAssTreeDaoHibernate" autowire="byName"/>
+    <bean id="IdeviceAssTreeMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssTree.mgr.impl.DeviceAssTreeMgrImpl">   
+                <property name="assTreeDao" ref="deviceAssTreeDao"/>
+            </bean>
+        </property>
+    </bean> 
+    
+    <bean id="deviceAssTemplateDao" class="com.boco.eoms.partner.assess.AssTree.dao.hibernate.DeviceAssTemplateDaoHibernate" autowire="byName"/>
+    <bean id="IdeviceAssTemplateMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssTree.mgr.impl.DeviceAssTemplateMgrImpl">   
+                <property name="assTemplateDao" ref="deviceAssTemplateDao"/>
+            </bean>
+        </property>
+    </bean> 
+    
+    <bean id="deviceAssKpiDao" class="com.boco.eoms.partner.assess.AssTree.dao.hibernate.DeviceAssKpiDaoHibernate" autowire="byName"/>
+    <bean id="IdeviceAssKpiMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssTree.mgr.impl.DeviceAssKpiMgrImpl">   
+                <property name="assKpiDao" ref="deviceAssKpiDao"/>
+            </bean>
+        </property>
+    </bean>
+     
+    <bean id="deviceAssTaskDetailDao" class="com.boco.eoms.partner.assess.AssExecute.dao.hibernate.DeviceAssTaskDetailDaoHibernate" autowire="byName"/>
+    <bean id="IdeviceAssTaskDetailMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssExecute.mgr.impl.DeviceAssTaskDetailMgrImpl">   
+                <property name="assTaskDetailDao" ref="deviceAssTaskDetailDao"/>
+            </bean>
+        </property>
+    </bean> 
+    
+    <bean id="deviceAssKpiInstanceDao" class="com.boco.eoms.partner.assess.AssExecute.dao.hibernate.DeviceAssKpiInstanceDaoHibernate" autowire="byName"/>
+    <bean id="IdeviceAssKpiInstanceMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssExecute.mgr.impl.DeviceAssKpiInstanceMgrImpl">   
+                <property name="assKpiInstanceDao" ref="deviceAssKpiInstanceDao"/>
+            </bean>
+        </property>
+    </bean> 
+            
+    <bean id="deviceAssReportInfoDao" class="com.boco.eoms.partner.assess.AssReport.dao.hibernate.DeviceAssReportInfoDaoHibernate" autowire="byName"/>
+    <bean id="IdeviceAssReportInfoMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssReport.mgr.impl.DeviceAssReportInfoMgrImpl">   
+                <property name="assReportInfoDao" ref="deviceAssReportInfoDao"/>
+            </bean>
+        </property>
+    </bean> 
+    <!-- 打分配置 -->
+	<bean id="IdeviceAssKpiConfigMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.assess.AssAlgorithm.mgr.impl.DeviceAssKpiConfigMgrImpl">
+				<property name="assKpiConfigDao" ref="deviceAssKpiConfigDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="deviceAssKpiConfigDao"
+		class="com.boco.eoms.partner.assess.AssAlgorithm.dao.hibernate.DeviceAssKpiConfigDaoHibernate"
+		autowire="byName" />   
+	    <!-- 打分实例 -->
+	<bean id="IdeviceAssSelectedInstanceMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.assess.AssAlgorithm.mgr.impl.DeviceAssSelectedInstanceMgrImpl">
+				<property name="assSelectedInstanceDao" ref="deviceAssSelectedInstanceDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="deviceAssSelectedInstanceDao"
+		class="com.boco.eoms.partner.assess.AssAlgorithm.dao.hibernate.DeviceAssSelectedInstanceDaoHibernate"
+		autowire="byName" />   
+		
+    <!--AssFactory-->
+    <bean id="deviceAssFactoryDao" class="com.boco.eoms.partner.assess.AssFactory.dao.hibernate.DeviceAssFactoryDaoHibernate" autowire="byName"/>
+    <bean id="IdeviceAssFactoryMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssFactory.mgr.impl.DeviceAssFactoryMgrImpl">
+                <property name="assFactoryDao" ref="deviceAssFactoryDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--AssFlow-->
+    <bean id="IdeviceAssFlowMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssFlow.mgr.impl.DeviceAssFlowMgrImpl">
+            </bean>
+        </property>
+    </bean>
+    <bean id="deviceAssOperateStepDao" class="com.boco.eoms.partner.assess.AssFlow.dao.hibernate.DeviceAssOperateStepDaoHibernate" autowire="byName"/>
+    <bean id="IdeviceAssOperateStepMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssFlow.mgr.impl.DeviceAssOperateStepMgrImpl">   
+                <property name="assOperateStepDao" ref="deviceAssOperateStepDao"/>
+            </bean>
+        </property>
+    </bean>   
+    <!-- 地市权重配置 -->   
+    <bean id="ChangeCityWeightDao" class="com.boco.eoms.partner.assess.AssWeight.dao.hibernate.ChangeCityWeightDaoHibernate" autowire="byName"/>
+    <bean id="IchangeCityWeightMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssWeight.mgr.impl.ChangeCityWeightMgrImpl">   
+                <property name="cityWeightDao" ref="ChangeCityWeightDao"/>
+            </bean>
+        </property>
+    </bean> 
+    <!-- 地市权重配置 -->   
+    <bean id="ChangeCityWeightExeDao" class="com.boco.eoms.partner.assess.AssWeight.dao.hibernate.ChangeCityWeightExeDaoHibernate" autowire="byName"/>
+    <bean id="IchangeCityWeightExeMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.assess.AssWeight.mgr.impl.ChangeCityWeightExeMgrImpl">   
+                <property name="cityWeightExeDao" ref="ChangeCityWeightExeDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!-- 自动采集配置 --> 
+	<bean id="assCollectionConfigMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.assess.AssAutoCollection.mgr.impl.AssCollectionConfigMgrImpl">
+				<property name="assCollectionConfigDao" ref="assCollectionConfigDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="assCollectionConfigDao"
+		class="com.boco.eoms.partner.assess.AssAutoCollection.dao.hibernate.AssCollectionConfigDaoHibernate"
+		autowire="byName" />   
+	<!-- 自动采集配置 --> 	
+	<bean id="assAutoCollectionMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.assess.AssAutoCollection.mgr.impl.AssAutoCollectionMgrImpl">
+				<property name="assAutoCollectionDao" ref="assAutoCollectionDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="assAutoCollectionDao"
+		class="com.boco.eoms.partner.assess.AssAutoCollection.dao.hibernate.AssAutoCollectionDaoHibernate"
+		autowire="byName" />	
+	<!-- 自动采集分类 -->		 
+	<bean id="assCollectionTypeMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.assess.AssAutoCollection.mgr.impl.AssCollectionTypeMgrImpl">
+				<property name="assCollectionTypeDao" ref="assCollectionTypeDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="assCollectionTypeDao"
+		class="com.boco.eoms.partner.assess.AssAutoCollection.dao.hibernate.AssCollectionTypeDaoHibernate"
+		autowire="byName" />  
+		
+	<bean id="assCollectionResultMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.assess.AssAutoCollection.mgr.impl.AssCollectionResultMgrImpl">
+				<property name="assCollectionResultDao" ref="assCollectionResultDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="assCollectionResultDao"
+		class="com.boco.eoms.partner.assess.AssAutoCollection.dao.hibernate.AssCollectionResultDaoHibernate"
+		autowire="byName" />		
+		
+		
+	<bean id="assCollectionQueryJdbcMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.assess.AssAutoCollection.mgr.impl.AssCollectionQueryJdbcMgrImpl">
+				<property name="assCollectionQueryJDBC" ref="assCollectionQueryJDBC" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="assCollectionQueryJDBC"
+		class="com.boco.eoms.partner.assess.AssAutoCollection.dao.jdbc.AssCollectionQueryJDBC"
+		autowire="byName" />
+				            
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

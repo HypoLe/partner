@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+
+
+<property name="show_sql">true</property>
+ 	<mapping resource="com/boco/eoms/partner/sheet/commontask/model/PnrCommonTaskMain.hbm.xml"/>
+ 	<mapping resource="com/boco/eoms/partner/sheet/commontask/model/PnrCommonTaskLink.hbm.xml"/>
+ 	<mapping resource="com/boco/eoms/partner/sheet/commontask/model/PnrCommonTaskTask.hbm.xml"/>
+ 	<mapping resource="com/boco/eoms/partner/sheet/commontask/model/PnrCommonTaskStatisticInfo.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
+

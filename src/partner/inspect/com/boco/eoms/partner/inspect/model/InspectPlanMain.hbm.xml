@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.boco.eoms.partner.inspect.model.InspectPlanMain" table="pnr_inspect_plan_main">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="planName" column="plan_name"/>
+		<property name="specialty" column="specialty"/>
+		<property name="partnerDeptId" column="partner_dept_id"/>
+		<property name="deptMagId" column="dept_Mag_Id"/>
+		<property name="content" column="content"/>
+		<property name="resNum" column="res_num"/>
+		<property name="resDoneNum" column="res_Done_Num"/>
+		<property name="createTime" column="create_time"/>
+		<property name="creator" column="creator"/>
+		<property name="approveObjectType" column="approve_object_type"/>
+		<property name="approveObject" column="approve_object"/>
+		<property name="approveStatus" column="approve_status"/>
+		<property name="status" column="status"/>
+		<property name="resConfig" column="res_Config"/>
+		<property name="year" column="year"/>
+		<property name="month" column="month"/>
+		<property name="resExceptionNum" column="res_Exception_Num"/>
+		<property name="timeOnSite" column="time_On_Site"/>
+		<property name="resPlanDoneNum" column="res_plan_done_num"/>
+		<property name="creatorDeptId" column="creator_Dept_Id"/>
+		<property name="copyFlag" column="copy_Flag"/>
+		<property name="finishFlag" column="finish_Flag"/>
+	</class>
+</hibernate-mapping>

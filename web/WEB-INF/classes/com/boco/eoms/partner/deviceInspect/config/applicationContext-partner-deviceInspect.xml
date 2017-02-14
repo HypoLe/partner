@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+   <bean id="deviceInspectDao" class="com.boco.eoms.partner.deviceInspect.dao.impl.DeviceInspectDaoImpl" autowire="byName"></bean>
+   <bean id = "deviceInspectService" parent="txProxyTemplate">
+       <property name="target">
+           <bean class="com.boco.eoms.partner.deviceInspect.service.impl.DeviceInspectServiceImpl">
+                 <property name="deviceInspectDao" ref="deviceInspectDao"></property>
+           </bean> 
+       </property> 
+   </bean>
+   <bean id="transLineDao" class="com.boco.eoms.partner.deviceInspect.dao.impl.TransLineDaoImpl" autowire="byName"></bean>
+   <bean id = "transLineService" parent="txProxyTemplate">
+       <property name="target">
+           <bean class="com.boco.eoms.partner.deviceInspect.service.impl.TransLineServiceImpl">
+                 <property name="transLineDao" ref="transLineDao"></property>
+           </bean> 
+       </property> 
+   </bean>
+   
+    <bean id="pnrInspectMappingService" parent="txProxyTemplate" >
+   		<property name="target">
+           <bean class="com.boco.eoms.partner.deviceInspect.service.impl.PnrInspectMappingServiceImpl">
+                 <property name="pnrInspectMappingDao" ref="pnrInspectMappingDao"></property>
+                 <property name="pnrInspectMappingJdbc" ref="pnrInspectMappingJdbc"></property>
+           </bean> 
+       </property> 
+   </bean>   
+    <bean id="pnrInspectLinkService" parent="txProxyTemplate" >
+   		<property name="target">
+           <bean class="com.boco.eoms.partner.deviceInspect.service.impl.PnrInspectLinkServiceImpl">
+                 <property name="pnrInspectLinkDao" ref="pnrInspectLinkDao"></property>
+           </bean> 
+       </property> 
+   </bean>   
+    <bean id="pnrInspectTaskLinkService" parent="txProxyTemplate" >
+   		<property name="target">
+           <bean class="com.boco.eoms.partner.deviceInspect.service.impl.PnrInspectTaskLinkServiceImpl">
+                 <property name="pnrInspectTaskLinkDao" ref="pnrInspectTaskLinkDao"></property>
+           </bean> 
+       </property> 
+   </bean>   
+   <bean id="pnrInspectMappingDao" class="com.boco.eoms.partner.deviceInspect.dao.hibernate.PnrInspectMappingDaoHibernate" autowire="byName"></bean> 
+   <bean id="pnrInspectMappingJdbc" class="com.boco.eoms.partner.deviceInspect.dao.impl.PnrInspectMappingDaoImpl" autowire="byName"></bean> 
+   <bean id="pnrInspectLinkDao" class="com.boco.eoms.partner.deviceInspect.dao.hibernate.PnrInspectLinkDaoHibernate" autowire="byName"></bean> 
+   <bean id="pnrInspectTaskLinkDao" class="com.boco.eoms.partner.deviceInspect.dao.hibernate.PnrInspectTaskLinkDaoHibernate" autowire="byName"></bean> 
+   
+</beans>
+
+

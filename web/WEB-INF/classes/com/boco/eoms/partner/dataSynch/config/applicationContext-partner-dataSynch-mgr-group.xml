@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 客户信息表-IrmsGrouCustomer -->
+	<bean id="irmsGrouCustomerMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.group.IrmsGrouCustomerMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsGrouCustomerDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsGrouCustomerMappingRule" />
+				<property name="dataType" value="集客家客" /><!-- 专业类型-->
+				<property name="deviceType" value="客户信息表" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 数据(互联网)专线信息表-IrmsGroupLine -->
+	<bean id="irmsGroupLineMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.group.IrmsGroupLineMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsGroupLineDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsGroupLineMappingRule" />
+				<property name="dataType" value="集客家客" /><!-- 专业类型-->
+				<property name="deviceType" value="数据(互联网)专线信息表" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 客户开通业务信息表-IrmsGroupProduct -->
+	<bean id="irmsGroupProductMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.group.IrmsGroupProductMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsGroupProductDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsGroupProductMappingRule" />
+				<property name="dataType" value="集客家客" /><!-- 专业类型-->
+				<property name="deviceType" value="客户开通业务信息表" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 语音专线信息表-IrmsGroupSound -->
+	<bean id="irmsGroupSoundMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.group.IrmsGroupSoundMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsGroupSoundDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsGroupSoundMappingRule" />
+				<property name="dataType" value="集客家客" /><!-- 专业类型-->
+				<property name="deviceType" value="语音专线信息表" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- GPRS信息表-IrmsGroupGprs -->
+	<bean id="irmsGroupGprsMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.group.IrmsGroupGprsMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsGroupGprsDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsGroupGprsMappingRule" />
+				<property name="dataType" value="集客家客" /><!-- 专业类型-->
+				<property name="deviceType" value="GPRS信息表" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 短信信息表-IrmsGroupSms -->
+	<bean id="irmsGroupSmsMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.group.IrmsGroupSmsMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsGroupSmsDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsGroupSmsMappingRule" />
+				<property name="dataType" value="集客家客" /><!-- 专业类型-->
+				<property name="deviceType" value="短信信息表" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 彩信息表-IrmsGroupMms -->
+	<bean id="irmsGroupMmsMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.group.IrmsGroupMmsMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsGroupMmsDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsGroupMmsMappingRule" />
+				<property name="dataType" value="集客家客" /><!-- 专业类型-->
+				<property name="deviceType" value="彩信息表" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 出租专线信息表-IrmsGroupRent -->
+	<bean id="irmsGroupRentMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.group.IrmsGroupRentMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsGroupRentDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsGroupRentMappingRule" />
+				<property name="dataType" value="集客家客" /><!-- 专业类型-->
+				<property name="deviceType" value="出租专线信息表" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 客户端设备信息表-IrmsGroupDevice -->
+	<bean id="irmsGroupDeviceMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.group.IrmsGroupDeviceMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsGroupDeviceDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsGroupDeviceMappingRule" />
+				<property name="dataType" value="集客家客" /><!-- 专业类型-->
+				<property name="deviceType" value="客户端设备信息表" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+</beans>

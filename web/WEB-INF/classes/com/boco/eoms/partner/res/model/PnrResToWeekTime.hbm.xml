@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.boco.eoms.partner.res.model.PnrResToWeekTime" table="pnr_res_to_weektime">
+	            
+    <id name="id" column="id" unsaved-value="null">
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+    </id>    				            
+    <property name="weekID"
+            column="week_id"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="pnrID"
+            column="pnr_id"
+            not-null="false"
+            unique="false">
+    </property>
+</class>    
+</hibernate-mapping>
+

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<!-- 工单属性配置-->
+	<import
+		resource="classpath:config/applicationContext-sheet-base-attributes.xml" />
+	<!-- 工单字典 
+		<import
+		resource="classpath:config/applicationContext-sheet-dict.xml" />
+	-->
+	<!-- 工单orm转换工具 
+		<import
+		resource="classpath:config/applicationContext-sheet-orm.xml" />
+	
+	<import
+		resource="classpath:config/applicationContext-sheet-base-adapter-partnerwps.xml" />
+-->
+	<import
+		resource="classpath:config/applicationContext-sheet-base-service.xml" />
+	
+	<import
+		resource="classpath:config/applicationContext-kpi.xml" />
+
+
+	<bean id="LinkDAO"
+		class="com.boco.eoms.sheet.base.dao.hibernate.LinkDAOImpl" autowire="byName"
+		>
+
+      </bean>
+
+	<bean id="LinkService" parent="txProxyTemplate">
+           <property name="target">
+            <bean class="com.boco.eoms.sheet.base.service.impl.LinkServiceImpl">
+                <property name="linkDAO" ref="LinkDAO" />
+            </bean>
+        </property>
+	</bean>
+
+	<bean id="MainDAO"
+		class="com.boco.eoms.sheet.base.dao.hibernate.MainDAOImpl" autowire="byName"
+		>
+
+      </bean>
+
+
+
+	<bean id="MainService"  parent="txProxyTemplate">
+		 <property name="target">
+            <bean class="com.boco.eoms.sheet.base.service.impl.MainServiceImpl">
+                <property name="mainDAO" ref="MainDAO" />
+            </bean>
+        </property>
+		
+	</bean>
+	
+	<bean id="TaskDAO"
+		class="com.boco.eoms.sheet.base.dao.hibernate.TaskDAOImpl" autowire="byName"
+		>
+	
+      </bean>
+
+	<bean id="TaskService"  parent="txProxyTemplate">
+       <property name="target">
+            <bean class="com.boco.eoms.sheet.base.service.impl.TaskServiceImpl">
+                <property name="taskDAO" ref="TaskDAO" />
+            </bean>
+        </property>
+	</bean>
+	
+	<!--TawSystemWorkflow-DAO START-->
+    <bean id="ITawSystemWorkflowDAO" class="com.boco.eoms.sheet.base.dao.hibernate.TawSystemWorkflowDAOImpl" autowire="byName">
+
+      </bean>
+
+    <!--TawSystemWorkflow-DAO END-->
+    <!--TawSystemWorkflow-START-->    
+    <bean id="ITawSystemWorkflowManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.sheet.base.service.impl.TawSystemWorkflowManagerImpl">
+                <property name="ITawSystemWorkflowDAO" ref="ITawSystemWorkflowDAO"/>
+            </bean>
+        </property>
+    </bean>
+    <!--TawSystemWorkflow-END-->
+     <bean id="IDownLoadSheetAccessiorsDAO" class="com.boco.eoms.sheet.base.dao.jdbc.DownLoadSheetAccessiorsDAOImpl" autowire="byName">
+    </bean>
+    
+    <bean id="IDownLoadSheetAccessoriesService" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.sheet.base.service.impl.DownLoadSheetAccessoriesServiceImpl">
+                <property name="dao" ref="IDownLoadSheetAccessiorsDAO"/>
+            </bean>
+        </property>
+    </bean>
+    
+    <bean id="sheetFacadeService" parent="txProxyTemplate">
+    	<property name="target">
+            <bean class="com.boco.eoms.sheet.base.service.impl.SheetFacadeServiceImpl">
+                <property name="mainService" ref="MainService"/>
+                <property name="linkService" ref="LinkService"/>
+                <property name="taskService" ref="TaskService"/>
+                <property name="businessFlowService" ref="businessFlowService"/>
+            </bean>
+        </property>
+    </bean>
+    
+	<bean id="BusinessFlowAdapterService"
+		class="com.boco.eoms.sheet.base.adapter.service.partner.wps.WPSBusinessFlowAdapterServiceImpl">
+		<!-- 
+		<property name="safeService">
+			<ref bean="WorkflowSecutiryService" />
+		</property>
+		
+		<property name="engineService">
+			<ref bean="WorkflowEngineService" />
+		</property> -->
+	</bean>
+    
+    <bean id="pnrSheetQueryDao" class="com.boco.eoms.sheet.base.dao.hibernate.PnrSheetQueryDaoImpl" autowire="byName">
+    </bean>
+
+	
+</beans>

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<!-- ============ Form beans ============ -->
+	<form-beans>
+		<form-bean name="publicizeArticleForm"
+			type="com.boco.eoms.deviceManagement.busi.protectline.form.PublicizeArticleForm" />
+		<form-bean name="maintainForm"
+			type="com.boco.eoms.deviceManagement.busi.line.from.MaintainForm" />
+		
+		<form-bean name="publicizeArticleApprovalForm"
+			type="com.boco.eoms.deviceManagement.busi.protectline.form.PublicizeArticleApprovalForm" />	
+		
+		<form-bean name="maintainApprovalForm"
+			type="com.boco.eoms.deviceManagement.busi.line.from.MaintainApprovalForm" />
+				
+		<form-bean name="maintainReportForm"
+			type="com.boco.eoms.deviceManagement.busi.line.from.MaintainReportForm" />	
+			
+		<form-bean name="maintainFinishForm"
+			type="com.boco.eoms.deviceManagement.busi.line.from.MaintainFinishForm" />	
+	</form-beans>
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+	<!-- ============ Global forwards ============ -->
+	<global-forwards type="org.apache.struts.action.ActionForward">
+		<forward name="failure" path="/common/fail.jsp"
+			contextRelative="true" />
+		<forward name="success" path="/success.jsp"
+			contextRelative="true" />
+		<forward name="error" path="/error.jsp" contextRelative="true" />
+	</global-forwards>
+	<!-- ============ Action Mapping definitions ============ -->
+	<action-mappings type="org.apache.struts.action.ActionMapping">
+		<!-- Adding by steve. 2010-02-17 Circuit Start modual mapping.  -->
+		<action path="/publicizeArticle"
+			type="com.boco.eoms.deviceManagement.busi.protectline.action.PublicizeArticleAction"
+			name="publicizeArticleForm" scope="request" input="list"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<!-- This is Jsp page template here. Do not modify these templates. Begin. -->
+			<forward name="goToEdit"
+				path="/WEB-INF/pages/deviceManagement/publicizeArticle/publicizeArticleEdit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/deviceManagement/publicizeArticle/publicizeArticleList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToDetail"
+				path="/WEB-INF/pages/deviceManagement/publicizeArticle/publicizeArticleDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToImport"
+				path="/WEB-INF/pages/deviceManagement/busi/advertisementImport.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToAdd"
+				path="/WEB-INF/pages/deviceManagement/publicizeArticle/publicizeArticleForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="forwardlist"
+				path="/publicizeArticle.do?method=list" redirect="true" />
+			<forward name="success"
+				path="/WEB-INF/pages/deviceManagement/busi/success.jsp"
+				redirect="true" />
+			<forward name="approvaledDetail"
+				path="/WEB-INF/pages/deviceManagement/publicizeArticle/publicizeArticleApprovaledDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToApproval"
+				path="/WEB-INF/pages/deviceManagement/publicizeArticle/publicizeArticleApproval.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="approvaledList"
+				path="/WEB-INF/pages/deviceManagement/publicizeArticle/publicizeArticleApprovaledList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToShowPage"
+				path="/WEB-INF/pages/deviceManagement/publicizeArticle/staffPublicizeArticle.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="searchInto"
+				path="/WEB-INF/pages/deviceManagement/publicizeArticle/staffaPublicizeArticleSearchIntoDetail.jsp"
+				redirect="false" contextRelative="true" />
+				
+		</action>
+		
+		
+		<!-- 割接申请 -->
+		<action path="/maintain"
+			type="com.boco.eoms.deviceManagement.busi.line.action.MaintainAction"
+			name="maintainForm" scope="request" input="list"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<!-- This is Jsp page template here. Do not modify these templates. Begin. -->
+			<forward name="goToEdit"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/maintainEdit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/maintainList.jsp"
+				redirect="false" contextRelative="true" />
+			
+			<forward name="maintainforwardlist"
+				path="/maintain.do?method=list" redirect="true" />
+			
+			
+			<forward name="goToDetail"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/maintainDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToImport"
+				path="/WEB-INF/pages/deviceManagement/busi/advertisementImport.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToAdd"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/maintainForm.jsp"
+				redirect="false" contextRelative="true" />
+
+			<forward name="success"
+				path="/WEB-INF/pages/deviceManagement/busi/success.jsp"
+				redirect="true" />
+			<forward name="approvaledDetail"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/maintainApprovaledDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToApproval"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/maintainApproval.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="maintainapprovaledList"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/maintainApprovaledList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="approvaleList"
+				path="/maintain.do?method=approvalList" redirect="true" />
+			<forward name="goToShowPage"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/staffmaintain.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="searchInto"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/staffmaintainSearchIntoDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="addMaintainReport"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/maintainReport.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+		<!-- 割接验收 -->
+		<action path="/maintainfinish"
+			type="com.boco.eoms.deviceManagement.busi.line.action.MaintainAction"
+			name="maintainFinishForm" scope="request" input="list"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<!-- This is Jsp page template here. Do not modify these templates. Begin. -->
+			<forward name="goToEdit"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/maintainfinishEdit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="maintainFinishlist"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/maintainfinishList.jsp"
+				redirect="false" contextRelative="true" />
+			
+			<forward name="maintainFinishRedlist"
+				path="/maintainfinish.do?method=maintainFinishlist" redirect="true" />
+			
+			
+			
+			<forward name="goToMaintainFinishDetail"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/maintainfinishDetail.jsp"
+				redirect="false" contextRelative="true" />
+		
+			<forward name="goToMaintainFinishRecordList"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/maintainfinishrecordlist.jsp"
+				redirect="false" contextRelative="true" />
+				
+			<forward name="maintainfinishrecordedList"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/maintainfinishrecordedList.jsp"
+				redirect="false" contextRelative="true" />
+			
+			<forward name="maintainfinishrecordRedList"
+				path="/maintainfinish.do?method=goToMaintainFinishRecordList"
+				redirect="true" />
+			
+			<forward name="goTomaintainfinishrecordDetail"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/maintainfinishrecordDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToMaintainFinishRecordForm"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/maintainfinishrecordForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToMaintainFinishedAdd"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/maintainfinishForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="forwardlist"
+				path="/maintain.do?method=list" redirect="true" />
+			<forward name="success"
+				path="/WEB-INF/pages/deviceManagement/busi/success.jsp"
+				redirect="true" />
+			<forward name="approvaledDetail"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/maintainApprovaledDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToApproval"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/maintainApproval.jsp"
+				redirect="false" contextRelative="true" />
+			
+			<forward name="approvaledList"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/maintainApprovaledList.jsp"
+				redirect="false" contextRelative="true" />
+			
+			<forward name="maintainapprovalforwardlist"
+				path="/maintainApproval.do?method=approvalList" redirect="true" />
+			
+			<forward name="goToShowPage"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/staffmaintain.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="searchInto"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/staffmaintainSearchIntoDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="addMaintainReport"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/maintainReport.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+		
+		<action path="/publicizeArticleApproval"
+			type="com.boco.eoms.deviceManagement.busi.protectline.action.PublicizeArticleAction"
+			name="publicizeArticleApprovalForm" scope="request" input="list"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+            <forward name="approvalList"
+				path="/WEB-INF/pages/deviceManagement/publicizeArticle/publicizeArticleApprovalList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="forwardApprovalList"
+				path="/publicizeArticleApproval.do?method=approvalList" redirect="true" />
+			</action>
+			
+		<action path="/maintainApproval"
+			type="com.boco.eoms.deviceManagement.busi.line.action.MaintainAction"
+			name="maintainApprovalForm" scope="request" input="list"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+            <forward name="approvalList"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/maintainApprovalList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="forwardApprovalList"
+				path="/maintainApproval.do?method=approvalList" redirect="true" />
+			</action>
+			
+		<action path="/maintainReport"
+			type="com.boco.eoms.deviceManagement.busi.line.action.MaintainAction"
+			name="maintainReportForm" scope="request" input="list"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+            <forward name="approvalList"
+				path="/WEB-INF/pages/deviceManagement/busi/maintain/maintainApprovalList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="forwardApprovalList"
+				path="/maintainApproval.do?method=approvalList" redirect="true" />
+							
+			<forward name="approvaleList"
+				path="/maintain.do?method=approvalList" redirect="true" />
+			</action>
+		</action-mappings>
+	<!-- ========== Plug Ins Configuration ================================== -->
+	<!-- Add multiple validator resource files by setting the pathname property -->
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/validator-rules.xml" />
+	</plug-in>
+</struts-config>

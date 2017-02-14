@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.boco.eoms.materials.model.BillMaterial"
+            table="mate_bill_material">
+
+    	<id name="id" column="id" unsaved-value="null" >
+    		<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    		<generator class="uuid.hex" />
+    	</id>
+
+        <property name="totalAmount" column="total_amount"  />
+        <property name="unit" column="unit"  />
+        <property name="storeBillId" column="store_bill_id"  />
+        <property name="materialName" column="material_name"  />
+        <property name="encode" column="encode"  />
+        <property name="specification" column="specification"  />
+        <property name="materialId" column="material_id"  />
+        <property name="materialAmount" column="material_amount"  />
+        <property name="materialPrice" column="material_price"  />
+        <property name="remark" column="remark"  />
+        
+
+    </class>    
+
+</hibernate-mapping>
+

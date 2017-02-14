@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<layout>
+  <cell id="0" roleName="草稿" operater="reportExecuteRoleId" description="草稿" rejectCell="" gotoCell="0" pageType="editAssess"/>
+  <cell id="1" roleName="完成" operater="reportExecuteRoleId" description="完成" rejectCell="" gotoCell="" pageType="holdAssess"/>
+  <cell id="2" roleName="市公司代维管理员" operater="reportExecuteRoleId" description="市公司代维管理员填写评估表" rejectCell="" gotoCell="1" pageType="editAssess"/>
+</layout>

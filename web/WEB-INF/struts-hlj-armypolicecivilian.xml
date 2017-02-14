@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<!-- Struts1 
+	Author: huhao	
+	Create: 2011-10
+-->
+
+<struts-config>
+	<!-- ============ Form beans ============ -->
+	<form-beans>
+		<form-bean name="armyPoliceCivilianForm"
+			type="com.boco.eoms.deviceManagement.busi.protectline.form.ArmyPoliceCivilianForm" />
+	</form-beans>
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+	<!-- ============ Global forwards ============ -->
+	<global-forwards type="org.apache.struts.action.ActionForward">
+		<forward name="failure" path="/common/fail.jsp"
+			contextRelative="true" />
+		<forward name="success" path="/common/success.jsp"
+			contextRelative="true" />
+		<forward name="error" path="/error.jsp" contextRelative="true" />
+	</global-forwards>
+
+	<!-- ============ Action Mapping definitions ============ -->
+	<action-mappings type="org.apache.struts.action.ActionMapping">
+
+		<action path="/armypolicecivilian"
+			type="com.boco.eoms.deviceManagement.busi.protectline.action.ArmyPoliceCivilianAction"
+			name="armyPoliceCivilianForm" scope="request" input="list"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="goToAdd"
+				path="/WEB-INF/pages/deviceManagement/busi/armypolicecivilianmanagement/add.jsp"
+				redirect="false" contextRelative="true" />
+				<forward name="gotoList"
+				path="/WEB-INF/pages/deviceManagement/busi/armypolicecivilianmanagement/list.jsp"
+				redirect="false" contextRelative="true" />
+				<forward name="goToDetail"
+				path="/WEB-INF/pages/deviceManagement/busi/armypolicecivilianmanagement/detail.jsp"
+				redirect="false" contextRelative="true" />
+				<forward name="gotoApprovingList"
+				path="/WEB-INF/pages/deviceManagement/busi/armypolicecivilianmanagement/approvingList.jsp"
+				redirect="false" contextRelative="true" />
+				<forward name="goToApprovedDetail"
+				path="/WEB-INF/pages/deviceManagement/busi/armypolicecivilianmanagement/approveddetail.jsp"
+				redirect="false" contextRelative="true" />
+				<forward name="gotoreaddlist"
+				path="/WEB-INF/pages/deviceManagement/busi/armypolicecivilianmanagement/needreapprove.jsp"
+				redirect="false" contextRelative="true" />
+				<forward name="goToEdit"
+				path="/WEB-INF/pages/deviceManagement/busi/armypolicecivilianmanagement/edit.jsp"
+				redirect="false" contextRelative="true" />
+				<forward name="statisticsArmyPoliceCivilianManagementList"
+				path="/WEB-INF/pages/deviceManagement/busi/armypolicecivilianmanagement/statistics.jsp"
+				redirect="false" contextRelative="true" />
+				<forward name="gotoStatistics"
+				path="/WEB-INF/pages/deviceManagement/busi/armypolicecivilianmanagement/statistics.jsp"
+				redirect="false" contextRelative="true" />
+				<forward name="goTostaticsList"
+				path="/WEB-INF/pages/deviceManagement/busi/armypolicecivilianmanagement/staticslist.jsp"
+				redirect="false" contextRelative="true" />
+				<forward name="goTostaticsedDetail"
+				path="/WEB-INF/pages/deviceManagement/busi/armypolicecivilianmanagement/gotostaticsedDetail.jsp"
+				redirect="false" contextRelative="true" />
+				<forward name="liststaticsss"
+				path="/WEB-INF/pages/deviceManagement/busi/armypolicecivilianmanagement/gotostaticsedlista.jsp"
+				redirect="false" contextRelative="true" />
+				
+		</action>
+	</action-mappings>
+	<!-- ========== Plug Ins Configuration ================================== -->
+	<!-- Add multiple validator resource files by setting the pathname property -->
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/validator-rules.xml,/WEB-INF/validation-duty.xml" />
+	</plug-in>
+
+</struts-config>
+

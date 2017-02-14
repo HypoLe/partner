@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"   "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<!-- PnrRentBillsSpring文件配置 begin 2012-08-27 16:57:48-->
+	<bean id="pnrRentBillsDao"
+		class="com.boco.eoms.partner.property.dao.hibernate.PnrRentBillsDaoHibernateImpl"
+		autowire="byName" />
+		
+	<bean id="pnrRentBillsService" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.property.service.impl.PnrRentBillsServiceImpl">
+				<property name="pnrRentBillsDao" ref="pnrRentBillsDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- PnrRentBillsSpring文件配置 end 2012-08-27 16:57:48 -->
+	
+	<!-- PnrRentBillsSpring文件配置 begin 2012-09-28 10:47:47-->
+	<bean id="pnrRentBillsCountDao"
+		class="com.boco.eoms.partner.property.dao.hibernate.PnrRentBillsCountDaoHibernateImpl"
+		autowire="byName" />
+		
+	<bean id="pnrRentBillsCountService" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.property.service.impl.PnrRentBillsCountServiceImpl">
+				<property name="pnrRentBillsCountDao" ref="pnrRentBillsCountDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- PnrRentBillsSpring文件配置 end 2012-09-28 10:47:47 -->
+	
+	<!-- PnrPropertyAgreementSpring文件配置 begin 2012-08-27 16:57:47-->
+	<bean id="pnrPropertyAgreementDao"
+		class="com.boco.eoms.partner.property.dao.hibernate.PnrPropertyAgreementDaoHibernateImpl"
+		autowire="byName" />
+		
+	<bean id="pnrPropertyAgreementService" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.property.service.impl.PnrPropertyAgreementServiceImpl">
+				<property name="pnrPropertyAgreementDao" ref="pnrPropertyAgreementDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- PnrPropertyAgreementSpring文件配置 end 2012-08-27 16:57:47 -->
+	
+	<!-- PnrElectricityBillsSpring文件配置 begin 2012-08-27 16:57:47-->
+	<bean id="pnrElectricityBillsDao"
+		class="com.boco.eoms.partner.property.dao.hibernate.PnrElectricityBillsDaoHibernateImpl"
+		autowire="byName" />
+	<bean id="pnrElectricityBillsService" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.property.service.impl.PnrElectricityBillsServiceImpl">
+				<property name="pnrElectricityBillsDao" ref="pnrElectricityBillsDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- PnrElectricityBillsSpring文件配置 end 2012-08-27 16:57:47 -->
+	
+	<!-- PnrElectricityBillsCountSpring文件配置 begin 2012-09-28 10:47:47-->
+	<bean id="pnrElectricityBillsCountDao"
+		class="com.boco.eoms.partner.property.dao.hibernate.PnrElectricityBillsCountDaoHibernateImpl"
+		autowire="byName" />
+	<bean id="pnrElectricityBillsCountService" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.property.service.impl.PnrElectricityBillsCountServiceImpl">
+				<property name="pnrElectricityBillsCountDao" ref="pnrElectricityBillsCountDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- PnrElectricityBillsSpring文件配置 end 2012-09-28 10:47:47 -->
+	
+	<!-- PnrRemindMsgSpring文件配置 begin 2012-09-10 10:37:47-->
+	<bean id="pnrRemindMsgDao"
+		class="com.boco.eoms.partner.property.dao.hibernate.PnrRemindMsgDaoHibernateImpl"
+		autowire="byName" />
+	<bean id="pnrRemindMsgService" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.property.service.impl.PnrRemindMsgServiceImpl">
+				<property name="pnrRemindMsgDao" ref="pnrRemindMsgDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- PnrRemindMsgSpring文件配置 end 2012-09-10 10:37:47 -->
+</beans>
+
+
+
+
+
+
+
+
+

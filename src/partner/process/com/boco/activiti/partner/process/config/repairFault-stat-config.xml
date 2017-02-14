@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="GB2312"?>
+<sheetQuery>
+	<byArea>
+		<![CDATA[
+	select areaid,
+       areaname,
+       t_num as total_num,
+       t_amout as total_amout,
+       G1 as g_num_1,
+       decode(t_num, 0, 0, round(G1 / t_num * 100, 2)) as g_zb_1,
+       G2 as g_num_2,
+       decode(t_num, 0, 0, round(G2 / t_num * 100, 2)) as g_zb_2,
+       G3 as g_num_3,
+       decode(t_num, 0, 0, round(G3 / t_num * 100, 2)) as g_zb_3,
+       G4 as g_num_4,
+       decode(t_num, 0, 0, round(G4 / t_num * 100, 2)) as g_zb_4,
+       G5 as g_num_5,
+       decode(t_num, 0, 0, round(G5 / t_num * 100, 2)) as g_zb_5,
+       G6 as g_num_6,
+       decode(t_num, 0, 0, round(G6 / t_num * 100, 2)) as g_zb_6,
+       G7 as g_num_7,
+       decode(t_num, 0, 0, round(G7 / t_num * 100, 2)) as g_zb_7,
+       G8 as g_num_8,
+       decode(t_num, 0, 0, round(G8 / t_num * 100, 2)) as g_zb_8,
+       G9 as g_num_9,
+       decode(t_num, 0, 0, round(G9 / t_num * 100, 2)) as g_zb_9,
+       G10 as g_num_10,
+       decode(t_num, 0, 0, round(G10 / t_num * 100, 2)) as g_zb_10,
+       G11 as g_num_11,
+       decode(t_num, 0, 0, round(G11 / t_num * 100, 2)) as g_zb_11
+  from (select ta.areaid,
+               ta.areaname,
+               nvl(t_num, 0) as t_num,
+               nvl(t_amout, 0) as t_amout,
+               nvl(G1, 0) as G1,
+               nvl(G2, 0) as G2,
+               nvl(G3, 0) as G3,
+               nvl(G4, 0) as G4,
+               nvl(G5, 0) as G5,
+               nvl(G6, 0) as G6,
+               nvl(G7, 0) as G7,
+               nvl(G8, 0) as G8,
+               nvl(G9, 0) as G9,
+               nvl(G10, 0) as G10,
+               nvl(G11, 0) as G11
+          from taw_system_area ta,
+               (select t1.areaid,
+                       sum(c_num) as t_num,
+                       sum(c_amount) as t_amout,
+                       sum(decode(trouble_reason, '10123190201', c_num, 0)) as G1,--车挂
+                       sum(decode(trouble_reason, '10123190202', c_num, 0)) as G2,--外力施工
+                       sum(decode(trouble_reason, '10123190203', c_num, 0)) as G3,--火烧
+                       sum(decode(trouble_reason, '10123190204', c_num, 0)) as G4,-- 被盗或人为破坏
+                       sum(decode(trouble_reason, '10123190205', c_num, 0)) as G5,--自然断纤（纤芯裂化）
+                       sum(decode(trouble_reason, '10123190206', c_num, 0)) as G6,--接头盒进水
+                       sum(decode(trouble_reason, '10123190207', c_num, 0)) as G7,--尾纤及法兰盘
+                       sum(decode(trouble_reason, '10123190208', c_num, 0)) as G8,--鸟啄
+                       sum(decode(trouble_reason, '10123190209', c_num, 0)) as G9,--鼠咬
+                       sum(decode(trouble_reason, '10123190210', c_num, 0)) as G10,--自然灾害
+                       sum(decode(trouble_reason, '10123190211', c_num, 0)) as G11--其他
+                  from (select a.areaid,
+                               trouble_reason,
+                               count(m.process_instance_id) as c_num,
+                               sum(nvl(m.worker_project_amount, 0)) as c_amount
+                          from taw_system_area a,
+                               pnr_act_transfer_office_main m,
+                               (select h.process_instance_id,h.trouble_reason,
+                                       rank() over(partition by h.process_instance_id order by h.receive_time desc) mm
+                                  from pnr_act_transfer_office_handle h
+                                 where h.link_name in
+                                       ('auditor', 'transferHandle')
+                                   and fault_type = '10123190101' --故障工单 
+                                ) t
+                         where a.areaid = m.city
+                           and m.process_instance_id =
+                               t.process_instance_id(+)
+                           and t.mm = 1
+                           and a.parentareaid = '28'
+                           and m.themeinterface in
+                               ('maleGuest', 'transferOffice')
+                           and nvl(m.male_guest_state, '0') in ('0', '1', '3')
+                           and m.task_def_key in ('acheck',
+                                                  'twoSpotChecks',
+                                                  'auditReport',
+                                                  'archive')
+                           and @send_time@
+                         group by a.areaid, trouble_reason) t1
+                 group by t1.areaid) tn
+         where ta.areaid = tn.areaid(+)
+           and ta.parentareaid = '28'
+         order by ta.sort)
+		]]>
+	</byArea>
+</sheetQuery>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.boco.eoms.materials.model.ContactCompany"
+            table="mate_contact_company">
+
+    	<id name="id" column="id" unsaved-value="null" >
+    		<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    		<generator class="uuid.hex" />
+    	</id>
+
+        <property name="name" column="c_name" />
+        <property name="encode" column="c_encode" />
+        <property name="category" column="c_category"  />
+        <property name="categoryName" column="c_category_name" />
+        <property name="contactPerson" column="c_contact_person"  />
+        <property name="address" column="c_address"  />
+        <property name="phoneNumber" column="c_phone_number"  />
+        <property name="fax" column="c_fax" />
+        <property name="intro" column="c_intro" />
+        <property name="officePhone" column="c_office_phone"  />
+
+    </class>    
+
+</hibernate-mapping>
+

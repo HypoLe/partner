@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.space.IrmsSpaceRoom" table="irms_space_room">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="roomName" column="room_name"/>
+				<property name="abbreviation" column="abbreviation"/>
+				<property name="roomAlias" column="room_alias"/>
+				<property name="roomType" column="room_type"/>
+				<property name="serviceLevel" column="service_level"/>
+				<property name="relatedSiteName" column="related_site_name"/>
+				<property name="floorNum" column="floor_num"/>
+				<property name="length" column="length"/>
+				<property name="width" column="width"/>
+				<property name="height" column="height"/>
+				<property name="rackStartRowNum" column="rack_start_row_num"/>
+				<property name="rackEndRowNum" column="rack_end_row_num"/>
+				<property name="rackStartColNum" column="rack_start_col_num"/>
+				<property name="rackEndColNum" column="rack_end_col_num"/>
+				<property name="rackRowDirect" column="rack_row_direct"/>
+				<property name="rackColumnDirect" column="rack_column_direct"/>
+				<property name="isConstructShare" column="is_construct_share"/>
+				<property name="buildTogtherUnit" column="build_togther_unit"/>
+				<property name="isShared" column="is_shared"/>
+				<property name="sharedUnit" column="shared_unit"/>
+				<property name="remark" column="remark"/>
+				<property name="createTime" column="create_time"/>
+				<property name="relatedSiteNameId" column="related_site_name_id"/>
+    </class>    
+</hibernate-mapping>

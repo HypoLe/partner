@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="iAndroidAppInfoDao" class="com.boco.eoms.mobile.dao.impl.AndroidAppInfoDaoHibernate" autowire="byName" />
+	<bean id="mobileUpFileService" class="com.boco.eoms.mobile.service.serviceimpl.MobileUpFileServiceImpl" autowire="byName" />
+	<bean id="inspectPlanMgrImpl" class="com.boco.eoms.mobile.service.serviceimpl.InspectPlanMgrImpl" autowire="byName" />
+	
+	<bean id="androidServiceImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.mobile.service.serviceimpl.AndroidServiceImpl">
+				<property name="appInfoDao" ref="iAndroidAppInfoDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="iAllStatisticsDao"
+		class="com.boco.eoms.mobile.dao.impl.AllStatisticsDaoHibernate" autowire="byName" />
+		
+	<bean id="allStatisticsServiceImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.mobile.service.serviceimpl.AllStatisticsServiceImpl">
+				<property name="IAllStatisticsDao" ref="iAllStatisticsDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	
+	<bean id="androidDeveloperDao"
+		class="com.boco.eoms.mobile.dao.impl.AndroidDeveloperDaoHibernate" autowire="byName" />
+		
+	<bean id="androidDeveloperServiceImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.mobile.service.serviceimpl.AndroidDeveloperServiceImpl">
+				<property name="androidDeveloperDao" ref="androidDeveloperDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 接入机房和光缆网核查 -->
+	<bean id="roomAndCableInspectJDBCDao"
+		class="com.boco.eoms.mobile.dao.impl.RoomAndCableInspectDaoJDBC" autowire="byName"/>
+	<bean id="roomAndCableInspectService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.mobile.service.serviceimpl.RoomAndCableInspectServiceImpl">
+				<property name="roomAndCableInspectJDBCDao" ref="roomAndCableInspectJDBCDao" />
+			</bean>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean 
+		name="contactForm" 
+		type="com.boco.eoms.partner.contact.webapp.form.ContactMainForm"/>
+	</form-beans>
+	<!-- ========== Global Exceptions Definitions =================================== -->
+    <global-exceptions>
+        <exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+    </global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward
+		  name="success"
+		  path="/common/success.jsp"
+		  redirect="true"
+		  contextRelative="true"
+		/>
+		<forward
+		  name="nopriv"
+		  path="/common/nopriv.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>
+		<forward
+		  name="fail"
+		  path="/common/failure.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>
+    </global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+	<action-mappings>
+	<!-- 业务联系函 管理 -->
+		<action
+		  path="/contact"
+		  type="com.boco.eoms.partner.contact.webapp.action.ContactAction"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		  name="contactForm"
+		>
+			<forward
+			  name="draftsPage"
+			  path="/WEB-INF/pages/partner/contact/drafts.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			
+			<forward
+			  name="auditPage"
+			  path="/WEB-INF/pages/partner/contact/audit.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			
+			<forward
+			  name="handlePage"
+			  path="/WEB-INF/pages/partner/contact/handle.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			
+			<forward
+			  name="listDraft"
+			  path="/WEB-INF/pages/partner/contact/listDaft.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="listTodo"
+			  path="/WEB-INF/pages/partner/contact/list.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="listDone"
+			  path="/WEB-INF/pages/partner/contact/listDone.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="listQuery"
+			  path="/WEB-INF/pages/partner/contact/listQuery.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="listLink"
+			  path="/WEB-INF/pages/partner/contact/listLink.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="queryLink"
+			  path="/WEB-INF/pages/partner/contact/queryLink.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			
+		</action>
+	</action-mappings>
+</struts-config>

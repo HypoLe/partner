@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+
+>
+
+    <class
+            name="com.boco.eoms.partner.deviceAssess.model.FacilityNum"
+            table="pnr_deviceAssess_facilityNum"
+    >
+
+    <id
+        name="id"
+            column="id"
+            unsaved-value="null"
+    >
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+
+    </id>
+
+	<property
+            name="factory"
+            	column="factory"
+                length="64"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="tmsc"
+            	column="tMSC"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="mscserver"
+            	column="mscserver"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="mgw"
+            	column="mgw"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="hlrvlr"
+            	column="hlrvlr"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="stp"
+            	column="stp"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="bsc"
+            	column="bsc"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="bts"
+            	column="BTS"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="rnc"
+            	column="RNC"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="nodeB"
+            	column="NodeB"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="cr"
+            	column="CR"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="br"
+            	column="BR"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="ar"
+            	column="AR"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="ce"
+            	column="CE"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="bb"
+            	column="BB"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="bc"
+            	column="BC"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="bi"
+            	column="BI"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="pb"
+            	column="PB"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="sw"
+            	column="SW"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="wdm"
+            	column="WDM"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="otnason"
+            	column="OTNASON"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="sdhmstp"
+            	column="SDHMSTP"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="ptn"
+            	column="PTN"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="pon"
+            	column="PON"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="ggsn"
+            	column="GGSN"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="sgsn"
+            	column="SGSN"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="note"
+            	column="note"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="multimediaMes"
+            	column="multimediaMes"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="coloringRing"
+            	column="coloringRing"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="wap"
+            	column="WAP"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="scp"
+            	column="SCP"
+                length="9"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="smp"
+            	column="SMP"
+                length="2"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="vc"
+            	column="VC"
+                length="2"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+        
+    </class>    
+
+</hibernate-mapping>
+

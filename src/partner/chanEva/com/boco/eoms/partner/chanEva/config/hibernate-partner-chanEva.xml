@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+
+<property name="show_sql">true</property>
+    <mapping resource="com/boco/eoms/partner/chanEva/model/ChanEvaTree.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/chanEva/model/ChanEvaKpi.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/chanEva/model/ChanEvaTemplate.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/chanEva/model/ChanEvaTask.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/chanEva/model/ChanEvaTaskDetail.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/chanEva/model/ChanEvaKpiInstance.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/chanEva/model/ChanEvaOrg.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/chanEva/model/ChanEvaAuditInfo.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/chanEva/model/ChanEvaReportInfo.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
+

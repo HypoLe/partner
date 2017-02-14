@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!--
+		This is a real generic dao for nop3 standard CRUD only.By Steve Start,
+		July,2011
+	-->
+
+	<bean id="hiddenTroubleDao" class="com.boco.eoms.deviceManagement.busi.network.dao.impl.HiddenTroubleDaoImpl"
+		autowire="byName" />
+
+	<bean id="hiddenTroubleService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.deviceManagement.busi.network.service.impl.HiddenTroubleServiceImpl">
+				<property name="hiddenTroubleDao" ref="hiddenTroubleDao" />
+			</bean>
+		</property>
+	</bean>
+</beans>

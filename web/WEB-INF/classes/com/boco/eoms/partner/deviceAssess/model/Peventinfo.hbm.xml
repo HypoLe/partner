@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+
+>
+
+    <class
+            name="com.boco.eoms.partner.deviceAssess.model.Peventinfo"
+            table="pnr_deviceAssess_peventinfo"
+    >
+
+    <id
+        name="id"
+            column="id"
+            unsaved-value="null"
+    >
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+
+    </id>
+
+	<property
+            name="proNum"
+            	column="pro_num"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="proName"
+            	column="pro_name"
+                length="255"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="proLevel"
+            	column="pro_level"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="factory"
+            	column="factory"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="speciality"
+            	column="speciality"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="beginTime"
+            	column="begin_time"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="endTime"
+            	column="end_time"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="satisfaction"
+            	column="satisfaction"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="takeOf"
+            	column="take_of"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="proId"
+            	column="pro_id"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+        	<property
+            name="area"
+            	column="area"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+        	<property
+            name="satisfactionCase"
+            	column="satisfactionCase"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+        	<property
+            name="total"
+            	column="total"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+<property
+            name="approveUser"
+            	column="approveUser"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        <property
+            name="creatTime"
+            	column="create_time"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+    </class>    
+
+</hibernate-mapping>
+

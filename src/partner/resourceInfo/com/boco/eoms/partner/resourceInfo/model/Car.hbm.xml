@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.boco.eoms.partner.resourceInfo.model.Car" table="pnr_carInfo">
+	 <id name="id" column="id" unsaved-value="null">
+	  	<generator class="increment"></generator>
+     </id>
+    <property name="area" column="area" not-null="false" unique="false" ></property>
+    <property name="carNumber" column="car_number" not-null="false" unique="false" ></property>
+	<property name="carType" column="car_type" not-null="false" unique="false" ></property>    
+	<!-- 后续添加字段start --><!--
+	 <property name="refid" column="ref_id"  not-null="false" unique="false"></property>
+	--><property name="carModel" column="car_model" not-null="false" unique="false" ></property>  
+	<property name="carBrand" column="car_brand" not-null="false" unique="false" ></property>  
+	<property name="fuleType" column="fule_type" not-null="false" unique="false" ></property>    
+	<property name="fuleConStandard" column="standard" not-null="false" unique="false" ></property>    
+	<property name="longitude" column="longitude" not-null="false" unique="false" ></property>    
+	<property name="latitude" column="latitude" not-null="false" unique="false" ></property>  
+	<property name="locateTime" column="locate_time" not-null="false" unique="false" ></property>  
+	<property name="applyId" column="apply_id" not-null="false" unique="false" ></property>  
+	<property name="dispatchStatus" column="dispatch_status" not-null="false" unique="false" ></property>  
+	 <!-- 后续添加字段end -->
+	<property name="carGPSNumber" column="car_GPS_number" not-null="false" unique="false" ></property>
+	<property name="carGPSFactory" column="car_GPS_factory" not-null="false" unique="false" ></property>
+	<property name="carGPSSimCardNumber" column="GPS_simCard_number" not-null="false" unique="false"></property>
+	<property name="driver" column="driver" not-null="false" unique="false" ></property>       
+	<property name="driverContact" column="driver_contact" not-null="false" unique="false" ></property>
+	<property name="carProperty" column="property" not-null="false" unique="false" ></property>
+	<property name="maintainCompany" column="company" not-null="false" unique="false" ></property>
+	<property name="carStatus" column="status" not-null="false" unique="false" ></property>
+	 <property name="visible" column="visible"  not-null="false" unique="false"></property>
+     <property name="deleted" column="deleted"  not-null="false" unique="false"></property>
+	 <property name="notes" column="notes"  not-null="false" unique="false"></property>
+     <property name="addTime" column="add_time"  not-null="false" unique="false"></property>
+	</class>
+</hibernate-mapping>

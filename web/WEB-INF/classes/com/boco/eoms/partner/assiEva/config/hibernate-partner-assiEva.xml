@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+
+<property name="show_sql">true</property>
+    <mapping resource="com/boco/eoms/partner/assiEva/model/AssiEvaTree.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/assiEva/model/AssiEvaKpi.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/assiEva/model/AssiEvaTemplate.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/assiEva/model/AssiEvaTask.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/assiEva/model/AssiEvaTaskDetail.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/assiEva/model/AssiEvaKpiInstance.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/assiEva/model/AssiEvaOrg.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/assiEva/model/AssiEvaAuditInfo.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/assiEva/model/AssiEvaReportInfo.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
+

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd"
+    
+    >
+
+<beans>
+	<bean id="pnrRecordDao"
+		class="com.boco.eoms.partner.record.dao.hibernate.PnrRecordDaoHibernate"
+		autowire="byName" />
+
+	<bean id="pnrRecordMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.record.mgr.impl.PnrRecordMgrImpl">
+				<property name="pnrRecordDao" ref="pnrRecordDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	
+</beans>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.boco.eoms.partner.res.model.PnrResChangeHistory" table="pnr_res_change_history">
+	            
+    <id name="id" column="id" unsaved-value="null">
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+    </id>
+    	     
+	<property name="resId" column="res_id"/>
+	<property name="changeTime" column="change_time"/>
+	<property name="changePerson" column="control_user"/>
+	<property name="oldLevel" column="old_level"/>
+	<property name="newLevel" column="new_level"/>
+	<property name="oldName" column="old_name"/>
+	<property name="newName" column="new_name"/>
+	<property name="changeState" column="change_state"/>
+</class>    
+</hibernate-mapping>
+

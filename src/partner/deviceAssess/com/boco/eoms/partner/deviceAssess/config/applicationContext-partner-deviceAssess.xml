@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+<!-- 工程服务事件信息 -->
+	<bean id="peventinfoMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.deviceAssess.mgr.impl.PeventinfoMgrImpl">
+				<property name="peventinfoDao" ref="peventinfoDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="peventinfoDao"
+		class="com.boco.eoms.partner.deviceAssess.dao.hibernate.PeventinfoDaoHibernate"
+		autowire="byName" />
+
+		
+	<bean id="insideDisposeMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.deviceAssess.mgr.impl.InsideDisposeMgrImpl">
+				<property name="insideDisposeDao" ref="insideDisposeDao" />
+				<property name="queryEomsSheetJDBC" ref="queryEomsSheetJDBC" />
+			</bean>
+		</property>
+	</bean>
+
+<!-- 厂家培训事件信息 -->
+	<bean id="insideDisposeDao"
+		class="com.boco.eoms.partner.deviceAssess.dao.hibernate.InsideDisposeDaoHibernate"
+		autowire="byName" />
+
+	<bean id="queryEomsSheetJDBC"
+		class="com.boco.eoms.partner.deviceAssess.dao.jdbc.QueryEomsSheetJDBC"
+		autowire="byName" />
+		
+				
+	<bean id="factoryDisposeMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.deviceAssess.mgr.impl.FactoryDisposeMgrImpl">
+				<property name="factoryDisposeDao" ref="factoryDisposeDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="factoryDisposeDao"
+		class="com.boco.eoms.partner.deviceAssess.dao.hibernate.FactoryDisposeDaoHibernate"
+		autowire="byName" />
+		
+	<bean id="bigFaultMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.deviceAssess.mgr.impl.BigFaultMgrImpl">
+				<property name="bigFaultDao" ref="bigFaultDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="bigFaultDao"
+		class="com.boco.eoms.partner.deviceAssess.dao.hibernate.BigFaultDaoHibernate"
+		autowire="byName" />	
+		
+	<bean id="counselMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.deviceAssess.mgr.impl.CounselMgrImpl">
+				<property name="counselDao" ref="counselDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="counselDao"
+		class="com.boco.eoms.partner.deviceAssess.dao.hibernate.CounselDaoHibernate"
+		autowire="byName" />
+		
+	<bean id="facilityNumMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.deviceAssess.mgr.impl.FacilityNumMgrImpl">
+				<property name="facilityNumDao" ref="facilityNumDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="facilityNumDao"
+		class="com.boco.eoms.partner.deviceAssess.dao.hibernate.FacilityNumDaoHibernate"
+		autowire="byName" />
+												
+
+	<bean id="ftraininfoMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.deviceAssess.mgr.impl.FtraininfoMgrImpl">
+				<property name="ftraininfoDao" ref="ftraininfoDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="ftraininfoDao"
+		class="com.boco.eoms.partner.deviceAssess.dao.hibernate.FtraininfoDaoHibernate"
+		autowire="byName" />
+
+<!-- 现场服务事件信息 -->
+<bean id="lserveinfoMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.deviceAssess.mgr.impl.LserveinfoMgrImpl">
+				<property name="lserveinfoDao" ref="lserveinfoDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="lserveinfoDao"
+		class="com.boco.eoms.partner.deviceAssess.dao.hibernate.LserveinfoDaoHibernate"
+		autowire="byName" />
+		
+<!--软件升级事件信息  -->
+	<bean id="softupinfoMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.deviceAssess.mgr.impl.SoftupinfoMgrImpl">
+				<property name="softupinfoDao" ref="softupinfoDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="softupinfoDao"
+		class="com.boco.eoms.partner.deviceAssess.dao.hibernate.SoftupinfoDaoHibernate"
+		autowire="byName" />
+<!-- 厂家设备问题 -->
+<bean id="facilityinfoMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.deviceAssess.mgr.impl.FacilityinfoMgrImpl">
+				<property name="facilityinfoDao" ref="facilityinfoDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="facilityinfoDao"
+		class="com.boco.eoms.partner.deviceAssess.dao.hibernate.FacilityinfoDaoHibernate"
+		autowire="byName" />
+
+<!-- 板件返修事件信息 -->
+	<bean id="repairinfoMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.deviceAssess.mgr.impl.RepairinfoMgrImpl">
+				<property name="repairinfoDao" ref="repairinfoDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="repairinfoDao"
+		class="com.boco.eoms.partner.deviceAssess.dao.hibernate.RepairinfoDaoHibernate"
+		autowire="byName" />
+		
+	<bean id="backEstimateMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.deviceAssess.mgr.impl.BackEstimateMgrImpl">
+				<property name="backEstimateDao" ref="backEstimateDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="backEstimateDao"
+		class="com.boco.eoms.partner.deviceAssess.dao.hibernate.BackEstimateDaoHibernate"
+		autowire="byName" />
+		
+	<bean id="arithmeticMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.deviceAssess.mgr.impl.ArithmeticMgrImpl">
+				<property name="arithmeticDao" ref="arithmeticDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="arithmeticDao"
+		class="com.boco.eoms.partner.deviceAssess.dao.hibernate.ArithmeticDaoHibernate"
+		autowire="byName" />	
+		
+	<bean id="deviceAssessApproveMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.deviceAssess.mgr.impl.DeviceAssessApproveMgrImpl">
+				<property name="deviceAssessApproveDao" ref="deviceAssessApproveDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="deviceAssessApproveDao"
+		class="com.boco.eoms.partner.deviceAssess.dao.hibernate.DeviceAssessApproveDaoHibernate"
+		autowire="byName" />
+		
+	<bean id="deviceAssessContentMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.deviceAssess.mgr.impl.DeviceAssessContentMgrImpl">
+				<property name="deviceAssessContentDao" ref="deviceAssessContentDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="deviceAssessContentDao"
+		class="com.boco.eoms.partner.deviceAssess.dao.hibernate.DeviceAssessContentDaoHibernate"
+		autowire="byName" />
+				
+	<!--软件升级事件信息  -->
+	<bean id="softApplyRecordMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.deviceAssess.mgr.impl.SoftApplyRecordMgrImpl">
+				<property name="softApplyRecordDao" ref="softApplyRecordDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="softApplyRecordDao"
+		class="com.boco.eoms.partner.deviceAssess.dao.hibernate.SoftApplyRecordDaoHibernate"
+		autowire="byName" />
+<!--设备量信息 （新加入模块）-->
+<bean id="facilityQuantityDao" class="com.boco.eoms.partner.deviceAssess.dao.hibernate.FacilityQuantityDaoImpl"
+		autowire="byName" />
+
+<bean id="facilityQuantityMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.deviceAssess.mgr.impl.FacilityQuantityMgrImpl">
+				<property name="facilityQuantityDao" ref="facilityQuantityDao" />
+
+			</bean>
+		</property>
+	</bean>
+		<!-- 指标分数设置 -->
+	<bean id="assessConfigDao" class="com.boco.eoms.partner.deviceAssess.dao.hibernate.AssessConfigDaoImpl"
+		autowire="byName" />
+	<bean id="assessConfigService" parent="txProxyTemplate">
+		<property name="target">
+			<bean  class="com.boco.eoms.partner.deviceAssess.mgr.impl.AssessConfigServiceImpl">
+				<property name="assessConfigDao" ref="assessConfigDao" />
+			</bean>
+		</property>
+	</bean>		
+	
+	
+		<bean id="assessIndicatorDao" class="com.boco.eoms.partner.deviceAssess.dao.hibernate.AssessIndicatorDaoImpl"
+		autowire="byName" />
+	<bean id="assessIndicatorService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.deviceAssess.mgr.impl.AssessIndicatorServiceImpl">
+				<property name="assessIndicatorDao" ref="assessIndicatorDao" />
+			</bean>
+		</property>
+		</bean>
+		
+	<bean id="assessIndicatorSubDao" class="com.boco.eoms.partner.deviceAssess.dao.hibernate.AssessIndicatorSubDaoImpl"
+		autowire="byName" />
+	<bean id="assessIndicatorSubService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.deviceAssess.mgr.impl.AssessIndicatorSubServiceImpl">
+				<property name="assessIndicatorSubDao" ref="assessIndicatorSubDao" />
+			</bean>
+		</property>
+	</bean>	
+	<!-- 全专业统计 -->
+<bean id="allStatisticDao" class="com.boco.eoms.partner.deviceAssess.dao.hibernate.AllStatisticDaoImpl"
+		autowire="byName" />
+
+<bean id="allStatisticMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.deviceAssess.mgr.impl.AllStatisticMgrImpl">
+				<property name="allStatisticDao" ref="allStatisticDao" />
+
+			</bean>
+		</property>
+	</bean>	
+</beans>
+
+
+
+
+
+
+
+
+

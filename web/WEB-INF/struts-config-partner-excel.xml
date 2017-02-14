@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+
+
+	</form-beans>
+
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward name="success" path="/common/success.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="nopriv" path="/common/nopriv.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="fail" path="/common/failure.jsp" redirect="false"
+			contextRelative="true" />
+	</global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+
+	<action-mappings>
+		
+		<!-- excel 导入 -->
+		<action path="/excelParfile" 
+			type="com.boco.eoms.partner.excel.webapp.action.ExcelParDealAction" 
+			 scope="request" input="mainMenu"
+			parameter="method" unknown="false"  validate="false">
+			<forward name="success" path="/WEB-INF/pages/partner/parExceldeal/manager/select.jsp" 
+			redirect="false" contextRelative="true" />
+			<forward name="successimp" path="/WEB-INF/pages/partner/parExceldeal/manager/importok.jsp" 
+			redirect="false" contextRelative="true" />
+			<forward name="download" path="/WEB-INF/pages/partner/parExceldeal/manager/selectmod.jsp" 
+			redirect="false" contextRelative="true" />
+		</action>
+		<!-- excel 导出 -->
+		<action path="/excelParDealExport" 
+			type="com.boco.eoms.partner.excel.webapp.action.ExcelParDealExportAction" 
+			name="gridKPIMonthForm"  scope="request" input="mainMenu"
+			parameter="method" unknown="false"  validate="false">
+			<forward name="successimp" path="/WEB-INF/pages/partner/parExceldeal/manager/importok.jsp" 
+			redirect="false" contextRelative="true" />
+		
+		</action>
+
+	</action-mappings>
+	<controller nocache="true" inputForward="true" maxFileSize="2M" />
+	<message-resources parameter="config/ApplicationResources" />
+	<!-- ========== Validator plugin ===================  -->
+	<!-- 
+		<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+		value="/WEB-INF/validator-rules.xml,
+		/WEB-INF/validator-rules-custom.xml,
+		/WEB-INF/validation.xml" />
+		</plug-in>
+	-->
+</struts-config>

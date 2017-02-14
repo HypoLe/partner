@@ -1,0 +1,1481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--所有标签名称都为固定值,不能修改,否则无法解析. -->
+<KpiConfig>
+	<title>云南综合信息彩信报</title>
+	<est-module-id></est-module-id> <!--最后采集的时间表id-->
+
+	<!-- ********重大事项通报 ********************** -->
+	<kpi-define><!-- 可重复 -->
+		<name>greatmatter</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		
+		<auto-append-groupby>false</auto-append-groupby>
+		
+		<!-- 时间 -->
+		<summary-define>
+			<id>compress_date</id>
+			<sequence></sequence>
+			<column>COMPRESS_DATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 重大事件内容 -->
+		<summary-define>
+			<id>content</id>
+			<sequence></sequence>
+			<column>CONTENT</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<stat-detail-vo></stat-detail-vo><!--显示DetailVO-->
+
+		<query-define><!-- 可重复 -->
+			<name></name>
+			
+			<data-source>
+				<driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+				<driver-url>jdbc:oracle:thin:@10.168.68.152:1522:nop2mhserver</driver-url>
+				<user>portal</user>
+				<password>portal</password>
+			</data-source>
+			
+			
+			<!-- sql片段,用于jdbc统计(分子) -->
+			<from>MMS_INDI_GREAT_MATTER migm</from><!-- 不可为空 -->
+			<where> 
+				1=1 
+				and migm.COMPRESS_DATE&gt;=to_date('@beginTime@','YYYY-MM-DD HH24:MI:SS') and migm.COMPRESS_DATE&lt;=to_date('@endTime@','YYYY-MM-DD HH24:MI:SS') 
+			</where><!-- 可为空 -->
+			<order-by></order-by><!-- 可为空 -->
+
+			<field-define><!-- 可重复 -->
+				<id></id>
+				<sequence></sequence>
+				<stat-type></stat-type><!--"field_sql,expression"  -->
+				<stat-sql></stat-sql>
+				<list-count-select-sql></list-count-select-sql><!--列表总数-->
+				<list-hsql>
+				</list-hsql>
+			</field-define>
+		</query-define>
+		
+	</kpi-define>
+	
+	<!-- ********TD网KPI指标 ********************** -->
+	<kpi-define><!-- 可重复 -->
+		<name>inditd</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		
+		<auto-append-groupby>false</auto-append-groupby>
+		
+		<!-- 时间 -->
+		<summary-define>
+			<id>compress_date</id>
+			<sequence></sequence>
+			<column>COMPRESS_DATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- TD用户数: -->
+		<summary-define>
+			<id>td_user_amount</id>
+			<sequence></sequence>
+			<column>TD_USER_AMOUNT</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- TD系统语音话务量(RNC) -->
+		<summary-define>
+			<id>td_tch_traffic</id>
+			<sequence></sequence>
+			<column>TD_TCH_TRAFFIC</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- TD系统视频话务量(RNC) -->
+		<summary-define>
+			<id>td_tv_traffic</id>
+			<sequence></sequence>
+			<column>TD_TV_TRAFFIC</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- TD系统分组域业务流量(RNC) -->
+		<summary-define>
+			<id>td_group_traffic</id>
+			<sequence></sequence>
+			<column>TD_GROUP_TRAFFIC</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- TD语音业务掉话率 -->
+		<summary-define>
+			<id>td_drop_rate</id>
+			<sequence></sequence>
+			<column>TD_DROP_RATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- TD语音业务无线接通率 -->
+		<summary-define>
+			<id>td_conn_rate</id>
+			<sequence></sequence>
+			<column>TD_CONN_RATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- PS域无线掉线率 -->
+		<summary-define>
+			<id>ps_drop_rate</id>
+			<sequence></sequence>
+			<column>PS_DROP_RATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- PS域无线接通率 -->
+		<summary-define>
+			<id>ps_conn_rate</id>
+			<sequence></sequence>
+			<column>PS_CONN_RATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 系统间CS域切换成功率(无线网侧) -->
+		<summary-define>
+			<id>td_cs</id>
+			<sequence></sequence>
+			<column>TD_CS</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 系统间PS域切换成功率(无线网侧) -->
+		<summary-define>
+			<id>td_ps</id>
+			<sequence></sequence>
+			<column>TD_PS</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<stat-detail-vo></stat-detail-vo><!--显示DetailVO-->
+
+		<query-define><!-- 可重复 -->
+			<name></name>
+			
+			<data-source>
+				<driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+				<driver-url>jdbc:oracle:thin:@10.168.68.152:1522:nop2mhserver</driver-url>
+				<user>portal</user>
+				<password>portal</password>
+			</data-source>
+			
+			<!-- sql片段,用于jdbc统计(分子) -->
+			<from>MMS_INDI_TD mit</from><!-- 不可为空 -->
+			<where> 
+				1=1 
+				and mit.COMPRESS_DATE&gt;=to_date('@beginTime@','YYYY-MM-DD HH24:MI:SS') and mit.COMPRESS_DATE&lt;=to_date('@endTime@','YYYY-MM-DD HH24:MI:SS') 
+			</where><!-- 可为空 -->
+			<order-by></order-by><!-- 可为空 -->
+
+			<field-define><!-- 可重复 -->
+				<id></id>
+				<sequence></sequence>
+				<stat-type></stat-type><!--"field_sql,expression"  -->
+				<stat-sql></stat-sql>
+				<list-count-select-sql></list-count-select-sql><!--列表总数-->
+				<list-hsql>
+				</list-hsql>
+			</field-define>
+		</query-define>
+		
+	</kpi-define>
+	
+	<!-- ********全省短号使用情况 ********************** -->
+	<kpi-define><!-- 可重复 -->
+		<name>shortnum</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		
+		<auto-append-groupby>false</auto-append-groupby>
+		
+		<!-- 时间 -->
+		<summary-define>
+			<id>compress_date</id>
+			<sequence></sequence>
+			<column>COMPRESS_DATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 全省短号使用率 -->
+		<summary-define>
+			<id>short_num_used</id>
+			<sequence></sequence>
+			<column>SHORT_NUM_USED</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 前三名 第1 -->
+		<summary-define>
+			<id>short_num_used1</id>
+			<sequence></sequence>
+			<column>SHORT_NUM_USED1</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 前三名 第2 -->
+		<summary-define>
+			<id>short_num_used2</id>
+			<sequence></sequence>
+			<column>SHORT_NUM_USED2</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 前三名 第3 -->
+		<summary-define>
+			<id>short_num_used3</id>
+			<sequence></sequence>
+			<column>SHORT_NUM_USED3</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 后三名 第1 -->
+		<summary-define>
+			<id>short_num_used4</id>
+			<sequence></sequence>
+			<column>SHORT_NUM_USED4</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 后三名 第2 -->
+		<summary-define>
+			<id>short_num_used5</id>
+			<sequence></sequence>
+			<column>SHORT_NUM_USED5</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 后三名 第3 -->
+		<summary-define>
+			<id>short_num_used6</id>
+			<sequence></sequence>
+			<column>SHORT_NUM_USED6</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 全省大于500用户的集团数 -->
+		<summary-define>
+			<id>jt_num</id>
+			<sequence></sequence>
+			<column>JT_NUM</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 短号使用率为100%的集团 -->
+		<summary-define>
+			<id>jt_num1</id>
+			<sequence></sequence>
+			<column>JT_NUM1</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 70-99％ -->
+		<summary-define>
+			<id>jt_num2</id>
+			<sequence></sequence>
+			<column>JT_NUM2</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 30-69％ -->
+		<summary-define>
+			<id>jt_num3</id>
+			<sequence></sequence>
+			<column>JT_NUM3</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 10-30％ -->
+		<summary-define>
+			<id>jt_num4</id>
+			<sequence></sequence>
+			<column>JT_NUM4</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 0-10％ -->
+		<summary-define>
+			<id>jt_num5</id>
+			<sequence></sequence>
+			<column>JT_NUM5</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 0％ -->
+		<summary-define>
+			<id>jt_num6</id>
+			<sequence></sequence>
+			<column>JT_NUM6</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		
+		<stat-detail-vo></stat-detail-vo><!--显示DetailVO-->
+
+		<query-define><!-- 可重复 -->
+			<name></name>
+			
+			<data-source>
+				<driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+				<driver-url>jdbc:oracle:thin:@10.168.68.152:1522:nop2mhserver</driver-url>
+				<user>portal</user>
+				<password>portal</password>
+			</data-source>
+			
+			<!-- sql片段,用于jdbc统计(分子) -->
+			<from>MMS_INDI_SHORTNUM mis</from><!-- 不可为空 -->
+			<where> 
+				1=1 
+				and mis.COMPRESS_DATE&gt;=to_date('@beginTime@','YYYY-MM-DD HH24:MI:SS') and mis.COMPRESS_DATE&lt;=to_date('@endTime@','YYYY-MM-DD HH24:MI:SS') 
+			</where><!-- 可为空 -->
+			<order-by></order-by><!-- 可为空 -->
+
+			<field-define><!-- 可重复 -->
+				<id></id>
+				<sequence></sequence>
+				<stat-type></stat-type><!--"field_sql,expression"  -->
+				<stat-sql></stat-sql>
+				<list-count-select-sql></list-count-select-sql><!--列表总数-->
+				<list-hsql>
+				</list-hsql>
+			</field-define>
+		</query-define>
+		
+	</kpi-define>
+	
+	<!-- 客户规模及业务情况 start  别忘了建立3个视图 -->
+	<!-- 客户规模及业务情况(一) -->
+	<kpi-define><!-- 可重复 -->
+		<name>clientscale1</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		
+		<auto-append-groupby>false</auto-append-groupby>
+		
+		<!-- 业务系统 -->
+		<summary-define>
+			<id>s1</id>
+			<sequence></sequence>
+			<column>s1</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 昨日数 -->
+		<summary-define>
+			<id>s2</id>
+			<sequence></sequence>
+			<column>s2</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 上星期同期数 -->
+		<summary-define>
+			<id>s3</id>
+			<sequence></sequence>
+			<column>s3</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 日期 -->
+		<summary-define>
+			<id>s4</id>
+			<sequence></sequence>
+			<column>s4</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<stat-detail-vo></stat-detail-vo><!--显示DetailVO-->
+
+		<query-define><!-- 可重复 -->
+			<name></name>
+			
+			<data-source>
+				<driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+				<driver-url>jdbc:oracle:thin:@10.168.68.152:1522:nop2mhserver</driver-url>
+				<user>portal</user>
+				<password>portal</password>
+			</data-source>
+			
+			<!-- sql片段,用于jdbc统计(分子) -->
+			<from>V_MMS_INDI_CLIENTSCALE_1 mic_1</from><!-- 不可为空 -->
+			<where> 
+				1=1 
+				and mic_1.s4&gt;=to_date('@beginTime@','YYYY-MM-DD HH24:MI:SS') and mic_1.s4&lt;=to_date('@endTime@','YYYY-MM-DD HH24:MI:SS') 
+			</where><!-- 可为空 -->
+			<order-by></order-by><!-- 可为空 -->
+
+			<field-define><!-- 可重复 -->
+				<id></id>
+				<sequence></sequence>
+				<stat-type></stat-type><!--"field_sql,expression"  -->
+				<stat-sql></stat-sql>
+				<list-count-select-sql></list-count-select-sql><!--列表总数-->
+				<list-hsql>
+				</list-hsql>
+			</field-define>
+		</query-define>
+	</kpi-define>
+	
+	<!-- 客户规模及业务情况(二) -->
+	<kpi-define><!-- 可重复 -->
+		<name>clientscale2</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		
+		<auto-append-groupby>false</auto-append-groupby>
+		
+		<!-- 业务系统 -->
+		<summary-define>
+			<id>s1</id>
+			<sequence></sequence>
+			<column>s1</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 昨日数 -->
+		<summary-define>
+			<id>s2</id>
+			<sequence></sequence>
+			<column>s2</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 上星期同期数 -->
+		<summary-define>
+			<id>s3</id>
+			<sequence></sequence>
+			<column>s3</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 日期 -->
+		<summary-define>
+			<id>s4</id>
+			<sequence></sequence>
+			<column>s4</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<stat-detail-vo></stat-detail-vo><!--显示DetailVO-->
+
+		<query-define><!-- 可重复 -->
+			<name></name>
+			
+			<data-source>
+				<driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+				<driver-url>jdbc:oracle:thin:@10.0.2.108:1521:eoms</driver-url>
+				<user>eomsdev</user>
+				<password>eomsdev</password>
+			</data-source>
+			
+			<!-- sql片段,用于jdbc统计(分子) -->
+			<from>V_MMS_INDI_CLIENTSCALE_2 mic_2</from><!-- 不可为空 -->
+			<where> 
+				1=1 
+				and mic_2.s4&gt;=to_date('@beginTime@','YYYY-MM-DD HH24:MI:SS') and mic_2.s4&lt;=to_date('@endTime@','YYYY-MM-DD HH24:MI:SS') 
+			</where><!-- 可为空 -->
+			<order-by></order-by><!-- 可为空 -->
+
+			<field-define><!-- 可重复 -->
+				<id></id>
+				<sequence></sequence>
+				<stat-type></stat-type><!--"field_sql,expression"  -->
+				<stat-sql></stat-sql>
+				<list-count-select-sql></list-count-select-sql><!--列表总数-->
+				<list-hsql>
+				</list-hsql>
+			</field-define>
+		</query-define>
+	</kpi-define>
+	
+	<!-- 客户规模及业务情况(三) -->
+	<kpi-define><!-- 可重复 -->
+		<name>clientscale3</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		
+		<auto-append-groupby>false</auto-append-groupby>
+		
+		<!-- 业务系统 -->
+		<summary-define>
+			<id>s1</id>
+			<sequence></sequence>
+			<column>s1</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 昨日数 -->
+		<summary-define>
+			<id>s2</id>
+			<sequence></sequence>
+			<column>s2</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 上星期同期数 -->
+		<summary-define>
+			<id>s3</id>
+			<sequence></sequence>
+			<column>s3</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 日期 -->
+		<summary-define>
+			<id>s4</id>
+			<sequence></sequence>
+			<column>s4</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<stat-detail-vo></stat-detail-vo><!--显示DetailVO-->
+
+		<query-define><!-- 可重复 -->
+			<name></name>
+			
+			<data-source>
+				<driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+				<driver-url>jdbc:oracle:thin:@10.168.68.152:1522:nop2mhserver</driver-url>
+				<user>portal</user>
+				<password>portal</password>
+			</data-source>
+			
+			<!-- sql片段,用于jdbc统计(分子) -->
+			<from>V_MMS_INDI_CLIENTSCALE_3 mic_3</from><!-- 不可为空 -->
+			<where> 
+				1=1 
+				and mic_3.s4&gt;=to_date('@beginTime@','YYYY-MM-DD HH24:MI:SS') and mic_3.s4&lt;=to_date('@endTime@','YYYY-MM-DD HH24:MI:SS') 
+			</where><!-- 可为空 -->
+			<order-by></order-by><!-- 可为空 -->
+
+			<field-define><!-- 可重复 -->
+				<id></id>
+				<sequence></sequence>
+				<stat-type></stat-type><!--"field_sql,expression"  -->
+				<stat-sql></stat-sql>
+				<list-count-select-sql></list-count-select-sql><!--列表总数-->
+				<list-hsql>
+				</list-hsql>
+			</field-define>
+		</query-define>
+	</kpi-define>
+	<!-- 客户规模及业务情况 end -->
+	
+	<!-- 话务量统计 start -->
+	<!-- 话务量统计(一) -->
+	<kpi-define><!-- 可重复 -->
+		<name>erl1</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		
+		<auto-append-groupby>false</auto-append-groupby>
+		
+		<!-- 
+			select V.* from
+			(
+				select rownum,REGION, ERL, BEFORE_TODAY_ERL from
+				MMS_INDI_ERL  order by rownum  desc
+			)V where rownum<=8
+ 		-->
+ 		
+ 		<!-- 时间 -->
+		<summary-define>
+			<id>compress_date</id>
+			<sequence></sequence>
+			<column>COMPRESS_DATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 地区 -->
+		<summary-define>
+			<id>region</id>
+			<sequence></sequence>
+			<column>REGION</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 话务量 -->
+		<summary-define>
+			<id>erl</id>
+			<sequence></sequence>
+			<column>ERL</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 话务量 -->
+		<summary-define>
+			<id>before_today_erl</id>
+			<sequence></sequence>
+			<column>BEFORE_TODAY_ERL</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<stat-detail-vo></stat-detail-vo><!--显示DetailVO-->
+
+		<query-define><!-- 可重复 -->
+			<name></name>
+			
+			<data-source>
+				<driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+				<driver-url>jdbc:oracle:thin:@10.168.68.152:1522:nop2mhserver</driver-url>
+				<user>portal</user>
+				<password>portal</password>
+			</data-source>
+			
+			<!-- sql片段,用于jdbc统计(分子) -->
+			<from>MMS_INDI_ERL mie</from><!-- 不可为空 -->
+			<where> 
+				1=1 
+				and mie.COMPRESS_DATE&gt;=to_date('@beginTime@','YYYY-MM-DD HH24:MI:SS') and mie.COMPRESS_DATE&lt;=to_date('@endTime@','YYYY-MM-DD HH24:MI:SS') 
+			</where><!-- 可为空 -->
+			<order-by>rownum  desc</order-by><!-- 可为空 -->
+
+			<fist-sql>
+				select V.* from(
+			</fist-sql>
+			
+			<last-sql>
+				)V where rownum&lt;=8
+			</last-sql>
+			
+
+			<field-define><!-- 可重复 -->
+				<id></id>
+				<sequence></sequence>
+				<stat-type></stat-type><!--"field_sql,expression"  -->
+				<stat-sql></stat-sql>
+				<list-count-select-sql></list-count-select-sql><!--列表总数-->
+				<list-hsql>
+				</list-hsql>
+			</field-define>
+		</query-define>
+	</kpi-define>
+	
+	<!-- 话务量统计(二) -->
+	<kpi-define><!-- 可重复 -->
+		<name>erl2</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		
+		<auto-append-groupby>false</auto-append-groupby>
+		
+		<!-- 
+			select V.* from
+			(
+				select rownum,REGION, ERL, BEFORE_TODAY_ERL from
+				MMS_INDI_ERL  order by rownum  desc
+			)V where rownum<=9
+ 		-->
+ 		
+ 		<!-- 时间 -->
+		<summary-define>
+			<id>compress_date</id>
+			<sequence></sequence>
+			<column>COMPRESS_DATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 地区 -->
+		<summary-define>
+			<id>region</id>
+			<sequence></sequence>
+			<column>REGION</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 话务量 -->
+		<summary-define>
+			<id>erl</id>
+			<sequence></sequence>
+			<column>ERL</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 话务量 -->
+		<summary-define>
+			<id>before_today_erl</id>
+			<sequence></sequence>
+			<column>BEFORE_TODAY_ERL</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<stat-detail-vo></stat-detail-vo><!--显示DetailVO-->
+
+		<query-define><!-- 可重复 -->
+			<name></name>
+			
+			<data-source>
+				<driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+				<driver-url>jdbc:oracle:thin:@10.168.68.152:1522:nop2mhserver</driver-url>
+				<user>portal</user>
+				<password>portal</password>
+			</data-source>
+			
+			<!-- sql片段,用于jdbc统计(分子) -->
+			<from>MMS_INDI_ERL mie</from><!-- 不可为空 -->
+			<where> 
+				1=1 
+				and mie.COMPRESS_DATE&gt;=to_date('@beginTime@','YYYY-MM-DD HH24:MI:SS') and mie.COMPRESS_DATE&lt;=to_date('@endTime@','YYYY-MM-DD HH24:MI:SS') 
+			</where><!-- 可为空 -->
+			<order-by>rownum asc</order-by><!-- 可为空 -->
+
+			<fist-sql>
+				select V.* from(
+			</fist-sql>
+			
+			<last-sql>
+				)V where rownum&lt;=9
+			</last-sql>
+			
+
+			<field-define><!-- 可重复 -->
+				<id></id>
+				<sequence></sequence>
+				<stat-type></stat-type><!--"field_sql,expression"  -->
+				<stat-sql></stat-sql>
+				<list-count-select-sql></list-count-select-sql><!--列表总数-->
+				<list-hsql>
+				</list-hsql>
+			</field-define>
+		</query-define>
+	</kpi-define>
+	<!-- 话务量统计 end -->
+	
+	<!-- 网络运行KPI指标 start -->
+	<!-- 网络运行KPI指标(一) -->
+	<kpi-define><!-- 可重复 -->
+		<name>kpi1</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		
+		<auto-append-groupby>false</auto-append-groupby>
+		
+		<!-- 
+			select V.* from
+			(
+				select rownum,REGION, ERL, BEFORE_TODAY_ERL from
+				MMS_INDI_ERL  order by rownum  desc
+			)V where rownum<=8
+ 		-->
+ 		
+ 		<!-- 时间 -->
+		<summary-define>
+			<id>compress_date</id>
+			<sequence></sequence>
+			<column>COMPRESS_DATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 地区 -->
+		<summary-define>
+			<id>region</id>
+			<sequence></sequence>
+			<column>REGION</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 小区完好率 -->
+		<summary-define>
+			<id>cell_well_rate</id>
+			<sequence></sequence>
+			<column>CELL_WELL_RATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 掉话率 -->
+		<summary-define>
+			<id>drop_rate</id>
+			<sequence></sequence>
+			<column>DROP_RATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 拥塞率 -->
+		<summary-define>
+			<id>ovr_flr_rate</id>
+			<sequence></sequence>
+			<column>OVR_FLR_RATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 无线接入性 -->
+		<summary-define>
+			<id>wireless_access</id>
+			<sequence></sequence>
+			<column>WIRELESS_ACCESS</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 忙时资源利用率 -->
+		<summary-define>
+			<id>busy_used_rate</id>
+			<sequence></sequence>
+			<column>BUSY_USED_RATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<stat-detail-vo></stat-detail-vo><!--显示DetailVO-->
+
+		<query-define><!-- 可重复 -->
+			<name></name>
+			
+			<data-source>
+				<driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+				<driver-url>jdbc:oracle:thin:@10.168.68.152:1522:nop2mhserver</driver-url>
+				<user>portal</user>
+				<password>portal</password>
+			</data-source>
+			
+			<!-- sql片段,用于jdbc统计(分子) -->
+			<from>MMS_INDI_KPI kpi</from><!-- 不可为空 -->
+			<where> 
+				1=1 
+				and kpi.COMPRESS_DATE&gt;=to_date('@beginTime@','YYYY-MM-DD HH24:MI:SS') and kpi.COMPRESS_DATE&lt;=to_date('@endTime@','YYYY-MM-DD HH24:MI:SS') 
+			</where><!-- 可为空 -->
+			<order-by>rownum desc</order-by><!-- 可为空 -->
+
+			<fist-sql>
+				select V.* from(
+			</fist-sql>
+			
+			<last-sql>
+				)V where rownum&lt;=8
+			</last-sql>
+			
+
+			<field-define><!-- 可重复 -->
+				<id></id>
+				<sequence></sequence>
+				<stat-type></stat-type><!--"field_sql,expression"  -->
+				<stat-sql></stat-sql>
+				<list-count-select-sql></list-count-select-sql><!--列表总数-->
+				<list-hsql>
+				</list-hsql>
+			</field-define>
+		</query-define>
+	</kpi-define>
+	
+	<!-- 网络运行KPI指标(二) -->
+	<kpi-define><!-- 可重复 -->
+		<name>kpi2</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		
+		<auto-append-groupby>false</auto-append-groupby>
+		
+		<!-- 
+			select V.* from
+			(
+				select rownum,REGION, ERL, BEFORE_TODAY_ERL from
+				MMS_INDI_ERL  order by rownum  desc
+			)V where rownum<=9
+ 		-->
+ 		
+ 		<!-- 时间 -->
+		<summary-define>
+			<id>compress_date</id>
+			<sequence></sequence>
+			<column>COMPRESS_DATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 地区 -->
+		<summary-define>
+			<id>region</id>
+			<sequence></sequence>
+			<column>REGION</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 小区完好率 -->
+		<summary-define>
+			<id>cell_well_rate</id>
+			<sequence></sequence>
+			<column>CELL_WELL_RATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 掉话率 -->
+		<summary-define>
+			<id>drop_rate</id>
+			<sequence></sequence>
+			<column>DROP_RATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 拥塞率 -->
+		<summary-define>
+			<id>ovr_flr_rate</id>
+			<sequence></sequence>
+			<column>OVR_FLR_RATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 无线接入性 -->
+		<summary-define>
+			<id>wireless_access</id>
+			<sequence></sequence>
+			<column>WIRELESS_ACCESS</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 忙时资源利用率 -->
+		<summary-define>
+			<id>busy_used_rate</id>
+			<sequence></sequence>
+			<column>BUSY_USED_RATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<stat-detail-vo></stat-detail-vo><!--显示DetailVO-->
+
+		<query-define><!-- 可重复 -->
+			<name></name>
+			
+			<data-source>
+				<driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+				<driver-url>jdbc:oracle:thin:@10.168.68.152:1522:nop2mhserver</driver-url>
+				<user>portal</user>
+				<password>portal</password>
+			</data-source>
+			
+			<!-- sql片段,用于jdbc统计(分子) -->
+			<from>MMS_INDI_KPI kpi</from><!-- 不可为空 -->
+			<where> 
+				1=1 
+				and kpi.COMPRESS_DATE&gt;=to_date('@beginTime@','YYYY-MM-DD HH24:MI:SS') and kpi.COMPRESS_DATE&lt;=to_date('@endTime@','YYYY-MM-DD HH24:MI:SS') 
+			</where><!-- 可为空 -->
+			<order-by>rownum asc</order-by><!-- 可为空 -->
+
+			<fist-sql>
+				select V.* from(
+			</fist-sql>
+			
+			<last-sql>
+				)V where rownum&lt;=9
+			</last-sql>
+			
+
+			<field-define><!-- 可重复 -->
+				<id></id>
+				<sequence></sequence>
+				<stat-type></stat-type><!--"field_sql,expression"  -->
+				<stat-sql></stat-sql>
+				<list-count-select-sql></list-count-select-sql><!--列表总数-->
+				<list-hsql>
+				</list-hsql>
+			</field-define>
+		</query-define>
+	</kpi-define>
+	<!-- 网络运行KPI指标 end -->
+	
+	<!-- 网络运行KPI指标 VLR用户数 start -->
+	<!-- 网络运行KPI指标 VLR用户数(一) -->
+	<kpi-define><!-- 可重复 -->
+		<name>vlruser1</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		
+		<auto-append-groupby>false</auto-append-groupby>
+		
+		<!-- 
+		select V.* from
+			(
+				select REGION, BUSY_VLR_USER_AMOUNT, BEFORE_THIS_WEEK,COMPRESS_DATE from
+				MMS_INDI_VLRUSER  order by rownum  desc
+			)V where rownum<=8
+ 		 -->
+ 		 
+ 		<!-- 时间 -->
+		<summary-define>
+			<id>compress_date</id>
+			<sequence></sequence>
+			<column>COMPRESS_DATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 地区 -->
+		<summary-define>
+			<id>region</id>
+			<sequence></sequence>
+			<column>REGION</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 忙时VLR用户数 -->
+		<summary-define>
+			<id>busy_vlr_user_amount</id>
+			<sequence></sequence>
+			<column>BUSY_VLR_USER_AMOUNT</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 上周同期值 -->
+		<summary-define>
+			<id>before_this_week</id>
+			<sequence></sequence>
+			<column>BEFORE_THIS_WEEK</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<stat-detail-vo></stat-detail-vo><!--显示DetailVO-->
+
+		<query-define><!-- 可重复 -->
+			<name></name>
+			
+			<data-source>
+				<driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+				<driver-url>jdbc:oracle:thin:@10.168.68.152:1522:nop2mhserver</driver-url>
+				<user>portal</user>
+				<password>portal</password>
+			</data-source>
+			
+			<!-- sql片段,用于jdbc统计(分子) -->
+			<from>MMS_INDI_VLRUSER miv</from><!-- 不可为空 -->
+			<where> 
+				1=1 
+				and miv.COMPRESS_DATE&gt;=to_date('@beginTime@','YYYY-MM-DD HH24:MI:SS') and miv.COMPRESS_DATE&lt;=to_date('@endTime@','YYYY-MM-DD HH24:MI:SS') 
+			</where><!-- 可为空 -->
+			<order-by>rownum desc</order-by><!-- 可为空 -->
+
+			<fist-sql>
+				select V.* from(
+			</fist-sql>
+			
+			<last-sql>
+				)V where rownum&lt;=8
+			</last-sql>
+			
+
+			<field-define><!-- 可重复 -->
+				<id></id>
+				<sequence></sequence>
+				<stat-type></stat-type><!--"field_sql,expression"  -->
+				<stat-sql></stat-sql>
+				<list-count-select-sql></list-count-select-sql><!--列表总数-->
+				<list-hsql>
+				</list-hsql>
+			</field-define>
+		</query-define>
+	</kpi-define>
+	
+	<!-- 网络运行KPI指标 VLR用户数(二) -->
+	<kpi-define><!-- 可重复 -->
+		<name>vlruser2</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		
+		<auto-append-groupby>false</auto-append-groupby>
+		
+		<!-- 
+			select V.* from
+			(
+				select REGION, BUSY_VLR_USER_AMOUNT, BEFORE_THIS_WEEK,COMPRESS_DATE from
+				MMS_INDI_VLRUSER  order by rownum  desc
+			)V where rownum<=9
+ 		-->
+ 		
+ 		<!-- 时间 -->
+		<summary-define>
+			<id>compress_date</id>
+			<sequence></sequence>
+			<column>COMPRESS_DATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 地区 -->
+		<summary-define>
+			<id>region</id>
+			<sequence></sequence>
+			<column>REGION</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 忙时VLR用户数 -->
+		<summary-define>
+			<id>busy_vlr_user_amount</id>
+			<sequence></sequence>
+			<column>BUSY_VLR_USER_AMOUNT</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 上周同期值 -->
+		<summary-define>
+			<id>before_this_week</id>
+			<sequence></sequence>
+			<column>BEFORE_THIS_WEEK</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<stat-detail-vo></stat-detail-vo><!--显示DetailVO-->
+
+		<query-define><!-- 可重复 -->
+			<name></name>
+			
+			<data-source>
+				<driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+				<driver-url>jdbc:oracle:thin:@10.168.68.152:1522:nop2mhserver</driver-url>
+				<user>portal</user>
+				<password>portal</password>
+			</data-source>
+			
+			<!-- sql片段,用于jdbc统计(分子) -->
+			<from>MMS_INDI_VLRUSER miv</from><!-- 不可为空 -->
+			<where> 
+				1=1 
+				and miv.COMPRESS_DATE&gt;=to_date('@beginTime@','YYYY-MM-DD HH24:MI:SS') and miv.COMPRESS_DATE&lt;=to_date('@endTime@','YYYY-MM-DD HH24:MI:SS') 
+			</where><!-- 可为空 -->
+			<order-by>rownum asc</order-by><!-- 可为空 -->
+
+			<fist-sql>
+				select V.* from(
+			</fist-sql>
+			
+			<last-sql>
+				)V where rownum&lt;=9
+			</last-sql>
+			
+
+			<field-define><!-- 可重复 -->
+				<id></id>
+				<sequence></sequence>
+				<stat-type></stat-type><!--"field_sql,expression"  -->
+				<stat-sql></stat-sql>
+				<list-count-select-sql></list-count-select-sql><!--列表总数-->
+				<list-hsql>
+				</list-hsql>
+			</field-define>
+		</query-define>
+	</kpi-define>
+	<!-- 网络运行KPI指标 VLR用户数 end -->
+	
+	<!-- 全省昨日基站退服情况 start -->
+	<!-- 全省昨日基站退服情况(一) -->
+	<kpi-define><!-- 可重复 -->
+		<name>interrupt1</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		
+		<auto-append-groupby>false</auto-append-groupby>
+		
+		<!-- 
+		select V.* from
+		(
+		    select COMPRESS_DATE ,REGION, TOTAL_TIME, AVERAGE_TIME,INTERRUPT_SIZE,INTERRUPT_TIME from
+		    MMS_INDI_SITE_INTERRUPT  order by rownum  desc
+		)V where rownum<=8
+ 		 -->
+ 		 
+ 		<!-- 时间 -->
+		<summary-define>
+			<id>compress_date</id>
+			<sequence></sequence>
+			<column>COMPRESS_DATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 地区 -->
+		<summary-define>
+			<id>region</id>
+			<sequence></sequence>
+			<column>REGION</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 总中断时长 -->
+		<summary-define>
+			<id>total_time</id>
+			<sequence></sequence>
+			<column>TOTAL_TIME</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 平均中断时长 -->
+		<summary-define>
+			<id>average_time</id>
+			<sequence></sequence>
+			<column>AVERAGE_TIME</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 中断个数 -->
+		<summary-define>
+			<id>interrupt_size</id>
+			<sequence></sequence>
+			<column>INTERRUPT_SIZE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 中断次数 -->
+		<summary-define>
+			<id>interrupt_time</id>
+			<sequence></sequence>
+			<column>INTERRUPT_TIME</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<stat-detail-vo></stat-detail-vo><!--显示DetailVO-->
+
+		<query-define><!-- 可重复 -->
+			<name></name>
+			
+			<data-source>
+				<driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+				<driver-url>jdbc:oracle:thin:@10.168.68.152:1522:nop2mhserver</driver-url>
+				<user>portal</user>
+				<password>portal</password>
+			</data-source>
+			
+			<!-- sql片段,用于jdbc统计(分子) -->
+			<from>MMS_INDI_SITE_INTERRUPT interrupt</from><!-- 不可为空 -->
+			<where> 
+				1=1 
+				and interrupt.COMPRESS_DATE&gt;=to_date('@beginTime@','YYYY-MM-DD HH24:MI:SS') and interrupt.COMPRESS_DATE&lt;=to_date('@endTime@','YYYY-MM-DD HH24:MI:SS') 
+			</where><!-- 可为空 -->
+			<order-by>rownum desc</order-by><!-- 可为空 -->
+
+			<fist-sql>
+				select V.* from(
+			</fist-sql>
+			
+			<last-sql>
+				)V where rownum&lt;=8
+			</last-sql>
+			
+
+			<field-define><!-- 可重复 -->
+				<id></id>
+				<sequence></sequence>
+				<stat-type></stat-type><!--"field_sql,expression"  -->
+				<stat-sql></stat-sql>
+				<list-count-select-sql></list-count-select-sql><!--列表总数-->
+				<list-hsql>
+				</list-hsql>
+			</field-define>
+		</query-define>
+	</kpi-define>
+	
+	<!-- 全省昨日基站退服情况(二) -->
+	<kpi-define><!-- 可重复 -->
+		<name>interrupt2</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		
+		<auto-append-groupby>false</auto-append-groupby>
+		
+		<!-- 
+		select V.* from
+		(
+		    select COMPRESS_DATE ,REGION, TOTAL_TIME, AVERAGE_TIME,INTERRUPT_SIZE,INTERRUPT_TIME from
+		    MMS_INDI_SITE_INTERRUPT  order by rownum  asc
+		)V where rownum<=9
+ 		 -->
+ 		 
+ 		<!-- 时间 -->
+		<summary-define>
+			<id>compress_date</id>
+			<sequence></sequence>
+			<column>COMPRESS_DATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 地区 -->
+		<summary-define>
+			<id>region</id>
+			<sequence></sequence>
+			<column>REGION</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 总中断时长 -->
+		<summary-define>
+			<id>total_time</id>
+			<sequence></sequence>
+			<column>TOTAL_TIME</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 平均中断时长 -->
+		<summary-define>
+			<id>average_time</id>
+			<sequence></sequence>
+			<column>AVERAGE_TIME</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 中断个数 -->
+		<summary-define>
+			<id>interrupt_size</id>
+			<sequence></sequence>
+			<column>INTERRUPT_SIZE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 中断次数 -->
+		<summary-define>
+			<id>interrupt_time</id>
+			<sequence></sequence>
+			<column>INTERRUPT_TIME</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<stat-detail-vo></stat-detail-vo><!--显示DetailVO-->
+
+		<query-define><!-- 可重复 -->
+			<name></name>
+			
+			<data-source>
+				<driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+				<driver-url>jdbc:oracle:thin:@10.168.68.152:1522:nop2mhserver</driver-url>
+				<user>portal</user>
+				<password>portal</password>
+			</data-source>
+			
+			<!-- sql片段,用于jdbc统计(分子) -->
+			<from>MMS_INDI_SITE_INTERRUPT interrupt</from><!-- 不可为空 -->
+			<where> 
+				1=1 
+				and interrupt.COMPRESS_DATE&gt;=to_date('@beginTime@','YYYY-MM-DD HH24:MI:SS') and interrupt.COMPRESS_DATE&lt;=to_date('@endTime@','YYYY-MM-DD HH24:MI:SS') 
+			</where><!-- 可为空 -->
+			<order-by>rownum asc </order-by><!-- 可为空 -->
+
+			<fist-sql>
+				select V.* from(
+			</fist-sql>
+			
+			<last-sql>
+				)V where rownum&lt;=9
+			</last-sql>
+			
+
+			<field-define><!-- 可重复 -->
+				<id></id>
+				<sequence></sequence>
+				<stat-type></stat-type><!--"field_sql,expression"  -->
+				<stat-sql></stat-sql>
+				<list-count-select-sql></list-count-select-sql><!--列表总数-->
+				<list-hsql>
+				</list-hsql>
+			</field-define>
+		</query-define>
+	</kpi-define>
+	<!-- 全省昨日基站退服情况 end -->
+	
+	<!-- 全省工单情况（故障工单，任务工单等） -->
+	<kpi-define><!-- 可重复 -->
+		<name>ws</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		
+		<auto-append-groupby>false</auto-append-groupby>
+		
+		<!-- 时间 -->
+		<summary-define>
+			<id>compress_date</id>
+			<sequence></sequence>
+			<column>COMPRESS_DATE</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 地市信息 -->
+		<summary-define>
+			<id>ws_dest</id>
+			<sequence></sequence>
+			<column>WS_DEST</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 数量 -->
+		<summary-define>
+			<id>amount</id>
+			<sequence></sequence>
+			<column>AMOUNT</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- 超时数 -->
+		<summary-define>
+			<id>over_time_amount</id>
+			<sequence></sequence>
+			<column>OVER_TIME_AMOUNT</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<stat-detail-vo></stat-detail-vo><!--显示DetailVO-->
+		
+		<!-- 
+			select COMPRESS_DATE,WS_DEST, AMOUNT, OVER_TIME_AMOUNT from MMS_INDI_WS
+		 -->
+		 
+		<query-define><!-- 可重复 -->
+			<name></name>
+			
+			<data-source>
+				<driver-class>oracle.jdbc.driver.OracleDriver</driver-class>
+				<driver-url>jdbc:oracle:thin:@10.168.68.152:1522:nop2mhserver</driver-url>
+				<user>portal</user>
+				<password>portal</password>
+			</data-source>
+			
+			<!-- sql片段,用于jdbc统计(分子) -->
+			<from>MMS_INDI_WS ws</from><!-- 不可为空 -->
+			<where> 
+				1=1 
+				and ws.COMPRESS_DATE&gt;=to_date('@beginTime@','YYYY-MM-DD HH24:MI:SS') and ws.COMPRESS_DATE&lt;=to_date('@endTime@','YYYY-MM-DD HH24:MI:SS') 
+			</where><!-- 可为空 -->
+			<order-by></order-by><!-- 可为空 -->
+
+			<field-define><!-- 可重复 -->
+				<id></id>
+				<sequence></sequence>
+				<stat-type></stat-type><!--"field_sql,expression"  -->
+				<stat-sql></stat-sql>
+				<list-count-select-sql></list-count-select-sql><!--列表总数-->
+				<list-hsql>
+				</list-hsql>
+			</field-define>
+		</query-define>
+		
+	</kpi-define>
+	
+</KpiConfig>

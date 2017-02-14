@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="inspectPlanMainDao"
+		class="com.boco.eoms.partner.inspect.dao.hibernate.InspectPlanMainDaoHibernate" autowire="byName" />
+	<bean id="inspectPlanMainMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.inspect.mgr.impl.InspectPlanMainMgrImpl">
+				<property name="inspectPlanMainDao" ref="inspectPlanMainDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="inspectPlanDaoJdbc"
+		class="com.boco.eoms.partner.inspect.dao.jdbc.InspectPlanDaoJdbc" autowire="byName" />
+	<bean id="inspectPlanMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.inspect.mgr.impl.InspectPlanMgrImpl">
+				<property name="inspectPlanDaoJdbc" ref="inspectPlanDaoJdbc" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="inspectPlanStatisticDaoJdbc"
+		class="com.boco.eoms.partner.inspect.dao.jdbc.InspectPlanStatisticDaoJdbc" autowire="byName" />
+	<bean id="inspectPlanStatisticMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.inspect.mgr.impl.InspectPlanStatisticMgrImpl">
+				<property name="inspectPlanStatisticDaoJdbc" ref="inspectPlanStatisticDaoJdbc" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="inspectPlanResDao"
+		class="com.boco.eoms.partner.inspect.dao.hibernate.InspectPlanResDaoHibernate" autowire="byName" />
+	<bean id="inspectPlanResMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.inspect.mgr.impl.InspectPlanResMgrImpl">
+				<property name="inspectPlanResDao" ref="inspectPlanResDao" />
+				<property name="inspectPlanDaoJdbc" ref="inspectPlanDaoJdbc" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="inspectPlanApproveDao"
+		class="com.boco.eoms.partner.inspect.dao.hibernate.InspectPlanApproveDaoHibernate" autowire="byName" />
+	<bean id="inspectPlanApproveMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.inspect.mgr.impl.InspectPlanApproveMgrImpl">
+				<property name="inspectPlanApproveDao" ref="inspectPlanApproveDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="inspectPlanChangeDao"
+		class="com.boco.eoms.partner.inspect.dao.hibernate.InspectPlanChangeDaoHibernate" autowire="byName" />
+	<bean id="inspectPlanChangeMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.inspect.mgr.impl.InspectPlanChangeMgrImpl">
+				<property name="inspectPlanChangeDao" ref="inspectPlanChangeDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="inspectPlanResChangeDao"
+		class="com.boco.eoms.partner.inspect.dao.hibernate.InspectPlanResChangeDaoHibernate" autowire="byName" />
+	<bean id="inspectPlanResChangeMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.inspect.mgr.impl.InspectPlanResChangeMgrImpl">
+				<property name="inspectPlanResChangeDao" ref="inspectPlanResChangeDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="spotcheckTemplateDao"
+		class="com.boco.eoms.partner.inspect.dao.hibernate.SpotcheckTemplateDaoHibernate" autowire="byName" />
+	<bean id="spotcheckTemplateItemDao"
+		class="com.boco.eoms.partner.inspect.dao.hibernate.SpotcheckTemplateItemDaoHibernate" autowire="byName" />
+	<bean id="spotcheckResDao"
+		class="com.boco.eoms.partner.inspect.dao.hibernate.SpotcheckResDaoHibernate" autowire="byName" />
+	<bean id="spotcheckItemDao"
+		class="com.boco.eoms.partner.inspect.dao.hibernate.SpotcheckItemDaoHibernate" autowire="byName" />
+	<bean id="inspectSpotcheckDaoJdbc"
+		class="com.boco.eoms.partner.inspect.dao.jdbc.InspectSpotcheckDaoJdbc" autowire="byName" />
+	<bean id="inspectSpotcheckMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.inspect.mgr.impl.InspectSpotcheckMgrImpl">
+				<property name="spotcheckTemplateDao" ref="spotcheckTemplateDao" />
+				<property name="spotcheckTemplateItemDao" ref="spotcheckTemplateItemDao" />
+				<property name="spotcheckResDao" ref="spotcheckResDao" />
+				<property name="spotcheckItemDao" ref="spotcheckItemDao" />
+				<property name="inspectSpotcheckDaoJdbc" ref="inspectSpotcheckDaoJdbc" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="inspectTemplateDao"
+        class="com.boco.eoms.partner.inspect.dao.hibernate.InspectTemplateDaoHibernate"
+        autowire="byName" />
+	<bean id="inspectTemplateItemDao"
+        class="com.boco.eoms.partner.inspect.dao.hibernate.InspectTemplateItemDaoHibernate"
+        autowire="byName" />
+	<bean id="inspectPlanItemDao"
+        class="com.boco.eoms.partner.inspect.dao.hibernate.InspectPlanItemDaoHibernate"
+        autowire="byName" />
+        
+        
+    <bean id="inspectTemplateMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.inspect.mgr.impl.InspectTemplateMgrImpl">
+                <property name="inspectTemplateDao" ref="inspectTemplateDao" />
+            </bean>
+        </property>
+    </bean>
+    <bean id="inspectTemplateItemMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.inspect.mgr.impl.InspectTemplateItemMgrImpl">
+                <property name="inspectTemplateItemDao" ref="inspectTemplateItemDao" />
+            </bean>
+        </property>
+    </bean>
+
+	<bean id="inspectPlanExecuteMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.inspect.mgr.impl.InspectPlanExecuteMgrImpl">
+				<property name="inspectPlanMainDao" ref="inspectPlanMainDao" />
+				<property name="inspectPlanResDao" ref="inspectPlanResDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="inspectPlanItemMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.inspect.mgr.impl.InspectPlanItemMgrImpl">
+				<property name="inspectPlanItemDao" ref="inspectPlanItemDao" />
+			</bean>
+		</property>
+	</bean>
+		<bean id="inspectTrackDao"
+        class="com.boco.eoms.partner.inspect.dao.hibernate.PnrInspectTrackDaoHibernate"
+        autowire="byName" />
+	<bean id="pnrInspectTrackMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.inspect.mgr.impl.PnrInspectTrackMgrImpl">
+				<property name="inspectTrackDao" ref="inspectTrackDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="pnrInspectTaskFileDao"
+        class="com.boco.eoms.partner.inspect.dao.hibernate.PnrInspectTaskFileDaoHibernate"
+        autowire="byName" />
+        
+	<bean id="pnrInspectTaskFileMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.inspect.mgr.impl.PnrInspectTaskFileMgrImpl">
+				<property name="pnrInspectTaskFileDao" ref="pnrInspectTaskFileDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="inspectPlanGisDao"
+		class="com.boco.eoms.partner.inspect.dao.hibernate.InspectPlanGisHibernate" autowire="byName" />
+	<bean id="inspectPlanGisDaoJdbc"
+		class="com.boco.eoms.partner.inspect.dao.jdbc.InspectPlanGisDaoJdbc" autowire="byName" />	
+	<bean id="inspectPlanGisMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.inspect.mgr.impl.InspectPlanGisMgrImpl">
+				<property name="inspectPlanGisDao" ref="inspectPlanGisDao" />
+				<property name="inspectPlanGisDaoJdbc" ref="inspectPlanGisDaoJdbc"></property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="inspectPlanGisPnrDao"
+		class="com.boco.eoms.partner.inspect.dao.hibernate.InspectPlanGisPnrHibernate" autowire="byName" >
+	</bean>
+	<bean id="inspectPlanGisPnrMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.inspect.mgr.impl.InspectPlanGisPnrMgrImpl">
+				<property name="inspectPlanGisPnrDao" ref="inspectPlanGisPnrDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	
+	<bean id="inspectPlanHisDao"
+		class="com.boco.eoms.partner.inspect.dao.hibernate.InspectPlanHisDaoHibernate" autowire="byName" >
+	</bean>
+	<bean id="inspectPlanHisMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.inspect.mgr.impl.InspectPlanHisMgrImpl">
+				<property name="inspectPlanHisDao" ref="inspectPlanHisDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="inspectTemplateBigItemDao"
+		class="com.boco.eoms.partner.inspect.dao.hibernate.InspectTemplateBigItemDaoHibernate" autowire="byName" >
+	</bean>
+	<bean id="inspectTemplateBigItemDaoJdbc"
+		class="com.boco.eoms.partner.inspect.dao.jdbc.InspectTemplateBigItemDaoJdbc" autowire="byName" />	
+	<bean id="inspectTemplateBigItemMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.inspect.mgr.impl.InspectTemplateBigItemMgrImpl">
+				<property name="inspectTemplateBigItemDao" ref="inspectTemplateBigItemDao" />
+				<property name="inspectTemplateBigItemDaoJdbc" ref="inspectTemplateBigItemDaoJdbc" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="errorDistanceDao"
+		class="com.boco.eoms.partner.inspect.dao.hibernate.ErrorDistanceDaoHibernate" autowire="byName" />	
+	<bean id="errorDistanceMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.inspect.mgr.impl.ErrorDistanceMgrImpl">
+				<property name="errorDistanceDao" ref="errorDistanceDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 线路巡检部分 -->
+	<bean id="lineTrackDao"
+		class="com.boco.eoms.partner.inspect.dao.hibernate.InspectLineTrackDaoHibernate" autowire="byName" />	
+	<bean id="lineTrackMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.inspect.mgr.impl.InspectLineTrackMgrImpl">
+				<property name="lineTrackDao" ref="lineTrackDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="inspectPlanResQualityCheckDao"
+		class="com.boco.eoms.partner.inspect.dao.hibernate.InspectPlanResQualityCheckDaoHibernate" autowire="byName" />
+	<bean id="inspectPlanResQualityCheckMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.inspect.mgr.impl.InspectPlanResQualityCheckMgrImpl">
+				<property name="inspectPlanResQualityCheckDao" ref="inspectPlanResQualityCheckDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	
+</beans>

@@ -1,0 +1,12 @@
+注意事项：
+1.为pnr_inspect_plan_res建立了SEQUENCE，移植时务必注意
+CREATE SEQUENCE seq_pnr_inspect_plan_res
+   INCREMENT BY 1 START WITH 1
+   MAXVALUE 999999000 MINVALUE 0
+   NOCYCLE CACHE 10 ORDER;
+   
+2.为pnr_inspect_plan_item建立了SEQUENCE，移植时务必注意
+CREATE SEQUENCE seq_pnr_inspect_plan_item
+   INCREMENT BY 1 START WITH 1
+   MAXVALUE 999999000 MINVALUE 0
+   NOCYCLE CACHE 10 ORDER;

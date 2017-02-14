@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.baseinfo.model.PnrSourceStandardConfig" table="pnr_source_config">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+				<property name="areaId" column="area_id"/>
+				<property name="areaName" column="area_name"/>
+				<property name="provinceId" column="province_id"/>
+				<property name="cityId" column="city_id"/>
+				<property name="countryId" column="country_id"/>
+				<property name="companyName" column="company_name"/>
+				<property name="companyId" column="company_id"/>
+				<property name="companyMagId" column="company_mag_id"/>
+				<property name="professional" column="professional"/>
+				<property name="sourceType" column="source_type"/>
+				<property name="sourceDw" column="source_dw"/>
+				<property name="sourceAmount" column="source_amount"/>
+				<property name="configType" column="config_type"/>
+				<property name="configDw" column="config_dw"/>
+				<property name="configRate" column="config_rate"/>
+				<property name="standardConfig" column="standard_config"/>
+				<property name="standardAmout" column="standard_amout"/>
+				<property name="actualConfig" column="actual_config"/>
+				<property name="configTime" column="config_time"/>
+				<property name="addTimeY" column="add_time_y"/>
+				<property name="addTimeM" column="add_time_m"/>
+				<property name="addTimeD" column="add_time_d"/>
+				<property name="addUser" column="add_user"/>
+				<property name="isdeleted" column="isdeleted"/>
+				<property name="remark" column="remark"/>
+				<property name="ischecked" column="ischecked"/>
+				<property name="saveTime" column="save_time"/>
+    </class>    
+</hibernate-mapping>

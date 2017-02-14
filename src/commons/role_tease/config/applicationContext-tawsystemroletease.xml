@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="tawSystemRoleteaseMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.role_tease.mgr.impl.TawSystemRoleteaseMgrImpl">
+				<property name="tawSystemRoleteaseDao" ref="tawSystemRoleteaseDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="tawSystemRoleteaseDao"
+		class="com.boco.eoms.role_tease.dao.hibernate.TawSystemRoleteaseDaoHibernate"
+		autowire="byName" />
+		
+		<!--TawSystemWorkflow-DAO START-->
+    <bean id="ITawSystemRoleWorkflowDAO" class="com.boco.eoms.roleWorkflow.dao.hibernate.TawSystemRoleWorkflowDAOImpl" autowire="byName">
+
+      </bean>
+
+    <!--TawSystemWorkflow-DAO END-->
+    <!--TawSystemWorkflow-START-->    
+    <bean id="ITawSystemRoleWorkflowManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.roleWorkflow.mgr.impl.TawSystemRoleWorkflowManagerImpl">
+                <property name="ITawSystemRoleWorkflowDAO" ref="ITawSystemRoleWorkflowDAO"/>
+            </bean>
+        </property>
+    </bean>
+    <!--TawSystemWorkflow-END-->
+    
+    <bean id="tawSystemRoleDescMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.role_tease.mgr.impl.TawSystemRoleDescMgrImpl">
+				<property name="tawSystemRoleDescDao" ref="tawSystemRoleDescDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="tawSystemRoleDescDao"
+		class="com.boco.eoms.role_tease.dao.hibernate.TawSystemRoleDescDaoHibernate"
+		autowire="byName" />
+</beans>
+
+
+
+
+
+
+
+
+

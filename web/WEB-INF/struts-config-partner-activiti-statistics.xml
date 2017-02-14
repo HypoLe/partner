@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	<!-- ========== Data Sources Definitions =================================== -->
+	<!--
+		Define your Struts data sources in a file called struts-data-sources.xml and place
+		it in your merge directory.
+	-->
+
+	<!-- ========== Form Bean Definitions =================================== -->
+	<form-beans>
+	<form-bean name="multiPageForm"
+			type="com.boco.activiti.partner.process.webapp.form.MultiPageForm" />
+		<!--bean for EsmProcess end-->
+	</form-beans>
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward name="selectFile" path="/selectFile.do" />
+		<forward name="logout" path="/logout.jsp" />
+		<forward name="error"
+			path="/WEB-INF/pages/partner/activiti/common/sheet_fail.jsp"
+			contextRelative="true" />
+		<forward name="failure"
+			path="/WEB-INF/pages/partner/activiti/common/failure.jsp"
+			contextRelative="true" />
+	</global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+	<action-mappings>
+		<action path="/pnrStatistics"
+			type="com.boco.activiti.partner.process.webapp.action.PnrStatisticsAction"
+			name="multiPageForm"
+			scope="request" 
+			input="error" 
+			parameter="method"
+			unknown="false" 
+			validate="false"
+			>			
+			<set-property property="cancellable" value="true" />
+			<forward name="success"
+				path="/WEB-INF/pages/partner/activiti/common/sheet_success.jsp"
+				redirect="false" contextRelative="true" />	
+            <forward name="query"
+                     path="/WEB-INF/pages/partner/activiti/query/workOrderQuery.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="workOrderQueryTransfer"
+                     path="/WEB-INF/pages/partner/activiti/query/workOrderQueryTransfer.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="showWorkerState"
+                     path="/WEB-INF/pages/partner/activiti/workerState/showWorkerState.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="showSuccess"
+                     path="/WEB-INF/pages/partner/activiti/workerState/show.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="showError"
+                     path="/WEB-INF/pages/partner/activiti/workerState/showError.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="workOrderQueryList"
+                     path="/WEB-INF/pages/partner/activiti/query/workOrderQueryList.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="showStatisticsPage"
+                     path="/WEB-INF/pages/partner/activiti/statistics/taskStatistics.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="performStatisticsQuery"
+                     path="/WEB-INF/pages/partner/activiti/statistics/taskStatisticsList.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="taskStatisticsPartnerIndex"
+                     path="/WEB-INF/pages/partner/activiti/statistics/taskStatisticsPartnerIndex.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="taskStatisticsPartnerIndex3"
+                     path="/WEB-INF/pages/partner/activiti/statistics/taskStatisticsPartnerIndex3.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="workOrderStatisticsDrill"
+                     path="/WEB-INF/pages/partner/activiti/statistics/workOrderStatisticsDrill.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="statisticsPartnerIndexDrill"
+                     path="/WEB-INF/pages/partner/activiti/statistics/statisticsPartnerIndexDrill.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="performStatisticsQuerybyCity"
+                     path="/WEB-INF/pages/partner/activiti/statistics/taskStatisticsList1.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="performStatisticsQuerybycountry"
+                     path="/WEB-INF/pages/partner/activiti/statistics/taskStatisticsList2.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="showMoneySelect"
+                     path="/WEB-INF/pages/partner/activiti/statistics/showMoneySelect.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="showMoneySelectCountry"
+                     path="/WEB-INF/pages/partner/activiti/statistics/showMoneySelectCountry.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="showInWalkNum"
+                     path="/WEB-INF/pages/partner/activiti/statistics/showInWalkNum.jsp"
+                     redirect="false" contextRelative="true" />
+                     
+             <!-- edit by wangchang 20150507预检预修项目会审情况汇总表 -->      
+            <forward name="partnerPreflightStatistic"
+                     path="/WEB-INF/pages/partner/activiti/statistics/partnerPreflightStatistic.jsp"
+                     redirect="false" contextRelative="true" />
+                     
+             <forward name="partnerPreflightCountryStatistic"
+                     path="/WEB-INF/pages/partner/activiti/statistics/partnerPreflightCountryStatistic.jsp"
+                     redirect="false" contextRelative="true" />         
+                     
+             <!-- edit by wangchang 201505011预检预修项目会审情况详情表 -->         
+             <forward name="partnerPreflightDetailStatistic"
+                     path="/WEB-INF/pages/partner/activiti/statistics/partnerPreflightDetailStatistic.jsp"
+                     redirect="false" contextRelative="true" />  
+                     
+              <!-- edit by wangchang 201505015机房优化周报 -->         
+             <forward name="partnerWeeklyStatistic"
+                     path="/WEB-INF/pages/partner/activiti/statistics/partnerWeeklyStatistic.jsp"
+                     redirect="false" contextRelative="true" />                
+		 </action>
+	</action-mappings>
+	<action-mappings>
+		<action path="/schemeRateStat"
+			type="com.boco.activiti.partner.process.webapp.action.SchemeRateAction"
+			name="multiPageForm"
+			scope="request" 
+			input="error" 
+			parameter="method"
+			unknown="false" 
+			validate="false"> 
+			<set-property property="cancellable" value="true" />
+
+		      <forward name="schemeRateList"
+			      path="/WEB-INF/pages/statistic/schemeRate/schemeRateList.jsp" redirect="false"
+		          contextRelative="true" /> 
+		      <forward name="schemeRateRejectList"
+			      path="/WEB-INF/pages/statistic/schemeRate/schemeRateRejectList.jsp" redirect="false"
+		          contextRelative="true" />
+		      <forward name="childSceneReports"
+                     path="/WEB-INF/pages/statistic/schemeRate/childSceneReports.jsp"
+                     redirect="false" contextRelative="true" />
+              <forward name="childSceneReportsForCounty"
+                     path="/WEB-INF/pages/statistic/schemeRate/childSceneReportsForCounty.jsp"
+                     redirect="false" contextRelative="true" /> 
+		  
+    </action>
+    </action-mappings>
+    <action-mappings>
+		<action path="/repairFault"
+			type="com.boco.activiti.partner.process.webapp.action.RepairFaultAction"
+			name="multiPageForm"
+			scope="request" 
+			input="error" 
+			parameter="method"
+			unknown="false" 
+			validate="false"> 
+			<set-property property="cancellable" value="true" />
+
+		      <forward name="repairFaultList"
+			      path="/WEB-INF/pages/statistic/repairFault/repairFaultList.jsp" redirect="false"
+		          contextRelative="true" /> 
+		     <forward name="repairFaultqxList"
+			      path="/WEB-INF/pages/statistic/repairFault/repairFaultqxList.jsp" redirect="false"
+		          contextRelative="true" />
+	          <forward name="nonFaultcsList"
+		      path="/WEB-INF/pages/statistic/repairFault/nonFaultcsList.jsp" redirect="false"
+	          contextRelative="true" />  
+		      <forward name="nonFaultqxList"
+		      path="/WEB-INF/pages/statistic/repairFault/nonFaultqxList.jsp" redirect="false"
+	          contextRelative="true" /> 
+    </action>
+    </action-mappings>
+       <action-mappings>
+		<action path="/faultStat"
+			type="com.boco.activiti.partner.process.webapp.action.FaultStatAction"
+			name="multiPageForm"
+			scope="request" 
+			input="error" 
+			parameter="method"
+			unknown="false" 
+			validate="false"> 
+			<set-property property="cancellable" value="true" />
+
+		      <forward name="faultStatCityList"
+			      path="/WEB-INF/pages/statistic/faultStat/faultStatCityList.jsp" redirect="false"
+		          contextRelative="true" /> 
+		      <forward name="faultStatCountyList"
+			      path="/WEB-INF/pages/statistic/faultStat/faultStatCountyList.jsp" redirect="false"
+		          contextRelative="true" />
+		      <forward name="timeoutGongdanList"
+			      path="/WEB-INF/pages/statistic/faultStat/timeoutGongdanList.jsp" redirect="false"
+		          contextRelative="true" />
+    	</action>
+    </action-mappings>
+	<controller nocache="true" inputForward="true" maxFileSize="2M" />
+</struts-config>

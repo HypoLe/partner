@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.property.model.PnrPropertyAgreement" table="pnr_property_agreement">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="agreementNo" column="agreement_no"/>
+				<property name="site" column="site"/>
+				<property name="agreementName" column="agreement_name"/>
+				<property name="parta" column="parta"/>
+				<property name="partb" column="partb"/>
+				<property name="agreementType" column="agreement_type"/>
+				<property name="signDate" column="sign_date"/>
+				<property name="endDate" column="end_date"/>
+				<property name="payCycle" column="pay_cycle"/>
+				<property name="distirct" column="distirct"/>
+				<property name="agreementStatus" column="agreement_status"/>
+				<property name="expireRemind" column="expire_remind"/>
+				<property name="partaSigningPerson" column="parta_signing_person"/>
+				<property name="partaSigningPersonTel" column="parta_signing_person_tel"/>
+				<property name="partbSigningPerson" column="partb_signing_person"/>
+				<property name="partbSigningPersonTel" column="partb_signing_person_tel"/>
+				<property name="agreementAmount" column="agreement_amount"/>
+				<property name="remindObject" column="remind_object"/>
+				<property name="attachment" column="attachment"/>
+				<property name="deletedFlag" column="deleted_flag"/>
+				<property name="remark" column="remark"/>
+				<property name="msgSendDate" column="msg_send_date"/>
+				<property name="createTime" column="create_time"/>
+				<property name="province" column="province"/>
+				<property name="city" column="city"/>
+    </class>    
+</hibernate-mapping>

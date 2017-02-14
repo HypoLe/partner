@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans> 
+		<form-bean  name="taskForm" type="com.boco.eoms.task.webapp.form.TaskForm" />
+		<form-bean  name="accessoriesForm" type="com.boco.eoms.task.webapp.form.TaskAccessoriesForm" />
+		<form-bean
+      		name="eomstaskForm"
+      		type="com.boco.eoms.task.webapp.form.EomsTaskForm"
+    	/>
+	</form-beans>
+	<!-- ========== Global Exceptions Definitions =================================== -->
+    <global-exceptions>
+        <exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+    </global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward name="success" path="/common/success.jsp" redirect="false"  contextRelative="true" />
+      	<forward name="fail" path="/common/fail.jsp" redirect="false" contextRelative="true" />
+		<forward name="noPriv" path="/common/nopriv.jsp" redirect="false" contextRelative="true" />
+    </global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+
+	<action-mappings>
+		<action  path="/tasks" type="com.boco.eoms.task.webapp.action.TaskAction"  name="taskForm"
+		  scope="request" input="mainMenu"  parameter="method" unknown="false"  validate="false" >
+			<set-property  property="cancellable" value="true" />
+			<forward  name="drafterPage" path="/WEB-INF/pages/task/drafterPage.jsp" redirect="false"  contextRelative="true" />
+			<forward  name="principalPage" path="/WEB-INF/pages/task/principalPage.jsp" redirect="false"  contextRelative="true" />
+
+        </action>
+		
+		<action  path="/taskApp" type="com.boco.eoms.task.webapp.action.TaskAppAction"
+		  name="taskForm"  scope="request" input="mainMenu" parameter="method" unknown="false" validate="false" >
+			<set-property property="cancellable" value="true" />
+			<forward name="searchApp" path="/WEB-INF/pages/task/taskApp.jsp" redirect="false"  contextRelative="true" />
+        	<forward name="searchApp_person" path="/WEB-INF/pages/task/taskApp_person.jsp" redirect="false"  contextRelative="true" />
+        	<forward name="searchApp_task" path="/WEB-INF/pages/task/taskApp_task.jsp" redirect="false"  contextRelative="true" />
+        	<forward name="searchApp_taskOne" path="/WEB-INF/pages/task/taskApp_taskOne.jsp" redirect="false"  contextRelative="true" />
+		</action>
+		
+		<action path="/taskuser"
+		 name="eomstaskForm"	type="com.boco.eoms.task.webapp.action.EomsTaskAction"
+			scope="request" input="mainMenu" parameter="method"
+			unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="init"
+				path="/WEB-INF/pages/task/eoms_task/eoms_task_user.jsp" redirect="false"
+				contextRelative="true" />
+		    <forward name="success"
+				path="/WEB-INF/pages/task/eoms_task/eoms_task_user.jsp" redirect="false"
+			     contextRelative="true" />	
+				
+		</action>
+		
+		<action  path="/accessories" type="com.boco.eoms.task.webapp.action.TaskAccessoriesAction"  name="accessoriesForm"
+		  scope="request" input="mainMenu"  parameter="method" unknown="false"  validate="false" >
+			<set-property  property="cancellable" value="true" />
+			<forward name="uploadPage" path="/WEB-INF/pages/task/accessories/uploadPage.jsp" redirect="false"  contextRelative="true" />
+
+        </action>
+		
+	</action-mappings>
+ 	<controller nocache="true" inputForward="true" maxFileSize="100M" />
+		 <message-resources parameter="com/boco/eoms/task/config/ApplicationResources-task"/>
+		 
+		 
+	<!-- ========== Validator plugin ===================  -->
+
+		<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+		value="/WEB-INF/validator-rules.xml,
+		/WEB-INF/validator-rules-custom.xml,
+		/WEB-INF/validation.xml" />
+		</plug-in>
+</struts-config>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 直放站-IrmsWlanRepeater -->
+	<bean id="irmsWlanRepeaterMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.wlan.IrmsWlanRepeaterMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 热点-IrmsWlanHot -->
+	<bean id="irmsWlanHotMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.wlan.IrmsWlanHotMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- AC-IrmsWlanAc -->
+	<bean id="irmsWlanAcMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.wlan.IrmsWlanAcMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- AP-IrmsWlanAp -->
+	<bean id="irmsWlanApMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.wlan.IrmsWlanApMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 交换机-IrmsWlanSwitch -->
+	<bean id="irmsWlanSwitchMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.wlan.IrmsWlanSwitchMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+</beans>

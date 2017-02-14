@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+
+>
+
+    <class
+            name="com.boco.eoms.role_tease.model.TawSystemRoleDesc"
+            table="taw_system_role_desc"
+    >
+
+    <id
+        name="id"
+            column="id"
+            unsaved-value="null"
+    >
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+
+    </id>
+
+	<property
+            name="roleId"
+            	column="role_id"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="roleName"
+            	column="role_name"
+                length="64"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="dictCode"
+            	column="DICT_CODE"
+                length="16"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="workflowFlag"
+            	column="WORKFLOW_FLAG"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="workflowName"
+            	column="WORKFLOW_NAME"
+                length="64"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="templateCode"
+            	column="TEMPLATE_CODE"
+                length="64"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="templateName"
+            	column="TEMPLATE_NAME"
+                length="128"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="timeLimit"
+            	column="TIME_LIMIT"
+                length="128"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="skill"
+            	column="SKILL"
+                length="255"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="kpi"
+            	column="KPI"
+                length="255"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="orderFlag"
+            	column="ORDER_FLAG"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="notes"
+            	column="NOTES"
+                length="128"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+
+    </class>    
+
+</hibernate-mapping>
+

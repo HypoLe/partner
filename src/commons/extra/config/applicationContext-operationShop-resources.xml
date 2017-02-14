@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="operationShopConfigModel" class="com.boco.activiti.partner.process.model.OperationShopConfigModel">
+         <!--供运维商城调用-返回的url的前缀：只需更改web服务器的ip和端口号即可（ip是部署山东联通现场综合维护管理系统的机器的ip）-->
+        <property name="visitHtmlPathPrefix" value="http://192.168.10.39:8088/worksheet/boco"/>
+         <!--供运维商城调用-生成的html存放的位置(部署山东联通现场综合维护管理系统的机器)-->
+        <property name="placeHtmlPathPrefix" value="D:\emostomcat\apache-tomcat-6.0.18\webapps\worksheet\boco"/>
+         <!--山东联通现场综合维护管理系统-内部访问地址：接口间访问ip-->
+        <property name="visitProjectUrl" value="http://192.168.10.39:8088/partner"/>
+         <!--山东联通现场综合维护管理系统-图片服务器内部访问地址-->
+        <property name="imgServerUrl" value="http://192.168.10.39:8088/partner"/>
+    </bean>
+</beans>

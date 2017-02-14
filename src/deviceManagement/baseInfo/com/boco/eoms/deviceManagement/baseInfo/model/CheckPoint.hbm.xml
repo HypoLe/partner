@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.boco.eoms.deviceManagement.baseInfo.model.CheckPoint" table="db_checkpoint">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+
+		<property name="resourceCode" />
+		<property name="resourceName" />
+		<property name="address" />
+		<property name="type" />
+		<property name="longitude" />
+		<property name="latitude" />
+		<property name="cableSegment" />
+		<property name="cableSystem" />
+		<property name="checkPointSegmentId" />
+		<property name="importantFocus" />
+		<property name="isCheckPoint" />
+		<property name="addTime" />
+		<property name="agreementNO" />
+	</class>
+</hibernate-mapping>

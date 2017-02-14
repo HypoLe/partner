@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="GBK"?>
+<sms>
+  <worksheet>
+    <CommonFaultMainFlowProcess>
+      <processCnMame>故障处理工单</processCnMame>
+      <smsServiceId>
+        <instant></instant>
+        <preOverTime>
+          <accept></accept>
+          <deal></deal>
+        </preOverTime>
+        <postOverTime>
+          <accept></accept>
+          <deal></deal>
+        </postOverTime>
+      </smsServiceId>
+            <voiceServiceId>
+        <instant></instant>
+        <preOverTime>
+          <accept></accept>
+          <deal></deal>
+        </preOverTime>
+        <postOverTime>
+          <accept></accept>
+          <deal></deal>
+        </postOverTime>
+      </voiceServiceId>
+    </CommonFaultMainFlowProcess>
+    <TestCardMainFlowProcess>
+      <processCnMame>测试卡管理工单</processCnMame>
+      <smsServiceId>
+        <instant>8aa081062a7defa3012a7e8cf4e4000a</instant>
+        <preOverTime>
+          <accept></accept>
+          <deal></deal>
+        </preOverTime>
+        <postOverTime>
+          <accept></accept>
+          <deal></deal>
+        </postOverTime>
+      </smsServiceId>
+    </TestCardMainFlowProcess>
+  </worksheet>
+</sms>

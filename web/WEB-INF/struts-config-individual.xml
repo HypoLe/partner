@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans> 
+		<form-bean
+		  name="individualGroupForm"
+		  type="com.boco.eoms.individual.webapp.form.IndividualGroupForm"
+		/>
+		<form-bean
+		  name="individualSpecialForm"
+		  type="com.boco.eoms.individual.webapp.form.IndividualSpecialForm"
+		/>
+			<form-bean
+		  name="individualTreeForm"
+		  type="com.boco.eoms.individual.webapp.form.IndividualTreeForm"
+		/>
+	</form-beans>
+	<!-- ========== Global Exceptions Definitions =================================== -->
+    <global-exceptions>
+        <exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+    </global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward
+		  name="success"
+		  path="/common/success.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>
+		<forward
+		  name="nopriv"
+		  path="/common/nopriv.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>
+		<forward
+		  name="fail"
+		  path="/common/failure.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>
+    </global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+
+	<action-mappings>
+		<action
+		  path="/individualGroups"
+		  type="com.boco.eoms.individual.webapp.action.IndividualGroupAction"
+		  name="individualGroupForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/individual/individualGroup/individualGroupForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/individual/individualGroup/individualGroupList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			
+		</action>
+		<action
+		  path="/individualSpecials"
+		  type="com.boco.eoms.individual.webapp.action.IndividualSpecialAction"
+		  name="individualSpecialForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/individual/individualSpecial/individualSpecialForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/individual/individualSpecial/individualSpecialList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward name="tree"
+				path="/WEB-INF/pages/individual/individualSpecial/individualforumsTree.jsp" redirect="false"
+				contextRelative="true" />
+		</action>
+			<action
+		  path="/individualTrees"
+		  type="com.boco.eoms.individual.webapp.action.IndividualTreeAction"
+		  name="individualTreeForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/individual/individualTree/individualTreeForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/individual/individualTree/individualTreeList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		</action>
+	</action-mappings>
+ 	<controller nocache="true" inputForward="true" maxFileSize="2M" />
+		 <message-resources parameter="com/boco/eoms/individual/config/applicationResource-individual"/>
+	<!-- ========== Validator plugin ===================  -->
+	<!-- 
+		<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+		value="/WEB-INF/validator-rules.xml,
+		/WEB-INF/validator-rules-custom.xml,
+		/WEB-INF/validation.xml" />
+		</plug-in>
+	-->
+</struts-config>

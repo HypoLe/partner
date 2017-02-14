@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+
+<property name="show_sql">true</property>
+    <mapping resource="com/boco/eoms/partner/tranEva/model/TranEvaTree.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/tranEva/model/TranEvaKpi.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/tranEva/model/TranEvaTemplate.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/tranEva/model/TranEvaTask.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/tranEva/model/TranEvaTaskDetail.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/tranEva/model/TranEvaKpiInstance.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/tranEva/model/TranEvaOrg.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/tranEva/model/TranEvaAuditInfo.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/tranEva/model/TranEvaReportInfo.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/tranEva/model/TranKpiConfig.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
+

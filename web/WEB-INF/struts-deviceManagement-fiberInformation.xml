@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+	  <form-bean
+        name="inspectionPlanMonthForm"
+        type="com.boco.eoms.deviceManagement.fiber.form.FiberInformationForm"
+      />
+	</form-beans>
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<!-- 
+			<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+		-->
+	</global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards type="org.apache.struts.action.ActionForward">
+		<forward name="failure" path="/common/fail.jsp"
+			contextRelative="true" />
+		<forward name="success" path="/success.jsp"
+			contextRelative="true" />
+		<forward name="error" path="/error.jsp" contextRelative="true" />
+	</global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+
+
+	<action-mappings>
+	
+	<action
+      path="/fiber"
+      type="com.boco.eoms.deviceManagement.fiber.action.FiberInformationAction"
+      scope="request"
+      input="list"
+      parameter="method"
+      unknown="false"
+      validate="false"
+    >
+      <forward
+        name="list"
+        path="/WEB-INF/pages/deviceManagement/fiber/fiberInformationList.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      <forward
+        name="addOrEdit"
+        path="/WEB-INF/pages/deviceManagement/fiber/fiberInformationForm.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+    </action>
+   
+	</action-mappings>	
+	
+
+</struts-config>

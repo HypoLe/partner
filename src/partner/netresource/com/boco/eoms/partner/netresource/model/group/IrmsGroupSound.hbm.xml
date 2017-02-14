@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.group.IrmsGroupSound" table="irms_group_sound">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="customerName" column="customer_name"/>
+				<property name="relatedInstance" column="related_instance"/>
+				<property name="codeSection" column="code_section"/>
+				<property name="incomingCallPermissions" column="incoming_call_permissions"/>
+				<property name="signalingPattern" column="signaling_pattern"/>
+				<property name="businessBw" column="business_bw"/>
+				<property name="relayNum" column="relay_num"/>
+				<property name="tranAccessWay" column="tran_access_way"/>
+				<property name="customerBusAddr" column="customer_bus_addr"/>
+				<property name="relatedSdName" column="related_sd_name"/>
+				<property name="relatedSdPort" column="related_sd_port"/>
+				<property name="relatedAdName" column="related_ad_name"/>
+				<property name="relatedAdPort" column="related_ad_port"/>
+				<property name="relatedLanName" column="related_lan_name"/>
+				<property name="relatedLanPort" column="related_lan_port"/>
+				<property name="convergedName" column="converged_name"/>
+				<property name="convergedPort" column="converged_port"/>
+				<property name="relatedOrName" column="related_or_name"/>
+				<property name="relatedOrDevice" column="related_or_device"/>
+				<property name="relatedOrDevicePort" column="related_or_device_port"/>
+				<property name="relatedCircuitName" column="related_circuit_name"/>
+				<property name="relatedOcName" column="related_oc_name"/>
+				<property name="clientBusAppIp" column="client_bus_app_ip"/>
+				<property name="customerAcsDate" column="customer_acs_date"/>
+				<property name="createTime" column="create_time"/>
+				<property name="remark" column="remark"/>
+				<property name="relatedInstanceId" column="related_instance_id"/>
+				<property name="relatedSdNameId" column="related_sd_name_id"/>
+				<property name="relatedSdPortId" column="related_sd_port_id"/>
+				<property name="relatedAdNameId" column="related_ad_name_id"/>
+				<property name="relatedAdPortId" column="related_ad_port_id"/>
+				<property name="relatedLanNameaId" column="related_lan_namea_id"/>
+				<property name="relatedLanPortId" column="related_lan_port_id"/>
+				<property name="relatedOrDeviceId" column="related_or_device_id"/>
+				<property name="relatedOrDevicePortId" column="related_or_device_port_id"/>
+				<property name="relatedCircuitNameId" column="related_circuit_name_id"/>
+				<property name="relatedOcNameId" column="related_oc_name_id"/>
+				<property name="clientBusAppIpId" column="client_bus_app_ip_id"/>
+    </class>    
+</hibernate-mapping>

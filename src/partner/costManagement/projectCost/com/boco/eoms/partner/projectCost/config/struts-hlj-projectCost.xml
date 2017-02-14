@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+
+
+<struts-config>
+<form-beans>
+		<form-bean name="projectForm"
+			type="com.boco.eoms.partner.projectCost.model.ProjectCostForm" />
+			</form-beans>
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+	<!-- ============ Global forwards ============ -->
+	<global-forwards type="org.apache.struts.action.ActionForward">
+		<forward name="failure" path="/common/fail.jsp"
+			contextRelative="true" />
+		<forward name="success" path="/common/success.jsp"
+			contextRelative="true" />	
+		<forward name="error" path="/error.jsp" contextRelative="true" />
+	</global-forwards>
+	
+	<!-- ============ Action Mapping definitions ============ -->
+	<action-mappings type="org.apache.struts.action.ActionMapping">
+		
+		<action path="/projectCost" name="projectForm"
+			type="com.boco.eoms.partner.projectCost.action.ProjectAction" 
+			scope="request"  parameter="method" unknown="false" 
+			validate="false"  >
+			<forward name="goToAdd"
+				path="/WEB-INF/pages/partner/costmanagement/projectCost/projectCostForm.jsp"
+				redirect="false" contextRelative="true" />
+				<forward name="list"
+				path="/WEB-INF/pages/partner/costmanagement/projectCost/allList.jsp"
+				redirect="false" contextRelative="true" />
+				<forward name="Searchlist"
+				path="/WEB-INF/pages/partner/costmanagement/advance/searchListForapp.jsp"
+				redirect="false" contextRelative="true" />
+				<forward name="detail"
+				path="/WEB-INF/pages/partner/costmanagement/advance/advanceDetail.jsp"
+				redirect="false" contextRelative="true" />
+				
+				
+		</action>
+	</action-mappings>
+
+</struts-config>

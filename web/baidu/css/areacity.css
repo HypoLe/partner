@@ -1,0 +1,56 @@
+.menu {position:absolute; z-index:100; margin-top:200px;}
+.menu ul {padding:0; margin:0; list-style-type: none; height:170px;}
+.menu ul li {width:35px; text-align:left;}
+* html .menu ul li {width:235px; margin-left:-16px; mar\gin-left:0;}
+.menu ul li a, .menu ul li a:visited {display:block; text-decoration:none; width:15px; padding:10px; background:transparent url(/jscss/demoimg/200904/tab1.gif) top right; height:80px; text-align:center; border-left:1px solid #000;}
+* html .menu ul li a, * html .menu ul li a:visited {width:35px; height:100px; w\idth:15px; he\ight:80px;}
+table {margin:0; padding:0; border:0; border-collapse:collapse;font-size:1em;}
+.menu ul li ul {visibility:hidden; position:absolute; width:190px; top:0; left:0;}
+.menu ul li:hover {position:relative;}
+.menu ul li:hover a {padding-left:200px;}
+.menu ul li a:hover {padding-left:201px; position:relative; z-index:200; border-left:0;}
+.menu ul li:hover ul,
+.menu ul li a:hover ul {visibility:visible; z-index:300;}
+.menu ul li:hover ul li a,
+.menu ul li a:hover ul li a {display:block; background:#d8e2e2 url(/jscss/demoimg/200904/fade.gif); color:#888; text-align:left; height:auto; padding:5px; border:1px solid #000; border-width:1px 1px 0 1px; width:190px; w\idth:180px;}
+.menu ul li:hover ul li a.last,
+.menu ul li a:hover ul li a.last {border-bottom:1px solid #000;}
+.menu ul li:hover ul li a:hover,
+.menu ul li a:hover ul li a:hover {background:#e8f2f2; color:#000;}
+.some_text {padding:0 20px 0 50px;}
+/* ================================= lilei ============================ */
+/* <a> 待处理巡检任务组的连接 */
+.waitTaskMenu{cursor:pointer;}
+/* <a> 待处理巡检任务组的连接 */
+.hiddenElemnt{display:none;}
+#tablePagination { 
+  background: none repeat scroll 0 0 #CAE8EA;
+  border: 1px solid #98C0F4;
+  border-top:none;
+  font-family: verdana,arial,helvetica,sans-serif;
+  font-size: 0.8em; 
+  padding: 0px 5px; 
+  height: 22px;
+  font-weight: bold;
+  color:#006699;
+}
+
+#tablePagination_paginater { 
+  margin-left: auto; 
+  margin-right: auto;
+}
+#tablePagination_paginater img{
+	position:relative;
+	top:3px;
+}
+#tablePagination img { 
+  padding: 0px 2px; 
+}
+
+#tablePagination_perPage { 
+  float: left; 
+}
+
+#tablePagination_paginater { 
+  float: right; 
+}

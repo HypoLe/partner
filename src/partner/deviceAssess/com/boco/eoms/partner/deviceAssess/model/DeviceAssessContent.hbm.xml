@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class
+		name="com.boco.eoms.partner.deviceAssess.model.DeviceAssessContent"
+		table="pnr_deviceAssess_contents">
+
+		<id name="id" column="id" unsaved-value="null">
+			<generator class="uuid.hex">
+			</generator>
+		</id>
+		<property name="approveId"  />
+		<property name="assessId"  />
+		<property name="content"  />
+		<property name="remark"  />
+		<property name="approveUser"  />
+		<property name="commitTime"  />
+		<property name="state"  />
+	</class>
+
+</hibernate-mapping>
+

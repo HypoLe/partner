@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="repairFaultDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.RepairFaultDaoHibernate" autowire="byName"/>
+	<!-- 方案合格率统计 -->
+	<bean id="repairFaultService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.RepairFaultServiceImpl">
+				<property name="repairFaultDao" ref="repairFaultDao" />
+			</bean>
+		</property>
+	</bean>
+	
+</beans>

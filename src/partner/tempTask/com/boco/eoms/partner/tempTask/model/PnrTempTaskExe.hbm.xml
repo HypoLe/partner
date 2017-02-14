@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+
+>
+
+    <class
+            name="com.boco.eoms.partner.tempTask.model.PnrTempTaskExe"
+            table="pnr_tempTask_exe"
+    >
+    	<id name="id" column="id" unsaved-value="null">
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    	<generator class="uuid.hex">
+     	</generator>
+    	</id>
+		<property name="tempTaskId" column="tempTask_id" length="32" not-null="false" unique="false">
+        </property>
+		<property name="workId" column="work_id" length="32" not-null="false" unique="false" >
+        </property>
+		<property name="exeStartTime" column="exe_start_time" length="32" not-null="false" unique="false">
+        </property>
+		<property name="exeEndTime" column="exe_end_time" length="32" not-null="false" unique="false">
+		</property>
+		<property name="exeContent" column="exe_content" length="2000" not-null="false" unique="false" >
+        </property>
+   		<!-- 附件 -->
+		<property name="accessoriesId" column="accessories_id" length="50" not-null="false" unique="false">
+		</property>
+    </class>    
+
+</hibernate-mapping>
+

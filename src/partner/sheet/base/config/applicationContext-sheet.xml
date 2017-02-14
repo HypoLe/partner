@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+   
+<beans>
+    <import resource="classpath:config/applicationContext-sheet-base.xml" />
+    <import resource="classpath:config/applicationContext-sheet-tool-relation.xml" /> 
+ 	<import resource="classpath:config/applicationContext-sheet-tool-access.xml" /> 
+ 	<import resource="classpath:config/applicationContext-sheet-sheetLimit.xml" /> 
+    <import resource="classpath:config/applicationContext-sheet-overtimetip.xml" />
+    <import resource="classpath:config/applicationContext-sheet-sheetDealLimit.xml" />
+    <import resource="classpath:config/applicationContext-sheet-wfinterfaceinfo.xml" />
+    <import resource="classpath:config/applicationContext-sheet-dealtypeconfig.xml" />
+    <import resource="classpath:config/applicationContext-sheet-alllist.xml" />
+    <!-- 通用任务工单 -->
+    <import resource="classpath:com/boco/eoms/partner/sheet/commontask/config/applicationContext-sheet-pnrcommontask.xml" />
+    <!-- 发电保障工单 -->
+ <!-- <import resource="classpath:com/boco/eoms/partner/sheet/generateelectricity/config/applicationContext-sheet-generateElectricity.xml" /> -->
+ 	<!-- 故障处理-->
+ <!-- <import resource="classpath:com/boco/eoms/partner/sheet/faultdeal/config/applicationContext-sheet-pnrfaultdeal.xml" /> -->
+ 	<!-- 投诉工单-->
+   <!--  <import resource="classpath:com/boco/eoms/partner/sheet/pnrcomplaint/config/applicationContext-sheet-pnrcomplaint.xml" /> -->
+
+ 	<!-- 隐患工单-->
+ <!--  <import resource="classpath:com/boco/eoms/partner/sheet/pnrhiddentrouble/config/applicationContext-sheet-pnrhiddentrouble.xml" /> -->
+
+ 	<!-- 资源核查工单-->
+    <!-- <import resource="classpath:com/boco/eoms/partner/sheet/pnrrescheck/config/applicationContext-sheet-pnrrescheck.xml" /> -->
+
+</beans>    

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<!-- Generated with Karapan Sapi Struts Generator -->
+<!-- Visit http://www.javanovic.com         -->
+
+<struts-config>
+	<!-- ============ Form beans ============ -->
+	<form-beans>
+		<form-bean name="baseStationMainForm" type="com.boco.partner2.baseStation.model.BaseStationMainForm" />
+	</form-beans>
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+
+	<!-- ============ Global forwards ============ -->
+	<global-forwards type="org.apache.struts.action.ActionForward">
+		<forward name="failure" path="/nop3/common/fail.jsp" redirect="false" contextRelative="true" />
+		<forward name="success" path="/nop3/common/success.jsp" redirect="false" contextRelative="true" />
+		<forward name="error" path="/nop3/common/error.jsp" contextRelative="true" redirect="false" />
+		<forward name="cancel" path="/servlet/main.do" />
+		<forward name="nopriv" path="/nop3/common/nopriv.jsp" contextRelative="true" redirect="false" />
+	</global-forwards>
+
+	<!-- ============ Action Mapping definitions ============ -->
+	<action-mappings type="org.apache.struts.action.ActionMapping">
+    
+     <action
+      path="/baseStationMain"
+      type="com.boco.partner2.baseStation.action.BaseStationMainAction"
+      name="baseStationMainForm"
+      scope="request"
+      input="list"
+      parameter="method"
+      unknown="false"
+      validate="false" >
+      <set-property property="cancellable" value="true" />
+       <forward
+        name="goToAdd"
+        path="/WEB-INF/pages/partner2/baseStation/add.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      <forward
+        name="goToEdit"
+        path="/WEB-INF/pages/partner2/baseStation/edit.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      <forward
+        name="balanceNavigate"
+        path="/WEB-INF/pages/partner2/baseStation/balanceNavigate.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      <forward
+        name="balanceCircuitResult"
+        path="/WEB-INF/pages/partner2/baseStation/balanceCircuitResult.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      <forward
+        name="balanceBaseStationResult"
+        path="/WEB-INF/pages/partner2/baseStation/balanceBaseStationResult.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+       <forward
+        name="goToSearch"
+        path="/WEB-INF/pages/partner2/baseStation/search.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+        <forward
+        name="goToImportExcel"
+        path="/WEB-INF/pages/partner2/baseStation/importExcel.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      <forward
+        name="list"
+        path="/WEB-INF/pages/partner2/baseStation/list.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+       <forward
+        name="goToWithAppraisal"
+        path="/WEB-INF/pages/partner2/baseStation/baseStationWithAppraisal.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+       <forward
+        name="showDetail"
+        path="/WEB-INF/pages/partner2/baseStation/detail.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+       <forward
+        name="failure"
+        path="/WEB-INF/pages/partner2/baseStation/failure.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+    </action>
+    
+	</action-mappings>
+
+
+</struts-config>

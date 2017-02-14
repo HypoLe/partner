@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class
+            name="com.boco.eoms.task.model.Eoms_Task_User"
+            table="eoms_task_user"
+    >
+
+    <id
+        name="id"
+            column="id"
+            unsaved-value="null"
+    >
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+
+    </id>
+		<property
+            name="managerid"
+                length="128"
+                not-null="false"
+                unique="false"
+                column="managerid"
+        >
+
+        </property>
+        <property
+            name="managername"
+                length="128"
+                not-null="false"
+                column="managername"
+        >
+        </property>
+             <property
+            name="userid"
+                length="128"
+                not-null="false"
+                column="userid"
+        >
+        </property>
+             <property
+            name="username"
+                length="128"
+                not-null="false"
+                column="username"
+        >
+        </property>
+	
+	</class>
+
+</hibernate-mapping>
+

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans> 
+	 <form-bean
+      name="remindInfoForm"
+      type="com.boco.eoms.remind.webapp.form.RemindInfoForm"
+    />
+	</form-beans>
+  <!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions/>
+
+  <!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards/>
+  <!-- ========== Action Mapping Definitions =================================== -->
+
+<action-mappings>
+<action
+      path="/reminds"
+      type="com.boco.eoms.remind.webapp.action.RemindAction"
+      name="remindInfoForm"
+      scope="request"
+      input="mainMenu"
+      parameter="method"
+      unknown="false"
+      validate="false"
+    >
+      <set-property
+        property="cancellable"
+        value="true"
+      />
+      <forward
+        name="remindList"
+        path="/WEB-INF/pages/remind/remindList.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      <forward
+        name="emptyList"
+        path="/WEB-INF/pages/remind/emptyList.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+    </action>	
+</action-mappings>
+	
+	<controller nocache="true" inputForward="true" maxFileSize="2M"/>
+
+	<message-resources parameter="config/applicationResources-remind"/>
+
+</struts-config>
+

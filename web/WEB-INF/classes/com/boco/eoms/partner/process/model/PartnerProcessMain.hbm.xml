@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.boco.eoms.partner.process.model.PartnerProcessMain" table="pnr_process_main">
+	 <id name="id" column="id" unsaved-value="null">
+	  	<generator class="uuid.hex"></generator>
+     </id>
+	<property name="currentState"  column="current_state"  not-null="false"  unique="false"></property>
+	<property name="changeAttachment"  column="change_attachment"  not-null="false"  unique="false"></property>
+	<property name="referenceModel"  column="reference_model"  not-null="false"  unique="false"></property>
+	<property name="changeType"  column="change_type"  not-null="false"  unique="false"></property>
+	<property name="startTime"  column="start_time"  not-null="false"  unique="false"></property>
+	<property name="endTime"  column="end_time"  not-null="false"  unique="false"></property>
+	<property name="createUser"  column="create_user"  not-null="false"  unique="false"> </property>
+	<property name="deleted"  column="deleted"  not-null="false"  unique="false"></property>
+	</class>
+</hibernate-mapping>

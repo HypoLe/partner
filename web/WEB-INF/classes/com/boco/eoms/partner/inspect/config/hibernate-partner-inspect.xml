@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		 <property name="show_sql">true</property>
+		 <mapping resource="com/boco/eoms/partner/inspect/model/InspectPlanMain.hbm.xml"/>
+		 <mapping resource="com/boco/eoms/partner/inspect/model/InspectPlanRes.hbm.xml"/>
+		 <mapping resource="com/boco/eoms/partner/inspect/model/InspectPlanApprove.hbm.xml"/>
+		 <mapping resource="com/boco/eoms/partner/inspect/model/InspectPlanChange.hbm.xml"/>
+		 <mapping resource="com/boco/eoms/partner/inspect/model/InspectPlanResChange.hbm.xml"/>
+		 <mapping resource="com/boco/eoms/partner/inspect/model/InspectTemplate.hbm.xml" />
+		 <mapping resource="com/boco/eoms/partner/inspect/model/InspectTemplateItem.hbm.xml" />
+		 <mapping resource="com/boco/eoms/partner/inspect/model/InspectPlanItem.hbm.xml" />
+		 <mapping resource="com/boco/eoms/partner/inspect/model/PnrInspectTrack.hbm.xml" />
+		 <mapping resource="com/boco/eoms/partner/inspect/model/PnrInspectTaskFile.hbm.xml" />
+		 <mapping resource="com/boco/eoms/partner/inspect/model/SpotcheckTemplate.hbm.xml" />
+		 <mapping resource="com/boco/eoms/partner/inspect/model/SpotcheckTemplateItem.hbm.xml" />
+		 <mapping resource="com/boco/eoms/partner/inspect/model/SpotcheckRes.hbm.xml" />
+		 <mapping resource="com/boco/eoms/partner/inspect/model/SpotcheckItem.hbm.xml" />
+		 <mapping resource="com/boco/eoms/partner/inspect/model/InspectPlanGis.hbm.xml" />
+		 <mapping resource="com/boco/eoms/partner/inspect/model/InspectPlanGisPnr.hbm.xml" />
+		 <mapping resource="com/boco/eoms/partner/inspect/model/InspectTemplateBigItem.hbm.xml" />
+		 
+		 <mapping resource="com/boco/eoms/mobile/model/AllStatistics.hbm.xml" />
+		 <mapping resource="com/boco/eoms/partner/inspect/model/ErrorDistance.hbm.xml" />
+		 <mapping resource="com/boco/eoms/partner/inspect/model/InspectLineTrack.hbm.xml" />
+		 <mapping resource="com/boco/eoms/partner/inspect/model/InspectPlanResQualityCheck.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

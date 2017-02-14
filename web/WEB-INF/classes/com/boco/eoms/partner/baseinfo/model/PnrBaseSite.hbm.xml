@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+
+>
+
+    <class
+            name="com.boco.eoms.partner.baseinfo.model.PnrBaseSite"
+            table="pnr_base_site"
+    >
+
+    <id
+        name="id"
+            column="id"
+            unsaved-value="null"
+    >
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+
+    </id>
+
+	<property
+            name="name"
+            	column="NAME"
+                length="50"
+                not-null="true"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="addTime"
+            	column="ADD_TIME"
+                length="32"
+                not-null="true"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="addUser"
+            	column="ADD_USER"
+                length="32"
+                not-null="true"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="updateTime"
+            	column="UPDATE_TIME"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="updateUser"
+            	column="UPDATE_USER"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="delTime"
+            	column="DEL_TIME"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="delUser"
+            	column="DEL_USER"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="isDel"
+            	column="ISDEL"
+                length="10"
+                not-null="true"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="code"
+            	column="CODE"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="state"
+            	column="STATE"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="softVersion"
+            	column="SOFT_VERSION"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="hardwareFlat"
+            	column="HARDWARE_FLAT"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="hardwareVersion"
+            	column="HARDWARE_VERSION"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="siteType"
+            	column="SITE_TYPE"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="siteNO"
+            	column="SITE_NO"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="siteUse"
+            	column="SITE_USE"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="vipNO"
+            	column="VIP_NO"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="connectCode"
+            	column="CONNECT_CODE"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="frequencyBand"
+            	column="FREQUENCY_BAND"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="equipmentFactury"
+            	column="EQUIPMENT_FACTURY"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="vendor"
+            	column="VENDOR"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="productDate"
+            	column="PRODUCT_DATE"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="productNO"
+            	column="PRODUCT_NO"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="siteName"
+            	column="SITE_NAME"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="addressNO"
+            	column="ADDRESS_NO"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="city"
+            	column="CITY"
+                length="20"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="town"
+            	column="TOWN"
+                length="20"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="address"
+            	column="ADDRESS"
+                length="200"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="bsc"
+            	column="BSC"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="siteSort"
+            	column="SiTE_SORT"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="longitude"
+            	column="LONGITUDE"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="latitude"
+            	column="LATITUDE"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="altitude"
+            	column="ALTITUDE"
+                length="20"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="omc"
+            	column="OMC"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="borderDescription"
+            	column="BORDER_DESCRIPTION"
+                length="500"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="coverArea"
+            	column="COVER_AREA"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="coverType"
+            	column="COVER_TYPE"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="courtCover"
+            	column="COURT_COVER"
+                length="20"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="geographyCharacter"
+            	column="GEOGRAPHY_CHARACTER"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="areaType"
+            	column="AREA_TYPE"
+                length="20"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="isMonitor"
+            	column="IS_MONITOR"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="courtNum"
+            	column="COURT_NUM"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="carrierFrequencyNum"
+            	column="CARRIER_FREQUENCY_NUM"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="networkDate"
+            	column="NETWORK_DATE"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="timeForArrive"
+            	column="TIME_FOR_ARRIVE"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="powerProviderTel"
+            	column="POWER_PROVIDER_TEL"
+                length="20"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="acOrDc"
+            	column="AC_OR_DC"
+                length="20"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="transfersType"
+            	column="TRANSFERS_TYPE"
+                length="20"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="togetherSite"
+            	column="TOGERTHER_SITE"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="togetherSiteInf"
+            	column="TOGERTHER_SITE_INF"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="noncommissionNO"
+            	column="NONCOMMISSION_NO"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="setDate"
+            	column="SET_DATE"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="maintainType"
+            	column="MAINTAIN_TYPE"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="provider"
+            	column="PROVIDER"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="powerState"
+            	column="POWER_STATE"
+                length="20"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="lockState"
+            	column="LOCK_STATE"
+                length="20"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="dutyPerson"
+            	column="DUTY_PERSON"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="dutyPersonTel"
+            	column="DUTY_PERSON_TEL"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="inOrOut"
+            	column="IN_OR_OUT"
+                length="20"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="keyKeeper"
+            	column="KEY_KEEPER"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="keyLeave"
+            	column="KEY_LEAVE"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="roomRight"
+            	column="ROOM_RIGHT"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="houseFrame"
+            	column="HOUSE_FRAME"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="roomType"
+            	column="ROOM_TYPE"
+                length="20"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="houseArea"
+            	column="HOUSE_AREA"
+                length="20"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="rent"
+            	column="RENT"
+                length="20"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="owner"
+            	column="OWNER"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="ownerIDcard"
+            	column="OWNER_IDCARD"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="ownerTel"
+            	column="OWNER_TEL"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="roomNO"
+            	column="ROOM_NO"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="groundCardNO"
+            	column="GROUND_CARD_NO"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="tenancyNO"
+            	column="TENANCY_NO"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="transEquipmentType"
+            	column="TRANS_EQUIPMENT_TYPE"
+                length="20"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="transfersBelong"
+            	column="TRANSFERS_BELONG"
+                length="20"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="transfersPort"
+            	column="TRANSFERS_PORT"
+                length="20"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="fiberType"
+            	column="FIBER_TYPE"
+                length="20"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="isTransNode"
+            	column="IS_TEANS_NODE"
+                length="20"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="description"
+            	column="DESCRIPTION"
+                length="500"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="remark"
+            	column="REMARK"
+                length="1000"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+
+    </class>    
+
+</hibernate-mapping>
+

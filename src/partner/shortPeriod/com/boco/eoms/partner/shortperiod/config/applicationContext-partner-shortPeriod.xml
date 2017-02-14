@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="towerInspectDao"
+		class="com.boco.eoms.partner.shortperiod.dao.hibernate.TowerInspectDaoHibernate" autowire="byName"/>
+  
+	<bean id="towerInspectJDBCDao"
+		class="com.boco.eoms.partner.shortperiod.dao.hibernate.TowerInspectDaoJDBC" autowire="byName"/>
+	
+	<bean id="towerInspectService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.shortperiod.service.impl.TowerInspectServiceImpl">
+				<property name="towerInspectDao" ref="towerInspectDao" />
+				<property name="towerInspectJDBCDao" ref="towerInspectJDBCDao" />
+			</bean>
+		</property>
+	</bean>	
+</beans>

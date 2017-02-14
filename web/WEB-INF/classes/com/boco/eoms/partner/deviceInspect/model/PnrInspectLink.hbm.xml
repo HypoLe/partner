@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.deviceInspect.model.PnrInspectLink" table="pnr_inspect_link">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="inspectId" column="inspect_id"/>
+				<property name="inspectMappingId" column="inspect_mapping_id"/>
+				<property name="netResId" column="netres_id"/>
+				<property name="deviceSpecialtyName" column="device_specialty_name"></property>
+				<property name="deviceTypeName" column="device_type_name"></property>
+				<property name="netresTableName" column="netres_table_name"></property>
+				<property name="netresName" column="netres_name"></property>
+				<property name="netresFieldName" column="netres_field_name"/>
+				<property name="netresFieldValue" column="netres_field_value"/>
+    </class>    
+</hibernate-mapping>

@@ -1,0 +1,1 @@
+dojo.provide("esri.dijit.editing.nls.TemplatePicker-all_he-il");dojo.provide("dijit.nls.loading");dijit.nls.loading._built=true;dojo.provide("dijit.nls.loading.he_il");dijit.nls.loading.he_il={"loadingState":"טעינה...‏","errorState":"אירעה שגיאה"};

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.boco.eoms.deviceManagement.busi.line.model.ProjectBaseInfo" table="dm_line_projectbaseinfo">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+
+		<property name="projectName"/>
+		<property name="projectType"/>
+		<property name="projectLocation"/>
+		<property name="networkType"/>
+		<property name="startTime"/>
+		<property name="attachment"/>
+		<property name="applyer"/>
+		<property name="applyCompany"/>
+		<property name="applyTime"/>
+		<property name="lastTime"/>
+		<property name="projectLength"/>
+		<property name="effect"/>
+		<property name="status"/>
+		<property name="remarks"/>
+		<property name="checker"/>
+		<property name="projectPay"/>
+		<property name="allower"/>
+		<property name="checkattachment"/>
+		<property name="checkDate"/>
+		<property name="checkRemarks"/>
+		<property name="consignee"/>
+		<property name="constructor"/>
+		<property name="constructorLocation"/>
+		<property name="constructorPhone"/>
+		<property name="constructorContacter"/>
+		<property name="constructPay"/>
+		<property name="constructorType"/>
+		<property name="constructStartTime"/>
+		<property name="constructRemarks"/>
+		<property name="constructattachment"/>
+		<property name="constructor2"/>
+		<property name="constructorContacter2"/>
+		<property name="constructorLocation2"/>
+		<property name="constructorPhone2"/>
+		<property name="constructRemarks2"/>
+		<property name="constructReview"/>
+		<property name="constructStartTime2"/>
+		<property name="constructEndTime2"/>
+		<property name="acceptResult"/>
+		<property name="acceptRemarks"/>
+		<property name="accepter"/>
+		<property name="acceptDate"/>
+		<property name="acceptattachment"/>
+	</class>
+</hibernate-mapping>

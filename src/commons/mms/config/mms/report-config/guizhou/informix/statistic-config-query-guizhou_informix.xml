@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--所有标签名称都为固定值,不能修改,否则无法解析. -->
+<KpiConfig>
+	<title>贵州彩信报</title>
+	<est-module-id></est-module-id> <!--最后采集的时间表id-->
+
+	<!-- ********彩信报 ********************** -->
+	<kpi-define><!-- 可重复 -->
+		<name>gz_tch_traffic</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		
+		<auto-append-groupby>false</auto-append-groupby>
+		
+		<!-- ne_name 不知道叫什么名字，不熟悉业务不明白这个字段是什么意思-->
+		<summary-define>
+			<id>ne_name</id>
+			<sequence></sequence>
+			<column>soa_get_nename(ne_id,ne_type)</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<!-- tch_traffic 不知道叫什么名字，不熟悉业务不明白这个字段是什么意思-->
+		<summary-define>
+			<id>tch_traffic</id>
+			<sequence></sequence>
+			<column>tch_traffic</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		<stat-detail-vo></stat-detail-vo><!--显示DetailVO-->
+
+		<query-define><!-- 可重复 -->
+			<name></name>
+			
+			<data-source>
+				<driver-class>com.informix.jdbc.IfxDriver</driver-class>
+				<driver-url>jdbc:informix-sqli://10.194.2.224:8002/npmdb:informixserver=wnmsserver;user=npmuser;password=npmuser;NEWCODESET=gbk,8859-1,819</driver-url>
+				<user>npmuser</user>
+				<password>npmuser</password>
+			</data-source>
+			
+			
+			<!-- sql片段,用于jdbc统计(分子) -->
+			<from>tpa_radio_sum trs</from><!-- 不可为空 -->
+			<where> 
+				1=1  and
+				first_result=extend(today-1,year to second)+10 units hour and ne_type=10003 and sum_level=0 
+			</where><!-- 可为空 -->
+			<order-by></order-by><!-- 可为空 -->
+
+			<field-define><!-- 可重复 -->
+				<id></id>
+				<sequence></sequence>
+				<stat-type></stat-type><!--"field_sql,expression"  -->
+				<stat-sql></stat-sql>
+				<list-count-select-sql></list-count-select-sql><!--列表总数-->
+				<list-hsql>
+				</list-hsql>
+			</field-define>
+		</query-define>
+		
+	</kpi-define>
+	
+</KpiConfig>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- BTSSITE-IrmsBsBtssite -->
+	<bean id="irmsBsBtssiteDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsBtssiteDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_btssite" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_btssite" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_btssite" /><!-- 正式表名 -->
+	</bean>
+	<!-- 机楼基站外电-IrmsBsJzwd -->
+	<bean id="irmsBsJzwdDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsJzwdDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_jzwd" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_jzwd" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_jzwd" /><!-- 正式表名 -->
+	</bean>
+	<!-- 变压器或调压器-IrmsBsTransfor -->
+	<bean id="irmsBsTransforDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsTransforDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_transfor" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_transfor" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_transfor" /><!-- 正式表名 -->
+	</bean>
+	<!-- 机框-IrmsBsShelf -->
+	<bean id="irmsBsShelfDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsShelfDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_shelf" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_shelf" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_shelf" /><!-- 正式表名 -->
+	</bean>
+	<!-- 机槽-IrmsBsSlot -->
+	<bean id="irmsBsSlotDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsSlotDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_slot" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_slot" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_slot" /><!-- 正式表名 -->
+	</bean>
+	<!-- UTRANCELL-IrmsBsUtrancell -->
+	<bean id="irmsBsUtrancellDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsUtrancellDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_utrancell" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_utrancell" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_utrancell" /><!-- 正式表名 -->
+	</bean>
+	<!-- CELL-IrmsBsCell -->
+	<bean id="irmsBsCellDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsCellDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_cell" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_cell" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_cell" /><!-- 正式表名 -->
+	</bean>
+	<!-- NODEB-IrmsBsNodeb -->
+	<bean id="irmsBsNodebDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsNodebDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_nodeb" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_nodeb" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_nodeb" /><!-- 正式表名 -->
+	</bean>
+	<!-- 机柜-IrmsBsRack -->
+	<bean id="irmsBsRackDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsRackDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_rack" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_rack" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_rack" /><!-- 正式表名 -->
+	</bean>
+	<!-- 板卡-IrmsBsCard -->
+	<bean id="irmsBsCardDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsCardDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_card" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_card" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_card" /><!-- 正式表名 -->
+	</bean>
+	<!-- 发电机组-IrmsBsGrnerat -->
+	<bean id="irmsBsGrneratDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsGrneratDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_grnerat" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_grnerat" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_grnerat" /><!-- 正式表名 -->
+	</bean>
+	<!-- 蓄电池组-IrmsBsStorage -->
+	<bean id="irmsBsStorageDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsStorageDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_storage" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_storage" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_storage" /><!-- 正式表名 -->
+	</bean>
+	<!-- 开关电源-IrmsBsGrnerat2 -->
+	<bean id="irmsBsGrnerat2DaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsGrnerat2DaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_grnerat2" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_grnerat2" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_grnerat2" /><!-- 正式表名 -->
+	</bean>
+	<!-- UPS主机-IrmsBsUps -->
+	<bean id="irmsBsUpsDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsUpsDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_ups" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_ups" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_ups" /><!-- 正式表名 -->
+	</bean>
+	<!-- 普通空调-IrmsBsAircon -->
+	<bean id="irmsBsAirconDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsAirconDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_aircon" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_aircon" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_aircon" /><!-- 正式表名 -->
+	</bean>
+	<!-- 专用空调-IrmsBsSpeaircon -->
+	<bean id="irmsBsSpeairconDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsSpeairconDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_speaircon" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_speaircon" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_speaircon" /><!-- 正式表名 -->
+	</bean>
+	<!-- 动环监控设备-IrmsBsMme -->
+	<bean id="irmsBsMmeDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsMmeDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_mme" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_mme" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_mme" /><!-- 正式表名 -->
+	</bean>
+	<!-- 通风系统-IrmsBsVens -->
+	<bean id="irmsBsVensDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsVensDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_vens" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_vens" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_vens" /><!-- 正式表名 -->
+	</bean>
+	<!-- 换热系统-IrmsBsHes -->
+	<bean id="irmsBsHesDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsHesDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_hes" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_hes" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_hes" /><!-- 正式表名 -->
+	</bean>
+	<!-- 风能设备-IrmsBsWep -->
+	<bean id="irmsBsWepDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsWepDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_wep" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_wep" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_wep" /><!-- 正式表名 -->
+	</bean>
+	<!-- 风电控制器-IrmsBsWpc -->
+	<bean id="irmsBsWpcDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsWpcDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_wpc" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_wpc" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_wpc" /><!-- 正式表名 -->
+	</bean>
+	<!-- 太阳能设备-IrmsBsSee -->
+	<bean id="irmsBsSeeDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsSeeDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_see" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_see" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_see" /><!-- 正式表名 -->
+	</bean>
+	<!-- 太阳能控制器-IrmsBsMppt -->
+	<bean id="irmsBsMpptDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsMpptDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_mppt" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_mppt" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_mppt" /><!-- 正式表名 -->
+	</bean>
+	<!-- 风光互补控制器-IrmsBsCc -->
+	<bean id="irmsBsCcDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsCcDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_cc" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_cc" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_cc" /><!-- 正式表名 -->
+	</bean>
+	<!-- 电源恒温箱-IrmsBsBb -->
+	<bean id="irmsBsBbDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.bs.IrmsBsBbDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_bs_bb" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_bs_bb" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_bs_bb" /><!-- 正式表名 -->
+	</bean>
+</beans>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.boco.eoms.deviceManagement.busi.line.model.MaintainFinish" table="dm_protectline_maintainfinish">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="addMan" />
+		<property name="maintainNameId" />
+		<property name="maintainPlace" />
+		<property name="maintainReportId" />
+		<property name="finishResult" />
+		<property name="finishRemark" />
+		<property name="addTime" />
+		<property name="startTime" />
+		<property name="endTime" />
+		<property name="remark1" />
+		<property name="remark2" />
+		<property name="remark3" />
+	</class>
+</hibernate-mapping>

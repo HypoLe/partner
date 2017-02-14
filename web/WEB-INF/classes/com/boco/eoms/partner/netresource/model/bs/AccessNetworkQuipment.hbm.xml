@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.bs.AccessNetworkQuipment" table="pnr_access_network_quipment">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="network" column="network"/>
+				<property name="deviceType" column="device_type"/>
+				<property name="anqName" column="anq_name"/>							
+				<property name="anrName" column="anr_name"/>							
+				<property name="anrId" column="anr_id"/>
+                <property name="deviceNumber" column="device_number"/>
+				<property name="inspectName" column="inspect_name"/>
+				<property name="inspectId" column="inspect_id"/>
+				
+    </class>    
+</hibernate-mapping>

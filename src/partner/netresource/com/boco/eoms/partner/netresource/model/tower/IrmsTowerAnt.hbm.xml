@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.tower.IrmsTowerAnt" table="irms_tower_ant">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="labelCn" column="label_cn"/>
+				<property name="sumAngle" column="sum_angle"/>
+				<property name="relatedCellid" column="related_cellid"/>
+				<property name="vendor" column="vendor"/>
+				<property name="highCube" column="high_cube"/>
+				<property name="antType" column="ant_type"/>
+				<property name="maxazimuthValue" column="maxazimuth_value"/>
+				<property name="adjustAngleEle" column="adjust_angle_ele"/>
+				<property name="adjustAngleMac" column="adjust_angle_mac"/>
+				<property name="installTime" column="install_time"/>
+				<property name="tianMian" column="tian_mian"/>
+				<property name="remark" column="remark"/>
+				<property name="createTime" column="create_time"/>
+				<property name="relatedCellidId" column="related_cellid_id"/>
+    </class>    
+</hibernate-mapping>

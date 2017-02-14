@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.boco.eoms.partner.inspect.model.InspectPlanResQualityCheck" table="pnr_inspect_plan_res_qc">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+		
+		<property name="planId"   column="plan_Id" />
+		<property name="planResId"   column="plan_Res_Id" />
+		<property name="scoreInTime"   column="score_InTime" />
+		<property name="scoreStandard"   column="score_Standard" />
+		<property name="scoreFinish"   column="score_Finish" />
+		<property name="scoreStatisfied"   column="score_Statisfied" />
+		<property name="scoreTotal"   column="score_Total" />
+		<property name="satisfaction"   column="satisfaction" />
+		<property name="remark"   column="remark" />
+		<property name="checkTime"   column="check_Time" />
+		<property name="checkUser"   column="check_User" />
+		
+	</class>
+</hibernate-mapping>

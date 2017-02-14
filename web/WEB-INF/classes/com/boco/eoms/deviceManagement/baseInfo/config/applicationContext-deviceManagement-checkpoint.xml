@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="checkPointDao"
+		class="com.boco.eoms.deviceManagement.baseInfo.dao.CheckPointDaoImpl" autowire="byName" />
+
+	<bean id="checkPointService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.deviceManagement.baseInfo.service.CheckPointServiceImpl">
+				<property name="checkPointDao"
+					ref="checkPointDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="cpType" class="com.boco.eoms.deviceManagement.baseInfo.model.CheckPointType">
+		<!-- key是字典值 -->
+		<property  name ="cpType" >    
+          <map >    
+              <entry  key ="1190101" >    
+                  <value >1190101</value >    
+              </entry >    
+              <entry  key ="1190102" >    
+                  <value >1190102</value >    
+              </entry >    
+              <entry  key ="1190103" >    
+                  <value >1190103</value >    
+              </entry >    
+              <entry  key ="1190104" >    
+                  <value >1190104</value >    
+              </entry >    
+          </map >    
+</property >
+	</bean>
+</beans>

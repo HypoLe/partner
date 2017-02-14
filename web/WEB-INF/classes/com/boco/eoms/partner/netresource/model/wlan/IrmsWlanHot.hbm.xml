@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.wlan.IrmsWlanHot" table="irms_wlan_hot">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="labelCn" column="label_cn"/>
+				<property name="relatedDistrict" column="related_district"/>
+				<property name="nasId" column="nas_id"/>
+				<property name="hotpointType" column="hotpoint_type"/>
+				<property name="longitude" column="longitude"/>
+				<property name="latitude" column="latitude"/>
+				<property name="transType" column="trans_type"/>
+				<property name="relatedVendor" column="related_vendor"/>
+				<property name="apCount" column="ap_count"/>
+				<property name="address" column="address"/>
+				<property name="wlanCoverageArea" column="wlan_coverage_area"/>
+				<property name="remark" column="remark"/>
+				<property name="createTime" column="create_time"/>
+				<property name="relatedDistrictId" column="related_district_id"/>
+    </class>    
+</hibernate-mapping>

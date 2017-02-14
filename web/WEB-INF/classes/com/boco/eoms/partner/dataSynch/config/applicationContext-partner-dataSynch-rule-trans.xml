@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 人手井-IrmsTransWell -->
+	<bean id="irmsTransWellMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.trans.IrmsTransWellMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 杆路-IrmsTransPoleline -->
+	<bean id="irmsTransPolelineMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.trans.IrmsTransPolelineMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 管孔-IrmsTransPipehole -->
+	<bean id="irmsTransPipeholeMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.trans.IrmsTransPipeholeMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 管道段-IrmsTransPipesec -->
+	<bean id="irmsTransPipesecMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.trans.IrmsTransPipesecMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 管道-IrmsTransPipe -->
+	<bean id="irmsTransPipeMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.trans.IrmsTransPipeMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 电杆-IrmsTransPoles -->
+	<bean id="irmsTransPolesMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.trans.IrmsTransPolesMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 杆路段-IrmsTransPolelinesec -->
+	<bean id="irmsTransPolelinesecMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.trans.IrmsTransPolelinesecMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 标石-IrmsTransMarkstone -->
+	<bean id="irmsTransMarkstoneMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.trans.IrmsTransMarkstoneMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 直埋-IrmsTransDirbury -->
+	<bean id="irmsTransDirburyMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.trans.IrmsTransDirburyMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 光缆-IrmsTransOpcable -->
+	<bean id="irmsTransOpcableMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.trans.IrmsTransOpcableMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 光缆段-IrmsTransOpcablesec -->
+	<bean id="irmsTransOpcablesecMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.trans.IrmsTransOpcablesecMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 直埋段-IrmsTransDirburysec -->
+	<bean id="irmsTransDirburysecMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.trans.IrmsTransDirburysecMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 光交接箱-IrmsTransOdf -->
+	<bean id="irmsTransOdfMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.trans.IrmsTransOdfMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 光电接头盒-IrmsTransOpconbox -->
+	<bean id="irmsTransOpconboxMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.trans.IrmsTransOpconboxMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+</beans>

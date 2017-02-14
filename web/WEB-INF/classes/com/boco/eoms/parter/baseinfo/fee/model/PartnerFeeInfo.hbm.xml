@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+
+>
+
+    <class
+            name="com.boco.eoms.parter.baseinfo.fee.model.PartnerFeeInfo"
+            table="PNR_FEE_INFO"
+    >
+
+    <id
+        name="id"
+            column="id"
+            unsaved-value="null"
+    >
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+
+    </id>
+
+	<property
+            name="name"
+            	column="NAME"
+                length="32"
+                not-null="true"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="payUnit"
+            	column="PAY_UNIT"
+                length="32"
+                not-null="true"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="payCause"
+            	column="PAY_CAUSE"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="feeType"
+            	column="FEE_TYPE"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="payDate"
+            	column="PAY_DATE"
+                length="32"
+                not-null="true"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="payWay"
+            	column="PAY_WAY"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="payFee"
+            	column="PAY_FEE"
+                length="32"
+                not-null="true"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="payNo"
+            	column="PAY_NO"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="payUser"
+            	column="PAY_USER"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="fileName"
+            	column="FILE_NAME"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="remark"
+            	column="REMARK"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="isPlan"
+            	column="IS_PLAN"
+                length="32"
+                not-null="true"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="compactNo"
+            	column="COMPACT_NO"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="compactName"
+            	column="COMPACT_NAME"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+	
+	<property
+            name="createUser"
+            	column="CREATE_USER"
+                length="32"
+                not-null="true"
+                unique="false"
+        >
+
+        </property>
+        
+     <property
+            name="createDept"
+            	column="CREATE_DEPT"
+                length="32"
+                not-null="true"
+                unique="false"
+        >
+
+        </property>
+        
+     <property
+            name="createDate"
+            	column="CREATE_DATE"
+                length="32"
+                not-null="true"
+                unique="false"
+        >
+
+        </property>
+      
+      <property name="collectUnit"
+      			column="COLLECT_UNIT"
+      			length="32"
+      			not-null="false"
+      			unique="false"
+      >
+      
+      </property>
+      
+       <property name="planId"
+      			column="PLAN_ID"
+      			length="32"
+      			not-null="false"
+      			unique="false"
+      >
+      
+      </property>
+    </class>    
+
+</hibernate-mapping>
+

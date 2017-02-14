@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<form-beans>
+		<form-bean name="androidAppInfoForm"
+			type="com.boco.eoms.mobile.form.AndroidAppInfoForm" />
+	</form-beans>
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+	<global-forwards>
+		<forward name="success" path="/common/success.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="fail" path="/common/fail.jsp" redirect="false"
+			contextRelative="true" />
+		<forward name="nopriv" path="/common/nopriv.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="inspectnopriv" path="/common/inspectnopriv.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="inspectnoprivforarcgis"
+			path="/common/inspectnoprivforarcgis.jsp" redirect="false"
+			contextRelative="true" />
+		<forward name="failure"
+			path="/WEB-INF/pages/partner/inspect/failure.jsp" redirect="false"
+			contextRelative="true" />
+	</global-forwards>
+
+
+
+	<action-mappings type="org.apache.struts.action.ActionMapping">
+		<action path="/androidAppManagerAction"
+			type="com.boco.eoms.mobile.action.AndroidAppManagerAction"
+			name="androidAppInfoForm" scope="request" parameter="method"
+			unknown="false" validate="false">
+			<forward name="editAndroidApp"
+				path="/WEB-INF/pages/partner/inspect/android/editAndroidApp.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="listAndroidApp"
+				path="/WEB-INF/pages/partner/inspect/android/listAndroidApp.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="listListDeveloper"
+				path="/WEB-INF/pages/partner/inspect/android/listListDeveloper.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+		<action path="/androidAction"
+			type="com.boco.eoms.mobile.action.AndroidAction" scope="request"
+			input="list" parameter="method" unknown="false" validate="false">
+			<forward name="listAppHall"
+				path="/WEB-INF/pages/partner/inspect/android/listAppHall.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+		<action path="/inspectPlanExecuteAction"
+			type="com.boco.eoms.mobile.action.InspectPlanExecuteAction"
+			scope="request" input="list" parameter="method" unknown="false"
+			validate="false">
+		</action>
+		<action path="/allStatisticsAction"
+			type="com.boco.eoms.mobile.action.AllStatisticsAction"
+			scope="request" input="list" parameter="method" unknown="false"
+			validate="false">
+		</action>
+		<action path="/androidSheetAction"
+			type="com.boco.eoms.mobile.sheet.action.AndroidSheetAction"
+			scope="request" input="list" parameter="method" unknown="false"
+			validate="false">
+		</action>
+		<action path="/deptUserTreeAction"
+			type="com.boco.eoms.mobile.action.DeptUserTreeAction" scope="request"
+			input="list" parameter="method" unknown="false" validate="false">
+		</action>
+		<action path="/DictAction"
+			type="com.boco.eoms.mobile.action.DictAction" scope="request"
+			input="list" parameter="method" unknown="false" validate="false">
+		</action>
+		<action path="/cityCountryAction"
+			type="com.boco.eoms.mobile.action.CityCountryAction" scope="request"
+			input="list" parameter="method" unknown="false" validate="false">
+		</action>
+		<action path="/resourceInventoryAction"
+			type="com.boco.eoms.mobile.action.ResourceInventoryAction"
+			scope="request" input="list" parameter="method" unknown="false"
+			validate="false">
+		</action>
+		<action path="/roomAndCableInspectAction"
+			type="com.boco.eoms.mobile.action.RoomAndCableInspectAction"
+			scope="request" input="list" parameter="method" unknown="false"
+			validate="false">
+		</action>
+	</action-mappings>
+	<!-- 
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="moduleAware" value="true" />
+	</plug-in>
+	 -->
+</struts-config>

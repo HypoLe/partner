@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.group.IrmsGroupGprs" table="irms_group_gprs">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="customerName" column="customer_name"/>
+				<property name="relatedProInstanceId" column="related_pro_instance_id"/>
+				<property name="apnName" column="apn_name"/>
+				<property name="relatedApnId" column="related_apn_id"/>
+				<property name="businessBw" column="business_bw"/>
+				<property name="businessOpenLimi" column="business_open_limi"/>
+				<property name="businessHostingWay" column="business_hosting_way"/>
+				<property name="relativeProInstanceId" column="relative_pro_instance_id"/>
+				<property name="ipAllocationMode" column="ip_allocation_mode"/>
+				<property name="useIpNum" column="use_ip_num"/>
+				<property name="isBothGgsn" column="is_both_ggsn"/>
+				<property name="tranAccessWay" column="tran_access_way"/>
+				<property name="enterpriseService" column="enterprise_service"/>
+				<property name="labelCn1" column="label_cn1"/>
+				<property name="greAddressName1" column="gre_address_name1"/>
+				<property name="greEnterpriseAdd1" column="gre_enterprise_add1"/>
+				<property name="greName1" column="gre_name1"/>
+				<property name="greTunnrlKey1" column="gre_tunnrl_key1"/>
+				<property name="labelCn2" column="label_cn2"/>
+				<property name="greAddressName2" column="gre_address_name2"/>
+				<property name="greEnterpriseAdd2" column="gre_enterprise_add2"/>
+				<property name="greName2" column="gre_name2"/>
+				<property name="greTunnrlKey2" column="gre_tunnrl_key2"/>
+				<property name="apnAddressPool" column="apn_address_pool"/>
+				<property name="isUseRadius" column="is_use_radius"/>
+				<property name="radiusIpAdd" column="radius_ip_add"/>
+				<property name="isTerminalVisits" column="is_terminal_visits"/>
+				<property name="circuitName" column="circuit_name"/>
+				<property name="opticalCircuitName" column="optical_circuit_name"/>
+				<property name="customerAccessDate" column="customer_access_date"/>
+				<property name="remark" column="remark"/>
+				<property name="createTime" column="create_time"/>
+				<property name="relatedProInstanceIdId" column="related_pro_instance_id_id"/>
+				<property name="relatedApnIdId" column="related_apn_id_id"/>
+				<property name="enterpriseServiceId" column="enterprise_service_id"/>
+				<property name="labelCn1Id" column="label_cn1_id"/>
+				<property name="labelCn2Id" column="label_cn2_id"/>
+				<property name="apnAddressPoolId" column="apn_address_pool_id"/>
+				<property name="circuitNameId" column="circuit_name_id"/>
+				<property name="opticalCircuitNameId" column="optical_circuit_name_id"/>
+    </class>    
+</hibernate-mapping>

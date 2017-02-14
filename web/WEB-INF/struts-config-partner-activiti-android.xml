@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<action-mappings type="org.apache.struts.action.ActionMapping">
+
+    <action path="/androidWorkOrderAction"
+            type="com.boco.activiti.partner.process.webapp.androaction.AndroidWorkOrderAction"
+            scope="request" parameter="method" input="list" unknown="false" validate="false">
+             <set-property  property="cancellable"  value="true"/>
+	      <forward name="gotoDetail"
+                     path="/WEB-INF/pages/partner/activiti/pnrtaskTicket/rushToRepairQuery.jsp"
+                     redirect="false" contextRelative="true" />
+            
+    </action>
+    
+    <!-- 交接箱采集核查 -->
+    <action path="/androidJunctionBoxCheckAction"
+            type="com.boco.activiti.partner.process.webapp.androaction.AndroidJunctionBoxCheckAction"
+            scope="request" parameter="method" input="list" unknown="false" validate="false">
+             <set-property  property="cancellable"  value="true"/>
+    </action>
+
+	</action-mappings>
+
+
+
+</struts-config>

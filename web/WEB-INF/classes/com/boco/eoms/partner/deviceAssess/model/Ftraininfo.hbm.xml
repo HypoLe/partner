@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+
+>
+
+    <class
+            name="com.boco.eoms.partner.deviceAssess.model.Ftraininfo"
+            table="pnr_deviceassess_ftrain_info"
+    >
+
+    <id
+        name="id"
+            column="id"
+            unsaved-value="null"
+    >
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+
+    </id>
+
+	<property
+            name="trainId"
+            	column="train_id"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="eventName"
+            	column="event_name"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="trainLevel"
+            	column="train_level"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="factory"
+            	column="factory"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="speciality"
+            	column="speciality"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="beginTime"
+            	column="begin_time"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="endTime"
+            	column="end_time"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="trainPopulace"
+            	column="train_populace"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="eligibPopulace"
+            	column="eligib_populace"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="trainEligibRate"
+            	column="train_eligib_rate"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="satisfaction"
+            	column="satisfaction"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="takeCountOf"
+            	column="take_count_of"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+        
+        
+      <property
+            name="province"
+            	column="province"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+         <property
+            name="satisfactionReason"
+            	column="satisfaction_reason"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+        
+         <property
+            name="total"
+            	column="total"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+        
+         <property
+            name="createTime"
+            	column="create_time"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+       
+        </property>
+    </class>    
+
+</hibernate-mapping>
+

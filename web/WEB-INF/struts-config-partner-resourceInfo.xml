@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="apparatusForm" type="com.boco.eoms.partner.resourceInfo.form.ApparatusForm"></form-bean>
+		<form-bean name="carForm" type="com.boco.eoms.partner.resourceInfo.form.CarForm"></form-bean>
+		<form-bean name="oilEngineForm" type="com.boco.eoms.partner.resourceInfo.form.OilEngineForm"></form-bean>
+		<form-bean name="mobileTerminalForm" type="com.boco.eoms.partner.resourceInfo.form.MobileTerminalForm"></form-bean>
+	</form-beans>
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+	<!-- ============ Global forwards ============ -->
+	<global-forwards type="org.apache.struts.action.ActionForward">
+		<forward name="failure" path="/common/fail.jsp"
+			contextRelative="true" />
+		<forward name="fail" path="/common/failure.jsp" redirect="false" contextRelative="true"/>
+		<forward name="success" path="/common/success.jsp"
+			contextRelative="true" />	
+		<forward name="error" path="/error.jsp" contextRelative="true" />
+	</global-forwards>
+	<!-- ============ Action Mapping definitions ============ -->
+	<!-- 仪器仪表配置 -->
+	<action-mappings type="org.apache.struts.action.ActionMapping">
+		<action path="/apparatus" name="apparatusForm"
+			type="com.boco.eoms.partner.resourceInfo.action.ApparatusAction" 
+			scope="request"  parameter="method" unknown="false" 
+			validate="false">
+			<forward name="goToAdd"
+				path="/WEB-INF/pages/partner/resourceInfo/apparatus/add.jsp"
+				redirect="false" contextRelative="true" />
+			<!-- 移动管理人员list页面 -->
+			<forward name="list"
+				path="/WEB-INF/pages/partner/resourceInfo/apparatus/list.jsp"
+				redirect="false" contextRelative="true" />
+			<!-- 代维管理人员list页面 -->
+			<forward name="partnerList"
+				path="/WEB-INF/pages/partner/resourceInfo/apparatus/partnerList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="forwardList" path="/partner/resourceInfo/apparatus.do?method=search"
+				redirect="true" contextRelative="true" />
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/resourceInfo/apparatus/detail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/resourceInfo/apparatus/edit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="successJump"
+				path="/WEB-INF/pages/partner/resourceInfo/apparatus/successJump.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToStatisticsPage"
+				path="/WEB-INF/pages/partner/resourceInfo/apparatus/apparatusStatistics.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="statisticsList"
+				path="/WEB-INF/pages/partner/resourceInfo/apparatus/statisticsList.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+		<!-- 车辆配置 -->
+		<action path="/car" name="carForm" type="com.boco.eoms.partner.resourceInfo.action.CarAction" 
+			scope="request"  parameter="method" unknown="false" 
+			validate="false">
+			<forward name="goToAdd"
+				path="/WEB-INF/pages/partner/resourceInfo/car/add.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/resourceInfo/car/list.jsp"
+				redirect="false" contextRelative="true" />
+			<!-- 代维管理人员list页面 -->
+			<forward name="partnerList"
+				path="/WEB-INF/pages/partner/resourceInfo/car/partnerList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="forwardList" path="/partner/resourceInfo/car.do?method=search"
+				redirect="true" contextRelative="true" />
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/resourceInfo/car/detail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/resourceInfo/car/edit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="successJump"
+				path="/WEB-INF/pages/partner/resourceInfo/car/successJump.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToStatisticsPage"
+				path="/WEB-INF/pages/partner/resourceInfo/car/carStatistics.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="statisticsList"
+				path="/WEB-INF/pages/partner/resourceInfo/car/statisticsList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToCarAllTaskListPage"
+				path="/WEB-INF/pages/partner/resourceInfo/car/carAllTaskList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToshowCurrent"
+				path="/WEB-INF/pages/partner/resourceInfo/car/carCurrentTask.jsp"
+				redirect="false" contextRelative="true" />
+				
+		</action>
+		<!-- 油机配置 -->
+		<action path="/oilEngine" name="oilEngineForm" type="com.boco.eoms.partner.resourceInfo.action.OilEngineAction" 
+			scope="request"  parameter="method" unknown="false" 
+			validate="false">
+			<forward name="goToAdd"
+				path="/WEB-INF/pages/partner/resourceInfo/oilEngine/add.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/resourceInfo/oilEngine/list.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToAddSc"
+				path="/WEB-INF/pages/partner/resourceInfo/oilEngine/addSc.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="listSc"
+				path="/WEB-INF/pages/partner/resourceInfo/oilEngine/listSc.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="resConfigSingleChooseList"
+			 	path="/WEB-INF/pages/partner/resourceInfo/oilEngine/pnrResConfigSingleChooseList.jsp"
+				redirect="false" contextRelative="true" />				
+			<!-- 代维管理人员list页面 -->
+			<forward name="partnerList"
+				path="/WEB-INF/pages/partner/resourceInfo/oilEngine/partnerList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="forwardList" path="/partner/resourceInfo/oilEngine.do?method=search"
+				redirect="true" contextRelative="true" />
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/resourceInfo/oilEngine/detail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/resourceInfo/oilEngine/edit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="partnerListSc"
+				path="/WEB-INF/pages/partner/resourceInfo/oilEngine/partnerListSc.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="detailSc"
+				path="/WEB-INF/pages/partner/resourceInfo/oilEngine/detailSc.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="detailChange"
+				path="/WEB-INF/pages/partner/resourceInfo/oilEngine/detailChange.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="editSc"
+				path="/WEB-INF/pages/partner/resourceInfo/oilEngine/editSc.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="successJump"
+				path="/WEB-INF/pages/partner/resourceInfo/oilEngine/successJump.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToStatisticsPage"
+				path="/WEB-INF/pages/partner/resourceInfo/oilEngine/oilEngineStatistics.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="statisticsList"
+				path="/WEB-INF/pages/partner/resourceInfo/oilEngine/statisticsList.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+		<!-- 移动终端配置 -->
+		<action path="/mobileTerminal" name="mobileTerminalForm" type="com.boco.eoms.partner.resourceInfo.action.MobileTerminalAction" 
+			scope="request"  parameter="method" unknown="false" 
+			validate="false">
+			<forward name="goToAdd"
+				path="/WEB-INF/pages/partner/resourceInfo/mobileTerminal/add.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/resourceInfo/mobileTerminal/list.jsp"
+				redirect="false" contextRelative="true" />
+			<!-- 代维管理人员list页面 -->
+			<forward name="partnerList"
+				path="/WEB-INF/pages/partner/resourceInfo/mobileTerminal/partnerList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="forwardList" path="/partner/resourceInfo/mobileTerminal.do?method=search"
+				redirect="true" contextRelative="true" />
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/resourceInfo/mobileTerminal/detail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/resourceInfo/mobileTerminal/edit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="successJump"
+				path="/WEB-INF/pages/partner/resourceInfo/mobileTerminal/successJump.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToStatisticsPage"
+				path="/WEB-INF/pages/partner/resourceInfo/mobileTerminal/mobileTerminalStatistics.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="statisticsList"
+				path="/WEB-INF/pages/partner/resourceInfo/mobileTerminal/statisticsList.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+		
+	</action-mappings>
+</struts-config>

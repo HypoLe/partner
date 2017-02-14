@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <!-- Add new Managers here -->
+    
+    <!--SiteEvaTree-DAO START-->
+    <bean id="siteEvaTreeDao" class="com.boco.eoms.partner.siteEva.dao.hibernate.SiteEvaTreeDaoHibernate" autowire="byName"/>
+    <!--SiteEvaTree-DAO END-->  
+    <!--SiteEvaTree-START-->    
+    <bean id="IsiteEvaTreeMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.siteEva.mgr.impl.SiteEvaTreeMgrImpl">   
+                <property name="siteEvaTreeDao" ref="siteEvaTreeDao"/>
+            </bean>
+        </property>
+    </bean> 
+    <!--SiteEvaTree-END-->  
+    
+    <!--SiteEvaKpi-DAO START-->
+    <bean id="siteEvaKpiDao" class="com.boco.eoms.partner.siteEva.dao.hibernate.SiteEvaKpiDaoHibernate" autowire="byName"/>
+    <!--SiteEvaKpi-DAO END-->
+    <!--SiteEvaKpi-START-->    
+    <bean id="IsiteEvaKpiMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.siteEva.mgr.impl.SiteEvaKpiMgrImpl">
+                <property name="siteEvaKpiDao" ref="siteEvaKpiDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--SiteEvaKpi-END-->
+    
+    <!--SiteEvaTemplate-DAO START-->
+    <bean id="siteEvaTemplateDao" class="com.boco.eoms.partner.siteEva.dao.hibernate.SiteEvaTemplateDaoHibernate" autowire="byName"/>
+    <!--SiteEvaTemplate-DAO END-->
+    <!--SiteEvaTemplate-START-->    
+    <bean id="IsiteEvaTemplateMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.siteEva.mgr.impl.SiteEvaTemplateMgrImpl">
+                <property name="siteEvaTemplateDao" ref="siteEvaTemplateDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--SiteEvaTemplate-END-->
+    
+    <!--SiteEvaTask-DAO START-->
+    <bean id="siteEvaTaskDao" class="com.boco.eoms.partner.siteEva.dao.hibernate.SiteEvaTaskDaoHibernate" autowire="byName"/>
+    <!--SiteEvaTask-DAO END-->
+    <!--SiteEvaTask-START-->    
+    <bean id="IsiteEvaTaskMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.siteEva.mgr.impl.SiteEvaTaskMgrImpl">
+                <property name="siteEvaTaskDao" ref="siteEvaTaskDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--SiteEvaTask-END-->
+    
+    <!--SiteEvaTaskDetail-DAO START-->
+    <bean id="siteEvaTaskDetailDao" class="com.boco.eoms.partner.siteEva.dao.hibernate.SiteEvaTaskDetailDaoHibernate" autowire="byName"/>
+    <!--SiteEvaTaskDetail-DAO END-->
+    <!--SiteEvaTaskDetail-START-->    
+    <bean id="IsiteEvaTaskDetailMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.siteEva.mgr.impl.SiteEvaTaskDetailMgrImpl">
+                <property name="siteEvaTaskDetailDao" ref="siteEvaTaskDetailDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--SiteEvaTaskDetail-END-->
+    
+    <!--SiteEvaKpiInstance-DAO START-->
+    <bean id="siteEvaKpiInstanceDao" class="com.boco.eoms.partner.siteEva.dao.hibernate.SiteEvaKpiInstanceDaoHibernate" autowire="byName"/>
+    <!--SiteEvaKpiInstance-DAO END-->
+    <!--SiteEvaKpiInstance-START-->    
+    <bean id="IsiteEvaKpiInstanceMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.siteEva.mgr.impl.SiteEvaKpiInstanceMgrImpl">
+                <property name="siteEvaKpiInstanceDao" ref="siteEvaKpiInstanceDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--SiteEvaKpiInstance-END-->
+    
+    <!--SiteEvaOrg-DAO START-->
+    <bean id="siteEvaOrgDao" class="com.boco.eoms.partner.siteEva.dao.hibernate.SiteEvaOrgDaoHibernate" autowire="byName"/>
+    <!--SiteEvaOrg-DAO END-->
+    <!--SiteEvaOrg-START-->    
+    <bean id="IsiteEvaOrgMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.siteEva.mgr.impl.SiteEvaOrgMgrImpl">
+                <property name="siteEvaOrgDao" ref="siteEvaOrgDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--SiteEvaOrg-END-->
+
+    <!--SiteEvaAuditInfo-DAO START-->
+    <bean id="siteEvaAuditInfoDao" class="com.boco.eoms.partner.siteEva.dao.hibernate.SiteEvaAuditInfoDaoHibernate" autowire="byName"/>
+    <!--SiteEvaAuditInfo-DAO END-->
+    <!--SiteEvaAuditInfo-START-->    
+    <bean id="IsiteEvaAuditInfoMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.siteEva.mgr.impl.SiteEvaAuditInfoMgrImpl">
+                <property name="siteEvaAuditInfoDao" ref="siteEvaAuditInfoDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--SiteEvaAuditInfo-END-->
+    
+    <!--SiteEvaAuditInfo-DAO START-->
+    <bean id="siteEvaReportInfoDao" class="com.boco.eoms.partner.siteEva.dao.hibernate.SiteEvaReportInfoDaoHibernate" autowire="byName"/>
+    <!--SiteEvaAuditInfo-DAO END-->
+    <!--SiteEvaAuditInfo-START-->    
+    <bean id="IsiteEvaReportInfoMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.siteEva.mgr.impl.SiteEvaReportInfoMgrImpl">
+                <property name="siteEvaReportInfoDao" ref="siteEvaReportInfoDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--SiteEvaAuditInfo-END-->
+    <import
+		resource="classpath:com/boco/eoms/partner/siteEva/config/applicationContext-partner-siteEva-versionlog.xml" />
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

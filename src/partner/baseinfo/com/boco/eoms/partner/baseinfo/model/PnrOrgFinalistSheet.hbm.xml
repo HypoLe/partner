@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.boco.eoms.partner.baseinfo.model.PnrOrgFinalistSheet"
+		table="pnr_org_finalist_sheet">
+
+		<id name="id" column="id" unsaved-value="null">
+			<!-- The generator-class attribute of @hibernate.id is deprecated, use 
+				the @hibernate.generator tag instead -->
+			<generator class="uuid.hex">
+			</generator>
+		</id>
+		<property name="orgName" />
+		<property name="sysno" />
+		<property name="isdeleted" />
+		<property name="isEffected" />
+		<property name="orgDeptId" />
+		<property name="areaId" />
+		<property name="orgId"></property>
+		<property name="speciality" />
+		<property name="finalistTime" />
+		<property name="finalistEndTime" />
+		<property name="remark" />
+		<property name="addUser" />
+		<property name="addTime" />
+	</class>
+
+</hibernate-mapping>
+

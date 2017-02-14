@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping>
+<class name="com.boco.eoms.examonline.model.ExamInfo"  table="ExamInfo">
+<id column="IMPORT_ID" name="importId" type="string">
+<generator class="uuid.hex"/>
+</id>
+<property column="IMPORT_USER" length="30" name="importUser" not-null="true" type="string"/>
+<property column="IMPORT_TIME" length="7" name="importTime" not-null="true" type="timestamp"/>
+<property column="DELETED" length="1" name="deleted" type="integer"/>
+<property column="SPECIALTY" length="100" name="specialty" type="string"/>
+<property column="contype" length="2" name="contype" type="integer"/>
+<property column="difficulty" length="2" name="difficulty" type="integer"/>
+<property column="manufacturer" length="2" name="manufacturer" type="integer"/>
+<property column="AUDITING" length="1" name="auditing" type="integer"/>
+<property column="COMMENTS" length="255" name="comment" type="string"/>
+</class>
+</hibernate-mapping>

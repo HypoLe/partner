@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.bs.BsBtQuipment" table="pnr_bsbt_quipment">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="bsbtId" column="bsbt_id"/>
+				<property name="bsbtName" column="bsbt_name"/>							
+                <property name="deviceNumber" column="device_number"/>
+				<property name="manufacturers" column="manufacturers"/>
+				<property name="deviceType" column="device_type"/>
+				<property name="capacity" column="capacity"/>
+				<property name="network" column="network"/>
+				<property name="deviceSubclass" column="device_subclass"/>
+				<property name="assetsAttributable" column="assets_attributable"/>
+				<property name="assetsNumber" column="assets_number"/>
+				<property name="useTime" column="use_time"/>
+				<property name="soft" column="soft"/>
+				<property name="inspectName" column="inspect_name"/>
+				<property name="inspectId" column="inspect_id"/>
+				
+    </class>    
+</hibernate-mapping>

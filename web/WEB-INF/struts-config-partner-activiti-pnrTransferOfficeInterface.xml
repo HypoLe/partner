@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	<!-- ========== Data Sources Definitions =================================== -->
+	<!--
+		Define your Struts data sources in a file called struts-data-sources.xml and place
+		it in your merge directory.
+	-->
+
+	<!-- ========== Form Bean Definitions =================================== -->
+	<form-beans>
+	<form-bean name="multiPageForm"
+			type="com.boco.activiti.partner.process.webapp.form.MultiPageForm" />
+		<!--bean for EsmProcess end-->
+	</form-beans>
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward name="selectFile" path="/selectFile.do" />
+		<forward name="logout" path="/logout.jsp" />
+		<forward name="error"
+			path="/WEB-INF/pages/partner/activiti/common/sheet_fail.jsp"
+			contextRelative="true" />
+		<forward name="failure"
+			path="/WEB-INF/pages/partner/activiti/common/failure.jsp"
+			contextRelative="true" />
+	</global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+	<action-mappings>
+		<action path="/pnrTransferInterface"
+			type="com.boco.activiti.partner.process.webapp.action.PnrTransferOfficeInterfaceAction"
+			name="multiPageForm"
+			scope="request" 
+			input="error" 
+			parameter="method"
+			unknown="false" 
+			validate="false"
+			>			
+			<set-property property="cancellable" value="true" />
+			
+			<forward name="new"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferOfficeInterface/transferOfficeNew.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="success"
+				path="/WEB-INF/pages/partner/activiti/common/sheet_success.jsp"
+				redirect="false" contextRelative="true" />	
+			<forward name="backlogList"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferOfficeInterface/backlogList.jsp"
+				redirect="false" contextRelative="true" />
+			 <forward name="goTransferCheck"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferOfficeInterface/transferCheck.jsp"
+                     redirect="false" contextRelative="true" />
+             <forward name="mainSecond"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferOfficeInterface/mainSecond.jsp"
+				redirect="false" contextRelative="true" /> 
+			 <forward name="viewHistory"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferOfficeInterface/viewHistory.jsp"
+                     redirect="false" contextRelative="true" />	 
+            <forward name="transferHandle"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferOfficeInterface/transferHandle.jsp"
+				redirect="false" contextRelative="true" />
+		    <forward name="secondAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferOfficeInterface/secondAudit.jsp"
+                     redirect="false" contextRelative="true" />	
+             <forward name="runningProcessInstancesList"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferOfficeInterface/runningProcessInstancesList.jsp"
+                     redirect="false" contextRelative="true" />                        		
+            <forward name="gotoDetail"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferOfficeInterface/transferDetail.jsp"
+				redirect="false" contextRelative="true" />
+			 <forward name="involvedProcessInstancesList"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferOfficeInterface/involvedProcessInstancesList.jsp"
+                     redirect="false" contextRelative="true" />	 
+            <forward name="troublePhotos"
+                     path="/WEB-INF/pages/partner/activiti/common/troublePhotos.jsp"
+                     redirect="false" contextRelative="true" />   
+            <forward name="epibolyAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferOfficeInterface/epibolyAudit.jsp"
+                     redirect="false" contextRelative="true" />	
+            <forward name="mainEpiboly"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferOfficeInterface/mainEpiboly.jsp"
+				redirect="false" contextRelative="true" /> 
+            <forward name="workOrderQueryTransfer"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferOfficeInterface/workOrderQueryTransfer.jsp"
+                     redirect="false" contextRelative="true" />   
+            <forward name="workOrderQueryList"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferOfficeInterface/workOrderQueryList.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="getBack"
+                     path="/WEB-INF/pages/partner/activiti/pnrTransferOfficeInterface/getBack.jsp"
+                     redirect="false" contextRelative="true" />                               		
+        </action>
+	</action-mappings>
+	<controller nocache="true" inputForward="true" maxFileSize="2M" />
+</struts-config>

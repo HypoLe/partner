@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <!-- Add new Managers here -->
+    
+    <!--TranEvaTree-DAO START-->
+    <bean id="tranEvaTreeDao" class="com.boco.eoms.partner.tranEva.dao.hibernate.TranEvaTreeDaoHibernate" autowire="byName"/>
+    <!--TranEvaTree-DAO END-->  
+    <!--TranEvaTree-START-->    
+    <bean id="ItranEvaTreeMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.tranEva.mgr.impl.TranEvaTreeMgrImpl">   
+                <property name="tranEvaTreeDao" ref="tranEvaTreeDao"/>
+            </bean>
+        </property>
+    </bean> 
+    <!--TranEvaTree-END-->  
+    
+    <!--TranEvaKpi-DAO START-->
+    <bean id="tranEvaKpiDao" class="com.boco.eoms.partner.tranEva.dao.hibernate.TranEvaKpiDaoHibernate" autowire="byName"/>
+    <!--TranEvaKpi-DAO END-->
+    <!--TranEvaKpi-START-->    
+    <bean id="ItranEvaKpiMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.tranEva.mgr.impl.TranEvaKpiMgrImpl">
+                <property name="tranEvaKpiDao" ref="tranEvaKpiDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--TranEvaKpi-END-->
+    
+    <!--TranEvaTemplate-DAO START-->
+    <bean id="tranEvaTemplateDao" class="com.boco.eoms.partner.tranEva.dao.hibernate.TranEvaTemplateDaoHibernate" autowire="byName"/>
+    <!--TranEvaTemplate-DAO END-->
+    <!--TranEvaTemplate-START-->    
+    <bean id="ItranEvaTemplateMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.tranEva.mgr.impl.TranEvaTemplateMgrImpl">
+                <property name="tranEvaTemplateDao" ref="tranEvaTemplateDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--TranEvaTemplate-END-->
+    
+    <!--TranEvaTask-DAO START-->
+    <bean id="tranEvaTaskDao" class="com.boco.eoms.partner.tranEva.dao.hibernate.TranEvaTaskDaoHibernate" autowire="byName"/>
+    <!--TranEvaTask-DAO END-->
+    <!--TranEvaTask-START-->    
+    <bean id="ItranEvaTaskMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.tranEva.mgr.impl.TranEvaTaskMgrImpl">
+                <property name="tranEvaTaskDao" ref="tranEvaTaskDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--TranEvaTask-END-->
+    
+    <!--TranEvaTaskDetail-DAO START-->
+    <bean id="tranEvaTaskDetailDao" class="com.boco.eoms.partner.tranEva.dao.hibernate.TranEvaTaskDetailDaoHibernate" autowire="byName"/>
+    <!--TranEvaTaskDetail-DAO END-->
+    <!--TranEvaTaskDetail-START-->    
+    <bean id="ItranEvaTaskDetailMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.tranEva.mgr.impl.TranEvaTaskDetailMgrImpl">
+                <property name="tranEvaTaskDetailDao" ref="tranEvaTaskDetailDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--TranEvaTaskDetail-END-->
+    
+    <!--TranEvaKpiInstance-DAO START-->
+    <bean id="tranEvaKpiInstanceDao" class="com.boco.eoms.partner.tranEva.dao.hibernate.TranEvaKpiInstanceDaoHibernate" autowire="byName"/>
+    <!--TranEvaKpiInstance-DAO END-->
+    <!--TranEvaKpiInstance-START-->    
+    <bean id="ItranEvaKpiInstanceMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.tranEva.mgr.impl.TranEvaKpiInstanceMgrImpl">
+                <property name="tranEvaKpiInstanceDao" ref="tranEvaKpiInstanceDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--TranEvaKpiInstance-END-->
+    
+    <!--TranEvaOrg-DAO START-->
+    <bean id="tranEvaOrgDao" class="com.boco.eoms.partner.tranEva.dao.hibernate.TranEvaOrgDaoHibernate" autowire="byName"/>
+    <!--TranEvaOrg-DAO END-->
+    <!--TranEvaOrg-START-->    
+    <bean id="ItranEvaOrgMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.tranEva.mgr.impl.TranEvaOrgMgrImpl">
+                <property name="tranEvaOrgDao" ref="tranEvaOrgDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--TranEvaOrg-END-->
+
+    <!--TranEvaAuditInfo-DAO START-->
+    <bean id="tranEvaAuditInfoDao" class="com.boco.eoms.partner.tranEva.dao.hibernate.TranEvaAuditInfoDaoHibernate" autowire="byName"/>
+    <!--TranEvaAuditInfo-DAO END-->
+    <!--TranEvaAuditInfo-START-->    
+    <bean id="ItranEvaAuditInfoMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.tranEva.mgr.impl.TranEvaAuditInfoMgrImpl">
+                <property name="tranEvaAuditInfoDao" ref="tranEvaAuditInfoDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--TranEvaAuditInfo-END-->
+    
+    <!--TranEvaAuditInfo-DAO START-->
+    <bean id="tranEvaReportInfoDao" class="com.boco.eoms.partner.tranEva.dao.hibernate.TranEvaReportInfoDaoHibernate" autowire="byName"/>
+    <!--TranEvaAuditInfo-DAO END-->
+    <!--TranEvaAuditInfo-START-->    
+    <bean id="ItranEvaReportInfoMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.tranEva.mgr.impl.TranEvaReportInfoMgrImpl">
+                <property name="tranEvaReportInfoDao" ref="tranEvaReportInfoDao"/>
+            </bean>
+        </property>
+    </bean>
+	<bean id="ItranKpiConfigMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.tranEva.mgr.impl.TranKpiConfigMgrImpl">
+				<property name="tranKpiConfigDao" ref="tranKpiConfigDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="tranKpiConfigDao"
+		class="com.boco.eoms.partner.tranEva.dao.hibernate.TranKpiConfigDaoHibernate"
+		autowire="byName" />    
+    <!--TranEvaAuditInfo-END-->
+    <import
+		resource="classpath:com/boco/eoms/partner/tranEva/config/applicationContext-partner-tranEva-versionlog.xml" />
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

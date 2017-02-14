@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.boco.eoms.partner.baseinfo.model.TawPartnerCar"
+		table="pnr_partner_car">
+		<id name="id" column="id" unsaved-value="null">
+			<!--
+				The generator-class attribute of @hibernate.id is deprecated, use
+				the @hibernate.generator tag instead
+			-->
+			<generator class="uuid.hex">
+
+			</generator>
+
+		</id>
+
+		<property name="car_number" column="car_number" length="64"
+			not-null="true" unique="false">
+
+		</property>
+
+		<property name="dept_id" column="dept_id" length="64"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="area_id" column="area_id" length="64"
+			not-null="false" unique="false">
+
+		</property>
+		<property name="purchaseTime" column="purchase_time" length="32"
+			not-null="false" unique="false">
+			</property>
+			<property name="driveType" column="drive_type" length="32"
+			not-null="false" unique="false">
+			</property>
+		<property name="start_time" column="start_time" length="32"
+			not-null="false" unique="false">
+
+		</property>
+		<property name="endTime" column="end_time" length="32"
+			not-null="false" unique="false">
+
+		</property>
+		<property name="piece" column="piece" length="64" not-null="false"
+			unique="false">
+
+		</property>
+
+		<property name="remark" column="remark" length="256"
+			not-null="false" unique="false">
+
+		</property>
+		<property name="addMan" column="addMan" length="32" not-null="true"
+			unique="false">
+
+		</property>
+		<property name="addTime" column="addTime" length="32"
+			not-null="false" unique="false">
+
+		</property>
+		<property name="connectType" column="connectType" length="64"
+			not-null="false" unique="false">
+
+		</property>
+		<property name="deleted" column="deleted" length="2"
+			not-null="false" unique="false">
+		</property>
+
+
+		<property name="brand" column="brand" length="32" not-null="false"
+			unique="false">
+
+		</property>
+
+		<property name="drivingLicense" column="driving_license"
+			length="32" not-null="false" unique="false">
+
+		</property>
+
+		<property name="factory" column="factory" length="32"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="model" column="model" length="32" not-null="false"
+			unique="false">
+
+		</property>
+
+<property name="category" column="category" length="32" not-null="false"
+			unique="false">
+
+		</property>
+		<property name="engineNo" column="engine_no" length="32"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="airDisplacement" column="air_displacement"
+			length="32" not-null="false" unique="false">
+
+		</property>
+
+		<property name="annualCheckData" column="annual_check_data"
+			length="32" not-null="false" unique="false">
+
+		</property>
+
+		<property name="thumbnail" column="thumbnail" length="255"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="drivingLicenseThumbnail" column="driving_license_thumbnail"
+			length="255" not-null="false" unique="false">
+
+		</property>
+
+		<property name="station" column="station" length="32"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="serviceProfessional" column="service_professional"
+			length="32" not-null="false" unique="false">
+
+		</property>
+
+
+		<property name="startUseMilemeter" column="start_use_milemeter"
+			length="32" not-null="false" unique="false">
+
+		</property>
+
+		<property name="ownershipType" column="ownership_type"
+			length="32" not-null="false" unique="false">
+
+		</property>
+
+		<property name="use" column="use" length="255" not-null="false"
+			unique="false">
+
+		</property>
+
+		<property name="dimensionalCode" column="dimensional_code"
+			length="128" not-null="false" unique="false">
+
+		</property>
+
+		<property name="city" column="city" length="32" not-null="false"
+			unique="false">
+
+		</property>
+		<property name="partnerid" column="partnerid" length="32"
+			not-null="false" unique="false">
+		</property>
+		<property name="bigpartnerid" column="bigpartnerid" length="32"
+			not-null="false" unique="false">
+		</property>
+		<property name="areaidtrue" column="areaidtrue" length="32"
+			not-null="false" unique="false">
+		</property>
+		<property name="carState" column="carState" length="32"
+			not-null="false" unique="false">
+		</property>
+		<property name="isPrepare" column="isPrepare" length="32"
+			not-null="false" unique="false">
+		</property>
+		<property name="carForm" column="carForm" length="32"
+			not-null="false" unique="false">
+		</property>
+		<property name="carOutDate" column="carOutDate" length="32"
+			not-null="false" unique="false">
+		</property>
+		<property name="carBelongCompany" column="carBelongCompany" length="32"
+			not-null="false" unique="false">
+		</property>
+		<property name="addDept" column="addDept" length="32"
+			not-null="true" unique="false">
+		</property>
+	</class>
+
+</hibernate-mapping>
+

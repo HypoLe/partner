@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.taskManager.model.CarTask" table="pnr_car_task">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+				<property name="carApproveId" column="car_Approve_Id"/>
+				<property name="carNum" column="car_Num"/>
+				<property name="carUser" column="car_user"/>
+				<property name="taskId" column="task_Id"/>
+				<property name="taskStatue" column="task_Statue"/>
+				<property name="taskType" column="task_type"/>
+				<property name="taskName" column="task_name"/>
+				
+    </class>    
+</hibernate-mapping>

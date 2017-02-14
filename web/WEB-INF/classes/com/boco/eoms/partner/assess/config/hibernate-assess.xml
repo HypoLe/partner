@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+<property name="show_sql">true</property>
+    <mapping resource="com/boco/eoms/partner/assess/AssTree/model/AssTree.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/assess/AssTree/model/AssTemplate.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/assess/AssTree/model/AssKpi.hbm.xml"/>
+
+    <!-- 付费信息 -->
+    <mapping resource="com/boco/eoms/partner/assess/AssFee/model/FeeTree.hbm.xml"/>
+	<mapping resource="com/boco/eoms/partner/assess/AssFee/model/FeeDetail.hbm.xml"/> 
+	<mapping resource="com/boco/eoms/partner/assess/AssFee/model/FeeTotal.hbm.xml"/>    
+
+    <mapping resource="com/boco/eoms/partner/assess/AssExecute/model/AssTask.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/assess/AssExecute/model/AssTaskDetail.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/assess/AssExecute/model/AssKpiInstance.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/assess/AssWeight/model/AssWeight.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/assess/AssAlgorithm/model/AssKpiConfig.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/assess/AssAlgorithm/model/AssSelectedInstance.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/assess/AssReport/model/AssReportInfo.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/assess/AssFactory/model/AssFactory.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/assess/AssFlow/model/AssOperateStep.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/assess/AssReport/model/AssConfirm.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/assess/AssWeight/model/CityWeight.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/assess/AssWeight/model/CityWeightExe.hbm.xml"/>
+    
+    <mapping resource="com/boco/eoms/partner/assess/AssAutoCollection/model/AssAutoCollection.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/assess/AssAutoCollection/model/AssCollectionType.hbm.xml"/>
+	<mapping resource="com/boco/eoms/partner/assess/AssAutoCollection/model/AssCollectionConfig.hbm.xml"/>
+	<mapping resource="com/boco/eoms/partner/assess/AssAutoCollection/model/AssCollectionResult.hbm.xml"/>    
+  </session-factory>
+</hibernate-configuration>
+

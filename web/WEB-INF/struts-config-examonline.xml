@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+  	<form-bean name="adminSelectExamForm" type="com.boco.eoms.examonline.form.AdminSelectExamForm"/> 
+  	<form-bean name="submodifyForm" type="com.boco.eoms.examonline.form.SubmodifyForm"/> 
+  	<form-bean name="examTypeSelForm" type="com.boco.eoms.examonline.form.ExamTypeSelForm"/>
+  	<form-bean name="selectExamDetailListForm" type="com.boco.eoms.examonline.form.SelectExamDetailListForm"/> 
+  </form-beans>
+
+  <global-forwards>
+    <forward name="failure" path="/../failure_sheet.jsp" />
+    <forward name="success1" contextRelative="true" path="/../common/success.jsp" />
+    <forward name="success3" path="/../success.jsp" />
+    <forward name="success" path="/../success.jsp" />
+    <forward name="suc" path="/success.jsp" />
+    <forward name="error" path="/../failure.jsp" />
+    <forward name="timeout" path="/../timeout.jsp" />
+    <forward name="nopriv" path="/nopriv.jsp" />
+    <forward name="failure1" path="/failure1.jsp"/>
+    <forward name="suc" path="/success.jsp" />
+    <forward name="examinenull" path="/examinenull.jsp" />
+    <forward name="warehousenull" path="/warehousenull.jsp" />
+  </global-forwards>
+  <action-mappings>
+
+
+    <action  parameter="import" path="/import" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/manage/import.jsp" />
+    </action>
+     <action  parameter="import_word" path="/import_word" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/manage/import_word.jsp" />
+    </action>
+    <action  parameter="StudySelect" path="/StudySelect" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/manage/studyselect.jsp" />
+    </action>
+    <action  parameter="saveDefault" path="/saveDefault" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/StudySelect.do" />
+    </action>
+    <action  parameter="study" path="/study" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/manage/study.jsp" />
+    </action>
+    <action  parameter="StudySubmit" path="/StudySubmit" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/manage/studysubmit.jsp" />
+    </action>
+    <action  parameter="subManage" path="/subManage" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/manage/submanage.jsp" />
+    </action>
+    <action  parameter="batchDelete" path="/batchDelete" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/subManage.do" />
+    </action>
+    <action  parameter="deleteSub" path="/deleteSub" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/subManage.do" />
+    </action>
+    <action  parameter="modifySub" path="/modifySub" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/manage/submodify.jsp" />
+    </action>
+    <action  parameter="modifySubmit" path="/modifySubmit" scope="request"  
+    		attribute="submodifyForm" name="submodifyForm"
+    		type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+       <forward name="success" path="/manage/submodify.jsp"/>
+    </action>
+    <action  parameter="examConfig" path="/examConfig" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/manage/examconfig.jsp" />
+    </action>
+    <action  parameter="examConfigList" path="/examConfigList" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/manage/examconfigList.jsp" />
+    </action>
+    <action  parameter="configSubmit" path="/configSubmit" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/examConfig.do" />
+      <forward name="generate" path="/manage/selectDept.jsp" />
+      <forward name="selectDeptSub" path="/query/selectDeptSub.jsp" />
+    </action>
+    <action  parameter="examine" path="/examine" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/manage/examine.jsp" />
+      <forward name="finish" path="/examFinish.do" />
+    </action>
+    <action parameter="studyQuery" path="/studyQuery" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/query/studyquery.jsp" />
+    </action>
+    <action parameter="queryDo" path="/queryDo" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/query/studylist.jsp" />
+    </action>
+    <action parameter="queryDoSelf" path="/queryDoSelf" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/query/studylist.jsp" />
+    </action>
+    <action parameter="detail" path="/detail" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/query/detail.jsp" />
+    </action>
+    <action parameter="examQuery" path="/examQuery" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/query/examquery.jsp" />
+    </action>
+    <action parameter="examQuerySub" path="/examQuerySub" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/query/examquerySub.jsp" />
+    </action>
+    <action parameter="examQueryDO" path="/examQueryDO" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/query/studylist.jsp" />
+    </action>
+    <action parameter="examDeptQuery" path="/examDeptQuery" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/query/examDeptQuery.jsp" />
+    </action>
+    <action parameter="examTesterQuery" path="/examTesterQuery" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/query/examTesterQuery.jsp" />
+    </action>
+    <action  parameter="examFinish" path="/examFinish" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/../common/success.jsp" />
+    </action>
+    <action parameter="report" path="/report" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/manage/report.jsp" />
+    </action>
+    <action parameter="reportDO" path="/reportDO" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/report.do" />
+    </action>
+    <action parameter="delImport" path="/delImport" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/report.do" />
+    </action>
+    <action parameter="reportDetail" path="/reportDetail" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/manage/reportdetail.jsp" />
+    </action>
+    <action parameter="physicalDelSub" path="/physicalDelSub" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/reportDetail.do" />
+    </action>
+    <action parameter="auditing" path="/auditing" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/manage/auditing.jsp" />
+    </action>
+    <action parameter="auditingDO" path="/auditingDO" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/auditing.do" />
+    </action>
+    <action parameter="reject" path="/reject" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/auditing.do" />
+    </action>
+    <action parameter="auditingDetail" path="/auditingDetail" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/manage/auditingdetail.jsp" />
+    </action>
+    <action parameter="issueConfig" path="/issueConfig" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/manage/issueconfig.jsp" />
+    </action>
+    <action parameter="issueDO" path="/issueDO" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/../success.jsp" />
+    </action>
+    <action parameter="issueInfo" path="/issueInfo" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/manage/issueinfo.jsp" />
+    </action>
+    <action parameter="examDelete" path="/examDelete" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/manage/examdelete.jsp" />
+    </action>
+    <action parameter="examDeleteDO" path="/examDeleteDO" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" validate="true">
+      <forward name="success" path="/../success.jsp" />
+    </action>
+     <action  parameter="ajaxgetdept" path="/ajaxgetdept" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" >
+      <forward name="success" path="/../success.jsp" />
+    </action>
+    <action  parameter="ajaxgetuser" path="/ajaxgetuser" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" >
+      <forward name="success" path="/../success.jsp" />
+    </action>
+     <action  parameter="examdelete_ajax" path="/examdelete_ajax" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" >
+      <forward name="success" path="/../success.jsp" />
+      </action>
+      <action  parameter="designate" path="/designate" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" >
+      <forward name="success" path="/manage/designate.jsp" />
+      </action>
+       <action  parameter="myexamList" path="/myexamList" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" >
+       <forward name="success" path="/manage/myexamList.jsp" />
+       <forward name="adminsuccess" path="/manage/admin_examList.jsp" />
+      </action>
+      <action  parameter="getAdminExamList" path="/getAdminExamList" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" >
+       <forward name="success" path="/manage/admin_examList_sub.jsp" />
+      </action>
+      <action  parameter="getAdminSelectExamList" path="/getAdminSelectExamList" name="adminSelectExamForm" 
+      		scope="request" type="com.boco.eoms.examonline.controller.ExamAction" >
+       <forward name="success" path="/manage/admin_examList_select.jsp" />
+      </action>
+      <action  parameter="wordupload" path="/wordupload" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" >
+      <forward name="success" path="/import_word.do" />
+     </action>
+     
+     <action  parameter="worddownload" path="/worddownload" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" >
+     </action>
+          
+       <action  parameter="uniontesters" path="/uniontesters" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" >
+      </action>
+       <action  parameter="gettestersbyIssueid" path="/gettestersbyIssueid" scope="request" type="com.boco.eoms.examonline.controller.ExamAction" >
+      </action>
+      
+      <action  parameter="findExamCount" path="/findExamCount" scope="request" 
+      		type="com.boco.eoms.examonline.controller.ExamAction" validate="false">
+      </action>
+      
+      <action  parameter="operateExamConfig" path="/operateExamConfig" scope="request" 
+      		type="com.boco.eoms.examonline.controller.ExamAction" validate="false">
+      		<forward name="success" path="/query/selectDeptSub.jsp" />
+      </action>
+      
+      <action  parameter="changeExamScore" path="/changeExamScore" scope="request" 
+      		type="com.boco.eoms.examonline.controller.ExamAction" validate="false">
+      </action>
+      
+      <action  parameter="operateExamConfigAdd" path="/operateExamConfigAdd" scope="request" 
+      		type="com.boco.eoms.examonline.controller.ExamAction" validate="false">
+      		<forward name="success" path="/query/selectDeptSubAdd.jsp" />
+      </action>
+      
+      <action  parameter="findQaMarkList" path="/findQaMarkList" scope="request" 
+      		type="com.boco.eoms.examonline.controller.ExamAction" validate="false">
+      		<forward name="success" path="/query/qaMarkList.jsp" />
+      </action>
+      
+      <action  parameter="findQaMarkPerson" path="/findQaMarkPerson" scope="request" 
+      		type="com.boco.eoms.examonline.controller.ExamAction" validate="false">
+      		<forward name="qaMarkPerson" path="/query/qaMarkPerson.jsp" />
+      		<forward name="qaMark" path="/findQaMarkList.do" />
+      </action>
+      
+      <action  parameter="qaMarkFinish" path="/qaMarkFinish" scope="request" 
+      		type="com.boco.eoms.examonline.controller.ExamAction" validate="false">
+      		<forward name="success" path="/../success.jsp" />
+      </action>
+      
+      <action  parameter="mockExam" path="/mockExam" scope="request" 
+      		type="com.boco.eoms.examonline.controller.ExamAction" validate="false">
+      		<forward name="config" path="/query/mockExamConfig.jsp" />
+      		<forward name="mockExam" path="/query/mockExam.jsp" />
+      </action>
+      <action  parameter="exportScore" path="/exportScore" scope="request" 
+      		type="com.boco.eoms.examonline.controller.ExamAction" validate="false">
+      		<forward name="success" path="/manage/exportScore.jsp" />
+      </action>
+      <action  parameter="addTypesel" path="/addTypesel" scope="request" name="examTypeSelForm"
+      		type="com.boco.eoms.examonline.controller.ExamAction" validate="false">
+      </action>
+      <action  parameter="delTypesel" path="/delTypesel" scope="request"
+      		type="com.boco.eoms.examonline.controller.ExamAction" validate="false">
+      </action>
+      <action  parameter="performGernateExam" path="/performGernateExam" scope="request"
+      		type="com.boco.eoms.examonline.controller.ExamAction" validate="false">
+     	 <forward name="success" path="/examConfig.do" />
+      	<forward name="generate" path="/manage/selectDept.jsp" />
+      	<forward name="selectDeptSub" path="/query/selectDeptSub.jsp" />
+      	</action>
+      <action  parameter="sendSelectDeptPage" path="/sendSelectDeptPage" scope="request"
+      		type="com.boco.eoms.examonline.controller.ExamAction" validate="false">
+      	<forward name="success" path="/manage/selectDept.jsp" />
+      	</action>
+      <action  parameter="generateExam" path="/generateExam" scope="request"
+      		type="com.boco.eoms.examonline.controller.ExamAction" validate="false">
+      	 <forward name="success" path="/examConfig.do" />
+      </action>
+      
+      <action  parameter="generateExamPartner" path="/generateExamPartner" scope="request"
+      		type="com.boco.eoms.examonline.controller.ExamAction" validate="false">
+      	 <forward name="success" path="/examConfig.do" />
+      </action>
+      	
+      	<!-- 考试信息发布 -->
+      <action  parameter="method" path="/examNotice" scope="request" 
+      		type="com.boco.eoms.examonline.controller.ExamNoticeAction" validate="false" unknown="false">
+      	 <forward name="examNoticeList" path="/examnotice/examNoticeList.jsp" />
+      	 <forward name="examNoticeAdd" path="/examnotice/examNoticeAdd.jsp" />
+      	 <forward name="examNoticeDetail" path="/examnotice/examNoticeDetail.jsp" />
+      </action>
+      
+      <!-- 代维考试 -->
+      	 <action  parameter="method" path="/examPartner" scope="request" 
+      		type="com.boco.eoms.examonline.controller.ExamPartnerAction" validate="false" unknown="false">
+      	 <forward name="examConfigList" path="/exampartner/examConfigList.jsp" />
+      	 <forward name="examResultList" path="/examresult/examQualifierList.jsp" />
+      </action>
+      
+      <!-- 考试结果 -->
+      	 <action  parameter="method" path="/examResult" scope="request" 
+      		type="com.boco.eoms.examonline.controller.ExamResultAction" validate="false" unknown="false">
+      	 <forward name="examResultList" path="/examresult/examResultList.jsp" />
+      </action>
+      
+<!-- lijiang 试题管理 -->
+      <action  parameter="method" path="/examCountQuery" scope="request" name="selectExamDetailListForm"
+      		type="com.boco.eoms.examonline.controller.ExamQueryAction" validate="false" unknown="false">
+      	 <forward name="showExamCount" path="/query/showExamCount.jsp" />
+      	 <forward name="difficulty_manufacturer_count" path="/query/difficulty_manufacturer_count.jsp" />
+      	 <forward name="examDetailList" path="/query/examDetailList.jsp" />
+      </action>
+  </action-mappings>
+
+  
+</struts-config>

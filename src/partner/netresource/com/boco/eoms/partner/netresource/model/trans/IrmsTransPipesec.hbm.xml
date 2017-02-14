@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.trans.IrmsTransPipesec" table="irms_trans_pipesec">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="pipeSectionName" column="pipe_section_name"/>
+				<property name="startWellName" column="start_well_name"/>
+				<property name="endWellName" column="end_well_name"/>
+				<property name="stuff" column="stuff"/>
+				<property name="poreCount" column="pore_count"/>
+				<property name="subPoreCount" column="sub_pore_count"/>
+				<property name="relatedPipe" column="related_pipe"/>
+				<property name="relatedSection" column="related_section"/>
+				<property name="property" column="property"/>
+				<property name="useUnit" column="use_unit"/>
+				<property name="ownerUnit" column="owner_unit"/>
+				<property name="sectionLength" column="section_length"/>
+				<property name="isConstructShare" column="is_construct_share"/>
+				<property name="constructCompany" column="construct_company"/>
+				<property name="isShared" column="is_shared"/>
+				<property name="sharedCompany" column="shared_company"/>
+				<property name="remark" column="remark"/>
+				<property name="createTime" column="create_time"/>
+				<property name="startWellNameId" column="start_well_name_id"/>
+				<property name="endWellNameId" column="end_well_name_id"/>
+				<property name="relatedPipeId" column="related_pipe_id"/>
+    </class>    
+</hibernate-mapping>

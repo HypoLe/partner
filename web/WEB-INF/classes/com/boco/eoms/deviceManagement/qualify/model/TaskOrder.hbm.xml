@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.boco.eoms.deviceManagement.qualify.model.TaskOrder" table="t_taskorder">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+
+		<property name="number" column="numbers"/>
+		<property name="topic" />
+		<property name="type" column="ordertype"/>
+		<property name="netGroup"/>
+		<property name="description" />
+		<property name="sendTo" />
+		<property name="sendTo2" />
+		<property name="deadline" />
+		<property name="endTime" />
+		<property name="endMsg" />
+		<property name="status"/>
+		<property name="sendUserId"/>
+		<property name="sendTime"/>
+		<property name="sendType"/>
+		<property name="send2Type"/>
+		<property name="endUserId"/>		
+		<property name="createUserId" />
+		<property name="createDeptId" />
+		<property name="createUserRole" />
+		<property name="createUserContact" />
+		<property name="satisfiedLevel"/>
+		<property name="createTime" />
+		<property name="attachment" />
+		<property name="replyUserId"/>
+		<property name="replyTime"/>
+		<property name="replyMsg"/>
+		<property name="nextOperId"/>
+		<property name="delay" />
+		<property name="remarks1" />
+		<property name="remarks2" />
+		<property name="remarks3" />
+		<property name="remarks4" />
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="gkSystemConfigModel" class="com.boco.activiti.partner.process.model.GkSystemConfigModel">
+		<!-- 公客系统提供的接口访问地址 -->
+		<property name="gkInterfaceUrl" value="http://134.34.112.58:10010/axis/services/ServicesRouter?wsdl"/>
+		<!-- 山东联通现场综合维护管理系统-初始化调度人 -->
+		<property name="troubleInitiator" value="superUser"/>
+		<!--公客系统提供：“状态“参数-->
+		<property name="statusMethod" value="biz_NetWork_tailSend"/>
+		<!--公客系统提供：“回单”参数-->
+		<property name="receiptMethod" value="biz_NetWork_GDHD"/>
+		<!--公客系统提供：统一接口-->
+		<property name="unifyMethod" value="startInvoke"/>
+		<!--公客接口工单提供的接口访问地址  -->
+		<property name="gkInterfaceMaleGuestUrl" value="http://134.34.112.58:10010/axis/services/ServicesRouter?wsdl"/>
+		<!--公客接口工单提供：“状态接收”参数-->
+		<property name="maleGuestStatusMethod" value="workorderstate"/>
+		<!--公客接口工单提供：“工单回单”参数-->
+		<property name="maleGuestReceiptMethod" value="backworkorder"/>
+		<!--公客系统提供：统一接口-->
+		<property name="maleGuestUnifyMethod" value="proCloseWorkorder"/>
+		<!--预检预修工单提供的接口访问地址  -->
+		<property name="transferInterfaceUrl" value=""/>
+		<!--预检预修工单提供的"归档提示"参数  -->
+		<property name="transferInterfaceOverMethod" value=""/>
+		<!--预检预修工单提供的统一接口 -->
+		<property name="transferInterfaceUnifyMethod" value=""/>
+    </bean>
+</beans>

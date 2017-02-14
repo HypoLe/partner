@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 铁塔及天馈-专业 -->
+<excel2xml>
+	<!-- 铁塔-IrmsTowerTower -->
+	<IrmsTowerTower>
+		<field name="label_cn"		excelCellNum="1"			remark="铁塔名称"/>
+		<field name="tower_platnum"		excelCellNum="2"			remark="铁塔平台数量"/>
+		<field name="use_platnum"		excelCellNum="3"			remark="已使用平台数量"/>
+		<field name="related_room"		excelCellNum="4"			remark="所属机房"/>
+		<field name="tower_stature"		excelCellNum="5"			remark="铁塔塔身高度"/>
+		<field name="tower_type"		excelCellNum="6"			remark="铁塔类型"/>
+		<field name="vendor"		excelCellNum="7"			remark="铁塔厂家"/>
+		<field name="tower_property_att"		excelCellNum="8"			remark="铁塔产权"/>
+		<field name="buildtime"		excelCellNum="9"			remark="建塔日期"/>
+		<field name="tower_height"		excelCellNum="10"			remark="铁塔高度"/>
+		<field name="design_bare_weight"		excelCellNum="11"			remark="铁塔设计承重"/>
+		<field name="real_bare_weight"		excelCellNum="12"			remark="铁塔实际承重"/>
+		<field name="manage_company"		excelCellNum="13"			remark="铁塔代维公司"/>
+		<field name="is_construct_share"		excelCellNum="14"			remark="是否共建"/>
+		<field name="construct_company"		excelCellNum="15"			remark="共建单位"/>
+		<field name="is_shared"		excelCellNum="16"			remark="是否共享"/>
+		<field name="shared_company"		excelCellNum="17"			remark="共享单位"/>
+	</IrmsTowerTower>
+	<!-- 天线-IrmsTowerAnt -->
+	<IrmsTowerAnt>
+		<field name="label_cn"		excelCellNum="1"			remark="天线名称"/>
+		<field name="sum_angle"		excelCellNum="8"			remark="总俯仰角"/>
+		<field name="related_cellid"		excelCellNum="3"			remark="所属小区"/>
+		<field name="vendor"		excelCellNum="2"			remark="天线厂家"/>
+		<field name="high_cube"		excelCellNum="9"			remark="挂高"/>
+		<field name="ant_type"		excelCellNum="7"			remark="天线类型"/>
+		<field name="maxazimuth_value"		excelCellNum="11"			remark="方位角"/>
+		<field name="adjust_angle_ele"		excelCellNum="10"			remark="电调下倾角"/>
+		<field name="adjust_angle_mac"		excelCellNum="5"			remark="机械下倾角"/>
+		<field name="install_time"		excelCellNum="6"			remark="安装时间"/>
+		<field name="tian_mian"		excelCellNum="12"			remark="天面"/>
+	</IrmsTowerAnt>
+</excel2xml>

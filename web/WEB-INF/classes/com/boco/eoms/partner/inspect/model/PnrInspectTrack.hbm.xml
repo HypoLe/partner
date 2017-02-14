@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.boco.eoms.partner.inspect.model.PnrInspectTrack" table="pnr_inspect_track">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="planResId" column="plan_res_id"/>
+		<property name="signTime" column="sign_time"/>
+		<property name="signLongitude" column="sign_longitude"/>
+		<property name="signLatitude" column="sign_latitude"/>
+		<property name="signState" column="sign_state"/>
+		<property name="errorRange" column="error_range"/>
+		<property name="StartSignTimes" column="StartSignTimes"/>
+		<property name="endSignTimes" column="endSignTimes"/>
+		<property name="inspectUser" column="inspect_user"></property>
+		<property name="carNumber" column="car_number"></property>
+	</class>
+</hibernate-mapping>

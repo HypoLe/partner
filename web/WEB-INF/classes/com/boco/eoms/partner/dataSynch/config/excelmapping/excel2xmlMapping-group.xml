@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 集客家客-专业 -->
+<excel2xml>
+	<!-- 客户信息表-IrmsGrouCustomer -->
+	<IrmsGrouCustomer>
+		<field name="customer_no"		excelCellNum="2"			remark="客户编号"/>
+		<field name="customer_name"		excelCellNum="1"			remark="客户名称"/>
+		<field name="customer_addr"		excelCellNum="5"			remark="客户地址"/>
+		<field name="customer_level"		excelCellNum=""			remark="客户级别"/>
+		<field name="service_level"		excelCellNum="14"			remark="客户服务等级"/>
+		<field name="industry"		excelCellNum="15"			remark="客户行业"/>
+		<field name="city"		excelCellNum="3"			remark="客户区域所在城市"/>
+		<field name="region"		excelCellNum="4"			remark="客户区域所在区县"/>
+		<field name="linkman"		excelCellNum="6"			remark="客户业务联系人"/>
+		<field name="link_phone"		excelCellNum="7"			remark="客户业务联系人电话"/>
+		<field name="related_manager_cu"		excelCellNum=""			remark="客户经理"/>
+		<field name="related_manager_ph"		excelCellNum=""			remark="客户经理联系电话"/>
+		<field name="group_contact"		excelCellNum=""			remark="集客部联系人"/>
+		<field name="group_phone"		excelCellNum=""			remark="集客部联系电话"/>
+		<field name="remark"		excelCellNum="16"			remark="备注"/>
+	</IrmsGrouCustomer>
+	<!-- 数据(互联网)专线信息表-IrmsGroupLine -->
+	<IrmsGroupLine>
+		<field name="customer_name"		excelCellNum="1"			remark="客户名称"/>
+		<field name="related_instance"		excelCellNum=""			remark="产品实例标识"/>
+		<field name="customer_busi_addr"		excelCellNum="36"			remark="客户业务接入地址"/>
+		<field name="business_bw"		excelCellNum="10"			remark="业务带宽(速率)"/>
+		<field name="tran_access_way"		excelCellNum=""			remark="传输接入方式"/>
+		<field name="related_cd_name"		excelCellNum="5"			remark="客户端客户设备名称"/>
+		<field name="related_cd_port"		excelCellNum="6"			remark="客户端客户设备端口编号"/>
+		<field name="related_ad_name"		excelCellNum="12"			remark="移动接入设备名称"/>
+		<field name="related_ad_port_no"		excelCellNum=""			remark="移动接入设备端口编号"/>
+		<field name="related_ad_vlan"		excelCellNum=""			remark="接入点设备VLAN编号"/>
+		<field name="related_ad_slan"		excelCellNum="18"			remark="接入点设备SLAN编号"/>
+		<field name="related_ad_clan"		excelCellNum="19"			remark="接入点设备CLAN编号"/>
+		<field name="related_osr_name"		excelCellNum="24"			remark="局端机房名称"/>
+		<field name="related_osd_name"		excelCellNum="14"			remark="局端设备名称"/>
+		<field name="related_osd_port"		excelCellNum="15"			remark="局端设备端口"/>
+		<field name="related_client_ip"		excelCellNum=""			remark="客户终端IP地址（公网/私网）"/>
+		<field name="related_connect_ip"		excelCellNum="17"			remark="设备互联IP地址"/>
+		<field name="related_circuit_name"		excelCellNum=""			remark="电路名称"/>
+		<field name="related_oc_name"		excelCellNum=""			remark="光路名称"/>
+		<field name="customer_access_date"		excelCellNum=""			remark="接入客户日期"/>
+		<field name="remark"		excelCellNum=""			remark="备注"/>
+	</IrmsGroupLine>
+	<!-- 客户开通业务信息表-IrmsGroupProduct -->
+	<IrmsGroupProduct>
+		<field name="customer_name"		excelCellNum="1"			remark="客户名称"/>
+		<field name="customer_no"		excelCellNum="2"			remark="客户编号"/>
+		<field name="prod_type"		excelCellNum="3"			remark="业务类型"/>
+		<field name="prod_code"		excelCellNum="5"			remark="产品实例标识"/>
+		<field name="customer_addressa"		excelCellNum="4"			remark="业务接入点地址A"/>
+		<field name="citya"		excelCellNum="7"			remark="客户业务接入点A所属地市"/>
+		<field name="regiona"		excelCellNum="6"			remark="客户业务接入点A所属区县"/>
+		<field name="customer_addressz"		excelCellNum="8"			remark="业务接入点地址Z"/>
+		<field name="cityz"		excelCellNum="9"			remark="客户业务接入点Z所属地市"/>
+		<field name="regionz"		excelCellNum="10"			remark="客户业务接入点Z所属区县"/>
+		<field name="customer_link_man"		excelCellNum="11"			remark="客户技术联系人"/>
+		<field name="customer_link_phon"		excelCellNum="12"			remark="客户技术联系人电话"/>
+		<field name="business_demand"		excelCellNum="13"			remark="业务描述"/>
+		<field name="open_time"		excelCellNum="14"			remark="业务开通日期"/>
+		<field name="busi_end_time"		excelCellNum="15"			remark="业务服务终止时间"/>
+		<field name="service_level"		excelCellNum="16"			remark="业务保障等级"/>
+		<field name="create_time"		excelCellNum=""			remark="创建时间"/>
+	</IrmsGroupProduct>
+	<!-- 语音专线信息表-IrmsGroupSound -->
+	<IrmsGroupSound>
+		<field name="customer_name"		excelCellNum="1"			remark="客户名称"/>
+		<field name="related_instance"		excelCellNum=""			remark="产品实例标识"/>
+		<field name="code_section"		excelCellNum="23"			remark="码号段表"/>
+		<field name="incoming_call_permissions"		excelCellNum=""			remark="来话权限"/>
+		<field name="signaling_pattern"		excelCellNum="17"			remark="信令方式"/>
+		<field name="business_bw"		excelCellNum="24"			remark="业务带宽(速率)"/>
+		<field name="relay_num"		excelCellNum="7"			remark="中继数"/>
+		<field name="tran_access_way"		excelCellNum="20"			remark="传输接入方式"/>
+		<field name="customer_bus_addr"		excelCellNum=""			remark="客户业务接入地址"/>
+		<field name="related_sd_name"		excelCellNum=""			remark="客户端客户设备名称"/>
+		<field name="related_sd_port"		excelCellNum=""			remark="客户端客户设备端口编号"/>
+		<field name="related_ad_name"		excelCellNum=""			remark="移动接入设备名称"/>
+		<field name="related_ad_port"		excelCellNum=""			remark="移动接入设备端口编号"/>
+		<field name="related_lan_name"		excelCellNum=""			remark="城域网设备名称"/>
+		<field name="related_lan_port"		excelCellNum=""			remark="城域网设备端口编号"/>
+		<field name="converged_name"		excelCellNum=""			remark="汇聚语音交换机设备名称"/>
+		<field name="converged_port"		excelCellNum=""			remark="汇聚语音交换机端口编号"/>
+		<field name="related_or_name"		excelCellNum=""			remark="局端机房名称"/>
+		<field name="related_or_device"		excelCellNum=""			remark="局端设备名称"/>
+		<field name="related_or_device_port"		excelCellNum="30"			remark="局端设备端口"/>
+		<field name="related_circuit_name"		excelCellNum=""			remark="电路名称"/>
+		<field name="related_oc_name"		excelCellNum=""			remark="光路名称"/>
+		<field name="client_bus_app_ip"		excelCellNum=""			remark="客户业务应用IP地址（公网/私网）"/>
+		<field name="customer_acs_date"		excelCellNum=""			remark="接入客户日期"/>
+		<field name="remark"		excelCellNum=""			remark="备注"/>
+	</IrmsGroupSound>
+	<!-- GPRS信息表-IrmsGroupGprs -->
+	<IrmsGroupGprs>
+		<field name="customer_name"		excelCellNum=""			remark="客户名称"/>
+		<field name="related_pro_instance_id"		excelCellNum=""			remark="产品实例标识"/>
+		<field name="apn_name"		excelCellNum=""			remark="APN名称"/>
+		<field name="related_apn_id"		excelCellNum=""			remark="APN号码"/>
+		<field name="business_bw"		excelCellNum=""			remark="业务带宽(速率)"/>
+		<field name="business_open_limi"		excelCellNum=""			remark="业务开放范围"/>
+		<field name="business_hosting_way"		excelCellNum=""			remark="业务承载方式"/>
+		<field name="relative_pro_instance_id"		excelCellNum=""			remark="关联产品实例标识"/>
+		<field name="ip_allocation_mode"		excelCellNum=""			remark="IP地址分配方式"/>
+		<field name="use_ip_num"		excelCellNum=""			remark="地址数量"/>
+		<field name="is_both_ggsn"		excelCellNum=""			remark="是否双GGSN"/>
+		<field name="tran_access_way"		excelCellNum=""			remark="传输接入方式"/>
+		<field name="enterprise_service"		excelCellNum=""			remark="企业服务器IP地址"/>
+		<field name="label_cn1"		excelCellNum=""			remark="第一个GGSN的名称"/>
+		<field name="gre_address_name1"		excelCellNum=""			remark="第一个GGSN的GRE本端地址"/>
+		<field name="gre_enterprise_add1"		excelCellNum=""			remark="第一个GGSN的GRE企业端地址"/>
+		<field name="gre_name1"		excelCellNum=""			remark="第一个GGSN的GRE名称"/>
+		<field name="gre_tunnrl_key1"		excelCellNum=""			remark="第一个GGSN的GRE隧道key"/>
+		<field name="label_cn2"		excelCellNum=""			remark="第二个GGSN的名称"/>
+		<field name="gre_address_name2"		excelCellNum=""			remark="第二个GGSN的GRE本端地址"/>
+		<field name="gre_enterprise_add2"		excelCellNum=""			remark="第二个GGSN的GRE企业端地址"/>
+		<field name="gre_name2"		excelCellNum=""			remark="第二个GGSN的GRE名称"/>
+		<field name="gre_tunnrl_key2"		excelCellNum=""			remark="第二个GGSN的GRE隧道key"/>
+		<field name="apn_address_pool"		excelCellNum=""			remark="终端IP地址池"/>
+		<field name="is_use_radius"		excelCellNum=""			remark="是否使用客户侧radius"/>
+		<field name="radius_ip_add"		excelCellNum=""			remark="RADIUS服务器地址"/>
+		<field name="is_terminal_visits"		excelCellNum=""			remark="是否允许终端间互访"/>
+		<field name="circuit_name"		excelCellNum=""			remark="电路名称"/>
+		<field name="optical_circuit_name"		excelCellNum=""			remark="光路名称"/>
+		<field name="customer_access_date"		excelCellNum=""			remark="接入客户日期"/>
+		<field name="remark"		excelCellNum=""			remark="备注"/>
+	</IrmsGroupGprs>
+	<!-- 短信信息表-IrmsGroupSms -->
+	<IrmsGroupSms>
+		<field name="customer_name"		excelCellNum=""			remark="客户名称"/>
+		<field name="related_instance"		excelCellNum=""			remark="产品实例标识"/>
+		<field name="sms_enterprise_cod"		excelCellNum=""			remark="企业代码"/>
+		<field name="sms_service_num_type"		excelCellNum=""			remark="服务号码类型"/>
+		<field name="sms_service_num"		excelCellNum=""			remark="短信服务号码"/>
+		<field name="sms_busi_code"		excelCellNum=""			remark="业务代码"/>
+		<field name="sms_service_scope"		excelCellNum=""			remark="服务范围"/>
+		<field name="service_district"		excelCellNum=""			remark="服务地市"/>
+		<field name="sms_protocol_type"		excelCellNum=""			remark="协议类型"/>
+		<field name="tran_access_way"		excelCellNum=""			remark="传输接入方式"/>
+		<field name="business_hosting_way"		excelCellNum=""			remark="业务承载方式"/>
+		<field name="product_instance_id"		excelCellNum=""			remark="关联产品实例标识"/>
+		<field name="access_gateway_room"		excelCellNum=""			remark="接入网关机房名称"/>
+		<field name="access_gateway"		excelCellNum=""			remark="接入网关名称"/>
+		<field name="gateway_ip"		excelCellNum=""			remark="网关IP地址"/>
+		<field name="enterprise_server_ip"		excelCellNum=""			remark="企业服务器IP地址"/>
+		<field name="service_port_no"		excelCellNum=""			remark="提供服务端口号"/>
+		<field name="gateway_login_name"		excelCellNum=""			remark="登录网关用户名"/>
+		<field name="related_circuit_name"		excelCellNum=""			remark="电路名称"/>
+		<field name="related_oc_name"		excelCellNum=""			remark="光路名称"/>
+		<field name="customer_access_date"		excelCellNum=""			remark="接入客户日期"/>
+		<field name="remark"		excelCellNum=""			remark="备注"/>
+	</IrmsGroupSms>
+	<!-- 彩信息表-IrmsGroupMms -->
+	<IrmsGroupMms>
+		<field name="customer_name"		excelCellNum=""			remark="客户名称"/>
+		<field name="related_instance"		excelCellNum=""			remark="产品实例标识"/>
+		<field name="mms_service_num_ty"		excelCellNum=""			remark="服务号码类型"/>
+		<field name="mms_enterprise_cod"		excelCellNum=""			remark="企业代码"/>
+		<field name="mms_service_num"		excelCellNum=""			remark="彩信服务号码"/>
+		<field name="mms_service_scope"		excelCellNum=""			remark="服务范围"/>
+		<field name="service_district"		excelCellNum=""			remark="服务地市"/>
+		<field name="protocal_type"		excelCellNum=""			remark="协议类型"/>
+		<field name="mms_busi_name"		excelCellNum=""			remark="业务名称"/>
+		<field name="mms_busi_code"		excelCellNum=""			remark="业务代码"/>
+		<field name="mms_up_url"		excelCellNum=""			remark="彩信上行URL"/>
+		<field name="mms_busi_flow_limi"		excelCellNum=""			remark="业务流向限制"/>
+		<field name="tran_access_way"		excelCellNum=""			remark="传输接入方式"/>
+		<field name="business_hosting_way"		excelCellNum=""			remark="业务承载方式"/>
+		<field name="related_product_instance"		excelCellNum=""			remark="关联产品实例标识"/>
+		<field name="related_ag_room"		excelCellNum=""			remark="接入网关机房名称"/>
+		<field name="related_ag_name"		excelCellNum=""			remark="接入网关名称"/>
+		<field name="related_gateway_ip"		excelCellNum=""			remark="网关IP地址"/>
+		<field name="related_server_ip"		excelCellNum=""			remark="企业服务器IP地址"/>
+		<field name="service_port"		excelCellNum=""			remark="提供服务端口号"/>
+		<field name="login_name"		excelCellNum=""			remark="登录网关用户名"/>
+		<field name="related_circuit_name"		excelCellNum=""			remark="电路名称"/>
+		<field name="related_oc_name"		excelCellNum=""			remark="光路名称"/>
+		<field name="customer_access_date"		excelCellNum=""			remark="接入客户日期"/>
+		<field name="remark"		excelCellNum=""			remark="备注"/>
+	</IrmsGroupMms>
+	<!-- 出租专线信息表-IrmsGroupRent -->
+	<IrmsGroupRent>
+		<field name="customer_name"		excelCellNum=""			remark="客户名称"/>
+		<field name="pointa_customer_name"		excelCellNum=""			remark="A端客户名称"/>
+		<field name="related_instance"		excelCellNum=""			remark="产品实例标识"/>
+		<field name="tran_access_way"		excelCellNum=""			remark="传输接入方式"/>
+		<field name="business_bw"		excelCellNum=""			remark="业务带宽(速率)"/>
+		<field name="pointa_customer_addr"		excelCellNum=""			remark="A端客户地址"/>
+		<field name="related_pointa"		excelCellNum=""			remark="A 端业务设备名称"/>
+		<field name="related_pointa_port"		excelCellNum=""			remark="A 端业务设备端口"/>
+		<field name="pointa_ddfodf_port"		excelCellNum=""			remark="A 端业务设备DDF/ODF端口"/>
+		<field name="related_ar_device"		excelCellNum=""			remark="A端接入机房设备名称"/>
+		<field name="related_ar_device_port"		excelCellNum=""			remark="A端接入机房设备端口"/>
+		<field name="related_ard_odf_port"		excelCellNum=""			remark="A端接入机房设备ODF端口"/>
+		<field name="related_circuit_name"		excelCellNum=""			remark="电路名称"/>
+		<field name="related_circuit_type"		excelCellNum=""			remark="电路接口类型"/>
+		<field name="related_circuit_level"		excelCellNum=""			remark="电路级别"/>
+		<field name="circuit_requirement"		excelCellNum=""			remark="电路要求"/>
+		<field name="circuit_protect_way"		excelCellNum=""			remark="电路保护方式"/>
+		<field name="office_redirection"		excelCellNum=""			remark="局向"/>
+		<field name="pointz_customer_name"		excelCellNum=""			remark="Z端客户名称"/>
+		<field name="pointz_customer_addr"		excelCellNum=""			remark="Z端客户地址"/>
+		<field name="related_pointz_name"		excelCellNum=""			remark="Z端业务设备名称"/>
+		<field name="related_pointz_port"		excelCellNum=""			remark="Z端业务设备端口"/>
+		<field name="pointz_ddfodf_port"		excelCellNum=""			remark="Z端业务设备DDF/ODF端口"/>
+		<field name="related_pointz_ar_name"		excelCellNum=""			remark="Z端接入机房设备名称"/>
+		<field name="related_pointz_ar_port"		excelCellNum=""			remark="Z端接入机房设备端口"/>
+		<field name="related_pointz_arp_odf"		excelCellNum=""			remark="Z端接入机房设备ODF端口"/>
+		<field name="related_oc_name"		excelCellNum=""			remark="光路名称"/>
+		<field name="remark"		excelCellNum=""			remark="备注"/>
+	</IrmsGroupRent>
+	<!-- 客户端设备信息表-IrmsGroupDevice -->
+	<IrmsGroupDevice>
+		<field name="device_name"		excelCellNum="1"			remark="设备名称"/>
+		<field name="device_serial_num"		excelCellNum="8"			remark="设备序列号"/>
+		<field name="device_city"		excelCellNum=""			remark="所属地市"/>
+		<field name="device_county"		excelCellNum=""			remark="所属区县"/>
+		<field name="device_town"		excelCellNum=""			remark="所属乡镇街道"/>
+		<field name="device_room"		excelCellNum="2"			remark="所属机房"/>
+		<field name="device_vendor"		excelCellNum="3"			remark="厂家名称"/>
+		<field name="device_model"		excelCellNum=""			remark="规则型号"/>
+		<field name="device_status"		excelCellNum="5"			remark="状态"/>
+		<field name="device_property_unit"		excelCellNum=""			remark="产权单位"/>
+		<field name="device_use_unit"		excelCellNum=""			remark="使用单位"/>
+		<field name="device_manage_unit"		excelCellNum=""			remark="维护单位"/>
+		<field name="device_ip"		excelCellNum="13"			remark="IP地址"/>
+		<field name="device_version"		excelCellNum=""			remark="版本信息"/>
+		<field name="device_access_net_date"		excelCellNum="7"			remark="入网时间"/>
+		<field name="device_fixed_asset_id"		excelCellNum=""			remark="固定资产编号"/>
+		<field name="related_iinstance"		excelCellNum=""			remark="产品实例标识"/>
+		<field name="client_device_type"		excelCellNum="9"			remark="客户端客户设备类型"/>
+		<field name="client_device_port_type"		excelCellNum=""			remark="客户端客户设备端口类型"/>
+		<field name="client_device_port_id"		excelCellNum=""			remark="客户端客户设备端口编号"/>
+		<field name="device_port_status"		excelCellNum=""			remark="端口状态"/>
+		<field name="inerconnect_ip"		excelCellNum=""			remark="互联IP地址"/>
+		<field name="client_device_vlan"		excelCellNum=""			remark="客户端设备VLAN"/>
+		<field name="client_device_mac"		excelCellNum=""			remark="客户端设备MAC地址"/>
+		<field name="pointa_longitude"		excelCellNum=""			remark="业务接入点A经度"/>
+		<field name="pointa_latitude"		excelCellNum=""			remark="业务接入点A纬度"/>
+	</IrmsGroupDevice>
+</excel2xml>

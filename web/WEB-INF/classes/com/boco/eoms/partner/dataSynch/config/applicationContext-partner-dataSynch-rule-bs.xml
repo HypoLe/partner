@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- BTSSITE-IrmsBsBtssite -->
+	<bean id="irmsBsBtssiteMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsBtssiteMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 机楼基站外电-IrmsBsJzwd -->
+	<bean id="irmsBsJzwdMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsJzwdMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 变压器或调压器-IrmsBsTransfor -->
+	<bean id="irmsBsTransforMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsTransforMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 机框-IrmsBsShelf -->
+	<bean id="irmsBsShelfMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsShelfMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 机槽-IrmsBsSlot -->
+	<bean id="irmsBsSlotMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsSlotMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- UTRANCELL-IrmsBsUtrancell -->
+	<bean id="irmsBsUtrancellMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsUtrancellMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- CELL-IrmsBsCell -->
+	<bean id="irmsBsCellMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsCellMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- NODEB-IrmsBsNodeb -->
+	<bean id="irmsBsNodebMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsNodebMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 机柜-IrmsBsRack -->
+	<bean id="irmsBsRackMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsRackMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 板卡-IrmsBsCard -->
+	<bean id="irmsBsCardMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsCardMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 发电机组-IrmsBsGrnerat -->
+	<bean id="irmsBsGrneratMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsGrneratMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 蓄电池组-IrmsBsStorage -->
+	<bean id="irmsBsStorageMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsStorageMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 开关电源-IrmsBsGrnerat2 -->
+	<bean id="irmsBsGrnerat2MappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsGrnerat2MappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- UPS主机-IrmsBsUps -->
+	<bean id="irmsBsUpsMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsUpsMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 普通空调-IrmsBsAircon -->
+	<bean id="irmsBsAirconMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsAirconMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 专用空调-IrmsBsSpeaircon -->
+	<bean id="irmsBsSpeairconMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsSpeairconMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 动环监控设备-IrmsBsMme -->
+	<bean id="irmsBsMmeMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsMmeMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 通风系统-IrmsBsVens -->
+	<bean id="irmsBsVensMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsVensMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 换热系统-IrmsBsHes -->
+	<bean id="irmsBsHesMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsHesMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 风能设备-IrmsBsWep -->
+	<bean id="irmsBsWepMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsWepMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 风电控制器-IrmsBsWpc -->
+	<bean id="irmsBsWpcMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsWpcMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 太阳能设备-IrmsBsSee -->
+	<bean id="irmsBsSeeMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsSeeMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 太阳能控制器-IrmsBsMppt -->
+	<bean id="irmsBsMpptMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsMpptMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 风光互补控制器-IrmsBsCc -->
+	<bean id="irmsBsCcMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsCcMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 电源恒温箱-IrmsBsBb -->
+	<bean id="irmsBsBbMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.bs.IrmsBsBbMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+</beans>

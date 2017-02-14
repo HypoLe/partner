@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"><hibernate-mapping>
+<class name="com.boco.eoms.examonline.model.ExamResult"  table="ExamResult">
+<id column="id" name="id" type="string">
+<generator class="uuid.hex"/>
+</id>
+<property column="issueId" length="32" name="issueId" />
+<property column="title" name="title"/>
+<property column="startTime" name="startTime"/>
+<property column="endTime" name="endTime" />
+<property column="tester" name="tester"/>
+<property column="totalCount" name="totalCount"/>
+<property column="score" name="score"/>
+<property column="assignType" name="assignType"/>
+<property column="examType" name="examType"/>
+</class>
+</hibernate-mapping>

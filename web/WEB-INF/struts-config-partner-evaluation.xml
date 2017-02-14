@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<!-- Generated with Karapan Sapi Struts Generator -->
+<!-- Visit http://www.javanovic.com         -->
+
+<struts-config>
+	<!-- ============ Form beans ============ -->
+	<form-beans>
+		<form-bean name="quotaForm"
+			type="com.boco.eoms.evaluation.model.QuotaForm" />
+		<form-bean name="formulaForm"
+			type="com.boco.eoms.evaluation.model.FormulaForm" />
+		<form-bean name="evaluationEntityForm"
+			type="com.boco.eoms.evaluation.model.evaluationEntityForm" />
+        <form-bean name="impFileForm"
+			type="com.boco.eoms.evaluation.excel.ImpFileForm" />
+	</form-beans>
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+	<!-- ============ Global forwards ============ -->
+	<global-forwards type="org.apache.struts.action.ActionForward">
+		<forward name="failure" path="/nop3/common/fail.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="successForTmpl" path="/WEB-INF/pages/partner/evaluation/success.jsp"
+			redirect="false" contextRelative="true" />
+		<forward
+		  name="success"
+		  path="/common/success.jsp"
+		  redirect="true"
+		  contextRelative="true"
+		/>	
+		<forward name="error" path="/nop3/common/error.jsp"
+			contextRelative="true" redirect="false" />
+		<forward name="cancel" path="/servlet/main.do" />
+		<forward name="nopriv" path="/nop3/common/nopriv.jsp"
+			contextRelative="true" redirect="false" />
+	</global-forwards>
+
+	<!-- ============ Action Mapping definitions ============ -->
+	<action-mappings type="org.apache.struts.action.ActionMapping">
+		<action path="/theTree"
+			type="com.boco.eoms.evaluation.action.EvaluationTreeAction"
+			scope="request" input="list" parameter="method" unknown="false"
+			validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="goToTheTree"
+				path="/WEB-INF/pages/partner/evaluation/evaluationTree.jsp"
+				redirect="false" contextRelative="true" />
+            <forward name="goToStatistics"
+				path="/WEB-INF/pages/partner/evaluation/evaluationStatistics.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+
+		<action path="/evaluation"
+			type="com.boco.eoms.evaluation.action.EvaluationAction"
+			scope="request" input="list" parameter="method" unknown="false"
+			validate="false">
+			<set-property property="cancellable" value="true" />
+
+			<forward name="templateAdd"
+				path="/WEB-INF/pages/partner/evaluation/templateAdd.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="templateUpdate"
+				path="/WEB-INF/pages/partner/evaluation/templateUpdate.jsp"
+				redirect="false" contextRelative="true" />			
+
+			<forward name="programmeAdd"
+				path="/WEB-INF/pages/partner/evaluation/programmeAdd.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="programmeUpdate"
+				path="/WEB-INF/pages/partner/evaluation/programmeUpdate.jsp"
+				redirect="false" contextRelative="true" />
+			
+            <forward
+              name="yulan"
+              path="/WEB-INF/pages/partner/evaluation/yulan.jsp"
+             redirect="false"
+             contextRelative="true"
+           />    
+           <forward
+              name="yulan2"
+              path="/WEB-INF/pages/partner/evaluation/yulan2.jsp"
+             redirect="false"
+             contextRelative="true"
+           />    
+           <forward
+              name="yulanTab"
+              path="/WEB-INF/pages/partner/evaluation/yulanTab.jsp"
+             redirect="false"
+             contextRelative="true"
+           />    
+           <forward
+              name="templatePreCheck"
+              path="/WEB-INF/pages/partner/evaluation/templatePreCheck.jsp"
+             redirect="false"
+             contextRelative="true"
+           />  
+		</action>
+
+		<action path="/quota"
+			type="com.boco.eoms.evaluation.action.QuotaAction" name="quotaForm"
+			scope="request" parameter="method" input="list" unknown="false"
+			validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/evaluation/quota/quotaEdit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="showDetail"
+				path="/WEB-INF/pages/partner/evaluation/quota/quotaDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/evaluation/quota/quotaList.jsp"
+				redirect="false" contextRelative="true" />
+
+		</action>
+		<action path="/quotaToImpl"
+			type="com.boco.eoms.evaluation.action.QuotaToImplAction" 
+			scope="request" parameter="method" input="list" unknown="false"
+			validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/evaluation/quotaToImplEdit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/evaluation/quotaToImplList.jsp"
+				redirect="false" contextRelative="true" />
+
+		</action>
+
+		<action path="/checkRule"
+			type="com.boco.eoms.evaluation.action.CheckRuleAction"
+			scope="request" parameter="method" input="list"
+			unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/evaluation/checkRule/checkRuleEdit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="checkRuleAndFormulaEdit"
+				path="/WEB-INF/pages/partner/evaluation/checkRule/checkRuleAndFormulaEdit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="showDetail"
+				path="/WEB-INF/pages/partner/evaluation/checkRule/checkRuleDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/evaluation/checkRule/checkRuleList.jsp"
+				redirect="false" contextRelative="true" />
+
+		</action>
+		<action path="/formula"
+			type="com.boco.eoms.evaluation.action.FormulaAction"
+			name="formulaForm" scope="request" parameter="method" input="list"
+			unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/evaluation/formula/formulaEdit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/evaluation/formula/formulaList.jsp"
+				redirect="false" contextRelative="true" />
+
+		</action>
+		<action path="/evaluationEntity"
+			type="com.boco.eoms.evaluation.action.EvaluationEntityAction"
+			 scope="request" parameter="method" input="list"
+			unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="monthEvaluation"
+				path="/WEB-INF/pages/partner/evaluation/monthEvaluation.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="yearEvaluation"
+				path="/WEB-INF/pages/partner/evaluation/yearEvaluation.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="unDoEvaluationList"
+				path="/WEB-INF/pages/partner/evaluation/unDoEvaluationList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="evaluationGradeForm"
+				path="/WEB-INF/pages/partner/evaluation/evaluationGradeForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="unConfirmEvaluationList"
+				path="/WEB-INF/pages/partner/evaluation/unConfirmEvaluationList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="evaluationConfirmForm"
+				path="/WEB-INF/pages/partner/evaluation/evaluationConfirmForm.jsp"
+				redirect="false" contextRelative="true" />
+            <forward name="evaluationConfirmFormTab"
+				path="/WEB-INF/pages/partner/evaluation/evaluationConfirmFormTab.jsp"
+				redirect="false" contextRelative="true" />
+			 <forward name="evaluationConfirmFormTabYD"
+				path="/WEB-INF/pages/partner/evaluation/evaluationConfirmFormTabYD.jsp"
+				redirect="false" contextRelative="true" />	
+            <forward name="gotoScorePage"
+				path="/WEB-INF/pages/partner/evaluation/instanceScore.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="gotoViewScorePage"
+				path="/WEB-INF/pages/partner/evaluation/viewInstanceScore.jsp"
+				redirect="false" contextRelative="true" />	
+			<forward name="opinionList"
+				path="/WEB-INF/pages/partner/evaluation/opinionList.jsp"
+				redirect="false" contextRelative="true" />	
+            <forward
+              name="instanceScoreTab"
+              path="/WEB-INF/pages/partner/evaluation/instanceScoreTab.jsp"
+             redirect="false"
+             contextRelative="true"
+           />    
+           <forward
+              name="viewInstanceScoreTab"
+              path="/WEB-INF/pages/partner/evaluation/viewInstanceScoreTab.jsp"
+             redirect="false"
+             contextRelative="true"
+           />    
+          <forward
+              name="gotoScoreByMajorList"
+              path="/WEB-INF/pages/partner/evaluation/scoreByMajorList.jsp"
+             redirect="false"
+             contextRelative="true"
+           /> 
+            <forward
+              name="gotoScoreByMajorTab"
+              path="/WEB-INF/pages/partner/evaluation/scoreByMajorTab.jsp"
+             redirect="false"
+             contextRelative="true"
+           />       
+            <forward name="monthEvaluation2"
+				path="/WEB-INF/pages/partner/evaluation/monthEvaluation2.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="yearEvaluation2"
+				path="/WEB-INF/pages/partner/evaluation/yearEvaluation2.jsp"
+				redirect="false" contextRelative="true" />
+				
+			<forward name="unDoRtnBackStartList"
+				path="/WEB-INF/pages/partner/evaluation/unDoRtnBackStartList.jsp"
+				redirect="false" contextRelative="true" />	
+			<forward name="dealRtnBackStartTab"
+				path="/WEB-INF/pages/partner/evaluation/dealRtnBackStartTab.jsp"
+				redirect="false" contextRelative="true" />	
+		    <forward name="unDoAuditTaskList"
+				path="/WEB-INF/pages/partner/evaluation/unDoAuditTaskList.jsp"
+				redirect="false" contextRelative="true" />		
+			<forward name="dealAuditTaskTab"
+				path="/WEB-INF/pages/partner/evaluation/dealAuditTaskTab.jsp"
+				redirect="false" contextRelative="true" />		
+		</action>
+
+	    <action path="/exportAndImport" name="impFileForm"
+			type="com.boco.eoms.evaluation.excel.ExportAndImport" 
+			scope="request" parameter="method"  unknown="false"
+			validate="false">
+			<set-property property="cancellable" value="true" />
+		</action>
+		
+		<action path="/evaluStatAndQur"
+			type="com.boco.eoms.evaluation.action.StatisticsAndQueryAction" 
+			scope="request" parameter="method" input="list" unknown="false"
+			validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward
+              name="normalQuery"
+              path="/WEB-INF/pages/partner/evaluation/normalQuery.jsp"
+             redirect="false"
+             contextRelative="true"
+           />    
+           <forward
+              name="normalQueryYear"
+              path="/WEB-INF/pages/partner/evaluation/normalQueryYear.jsp"
+             redirect="false"
+             contextRelative="true"
+           />    
+           
+           <forward
+              name="quxianPartnerDeptMonthStatistics"
+              path="/WEB-INF/pages/partner/evaluation/statistics/quxianPartnerDeptMonthStatistics.jsp"
+             redirect="false"
+             contextRelative="true"
+           />    
+           <forward
+              name="quxianPartnerDeptYearStatistics"
+              path="/WEB-INF/pages/partner/evaluation//statistics/quxianPartnerDeptYearStatistics.jsp"
+             redirect="false"
+             contextRelative="true"
+           />    
+           <forward
+              name="dishiPartnerDeptMonthStatistics"
+              path="/WEB-INF/pages/partner/evaluation/statistics/dishiPartnerDeptMonthStatistics.jsp"
+             redirect="false"
+             contextRelative="true"
+           />    
+           <forward
+              name="dishiPartnerDeptYearStatistics"
+              path="/WEB-INF/pages/partner/evaluation/statistics/dishiPartnerDeptYearStatistics.jsp"
+             redirect="false"
+             contextRelative="true"
+           />    
+           <forward
+              name="partnerDeptMonthStatistics"
+              path="/WEB-INF/pages/partner/evaluation/statistics/partnerDeptMonthStatistics.jsp"
+             redirect="false"
+             contextRelative="true"
+           />    
+           <forward
+              name="partnerDeptYearStatistics"
+              path="/WEB-INF/pages/partner/evaluation/statistics/partnerDeptYearStatistics.jsp"
+             redirect="false"
+             contextRelative="true"
+           />    
+           
+           <forward
+              name="monthRankReport"
+              path="/WEB-INF/pages/partner/evaluation/monthRankReport.jsp"
+             redirect="false"
+             contextRelative="true"
+           />    
+           <forward
+              name="yearRankReport"
+              path="/WEB-INF/pages/partner/evaluation/yearRankReport.jsp"
+             redirect="false"
+             contextRelative="true"
+           />  
+		</action>
+	</action-mappings>
+</struts-config>

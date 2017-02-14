@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.boco.eoms.deviceManagement.GPSManagement.model.GpsManagementModel" table="dm_gpsmanagement">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+
+		<property name="gpstype" />
+		<property name="factory" />
+		<property name="gpsmodel" />
+		<property name="gpsselfnumber" />
+		<property name="deptid" />
+		<property name="remark" />
+		<property name="gsmid" />
+		<property name="deleted" />
+	</class>
+</hibernate-mapping>

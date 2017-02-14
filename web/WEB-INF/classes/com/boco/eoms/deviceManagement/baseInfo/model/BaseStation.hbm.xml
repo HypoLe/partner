@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.boco.eoms.deviceManagement.baseInfo.model.BaseStation" table="dm_basestation">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="baseStationName" />
+		<property name="stationForm" />
+		<property name="maintenanceLevel" />
+		<property name="stationHouseType" />
+		<property name="manufacturer" />
+		<property name="carrierFacility" />
+		<property name="carrierNum" />
+		<property name="longitude" />
+		<property name="latitude" />
+		<property name="remark" />
+		<property name="addman" />
+		<property name="addtime" />
+	</class>
+</hibernate-mapping>

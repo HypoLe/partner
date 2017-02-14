@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 基站设备及配套-专业 -->
+<excel2xml>
+	<!-- BTSSITE-IrmsBsBtssite -->
+	<IrmsBsBtssite>
+		<field name="userlabel_cm"		excelCellNum="1"			remark="OMC中网元名称"/>
+		<field name="label_cn"		excelCellNum=""			remark="中文名称"/>
+		<field name="related_bsc"		excelCellNum="7"			remark="所属BSC"/>
+		<field name="fre_band"		excelCellNum="52"			remark="移动通信系统标识"/>
+		<field name="transmode"		excelCellNum="62"			remark="传输类型"/>
+		<field name="btssite_crisis_type"		excelCellNum="10"			remark="基站应急类型"/>
+		<field name="vip_type"		excelCellNum="51"			remark="VIP基站"/>
+		<field name="related_room"		excelCellNum="3"			remark="所属机房"/>
+		<field name="beehive_type"		excelCellNum="8"			remark="蜂窝类型"/>
+		<field name="btssite_no"		excelCellNum="9"			remark="基站编号"/>
+		<field name="model"		excelCellNum="11"			remark="设备型号"/>
+		<field name="fail_acc_unit"		excelCellNum="6"			remark="故障受理单位(统一考虑)"/>
+		<field name="manage_company"		excelCellNum=""			remark="代维公司（统一考虑）"/>
+		<field name="status"		excelCellNum="18"			remark="网元状态"/>
+		<field name="related_vendor"		excelCellNum="4"			remark="设备供应商"/>
+		<field name="soft_version"		excelCellNum="17"			remark="软件版本信息"/>
+		<field name="open_time"		excelCellNum="45"			remark="开通时间"/>
+	</IrmsBsBtssite>
+	<!-- 机楼基站外电-IrmsBsJzwd -->
+	<IrmsBsJzwd>
+		<field name="related_province"		excelCellNum=""			remark="所属省份"/>
+		<field name="related_city"		excelCellNum=""			remark="所属地市"/>
+		<field name="related_county"		excelCellNum=""			remark="所属区县"/>
+		<field name="related_site"		excelCellNum=""			remark="所属站点"/>
+		<field name="related_site_name"		excelCellNum=""			remark="机楼（基站）名称"/>
+		<field name="related_site_no"		excelCellNum=""			remark="机楼（基站）编号"/>
+		<field name="property"		excelCellNum=""			remark="产权属性"/>
+		<field name="important_level"		excelCellNum=""			remark="重要级别"/>
+		<field name="room_addr"		excelCellNum=""			remark="机楼(基站)地址"/>
+		<field name="one_substation"		excelCellNum=""			remark="变电站一"/>
+		<field name="two_substation"		excelCellNum=""			remark="变电站二"/>
+		<field name="preserver"		excelCellNum=""			remark="维护负责人"/>
+		<field name="utility_cpacity"		excelCellNum=""			remark="市电容量(KVA)"/>
+		<field name="utility_mode"		excelCellNum=""			remark="市电引入方式"/>
+		<field name="line"		excelCellNum=""			remark="线径(m)"/>
+		<field name="cables_length"		excelCellNum=""			remark="线缆长度(m)"/>
+		<field name="elect_kind"		excelCellNum=""			remark="供电性质"/>
+		<field name="turn_info"		excelCellNum=""			remark="转供信息"/>
+		<field name="height"		excelCellNum=""			remark="海拔高度"/>
+		<field name="longitude"		excelCellNum=""			remark="经度"/>
+		<field name="latitude"		excelCellNum=""			remark="纬度"/>
+		<field name="elect_contract"		excelCellNum=""			remark="供电合同号"/>
+		<field name="substation_tel"		excelCellNum=""			remark="变电站电话"/>
+		<field name="owner_linkman"		excelCellNum=""			remark="业主联系人"/>
+		<field name="query_linkman"		excelCellNum=""			remark="查询联系人"/>
+		<field name="owner_linktel"		excelCellNum=""			remark="业主电话"/>
+		<field name="query_linktel"		excelCellNum=""			remark="查询电话"/>
+		<field name="power_maint"		excelCellNum=""			remark="动力代维"/>
+		<field name="trans_maint"		excelCellNum=""			remark="传输代维"/>
+		<field name="environment_maint"		excelCellNum=""			remark="环境代维"/>
+		<field name="fire_maint"		excelCellNum=""			remark="消防代维"/>
+		<field name="air_condition_main"		excelCellNum=""			remark="空调代维"/>
+	</IrmsBsJzwd>
+	<!-- 变压器或调压器-IrmsBsTransfor -->
+	<IrmsBsTransfor>
+		<field name="related_room"		excelCellNum=""			remark="机房（基站）名称"/>
+		<field name="device_type"		excelCellNum=""			remark="设备类型"/>
+		<field name="device_subclass"		excelCellNum=""			remark="设备子类"/>
+		<field name="label_dev"		excelCellNum=""			remark="设备名称"/>
+		<field name="device_sequence"		excelCellNum=""			remark="设备编码"/>
+		<field name="equipmentcode"		excelCellNum=""			remark="资产编号"/>
+		<field name="model"		excelCellNum=""			remark="型号"/>
+		<field name="related_vendor"		excelCellNum=""			remark="生产厂商"/>
+		<field name="trademark"		excelCellNum=""			remark="品牌"/>
+		<field name="supplier"		excelCellNum=""			remark="供应商"/>
+		<field name="manage_company"		excelCellNum=""			remark="代维公司"/>
+		<field name="start_time"		excelCellNum=""			remark="开始使用时间"/>
+		<field name="end_time"		excelCellNum=""			remark="预计报废时间"/>
+		<field name="status"		excelCellNum=""			remark="使用状态"/>
+		<field name="type"		excelCellNum=""			remark="类型"/>
+		<field name="rating_power"		excelCellNum=""			remark="额定功率"/>
+		<field name="imp_rating_voltage"		excelCellNum=""			remark="输入额定电压"/>
+		<field name="ext_rating_voltage"		excelCellNum=""			remark="输出额定电压"/>
+		<field name="preserver"		excelCellNum=""			remark="维护负责人"/>
+	</IrmsBsTransfor>
+	<!-- 机框-IrmsBsShelf -->
+	<IrmsBsShelf>
+		<field name="label_cn"		excelCellNum=""			remark="机框名字"/>
+		<field name="related_rack_cuid"		excelCellNum=""			remark="所属机柜"/>
+		<field name="sequence"		excelCellNum=""			remark="机框编号"/>
+		<field name="slot_amount"		excelCellNum=""			remark="机槽数"/>
+	</IrmsBsShelf>
+	<!-- 机槽-IrmsBsSlot -->
+	<IrmsBsSlot>
+		<field name="label_cn"		excelCellNum=""			remark="机槽名称"/>
+		<field name="status"		excelCellNum=""			remark="机槽状态"/>
+		<field name="related_shelf_cuid"		excelCellNum=""			remark="所属机框"/>
+		<field name="sequence"		excelCellNum=""			remark="机槽编号"/>
+	</IrmsBsSlot>
+	<!-- UTRANCELL-IrmsBsUtrancell -->
+	<IrmsBsUtrancell>
+		<field name="userlabel_cm"		excelCellNum=""			remark="OMC中网元名称"/>
+		<field name="label_cn"		excelCellNum=""			remark="中文名称"/>
+		<field name="ci"		excelCellNum=""			remark="小区码CI"/>
+		<field name="lac"		excelCellNum=""			remark="位置区码LAC"/>
+		<field name="related_nodeb"		excelCellNum=""			remark="所属NODEB"/>
+		<field name="sac"		excelCellNum=""			remark="服务器编码（SAC）"/>
+		<field name="trx_nbr"		excelCellNum=""			remark="TRX总数-Carrier总数"/>
+		<field name="cell_type"		excelCellNum=""			remark="蜂窝类型"/>
+		<field name="status"		excelCellNum=""			remark="网元状态"/>
+		<field name="boundcell_type"		excelCellNum=""			remark="边界小区类型"/>
+		<field name="cover_filed"		excelCellNum=""			remark="覆盖场景"/>
+		<field name="setup_time"		excelCellNum=""			remark="开通时间"/>
+	</IrmsBsUtrancell>
+	<!-- CELL-IrmsBsCell -->
+	<IrmsBsCell>
+		<field name="userlabel_cm"		excelCellNum=""			remark="OMC中网元名称"/>
+		<field name="label_cn"		excelCellNum=""			remark="中文名称"/>
+		<field name="ci"		excelCellNum=""			remark="小区码CI"/>
+		<field name="lac"		excelCellNum=""			remark="位置区码LAC"/>
+		<field name="gsmdcsindicator"		excelCellNum=""			remark="移动通信系统标识"/>
+		<field name="related_btssite_cu"		excelCellNum=""			remark="所属BTS"/>
+		<field name="cell_type"		excelCellNum=""			remark="蜂窝类型"/>
+		<field name="status"		excelCellNum=""			remark="网元状态"/>
+		<field name="boundcell_type"		excelCellNum=""			remark="边界小区类型"/>
+		<field name="if_repeator"		excelCellNum=""			remark="是否带直放站"/>
+		<field name="is_enegprs"		excelCellNum=""			remark="支持EGPRS"/>
+		<field name="cover_filed"		excelCellNum=""			remark="覆盖场景"/>
+		<field name="trx_count"		excelCellNum=""			remark="TRX数量"/>
+		<field name="open_time"		excelCellNum=""			remark="开通时间"/>
+	</IrmsBsCell>
+	<!-- NODEB-IrmsBsNodeb -->
+	<IrmsBsNodeb>
+		<field name="userlabel_cm"		excelCellNum=""			remark="OMC中网元名称"/>
+		<field name="label_cn"		excelCellNum=""			remark="中文名称"/>
+		<field name="related_rnc"		excelCellNum=""			remark="所属RNC"/>
+		<field name="trans_type"		excelCellNum=""			remark="传输类型"/>
+		<field name="site_category"		excelCellNum=""			remark="频段"/>
+		<field name="vip_type"		excelCellNum=""			remark="vip基站"/>
+		<field name="beehive_type"		excelCellNum=""			remark="蜂窝类型"/>
+		<field name="model"		excelCellNum=""			remark="设备型号"/>
+		<field name="related_room"		excelCellNum=""			remark="所属机房"/>
+		<field name="fail_acc_unit"		excelCellNum=""			remark="故障受理单位(统一考虑)"/>
+		<field name="manage_company"		excelCellNum=""			remark="代维公司"/>
+		<field name="status"		excelCellNum=""			remark="网元状态"/>
+		<field name="related_vendor"		excelCellNum=""			remark="设备供应商"/>
+		<field name="open_time"		excelCellNum=""			remark="开通时间"/>
+	</IrmsBsNodeb>
+	<!-- 机柜-IrmsBsRack -->
+	<IrmsBsRack>
+		<field name="label_cn"		excelCellNum=""			remark="机柜名称"/>
+		<field name="related_device_cui"		excelCellNum=""			remark="所属基站"/>
+		<field name="related_body"		excelCellNum=""			remark="所属机架"/>
+		<field name="vendor"		excelCellNum=""			remark="供应商"/>
+		<field name="rack_type"		excelCellNum=""			remark="机柜类型"/>
+		<field name="shelf_amount"		excelCellNum=""			remark="机框数"/>
+	</IrmsBsRack>
+	<!-- 板卡-IrmsBsCard -->
+	<IrmsBsCard>
+		<field name="label_cn"		excelCellNum=""			remark="板卡名称"/>
+		<field name="related_device_cui"		excelCellNum=""			remark="所属设备"/>
+		<field name="related_slot_cuid"		excelCellNum=""			remark="所属槽位"/>
+		<field name="step"		excelCellNum=""			remark="所在环节"/>
+		<field name="project_no"		excelCellNum=""			remark="工程编号"/>
+		<field name="device_type"		excelCellNum=""			remark="所属设备类型"/>
+		<field name="function_type"		excelCellNum=""			remark="功能类型"/>
+		<field name="card_model"		excelCellNum=""			remark="板卡型号"/>
+		<field name="property_no"		excelCellNum=""			remark="资产编号"/>
+		<field name="serial_no"		excelCellNum=""			remark="串号"/>
+		<field name="if_spare"		excelCellNum=""			remark="是否备件"/>
+		<field name="produce_time"		excelCellNum=""			remark="生产日期"/>
+	</IrmsBsCard>
+	<!-- 发电机组-IrmsBsGrnerat -->
+	<IrmsBsGrnerat>
+		<field name="related_room"		excelCellNum=""			remark="机房名称"/>
+		<field name="device_type"		excelCellNum=""			remark="设备类型"/>
+		<field name="device_subclass"		excelCellNum=""			remark="设备子类"/>
+		<field name="label_dev"		excelCellNum=""			remark="设备名称"/>
+		<field name="device_sequence"		excelCellNum=""			remark="设备编码"/>
+		<field name="equipmentcode"		excelCellNum=""			remark="资产编号"/>
+		<field name="model"		excelCellNum=""			remark="型号"/>
+		<field name="related_vendor"		excelCellNum=""			remark="生产厂商"/>
+		<field name="trademark"		excelCellNum=""			remark="品牌"/>
+		<field name="supplier"		excelCellNum=""			remark="供应商"/>
+		<field name="manage_company"		excelCellNum=""			remark="代维公司"/>
+		<field name="start_time"		excelCellNum=""			remark="开始使用时间"/>
+		<field name="end_time"		excelCellNum=""			remark="预计报废时间"/>
+		<field name="status"		excelCellNum=""			remark="使用状态"/>
+		<field name="rating_power"		excelCellNum=""			remark="额定功率（KVA）"/>
+		<field name="rating_voltage"		excelCellNum=""			remark="额定工作电压（V）"/>
+		<field name="start_mode"		excelCellNum=""			remark="启动方式"/>
+		<field name="cool_mode"		excelCellNum=""			remark="冷却方式"/>
+		<field name="start_battery_mode"		excelCellNum=""			remark="启动电池型号"/>
+		<field name="start_battery_coun"		excelCellNum=""			remark="启动电池组数"/>
+		<field name="start_battery_capa"		excelCellNum=""			remark="启动电池容量（AH）"/>
+		<field name="tank_capacity"		excelCellNum=""			remark="油箱容积（L）"/>
+		<field name="preserver"		excelCellNum=""			remark="维护负责人"/>
+	</IrmsBsGrnerat>
+	<!-- 蓄电池组-IrmsBsStorage -->
+	<IrmsBsStorage>
+		<field name="related_room"		excelCellNum=""			remark="机房名称"/>
+		<field name="device_type"		excelCellNum=""			remark="设备类型"/>
+		<field name="device_subclass"		excelCellNum=""			remark="设备子类"/>
+		<field name="label_dev"		excelCellNum=""			remark="设备名称"/>
+		<field name="device_sequence"		excelCellNum=""			remark="设备编码"/>
+		<field name="related_device_cui"		excelCellNum=""			remark="所属设备名称"/>
+		<field name="related_deivce_seq"		excelCellNum=""			remark="所属设备编码"/>
+		<field name="equipmentcode"		excelCellNum=""			remark="资产编号"/>
+		<field name="model"		excelCellNum=""			remark="型号"/>
+		<field name="related_vendor"		excelCellNum=""			remark="生产厂商"/>
+		<field name="trademark"		excelCellNum=""			remark="品牌"/>
+		<field name="supplier"		excelCellNum=""			remark="供应商"/>
+		<field name="manage_company"		excelCellNum=""			remark="代维公司"/>
+		<field name="start_time"		excelCellNum=""			remark="开始使用时间"/>
+		<field name="end_time"		excelCellNum=""			remark="预计报废时间"/>
+		<field name="status"		excelCellNum=""			remark="使用状态"/>
+		<field name="group_capacity"		excelCellNum=""			remark="单组容量（AH）"/>
+		<field name="voltage_level"		excelCellNum=""			remark="单体电压等级（V）"/>
+		<field name="accumulator_group_"		excelCellNum=""			remark="单组蓄电池个数"/>
+		<field name="preserver"		excelCellNum=""			remark="维护负责人"/>
+	</IrmsBsStorage>
+	<!-- 开关电源-IrmsBsGrnerat2 -->
+	<IrmsBsGrnerat2>
+		<field name="related_room"		excelCellNum=""			remark="机房名称"/>
+		<field name="device_type"		excelCellNum=""			remark="设备类型"/>
+		<field name="device_subclass"		excelCellNum=""			remark="设备子类"/>
+		<field name="label_dev"		excelCellNum=""			remark="设备名称"/>
+		<field name="device_sequence"		excelCellNum=""			remark="设备编码"/>
+		<field name="sys_no"		excelCellNum=""			remark="系统编号"/>
+		<field name="equipmentcode"		excelCellNum=""			remark="资产编号"/>
+		<field name="model"		excelCellNum=""			remark="型号"/>
+		<field name="related_vendor"		excelCellNum=""			remark="生产厂商"/>
+		<field name="trademark"		excelCellNum=""			remark="品牌"/>
+		<field name="supplier"		excelCellNum=""			remark="供应商"/>
+		<field name="manage_company"		excelCellNum=""			remark="代维公司"/>
+		<field name="start_time"		excelCellNum=""			remark="开始使用时间"/>
+		<field name="end_time"		excelCellNum=""			remark="预计报废时间"/>
+		<field name="status"		excelCellNum=""			remark="使用状态"/>
+		<field name="exp_rating_voltage"		excelCellNum=""			remark="额定输出电压功率（A）"/>
+		<field name="smps_type"		excelCellNum=""			remark="开关电源类型"/>
+		<field name="monitor_model"		excelCellNum=""			remark="监控模块型号"/>
+		<field name="comm_model_num"		excelCellNum=""			remark="现有整流模块总数"/>
+		<field name="comm_model"		excelCellNum=""			remark="整流模块型号"/>
+		<field name="comm_model_voltage"		excelCellNum=""			remark="整流模块额定工作电压(V)"/>
+		<field name="comm_model_exp_cap"		excelCellNum=""			remark="单个整流模块额定输出容量（A）"/>
+		<field name="battery_capability"		excelCellNum=""			remark="单组电池组熔丝容量"/>
+		<field name="battery_eleccap_gr"		excelCellNum=""			remark="电池组熔丝组数"/>
+		<field name="is_under_second"		excelCellNum=""			remark="能否二次下电"/>
+		<field name="preserver"		excelCellNum=""			remark="维护负责人"/>
+		<field name="is_construct_share"		excelCellNum=""			remark="是否共建"/>
+		<field name="construct_company"		excelCellNum=""			remark="共建单位"/>
+		<field name="is_shared"		excelCellNum=""			remark="是否共享"/>
+		<field name="shared_company"		excelCellNum=""			remark="共享单位"/>
+	</IrmsBsGrnerat2>
+	<!-- UPS主机-IrmsBsUps -->
+	<IrmsBsUps>
+		<field name="related_room"		excelCellNum=""			remark="机房（基站）名称"/>
+		<field name="device_type"		excelCellNum=""			remark="设备类型"/>
+		<field name="device_subclass"		excelCellNum=""			remark="设备子类"/>
+		<field name="label_dev"		excelCellNum=""			remark="设备名称"/>
+		<field name="device_sequence"		excelCellNum=""			remark="设备编码"/>
+		<field name="equipmentcode"		excelCellNum=""			remark="资产编号"/>
+		<field name="systemcode"		excelCellNum=""			remark="系统编号"/>
+		<field name="model"		excelCellNum=""			remark="型号"/>
+		<field name="related_vendor"		excelCellNum=""			remark="生产厂商"/>
+		<field name="trademark"		excelCellNum=""			remark="品牌"/>
+		<field name="supplier"		excelCellNum=""			remark="供应商"/>
+		<field name="manage_company"		excelCellNum=""			remark="代维公司"/>
+		<field name="start_time"		excelCellNum=""			remark="开始使用时间"/>
+		<field name="end_time"		excelCellNum=""			remark="预计报废时间"/>
+		<field name="status"		excelCellNum=""			remark="使用状态"/>
+		<field name="rating_power"		excelCellNum=""			remark="额定功率（KVA）"/>
+		<field name="rating_voltage"		excelCellNum=""			remark="额定工作电压（V）"/>
+		<field name="work_mode"		excelCellNum=""			remark="工作方式"/>
+		<field name="preserver"		excelCellNum=""			remark="维护负责人"/>
+	</IrmsBsUps>
+	<!-- 普通空调-IrmsBsAircon -->
+	<IrmsBsAircon>
+		<field name="related_room"		excelCellNum=""			remark="机房名称"/>
+		<field name="device_type"		excelCellNum=""			remark="设备类型"/>
+		<field name="device_subclass"		excelCellNum=""			remark="设备子类"/>
+		<field name="label_dev"		excelCellNum=""			remark="设备名称"/>
+		<field name="device_sequence"		excelCellNum=""			remark="设备编码"/>
+		<field name="equipmentcode"		excelCellNum=""			remark="资产编号"/>
+		<field name="model"		excelCellNum=""			remark="型号"/>
+		<field name="related_vendor"		excelCellNum=""			remark="生产厂商"/>
+		<field name="trademark"		excelCellNum=""			remark="品牌"/>
+		<field name="supplier"		excelCellNum=""			remark="供应商"/>
+		<field name="manage_company"		excelCellNum=""			remark="代维公司"/>
+		<field name="start_time"		excelCellNum=""			remark="开始使用时间"/>
+		<field name="end_time"		excelCellNum=""			remark="预计报废时间"/>
+		<field name="status"		excelCellNum=""			remark="使用状态"/>
+		<field name="cooling_val"		excelCellNum=""			remark="制冷量（KW）"/>
+		<field name="hoting_val"		excelCellNum=""			remark="制热量（KW）"/>
+		<field name="imp_rating_power"		excelCellNum=""			remark="输入额定功率（KW）"/>
+		<field name="rating_voltage"		excelCellNum=""			remark="额定电压（V）"/>
+		<field name="preserver"		excelCellNum=""			remark="维护负责人"/>
+	</IrmsBsAircon>
+	<!-- 专用空调-IrmsBsSpeaircon -->
+	<IrmsBsSpeaircon>
+		<field name="related_room"		excelCellNum=""			remark="机房名称"/>
+		<field name="device_type"		excelCellNum=""			remark="设备类型"/>
+		<field name="device_subclass"		excelCellNum=""			remark="设备子类"/>
+		<field name="label_dev"		excelCellNum=""			remark="设备名称"/>
+		<field name="device_sequence"		excelCellNum=""			remark="设备编码"/>
+		<field name="equipmentcode"		excelCellNum=""			remark="资产编号"/>
+		<field name="model"		excelCellNum=""			remark="型号"/>
+		<field name="related_vendor"		excelCellNum=""			remark="生产厂商"/>
+		<field name="trademark"		excelCellNum=""			remark="品牌"/>
+		<field name="supplier"		excelCellNum=""			remark="供应商"/>
+		<field name="manage_company"		excelCellNum=""			remark="代维公司"/>
+		<field name="start_time"		excelCellNum=""			remark="开始使用时间"/>
+		<field name="end_time"		excelCellNum=""			remark="预计报废时间"/>
+		<field name="status"		excelCellNum=""			remark="使用状态"/>
+		<field name="cooling_val"		excelCellNum=""			remark="制冷量（KW）"/>
+		<field name="hoting_val"		excelCellNum=""			remark="制热量（KW）"/>
+		<field name="imp_rating_power"		excelCellNum=""			remark="输入额定功率（KW）"/>
+		<field name="rating_voltage"		excelCellNum=""			remark="额定电压（V）"/>
+		<field name="outdoor_model"		excelCellNum=""			remark="室外机型号"/>
+		<field name="preserver"		excelCellNum=""			remark="维护负责人"/>
+	</IrmsBsSpeaircon>
+	<!-- 动环监控设备-IrmsBsMme -->
+	<IrmsBsMme>
+		<field name="related_room"		excelCellNum=""			remark="机房名称"/>
+		<field name="device_type"		excelCellNum=""			remark="设备类型"/>
+		<field name="device_subclass"		excelCellNum=""			remark="设备子类"/>
+		<field name="label_dev"		excelCellNum=""			remark="设备名称"/>
+		<field name="device_sequence"		excelCellNum=""			remark="设备编码"/>
+		<field name="equipmentcode"		excelCellNum=""			remark="资产编号"/>
+		<field name="model"		excelCellNum=""			remark="型号"/>
+		<field name="related_vendor"		excelCellNum=""			remark="生产厂商"/>
+		<field name="trademark"		excelCellNum=""			remark="品牌"/>
+		<field name="supplier"		excelCellNum=""			remark="供应商"/>
+		<field name="start_time"		excelCellNum=""			remark="开始使用时间"/>
+		<field name="end_time"		excelCellNum=""			remark="预计报废时间"/>
+		<field name="status"		excelCellNum=""			remark="使用状态"/>
+		<field name="rating_power"		excelCellNum=""			remark="维护厂家"/>
+		<field name="device_addr"		excelCellNum=""			remark="设备地址"/>
+		<field name="preserver"		excelCellNum=""			remark="维护负责人"/>
+	</IrmsBsMme>
+	<!-- 通风系统-IrmsBsVens -->
+	<IrmsBsVens>
+		<field name="related_room"		excelCellNum=""			remark="机房名称"/>
+		<field name="device_type"		excelCellNum=""			remark="设备类型"/>
+		<field name="device_subclass"		excelCellNum=""			remark="设备子类"/>
+		<field name="label_dev"		excelCellNum=""			remark="设备名称"/>
+		<field name="device_sequence"		excelCellNum=""			remark="设备编码"/>
+		<field name="equipmentcode"		excelCellNum=""			remark="资产编号"/>
+		<field name="model"		excelCellNum=""			remark="型号"/>
+		<field name="related_vendor"		excelCellNum=""			remark="生产厂商"/>
+		<field name="trademark"		excelCellNum=""			remark="品牌"/>
+		<field name="supplier"		excelCellNum=""			remark="供应商"/>
+		<field name="manage_company"		excelCellNum=""			remark="代维公司"/>
+		<field name="start_time"		excelCellNum=""			remark="开始使用时间"/>
+		<field name="end_time"		excelCellNum=""			remark="预计报废时间"/>
+		<field name="status"		excelCellNum=""			remark="使用状态"/>
+		<field name="rating_power"		excelCellNum=""			remark="额定功率（KVA）"/>
+		<field name="rating_voltage"		excelCellNum=""			remark="额定电压（V）"/>
+		<field name="preserver"		excelCellNum=""			remark="维护负责人"/>
+	</IrmsBsVens>
+	<!-- 换热系统-IrmsBsHes -->
+	<IrmsBsHes>
+		<field name="related_room"		excelCellNum=""			remark="机房名称"/>
+		<field name="device_type"		excelCellNum=""			remark="设备类型"/>
+		<field name="device_subclass"		excelCellNum=""			remark="设备子类"/>
+		<field name="label_dev"		excelCellNum=""			remark="设备名称"/>
+		<field name="device_sequence"		excelCellNum=""			remark="设备编码"/>
+		<field name="equipmentcode"		excelCellNum=""			remark="资产编号"/>
+		<field name="model"		excelCellNum=""			remark="型号"/>
+		<field name="related_vendor"		excelCellNum=""			remark="生产厂商"/>
+		<field name="trademark"		excelCellNum=""			remark="品牌"/>
+		<field name="supplier"		excelCellNum=""			remark="供应商"/>
+		<field name="manage_company"		excelCellNum=""			remark="代维公司"/>
+		<field name="start_time"		excelCellNum=""			remark="开始使用时间"/>
+		<field name="end_time"		excelCellNum=""			remark="预计报废时间"/>
+		<field name="status"		excelCellNum=""			remark="使用状态"/>
+		<field name="rating_power"		excelCellNum=""			remark="额定功率（KVA）"/>
+		<field name="rating_voltage"		excelCellNum=""			remark="额定电压（V）"/>
+		<field name="preserver"		excelCellNum=""			remark="维护负责人"/>
+	</IrmsBsHes>
+	<!-- 风能设备-IrmsBsWep -->
+	<IrmsBsWep>
+		<field name="related_room"		excelCellNum=""			remark="机房名称"/>
+		<field name="device_type"		excelCellNum=""			remark="设备类型"/>
+		<field name="device_subclass"		excelCellNum=""			remark="设备子类"/>
+		<field name="label_dev"		excelCellNum=""			remark="设备名称"/>
+		<field name="device_sequence"		excelCellNum=""			remark="设备编码"/>
+		<field name="equipmentcode"		excelCellNum=""			remark="资产编号"/>
+		<field name="model"		excelCellNum=""			remark="型号"/>
+		<field name="related_vendor"		excelCellNum=""			remark="生产厂商"/>
+		<field name="trademark"		excelCellNum=""			remark="品牌"/>
+		<field name="supplier"		excelCellNum=""			remark="供应商"/>
+		<field name="manage_company"		excelCellNum=""			remark="代维公司"/>
+		<field name="start_time"		excelCellNum=""			remark="开始使用时间"/>
+		<field name="end_time"		excelCellNum=""			remark="预计报废时间"/>
+		<field name="status"		excelCellNum=""			remark="使用状态"/>
+		<field name="rating_power"		excelCellNum=""			remark="风机额定功率（KVA）"/>
+		<field name="rating_voltage"		excelCellNum=""			remark="额定电压（V）"/>
+		<field name="fan_form"		excelCellNum=""			remark="风机形式"/>
+		<field name="preserver"		excelCellNum=""			remark="维护负责人"/>
+	</IrmsBsWep>
+	<!-- 风电控制器-IrmsBsWpc -->
+	<IrmsBsWpc>
+		<field name="related_room"		excelCellNum=""			remark="机房名称"/>
+		<field name="device_type"		excelCellNum=""			remark="设备类型"/>
+		<field name="device_subclass"		excelCellNum=""			remark="设备子类"/>
+		<field name="label_dev"		excelCellNum=""			remark="设备名称"/>
+		<field name="device_sequence"		excelCellNum=""			remark="设备编码"/>
+		<field name="equipmentcode"		excelCellNum=""			remark="资产编号"/>
+		<field name="model"		excelCellNum=""			remark="型号"/>
+		<field name="related_vendor"		excelCellNum=""			remark="生产厂商"/>
+		<field name="trademark"		excelCellNum=""			remark="品牌"/>
+		<field name="supplier"		excelCellNum=""			remark="供应商"/>
+		<field name="manage_company"		excelCellNum=""			remark="代维公司"/>
+		<field name="start_time"		excelCellNum=""			remark="开始使用时间"/>
+		<field name="end_time"		excelCellNum=""			remark="预计报废时间"/>
+		<field name="status"		excelCellNum=""			remark="使用状态"/>
+		<field name="fan_count"		excelCellNum=""			remark="下挂风机数量(个)"/>
+		<field name="exp_rating_capacit"		excelCellNum=""			remark="输出额定容量(KW)"/>
+		<field name="preserver"		excelCellNum=""			remark="维护负责人"/>
+	</IrmsBsWpc>
+	<!-- 太阳能设备-IrmsBsSee -->
+	<IrmsBsSee>
+		<field name="related_room"		excelCellNum=""			remark="机房名称"/>
+		<field name="device_type"		excelCellNum=""			remark="设备类型"/>
+		<field name="device_subclass"		excelCellNum=""			remark="设备子类"/>
+		<field name="label_dev"		excelCellNum=""			remark="设备名称"/>
+		<field name="device_sequence"		excelCellNum=""			remark="设备编码"/>
+		<field name="equipmentcode"		excelCellNum=""			remark="资产编号"/>
+		<field name="model"		excelCellNum=""			remark="风机型号"/>
+		<field name="related_vendor"		excelCellNum=""			remark="生产厂商"/>
+		<field name="trademark"		excelCellNum=""			remark="品牌"/>
+		<field name="supplier"		excelCellNum=""			remark="供应商"/>
+		<field name="manage_company"		excelCellNum=""			remark="代维公司"/>
+		<field name="start_time"		excelCellNum=""			remark="开始使用时间"/>
+		<field name="end_time"		excelCellNum=""			remark="预计报废时间"/>
+		<field name="status"		excelCellNum=""			remark="使用状态"/>
+		<field name="solar_panels_ratin"		excelCellNum=""			remark="太阳能板额定功率（KVA）"/>
+		<field name="exp_voltage"		excelCellNum=""			remark="输出电压(V)"/>
+		<field name="preserver"		excelCellNum=""			remark="维护负责人"/>
+	</IrmsBsSee>
+	<!-- 太阳能控制器-IrmsBsMppt -->
+	<IrmsBsMppt>
+		<field name="related_room"		excelCellNum=""			remark="机房名称"/>
+		<field name="device_type"		excelCellNum=""			remark="设备类型"/>
+		<field name="device_subclass"		excelCellNum=""			remark="设备子类"/>
+		<field name="label_dev"		excelCellNum=""			remark="设备名称"/>
+		<field name="device_sequence"		excelCellNum=""			remark="设备编码"/>
+		<field name="equipmentcode"		excelCellNum=""			remark="资产编号"/>
+		<field name="model"		excelCellNum=""			remark="型号"/>
+		<field name="related_vendor"		excelCellNum=""			remark="生产厂商"/>
+		<field name="trademark"		excelCellNum=""			remark="品牌"/>
+		<field name="supplier"		excelCellNum=""			remark="供应商"/>
+		<field name="manage_company"		excelCellNum=""			remark="代维公司"/>
+		<field name="start_time"		excelCellNum=""			remark="开始使用时间"/>
+		<field name="end_time"		excelCellNum=""			remark="预计报废时间"/>
+		<field name="status"		excelCellNum=""			remark="使用状态"/>
+		<field name="solar_panels_count"		excelCellNum=""			remark="下挂太阳能板数(块)"/>
+		<field name="exp_rating_capacit"		excelCellNum=""			remark="输出额定容量（KW）"/>
+		<field name="preserver"		excelCellNum=""			remark="维护负责人"/>
+	</IrmsBsMppt>
+	<!-- 风光互补控制器-IrmsBsCc -->
+	<IrmsBsCc>
+		<field name="related_room"		excelCellNum=""			remark="机房（基站）名称"/>
+		<field name="device_type"		excelCellNum=""			remark="设备类型"/>
+		<field name="device_subclass"		excelCellNum=""			remark="设备子类"/>
+		<field name="label_dev"		excelCellNum=""			remark="设备名称"/>
+		<field name="device_sequence"		excelCellNum=""			remark="设备编码"/>
+		<field name="equipmentcode"		excelCellNum=""			remark="资产编号"/>
+		<field name="model"		excelCellNum=""			remark="型号"/>
+		<field name="related_vendor"		excelCellNum=""			remark="生产厂商"/>
+		<field name="trademark"		excelCellNum=""			remark="品牌"/>
+		<field name="supplier"		excelCellNum=""			remark="供应商"/>
+		<field name="manage_company"		excelCellNum=""			remark="代维公司"/>
+		<field name="start_time"		excelCellNum=""			remark="开始使用时间"/>
+		<field name="end_time"		excelCellNum=""			remark="预计报废时间"/>
+		<field name="status"		excelCellNum=""			remark="使用状态"/>
+		<field name="solar_panels_count"		excelCellNum=""			remark="下挂太阳能板数(块)"/>
+		<field name="fan_count"		excelCellNum=""			remark="下挂风机数量（个）"/>
+		<field name="exp_rating_capacit"		excelCellNum=""			remark="输出额定容量（KW）"/>
+		<field name="preserver"		excelCellNum=""			remark="维护负责人"/>
+	</IrmsBsCc>
+	<!-- 电源恒温箱-IrmsBsBb -->
+	<IrmsBsBb>
+		<field name="related_room"		excelCellNum=""			remark="机房（基站）名称"/>
+		<field name="device_type"		excelCellNum=""			remark="设备类型"/>
+		<field name="device_subclass"		excelCellNum=""			remark="设备子类"/>
+		<field name="label_dev"		excelCellNum=""			remark="设备名称"/>
+		<field name="device_sequence"		excelCellNum=""			remark="设备编码"/>
+		<field name="equipmentcode"		excelCellNum=""			remark="资产编号"/>
+		<field name="model"		excelCellNum=""			remark="型号"/>
+		<field name="related_vendor"		excelCellNum=""			remark="生产厂商"/>
+		<field name="trademark"		excelCellNum=""			remark="品牌"/>
+		<field name="supplier"		excelCellNum=""			remark="供应商"/>
+		<field name="manage_company"		excelCellNum=""			remark="代维公司"/>
+		<field name="start_time"		excelCellNum=""			remark="开始使用时间"/>
+		<field name="end_time"		excelCellNum=""			remark="预计报废时间"/>
+		<field name="status"		excelCellNum=""			remark="使用状态"/>
+		<field name="rating_cooling_var"		excelCellNum=""			remark="额定制冷量（KW)"/>
+		<field name="preserver"		excelCellNum=""			remark="维护负责人"/>
+	</IrmsBsBb>
+</excel2xml>

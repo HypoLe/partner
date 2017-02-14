@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.boco.eoms.partner.inspect.model.InspectPlanItem" table="pnr_inspect_plan_item">
+		 <id
+        name="id"
+            column="id"
+    >
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="assigned">
+    </generator>
+
+    </id>
+		<property name="planId" column="plan_id"/>
+		<property name="planResId" column="plan_res_id"/>
+		<property name="resType" column="res_type"/>
+		<property name="inspectItem" column="inspect_item"/>
+		<property name="content" column="content"/>
+		<property name="inputType" column="input_type"/>
+		<property name="defaultValue" column="default_value"/>
+		<property name="normalRange" column="normal_range"/>
+		<property name="dictId" column="dict_id"/>
+		<property name="inspectCycle" column="inspect_cycle"/>
+		<property name="itemResult" column="item_result"/>
+		<property name="dictResult" column="dict_result"/>
+		<property name="saveTime" column="save_time"/>
+		<property name="exceptionFlag" column="exception_flag"/>
+		<property name="exceptionContent" column="exception_Content"/>
+		<property name="templateItemId" column="template_Item_Id"/>
+		<property name="hasPicture" column="has_picture"/>
+		<property name="hasAudio" column="has_audio"/>
+		<property name="bigitemName" column="bigitem_name"/>
+		<property name="bigitemId" column="bigitem_id"/>
+		<property name="city" column="city"/>
+		
+		<property name="inspectTaskLinkId" column="inspect_task_link_id"/>
+		<property name="deviceInspectFlag" column="device_inspect_flag"/>
+		<property name="pictureFlag" column="picture_flag"/>
+		<property name="pictureNum" column="picture_num"/>
+	    <property name="pictureUploadNum" column="picture_upload_num"/>
+		<property name="pictureUploadFlag" column="picture_upload_flag"/>
+		<property name="isHandle" column="is_Handle" type="java.lang.Integer"/>
+	    <property name="handleTimestamp" column="handle_Timestamp" type="java.sql.Timestamp"/>
+		<property name="handleUser" column="handle_User" type="java.lang.String" length="50" />
+	</class>
+</hibernate-mapping>

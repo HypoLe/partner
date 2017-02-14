@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.bs.IrmsBsCell" table="irms_bs_cell">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="userlabelCm" column="userlabel_cm"/>
+				<property name="labelCn" column="label_cn"/>
+				<property name="ci" column="ci"/>
+				<property name="lac" column="lac"/>
+				<property name="gsmdcsindicator" column="gsmdcsindicator"/>
+				<property name="relatedBtssiteCu" column="related_btssite_cu"/>
+				<property name="cellType" column="cell_type"/>
+				<property name="status" column="status"/>
+				<property name="boundcellType" column="boundcell_type"/>
+				<property name="ifRepeator" column="if_repeator"/>
+				<property name="isEnegprs" column="is_enegprs"/>
+				<property name="coverFiled" column="cover_filed"/>
+				<property name="trxCount" column="trx_count"/>
+				<property name="openTime" column="open_time"/>
+				<property name="remark" column="remark"/>
+				<property name="createTime" column="create_time"/>
+				<property name="relatedBtssiteCuId" column="related_btssite_cu_id"/>
+    </class>    
+</hibernate-mapping>

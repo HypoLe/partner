@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment name="defaultClientConfig"
+	xmlns:java="http://xml.apache.org/axis/wsdd/providers/java"
+	xmlns:handler="http://xml.apache.org/axis/wsdd/providers/handler"
+	xmlns="http://xml.apache.org/axis/wsdd/">
+	<globalConfiguration name="GlobalConfiguration1" type=""
+		regenerateElement="false">
+		<requestFlow name="RequestFlow1" type=""
+			regenerateElement="false">
+			<handler name="Handler1"
+				type="java:org.apache.axis.handlers.JWSHandler"
+				regenerateElement="false">
+				<parameter name="scope" value="session"
+					regenerateElement="false" />
+			</handler>
+			<handler name="Handler2"
+				type="java:org.apache.axis.handlers.JWSHandler"
+				regenerateElement="false">
+				<parameter name="scope" value="request"
+					regenerateElement="false" />
+				<parameter name="extension" value=".jwr"
+					regenerateElement="false" />
+			</handler>
+		</requestFlow>
+	</globalConfiguration>
+	<handler name="URLMapper"
+		type="java:org.apache.axis.handlers.http.URLMapper"
+		regenerateElement="false" />
+	<handler name="LocalResponder"
+		type="java:org.apache.axis.transport.local.LocalResponder"
+		regenerateElement="false" />
+	<handler name="Authenticate"
+		type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"
+		regenerateElement="false" />
+	<transport name="http" type="" regenerateElement="false">
+		<requestFlow name="RequestFlow1" type=""
+			regenerateElement="false">
+			<handler name="Handler1" type="URLMapper"
+				regenerateElement="false" />
+			<handler name="Handler2"
+				type="java:org.apache.axis.handlers.http.HTTPAuthHandler"
+				regenerateElement="false" />
+		</requestFlow>
+	</transport>
+	<transport name="local" type="" regenerateElement="false">
+		<responseFlow name="ResponseFlow1" type=""
+			regenerateElement="false">
+			<handler name="Handler1" type="LocalResponder"
+				regenerateElement="false" />
+		</responseFlow>
+	</transport>
+	<service name="FilterRoles" type="" regenerateElement="true"
+		provider="java:RPC" style="wrapped" use="literal">
+		<parameter name="scope" value="Request"
+			regenerateElement="false" />
+		<parameter name="className"
+			value="com.boco.eoms.filterRoles.FilterRoles"
+			regenerateElement="false" />
+		<parameter name="allowedMethods" value="isAlive,subRoles"
+			regenerateElement="false" />
+	</service>
+	  <service name="MsgService" type="" regenerateElement="true"
+        provider="java:RPC" style="wrapped" use="literal">
+        <parameter name="scope" value="Request" regenerateElement="false"/>
+        <parameter name="className"
+            value="com.boco.eoms.message.service.impl.MsgServiceImpl" regenerateElement="false"/>
+        <parameter name="allowedMethods"
+            value="sendMmsByWeb,sendEmailByWeb,sendEmail,xGetXmlString,xGetAllServices,xSaveXmlString,sendMsg,xDeleteByWebService,sendMmsImmediatelyByWeb,sendMsg4WebService,sendMsgImediate,sendSms4OutSystem" regenerateElement="false"/>
+    </service>
+      <!--service name="FaultRecord" type="" regenerateElement="true"
+        provider="java:RPC" style="wrapped" use="literal">
+        <parameter name="scope" value="Request" regenerateElement="false"/>
+        <parameter name="className"
+            value="com.boco.eoms.faultRecord.FaultRecord" regenerateElement="false"/>
+        <parameter name="allowedMethods"
+            value="isAlive,newFaultRecord,cancelFaultSheet" regenerateElement="false"/>
+    </service-->
+        <service name="InterSwitchAlarm" type="" regenerateElement="true"
+        provider="java:RPC" style="wrapped" use="literal">
+        <parameter name="scope" value="Request" regenerateElement="false"/>
+        <parameter name="className"
+            value="com.boco.eoms.interSwitchAlarm.InterSwitchAlarm" regenerateElement="false"/>
+        <parameter name="allowedMethods"
+            value="isAlive,newAlarm,syncAlarm" regenerateElement="false"/>
+    </service>
+          <service name="EomsAuthentication" type="" regenerateElement="true"
+        provider="java:RPC" style="wrapped" use="literal">
+        <parameter name="scope" value="Request" regenerateElement="false"/>
+        <parameter name="className"
+            value="com.boco.eoms.eomsAuthentication.EomsAuthentication" regenerateElement="false"/>
+        <parameter name="allowedMethods"
+            value="isAlive,eomsAuthentication" regenerateElement="false"/>
+    </service>
+            <service name="HandleredService" type="" regenerateElement="true"
+        provider="java:RPC" style="wrapped" use="literal">
+        <parameter name="scope" value="Request" regenerateElement="false"/>
+        <parameter name="className"
+            value="com.boco.eoms.commons.interfaceMonitoring.util.HandleredService" regenerateElement="false"/>
+        <parameter name="allowedMethods"
+            value="publicMethod,newAlarm" regenerateElement="false"/>
+    </service>
+                 <service name="Bulletin" type="" regenerateElement="true"
+        provider="java:RPC" style="wrapped" use="literal">
+        <parameter name="scope" value="Request" regenerateElement="false"/>
+        <parameter name="className"
+            value="com.boco.eoms.Bulletin.Bulletin" regenerateElement="false"/>
+        <parameter name="allowedMethods"
+            value="isAlive,newBulletin,confirmBulletin" regenerateElement="false"/>
+    </service>
+    <service name="PartnerProcessSheet" type="" regenerateElement="true"
+        provider="java:RPC" style="wrapped" use="literal">
+        <parameter name="scope" value="Request" regenerateElement="false"/>
+        <parameter name="className"
+            value="com.boco.eoms.worksheet.TroubleTicketService" regenerateElement="false"/>
+        <parameter name="allowedMethods"
+            value="isAlive,newWorkSheet,remindersWorkSheet" regenerateElement="false"/>
+    </service>
+    
+    <service name="PartnerMaleGuest" type="" regenerateElement="true"
+        provider="java:RPC" style="wrapped" use="literal">
+        <parameter name="scope" value="Request" regenerateElement="false"/>
+        <parameter name="className"
+            value="com.boco.eoms.worksheet.TransferMaleGuestService" regenerateElement="false"/>
+        <parameter name="allowedMethods"
+            value="isAlive,SendNewOrder,workorderinfor" regenerateElement="false"/>
+    </service>
+      
+    <service name="NewPrecheckService" type="" regenerateElement="true"
+        provider="java:RPC" style="wrapped" use="literal">
+        <parameter name="scope" value="Request" regenerateElement="false"/>
+        <parameter name="className"
+            value="com.boco.eoms.worksheet.TransferPrecheckService" regenerateElement="false"/>
+        <parameter name="allowedMethods"
+            value="preDispatch,isExist,recordGoods,openShowUrl,recordSheet" regenerateElement="false"/>
+    </service>
+    <service name="OpsMallService" type="" regenerateElement="true"
+        provider="java:RPC" style="wrapped" use="literal">
+        <parameter name="scope" value="Request" regenerateElement="false"/>
+        <parameter name="className"
+            value="com.boco.eoms.worksheet.OperationShopService" regenerateElement="false"/>
+        <parameter name="allowedMethods"
+            value="isAlive,newShowPageUrl,archiveNotify" regenerateElement="false"/>
+  
+    </service>
+    <service name="TaskFlowsService" type="" regenerateElement="true"
+        provider="java:RPC" style="wrapped" use="literal">
+        <parameter name="scope" value="Request" regenerateElement="false"/>
+        <parameter name="className"
+            value="com.boco.eoms.worksheet.TaskFlowsService" regenerateElement="false"/>
+        <parameter name="allowedMethods"
+            value="submitTaskFormData" regenerateElement="false"/>
+  
+    </service>
+    <service name="InfopubService" type="" regenerateElement="true"
+        provider="java:RPC" style="wrapped" use="literal">
+        <parameter name="scope" value="Request" regenerateElement="false"/>
+        <parameter name="className"
+            value="com.boco.eoms.workbench.infopub.InfopubService" regenerateElement="false"/>
+        <parameter name="allowedMethods"
+            value="isAlive,newThread" regenerateElement="false"/>
+    </service>
+    
+    <service name="remoteSecurityHttpPort" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://securityeoms.interfaces.eoms.boco.com"/>
+      <parameter name="wsdlServiceElement" value="remoteSecurityHttpPort"/>
+      <parameter name="schemaQualified" value="http://securityeoms.interfaces.eoms.boco.com"/>
+      <parameter name="wsdlServicePort" value="remoteSecurityHttpPort"/>
+      <parameter name="className" value="com.boco.eoms.interfaces.securityeoms.RemoteHttpSecurityinterface"/>
+      <parameter name="wsdlPortType" value="RemoteHttpSecurityinterface"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <parameter name="allowedMethods" value="modifypwd,getAccount"/>
+      <parameter name="scope" value="Application"/>
+
+      <typeMapping
+        xmlns:ns="http://securityeoms.interfaces.eoms.boco.com"
+        qname="ns:RemoteUser"
+        type="java:com.boco.eoms.interfaces.securityeoms.RemoteUser"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      </service>
+      
+      <!--合作伙伴接口 begin-->
+      <service name="LoadingPreparationSOAPport_http" provider="java:RPC"
+		style="wrapped" use="literal">
+		<parameter name="wsdlTargetNamespace"
+			value="http://ws.apache.org/axis2/services/LoadingPreparation" />
+		<parameter name="wsdlServiceElement" value="LoadingPreparation" />
+		<parameter name="schemaUnqualified"
+			value="http://ws.apache.org/axis2/services/LoadingPreparation/types" />
+		<parameter name="wsdlServicePort"
+			value="LoadingPreparationSOAPport_http" />
+		<parameter name="className"
+			value="com.boco.eoms.partner.interfaces.services.LoadingPreparation.LoadingPreparationSoapBindingSkeleton" />
+		<parameter name="wsdlPortType"
+			value="LoadingPreparationPortType" />
+		<parameter name="typeMappingVersion" value="1.1" />
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="scope" value="Application" />
+	</service>
+	<service name="LoadingRequestSOAPport_http" provider="java:RPC"
+		style="wrapped" use="literal">
+		<parameter name="wsdlTargetNamespace"
+			value="http://ws.apache.org/axis2/services/LoadingRequest" />
+		<parameter name="wsdlServiceElement" value="LoadingRequest" />
+		<parameter name="schemaUnqualified"
+			value="http://ws.apache.org/axis2/services/LoadingRequest/types" />
+		<parameter name="wsdlServicePort"
+			value="LoadingRequestSOAPport_http" />
+		<parameter name="className"
+			value="com.boco.eoms.partner.interfaces.services.LoadingRequest.LoadingRequestSoapBindingSkeleton" />
+		<parameter name="wsdlPortType" value="LoadingRequestPortType" />
+		<parameter name="typeMappingVersion" value="1.1" />
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="scope" value="Application" />
+	</service>
+	<service name="LoadingQuerySOAPport_http" provider="java:RPC" style="wrapped" use="literal">
+		<parameter name="wsdlTargetNamespace" value="http://ws.apache.org/axis2/services/LoadingQuery" />
+		<parameter name="wsdlServiceElement" value="LoadingQuery" />
+		<parameter name="schemaUnqualified" value="http://ws.apache.org/axis2/services/LoadingQuery/types" />
+		<parameter name="wsdlServicePort" value="LoadingQuerySOAPport_http" />
+		<parameter name="className" value="com.boco.eoms.partner.interfaces.services.LoadingQuery.LoadingQuerySoapBindingSkeleton" />
+		<parameter name="wsdlPortType" value="LoadingQueryPortType" />
+		<parameter name="typeMappingVersion" value="1.1" />
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="scope" value="Application" />
+	</service>
+	<service name="LoadingFeedbackSOAPport_http" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ws.apache.org/axis2/services/LoadingFeedback"/>
+      <parameter name="wsdlServiceElement" value="LoadingFeedback"/>
+      <parameter name="schemaUnqualified" value="http://ws.apache.org/axis2/services/LoadingFeedback/types"/>
+      <parameter name="wsdlServicePort" value="LoadingFeedbackSOAPport_http"/>
+      <parameter name="className" value="com.boco.eoms.partner.interfaces.services.LoadingFeedback.LoadingFeedbackSoapBindingSkeleton"/>
+      <parameter name="wsdlPortType" value="LoadingFeedbackPortType"/>
+      <parameter name="typeMappingVersion" value="1.1"/>
+      <parameter name="allowedMethods" value="*"/>
+      <parameter name="scope" value="Application"/>
+    </service>
+    <service name="DeliveryRequestSOAPport_http" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ws.apache.org/axis2/services/DeliveryRequest"/>
+      <parameter name="wsdlServiceElement" value="DeliveryRequest"/>
+      <parameter name="schemaUnqualified" value="http://ws.apache.org/axis2/services/DeliveryRequest/types"/>
+      <parameter name="wsdlServicePort" value="DeliveryRequestSOAPport_http"/>
+      <parameter name="className" value="com.boco.eoms.partner.interfaces.services.DeliveryRequest.DeliveryRequestSoapBindingSkeleton"/>
+      <parameter name="wsdlPortType" value="DeliveryRequestPortType"/>
+      <parameter name="typeMappingVersion" value="1.1"/>
+      <parameter name="allowedMethods" value="*"/>
+      <parameter name="scope" value="Application"/>
+   </service>
+   <service name="DeliveryReadySOAPport_http" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ws.apache.org/axis2/services/DeliveryReady"/>
+      <parameter name="wsdlServiceElement" value="DeliveryReady"/>
+      <parameter name="schemaUnqualified" value="http://ws.apache.org/axis2/services/DeliveryReady/types"/>
+      <parameter name="wsdlServicePort" value="DeliveryReadySOAPport_http"/>
+      <parameter name="className" value="com.boco.eoms.partner.interfaces.services.DeliveryReady.DeliveryReadySoapBindingSkeleton"/>
+      <parameter name="wsdlPortType" value="DeliveryReadyPortType"/>
+      <parameter name="typeMappingVersion" value="1.1"/>
+      <parameter name="allowedMethods" value="*"/>
+      <parameter name="scope" value="Application"/>
+   </service>
+   <service name="DeliveryFeedbackSOAPport_http" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ws.apache.org/axis2/services/DeliveryFeedback"/>
+      <parameter name="wsdlServiceElement" value="DeliveryFeedback"/>
+      <parameter name="schemaUnqualified" value="http://ws.apache.org/axis2/services/DeliveryFeedback/types"/>
+      <parameter name="wsdlServicePort" value="DeliveryFeedbackSOAPport_http"/>
+      <parameter name="className" value="com.boco.eoms.partner.interfaces.services.DeliveryFeedback.DeliveryFeedbackSoapBindingSkeleton"/>
+      <parameter name="wsdlPortType" value="DeliveryFeedbackPortType"/>
+      <parameter name="typeMappingVersion" value="1.1"/>
+      <parameter name="allowedMethods" value="*"/>
+      <parameter name="scope" value="Application"/>
+   </service>
+   
+     <handler name="ipFilter" type="java:com.boco.eoms.partner.interfaces.services.partnerservice.IpHandler">  
+        <parameter name="ipAllow" value="10.168.87.187,10.168.87.151,10.168.182.14,*"/>  
+   </handler>  
+   <service name="FriendService" provider="java:RPC" style="wrapped" use="literal">
+     <requestFlow>  
+         <handler type="ipFilter"/>  
+    </requestFlow>  
+      <parameter name="wsdlTargetNamespace" value="http://ws.apache.org/axis2/services/FriendService"/>
+      <parameter name="wsdlServiceElement" value="FriendService"/>
+      <parameter name="schemaUnqualified" value="http://ws.apache.org/axis2/services/FriendService/types"/>
+      <parameter name="wsdlServicePort" value="FriendService"/>
+       
+      <parameter name="wsdlPortType" value="FriendServiceType"/>
+      <parameter name="typeMappingVersion" value="1.1"/>
+      
+       <parameter name="className" value="com.boco.eoms.partner.interfaces.services.FriendService"/>
+      <parameter name="allowedMethods" value="*"/>
+      <parameter name="scope" value="request"/>
+   </service>
+  
+  <!--网络资源数据同步接口-->
+  <service name="deliveryReadyRequestService" type="" regenerateElement="true"
+      provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="scope" value="Request" regenerateElement="false"/>
+      <parameter name="className"
+          value="com.boco.eoms.partner.dataSynch.service.DeliveryReadyRequestService" regenerateElement="false"/>
+      <parameter name="allowedMethods"
+          value="deliveryReadyRequest" regenerateElement="false"/>
+    </service>
+  
+     <!--合作伙伴接口 end-->
+    <!--  <service name="SmsService" type="" regenerateElement="true"
+        provider="java:RPC" style="wrapped" use="literal">
+        <parameter name="scope" value="Request" regenerateElement="false"/>
+        <parameter name="className"
+            value="com.boco.eoms.message.service.MsgServiceWeb" regenerateElement="false"/>
+        <parameter name="allowedMethods"
+            value="*" regenerateElement="false"/>
+    </service>
+    -->
+  </deployment>

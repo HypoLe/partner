@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkFlowRule name="pnrcommontask" description="通用任务工单">
+  <flow-define id="PartnerCommonTaskProcess" description="通用任务工单" tasknamespace="http://PartnerCommonTaskProcess" linkservicename="" dictfilename="dict-sheet-pnrcommontask" name="pnrcommontask">
+    <phase-id id="receive" name="新建派发" type="operate" displaytransferaudit="false" displayconfirm="false" displayreject="false" displaycommonoperate="false">
+      <to-phase-id id="AuditTask" role="dealPerformer@" condition="${operateType}==0" operatetype="" stepdisplay="false" workflowdisplay="false" isrejecttask="false" roleid="" commonoperatetype="" name="新建审核" />
+      <to-phase-id id="DealTask" role="dealPerformer@" condition="${operateType}==1" operatetype="" stepdisplay="false" workflowdisplay="false" isrejecttask="false" roleid="" commonoperatetype="" name="新建派发,无需审批" />
+      <to-phase-id id="DraftTask" role="dealPerformer@" condition="${operateType}==22" operatetype="" stepdisplay="false" workflowdisplay="false" isrejecttask="false" roleid="" commonoperatetype="" name="保存草稿" />
+    </phase-id>
+    <phase-id id="DraftTask" name="草稿" type="operate" displaytransferaudit="false" displayconfirm="false" displayreject="false" displaycommonoperate="false">
+      <to-phase-id id="AuditTask" role="dealPerformer@" condition="${operateType}==12" operatetype="" stepdisplay="false" workflowdisplay="false" isrejecttask="false" roleid="" commonoperatetype="" name="草稿审核" />
+      <to-phase-id id="DealTask" role="dealPerformer@" condition="${operateType}==3" operatetype="" stepdisplay="false" workflowdisplay="false" isrejecttask="false" roleid="" commonoperatetype="" name="草稿派发" />
+    </phase-id>
+    <phase-id id="RejectTask" name="被驳回" type="operate" displaytransferaudit="false" displayconfirm="false" displayreject="false" displaycommonoperate="false">
+      <to-phase-id id="AuditTask" role="dealPerformer@" condition="${operateType}==5" operatetype="" stepdisplay="false" workflowdisplay="false" isrejecttask="false" roleid="" commonoperatetype="" name="重新送审" />
+      <to-phase-id id="DealTask" role="dealPerformer@" condition="${operateType}==6" operatetype="" stepdisplay="false" workflowdisplay="false" isrejecttask="false" roleid="" commonoperatetype="" name="重新派发,无需审批" />
+    </phase-id>
+    <phase-id id="HoldTask" name="归档" type="operate" displaytransferaudit="false" displayconfirm="false" displayreject="false" displaycommonoperate="false">
+      <to-phase-id id="DealTask" role="dealPerformer@" condition="${operateType}==54" operatetype="" stepdisplay="false" workflowdisplay="false" isrejecttask="false" roleid="" commonoperatetype="" name="退回" />
+    </phase-id>
+    <phase-id id="AuditTask" name="审核" type="operate" displaytransferaudit="false" displayconfirm="false" displayreject="false" displaycommonoperate="false">
+      <to-phase-id id="DealTask" role="dealPerformer@" condition="${operateType}==93" operatetype="" stepdisplay="false" workflowdisplay="false" isrejecttask="false" roleid="" commonoperatetype="" name="审核通过" />
+      <to-phase-id id="RejectTask" role="dealPerformer@" condition="${operateType}==94" operatetype="" stepdisplay="false" workflowdisplay="false" isrejecttask="false" roleid="" commonoperatetype="" name="审核不通过" />
+    </phase-id>
+    <phase-id id="DealTask" name="回复" type="operate" displaytransferaudit="false" displayconfirm="false" displayreject="false" displaycommonoperate="false">
+      <to-phase-id id="HoldTask" role="dealPerformer@" condition="${operateType}==95" operatetype="" stepdisplay="false" workflowdisplay="false" isrejecttask="false" roleid="" commonoperatetype="" name="回复" />
+    </phase-id>
+  </flow-define>
+</WorkFlowRule>
+

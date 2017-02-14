@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="GBK"?>
+<dicts description="评估字典">
+	<dict id="cycle" description="数据来源">
+		<item id="year" name="年" description="年" />
+		<item id="quarter" name="季度" description="季度" />
+		<item id="month" name="月" description="月" />
+		<!-- item id="week" name="周" description="周" /-->
+	</dict>
+	<dict id="orgType" description="组织类型">
+		<item id="subRole" name="角色" description="角色" />
+		<item id="dept" name="部门" description="部门" />
+		<item id="user" name="人员" description="用户" />
+	</dict>
+	<dict id="templateStatus" description="模板状态">
+		<!-- item id="template_draft" name="草稿" description="草稿" /-->
+		<item id="template_distributed" name="已下发" description="已下发" />
+		<item id="template_audit_wait" name="待审核" description="待审核" />
+		<item id="template_reported" name="已上报" description="已上报（审核通过）" />
+		<item id="template_audit_reject" name="驳回" description="驳回" />
+	</dict>
+	<dict id="activated" description="激活状态">
+		<item id="0" name="未激活" description="未激活" />
+		<item id="1" name="已激活" description="已激活" />
+	</dict>
+	<dict id="algorithm" description="指标得分算法">
+		<item id="1" name="直接填写分" description="直接得分" />
+		<item id="2" name="设备折算分" description="设备折算分" />
+		<item id="3" name="单选权重分" description="单选权重分" />
+		<item id="4" name="多选权重分" description="多选权重分" />
+		<item id="5" name="直接折算分" description="直接折算分" />
+		<item id="6" name="同级全扣分" description="同级全扣分" />	
+		<item id="7" name="单选直接分" description="单选直接分" />
+		<item id="8" name="多选直接分" description="多选直接分" />
+	</dict>	
+	<dict id="config" description="判断标识">
+		<item id="10" name="下边界" description="大于等于最小值小于最大值" />
+		<item id="01" name="上边界" description="大于最小值小于等于最大值" />
+	</dict>
+	<dict id="kpiType" description="指标类型">
+		<item id="total" name="总计" description="总计" />
+		<item id="money" name="金额" description="金额" />
+		<item id="deduct" name="扣款分" description="扣款分" />
+		<item id="point" name="分数" description="分数" />
+		<item id="text" name="文字评价" description="文字评价" />
+		<item id="deductScore" name="全扣分" description="全扣分" />
+	</dict>
+	<dict id="deviceType" description="设备类型">
+		<item id="1" name="OTN测试仪表" description="OTN测试仪表" />
+		<item id="2" name="10G表" description="10G表" />
+		<item id="3" name="普通台式622M仪表" description="普通台式622M仪表" />
+		<item id="4" name="手持式622M仪表" description="手持式622M仪表" />
+		<item id="5" name="光谱分析仪" description="光谱分析仪" />
+	</dict>				
+</dicts>
+
+

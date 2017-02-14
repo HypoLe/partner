@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.boco.eoms.partner.res.model.PnrResConfig" table="PNR_RES_CONFIG">
+	            
+    <id name="id" column="id" unsaved-value="null">
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+    </id>
+    				            
+    <property name="city"
+            column="city"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="country"
+            column="country"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="executeObject"
+            column="execute_object"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="executeType"
+            column="execute_type"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="inspectCycle"
+            column="inspect_Cycle"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="resLatitude"
+            column="res_latitude"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="resLevel"
+            column="res_level"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="resLongitude"
+            column="res_longitude"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="resName"
+            column="res_name"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="resType"
+            column="res_type"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="specialty"
+            column="specialty"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="subResId"
+            column="sub_res_id"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="subResTable"
+            column="sub_res_table"
+            not-null="false"
+            unique="false">
+    </property>
+    
+    <property name="executeDept"
+            column="execute_dept"
+            not-null="false"
+            unique="false">
+    </property>
+    
+    <property name="creator"
+            column="creator"
+            not-null="false"
+            unique="false">
+    </property>
+    
+    <property name="createTime"
+            column="create_time"
+            not-null="false"
+            unique="false">
+    </property>
+    
+    <property name="serviceRegion"
+            column="service_region"
+            not-null="false"
+            unique="false">
+    </property>
+    
+    <property name="street"
+            column="street"
+            not-null="false"
+            unique="false">
+    </property>
+    
+    <property name="companyName"
+            column="company_name"
+            not-null="false"
+            unique="false">
+    </property>
+    
+    <property name="contactName"
+            column="contact_name"
+            not-null="false"
+            unique="false">
+    </property>
+    
+    <property name="phone"
+            column="phone"
+            not-null="false"
+            unique="false">
+    </property>
+    
+    <property name="remarks"
+            column="remarks"
+            not-null="false"
+            unique="false">
+    </property>
+    
+     <property name="endLatitude"
+            column="end_latitude"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="endLongitude"
+            column="end_longitude"
+            not-null="false"
+            unique="false">
+    </property>
+    
+    <property name="eographicalEnvironment"
+            column="eographical_environment"
+            not-null="false"
+            unique="false">
+    </property>
+    
+    <property name="regionType"
+            column="region_type"
+            not-null="false"
+            unique="false">
+    </property>
+    
+    <property name="inspectPoint"
+            column="inspect_point"
+            not-null="false"
+            unique="false">
+    </property>
+    
+    <property name="inspectPointId"
+            column="inspect_point_id"
+            not-null="false"
+            unique="false">
+    </property>
+    
+    <property name="lastInspectTime" column="last_inspect_Time"/>	
+    
+    <property name="resBar" column="res_bar"/>	  <!-- 资源条码  2013-09-02	  -->
+    <property name="chargePerson" column="charge_person"/>	  
+          
+    <property name="tlInspectFlag" column="tl_inspect_flag"/>
+	<property name="tlDis" column="tl_dis"/>
+	<property name="tlWire" column="tl_wire"/>
+	<property name="tlSystemLevel" column="tl_system_level"/>
+	<property name="tlSeg" column="tl_seg"/>
+	<property name="tlLayType" column="tl_lay_type"/>
+	<property name="tlLength" column="tl_length"/>
+	<property name="tlFiberCount" column="tl_fiber_count"/>
+	<property name="tlPAName" column="tl_pa_name"/>
+	<property name="tlPALo" column="tl_pa_lo"/>
+	<property name="tlPALa" column="tl_pa_la"/>
+	<property name="tlPZName" column="tl_pz_name"/>
+	<property name="tlPZLo" column="tl_pz_lo"/>
+	<property name="tlPZLa" column="tl_pz_la"/>
+	
+	<property name="arrivedRateId" column="arrived_rate_id"/>
+	<property name="locationCycleId" column="location_cycle_id"/>
+	<property name="tlArrivedRate" column="tl_arrived_rate"/>
+	<property name="tlExecuteType" column="tl_execute_type"/>
+	<property name="tlReportInterval" column="tl_report_interval"/>
+	<property name="executeRecord" column="execute_record"/>
+    
+</class>    
+</hibernate-mapping>
+

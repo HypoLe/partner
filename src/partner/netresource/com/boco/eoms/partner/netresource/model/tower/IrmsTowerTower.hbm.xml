@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.tower.IrmsTowerTower" table="irms_tower_tower">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="labelCn" column="label_cn"/>
+				<property name="towerPlatnum" column="tower_platnum"/>
+				<property name="usePlatnum" column="use_platnum"/>
+				<property name="relatedRoom" column="related_room"/>
+				<property name="towerStature" column="tower_stature"/>
+				<property name="towerType" column="tower_type"/>
+				<property name="vendor" column="vendor"/>
+				<property name="towerPropertyAtt" column="tower_property_att"/>
+				<property name="buildtime" column="buildtime"/>
+				<property name="towerHeight" column="tower_height"/>
+				<property name="designBareWeight" column="design_bare_weight"/>
+				<property name="realBareWeight" column="real_bare_weight"/>
+				<property name="manageCompany" column="manage_company"/>
+				<property name="isConstructShare" column="is_construct_share"/>
+				<property name="constructCompany" column="construct_company"/>
+				<property name="isShared" column="is_shared"/>
+				<property name="sharedCompany" column="shared_company"/>
+				<property name="remark" column="remark"/>
+				<property name="createTime" column="create_time"/>
+				<property name="relatedRoomId" column="related_room_id"/>
+    </class>    
+</hibernate-mapping>

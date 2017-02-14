@@ -1,0 +1,8 @@
+/*
+	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Available via Academic Free License >= 2.1 OR the modified BSD license.
+	see: http://dojotoolkit.org/license for details
+*/
+
+
+window[esri._dojoScopeName||"dojo"]._xdResourceLoaded(function(_1,_2,_3){return {depends:[["provide","dojox.gfx.Mover"]],defineResource:function(_4,_5,_6){if(!_4._hasResource["dojox.gfx.Mover"]){_4._hasResource["dojox.gfx.Mover"]=true;_4.provide("dojox.gfx.Mover");_4.declare("dojox.gfx.Mover",null,{constructor:function(_7,e,_8){this.shape=_7;this.lastX=e.clientX;this.lastY=e.clientY;var h=this.host=_8,d=document;this.events=[_4.connect(d,"onmousemove",this,"onFirstMove"),_4.connect(d,"ontouchmove",this,"onFirstMove"),_4.connect(d,"onmousemove",this,"onMouseMove"),_4.connect(d,"ontouchmove",this,"onMouseMove"),_4.connect(d,"onmouseup",this,"destroy"),_4.connect(d,"ontouchend",this,"destroy"),_4.connect(d,"ondragstart",_4,"stopEvent"),_4.connect(d,"onselectstart",_4,"stopEvent")];if(h&&h.onMoveStart){h.onMoveStart(this);}},onMouseMove:function(e){var _9=e.touches?e.touches[0]:e;var x=_9.clientX;var y=_9.clientY;this.host.onMove(this,{dx:x-this.lastX,dy:y-this.lastY});this.lastX=x;this.lastY=y;_4.stopEvent(e);},onFirstMove:function(){this.host.onFirstMove(this);_4.disconnect(this.events.shift());_4.disconnect(this.events.shift());},destroy:function(){_4.forEach(this.events,_4.disconnect);var h=this.host;if(h&&h.onMoveStop){h.onMoveStop(this);}this.events=this.shape=null;}});}}};});

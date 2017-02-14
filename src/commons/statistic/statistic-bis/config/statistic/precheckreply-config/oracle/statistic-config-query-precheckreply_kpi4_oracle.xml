@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--所有标签名称都为固定值,不能修改,否则无法解析. -->
+<KpiConfig>
+	<title>kpi统计</title>
+	<est-module-id>23</est-module-id>
+
+	
+	<!--******************************************************************
+********    按(部门)统计 (按受理部门统计)  ***************************************************
+******************************************************************* -->
+	<kpi-define><!-- 可重复 -->
+		<name>byManScene</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		<condition-param page-name="stype"/>
+		<!--<condition-param page-name="sendDeptId"/>-->
+		<condition-param page-name="revDeptId" markflg="true"/>
+		
+		<summary-define>
+			<id>s1</id><!--受理部门-->
+			<sequence></sequence>
+			<column>a.areaid</column><!-- 汇总字段 -->
+			<!--id2name-service>tawSystemDeptDao</id2name-service-->
+			<!-- <id2name-service>statBaseDeptId2name_v35</id2name-service>--><!-- 汇总字段 id2name的beanid 这是部门ID转中文名--> 
+			<id2name-service>statAreaId2name_v35</id2name-service><!-- 汇总字段 id2name的beanid 这是地域ID转中文名-->
+		</summary-define>
+
+		<stat-detail-vo>com.boco.eoms.commons.statistic.businessoperation.vo.StatDetailVOBusinessOperation</stat-detail-vo><!--显示DetailVO-->
+
+		<query-define><!-- 可重复 -->
+			<name>query1</name>
+			
+			<!-- sql片段,用于jdbc统计(分子) -->
+			<from>  taw_system_area a
+					left join pnr_act_transfer_office_main main
+					on  a.areaid=main.city(+) 
+					and main.themeinterface = 'interface'
+				    and main.key_word='101230801'
+				    and main.state != 1
+				    and main.city is not null
+				    and main.send_time &gt; to_date('@beginTime@','YYYY-MM-DD HH24:MI:SS') 
+				    and main.send_time &lt; to_date('@endTime@','YYYY-MM-DD HH24:MI:SS')
+					</from><!-- 不可为空 --><!--不包括草稿工单 status=3-->
+			<where>a.parentareaid='28'</where><!-- 可为空 -->
+
+
+			<field-define><!-- 可重复 -->
+				<id>f1</id><!--安全隐患申报工费-->
+				<sequence>1</sequence>
+				<stat-type>field_sql</stat-type><!--"field_sql,single_sql,expression"  -->
+				<stat-sql> nvl(sum(main.sum_need_cost_of_party_b),0)</stat-sql>
+			</field-define>
+
+		</query-define>	
+	</kpi-define>
+	
+</KpiConfig>

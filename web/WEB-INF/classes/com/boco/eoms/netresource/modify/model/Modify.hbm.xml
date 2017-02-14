@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.boco.eoms.netresource.modify.model.Modify" table="PNR_NET_MODIFY">
+	            
+    <id name="id" column="id" unsaved-value="null">
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+    </id>
+    				                
+    <property name="applyUser"
+            column="applyUser"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="applyDept"
+            column="applyDept"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="applyTime"
+            column="applyTime"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="description"
+            column="description"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="approveUser"
+            column="approveUser"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="acceptTime"
+            column="acceptTime"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="approveTime"
+            column="approveTime"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="approveStatus"
+            column="approveStatus"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="errorScope"
+            column="errorScope"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="modifyType"
+            column="modifyType"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="resourceType"
+            column="resourceType"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="resourceId"
+            column="resourceId"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="isDeleted"
+            column="isDeleted"
+            not-null="false"
+            unique="false">
+    </property>
+    
+</class>    
+</hibernate-mapping>
+

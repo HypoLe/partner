@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<!-- Struts1 
+	Author: huhao	
+	Create: 2011-10
+-->
+
+<struts-config>
+	<!-- ============ Form beans ============ -->
+	<form-beans>
+		<form-bean name="advertisementForm"
+			type="com.boco.eoms.deviceManagement.busi.protectline.form.AdvertisementForm" />
+		<form-bean name="advertisementApprovalForm"
+			type="com.boco.eoms.deviceManagement.busi.protectline.form.AdvertisementApprovalForm" />
+	</form-beans>
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+	<!-- ============ Global forwards ============ -->
+	<global-forwards type="org.apache.struts.action.ActionForward">
+		<forward name="failure" path="/common/fail.jsp"
+			contextRelative="true" />
+		<forward name="success" path="/success.jsp"
+			contextRelative="true" />
+		<forward name="error" path="/error.jsp" contextRelative="true" />
+	</global-forwards>
+
+	<!-- ============ Action Mapping definitions ============ -->
+	<action-mappings type="org.apache.struts.action.ActionMapping">
+
+		<action path="/advertisement"
+			type="com.boco.eoms.deviceManagement.busi.protectline.action.AdvertisementAction"
+			name="advertisementForm" scope="request" input="list"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<!-- This is Jsp page template here. Do not modify these templates. Begin. -->
+			<forward name="goToEdit"
+				path="/WEB-INF/pages/deviceManagement/busi/advertisement/advertisementEdit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/deviceManagement/busi/advertisement/advertisementList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToDetail"
+				path="/WEB-INF/pages/deviceManagement/busi/advertisement/advertisementDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToImport"
+				path="/WEB-INF/pages/deviceManagement/busi/advertisement/advertisementImport.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToAdd"
+				path="/WEB-INF/pages/deviceManagement/busi/advertisement/advertisementAdd.jsp"
+				redirect="false" contextRelative="true" />
+
+			<forward name="forwardlist"
+				path="/advertisement.do?method=list" redirect="true" />
+			<forward name="success"
+				path="/WEB-INF/pages/deviceManagement/busi/success.jsp"
+				redirect="true" />
+			<forward name="approvaledDetail"
+				path="/WEB-INF/pages/deviceManagement/busi/advertisement/advertisementApprovaledDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToApproval"
+				path="/WEB-INF/pages/deviceManagement/busi/advertisement/advertisementApproval.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="approvaledList"
+				path="/WEB-INF/pages/deviceManagement/busi/advertisement/advertisementApprovaledList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="staffAdvertisement"
+				path="/WEB-INF/pages/deviceManagement/busi/advertisement/staffAdvertisement.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="searchInto"
+				path="/WEB-INF/pages/deviceManagement/busi/advertisement/staffAdvertisementSearchInto.jsp"
+				redirect="false" contextRelative="true" />
+							<forward name="approvalList"
+				path="/WEB-INF/pages/deviceManagement/busi/advertisement/advertisementApprovalList.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+
+		<action path="/advertisementApproval"
+			type="com.boco.eoms.deviceManagement.busi.protectline.action.AdvertisementAction"
+			name="advertisementApprovalForm" scope="request" input="list"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="approvalList"
+				path="/WEB-INF/pages/deviceManagement/busi/advertisement/advertisementApprovalList.jsp"
+				redirect="false" contextRelative="true" />
+
+
+
+			<forward name="forwardApprovalList"
+				path="/advertisementApproval.do?method=approvalList"
+				redirect="true" />
+		</action>
+	</action-mappings>
+	<!-- ========== Plug Ins Configuration ================================== -->
+	<!-- Add multiple validator resource files by setting the pathname property -->
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/validator-rules.xml,/WEB-INF/validation-duty.xml" />
+	</plug-in>
+
+</struts-config>

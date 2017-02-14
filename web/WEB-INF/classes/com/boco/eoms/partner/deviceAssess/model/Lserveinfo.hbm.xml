@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+
+>
+
+    <class
+            name="com.boco.eoms.partner.deviceAssess.model.Lserveinfo"
+            table="pnr_deviceAssess_lserveinfo"
+    >
+
+    <id
+        name="id"
+            column="id"
+            unsaved-value="null"
+    >
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+
+    </id>
+
+	<property
+            name="sheetId"
+            	column="sheet_id"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="sheetNum"
+            	column="sheet_num"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="createTime"
+            	column="create_time"
+                length="60"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="turnFactoryTime"
+            	column="turn_factory_time"
+                length="60"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="pigeonholeTime"
+            	column="pigeonhole_time"
+                length="60"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="affairName"
+            	column="affair_name"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="affairLevel"
+            	column="affair_level"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="province"
+            	column="province"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="city"
+            	column="city"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="factory"
+            	column="factory"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="speciality"
+            	column="speciality"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="servePopu"
+            	column="serve_popu"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="satisfaction"
+            	column="satisfaction"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="takeCountOf"
+            	column="take_count_of"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+        <property
+            name="satisfactionReason"
+            	column="satisfaction_reason"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+          <property
+            name="total"
+            	column="total"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+        <property
+            name="deviceType"
+            	column="equipment_type"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+    </class>    
+
+</hibernate-mapping>
+

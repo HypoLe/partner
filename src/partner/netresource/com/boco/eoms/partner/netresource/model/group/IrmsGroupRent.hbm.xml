@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.group.IrmsGroupRent" table="irms_group_rent">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="customerName" column="customer_name"/>
+				<property name="pointaCustomerName" column="pointa_customer_name"/>
+				<property name="relatedInstance" column="related_instance"/>
+				<property name="tranAccessWay" column="tran_access_way"/>
+				<property name="businessBw" column="business_bw"/>
+				<property name="pointaCustomerAddr" column="pointa_customer_addr"/>
+				<property name="relatedPointa" column="related_pointa"/>
+				<property name="relatedPointaPort" column="related_pointa_port"/>
+				<property name="pointaDdfodfPort" column="pointa_ddfodf_port"/>
+				<property name="relatedArDevice" column="related_ar_device"/>
+				<property name="relatedArDevicePort" column="related_ar_device_port"/>
+				<property name="relatedArdOdfPort" column="related_ard_odf_port"/>
+				<property name="relatedCircuitName" column="related_circuit_name"/>
+				<property name="relatedCircuitType" column="related_circuit_type"/>
+				<property name="relatedCircuitLevel" column="related_circuit_level"/>
+				<property name="circuitRequirement" column="circuit_requirement"/>
+				<property name="circuitProtectWay" column="circuit_protect_way"/>
+				<property name="officeRedirection" column="office_redirection"/>
+				<property name="pointzCustomerName" column="pointz_customer_name"/>
+				<property name="pointzCustomerAddr" column="pointz_customer_addr"/>
+				<property name="relatedPointzName" column="related_pointz_name"/>
+				<property name="relatedPointzPort" column="related_pointz_port"/>
+				<property name="pointzDdfodfPort" column="pointz_ddfodf_port"/>
+				<property name="relatedPointzArName" column="related_pointz_ar_name"/>
+				<property name="relatedPointzArPort" column="related_pointz_ar_port"/>
+				<property name="relatedPointzArpOdf" column="related_pointz_arp_odf"/>
+				<property name="relatedOcName" column="related_oc_name"/>
+				<property name="remark" column="remark"/>
+				<property name="createTime" column="create_time"/>
+				<property name="relatedInstanceId" column="related_instance_id"/>
+				<property name="relatedPointaId" column="related_pointa_id"/>
+				<property name="relatedPointaPortId" column="related_pointa_port_id"/>
+				<property name="relatedArDeviceId" column="related_ar_device_id"/>
+				<property name="relatedArDevicePortId" column="related_ar_device_port_id"/>
+				<property name="relatedArdOdfPortId" column="related_ard_odf_port_id"/>
+				<property name="relatedCircuitNameId" column="related_circuit_name_id"/>
+				<property name="relatedCircuitTypeId" column="related_circuit_type_id"/>
+				<property name="relatedCircuitLevelId" column="related_circuit_level_id"/>
+				<property name="relatedPointzNameId" column="related_pointz_name_id"/>
+				<property name="relatedPointzPortId" column="related_pointz_port_id"/>
+				<property name="relatedPointzArNameId" column="related_pointz_ar_name_id"/>
+				<property name="relatedPointzArptId" column="related_pointz_arpt_id"/>
+				<property name="relatedPointzArpOdfId" column="related_pointz_arp_odf_id"/>
+				<property name="relatedOcNameId" column="related_oc_name_id"/>
+    </class>    
+</hibernate-mapping>

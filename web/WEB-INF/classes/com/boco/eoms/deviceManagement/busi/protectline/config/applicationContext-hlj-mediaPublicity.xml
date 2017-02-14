@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="mediaPublicityDao"
+		class="com.boco.eoms.deviceManagement.busi.protectline.dao.impl.MediaPublicityDaoImpl" autowire="byName" />
+
+	<bean id="mediaPublicityService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.deviceManagement.busi.protectline.service.impl.MediaPublicityServiceImpl">
+				<property name="mediaPublicityDao"
+					ref="mediaPublicityDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	
+		<bean id="mediaPublicityApprovalDao"
+		class="com.boco.eoms.deviceManagement.busi.protectline.dao.impl.MediaPublicityApprovalDaoImpl" autowire="byName" />
+
+	<bean id="mediaPublicityApprovalService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.deviceManagement.busi.protectline.service.impl.MediaPublicityApprovalServiceImpl">
+				<property name="mediaPublicityApprovalDao"
+					ref="mediaPublicityApprovalDao" />
+			</bean>
+		</property>
+	</bean>
+</beans>

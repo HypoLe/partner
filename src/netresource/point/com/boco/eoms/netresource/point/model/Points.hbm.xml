@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.boco.eoms.netresource.point.model.Points" table="pnr_net_point">
+	            
+    <id name="id" column="id" unsaved-value="null">
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+    </id>
+    				                
+    <property name="pointName"
+            column="pointName"
+            not-null="true"
+            unique="false">
+    </property>
+    		            
+    <property name="pointNo"
+            column="pointNo"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="region"
+            column="region"
+            not-null="false"
+            unique="false">
+    </property>
+    
+    <property name="city"
+            column="city"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="grid"
+            column="grid"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="line"
+            column="line"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="specialtyType"
+            column="specialtyType"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="loadwork"
+            column="loadwork"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="groupUser"
+            column="groupUser"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="groupUserNo"
+            column="groupUserNo"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="longitude"
+            column="longitude"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="latitude"
+            column="latitude"
+            not-null="false"
+            unique="false">
+    </property>
+    
+    <property name="isdeleted"
+            column="isdeleted"
+            not-null="false"
+            unique="false">
+    </property>
+    
+    <property name="createTime"
+            column="createTime"
+            not-null="false"
+            unique="false">
+    </property>
+    
+    <property name="creator"
+            column="creator"
+            not-null="false"
+            unique="false">
+    </property>
+    
+    <property name="errorScope"
+            column="errorScope"
+            not-null="false"
+            unique="false">
+    </property>
+    
+    <property name="partner"
+            column="partner"
+            not-null="false"
+            unique="false">
+    </property>
+    
+</class>    
+</hibernate-mapping>
+

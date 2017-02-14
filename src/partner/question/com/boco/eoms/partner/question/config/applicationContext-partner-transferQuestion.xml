@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="pnrTransferQuestionDao"
+		class="com.boco.eoms.partner.question.dao.hibernate.PnrTransferQuestionDaoHibernate" autowire="byName"/>
+	<bean id="pnrTransferQuestionDaoJDBC"
+		class="com.boco.eoms.partner.question.dao.hibernate.PnrTransferQuestionDaoJDBC" autowire="byName"/>
+  
+  
+	<bean id="pnrTransferQuestionService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.question.service.impl.PnrTransferQuestionServiceImpl">
+				<property name="pnrTransferQuestionDao" ref="pnrTransferQuestionDao" />
+				<property name="pnrTransferQuestionDaoJDBC" ref="pnrTransferQuestionDaoJDBC" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="pnrTransferQuestionStateDao"
+		class="com.boco.eoms.partner.question.dao.hibernate.PnrTransferQuestionStateDaoHibernate" autowire="byName"/>
+	<bean id="pnrTransferQuestionStateDaoJDBC"
+		class="com.boco.eoms.partner.question.dao.hibernate.PnrTransferQuestionStateDaoJDBC" autowire="byName"/>
+  
+  
+	<bean id="pnrQuestionStateService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.question.service.impl.PnrTransferQuestionStateServiceImpl">
+				<property name="pnrTransferQuestionStateDao" ref="pnrTransferQuestionStateDao" />
+				<property name="pnrTransferQuestionStateDaoJDBC" ref="pnrTransferQuestionStateDaoJDBC" />
+			</bean>
+		</property>
+	</bean>
+		
+</beans>

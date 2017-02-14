@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+    <hibernate-mapping>
+    	<class name="com.boco.eoms.partner.advance.model.AdvanceModel" table="PNR_costmanagement_advance">
+		<id name="id" column="id">
+   			<generator class="uuid.hex" />
+   		</id>
+   	<property name="use" />
+   	<property name="level" column="level1"/>
+   	<property name="chargeUser" />
+   	<property name="useUser" />
+   	<property name="beginTime" />
+   	<property name="endTime" />
+   	<property name="money" />
+   	<property name="state" />
+   	<property name="agencyCompany" />
+   		<property name="useType" />
+   		<property name="isDeleted" />
+   		<property name="approve" />
+   		<property name="creatType" />
+   		<property name="checkType" />
+   		<property name="reRemark" />
+   		<property name="advanceName" />
+   		<property name="checkAllow" />
+   		<property name="type" />
+    </class>    
+</hibernate-mapping>

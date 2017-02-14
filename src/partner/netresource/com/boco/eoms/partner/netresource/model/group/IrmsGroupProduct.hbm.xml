@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.group.IrmsGroupProduct" table="irms_group_product">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="customerName" column="customer_name"/>
+				<property name="customerNo" column="customer_no"/>
+				<property name="prodType" column="prod_type"/>
+				<property name="prodCode" column="prod_code"/>
+				<property name="customerAddressa" column="customer_addressa"/>
+				<property name="citya" column="citya"/>
+				<property name="regiona" column="regiona"/>
+				<property name="customerAddressz" column="customer_addressz"/>
+				<property name="cityz" column="cityz"/>
+				<property name="regionz" column="regionz"/>
+				<property name="customerLinkMan" column="customer_link_man"/>
+				<property name="customerLinkPhon" column="customer_link_phon"/>
+				<property name="businessDemand" column="business_demand"/>
+				<property name="openTime" column="open_time"/>
+				<property name="busiEndTime" column="busi_end_time"/>
+				<property name="serviceLevel" column="service_level"/>
+				<property name="createTime" column="create_time"/>
+				<property name="remark" column="remark"/>
+				<property name="customerNoId" column="customer_no_id"/>
+    </class>    
+</hibernate-mapping>

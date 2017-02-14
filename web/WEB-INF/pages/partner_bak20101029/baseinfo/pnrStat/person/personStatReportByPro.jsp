@@ -1,0 +1,175 @@
+
+<%@ page language="java" pageEncoding="UTF-8"%>
+<jsp:directive.page import="java.util.Map" />
+<jsp:directive.page import="java.util.List" />
+<jsp:directive.page import="java.lang.Object" />
+<jsp:directive.page import="com.boco.eoms.base.util.StaticMethod" />
+<%@ include file="/common/taglibs.jsp"%>
+<%@ include file="/common/header_eoms_ext.jsp"%>
+<script type="text/javascript">
+
+function delAllOption(elementid){
+            var ddlObj = document.getElementById(elementid);//获取对象
+            for(var i=ddlObj.length-1;i>=0;i--){
+                ddlObj.remove(i);//firefox不支持ddlCurSelectKey.options.remove(),IE两种均支持
+            }
+        }
+	
+	window.onload = function(){
+								//合作伙伴
+								var providerName = "${providerBuffer}"; 
+								var arrOptionsP=providerName.split(",");
+								var objp=$("provider");					
+								var m=0;
+								var n=0;
+								for(m=0;m<arrOptionsP.length;m++){
+									var optp=new Option(arrOptionsP[m+1],arrOptionsP[m]);
+									objp.options[n]=optp;
+									n++;
+									m++;
+								}
+		}	
+	
+	function sub(){
+	
+	var month =document.getElementById("month").value;
+	var year =document.getElementById("year").value;
+	
+		if(year!="" && month==""){
+			alert("请选择要统计的月份！");
+			return false;
+		}else if(year=="" && month!=""){
+			alert("请选择要统计的年份！");
+			return false;
+		}
+	    return true;  
+	}
+
+</script>
+<html:form action="/pnrStats.do?method=getPersonReportByPro&first=fir" styleId="SiteReportFrom" method="post" onsubmit="return sub();"> 
+
+<table class="formTable">
+	<caption>
+		<div class="header center">合作伙伴人力信息统计</div>
+	</caption>
+<!-- 年 -->
+	<tr>
+		<td class="label">
+			年份、&nbsp;
+			月份：&nbsp;
+		</td>
+		<td class="content">
+			<select id="year" name="year" >
+					<option id="0" value="">--请选择年份--</option>
+				<c:forEach begin="2008" end="2025" var="num">
+						<option id="${num}" value="${num}">${num}年</option>
+				</c:forEach>
+			</select>
+			<select id="month" name="month" >
+					<option id="0" value="">--请选择月份--</option>
+				<c:forEach begin="1" end="12" var="num">
+						<option id="${num}" value="${num}">${num}月</option>
+				</c:forEach>
+			</select>
+		</td>
+<!-- 维护公司 -->
+		<td class="label" >
+			合作伙伴名称：&nbsp;
+		</td>
+		<td class="content" >
+					<!-- 合作伙伴 -->			
+					<select name="provider" id="provider" 
+						alt="allowBlank:false,vtext:'请选择合作伙伴'">
+						<option value="">
+							--请选择合作伙伴--
+						</option>	
+															
+					</select>
+		</td>
+	</tr>
+
+</table>
+
+<table>
+    <tr>
+	    <td>
+	    	<input type="submit" class="btn" value="统计" />&nbsp;&nbsp;
+		</td>
+	</tr>
+</table>
+</html:form>
+
+
+<table class="formTable">
+<%
+Map rowMap = (Map)request.getAttribute("rowMap");
+List listSiteStat = (List)request.getAttribute("listPersonStat");
+
+
+%>
+			<tr>
+				<td class="label">合作伙伴名称</td>
+				<td class="label">合作伙伴应配人数</td>
+				<td class="label">合作伙伴实配人数</td>
+			</tr>
+		
+			<%
+			if(listSiteStat!=null){			
+			String proTem = "";
+			String proStat = null;
+			String personConStat = null;
+			String personStat = null;
+			for(int i=0;i<listSiteStat.size();i++){
+				Object[] mark =  (Object[])listSiteStat.get(i);
+				
+				proStat = (String)mark[0];
+				//合作伙伴应配人数
+				personConStat = String.valueOf(mark[1]);
+				//合作伙伴实配人数
+				personStat = String.valueOf(mark[2]);
+	    		String proTab = StaticMethod.nullObject2String(rowMap.get(proStat+"_num"));
+			 %>
+			<tr>
+			<%
+			if(!proTem.equals(proStat)){
+			 %>
+				<td rowspan="<%=proTab%>">
+					<%=proStat %>
+				</td>
+			<%
+			}
+			 %>
+				<td >
+					<%
+					if(personConStat == "null"){
+						out.print("0");
+					
+					}else{
+						out.print(personConStat);
+					}
+					 %>					
+				</td>
+			<td>
+					<%
+					if(personStat == "null"){
+						out.print("0");
+					
+					}else{
+						out.print(personStat);
+					}
+					 %>		
+			</td>
+			</tr>
+			<%
+				if(!proTem.equals(proStat)){
+					proTem = proStat;
+				}
+			}
+			}else{
+			 %>	
+			 <% }%>
+</table>
+
+
+
+<%@ include file="/common/footer_eoms.jsp"%>

@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="GB2312"?>
+<sheetQuery>
+	<byArea>
+		<![CDATA[
+				select a1.areaid,a1.t1,a1.t2,--审核工单数 审核金额  本地网预检预修
+						b1.t3,b1.t4,				--批复工单  批复金额 本地网预检预修
+						c1.t5,c1.t6,			--延缓批复工单数  延缓批复金额 本地网预检预修
+						d1.t7,d1.t8,			--驳回工单数  驳回金额 本地网预检预修
+						e1.t9,e1.t10,			--当月审批  当月审批金额  本地网预检预修
+						f1.t11,f1.t12,			--审核工单数 审核金额  一般干线
+						g1.t13,g1.t14,			--批复工单  批复金额 一般干线
+						h1.t15,h1.t16,			--延缓批复工单数  延缓批复金额 一般干线
+						i1.t17,i1.t18,			--驳回工单数  驳回金额 一般干线
+						j1.t19,j1.t20,			--当月审批  当月审批金额  一般干线
+						k1.t21,k1.t22,			--审核工单数 审核金额  干线施工监护
+						l1.t23,l1.t24,			--批复工单  批复金额  干线施工监护
+						m1.t25,m1.t26,			--延缓批复工单数  延缓批复金额 干线施工监护
+						n1.t27,n1.t28,			--驳回工单数  驳回金额  干线施工监护
+						o1.t29,o1.t30,			--当月审批  当月审批金额  干线施工监护
+						p1.t31,p1.t32,			--审核工单数 审核金额  大修改造
+						q1.t33,q1.t34,			--批复工单  批复金额  大修改造
+						r1.t35,r1.t36,			--延缓批复工单数  延缓批复金额  大修改造
+						s1.t37,s1.t38,			--驳回工单数  驳回金额 大修改造
+						t1.t39,t1.t40				--当月审批  当月审批金额  大修改造
+				from
+				(select a.areaid,
+			               nvl(co, 0) as t1,
+			               nvl(temp.project_amount, 0) as t2
+			          from (select n.city,
+			                       count(*) co,
+			                       sum(n.project_amount)  project_amount
+			                  from (select distinct t.process_instance_id
+			                          from pnr_act_transfer_office_handle t
+			                         where @check_time@
+			                           and t.link_name = 'provinceLineExamine') ac
+			                  left join pnr_act_transfer_office_main n
+			                    on ac.process_instance_id = n.process_instance_id
+			                   and n.themeinterface in ('interface')
+			                  where n.city is not null
+			                 group by n.city
+			                 ) temp
+			         right join taw_system_area a
+			            on temp.city = a.areaid
+			         where a.parentareaid = '28') a1,--批复工单  批复金额 本地网预检预修
+			     (select a.areaid,
+			               nvl(co, 0) as t3,
+			               nvl(temp.project_amount, 0) as t4
+			          from (select n.city,
+			                       count(*) co,
+			                       sum(n.project_amount) project_amount
+			                  from (select distinct t.process_instance_id
+			                          from pnr_act_transfer_office_handle t
+			                         where @check_time@
+			                           and t.link_name = 'provinceLineExamine') ac
+			                  left join pnr_act_transfer_office_main n
+			                    on ac.process_instance_id = n.process_instance_id
+			                   and n.themeinterface in ('interface')
+			                   and @distributed_interface_time@
+			                  where n.city is not null
+			                 group by n.city
+			                 ) temp
+			         right join taw_system_area a
+			            on temp.city = a.areaid
+			         where a.parentareaid = '28') b1,--批复工单  批复金额 本地网预检预修
+			      (select
+			               a.areaid,
+			               nvl(co, 0) as t5,
+			               nvl(temp.project_amount, 0) as t6
+			         from (select n.city,
+			                      count(*) co,
+			                      sum(n.project_amount) project_amount
+			                 from (select distinct t.process_instance_id
+			                         from pnr_act_transfer_office_handle t
+			                        where @check_time@
+			                          and t.link_name = 'provinceLineExamine') ac
+			                 left join pnr_act_transfer_office_main n
+			                   on ac.process_instance_id = n.process_instance_id
+			                  and n.themeinterface in ('interface')
+			                  and n.distributed_interface_time is null
+			                where n.city is not null
+			                group by n.city
+			                 ) temp
+			        right join taw_system_area a
+			           on temp.city = a.areaid
+			        where a.parentareaid = '28') c1,--延缓批复工单数  延缓批复金额 本地网预检预修
+			      (select a.areaid,
+			              nvl(co, 0) as t7,
+			              nvl(temp.project_amount, 0) as t8
+			         from (select n.city,
+			                      count(*) co,
+			                      sum(n.project_amount) project_amount
+			                 from (select distinct t.process_instance_id
+			                         from pnr_act_transfer_office_handle t
+			                        where @check_time@
+			                          and t.link_name in
+			                              ('provinceLineExamine',
+			                               'provinceManageExamine',
+			                               'provinceLineViceAudit')
+			                          and t.operation = '02') ac
+			                 left join pnr_act_transfer_office_main n
+			                   on ac.process_instance_id = n.process_instance_id
+			                  and n.themeinterface in ('interface')
+			                 where n.city is not null
+			                group by n.city
+			                 ）temp
+			                right join taw_system_area a
+			                   on temp.city = a.areaid
+			                where a.parentareaid = '28') d1, --驳回工单数  驳回金额 本地网预检预修
+			          (select a.areaid,
+			                   nvl(co, 0) as t9,
+			                   nvl(temp.project_amount, 0) as t10
+			              from （select n.city,
+			                   count(*) co,
+			                   sum(n.project_amount) project_amount
+			              from pnr_act_transfer_office_main n
+			              left join taw_system_area a
+			                on n.city = a.areaid
+			             where n.themeinterface = 'interface'
+			               and @distributed_interface_time@
+			               and n.city is not null
+			             group by n.city
+			              ）temp
+			             right join taw_system_area a
+			                on temp.city = a.areaid
+			             where a.parentareaid = '28') e1,--当月审批  当月审批金额  本地网预检预修
+			          ( select a.areaid,
+			                  nvl(co, 0) as t11,
+			                  nvl(temp.project_amount, 0) as t12
+			             from (select n.city,
+			                          count(*) co,
+			                          sum(n.project_amount)  project_amount
+			                     from (select distinct t.process_instance_id
+			                             from pnr_act_transfer_office_handle t
+			                            where @check_time@
+			                              and t.link_name = 'provinceLineExamine') ac
+			                     left join pnr_act_transfer_office_main n
+			                       on ac.process_instance_id = n.process_instance_id
+			                      and n.themeinterface in ('arteryPrecheck')
+			                      and n.key_word not in ('101230806')
+			                    where n.city is not null
+			                    group by n.city
+			                     ) temp
+			            right join taw_system_area a
+			               on temp.city = a.areaid
+			            where a.parentareaid = '28') f1, --审核工单数 审核金额  一般干线
+			         (select a.areaid,
+			                nvl(co, 0) as t13,
+			                nvl(temp.project_amount, 0) as t14
+			           from (select n.city,
+			                        count(*) co,
+			                        sum(n.project_amount) project_amount
+			                   from (select distinct t.process_instance_id
+			                           from pnr_act_transfer_office_handle t
+			                          where @check_time@
+			                            and t.link_name = 'provinceLineExamine') ac
+			                   left join pnr_act_transfer_office_main n
+			                     on ac.process_instance_id = n.process_instance_id
+			                    and n.themeinterface in ('arteryPrecheck')
+			                    and n.key_word not in ('101230806')
+			                    and @distributed_interface_time@
+			                   where n.city is not null
+			                  group by n.city
+			                   ) temp
+			          right join taw_system_area a
+			             on temp.city = a.areaid
+			          where a.parentareaid = '28') g1,--批复工单  批复金额 一般干线
+			        (select a.areaid,
+			                nvl(co, 0) as t15,
+			                nvl(temp.project_amount, 0) as t16
+			           from (select n.city,
+			                        count(*) co,
+			                        sum(n.project_amount) project_amount
+			                   from (select distinct t.process_instance_id
+			                           from pnr_act_transfer_office_handle t
+			                          where @check_time@
+			                            and t.link_name = 'provinceLineExamine') ac
+			                   left join pnr_act_transfer_office_main n
+			                     on ac.process_instance_id = n.process_instance_id
+			                    and n.themeinterface in ('arteryPrecheck')
+			                    and n.distributed_interface_time is null
+			                    and n.key_word not in ('101230806')
+			                  where n.city is not null
+			                  group by n.city
+			                   ) temp
+			          right join taw_system_area a
+			             on temp.city = a.areaid
+			          where a.parentareaid = '28') h1, --延缓批复工单数  延缓批复金额 一般干线
+			       ( select a.areaid,
+			              nvl(co, 0) as t17,
+			              nvl(temp.project_amount, 0) as t18
+			         from (select n.city,
+			                      count(*) co,
+			                      sum(n.project_amount) project_amount
+			                 from (select distinct t.process_instance_id
+			                         from pnr_act_transfer_office_handle t
+			                        where @check_time@
+			                          and t.link_name in
+			                              ('provinceLineExamine',
+			                               'provinceManageExamine',
+			                               'provinceLineViceAudit')
+			                          and t.operation = '02') ac
+			                 left join pnr_act_transfer_office_main n
+			                   on ac.process_instance_id = n.process_instance_id
+			                  and n.themeinterface in ('arteryPrecheck')
+			                  and n.key_word not in ('101230806')
+			                 where n.city is not null
+			                group by n.city
+			                 ）temp
+			                right join taw_system_area a
+			                   on temp.city = a.areaid
+			                where a.parentareaid = '28') i1,  --驳回工单数  驳回金额 一般干线
+			         (select a.areaid,
+			                nvl(co, 0) as t19,
+			                nvl(temp.project_amount, 0) as t20
+			           from （select n.city,
+			                count(*) co,
+			                sum(n.project_amount) project_amount
+			           from pnr_act_transfer_office_main n
+			           left join taw_system_area a
+			             on n.city = a.areaid
+			          where n.themeinterface = 'arteryPrecheck'
+			            and n.key_word not in ('101230806')
+			            and @distributed_interface_time@
+			            and n.city is not null
+			          group by n.city
+			           ）temp
+			          right join taw_system_area a
+			             on temp.city = a.areaid
+			          where a.parentareaid = '28') j1, --当月审批  当月审批金额  一般干线
+			          ( select a.areaid,
+			                nvl(co, 0) as t21,
+			                nvl(temp.project_amount, 0) as t22
+			           from (select n.city,
+			                        count(*) co,
+			                        sum(n.project_amount)  project_amount
+			                   from (select distinct t.process_instance_id
+			                           from pnr_act_transfer_office_handle t
+			                          where @check_time@
+			                            and t.link_name = 'provinceLineExamine') ac
+			                   left join pnr_act_transfer_office_main n
+			                     on ac.process_instance_id = n.process_instance_id
+			                    and n.themeinterface in ('arteryPrecheck')
+			                    and n.key_word in ('101230806')
+			                    where n.city is not null
+			                  group by n.city
+			                   ) temp
+			          right join taw_system_area a
+			             on temp.city = a.areaid
+			          where a.parentareaid = '28') k1,--审核工单数 审核金额  干线施工监护
+			        (select a.areaid,
+			             nvl(co, 0) as t23,
+			             nvl(temp.project_amount, 0) as t24
+			        from (select n.city,
+			                     count(*) co,
+			                     sum(n.project_amount) project_amount
+			                from (select distinct t.process_instance_id
+			                        from pnr_act_transfer_office_handle t
+			                       where @check_time@
+			                         and t.link_name = 'provinceLineExamine') ac
+			                left join pnr_act_transfer_office_main n
+			                  on ac.process_instance_id = n.process_instance_id
+			                 and n.themeinterface in ('arteryPrecheck')
+			                 and n.key_word in ('101230806')
+			                 and @distributed_interface_time@
+			                 where n.city is not null
+			               group by n.city
+			                ) temp
+			       right join taw_system_area a
+			          on temp.city = a.areaid
+			       where a.parentareaid = '28') l1,--批复工单  批复金额  干线施工监护
+			       (select a.areaid,
+			                 nvl(co, 0) as t25,
+			                 nvl(temp.project_amount, 0) as t26
+			            from (select n.city,
+			                         count(*) co,
+			                         sum(n.project_amount) project_amount
+			                    from (select distinct t.process_instance_id
+			                            from pnr_act_transfer_office_handle t
+			                           where @check_time@
+			                             and t.link_name = 'provinceLineExamine') ac
+			                    left join pnr_act_transfer_office_main n
+			                      on ac.process_instance_id = n.process_instance_id
+			                     and n.themeinterface in ('arteryPrecheck')
+			                     and n.distributed_interface_time is null
+			                     and n.key_word in ('101230806')
+			                    where n.city is not null
+			                   group by n.city
+			                    ) temp
+			           right join taw_system_area a
+			              on temp.city = a.areaid
+			           where a.parentareaid = '28') m1,--延缓批复工单数  延缓批复金额 干线施工监护
+			         (select a.areaid,
+			             nvl(co, 0) as t27,
+			             nvl(temp.project_amount, 0) as t28
+			        from (select n.city,
+			                     count(*) co,
+			                     sum(n.project_amount) project_amount
+			                from (select distinct t.process_instance_id
+			                        from pnr_act_transfer_office_handle t
+			                       where @check_time@
+			                         and t.link_name in
+			                             ('provinceLineExamine',
+			                              'provinceManageExamine',
+			                              'provinceLineViceAudit')
+			                         and t.operation = '02') ac
+			                left join pnr_act_transfer_office_main n
+			                  on ac.process_instance_id = n.process_instance_id
+			                 and n.themeinterface in ('arteryPrecheck')
+			                 and n.key_word in ('101230806')
+			                where n.city is not null
+			               group by n.city
+			                ）temp
+			               right join taw_system_area a
+			                  on temp.city = a.areaid
+			               where a.parentareaid = '28') n1, -- 驳回工单数  驳回金额  干线施工监护
+			           (select a.areaid,
+			              nvl(co, 0) as t29,
+			              nvl(temp.project_amount, 0) as t30
+			         from （select n.city,
+			              count(*) co,
+			              sum(n.project_amount) project_amount
+			         from pnr_act_transfer_office_main n
+			         left join taw_system_area a
+			           on n.city = a.areaid
+			        where n.themeinterface = 'arteryPrecheck'
+			          and n.key_word in ('101230806')
+			          and @distributed_interface_time@
+			          and n.city is not null
+			        group by n.city
+			         ）temp
+			        right join taw_system_area a
+			           on temp.city = a.areaid
+			        where a.parentareaid = '28') o1,-- 当月审批  当月审批金额  干线施工监护
+			        (select a.areaid,
+			              nvl(co, 0) as t31,
+			              nvl(temp.project_amount, 0) as t32
+			         from (select n.city,
+			                      count(*) co,
+			                      sum(n.project_amount)  project_amount
+			                 from (select distinct t.process_instance_id
+			                         from pnr_act_transfer_office_handle t
+			                        where @check_time@
+			                          and t.link_name = 'provinceLineExamine') ac
+			                 left join pnr_act_transfer_office_main n
+			                   on ac.process_instance_id = n.process_instance_id
+			                  and n.themeinterface in ('overhaul', 'reform')
+			                where n.city is not null
+			                group by n.city
+			                 ) temp
+			        right join taw_system_area a
+			           on temp.city = a.areaid
+			        where a.parentareaid = '28') p1, -- 审核工单数 审核金额  大修改造
+			        (select a.areaid,
+			                nvl(co, 0) as t33,
+			                nvl(temp.project_amount, 0) as t34
+			           from (select n.city,
+			                        count(*) co,
+			                        sum(n.project_amount) project_amount
+			                   from (select distinct t.process_instance_id
+			                           from pnr_act_transfer_office_handle t
+			                          where @check_time@
+			                            and t.link_name = 'provinceLineExamine') ac
+			                   left join pnr_act_transfer_office_main n
+			                     on ac.process_instance_id = n.process_instance_id
+			                    and n.themeinterface in ('overhaul', 'reform')
+			                    and @distributed_interface_time@
+			                  where n.city is not null
+			                  group by n.city
+			                   ) temp
+			          right join taw_system_area a
+			             on temp.city = a.areaid
+			          where a.parentareaid = '28') q1, -- 批复工单  批复金额  大修改造
+			        (select a.areaid,
+			             nvl(co, 0) as t35,
+			             nvl(temp.project_amount, 0) as t36
+			        from (select n.city,
+			                     count(*) co,
+			                     sum(n.project_amount) project_amount
+			                from (select distinct t.process_instance_id
+			                        from pnr_act_transfer_office_handle t
+			                       where @check_time@
+			                         and t.link_name = 'provinceLineExamine') ac
+			                left join pnr_act_transfer_office_main n
+			                  on ac.process_instance_id = n.process_instance_id
+			                 and n.themeinterface in ('overhaul', 'reform')
+			                 and n.distributed_interface_time is null
+			               where n.city is not null
+			               group by n.city
+			                ) temp
+			       right join taw_system_area a
+			          on temp.city = a.areaid
+			       where a.parentareaid = '28')  r1, -- 延缓批复工单数  延缓批复金额  大修改造
+			       (select a.areaid,
+			             nvl(co, 0) as t37,
+			             nvl(temp.project_amount, 0) as t38
+			        from (select n.city,
+			                     count(*) co,
+			                     sum(n.project_amount) project_amount
+			                from (select distinct t.process_instance_id
+			                        from pnr_act_transfer_office_handle t
+			                       where @check_time@
+			                         and t.link_name in
+			                             ('provinceLineExamine',
+			                              'provinceManageExamine',
+			                              'provinceLineViceAudit')
+			                         and t.operation = '02') ac
+			                left join pnr_act_transfer_office_main n
+			                  on ac.process_instance_id = n.process_instance_id
+			                 and n.themeinterface in ('overhaul', 'reform')
+			               where n.city is not null
+			               group by n.city
+			                ）temp
+			               right join taw_system_area a
+			                  on temp.city = a.areaid
+			               where a.parentareaid = '28') s1,  -- 驳回工单数  驳回金额 大修改造
+			         (select a.areaid,
+			                 nvl(co, 0) as t39,
+			                 nvl(temp.project_amount, 0) as t40
+			            from (select n.city, count(*) co, sum(n.project_amount) project_amount
+			                    from pnr_act_transfer_office_main n
+			                   where n.themeinterface in ('overhaul', 'reform')
+			                     and @distributed_interface_time@
+			                     and n.city is not null
+			                   group by n.city
+						) temp
+			           right join taw_system_area a
+			              on temp.city = a.areaid
+			           where a.parentareaid = '28') t1  -- 当月审批  当月审批金额  大修改造
+			           where 	a1.areaid=b1.areaid
+			           		 	and b1.areaid=c1.areaid
+								and c1.areaid=d1.areaid
+								and d1.areaid=e1.areaid
+								and e1.areaid=f1.areaid
+								and f1.areaid=g1.areaid
+								and g1.areaid=h1.areaid
+								and h1.areaid=i1.areaid
+								and i1.areaid=j1.areaid
+								and j1.areaid=k1.areaid
+								and k1.areaid=l1.areaid
+								and l1.areaid=m1.areaid
+								and m1.areaid=n1.areaid
+								and n1.areaid=o1.areaid
+								and o1.areaid=p1.areaid
+								and p1.areaid=q1.areaid
+								and q1.areaid=r1.areaid
+								and r1.areaid=s1.areaid
+								and s1.areaid=t1.areaid
+							order by a1.areaid
+			          
+		]]>
+	</byArea>
+</sheetQuery>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.baseinfo.model.PnrStandardConfig" table="pnr_standard_config">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+				<property name="areaId" column="area_id"/>
+				<property name="areaName" column="area_name"/>
+				<property name="provinceId" column="province_id"/>
+				<property name="cityId" column="city_id"/>
+				<property name="countryId" column="country_id"/>
+				<property name="professional" column="professional"/>
+				<property name="sourceType" column="source_type"/>
+				<property name="sourceDw" column="source_dw"/>
+				<property name="configType" column="config_type"/>
+				<property name="configDw" column="config_dw"/>
+				<property name="standardConfig" column="standard_config"/>
+				<property name="addUser" column="add_user"/>
+				<property name="isdeleted" column="isdeleted"/>
+				<property name="remark" column="remark"/>
+				<property name="saveTime" column="save_time"/>
+    </class>    
+</hibernate-mapping>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+
+>
+
+    <class
+            name="com.boco.eoms.partner.tranEva.model.TranKpiConfig"
+            table="tran_kpi_config"
+    >
+
+    <id
+        name="id"
+            column="id"
+            unsaved-value="null"
+    >
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+
+    </id>
+
+	<property
+            name="kpiId"
+            	column="kpi_id"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="nodeId"
+            	column="node_id"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="nodeType"
+            	column="node_type"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="minValue"
+            	column="min_value"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="maxValue"
+            	column="max_value"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="valueConfig"
+            	column="value_config"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="weight"
+            	column="weight"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="remark"
+            	column="remark"
+                length="255"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="numRelation"
+            	column="num_relation"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="numConfig"
+            	column="num_config"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="algorithm"
+            	column="algorithm"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+        <property
+            name="parentNodeId"
+            	column="parent_node_id"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+        
+        <property
+            name="leaf"
+            	column="leaf"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+        
+    </class>    
+
+</hibernate-mapping>
+

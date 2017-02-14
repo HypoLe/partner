@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+    <hibernate-mapping>
+                     
+    	<class name="com.boco.eoms.deviceManagement.faultSheet.model.FaultSheetManagement" table="dm_faultSheetManagement ">
+		<id name="id" column="id">
+   			<generator class="uuid.hex" />
+   		</id>	
+		<property name="work_OrderNo"  />
+		<property name="faultState" />	
+		<property name="themess" />
+  		<property name="operatePerson" />
+  		<property name="operatePerson_Department" />	
+  		<property name="operatePerson_Contact" />
+  		<property name="operatePerson_Rule" />
+  		<property name="operateTime" />	
+  		<property name="attachment" />
+  		<property name="detailment_Object" />
+  		<property name="processLimited" />
+  		<property name="stationNo" />
+  		<property name="base_Station_Location" />
+  		<property name="bscNo" />
+  		<property name="bcfNo" />
+		<property name="base_Station_Name" />
+		<property name="task_Sources" />
+		<property name="task_Profession" />
+		<property name="task_Subclass" />
+		<property name="importance" />
+		<property name="work_Order_Type" />	
+		<property name="techniqueDifficulty" />
+		<property name="coordinateDifficulty" />
+		<property name="faultStartTime" />
+		<property name="faultEndTime" />
+		<property name="file_TimeLimit" />
+		<property name="faultType" />
+		<property name="faultDescription" />	
+		<property name="recovery_Processing_Result" />
+		<property name="fault_Handling_Suggestions" />	
+		<property name="deleteTime"></property>	
+		<property name="idDeleted"></property>
+		<property name="remark1" />
+		<property name="remark2" />
+		<property name="remark3" />		
+		<property name="remark4" />	
+		<property name="detailment_dept"></property>	
+		<property name="receivedtimelimited"></property>	
+		<property name="areInTimeReceived"></property>
+		<property name="areInTimeComplete"></property>
+    </class>    
+</hibernate-mapping>

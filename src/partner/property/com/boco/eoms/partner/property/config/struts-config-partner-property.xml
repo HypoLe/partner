@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+  <!-- ========== Form Bean Definitions =================================== -->
+  <form-beans>
+	<form-bean name="pnrPropertyAgreementForm" type="com.boco.eoms.partner.property.webapp.form.PnrPropertyAgreementForm" />
+	<form-bean name="pnrElectricityBillsForm" type="com.boco.eoms.partner.property.webapp.form.PnrElectricityBillsForm" />
+	<form-bean name="pnrRentBillsForm" type="com.boco.eoms.partner.property.webapp.form.PnrRentBillsForm" />
+  </form-beans>
+  <!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general" handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler"/>
+	</global-exceptions>
+
+  <!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward name="mainMenu" path="/mainMenu.html" redirect="true"/>
+		<forward name="success" path="/common/success.jsp" redirect="false" contextRelative="true" />
+		<forward name="fail" path="/common/failure.jsp" redirect="false" contextRelative="true" />
+	</global-forwards>
+  <!-- ========== Action Mapping Definitions =================================== -->
+   <action-mappings>
+   	<!-- 电费费用记录 -->
+		<action
+			path="/electricity"
+			type="com.boco.eoms.partner.property.webapp.action.PnrElectricityBillsAction"
+			scope="request"
+			input="list"
+			parameter="method"
+			unknown="false"
+			validate="false"
+    	>
+			<set-property property="cancellable" value="true" />
+			<forward
+				contextRelative="true"
+				name="gotoAddPnrElectricityBillsPage"
+				path="/WEB-INF/pages/partner/property/pnrElectricityBillsForm.jsp"
+				redirect="false"
+			/>
+			<forward
+			    contextRelative="true"
+			    name="gotoEditPnrElectricityBillsPage"
+			    path="/WEB-INF/pages/partner/property/pnrElectricityBillsForm.jsp"
+			    redirect="false"
+			/>
+			<forward
+			    contextRelative="true"
+			    name="gotoPnrElectricityBillsListPage"
+			    path="/WEB-INF/pages/partner/property/pnrElectricityBillsList.jsp"
+			    redirect="false"
+			/>
+			<forward
+			    contextRelative="true"
+			    name="gotoPnrElectricityBillsDetailPage"
+			    path="/WEB-INF/pages/partner/property/pnrElectricityBillsDetail.jsp"
+			    redirect="false"
+			/>
+		</action> 
+	<!-- 租金费用记录 -->
+	<action
+			path="/rent"
+			type="com.boco.eoms.partner.property.webapp.action.PnrRentBillsAction"
+			scope="request"
+			input="list"
+			parameter="method"
+			unknown="false"
+			validate="false"
+   	>
+		<set-property property="cancellable" value="true" />
+		<forward
+			contextRelative="true"
+			name="gotoAddPnrRentBillsPage"
+			path="/WEB-INF/pages/partner/property/pnrRentBillsForm.jsp"
+			redirect="false"
+		/>
+		<forward
+		    contextRelative="true"
+		    name="gotoEditPnrRentBillsPage"
+		    path="/WEB-INF/pages/partner/property/pnrRentBillsForm.jsp"
+		    redirect="false"
+		/>
+		<forward
+		    contextRelative="true"
+		    name="gotoPnrRentBillsListPage"
+		    path="/WEB-INF/pages/partner/property/pnrRentBillsList.jsp"
+		    redirect="false"
+		/>
+		<forward
+		    contextRelative="true"
+		    name="gotoPnrRentBillsDetailPage"
+		    path="/WEB-INF/pages/partner/property/pnrRentBillsDetail.jsp"
+		    redirect="false"
+		/>
+	</action>
+	<!-- 物业合同 -->
+	<action
+			path="/agreement"
+			type="com.boco.eoms.partner.property.webapp.action.PnrPropertyAgreementAction"
+			scope="request"
+			input="list"
+			parameter="method"
+			unknown="false"
+			validate="false"
+    	>
+			<set-property property="cancellable" value="true" />
+			<forward
+				contextRelative="true"
+				name="gotoAddPnrPropertyAgreementPage"
+				path="/WEB-INF/pages/partner/property/pnrPropertyAgreementForm.jsp"
+				redirect="false"
+			/>
+			<forward
+			    contextRelative="true"
+			    name="gotoEditPnrPropertyAgreementPage"
+			    path="/WEB-INF/pages/partner/property/pnrPropertyAgreementForm.jsp"
+			    redirect="false"
+			/>
+			<forward
+			    contextRelative="true"
+			    name="gotoPnrPropertyAgreementListPage"
+			    path="/WEB-INF/pages/partner/property/pnrPropertyAgreementList.jsp"
+			    redirect="false"
+			/>
+			<forward
+			    contextRelative="true"
+			    name="gotoPnrPropertyAgreementDetailPage"
+			    path="/WEB-INF/pages/partner/property/pnrPropertyAgreementDetail.jsp"
+			    redirect="false"
+			/>
+		</action> 
+  </action-mappings>
+
+	<controller nocache="true" inputForward="true" maxFileSize="2M"/>
+	<message-resources parameter="com/boco/eoms/parter/baseinfo/config/ApplicationResources-parter-baseinfo-carmgr"/>
+	<!-- ========== Validator plugin ===================  -->
+	<!--
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+	    <set-property property="pathnames" value="/WEB-INF/validator-rules.xml,/WEB-INF/validator-rules-custom.xml,/WEB-INF/validation.xml"/>
+	</plug-in>
+	-->
+</struts-config>

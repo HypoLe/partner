@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.boco.eoms.deviceManagement.busi.protectline.model.ProteclineLink"
+		table="dm_protectline_link">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="mainId" />                 
+		<property name="mainType" />               
+		<property name="actionSendUser" />         
+		<property name="actionReceiveUser" />      
+		<property name="actionStep" />             
+		<property name="actionStepExplain" />      
+		<property name="actionHappenTime" />       
+		<property name="actionIdea" />             
+		<property name="actionAttachment" /> 
+		<property name="currentStatus" /> 
+		<property name="remark" /> 
+
+	</class>
+</hibernate-mapping>

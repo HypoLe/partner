@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 铁塔-IrmsTowerTower -->
+	<bean id="irmsTowerTowerMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.tower.IrmsTowerTowerMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 天线-IrmsTowerAnt -->
+	<bean id="irmsTowerAntMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.tower.IrmsTowerAntMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+</beans>

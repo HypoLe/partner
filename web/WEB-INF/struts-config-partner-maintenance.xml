@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+		<!-- 抽查记录 -->
+		<form-bean name="checkForm"
+			type="com.boco.eoms.partner.maintenance.webapp.form.CheckForm" />
+		<form-bean name="gridKPIMonthForm"
+			type="com.boco.eoms.partner.maintenance.webapp.form.GridKPIMonthForm" />
+		<form-bean name="gridKPIYearForm"
+			type="com.boco.eoms.partner.maintenance.webapp.form.GridKPIYearForm" />
+		<form-bean name="gridSatisfactionForm"
+			type="com.boco.eoms.partner.maintenance.webapp.form.GridSatisfactionForm" />
+		<form-bean name="serviceSpeedForm"
+			type="com.boco.eoms.partner.maintenance.webapp.form.ServiceSpeedForm" />
+		<!-- 问题跟踪 -->
+		<form-bean name="problemForm"
+			type="com.boco.eoms.partner.maintenance.webapp.form.ProblemForm" />
+		<!-- 异常故障 -->
+		<form-bean name="malfunctionForm"
+			type="com.boco.eoms.partner.maintenance.webapp.form.MalfunctionForm" />
+
+	</form-beans>
+
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward name="success" path="/common/success.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="nopriv" path="/common/nopriv.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="fail" path="/common/failure.jsp" redirect="false"
+			contextRelative="true" />
+	</global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+
+	<action-mappings>
+		<!-- 抽查记录 -->
+		<action path="/checks"
+			type="com.boco.eoms.partner.maintenance.webapp.action.CheckAction"
+			name="checkForm" scope="request" input="mainMenu" parameter="method"
+			unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/maintenance/check/checkForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/maintenance/check/checkList.jsp"
+				redirect="false" contextRelative="true" />
+
+			<forward name="search"
+				path="/partner/maintenance/checks.do?method=search" redirect="true"
+				contextRelative="true" />
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/maintenance/check/checkDetail.jsp"
+				redirect="false" contextRelative="true" />
+
+		</action>
+
+		<action path="/gridKPIMonths"
+			type="com.boco.eoms.partner.maintenance.webapp.action.GridKPIMonthAction"
+			name="gridKPIMonthForm" scope="request" input="mainMenu"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/maintenance/gridKPIMonth/gridKPIMonthForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/maintenance/gridKPIMonth/gridKPIMonthList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="search"
+				path="/partner/maintenance/gridKPIMonths.do?method=search"
+				redirect="true" contextRelative="true" />
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/maintenance/gridKPIMonth/gridKPIMonthDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="stat"
+				path="/WEB-INF/pages/partner/maintenance/gridKPIMonth/gridKPIMonthStat.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="statyear"
+				path="/WEB-INF/pages/partner/maintenance/gridKPIMonth/gridKPIStatyear.jsp"
+				redirect="false" contextRelative="true" />											  
+		</action>
+
+		<action path="/gridKPIYears"
+			type="com.boco.eoms.partner.maintenance.webapp.action.GridKPIYearAction"
+			name="gridKPIYearForm" scope="request" input="mainMenu"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/maintenance/gridKPIYear/gridKPIYearForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/maintenance/gridKPIYear/gridKPIYearList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="search"
+				path="/partner/maintenance/gridKPIYears.do?method=search"
+				redirect="true" contextRelative="true" />
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/maintenance/gridKPIYear/gridKPIYearDetail.jsp"
+				redirect="false" contextRelative="true" />	
+		</action>
+
+		<action path="/gridSatisfactions"
+			type="com.boco.eoms.partner.maintenance.webapp.action.GridSatisfactionAction"
+			name="gridSatisfactionForm" scope="request" input="mainMenu"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/maintenance/gridSatisfaction/gridSatisfactionForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/maintenance/gridSatisfaction/gridSatisfactionList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="query"
+			  path="/WEB-INF/pages/partner/maintenance/gridSatisfaction/gridSatisfactionQuery.jsp"
+			  redirect="false" contextRelative="true"/>	
+			<forward name="search"
+				path="/partner/maintenance/gridSatisfactions.do?method=search"
+				redirect="true" contextRelative="true" />
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/maintenance/gridSatisfaction/gridSatisfactionDetail.jsp"
+				redirect="false" contextRelative="true" />								  		  
+		</action>
+
+		<action path="/serviceSpeeds"
+			type="com.boco.eoms.partner.maintenance.webapp.action.ServiceSpeedAction"
+			name="serviceSpeedForm" scope="request" input="mainMenu"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/maintenance/serviceSpeed/serviceSpeedForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/maintenance/serviceSpeed/serviceSpeedList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="query"
+			  path="/WEB-INF/pages/partner/maintenance/serviceSpeed/serviceSpeedQuery.jsp"
+			  redirect="false" contextRelative="true"/>
+			<forward name="search"
+				path="/partner/maintenance/serviceSpeeds.do?method=search"
+				redirect="true" contextRelative="true" />
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/maintenance/serviceSpeed/serviceSpeedDetail.jsp"
+				redirect="false" contextRelative="true" />				  				  
+		</action>
+
+
+		<!-- 问题跟踪 -->
+		<action path="/problems"
+			type="com.boco.eoms.partner.maintenance.webapp.action.ProblemAction"
+			name="problemForm" scope="request" input="mainMenu"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/maintenance/problem/problemForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/maintenance/problem/problemList.jsp"
+				redirect="false" contextRelative="true" />
+
+			<forward name="search"
+				path="/partner/maintenance/problems.do?method=search"
+				redirect="true" contextRelative="true" />
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/maintenance/problem/problemDetail.jsp"
+				redirect="false" contextRelative="true" />
+
+		</action>
+
+		<!-- 异常故障 -->
+		<action path="/malfunctions"
+			type="com.boco.eoms.partner.maintenance.webapp.action.MalfunctionAction"
+			name="malfunctionForm" scope="request" input="mainMenu"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/maintenance/malfunction/malfunctionForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/maintenance/malfunction/malfunctionList.jsp"
+				redirect="false" contextRelative="true" />
+
+			<forward name="search"
+				path="/partner/maintenance/malfunctions.do?method=search"
+				redirect="true" contextRelative="true" />
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/maintenance/malfunction/malfunctionDetail.jsp"
+				redirect="false" contextRelative="true" />
+
+		</action>
+
+	</action-mappings>
+	<controller nocache="true" inputForward="true" maxFileSize="2M" />
+	<message-resources parameter="config/ApplicationResources" />
+	<!-- ========== Validator plugin ===================  -->
+	<!-- 
+		<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+		value="/WEB-INF/validator-rules.xml,
+		/WEB-INF/validator-rules-custom.xml,
+		/WEB-INF/validation.xml" />
+		</plug-in>
+	-->
+</struts-config>

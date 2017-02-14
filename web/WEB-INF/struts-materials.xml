@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+
+	<form-beans>
+	  <form-bean
+        name="storeInventory"
+        type="com.boco.eoms.materials.model.StoreInventory"
+      />
+     <form-bean
+        name="storeInput"
+        type="com.boco.eoms.materials.model.StoreInput"
+      />
+      <form-bean
+        name="material"
+        type="com.boco.eoms.materials.model.Material"
+      />
+       <form-bean
+        name="billMaterial"
+        type="com.boco.eoms.materials.model.BillMaterial"
+      />
+       <form-bean
+        name="storeOut"
+        type="com.boco.eoms.materials.model.StoreOut"
+      />
+       <form-bean
+        name="storeAllot"
+        type="com.boco.eoms.materials.model.StoreAllot"
+      />
+       <form-bean
+        name="store"
+        type="com.boco.eoms.materials.model.Store"
+      />
+	</form-beans>
+	<!-- ========== Global Exceptions Definitions =================================== -->
+      <global-exceptions>
+        <exception type="java.lang.Exception"
+            key="errors.general"
+            handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler"/>
+    </global-exceptions>
+
+  <!-- ========== Global Forward Definitions =================================== -->
+      <global-forwards>
+		<forward
+          name="success"
+          path="/common/success.jsp"
+          redirect="false"
+          contextRelative="true"
+      	/>
+      	<forward
+          name="fail"
+          path="/common/fail.jsp"
+          redirect="false"
+          contextRelative="true"
+      	/>
+      
+    </global-forwards>
+	<!-- ========== Action Mapping Definitions =================================== -->
+	<action-mappings>
+	
+	
+	
+    <!--库存 -->
+    <action path="/storeInventory"
+			type="com.boco.eoms.materials.webapp.action.StoreInventoryAction"
+			name="storeInventory" 
+			scope="request" 
+			input="mainMenu"
+			parameter="method" 
+			unknown="false" 
+			validate="false">
+			<set-property property="cancellable" value="true" />
+			
+			<forward name="view"
+				path="/WEB-INF/pages/partner/materials/inventory/selectInventory.jsp"
+				redirect="false" contextRelative="true" />
+			
+		</action>    
+       <!--入库  --> 
+       
+      <action path="/storeInput"
+			type="com.boco.eoms.materials.webapp.action.StoreInputAction"
+			name="storeInput" 
+			scope="request" 
+			input="mainMenu"
+			parameter="method" 
+			unknown="false" 
+			validate="false">
+			<set-property property="cancellable" value="true" />
+			
+			
+			<forward name="goDeAuditPage"
+				path="/WEB-INF/pages/partner/materials/input/deAudit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goAuditPage"
+				path="/WEB-INF/pages/partner/materials/input/audit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="showAlterView"
+				path="/WEB-INF/pages/partner/materials/input/showAlterView.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="showDetail"
+				path="/WEB-INF/pages/partner/materials/input/showDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="storeInput"
+				path="/WEB-INF/pages/partner/materials/input/storeInput.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="showAddStoreInputView"
+				path="/WEB-INF/pages/partner/materials/input/addStoreInputView.jsp"
+				redirect="false" contextRelative="true" />
+		</action>      
+        
+         <!--出库  --> 
+       
+      <action path="/storeOut"
+			type="com.boco.eoms.materials.webapp.action.StoreOutAction"
+			name="storeOut" 
+			scope="request" 
+			input="mainMenu"
+			parameter="method" 
+			unknown="false" 
+			validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="goDeAuditPage"
+				path="/WEB-INF/pages/partner/materials/out/deAudit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goAuditPage"
+				path="/WEB-INF/pages/partner/materials/out/audit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="showAlterView"
+				path="/WEB-INF/pages/partner/materials/out/showAlterView.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="showDetail"
+				path="/WEB-INF/pages/partner/materials/out/showDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="storeOut"
+				path="/WEB-INF/pages/partner/materials/out/storeOut.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="showAddStoreOutView"
+				path="/WEB-INF/pages/partner/materials/out/addStoreOutView.jsp"
+				redirect="false" contextRelative="true" />
+		</action>  
+		    
+        <!--调拨  --> 
+       
+      <action path="/storeAllot"
+			type="com.boco.eoms.materials.webapp.action.StoreAllotAction"
+			name="storeAllot" 
+			scope="request" 
+			input="mainMenu"
+			parameter="method" 
+			unknown="false" 
+			validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="goDeAuditPage"
+				path="/WEB-INF/pages/partner/materials/allot/deAudit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goAuditPage"
+				path="/WEB-INF/pages/partner/materials/allot/audit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="showAlterView"
+				path="/WEB-INF/pages/partner/materials/allot/showAlterView.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="showDetail"
+				path="/WEB-INF/pages/partner/materials/allot/showDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="storeAllot"
+				path="/WEB-INF/pages/partner/materials/allot/storeAllot.jsp"
+				redirect="false" contextRelative="true" />
+				
+				
+			<forward name="showAddStoreAllotView"
+				path="/WEB-INF/pages/partner/materials/allot/addStoreAllotView.jsp"
+				redirect="false" contextRelative="true" />
+			
+		</action>      
+        
+        <!--材料  --> 
+       
+      <action path="/material"
+			type="com.boco.eoms.materials.webapp.action.MaterialAction"
+			name="material" 
+			scope="request" 
+			input="mainMenu"
+			parameter="method" 
+			unknown="false" 
+			validate="false">
+			<set-property property="cancellable" value="true" />
+			
+			<forward name="view"
+				path="/WEB-INF/pages/partner/materials/material/selectMaterials.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="addMaterial"
+				path="/WEB-INF/pages/partner/materials/material/addMaterial.jsp"
+				redirect="false" contextRelative="true" />
+				<forward name="inputView"
+				path="/WEB-INF/pages/partner/materials/input/addMateToInputBill.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="outView"
+				path="/WEB-INF/pages/partner/materials/out/addMateToOutBill.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="allotView"
+				path="/WEB-INF/pages/partner/materials/allot/addMateToAllotBill.jsp"
+				redirect="false" contextRelative="true" />
+		</action>  
+		
+		 <!--出入库详细清单  --> 
+       
+      <action path="/billMaterial"
+			type="com.boco.eoms.materials.webapp.action.BillMaterialAction"
+			name="billMaterial" 
+			scope="request" 
+			input="mainMenu"
+			parameter="method" 
+			unknown="false" 
+			validate="false">
+			<set-property property="cancellable" value="true" />
+			
+			<forward name="selectBill"
+				path="/WEB-INF/pages/partner/materials/bill/selectBill.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inputView"
+				path="/WEB-INF/pages/partner/materials/input/addMateToInputBill.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="outView"
+				path="/WEB-INF/pages/partner/materials/out/addMateToOutBill.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="allotView"
+				path="/WEB-INF/pages/partner/materials/allot/addMateToAllotBill.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="showAddStoreInputView"
+				path="/WEB-INF/pages/partner/materials/input/addStoreInputView.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="showAddStoreOutView"
+				path="/WEB-INF/pages/partner/materials/out/addStoreOutView.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="showAddStoreAllotView"
+				path="/WEB-INF/pages/partner/materials/allot/addStoreAllotView.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="storeInput"
+				path="/WEB-INF/pages/partner/materials/input/storeInput.jsp"
+				redirect="false" contextRelative="true" />
+			
+			<forward name="showInputAlterView"
+				path="/WEB-INF/pages/partner/materials/input/showAlterView.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="showOutAlterView"
+				path="/WEB-INF/pages/partner/materials/out/showAlterView.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="showAllotAlterView"
+				path="/WEB-INF/pages/partner/materials/allot/showAlterView.jsp"
+				redirect="false" contextRelative="true" />
+		</action>  
+		
+		<!-- <action
+      path="/storeInventory"
+      type="com.boco.eoms.materials.webapp.action.StoreInventoryAction"
+      name="storeInventorys"
+      scope="request"
+      input="mainMenu"
+      parameter="method"
+      unknown="false"
+      validate="false"
+    >
+      <set-property
+        property="cancellable"
+        value="true"
+      />
+      <forward
+        name="edit"
+        path="/WEB-INF/pages/partner/job/tawCommonsJobconfig/tawCommonsJobconfigForm.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      <forward
+        name="list"
+        path="/WEB-INF/pages/partner/job/tawCommonsJobconfig/tawCommonsJobconfigList.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      <forward
+        name="search"
+        path="/tawCommonsJobconfigs.do"
+        redirect="true"
+      />
+    </action>
+    -->
+
+	</action-mappings>
+	
+	<controller nocache="true" inputForward="true" maxFileSize="2M" />	 
+	 <message-resources parameter="com/boco/eoms/commons/job/config/ApplicationResources-job" />
+
+     <!-- ========== Validator plugin =================== -->
+  
+      
+    <!-- <plug-in
+		className="com.boco.eoms.commons.job.plugin.InitSchedulerPlugin" />
+		
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property property="pathnames" 
+                      value="/WEB-INF/validator-rules.xml,
+                             /WEB-INF/validator-rules-custom.xml,
+                             /WEB-INF/validation.xml"/>
+
+    </plug-in> -->
+    <!-- 
+   <plug-in className="com.boco.eoms.commons.job.plugin.InitImPlugin"></plug-in> -->
+</struts-config>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+
+>
+
+    <class
+            name="com.boco.eoms.partner.deviceAssess.model.BigFault"
+            table="pnr_deviceAssess_bigFault"
+    >
+
+    <id
+        name="id"
+            column="id"
+            unsaved-value="null"
+    >
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+
+    </id>
+
+	<property
+            name="sheetNum"
+            	column="sheet_Num"
+                length="64"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="createTime"
+            	column="create_Time"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="pigeonholeTime"
+            	column="pigeonhole_Time"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="bigFaultName"
+            	column="big_Fault_Name"
+                length="64"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="bigFaultNo"
+            	column="big_Fault_No"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="province"
+            	column="province"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="city"
+            	column="city"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="factory"
+            	column="factory"
+                length="64"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="speciality"
+            	column="speciality"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="equipmentType"
+            	column="equipment_Type"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="equipmentName"
+            	column="equipment_Name"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="equipmentVersion"
+            	column="equipment_Version"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="beginTime"
+            	column="begin_Time"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="resumeTime"
+            	column="resume_Time"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="removeTime"
+            	column="remove_Time"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="resumeLong"
+            	column="resume_Long"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="faultLong"
+            	column="fault_Long"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="amount"
+            	column="amount"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="total"
+        >
+
+        </property>
+        
+    </class>    
+
+</hibernate-mapping>
+

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="GBK"?>
+<dicts description="考核字典">
+	<dict id="cycle" description="考核周期">
+		<item id="year" name="年" description="年" />
+		<item id="quarter" name="季度" description="季度" />
+		<item id="month" name="月" description="月" />
+		<!-- item id="week" name="周" description="周" /-->
+	</dict>
+	<dict id="orgType" description="组织类型">
+		<item id="subRole" name="角色" description="角色" />
+		<item id="dept" name="部门" description="部门" />
+		<item id="user" name="用户" description="用户" />
+	</dict>
+	<dict id="templateStatus" description="模板状态">
+		<!-- item id="template_draft" name="草稿" description="草稿" /-->
+		<item id="template_distributed" name="已下发" description="已下发" />
+		<item id="template_audit_wait" name="待审核" description="待审核" />
+		<item id="template_reported" name="已上报" description="已上报（审核通过）" />
+		<item id="template_audit_reject" name="驳回" description="驳回" />
+	</dict>
+	<dict id="activated" description="激活状态">
+		<item id="0" name="未激活" description="未激活" />
+		<item id="1" name="已激活" description="已激活" />
+	</dict>
+	<dict id="sumType" description="汇总方式×××××">
+		<item id="0" name="直接得分" description="直接得分" />
+		<item id="1" name="短板得分" description="短板得分" />
+		<item id="2" name="维护比例" description="维护比例" />
+	</dict>
+	<dict id="isImpersonal" description="是否客观评价">
+		<item id="0" name="是" description="是" />
+		<item id="1" name="否" description="否" />
+	</dict>
+	<dict id="evaluationPhase" description="评估阶段">
+		<item id="0" name="售前" description="售前" />
+		<item id="1" name="售中" description="售中" />
+		<item id="2" name="售后" description="售后" />
+	</dict>
+	<dict id="auditFlag" description="模板审核状态">
+		<item id="0" name="未送审" description="未送审" />
+		<item id="1" name="待审核" description="待审核" />
+		<item id="2" name="通过" description="通过" />
+		<item id="3" name="驳回" description="驳回" />
+	</dict>
+	<dict id="professional" description="所属专业">
+		<item id="0" name="专业1" description="专业1" />
+		<item id="1" name="专业2" description="专业2" />
+		<item id="2" name="专业3" description="专业3" />
+	</dict>
+	<dict id="dataSource" description="数据来源">
+		<item id="0" name="手工" description="手工" />
+		<item id="1" name="自动" description="自动" />
+	</dict>
+	<dict id="executeType" description="考核层面">
+		<item id="0" name="省" description="省" />
+		<item id="1" name="地市" description="地市" />
+		<item id="2" name="县" description="县" />
+	</dict>
+	<dict id="weightLocked" description="锁定权重">
+		<item id="0" name="开放" description="开放" />
+		<item id="1" name="锁定" description="锁定" />
+	</dict>
+	
+	<dict id="auditType" description="审核类型">
+		<item id="0" name="新增" description="新增" />
+		<item id="1" name="修改" description="修改" />
+	</dict>
+	<dict id="auditOrgType" description="审核者类型">
+		<item id="person" name="个人" description="个人" />
+		<item id="dept1" name="部门1" description="部门1" />
+		<item id="dept2" name="部门2" description="部门2" />
+	</dict>
+	<dict id="auditResult" description="审核">
+		<item id="2" name="通过" description="通过" />
+		<item id="3" name="驳回" description="驳回" />
+	</dict>
+</dicts>
+
+

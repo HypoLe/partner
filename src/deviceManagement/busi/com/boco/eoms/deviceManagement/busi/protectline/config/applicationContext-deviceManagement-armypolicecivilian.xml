@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!--
+		This is a real generic dao for nop3 standard CRUD only.By Steve Start,
+		July,2011
+	-->
+
+	<bean id="armyPoliceCivilianDao" class="com.boco.eoms.deviceManagement.busi.protectline.dao.impl.ArmyPoliceCivilianImpl"
+		autowire="byName" />
+
+
+	<bean id="armyPoliceCivilianService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.deviceManagement.busi.protectline.service.impl.ArmyPoliceCivilianServiceImpl">
+				<property name="armyPoliceCiviliandao" ref="armyPoliceCivilianDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	
+</beans>

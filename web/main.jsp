@@ -1,0 +1,93 @@
+<%@ page language="java" pageEncoding="UTF-8" %>
+<%@ include file="/common/taglibs.jsp"%>
+<%@page import="com.boco.eoms.base.util.*" %>
+<%@page import="com.boco.eoms.commons.system.priv.bo.TawSystemPrivAssignOut" %>
+<%@page import="com.boco.eoms.commons.system.session.form.TawSystemSessionForm" %>
+<%@page import="com.boco.eoms.commons.log.service.logSave" %>
+<%@page import="com.boco.eoms.commons.system.priv.service.*" %>
+<%@page import="com.boco.eoms.commons.system.priv.model.*" %>
+<%@page import="java.util.*" %>
+<%@page import="com.boco.eoms.commons.system.priv.cache.OperationCache" %>
+<%@page import="com.boco.eoms.sequence.ISequenceFacade" %>
+<%@page import="com.boco.eoms.sequence.util.SequenceLocator" %>
+<%@page import="com.boco.eoms.sequence.Sequence" %>
+<%@page import="com.boco.eoms.sequence.exception.SequenceNotFoundException" %>
+<%@ include file="/common/header_eoms_ext.jsp"%>
+<%
+TawSystemSessionForm sessionform = (TawSystemSessionForm) request
+				.getSession().getAttribute("sessionform");
+String userid = sessionform.getUserid();
+String discrip = userid + " 于" + StaticMethod.getCurrentDateTime() + " 登录模块.";
+String menuId = StaticMethod.null2String(request.getParameter("id"));
+TawSystemPrivAssignOut mgr = TawSystemPrivAssignOut.getInstance();
+String menuName = mgr.getNameBycode(menuId);
+ITawSystemPrivOperationManager operationmanager = (ITawSystemPrivOperationManager) ApplicationContextHolder
+		.getInstance().getBean("ItawSystemPrivOperationManager");
+//List list = operationmanager.getAllFatherModules(menuId);
+List list = OperationCache.loadAllFatherModuels(menuId);
+int length = list.size();
+String operid = "";
+if(length>0){
+TawSystemPrivOperation tawSystemPrivOperation = (TawSystemPrivOperation)list.get(length-1);
+operid = tawSystemPrivOperation.getCode();
+}else{
+operid=menuId;
+}
+logSave log = logSave.getInstance(menuName, userid, operid,request.getRemoteAddr(), discrip,menuId); 
+String sequenceOpen = StaticMethod
+.null2String(((EOMSAttributes) ApplicationContextHolder
+		.getInstance().getBean("eomsAttributes"))
+		.getSequenceOpen());
+	if ("true".equals(sequenceOpen)) {
+	// 初始化队列
+	ISequenceFacade sequenceFacade = SequenceLocator
+			.getSequenceFacade();
+	Sequence savelogSequence = null;
+	try {
+		savelogSequence = sequenceFacade.getSequence("savelog");
+	} catch (SequenceNotFoundException e) {
+		e.printStackTrace();
+	}			
+	// 把action撇队列里
+	sequenceFacade.put(log, "info", 
+			null,
+			null, null,
+			savelogSequence);
+	savelogSequence.setChanged();
+	sequenceFacade.doJob(savelogSequence);
+} else {
+	log.info();
+}
+
+%>
+<script type="text/javascript" src="${app}/scripts/layout/main.js"></script>
+<script type="text/javascript">
+	var config = {
+		treeGetNodeUrl:"${app}/xtree.do?method=nav<c:if test='${param.Token!=null}'>&Token=<%=request.getParameter("Token")%></c:if>",
+		treeRootId:"${param.id}",
+		treeRootText:"<%=menuName%>",
+		scheme:"${scheme}",
+		serverName:"${serverName}",
+		log : true /*是否记录树图点击信息*/
+	};
+	Ext.onReady(mainLayout);
+</script>
+<style type="text/css">
+#classes{
+	padding:5px;
+	overflow:auto;
+	background:url(${app}/styles/default/images/panlebg.gif) repeat-x left bottom;
+}
+.x-tree-node a:hover, .x-tree-node a:hover span{
+	text-decoration:underline;
+}	
+</style>
+
+<div id="classes" class="x-layout-inactive-content">
+	<div id="classes-body"></div>
+</div>
+
+
+<iframe id="pages" name="pages" frameborder="0" src="${app}/welcome.jsp?menuId=<%=menuId %>" width="0" height="0"></iframe>
+
+<%@ include file="/common/footer_eoms.jsp"%>

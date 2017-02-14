@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.boco.eoms.deviceManagement.busi.network.model.HiddenTrouble"
+		table="dm_network_hiddentrouble">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+
+		<property name="reportUser"/>                        
+		<property name="areaId"/>                            
+		<property name="hiddenTroubleType"/>  
+		<property name="isImportant"/>                       
+		<property name="majorType"/>                         
+		<property name="checkPoint"/>                        
+		<property name="longitude"/>                         
+		<property name="latitude"/>                          
+		<property name="reportTime"/>                        
+		<property name="checkUser"/>                         
+		<property name="checkUserDept"/>                     
+		<property name="phone"/>                             
+		<property name="email"/>                             
+		<property name="processStatus"/>                     
+		<property name="processUser"/>                       
+		<property name="handlTime"/>                         
+		<property name="handleMsg"/>                         
+		<property name="deleted"/>                           
+		<property name="deletedTime"/>                       
+		<property name="remark"/>         
+
+	</class>
+</hibernate-mapping>

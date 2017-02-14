@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+
+>
+
+<class name="com.boco.eoms.task.model.TaskAccessories" table="task_accessories">
+
+    <id
+        name="id"
+            column="id"
+            unsaved-value="null"
+    >
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+
+    </id>
+
+	<property
+            name="fileName"
+            	column="file_name"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+
+	</property>
+
+	<property
+            name="mappingName"
+            	column="mapping_name"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+
+	</property>
+
+	<property
+            name="fileSize"
+            	column="file_size"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+
+	</property>
+
+	<property
+            name="filePath"
+            	column="file_path"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+
+	</property>
+
+	<property
+            name="uploader"
+            	column="uploader"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+
+	</property>
+
+	<property
+            name="uploadTime"
+            	column="upload_time"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+	</property>
+
+</class>    
+
+</hibernate-mapping>
+

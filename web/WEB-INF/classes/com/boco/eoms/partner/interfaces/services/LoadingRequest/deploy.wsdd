@@ -1,0 +1,27 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from LoadingRequest WSDL service -->
+
+  <service name="LoadingRequestSOAPport_http" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ws.apache.org/axis2/services/LoadingRequest"/>
+      <parameter name="wsdlServiceElement" value="LoadingRequest"/>
+      <parameter name="schemaUnqualified" value="http://ws.apache.org/axis2/services/LoadingRequest/types"/>
+      <parameter name="wsdlServicePort" value="LoadingRequestSOAPport_http"/>
+      <parameter name="className" value="com.boco.eoms.partner.interfaces.services.LoadingRequest.LoadingRequestSoapBindingSkeleton"/>
+      <parameter name="wsdlPortType" value="LoadingRequestPortType"/>
+      <parameter name="typeMappingVersion" value="1.1"/>
+      <parameter name="allowedMethods" value="*"/>
+      <parameter name="scope" value="Application"/>
+
+  </service>
+</deployment>

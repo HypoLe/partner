@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="GB2312"?>
+<boco>
+    <undoSheet>
+    <![CDATA[insert into undo_TMP_VIEW_NAME SELECT 'pnrfaultdeal','故障处理工单',task.ID ,task.TASKNAME,task.TASKDISPLAYNAME,task.CREATETIME,task.TASKSTATUS,task.PROCESSID,
+		task.SHEETKEY,main.SHEETID,main.TITLE,main.sheetacceptlimit,main.sheetcompletelimit,task.OPERATEROLEID,task.TASKOWNER,task.PRELINKID,
+		task.FLOWNAME,task.CURRENTLINKID,task.SUBTASKFLAG,task.OPERATETYPE,task.PARENTTASKID,task.IFWAITFORSUBTASK,task.SUBTASKDEALFalG,task.createtime
+	FROM Pnr_FaultDeal_task task, Pnr_FaultDeal_main main 
+	WHERE (task.taskOwner='OCCU_USERID' OR task.taskOwner='OCCU_DEPTID' 
+		OR task.taskOwner IN (	OCCU_SUBROLEID )
+		) AND (task.taskStatus=2 OR task.taskStatus=8 OR task.taskStatus=1) AND
+		task.taskDisplayName<>'草稿' AND main.id=task.sheetKey AND main.deleted<>'1' AND main.status=0;
+	]]>
+	
+	 <![CDATA[insert into undo_TMP_VIEW_NAME SELECT 'pnrcomplaint','投诉工单',task.ID ,task.TASKNAME,task.TASKDISPLAYNAME,task.CREATETIME,task.TASKSTATUS,task.PROCESSID,
+		task.SHEETKEY,main.SHEETID,main.TITLE,main.sheetacceptlimit,main.sheetcompletelimit,task.OPERATEROLEID,task.TASKOWNER,task.PRELINKID,
+		task.FLOWNAME,task.CURRENTLINKID,task.SUBTASKFLAG,task.OPERATETYPE,task.PARENTTASKID,task.IFWAITFORSUBTASK,task.SUBTASKDEALFalG,task.createtime
+	FROM Pnr_complaint_task task, Pnr_complaint_main main 
+	WHERE (task.taskOwner='OCCU_USERID' OR task.taskOwner='OCCU_DEPTID' 
+		OR task.taskOwner IN (	OCCU_SUBROLEID )
+		) AND (task.taskStatus=2 OR task.taskStatus=8 OR task.taskStatus=1) AND
+		task.taskDisplayName<>'草稿' AND main.id=task.sheetKey AND main.deleted<>'1' AND main.status=0;
+	]]>
+	
+	<![CDATA[insert into undo_TMP_VIEW_NAME SELECT 'pnrcommontask','通用任务工单',task.ID ,task.TASKNAME,task.TASKDISPLAYNAME,task.CREATETIME,task.TASKSTATUS,task.PROCESSID,
+		task.SHEETKEY,main.SHEETID,main.TITLE,main.sheetacceptlimit,main.sheetcompletelimit,task.OPERATEROLEID,task.TASKOWNER,task.PRELINKID,
+		task.FLOWNAME,task.CURRENTLINKID,task.SUBTASKFLAG,task.OPERATETYPE,task.PARENTTASKID,task.IFWAITFORSUBTASK,task.SUBTASKDEALFalG,task.createtime
+	FROM Pnr_CommonTask_task task, Pnr_CommonTask_main main 
+	WHERE (task.taskOwner='OCCU_USERID' OR task.taskOwner='OCCU_DEPTID' 
+		OR task.taskOwner IN (	OCCU_SUBROLEID ) 
+		) AND (task.taskStatus=2 OR task.taskStatus=8 OR task.taskStatus=1) AND
+		task.taskDisplayName<>'草稿' AND main.id=task.sheetKey AND main.deleted<>'1' AND main.status=0;
+	]]>
+	<![CDATA[insert into undo_TMP_VIEW_NAME SELECT 'pnrhiddentrouble','隐患工单',task.ID ,task.TASKNAME,task.TASKDISPLAYNAME,task.CREATETIME,task.TASKSTATUS,task.PROCESSID,
+		task.SHEETKEY,main.SHEETID,main.TITLE,main.sheetacceptlimit,main.sheetcompletelimit,task.OPERATEROLEID,task.TASKOWNER,task.PRELINKID,
+		task.FLOWNAME,task.CURRENTLINKID,task.SUBTASKFLAG,task.OPERATETYPE,task.PARENTTASKID,task.IFWAITFORSUBTASK,task.SUBTASKDEALFalG,task.createtime
+	FROM Pnr_hiddentrouble_task task, Pnr_hiddenTrouble_main main 
+	WHERE (task.taskOwner='OCCU_USERID' OR task.taskOwner='OCCU_DEPTID' 
+		OR task.taskOwner IN (	OCCU_SUBROLEID ) 
+		) AND (task.taskStatus=2 OR task.taskStatus=8 OR task.taskStatus=1) AND
+		task.taskDisplayName<>'草稿' AND main.id=task.sheetKey AND main.deleted<>'1' AND main.status=0;
+	]]>
+	<![CDATA[insert into undo_TMP_VIEW_NAME SELECT 'pnrrescheck','资源核查工单',task.ID ,task.TASKNAME,task.TASKDISPLAYNAME,task.CREATETIME,task.TASKSTATUS,task.PROCESSID,
+		task.SHEETKEY,main.SHEETID,main.TITLE,main.sheetacceptlimit,main.sheetcompletelimit,task.OPERATEROLEID,task.TASKOWNER,task.PRELINKID,
+		task.FLOWNAME,task.CURRENTLINKID,task.SUBTASKFLAG,task.OPERATETYPE,task.PARENTTASKID,task.IFWAITFORSUBTASK,task.SUBTASKDEALFalG,task.createtime
+	FROM Pnr_ResCheck_task task, Pnr_ResCheck_main main 
+	WHERE (task.taskOwner='OCCU_USERID' OR task.taskOwner='OCCU_DEPTID' 
+		OR task.taskOwner IN (	OCCU_SUBROLEID ) 
+		) AND (task.taskStatus=2 OR task.taskStatus=8 OR task.taskStatus=1) AND
+		task.taskDisplayName<>'草稿' AND main.id=task.sheetKey AND main.deleted<>'1' AND main.status=0;
+	]]>
+	<![CDATA[insert into undo_TMP_VIEW_NAME SELECT 'pnrgenerateelectricity','发电工单',task.ID ,task.TASKNAME,task.TASKDISPLAYNAME,task.CREATETIME,task.TASKSTATUS,task.PROCESSID,
+		task.SHEETKEY,main.SHEETID,main.TITLE,main.sheetacceptlimit,main.sheetcompletelimit,task.OPERATEROLEID,task.TASKOWNER,task.PRELINKID,
+		task.FLOWNAME,task.CURRENTLINKID,task.SUBTASKFLAG,task.OPERATETYPE,task.PARENTTASKID,task.IFWAITFORSUBTASK,task.SUBTASKDEALFalG,task.createtime
+	FROM Pnr_GenerateElectricity_task task, Pnr_GenerateElectricity_main main 
+	WHERE (task.taskOwner='OCCU_USERID' OR task.taskOwner='OCCU_DEPTID' 
+		OR task.taskOwner IN (	OCCU_SUBROLEID ) 
+		) AND (task.taskStatus=2 OR task.taskStatus=8 OR task.taskStatus=1) AND
+		task.taskDisplayName<>'草稿' AND main.id=task.sheetKey AND main.deleted<>'1' AND main.status=0;
+	]]>
+    </undoSheet>
+    
+    <startedByMe>
+    <![CDATA[create  view STARTEDBYME_TMP_VIEW_NAME
+	(sheettype, sheettypename,id,sheetId,title,sheetAcceptLimit,sheetCompleteLimit,sendTime,sendOrgType,sendUserId,sendDeptId,sendRoleId,sendContact,endTime,status,endUserId,endDeptId,endRoleId,deleted,piid,parentSheetName,parentSheetId,correlationKey,parentCorrelation,toDeptId,invokeMode)
+	as
+	select 'commonfault','故障管理工单',main.id,main.sheetId,main.title,main.sheetAcceptLimit,main.sheetCompleteLimit,main.sendTime,main.sendOrgType,main.sendUserId,main.sendDeptId,main.sendRoleId,main.sendContact,main.endTime,main.status,main.endUserId,main.endDeptId,main.endRoleId,main.deleted,main.piid,main.parentSheetName,main.parentSheetId,main.correlationKey,main.parentCorrelation,main.toDeptId,main.invokeMode
+    from commonfault_main main
+    where main.sendUserId='OCCU_USERID' and  main.templateFlag <> 1 and (title is not null or title='') and main.deleted<>'1' _whereBeforeDayString_
+
+    ;insert into undo_TMP_VIEW_NAME
+    --投诉
+    select 'complaint','投诉处理工单',main.id,main.sheetId,main.title,main.sheetAcceptLimit,main.sheetCompleteLimit,main.sendTime,main.sendOrgType,main.sendUserId,main.sendDeptId,main.sendRoleId,main.sendContact,main.endTime,main.status,main.endUserId,main.endDeptId,main.endRoleId,main.deleted,main.piid,main.parentSheetName,main.parentSheetId,main.correlationKey,main.parentCorrelation,main.toDeptId,main.invokeMode
+    from complaint_main main
+    where main.sendUserId='OCCU_USERID' and  main.templateFlag <> 1 and (title is not null or title='') and main.deleted<>'1' _whereBeforeDayString_
+    ;insert into undo_TMP_VIEW_NAME
+    --新业务试点
+    select 'businesspilot','新业务试点工单',main.id,main.sheetId,main.title,main.sheetAcceptLimit,main.sheetCompleteLimit,main.sendTime,main.sendOrgType,main.sendUserId,main.sendDeptId,main.sendRoleId,main.sendContact,main.endTime,main.status,main.endUserId,main.endDeptId,main.endRoleId,main.deleted,main.piid,main.parentSheetName,main.parentSheetId,main.correlationKey,main.parentCorrelation,main.toDeptId,main.invokeMode
+    from businesspilot_main main
+    where main.sendUserId='OCCU_USERID' and  main.templateFlag <> 1 and (title is not null or title='') and main.deleted<>'1' _whereBeforeDayString_
+    ;insert into undo_TMP_VIEW_NAME
+    --新业务设计
+    select 'businessplan','新业务设计工单',main.id,main.sheetId,main.title,main.sheetAcceptLimit,main.sheetCompleteLimit,main.sendTime,main.sendOrgType,main.sendUserId,main.sendDeptId,main.sendRoleId,main.sendContact,main.endTime,main.status,main.endUserId,main.endDeptId,main.endRoleId,main.deleted,main.piid,main.parentSheetName,main.parentSheetId,main.correlationKey,main.parentCorrelation,main.toDeptId,main.invokeMode
+    from businessplan_main main
+    where main.sendUserId='OCCU_USERID' and  main.templateFlag <> 1 and (title is not null or title='') and main.deleted<>'1' _whereBeforeDayString_
+    ;insert into undo_TMP_VIEW_NAME
+    --新业务实施
+    select 'businessoperation','新业务正式实施工单',main.id,main.sheetId,main.title,main.sheetAcceptLimit,main.sheetCompleteLimit,main.sendTime,main.sendOrgType,main.sendUserId,main.sendDeptId,main.sendRoleId,main.sendContact,main.endTime,main.status,main.endUserId,main.endDeptId,main.endRoleId,main.deleted,main.piid,main.parentSheetName,main.parentSheetId,main.correlationKey,main.parentCorrelation,main.toDeptId,main.invokeMode
+    from businessoperation_main main
+    where main.sendUserId='OCCU_USERID' and  main.templateFlag <> 1 and (title is not null or title='') and main.deleted<>'1' _whereBeforeDayString_
+    ;insert into undo_TMP_VIEW_NAME
+    --电路调度
+    select 'circuitdispatch','电路调度工单',main.id,main.sheetId,main.title,main.sheetAcceptLimit,main.sheetCompleteLimit,main.sendTime,main.sendOrgType,main.sendUserId,main.sendDeptId,main.sendRoleId,main.sendContact,main.endTime,main.status,main.endUserId,main.endDeptId,main.endRoleId,main.deleted,main.piid,main.parentSheetName,main.parentSheetId,main.correlationKey,main.parentCorrelation,main.toDeptId,main.invokeMode
+    from circuitdispatch_main main
+    where main.sendUserId='OCCU_USERID' and  main.templateFlag <> 1 and (title is not null or title='') and main.deleted<>'1' _whereBeforeDayString_
+    ;insert into undo_TMP_VIEW_NAME
+    --软件变更
+    select 'softchange','软件变更工单',main.id,main.sheetId,main.title,main.sheetAcceptLimit,main.sheetCompleteLimit,main.sendTime,main.sendOrgType,main.sendUserId,main.sendDeptId,main.sendRoleId,main.sendContact,main.endTime,main.status,main.endUserId,main.endDeptId,main.endRoleId,main.deleted,main.piid,main.parentSheetName,main.parentSheetId,main.correlationKey,main.parentCorrelation,main.toDeptId,main.invokeMode
+    from softchange_main main
+    where main.sendUserId='OCCU_USERID' and  main.templateFlag <> 1 and (title is not null or title='') and main.deleted<>'1' _whereBeforeDayString_
+    ;insert into undo_TMP_VIEW_NAME
+    --网络数据
+    select 'netdata','网络数据管理工单',main.id,main.sheetId,main.title,main.sheetAcceptLimit,main.sheetCompleteLimit,main.sendTime,main.sendOrgType,main.sendUserId,main.sendDeptId,main.sendRoleId,main.sendContact,main.endTime,main.status,main.endUserId,main.endDeptId,main.endRoleId,main.deleted,main.piid,main.parentSheetName,main.parentSheetId,main.correlationKey,main.parentCorrelation,main.toDeptId,main.invokeMode
+    from netdata_main main
+    where main.sendUserId='OCCU_USERID' and  main.templateFlag <> 1 and (title is not null or title='') and main.deleted<>'1' _whereBeforeDayString_
+    ;insert into undo_TMP_VIEW_NAME
+    --网络综合调整
+    select 'netchange','网络综合调整工单',main.id,main.sheetId,main.title,main.sheetAcceptLimit,main.sheetCompleteLimit,main.sendTime,main.sendOrgType,main.sendUserId,main.sendDeptId,main.sendRoleId,main.sendContact,main.endTime,main.status,main.endUserId,main.endDeptId,main.endRoleId,main.deleted,main.piid,main.parentSheetName,main.parentSheetId,main.correlationKey,main.parentCorrelation,main.toDeptId,main.invokeMode
+    from netchange_main main
+    where main.sendUserId='OCCU_USERID' and  main.templateFlag <> 1 and (title is not null or title='') and main.deleted<>'1' _whereBeforeDayString_
+]]>
+	</startedByMe>
+    <!-- 需要取出从多少天前开始的工单，注意单位是天 -->
+    <startedByMeListBeforeDays>60</startedByMeListBeforeDays>
+    
+    <doneSheet>
+    <![CDATA[create  view DONE_TMP_VIEW_NAME
+	(sheettype, sheettypename,id,sheetId,title,sheetAcceptLimit,sheetCompleteLimit,sendTime,sendOrgType,sendUserId,sendDeptId,sendRoleId,sendContact,endTime,status,endUserId,endDeptId,endRoleId,deleted,piid,parentSheetName,parentSheetId,correlationKey,parentCorrelation,toDeptId,invokeMode)
+	as
+	select 'commonfault','故障管理工单',main.id,main.sheetId,main.title,main.sheetAcceptLimit,main.sheetCompleteLimit,main.sendTime,main.sendOrgType,main.sendUserId,main.sendDeptId,main.sendRoleId,main.sendContact,main.endTime,main.status,main.endUserId,main.endDeptId,main.endRoleId,main.deleted,main.piid,main.parentSheetName,main.parentSheetId,main.correlationKey,main.parentCorrelation,main.toDeptId,main.invokeMode
+    from commonfault_task task, commonfault_main main
+    where task.sheetKey=main.id and ((task.taskOwner='OCCU_USERID' or task.taskOwner='OCCU_DEPTID')
+ 	or task.taskOwner in (select userrefrole.subRoleid from Taw_System_UserRefRole userrefrole where userrefrole.userid='OCCU_USERID'))
+ 	and (task.taskStatus='5' or (task.taskStatus<>'5' and task.ifWaitForSubTask='true' and task.id not in (select task1.parentTaskId from commonfault_task task1 where task1.sheetKey=main.id and task1.subTaskFlag='true' and (task1.subTaskDealFalg='false' or task1.subTaskDealFalg is null ) and task1.taskStatus='5')))
+ 	and main.deleted<>'1' _whereBeforeDayString_
+ 	
+    ;insert into undo_TMP_VIEW_NAME
+    --投诉
+    select 'complaint','投诉处理工单',main.id,main.sheetId,main.title,main.sheetAcceptLimit,main.sheetCompleteLimit,main.sendTime,main.sendOrgType,main.sendUserId,main.sendDeptId,main.sendRoleId,main.sendContact,main.endTime,main.status,main.endUserId,main.endDeptId,main.endRoleId,main.deleted,main.piid,main.parentSheetName,main.parentSheetId,main.correlationKey,main.parentCorrelation,main.toDeptId,main.invokeMode
+    from complaint_task task,complaint_main main
+    where task.sheetKey=main.id and ((task.taskOwner='OCCU_USERID' or task.taskOwner='OCCU_DEPTID')
+ 	or task.taskOwner in (select userrefrole.subRoleid from Taw_System_UserRefRole userrefrole where userrefrole.userid='OCCU_USERID'))
+ 	and (task.taskStatus='5' or (task.taskStatus<>'5' and task.ifWaitForSubTask='true' and task.id not in (select task1.parentTaskId from complaint_task task1 where task1.sheetKey=main.id and task1.subTaskFlag='true' and (task1.subTaskDealFalg='false' or task1.subTaskDealFalg is null ) and task1.taskStatus='5')))
+ 	and main.deleted<>'1' _whereBeforeDayString_
+ 	
+    ;insert into undo_TMP_VIEW_NAME
+    --新业务试点
+    select 'businesspilot','新业务试点工单',main.id,main.sheetId,main.title,main.sheetAcceptLimit,main.sheetCompleteLimit,main.sendTime,main.sendOrgType,main.sendUserId,main.sendDeptId,main.sendRoleId,main.sendContact,main.endTime,main.status,main.endUserId,main.endDeptId,main.endRoleId,main.deleted,main.piid,main.parentSheetName,main.parentSheetId,main.correlationKey,main.parentCorrelation,main.toDeptId,main.invokeMode
+    from businesspilot_task task,businesspilot_main main
+    where task.sheetKey=main.id and ((task.taskOwner='OCCU_USERID' or task.taskOwner='OCCU_DEPTID')
+ 	or task.taskOwner in (select userrefrole.subRoleid from Taw_System_UserRefRole userrefrole where userrefrole.userid='OCCU_USERID'))
+ 	and (task.taskStatus='5' or (task.taskStatus<>'5' and task.ifWaitForSubTask='true' and task.id not in (select task1.parentTaskId from businesspilot_task task1 where task1.sheetKey=main.id and task1.subTaskFlag='true' and (task1.subTaskDealFalg='false' or task1.subTaskDealFalg is null ) and task1.taskStatus='5')))
+ 	and main.deleted<>'1' _whereBeforeDayString_
+ 	
+    ;insert into undo_TMP_VIEW_NAME
+    --新业务设计
+    select 'businessplan','新业务设计工单',main.id,main.sheetId,main.title,main.sheetAcceptLimit,main.sheetCompleteLimit,main.sendTime,main.sendOrgType,main.sendUserId,main.sendDeptId,main.sendRoleId,main.sendContact,main.endTime,main.status,main.endUserId,main.endDeptId,main.endRoleId,main.deleted,main.piid,main.parentSheetName,main.parentSheetId,main.correlationKey,main.parentCorrelation,main.toDeptId,main.invokeMode
+    from businessplan_task task,businessplan_main main
+    where task.sheetKey=main.id and ((task.taskOwner='OCCU_USERID' or task.taskOwner='OCCU_DEPTID')
+ 	or task.taskOwner in (select userrefrole.subRoleid from Taw_System_UserRefRole userrefrole where userrefrole.userid='OCCU_USERID'))
+ 	and (task.taskStatus='5' or (task.taskStatus<>'5' and task.ifWaitForSubTask='true' and task.id not in (select task1.parentTaskId from businessplan_task task1 where task1.sheetKey=main.id and task1.subTaskFlag='true' and (task1.subTaskDealFalg='false' or task1.subTaskDealFalg is null ) and task1.taskStatus='5')))
+ 	and main.deleted<>'1' _whereBeforeDayString_
+ 	
+    ;insert into undo_TMP_VIEW_NAME
+    --新业务实施
+    select 'businessoperation','新业务正式实施工单',main.id,main.sheetId,main.title,main.sheetAcceptLimit,main.sheetCompleteLimit,main.sendTime,main.sendOrgType,main.sendUserId,main.sendDeptId,main.sendRoleId,main.sendContact,main.endTime,main.status,main.endUserId,main.endDeptId,main.endRoleId,main.deleted,main.piid,main.parentSheetName,main.parentSheetId,main.correlationKey,main.parentCorrelation,main.toDeptId,main.invokeMode
+    from businessoperation_task task,businessoperation_main main
+    where task.sheetKey=main.id and ((task.taskOwner='OCCU_USERID' or task.taskOwner='OCCU_DEPTID')
+ 	or task.taskOwner in (select userrefrole.subRoleid from Taw_System_UserRefRole userrefrole where userrefrole.userid='OCCU_USERID'))
+ 	and (task.taskStatus='5' or (task.taskStatus<>'5' and task.ifWaitForSubTask='true' and task.id not in (select task1.parentTaskId from businessoperation_task task1 where task1.sheetKey=main.id and task1.subTaskFlag='true' and (task1.subTaskDealFalg='false' or task1.subTaskDealFalg is null ) and task1.taskStatus='5')))
+ 	and main.deleted<>'1' _whereBeforeDayString_
+ 	
+    ;insert into undo_TMP_VIEW_NAME
+    --电路调度
+    select 'circuitdispatch','电路调度工单',main.id,main.sheetId,main.title,main.sheetAcceptLimit,main.sheetCompleteLimit,main.sendTime,main.sendOrgType,main.sendUserId,main.sendDeptId,main.sendRoleId,main.sendContact,main.endTime,main.status,main.endUserId,main.endDeptId,main.endRoleId,main.deleted,main.piid,main.parentSheetName,main.parentSheetId,main.correlationKey,main.parentCorrelation,main.toDeptId,main.invokeMode
+    from circuitdispatch_task task,circuitdispatch_main main
+    where task.sheetKey=main.id and ((task.taskOwner='OCCU_USERID' or task.taskOwner='OCCU_DEPTID')
+ 	or task.taskOwner in (select userrefrole.subRoleid from Taw_System_UserRefRole userrefrole where userrefrole.userid='OCCU_USERID'))
+ 	and (task.taskStatus='5' or (task.taskStatus<>'5' and task.ifWaitForSubTask='true' and task.id not in (select task1.parentTaskId from circuitdispatch_task task1 where task1.sheetKey=main.id and task1.subTaskFlag='true' and (task1.subTaskDealFalg='false' or task1.subTaskDealFalg is null ) and task1.taskStatus='5')))
+ 	and main.deleted<>'1' _whereBeforeDayString_
+ 	
+    ;insert into undo_TMP_VIEW_NAME
+    --软件变更
+    select 'softchange','软件变更工单',main.id,main.sheetId,main.title,main.sheetAcceptLimit,main.sheetCompleteLimit,main.sendTime,main.sendOrgType,main.sendUserId,main.sendDeptId,main.sendRoleId,main.sendContact,main.endTime,main.status,main.endUserId,main.endDeptId,main.endRoleId,main.deleted,main.piid,main.parentSheetName,main.parentSheetId,main.correlationKey,main.parentCorrelation,main.toDeptId,main.invokeMode
+    from softchange_task task,softchange_main main
+    where task.sheetKey=main.id and ((task.taskOwner='OCCU_USERID' or task.taskOwner='OCCU_DEPTID')
+ 	or task.taskOwner in (select userrefrole.subRoleid from Taw_System_UserRefRole userrefrole where userrefrole.userid='OCCU_USERID'))
+ 	and (task.taskStatus='5' or (task.taskStatus<>'5' and task.ifWaitForSubTask='true' and task.id not in (select task1.parentTaskId from softchange_task task1 where task1.sheetKey=main.id and task1.subTaskFlag='true' and (task1.subTaskDealFalg='false' or task1.subTaskDealFalg is null ) and task1.taskStatus='5')))
+ 	and main.deleted<>'1' _whereBeforeDayString_
+ 	
+    ;insert into undo_TMP_VIEW_NAME
+    --网络数据
+    select 'netdata','网络数据管理工单',main.id,main.sheetId,main.title,main.sheetAcceptLimit,main.sheetCompleteLimit,main.sendTime,main.sendOrgType,main.sendUserId,main.sendDeptId,main.sendRoleId,main.sendContact,main.endTime,main.status,main.endUserId,main.endDeptId,main.endRoleId,main.deleted,main.piid,main.parentSheetName,main.parentSheetId,main.correlationKey,main.parentCorrelation,main.toDeptId,main.invokeMode
+    from netdata_task task,netdata_main main
+    where task.sheetKey=main.id and ((task.taskOwner='OCCU_USERID' or task.taskOwner='OCCU_DEPTID')
+ 	or task.taskOwner in (select userrefrole.subRoleid from Taw_System_UserRefRole userrefrole where userrefrole.userid='OCCU_USERID'))
+ 	and (task.taskStatus='5' or (task.taskStatus<>'5' and task.ifWaitForSubTask='true' and task.id not in (select task1.parentTaskId from netdata_task task1 where task1.sheetKey=main.id and task1.subTaskFlag='true' and (task1.subTaskDealFalg='false' or task1.subTaskDealFalg is null ) and task1.taskStatus='5')))
+ 	and main.deleted<>'1' _whereBeforeDayString_
+ 	
+    ;insert into undo_TMP_VIEW_NAME
+    --网络综合调整
+    select 'netchange','网络综合调整工单',main.id,main.sheetId,main.title,main.sheetAcceptLimit,main.sheetCompleteLimit,main.sendTime,main.sendOrgType,main.sendUserId,main.sendDeptId,main.sendRoleId,main.sendContact,main.endTime,main.status,main.endUserId,main.endDeptId,main.endRoleId,main.deleted,main.piid,main.parentSheetName,main.parentSheetId,main.correlationKey,main.parentCorrelation,main.toDeptId,main.invokeMode
+    from netchange_task task,netchange_main main
+    where task.sheetKey=main.id and ((task.taskOwner='OCCU_USERID' or task.taskOwner='OCCU_DEPTID')
+ 	or task.taskOwner in (select userrefrole.subRoleid from Taw_System_UserRefRole userrefrole where userrefrole.userid='OCCU_USERID'))
+ 	and (task.taskStatus='5' or (task.taskStatus<>'5' and task.ifWaitForSubTask='true' and task.id not in (select task1.parentTaskId from netchange_task task1 where task1.sheetKey=main.id and task1.subTaskFlag='true' and (task1.subTaskDealFalg='false' or task1.subTaskDealFalg is null ) and task1.taskStatus='5')))
+ 	and main.deleted<>'1' _whereBeforeDayString_
+]]>
+	</doneSheet>
+	
+	<!-- 需要取出从多少天前开始的工单，注意单位是天 -->
+	<doneSheetListBeforeDays>60</doneSheetListBeforeDays>
+    
+</boco>
+

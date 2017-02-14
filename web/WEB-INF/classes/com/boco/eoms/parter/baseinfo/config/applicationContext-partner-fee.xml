@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="partnerFeePlanMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.parter.baseinfo.fee.mgr.impl.PartnerFeePlanMgrImpl">
+				<property name="partnerFeePlanDao" ref="partnerFeePlanDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="partnerFeePlanDao"
+		class="com.boco.eoms.parter.baseinfo.fee.dao.hibernate.PartnerFeePlanDaoHibernate"
+		autowire="byName" />
+
+	<bean id="partnerFeeUnitMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.parter.baseinfo.fee.mgr.impl.PartnerFeeUnitMgrImpl">
+				<property name="partnerFeeUnitDao" ref="partnerFeeUnitDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="partnerFeeUnitDao"
+		class="com.boco.eoms.parter.baseinfo.fee.dao.hibernate.PartnerFeeUnitDaoHibernate"
+		autowire="byName" />
+	
+	<bean id="partnerFeeInfoMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.parter.baseinfo.fee.mgr.impl.PartnerFeeInfoMgrImpl">
+				<property name="partnerFeeInfoDao" ref="partnerFeeInfoDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="partnerFeeInfoDao"
+		class="com.boco.eoms.parter.baseinfo.fee.dao.hibernate.PartnerFeeInfoDaoHibernate"
+		autowire="byName" />
+
+	<bean id="partnerFeeAuditMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.parter.baseinfo.fee.mgr.impl.PartnerFeeAuditMgrImpl">
+				<property name="partnerFeeAuditDao" ref="partnerFeeAuditDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="partnerFeeAuditDao"
+		class="com.boco.eoms.parter.baseinfo.fee.dao.hibernate.PartnerFeeAuditDaoHibernate"
+		autowire="byName" />	
+</beans>
+
+
+
+
+
+
+
+
+

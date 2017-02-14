@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.keymanagement.model.KeyBorrowRecord" table="pnr_key_borrow_record">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="borrower" column="borrower"/>
+				<property name="borrowerPhone" column="borrower_phone"/>
+				<property name="remand" column="remand"/>
+				<property name="borrowTime" column="borrow_time"/>
+				<property name="remandTime" column="remand_time"/>
+				<property name="accessCardNum" column="access_card_num"/>
+				<property name="subject" column="subject"/>
+				<property name="approver" column="approver"></property>
+				<property name="approverPhone" column="approver_phone"></property>
+				<property name="remark" column="remark"></property>
+				<property name="keyStatus" column="key_status"></property>
+                <property name="btsName" column="bts_name"></property>
+
+    </class>    
+</hibernate-mapping>

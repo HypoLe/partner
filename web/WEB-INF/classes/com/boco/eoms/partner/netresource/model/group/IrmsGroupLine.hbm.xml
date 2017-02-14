@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.group.IrmsGroupLine" table="irms_group_line">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="customerName" column="customer_name"/>
+				<property name="relatedInstance" column="related_instance"/>
+				<property name="customerBusiAddr" column="customer_busi_addr"/>
+				<property name="businessBw" column="business_bw"/>
+				<property name="tranAccessWay" column="tran_access_way"/>
+				<property name="relatedCdName" column="related_cd_name"/>
+				<property name="relatedCdPort" column="related_cd_port"/>
+				<property name="relatedAdName" column="related_ad_name"/>
+				<property name="relatedAdPortNo" column="related_ad_port_no"/>
+				<property name="relatedAdVlan" column="related_ad_vlan"/>
+				<property name="relatedAdSlan" column="related_ad_slan"/>
+				<property name="relatedAdClan" column="related_ad_clan"/>
+				<property name="relatedOsrName" column="related_osr_name"/>
+				<property name="relatedOsdName" column="related_osd_name"/>
+				<property name="relatedOsdPort" column="related_osd_port"/>
+				<property name="relatedClientIp" column="related_client_ip"/>
+				<property name="relatedConnectIp" column="related_connect_ip"/>
+				<property name="relatedCircuitName" column="related_circuit_name"/>
+				<property name="relatedOcName" column="related_oc_name"/>
+				<property name="customerAccessDate" column="customer_access_date"/>
+				<property name="remark" column="remark"/>
+				<property name="createTime" column="create_time"/>
+				<property name="relatedInstanceId" column="related_instance_id"/>
+				<property name="relatedCdNameId" column="related_cd_name_id"/>
+				<property name="relatedCdPortId" column="related_cd_port_id"/>
+				<property name="relatedAdNameId" column="related_ad_name_id"/>
+				<property name="relatedAdPortNoId" column="related_ad_port_no_id"/>
+				<property name="relatedAdVlanId" column="related_ad_vlan_id"/>
+				<property name="relatedAdSlanId" column="related_ad_slan_id"/>
+				<property name="relatedAdClanId" column="related_ad_clan_id"/>
+				<property name="relatedOsdNameId" column="related_osd_name_id"/>
+				<property name="relatedOsdPortId" column="related_osd_port_id"/>
+				<property name="relatedClientIpId" column="related_client_ip_id"/>
+				<property name="relatedConnectIpId" column="related_connect_ip_id"/>
+				<property name="relatedCircuitNameId" column="related_circuit_name_id"/>
+				<property name="relatedOcNameId" column="related_oc_name_id"/>
+    </class>    
+</hibernate-mapping>

@@ -1,0 +1,9 @@
+<div style="padding:8px;">
+  <div dojoType='dijit.form.ToggleButton' baseClass='esriButton' id='area' checked='false' iconClass='areaIcon' showLabel='false' dojoAttachEvent='onClick:areaToggleButton'></div>
+  <div dojoType='dijit.form.ToggleButton' baseClass='esriButton' id='distance' iconClass='distanceIcon' showLabel='false' dojoAttachEvent='onClick:distanceToggleButton'></div>
+  <div dojoType='dijit.form.ToggleButton' baseClass='esriButton' id='location' iconClass='locationIcon' showLabel='false' dojoAttachEvent='onClick:locationToggleButton'></div>
+  <div style="display:inline;margin-left:2px;margin-right:2px;padding-top:2px;">|</div>
+  <button dojoType='dijit.form.DropDownButton' baseClass='esriToggleButton' id='unit' label='unit' value='unit' style='visibility:hidden;'></button>
+  <div dojoType='dijit.layout.ContentPane' id='resultLabel' class='resultLabel'></div>
+  <div dojoType='dijit.layout.ContentPane' id='result' name='result' align='left' class='result'></div>
+</div>

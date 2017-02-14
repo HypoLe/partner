@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<!-- Generated with Karapan Sapi Struts Generator -->
+<!-- Visit http://www.javanovic.com         -->
+
+<struts-config>
+	<!-- ============ Form beans ============ -->
+	<form-beans>
+		<form-bean name="circuitForm" type="com.boco.eoms.circuit.webapp.form.CircuitForm" />
+		<form-bean name="circuitLengthForm" type="com.boco.eoms.circuit.webapp.form.CircuitLengthForm" />
+	</form-beans>
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+
+	<!-- ============ Global forwards ============ -->
+	<global-forwards type="org.apache.struts.action.ActionForward">
+		<forward name="failure" path="/common/fail.jsp"
+			contextRelative="true" />
+		<forward name="success" path="/nop3/common/success.jsp"
+			contextRelative="true" />
+		<forward name="error" path="/error.jsp" contextRelative="true" />
+		<forward name="time" path="/time.jsp" contextRelative="true" />
+		<forward name="cancel" path="/servlet/main.do" />
+		<forward name="nopriv" path="/nopriv.jsp"
+			contextRelative="true" />
+		<forward name="notonduty" path="/notonduty.jsp" />
+		<forward name="notdutymaster" path="/notdutymaster.jsp" />
+		<forward name="notselectperson" path="/notselectperson.jsp" />
+		<forward name="configdup" path="/configdup.jsp" />
+		<forward name="noWorkserialData" path="/noWorkserialData.jsp" />
+		<forward name="successok" path="/common/success.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="sms" path="/common/smsfailure.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="fail" path="/common/fail.jsp" redirect="false"
+			contextRelative="true" />
+		<forward name="notonduty1" path="/duty/notonduty1.jsp"
+			redirect="false" contextRelative="true" />
+	</global-forwards>
+
+	<!-- ============ Action Mapping definitions ============ -->
+	<action-mappings type="org.apache.struts.action.ActionMapping">
+
+   		 <!-- Adding by steve. 2010-02-17 Circuit Start modual mapping.  -->
+     <action
+      path="/circuit"
+      type="com.boco.eoms.circuit.webapp.action.CircuitAction"
+      name="circuitForm"
+      scope="request"
+      input="list"
+      parameter="method"
+      unknown="false"
+      validate="false"
+    >
+      <set-property
+        property="cancellable"
+        value="true"
+      />
+      <forward
+        name="goToEdit"
+        path="/WEB-INF/pages/partner2/circuit/circuitEdit.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      <forward
+        name="list"
+        path="/WEB-INF/pages/partner2/circuit/circuitList.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+	    <forward
+        name="listDetail"
+        path="/WEB-INF/pages/partner2/circuit/circuitListDetail.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+	    <forward
+        name="listAverage"
+        path="/WEB-INF/pages/partner2/circuit/circuitListAverage.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+	    <forward
+        name="listHundred"
+        path="/WEB-INF/pages/partner2/circuit/circuitListHundred.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+	    <forward
+        name="listForMoniter"
+        path="/WEB-INF/pages/partner2/circuit/circuitListForMoniter.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+	   <forward
+        name="listForUser"
+        path="/WEB-INF/pages/partner2/circuit/circuitListForUser.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+	   <forward
+        name="listForMaster"
+        path="/WEB-INF/pages/partner2/circuit/circuitListForMaster.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+	  <forward name="goToImport"
+		path="/WEB-INF/pages/partner2/circuit/circuitImport.jsp"
+		redirect="false" contextRelative="true" />
+       <forward
+        name="goToAdd"
+        path="/WEB-INF/pages/partner2/circuit/circuitAdd.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+       <forward
+        name="goToSearch"
+        path="/WEB-INF/pages/partner2/circuit/circuitList.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+	  <forward
+        name="goToHistory"
+        path="/WEB-INF/pages/partner2/circuit/circuitHistory.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+	  <forward
+        name="goToSingleDetail"
+        path="/WEB-INF/pages/partner2/circuit/circuitSingleDetail.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+	  <forward
+        name="goToCharts"
+        path="/WEB-INF/pages/partner2/circuit/circuitCharts.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+       <forward
+        name="goToBatchDeal"
+        path="/WEB-INF/pages/partner2/circuit/circuitBatchDeal.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+       <forward
+        name="success"
+        path="/WEB-INF/pages/partner2/circuit/circuitSuccess.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+       <forward
+        name="failure"
+        path="/WEB-INF/pages/partner2/circuit/circuitFailure.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      <forward 
+        name="forwardlist" 
+        path="/circuit.do?method=list"
+		redirect="true" />
+	 <forward
+        name="circuitHundredCharts"
+        path="/WEB-INF/pages/partner2/circuit/circuitCharts.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+    </action>
+    
+    <!-- Adding by steve. 2010-03-03 CircuitLength Start modual mapping.  -->
+     <action
+      path="/circuitLength"
+      type="com.boco.eoms.circuit.webapp.action.CircuitLengthAction"
+      name="circuitLengthForm"
+      scope="request"
+      input="list"
+      parameter="method"
+      unknown="false"
+      validate="false"
+    >
+      <set-property
+        property="cancellable"
+        value="true"
+      />
+      <forward
+        name="goToEdit"
+        path="/WEB-INF/pages/partner2/circuit/circuitLength/edit.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      <forward
+        name="listLegacy"
+        path="/WEB-INF/pages/partner2/circuit/circuitLength/listLegacy.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      <forward
+        name="listDealed"
+        path="/WEB-INF/pages/partner2/circuit/circuitLength/list.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+       <forward
+        name="listForUser"
+        path="/WEB-INF/pages/partner2/circuit/circuitLength/user.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      <forward
+        name="goToSearch"
+        path="/WEB-INF/pages/partner2/circuit/circuitLength/search.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+	  <forward
+        name="goToAdd"
+        path="/WEB-INF/pages/partner2/circuit/circuitLength/add.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+	  <forward
+        name="goToHistory"
+        path="/WEB-INF/pages/partner2/circuit/circuitLength/history.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+	  <forward
+        name="goToSingleDetail"
+        path="/WEB-INF/pages/partner2/circuit/circuitLength/detail.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+       <forward
+        name="goToWithAppraisal" 
+        path="/WEB-INF/pages/partner2/circuit/circuitLength/circuitWithAppraisal.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+       <forward
+        name="success"
+        path="/WEB-INF/pages/partner2/circuit/circuitLength/success.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+       <forward
+        name="failure"
+        path="/WEB-INF/pages/partner2/circuit/circuitLength/failure.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      <forward 
+        name="forwardlist" 
+        path="/circuitLength.do?method=listDealed"
+		redirect="true" />
+    </action>
+    <!-- Adding by steve. 2010-03-03 CircuitLength End modual mapping.  -->
+
+	</action-mappings>
+
+
+</struts-config>

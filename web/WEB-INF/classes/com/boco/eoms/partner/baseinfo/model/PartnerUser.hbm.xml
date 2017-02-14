@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.boco.eoms.partner.baseinfo.model.PartnerUser"
+		table="pnr_user">
+
+		<id name="id" column="id" unsaved-value="null">
+
+			<!-- The generator-class attribute of @hibernate.id is deprecated, use 
+				the @hibernate.generator tag instead -->
+			<generator class="uuid.hex">
+
+			</generator>
+
+		</id>
+
+		<property name="name" column="name" length="255" not-null="true"
+			unique="false">
+
+		</property>
+		<property name="deptId" column="dept_id" length="32"
+			not-null="false" unique="false"></property>
+		<!-- 为了在后续统计功能中统计到某月的信息而添加的值 add by 丰光平 begin -->
+		<property name="saveTime" column="savetime" length="30"
+			not-null="false" unique="false"></property>
+		<property name="saveTimeLongValue" column="savetimelongvalue"
+			length="15" not-null="false" unique="false"></property>
+		<property name="saveTimeYear" column="savetimeyear" length="4"
+			not-null="false" unique="false"></property>
+		<property name="saveTimeMonth" column="savetimemonth" length="2"
+			not-null="false" unique="false"></property>
+		<property name="updateTime" column="updatetime" length="30"
+			not-null="false" unique="false"></property>
+		<property name="leavaTime" column="leavatime" length="30"
+			not-null="false" unique="false"></property>
+		<property name="leavaTimeLongValue" column="leavatimelongvalue"
+			length="15" not-null="false" unique="false"></property>
+		<property name="leavaTimeYear" column="leavatimeyear" length="4"
+			not-null="false" unique="false"></property>
+		<property name="leavaTimeMonth" column="leavatimemonth"
+			length="2" not-null="false" unique="false"></property>
+		<property name="leavaReason" column="leavareason" length="200"
+			not-null="false" unique="false"></property>
+		<property name="latitude" column="latitude" length="32"
+			not-null="false" unique="false"></property>
+		<property name="longtitude" column="longtitude" length="32"
+			not-null="false" unique="false"></property>
+		<!-- 为了在后续统计功能中统计到某月的信息而添加的值 add by 丰光平 end -->
+		<property name="deptName" column="dept_name" length="255"
+			not-null="false" unique="false">
+
+		</property>
+		<property name="areaId" column="area_Id" length="32"
+			not-null="false" unique="false">
+
+		</property>
+		<property name="areaName" column="area_name" length="255"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="personCardNo" column="person_card_no" length="255"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="areaNames" column="area_names" length="255"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="userId" column="user_id" length="32"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="sex" column="sex" length="32" not-null="false"
+			unique="false">
+
+		</property>
+
+		<property name="photo" column="photo" length="255" not-null="false"
+			unique="false">
+
+		</property>
+
+		<property name="birthdey" column="birthdey" length="32"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="diploma" column="diploma" length="255"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="workTime" column="work_time" length="32"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="deptWorkTime" column="dept_work_time" length="32"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="licenseType" column="license_type" length="32"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="licenseNo" column="license_no" length="255"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="post" column="post" length="255" not-null="false"
+			unique="false">
+
+		</property>
+
+		<property name="postState" column="post_state" length="255"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="phone" column="phone" length="255" not-null="false"
+			unique="false">
+
+		</property>
+
+		<property name="email" column="email" length="255" not-null="false"
+			unique="false">
+
+		</property>
+
+		<property name="treeNodeId" column="tree_node_id" length="32"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="accessory" column="accessory" length="255"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="deleted" column="deleted" length="2"
+			not-null="false" unique="false">
+		</property>
+
+		<property name="dimensionalCode" column="dimensional_code"
+			length="128" not-null="false" unique="false">
+		</property>
+
+		<property name="workLicenseLevel" column="work_License_level"
+			length="32" not-null="false" unique="false">
+		</property>
+
+		<property name="workLicenseMajor" column="work_license_major"
+			length="64" not-null="false" unique="false">
+
+		</property>
+
+		<property name="projectName" column="PROJECT_NAME" length="64"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="maintainLevel" column="maintain_level"
+			length="32" not-null="false" unique="false">
+		</property>
+
+		<property name="projectProperty" column="project_property"
+			length="64" not-null="false" unique="false">
+		</property>
+
+		<property name="station" column="station" length="64"
+			not-null="false" unique="false">
+		</property>
+
+		<property name="serviceProfessional" column="service_professional"
+			length="64" not-null="false" unique="false">
+		</property>
+
+		<property name="responsibility" column="responsibility"
+			length="32" not-null="false" unique="false">
+		</property>
+
+		<property name="isbackbone" column="isbackbone" length="32"
+			not-null="false" unique="false">
+		</property>
+
+		<property name="remark" column="remark" length="255"
+			not-null="false" unique="false">
+		</property>
+
+		<property name="mobilePhone" column="mobile_phone" length="32"
+			not-null="false" unique="false">
+		</property>
+
+		<property name="city" column="city" length="32" not-null="false"
+			unique="false">
+		</property>
+
+		<property name="partnerid" column="partnerid" length="32"
+			not-null="false" unique="false">
+		</property>
+		<property name="bigpartnerid" column="bigpartnerid" length="32"
+			not-null="false" unique="false">
+		</property>
+		<property name="areaidtrue" column="areaidtrue" length="32"
+			not-null="false" unique="false">
+		</property>
+		<property name="ismanager" column="ismanager" length="32"
+			not-null="false" unique="false">
+		</property>
+		<property name="userPassword" column="userpassword" length="32"
+			not-null="false" unique="false">
+		</property>
+		<property name="approveStatus" column="approveStatus"></property>
+		<property name="identificationAccessory" column="identificationAccessory"
+			length="255" not-null="false" unique="false">
+		</property>
+		<property name="blacklist" column="blacklist" length="32"
+			not-null="false" unique="false">
+		</property>
+		<property name="ifWor" column="ifWor" length="32" not-null="false"
+			unique="false">
+		</property>
+		<property name="learnSpecialty" column="learnSpecialty"
+			length="32" not-null="false" unique="false">
+		</property>
+		<property name="graduateSchool" column="graduateSchool"
+			length="32" not-null="false" unique="false">
+		</property>
+		<property name="groupPhone" column="groupPhone" length="32"
+			not-null="false" unique="false">
+		</property>
+		<property name="age" column="age" length="32" not-null="false"
+			unique="false">
+		</property>
+		<property name="nationality" column="nationality" length="32"
+			not-null="false" unique="false">
+		</property>
+		<property name="nativePlace" column="nativePlace" length="32"
+			not-null="false" unique="false">
+		</property>
+		<property name="userNo" column="userNo" length="32" not-null="false"
+			unique="false">
+		</property>
+		<property name="locateTime" column="locateTime" not-null="false"
+			unique="false">
+		</property>
+		<property name="phoneSerialNumber" column="phoneSerialNumber"
+			not-null="false" unique="false">
+		</property>
+		<property name="isPartner" column="is_partner"
+			not-null="false" unique="false">
+		</property>
+	</class>
+
+</hibernate-mapping>
+

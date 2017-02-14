@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pnrnetresource>
+	<config>
+		<remark>集客</remark>
+		<model>irms_group_device</model>
+		<specialty>1122505</specialty>
+		<restype>112250502</restype>
+		<wholeSql>
+			<![CDATA[
+				select CONCAT('jk_',r.id) id,r.room_name resName,'1122505' specialty,'112250502' resType,s.longitude longitude,s.latitude latitude,s.related_space,a.area_type,dict.dictname,
+					CASE 
+						WHEN dict.dictname='4' OR dict.dictname='乡镇' 
+						THEN(SELECT aa.areaid FROM taw_system_area aa WHERE aa.remark=a.related_space)
+						ELSE(SELECT aa.areaid FROM taw_system_area aa WHERE aa.remark=a.area_name)
+					END AS areaname
+				FROM
+					irms_space_room r ,irms_space_site s,irms_space_area a,taw_system_dicttype dict 
+				WHERE
+					r.related_site_name=s.site_name AND s.related_space=a.area_name AND dict.parentdictid='11228010101' AND dict.dictid=a.area_type 
+				    and exists (select 1 from Irms_Group_Device device where device.device_room=r.room_name)
+			]]>
+		</wholeSql>
+	</config>
+	
+	<config>
+		<remark>wlan(热点)</remark>
+		<model>irms_wlan_hot</model>
+		<specialty>1122506</specialty>
+		<restype>112250601</restype>
+		<wholeSql>
+			<![CDATA[
+				select wh.id id,wh.label_cn resName,'1122506' specialty,'112250601' resType,wh.longitude longitude,wh.latitude latitude,wh.related_district,a.area_type,dict.dictname,	 
+						CASE                                                                                                                                                       
+							WHEN dict.dictname='4' OR dict.dictname='乡镇'                                                                                                           
+							THEN (	SELECT aa.areaid FROM taw_system_area aa WHERE aa.remark=a.related_space )                                                                       
+							ELSE (	SELECT aa.areaid FROM taw_system_area aa WHERE aa.remark=a.area_name )                                                                           
+						END AS areaname	                                                                                                                                           
+				from irms_space_area a,Irms_Wlan_hot wh,taw_system_dicttype dict                                                                                              
+				where a.area_name=wh.related_district and dict.parentdictid='11228010101' AND dict.dictid=a.area_type
+			]]>
+		</wholeSql>
+	</config>
+	
+	<config>
+		<remark>基站</remark>
+		<model>irms_space_room</model>
+		<specialty>1122501</specialty>
+		<restype>auto</restype>
+		<wholeSql>
+			<![CDATA[
+				SELECT
+					r.id id,r.room_name resName,'1122501' specialty,'112250102' resType,s.longitude longitude,s.latitude latitude,s.related_space,a.area_type,dict.dictname,	
+					CASE 
+						WHEN dict.dictname='4' OR dict.dictname='乡镇' 
+						THEN(SELECT aa.areaid FROM taw_system_area aa WHERE aa.remark=a.related_space)
+						ELSE(SELECT aa.areaid FROM taw_system_area aa WHERE aa.remark=a.area_name)
+					END AS areaname
+				FROM irms_space_room r ,irms_space_site s,irms_space_area a,taw_system_dicttype dict 
+				WHERE r.related_site_name=s.site_name AND s.related_space=a.area_name AND dict.parentdictid='11228010101' AND dict.dictid=a.area_type   
+				       and exists (select 1 from Irms_Bs_Btssite bts where bts.related_room=r.room_name)
+				       and not exists (select 1 from Irms_Bs_nodeb nodeb where nodeb.related_room=r.room_name)
+				union all
+				SELECT
+				    r.id id,r.room_name resName,'1122501' specialty,'112250102' resType, s.longitude longitude,s.latitude latitude,s.related_space,a.area_type,dict.dictname,	
+					CASE 
+						WHEN dict.dictname='4' OR dict.dictname='乡镇' 
+						THEN (SELECT aa.areaid FROM taw_system_area aa WHERE aa.remark=a.related_space )
+						ELSE (SELECT aa.areaid FROM taw_system_area aa WHERE aa.remark=a.area_name )
+					END AS areaname
+				FROM
+					irms_space_room r ,irms_space_site s,irms_space_area a,taw_system_dicttype dict 
+				WHERE
+					r.related_site_name=s.site_name AND s.related_space=a.area_name AND dict.parentdictid='11228010101' AND dict.dictid=a.area_type  
+				    and not exists (select 1 from Irms_Bs_Btssite bts where bts.related_room=r.room_name)
+				    and exists (select 1 from Irms_Bs_nodeb nodeb where nodeb.related_room=r.room_name)
+				union all
+				SELECT
+				    r.id id,r.room_name resName,'1122501' specialty, '112250103' resType, s.longitude longitude,s.latitude latitude,s.related_space,a.area_type,dict.dictname,	
+					CASE 
+						WHEN dict.dictname='4' OR dict.dictname='乡镇' 
+						THEN (SELECT aa.areaid FROM taw_system_area aa WHERE aa.remark=a.related_space)
+						ELSE (SELECT aa.areaid FROM taw_system_area aa WHERE aa.remark=a.area_name)
+					END AS areaname
+				FROM
+					irms_space_room r ,irms_space_site s,irms_space_area a,taw_system_dicttype dict 
+				WHERE
+					r.related_site_name=s.site_name AND s.related_space=a.area_name AND dict.parentdictid='11228010101' AND dict.dictid=a.area_type   
+				    and exists (select 1 from Irms_Bs_Btssite bts where bts.related_room=r.room_name)
+				    and exists (select 1 from Irms_Bs_nodeb nodeb where nodeb.related_room=r.room_name)
+			]]>
+		</wholeSql>
+	</config>
+	
+	<config>
+		<remark>铁塔(restype配置为auto表示自动从sql中获取)</remark>
+		<model>irms_tower_tower</model>
+		<specialty>1122504</specialty>
+		<restype>auto</restype>
+		<wholeSql>
+			<![CDATA[
+				SELECT
+				    t.id id,t.label_cn resName,'1122504' specialty,
+				    CASE 
+						WHEN  t.tower_type ='1122804010101' 
+				        then  '112250404'
+				        WHEN  t.tower_type ='1122804010102' 
+				        then  '112250404'
+				        else '112250404'
+				    END AS resType,
+					s.longitude longitude,s.latitude latitude,s.related_space,a.area_type,dict.dictname,	
+					CASE 
+						WHEN dict.dictname='4' OR dict.dictname='乡镇' 
+						THEN (SELECT aa.areaid FROM taw_system_area aa WHERE aa.remark=a.related_space)
+						ELSE (SELECT aa.areaid FROM taw_system_area aa WHERE aa.remark=a.area_name )
+					END AS areaname
+				FROM
+					irms_space_room r ,irms_space_site s,irms_space_area a,taw_system_dicttype dict,Irms_Tower_Tower t
+				WHERE
+					r.related_site_name=s.site_name AND s.related_space=a.area_name AND dict.parentdictid='11228010101' AND dict.dictid=a.area_type and t.related_room=r.room_name
+			]]>
+		</wholeSql>
+	</config>
+	
+	<config>
+		<remark>直放站</remark>
+		<model>irms_wlan_repeater</model>
+		<specialty>1122503</specialty>
+		<restype>112250302</restype>
+		<wholeSql>
+			<![CDATA[
+				select
+				    wr.id id,wr.label_cn resname,'1122503'specialty,'112250302' resType,wr.longitude longitude,wr.latitude latitude,site.related_space,a.area_type,dict.dictname,	
+					CASE 
+						WHEN dict.dictname='4' OR dict.dictname='乡镇' 
+						THEN (SELECT aa.areaid FROM taw_system_area aa WHERE aa.remark=a.related_space)
+						ELSE (SELECT aa.areaid FROM taw_system_area aa WHERE aa.remark=a.area_name)
+					END AS areaname
+				from Irms_Wlan_Repeater wr,irms_bs_cell cell,irms_bs_btssite bts,irms_space_room r,irms_space_site site,irms_space_area a ,taw_system_dicttype dict
+				where wr.related_cell_cuid = cell.userlabel_cm and cell.related_btssite_cu=bts.userlabel_cm and r.room_name=bts.related_room and r.related_site_name=site.site_name
+					and site.related_space=a.area_name and dict.parentdictid='11228010101' AND dict.dictid=a.area_type
+				union all
+				select wr.id id,wr.label_cn resname,'1122503'specialty,'112250302' resType,wr.longitude longitude,wr.latitude latitude,site.related_space,a.area_type,dict.dictname,	
+					CASE 
+						WHEN dict.dictname='4' OR dict.dictname='乡镇' 
+				        THEN (	SELECT aa.areaid FROM taw_system_area aa WHERE aa.remark=a.related_space )
+						ELSE (	SELECT aa.areaid FROM taw_system_area aa WHERE aa.remark=a.area_name )
+					END AS areaname
+				from Irms_Wlan_Repeater wr,Irms_Bs_Utrancell uc,irms_bs_nodeb nb,irms_space_room r,irms_space_site site,irms_space_area a ,taw_system_dicttype dict
+				where wr.related_cell_cuid = uc.userlabel_cm and uc.related_nodeb=nb.userlabel_cm and r.room_name=nb.related_room and r.related_site_name=site.site_name
+				    and site.related_space=a.area_name and dict.parentdictid='11228010101' AND dict.dictid=a.area_type
+			]]>
+		</wholeSql>
+	</config>
+</pnrnetresource>

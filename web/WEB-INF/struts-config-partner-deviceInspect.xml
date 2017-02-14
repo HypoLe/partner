@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean
+          name="inspectPlanMainForm"
+          type="com.boco.eoms.partner.inspect.webapp.form.InspectPlanMainForm"/>
+		<form-bean
+          name="androidAppInfoForm"
+          type="com.boco.eoms.mobile.form.AndroidAppInfoForm"/>
+        <form-bean name="pnrInspectTaskFileForm" type="com.boco.eoms.partner.inspect.webapp.form.PnrInspectTaskFileForm"></form-bean>  
+	</form-beans>
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<!-- 
+			<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+		-->
+	</global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward
+          name="success"
+          path="/common/success.jsp"
+          redirect="false"
+          contextRelative="true"
+      	/>
+      	<forward
+          name="fail"
+          path="/common/fail.jsp"
+          redirect="false"
+          contextRelative="true"
+      	/>
+      	<forward
+          name="nopriv"
+          path="/common/nopriv.jsp"
+          redirect="false"
+          contextRelative="true"
+      	/>
+      	<forward
+          name="inspectnopriv"
+          path="/common/inspectnopriv.jsp"
+          redirect="false"
+          contextRelative="true"
+      	/>
+      	<forward
+          name="inspectnoprivforarcgis"
+          path="/common/inspectnoprivforarcgis.jsp"
+          redirect="false"
+          contextRelative="true"
+      	/>
+      	<forward name="failure" path="/WEB-INF/pages/partner/inspect/failure.jsp"
+			redirect="false" contextRelative="true" />
+	</global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+
+
+	<action-mappings>
+		<action
+		      path="/inspectPlan"
+		      type="com.boco.eoms.partner.inspect2.webapp.action.InspectPlanAction"
+		      name="inspectPlanMainForm"
+		      scope="request"
+		      parameter="method"
+		      unknown="false"
+		      validate="false"
+		    >
+		      <set-property property="cancellable" value="true" />
+		      <forward
+		      	name="inspectPlanMainList"
+		        path="/WEB-INF/pages/partner/inspect/inspectPlanMain/inspectPlanMainList.jsp"
+		        redirect="false"
+		        contextRelative="true"
+		      />
+		    </action>
+		  <action path="/inspectMapping"
+	    	type="com.boco.eoms.partner.deviceInspect.webapp.action.PnrInspectMappingAction"
+	        scope="request"
+	        parameter="method"
+	        unknown="false"
+	        validate="false"
+	      >
+	      <forward name="partnerDeviceDeploy"
+			 	path="/WEB-INF/pages/partner/deviceInspect/inspectMapping/partnerDeviceDeploy.jsp"
+				redirect="false" contextRelative="true" />
+	      <forward name="gotoSelectDevice"
+			 	path="/WEB-INF/pages/partner/deviceInspect/templateManage/selectDevice.jsp"
+				redirect="false" contextRelative="true" />
+	      <forward name="gotoInspectDeviceMapplist"
+			 	path="/WEB-INF/pages/partner/deviceInspect/inspectMapping/inspectDeviceMapplist.jsp"
+				redirect="false" contextRelative="true" />
+	      <forward name="editInspectDeviceMapping"
+			 	path="/WEB-INF/pages/partner/deviceInspect/inspectMapping/editInspectDeviceMapping.jsp"
+				redirect="false" contextRelative="true" />
+	      <forward name="relationNetResourceList"
+			 	path="/WEB-INF/pages/partner/deviceInspect/inspectMapping/relationInspectDeviceList.jsp"
+				redirect="false" contextRelative="true" />
+	      <forward name="waitRelationInspectDeviceList"
+			 	path="/WEB-INF/pages/partner/deviceInspect/inspectMapping/waitRelationInspectDeviceList.jsp"
+				redirect="false" contextRelative="true" />
+	      <forward name="waitRelationInspectDeviceTypeList"
+			 	path="/WEB-INF/pages/partner/deviceInspect/inspectMapping/waitRelationInspectDeviceTypeList.jsp"
+				redirect="false" contextRelative="true" />
+	    </action>
+	</action-mappings>	
+	
+	<controller nocache="true" inputForward="true" maxFileSize="5M" />
+
+</struts-config>

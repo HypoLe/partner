@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.group.IrmsGrouCustomer" table="irms_grou_customer">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="customerNo" column="customer_no"/>
+				<property name="customerName" column="customer_name"/>
+				<property name="customerAddr" column="customer_addr"/>
+				<property name="customerLevel" column="customer_level"/>
+				<property name="serviceLevel" column="service_level"/>
+				<property name="industry" column="industry"/>
+				<property name="city" column="city"/>
+				<property name="region" column="region"/>
+				<property name="linkman" column="linkman"/>
+				<property name="linkPhone" column="link_phone"/>
+				<property name="relatedManagerCu" column="related_manager_cu"/>
+				<property name="relatedManagerPh" column="related_manager_ph"/>
+				<property name="groupContact" column="group_contact"/>
+				<property name="groupPhone" column="group_phone"/>
+				<property name="remark" column="remark"/>
+				<property name="createTime" column="create_time"/>
+    </class>    
+</hibernate-mapping>

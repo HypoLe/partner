@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataDetail>
+ <data>
+ <tableName>xxx_main</tableName>
+ <tablePrimaryKey>1234567890</tablePrimaryKey>
+ <fieldInfo>
+ <colName>aaaaa</colName>
+ <colType>integer</colType>
+  <colValue>1</colValue>
+ </fieldInfo>
+ </data>
+
+</dataDetail>

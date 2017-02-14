@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.group.IrmsGroupMms" table="irms_group_mms">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="customerName" column="customer_name"/>
+				<property name="relatedInstance" column="related_instance"/>
+				<property name="mmsServiceNumTy" column="mms_service_num_ty"/>
+				<property name="mmsEnterpriseCod" column="mms_enterprise_cod"/>
+				<property name="mmsServiceNum" column="mms_service_num"/>
+				<property name="mmsServiceScope" column="mms_service_scope"/>
+				<property name="serviceDistrict" column="service_district"/>
+				<property name="protocalType" column="protocal_type"/>
+				<property name="mmsBusiName" column="mms_busi_name"/>
+				<property name="mmsBusiCode" column="mms_busi_code"/>
+				<property name="mmsUpUrl" column="mms_up_url"/>
+				<property name="mmsBusiFlowLimi" column="mms_busi_flow_limi"/>
+				<property name="tranAccessWay" column="tran_access_way"/>
+				<property name="businessHostingWay" column="business_hosting_way"/>
+				<property name="relatedProductInstance" column="related_product_instance"/>
+				<property name="relatedAgRoom" column="related_ag_room"/>
+				<property name="relatedAgName" column="related_ag_name"/>
+				<property name="relatedGatewayIp" column="related_gateway_ip"/>
+				<property name="relatedServerIp" column="related_server_ip"/>
+				<property name="servicePort" column="service_port"/>
+				<property name="loginName" column="login_name"/>
+				<property name="relatedCircuitName" column="related_circuit_name"/>
+				<property name="relatedOcName" column="related_oc_name"/>
+				<property name="customerAccessDate" column="customer_access_date"/>
+				<property name="remark" column="remark"/>
+				<property name="createTime" column="create_time"/>
+				<property name="relatedInstanceId" column="related_instance_id"/>
+				<property name="relatedAgNameId" column="related_ag_name_id"/>
+				<property name="relatedGatewayIpId" column="related_gateway_ip_id"/>
+				<property name="relatedCircuitNameId" column="related_circuit_name_id"/>
+				<property name="relatedOcNameId" column="related_oc_name_id"/>
+    </class>    
+</hibernate-mapping>

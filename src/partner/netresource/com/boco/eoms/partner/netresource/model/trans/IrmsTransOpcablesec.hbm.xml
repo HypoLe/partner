@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.trans.IrmsTransOpcablesec" table="irms_trans_opcablesec">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="opcablesectionName" column="opcablesection_name"/>
+				<property name="relatedOpcable" column="related_opcable"/>
+				<property name="startPointName" column="start_point_name"/>
+				<property name="endPointName" column="end_point_name"/>
+				<property name="opcableConnectFacilities" column="opcable_connect_facilities"/>
+				<property name="opcableCoreNum" column="opcable_core_num"/>
+				<property name="opcableType" column="opcable_type"/>
+				<property name="vendor" column="vendor"/>
+				<property name="property" column="property"/>
+				<property name="useUnit" column="use_unit"/>
+				<property name="owner" column="owner"/>
+				<property name="use" column="use"/>
+				<property name="length" column="length"/>
+				<property name="remark" column="remark"/>
+				<property name="createTime" column="create_time"/>
+				<property name="relatedOpcableId" column="related_opcable_id"/>
+    </class>    
+</hibernate-mapping>

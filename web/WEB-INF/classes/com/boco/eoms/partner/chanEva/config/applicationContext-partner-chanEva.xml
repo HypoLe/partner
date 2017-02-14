@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <!-- Add new Managers here -->
+    
+    <!--ChanEvaTree-DAO START-->
+    <bean id="chanEvaTreeDao" class="com.boco.eoms.partner.chanEva.dao.hibernate.ChanEvaTreeDaoHibernate" autowire="byName"/>
+    <!--ChanEvaTree-DAO END-->  
+    <!--ChanEvaTree-START-->    
+    <bean id="IchanEvaTreeMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.chanEva.mgr.impl.ChanEvaTreeMgrImpl">   
+                <property name="chanEvaTreeDao" ref="chanEvaTreeDao"/>
+            </bean>
+        </property>
+    </bean> 
+    <!--ChanEvaTree-END-->  
+    
+    <!--ChanEvaKpi-DAO START-->
+    <bean id="chanEvaKpiDao" class="com.boco.eoms.partner.chanEva.dao.hibernate.ChanEvaKpiDaoHibernate" autowire="byName"/>
+    <!--ChanEvaKpi-DAO END-->
+    <!--ChanEvaKpi-START-->    
+    <bean id="IchanEvaKpiMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.chanEva.mgr.impl.ChanEvaKpiMgrImpl">
+                <property name="chanEvaKpiDao" ref="chanEvaKpiDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--ChanEvaKpi-END-->
+    
+    <!--ChanEvaTemplate-DAO START-->
+    <bean id="chanEvaTemplateDao" class="com.boco.eoms.partner.chanEva.dao.hibernate.ChanEvaTemplateDaoHibernate" autowire="byName"/>
+    <!--ChanEvaTemplate-DAO END-->
+    <!--ChanEvaTemplate-START-->    
+    <bean id="IchanEvaTemplateMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.chanEva.mgr.impl.ChanEvaTemplateMgrImpl">
+                <property name="chanEvaTemplateDao" ref="chanEvaTemplateDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--ChanEvaTemplate-END-->
+    
+    <!--ChanEvaTask-DAO START-->
+    <bean id="chanEvaTaskDao" class="com.boco.eoms.partner.chanEva.dao.hibernate.ChanEvaTaskDaoHibernate" autowire="byName"/>
+    <!--ChanEvaTask-DAO END-->
+    <!--ChanEvaTask-START-->    
+    <bean id="IchanEvaTaskMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.chanEva.mgr.impl.ChanEvaTaskMgrImpl">
+                <property name="chanEvaTaskDao" ref="chanEvaTaskDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--ChanEvaTask-END-->
+    
+    <!--ChanEvaTaskDetail-DAO START-->
+    <bean id="chanEvaTaskDetailDao" class="com.boco.eoms.partner.chanEva.dao.hibernate.ChanEvaTaskDetailDaoHibernate" autowire="byName"/>
+    <!--ChanEvaTaskDetail-DAO END-->
+    <!--ChanEvaTaskDetail-START-->    
+    <bean id="IchanEvaTaskDetailMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.chanEva.mgr.impl.ChanEvaTaskDetailMgrImpl">
+                <property name="chanEvaTaskDetailDao" ref="chanEvaTaskDetailDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--ChanEvaTaskDetail-END-->
+    
+    <!--ChanEvaKpiInstance-DAO START-->
+    <bean id="chanEvaKpiInstanceDao" class="com.boco.eoms.partner.chanEva.dao.hibernate.ChanEvaKpiInstanceDaoHibernate" autowire="byName"/>
+    <!--ChanEvaKpiInstance-DAO END-->
+    <!--ChanEvaKpiInstance-START-->    
+    <bean id="IchanEvaKpiInstanceMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.chanEva.mgr.impl.ChanEvaKpiInstanceMgrImpl">
+                <property name="chanEvaKpiInstanceDao" ref="chanEvaKpiInstanceDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--ChanEvaKpiInstance-END-->
+    
+    <!--ChanEvaOrg-DAO START-->
+    <bean id="chanEvaOrgDao" class="com.boco.eoms.partner.chanEva.dao.hibernate.ChanEvaOrgDaoHibernate" autowire="byName"/>
+    <!--ChanEvaOrg-DAO END-->
+    <!--ChanEvaOrg-START-->    
+    <bean id="IchanEvaOrgMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.chanEva.mgr.impl.ChanEvaOrgMgrImpl">
+                <property name="chanEvaOrgDao" ref="chanEvaOrgDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--ChanEvaOrg-END-->
+
+    <!--ChanEvaAuditInfo-DAO START-->
+    <bean id="chanEvaAuditInfoDao" class="com.boco.eoms.partner.chanEva.dao.hibernate.ChanEvaAuditInfoDaoHibernate" autowire="byName"/>
+    <!--ChanEvaAuditInfo-DAO END-->
+    <!--ChanEvaAuditInfo-START-->    
+    <bean id="IchanEvaAuditInfoMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.chanEva.mgr.impl.ChanEvaAuditInfoMgrImpl">
+                <property name="chanEvaAuditInfoDao" ref="chanEvaAuditInfoDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--ChanEvaAuditInfo-END-->
+    
+    <!--ChanEvaAuditInfo-DAO START-->
+    <bean id="chanEvaReportInfoDao" class="com.boco.eoms.partner.chanEva.dao.hibernate.ChanEvaReportInfoDaoHibernate" autowire="byName"/>
+    <!--ChanEvaAuditInfo-DAO END-->
+    <!--ChanEvaAuditInfo-START-->    
+    <bean id="IchanEvaReportInfoMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.chanEva.mgr.impl.ChanEvaReportInfoMgrImpl">
+                <property name="chanEvaReportInfoDao" ref="chanEvaReportInfoDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--ChanEvaAuditInfo-END-->
+    <import
+		resource="classpath:com/boco/eoms/partner/chanEva/config/applicationContext-partner-chanEva-versionlog.xml" />
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

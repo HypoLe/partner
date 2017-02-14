@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<!-- Struts1 template v1.0.0 configuration for Nop3 based on eoms.
+	Author: Steve
+	Create: July,2011
+-->
+
+<struts-config>
+	<!-- ============ Form beans ============ -->
+	<form-beans>
+		<form-bean name="faultInfoForm"
+			type="com.boco.eoms.deviceManagement.faultInfo.model.BaseStationFaultRecordForm" />
+	</form-beans>
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+	<!-- ============ Global forwards ============ -->
+	<global-forwards type="org.apache.struts.action.ActionForward">
+		<forward name="failure" path="/common/fail.jsp"
+			contextRelative="true" />
+		<forward name="success" path="/success.jsp"
+			contextRelative="true" />
+		<forward name="error" path="/error.jsp" contextRelative="true" />
+	</global-forwards>
+	
+	<!-- ============ Action Mapping definitions ============ -->
+	<action-mappings type="org.apache.struts.action.ActionMapping">
+		<!-- Adding by steve. 2010-02-17 Circuit Start modual mapping.  -->
+		<action path="/faultInfo"
+			type="com.boco.eoms.deviceManagement.faultInfo.action.BaseStationFaultRecordAction" name="faultInfoForm"
+			scope="request" input="list" parameter="method" unknown="false"
+			validate="false">
+			<set-property property="cancellable" value="true" />
+			<!-- This is Jsp page template here. Do not modify these templates. Begin. -->
+			<forward name="goToEdit"
+				path="/WEB-INF/pages/deviceManagement/faultInfo/edit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/deviceManagement/faultInfo/list.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToDetail"
+				path="/WEB-INF/pages/deviceManagement/faultInfo/detail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToImport"
+				path="/WEB-INF/pages/deviceManagement/faultInfo/import.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToAdd"
+				path="/WEB-INF/pages/deviceManagement/faultInfo/add.jsp"
+				redirect="false" contextRelative="true" />
+				
+			<forward name="forwardlist" path="/faultInfo.do?method=list"
+				redirect="true" />
+			<forward name="success" path="/WEB-INF/pages/deviceManagement/faultInfo/success.jsp"
+				redirect="true" />
+		</action>
+	</action-mappings>
+	<!-- ========== Plug Ins Configuration ================================== -->
+	<!-- Add multiple validator resource files by setting the pathname property -->
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/validator-rules.xml,/WEB-INF/validation-duty.xml" />
+	</plug-in>
+
+</struts-config>

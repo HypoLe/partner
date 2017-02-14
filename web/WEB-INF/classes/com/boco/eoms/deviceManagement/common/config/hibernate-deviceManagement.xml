@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		 <property name="show_sql">true</property>
+		 <mapping resource="com/boco/eoms/deviceManagement/faultInfo/model/BaseStationFaultRecord.hbm.xml" />
+	     <mapping resource="com/boco/eoms/deviceManagement/charge/model/FeeApplicationMain.hbm.xml" />
+         <mapping resource="com/boco/eoms/deviceManagement/charge/model/FeeApplicationLink.hbm.xml" />
+         <mapping resource="com/boco/eoms/deviceManagement/faultSheet/model/faultSheetResponse.hbm.xml" />	
+		 <mapping resource="com/boco/eoms/deviceManagement/faultSheet/model/faultSheetManagement.hbm.xml" />
+         <mapping resource="com/boco/eoms/deviceManagement/technicData/model/TechnicDataFile.hbm.xml"/>
+		 <mapping resource="com/boco/eoms/deviceManagement/technicData/model/TechnicDataFolderMapping.hbm.xml"/>
+		 <mapping resource="com/boco/eoms/deviceManagement/technicData/model/TechnicDataFolderShare.hbm.xml"/>
+		 <mapping resource="com/boco/eoms/deviceManagement/qualify/model/TaskOrder.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/GPSManagement/model/GpsManagement.hbm.xml" />
+         <mapping resource="com/boco/eoms/deviceManagement/externalForceCheck/model/ExternalForceCheckModel.hbm.xml" />
+         <mapping resource="com/boco/eoms/deviceManagement/externalForceCheck/model/ExternalForceCheckSublist.hbm.xml" />
+         
+         <mapping resource="com/boco/eoms/deviceManagement/baseInfo/model/CheckSegment.hbm.xml" />
+		 
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/line/model/Maintain.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/line/model/MaintainApproval.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/line/model/MaintainReport.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/line/model/MaintainFinish.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/line/model/ProjectBaseInfo.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/line/model/ProjectOperInfo.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/network/model/HiddenTrouble.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/protectline/model/Advertisement.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/protectline/model/AdvertisementApproval.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/protectline/model/AdvertisementPlan.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/protectline/model/ArmyPoliceCivilian.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/protectline/model/ConsctRoution.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/protectline/model/mechanicalArmManagement.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/protectline/model/MediaPublicity.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/protectline/model/MediaPublicityApproval.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/protectline/model/PromoAgreement.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/protectline/model/PromoAgreementOperate.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/protectline/model/ProteclineLink.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/protectline/model/PublicityCatchline.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/protectline/model/PublicityCatchlineApproval.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/protectline/model/WarningBoard.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/protectline/model/WarningBoardOperate.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/baseInfo/model/BaseStation.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/protectline/model/PublicizeArticle.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/busi/protectline/model/PublicizeArticleApproval.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/baseInfo/model/CPBaseStation.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/baseInfo/model/HandWell.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/baseInfo/model/LightJoinBox.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/baseInfo/model/Pole.hbm.xml" />
+		 <mapping resource="com/boco/eoms/deviceManagement/baseInfo/model/CheckPoint.hbm.xml" />
+
+		 <!-- 光缆信息 -->
+		 <mapping resource="com/boco/eoms/deviceManagement/fiber/model/FiberInformation.hbm.xml" />
+
+		 <!-- 技能认证 -->
+		<mapping resource="com/boco/eoms/examonline/model/ExamIssue.hbm.xml"/>
+        <mapping resource="com/boco/eoms/examonline/model/ExamWarehouse.hbm.xml"/>
+        <mapping resource="com/boco/eoms/examonline/model/ExamInfo.hbm.xml"/>
+        <mapping resource="com/boco/eoms/examonline/model/ExamContent.hbm.xml"/>
+        <mapping resource="com/boco/eoms/examonline/model/ExamConfig.hbm.xml"/>
+        <mapping resource="com/boco/eoms/examonline/model/ExamSubmit.hbm.xml"/>
+        <mapping resource="com/boco/eoms/examonline/model/ExamStudyConfig.hbm.xml"/>
+        <mapping resource="com/boco/eoms/examonline/model/TawSystemDeptExam.hbm.xml"/>
+        <mapping resource="com/boco/eoms/examonline/model/ExamTypeSel.hbm.xml"/>
+		<mapping resource="com/boco/eoms/examonline/model/ExamNotice.hbm.xml"/>
+		<mapping resource="com/boco/eoms/examonline/model/ExamResult.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>

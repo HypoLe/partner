@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!--<bean id="carApproveDao"
+		class="com.boco.eoms.partner.taskManager.dao.hibernate.CarApproveDaoHibernate" autowire="byName" />
+	<bean id="carApproveService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.taskManager.service.impl.CarApproveServiceImpl">
+				<property name="carApproveDao" ref="carApproveDao" />
+			</bean>
+		</property>
+	</bean>-->
+
+    <bean id="keyManagementDao" class="com.boco.eoms.partner.keymanagement.dao.hibernate.KeyManagementDaoHibernate" autowire="byName" />
+    <bean id="keyManagementService" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.keymanagement.service.impl.KeyManagementServiceImpl">
+                <property name="keyManagementDao" ref="keyManagementDao"/>
+            </bean>
+        </property>
+    </bean>
+	
+</beans>

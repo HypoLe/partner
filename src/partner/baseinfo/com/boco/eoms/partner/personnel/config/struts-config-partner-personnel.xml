@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+	<!-- 证书 -->
+		<form-bean 
+		name="certificateForm" 
+		type="com.boco.eoms.partner.personnel.webapp.form.CertificateForm"/>
+	<!-- 奖励 -->	
+		<form-bean 
+		name="rewardForm" 
+		type="com.boco.eoms.partner.personnel.webapp.form.RewardForm"/>
+	<!-- 资质 -->
+		<form-bean 
+		name="dwInfoForm" 
+		type="com.boco.eoms.partner.personnel.webapp.form.DWInfoForm"/>
+	<!-- 培训经历 -->	
+		<form-bean 
+		name="pxExperienceForm" 
+		type="com.boco.eoms.partner.personnel.webapp.form.PXExperienceForm"/>	
+		<!-- 学习经历 -->	
+		<form-bean 
+		name="studyExperienceForm" 
+		type="com.boco.eoms.partner.personnel.webapp.form.StudyExperienceForm"/>		
+	</form-beans>
+	<!-- ========== Global Exceptions Definitions =================================== -->
+    <global-exceptions>
+        <exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+    </global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward
+		  name="success"
+		  path="/common/success.jsp"
+		  redirect="true"
+		  contextRelative="true"
+		/>
+		<forward
+		  name="nopriv"
+		  path="/common/nopriv.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>
+		<forward
+		  name="fail"
+		  path="/common/failure.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>
+    </global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+	<action-mappings>
+	<!-- 技能信息 -->
+		<action
+		  path="/skillInfo"
+		  type="com.boco.eoms.partner.personnel.webapp.action.SkillInfoAction"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/skillInfoList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="add_edit"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/skillInfoEdit.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		</action>
+	<!-- 证书 -->
+		<action
+		  path="/certificate"
+		  type="com.boco.eoms.partner.personnel.webapp.action.CertificateAction"
+		  name="certificateForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<forward
+				  name="import"
+				  path="/WEB-INF/pages/partner/baseinfo/personnel/certificateImport.jsp"
+				  redirect="false"
+				  contextRelative="true"
+				/>
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/certificateList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="listmgr"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/certificateListMgr.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>			
+			<forward
+			  name="add_edit"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/certificateEdit.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="statistics"
+			  path="/WEB-INF/pages/partner/statistically/certificateStatistiscally.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		</action>
+	<!-- 奖励管理 -->
+		<action
+		  path="/reward"
+		  type="com.boco.eoms.partner.personnel.webapp.action.RewardAction"
+		  name="rewardForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+		<forward
+			  name="import"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/rewardImport.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>		
+			<forward
+			  name="listmgr"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/rewardListMgr.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>		
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/rewardList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="add_edit"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/rewardEdit.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		
+		</action>
+	<!-- 代维资质 -->
+		<action
+		  path="/dwInfo"
+		  type="com.boco.eoms.partner.personnel.webapp.action.DWInfoAction"
+		  name="dwInfoForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+		<forward
+			  name="import"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/dwInfoImport.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/dwInfoList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		<forward
+			  name="listmgr"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/dwInfoListMgr.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		<forward
+			  name="add_edit"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/dwInfoEdit.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		</action>
+	<!-- 培训经历 -->	
+		<action
+		  path="/pxExperience"
+		  type="com.boco.eoms.partner.personnel.webapp.action.PXExperienceAction"
+		  name="pxExperienceForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+		<forward
+			  name="import"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/pxExperienceImport.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/pxExperienceList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="listmgr"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/pxExperienceListMgr.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>			
+		<forward
+			  name="add_edit"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/pxExperienceEdit.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		</action>
+		<!-- 学习经历 -->	
+		<action
+		  path="/studyExperience"
+		  type="com.boco.eoms.partner.personnel.webapp.action.StudyExperienceAction"
+		  name="studyExperienceForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+		<forward
+			  name="import"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/studyExperienceImport.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/studyExperienceList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="listmgr"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/studyExperienceListMgr.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>			
+		<forward
+			  name="add_edit"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/studyExperienceEdit.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>		
+		<forward
+			  name="statistics"
+			  path="/WEB-INF/pages/partner/statistically/studyExperienceStatistiscally.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>		
+		</action>
+		
+	</action-mappings>
+</struts-config>

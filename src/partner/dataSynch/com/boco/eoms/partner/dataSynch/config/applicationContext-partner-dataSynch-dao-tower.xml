@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 铁塔-IrmsTowerTower -->
+	<bean id="irmsTowerTowerDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.tower.IrmsTowerTowerDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_tower_tower" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_tower_tower" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_tower_tower" /><!-- 正式表名 -->
+	</bean>
+	<!-- 天线-IrmsTowerAnt -->
+	<bean id="irmsTowerAntDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.tower.IrmsTowerAntDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_tower_ant" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_tower_ant" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_tower_ant" /><!-- 正式表名 -->
+	</bean>
+</beans>

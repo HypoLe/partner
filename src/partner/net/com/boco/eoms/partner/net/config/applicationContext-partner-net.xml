@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+
+	<bean id="iGridMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.net.mgr.impl.GridMgrImpl">
+				<property name="gridDao" ref="gridDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="gridDao"
+		class="com.boco.eoms.partner.net.dao.hibernate.GridDaoHibernate"
+		autowire="byName" />
+
+	<bean id="iSiteMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.net.mgr.impl.SiteMgrImpl">
+				<property name="siteDao" ref="siteDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="siteDao"
+		class="com.boco.eoms.partner.net.dao.hibernate.SiteDaoHibernate"
+		autowire="byName" />
+</beans>
+
+
+
+
+
+
+
+
+

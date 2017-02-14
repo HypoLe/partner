@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans> 
+		<form-bean
+		  name="pnrWorkplanMainForm"
+		  type="com.boco.eoms.partner.workplan.webapp.form.PnrWorkplanMainForm"
+		/>
+		<form-bean
+		  name="pnrWorkplanWorkForm"
+		  type="com.boco.eoms.partner.workplan.webapp.form.PnrWorkplanWorkForm"
+		/>
+		<form-bean
+		  name="pnrWorkplanEvaForm"
+		  type="com.boco.eoms.partner.workplan.webapp.form.PnrWorkplanEvaForm"
+		/>
+	</form-beans>
+	<!-- ========== Global Exceptions Definitions =================================== -->
+    <global-exceptions>
+        <exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+    </global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward
+		  name="success"
+		  path="/common/success.jsp"
+		  redirect="true"
+		  contextRelative="true"
+		/>
+		<forward
+		  name="nopriv"
+		  path="/common/nopriv.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>
+		<forward
+		  name="fail"
+		  path="/common/failure.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>
+		<forward
+		  name="refreshParent"
+		  path="/WEB-INF/pages/partner/workplan/refreshParent.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>			
+    </global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+
+	<action-mappings>
+		<action
+		  path="/pnrWorkplanMains"
+		  type="com.boco.eoms.partner.workplan.webapp.action.PnrWorkplanMainAction"
+		  name="pnrWorkplanMainForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/partner/workplan/pnrWorkplanMainForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="unAuditList"
+			  path="/WEB-INF/pages/partner/workplan/pnrWorkplanUnAuditList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="audit"
+			  path="/WEB-INF/pages/partner/workplan/pnrWorkplanAudit.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="detail"
+			  path="/WEB-INF/pages/partner/workplan/pnrWorkplanMainDetail.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/workplan/pnrWorkplanMainList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="searchPnrwpm"
+			  path="/partner/workplan/pnrWorkplanMains.do"
+			  redirect="true"
+			  contextRelative="true"
+			/>	
+		</action>
+		<action
+		  path="/pnrWorkplanWorks"
+		  type="com.boco.eoms.partner.workplan.webapp.action.PnrWorkplanWorkAction"
+		  name="pnrWorkplanWorkForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/partner/workplan/pnrWorkplanWorkForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/workplan/pnrWorkplanWorkList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="undoList"
+			  path="/WEB-INF/pages/partner/workplan/pnrWorkplanWorkUndoList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="workExecute"
+			  path="/WEB-INF/pages/partner/workplan/pnrWorkplanExecute.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="flushParentPage"
+			  path="/WEB-INF/pages/partner/workplan/pnrWorkRefresh.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>			
+		</action>
+		<action
+		  path="/pnrWorkplanEvas"
+		  type="com.boco.eoms.partner.workplan.webapp.action.PnrWorkplanEvaAction"
+		  name="pnrWorkplanEvaForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/partner/workplan/pnrWorkplanEvaForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/workplan/pnrWorkplanEvaList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		</action>
+	</action-mappings>
+ 	<controller nocache="true" inputForward="true" maxFileSize="2M" />
+	<message-resources parameter="com/boco/eoms/partner/workplan/config/applicationResources-partner-workplan"/>
+</struts-config>
+
+

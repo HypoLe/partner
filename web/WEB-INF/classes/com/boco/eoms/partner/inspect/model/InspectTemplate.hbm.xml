@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.boco.eoms.partner.inspect.model.InspectTemplate" table="pnr_inspect_template">
+	            
+    <id name="id" column="id" unsaved-value="null">
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+    </id>
+    				            
+    <property name="templateName"
+            column="templateName"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="dept"
+            column="dept"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="specialty"
+            column="specialty"
+            not-null="false"
+            unique="false">
+    </property>
+    <!-- 
+      <property name="deviceType"
+            column="device_Type"
+            not-null="false"
+            unique="false">
+    </property>
+             -->
+    		            
+    <property name="content"
+            column="content"
+            not-null="false"
+            unique="false">
+    </property>
+    <property name="resType"
+            column="res_Type"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="addTime"
+            column="add_time"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="addUser"
+            column="add_User"
+            not-null="false"
+            unique="false">
+    </property>
+    <property name="status" column="status"/>
+    <property name="itemNum" column="item_num"></property>
+</class>    
+</hibernate-mapping>
+

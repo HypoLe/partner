@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 人手井-IrmsTransWell -->
+	<bean id="irmsTransWellDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.trans.IrmsTransWellDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_trans_well" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_trans_well" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_trans_well" /><!-- 正式表名 -->
+	</bean>
+	<!-- 杆路-IrmsTransPoleline -->
+	<bean id="irmsTransPolelineDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.trans.IrmsTransPolelineDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_trans_poleline" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_trans_poleline" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_trans_poleline" /><!-- 正式表名 -->
+	</bean>
+	<!-- 管孔-IrmsTransPipehole -->
+	<bean id="irmsTransPipeholeDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.trans.IrmsTransPipeholeDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_trans_pipehole" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_trans_pipehole" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_trans_pipehole" /><!-- 正式表名 -->
+	</bean>
+	<!-- 管道段-IrmsTransPipesec -->
+	<bean id="irmsTransPipesecDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.trans.IrmsTransPipesecDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_trans_pipesec" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_trans_pipesec" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_trans_pipesec" /><!-- 正式表名 -->
+	</bean>
+	<!-- 管道-IrmsTransPipe -->
+	<bean id="irmsTransPipeDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.trans.IrmsTransPipeDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_trans_pipe" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_trans_pipe" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_trans_pipe" /><!-- 正式表名 -->
+	</bean>
+	<!-- 电杆-IrmsTransPoles -->
+	<bean id="irmsTransPolesDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.trans.IrmsTransPolesDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_trans_poles" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_trans_poles" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_trans_poles" /><!-- 正式表名 -->
+	</bean>
+	<!-- 杆路段-IrmsTransPolelinesec -->
+	<bean id="irmsTransPolelinesecDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.trans.IrmsTransPolelinesecDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_trans_polelinesec" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_trans_polelinesec" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_trans_polelinesec" /><!-- 正式表名 -->
+	</bean>
+	<!-- 标石-IrmsTransMarkstone -->
+	<bean id="irmsTransMarkstoneDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.trans.IrmsTransMarkstoneDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_trans_markstone" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_trans_markstone" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_trans_markstone" /><!-- 正式表名 -->
+	</bean>
+	<!-- 直埋-IrmsTransDirbury -->
+	<bean id="irmsTransDirburyDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.trans.IrmsTransDirburyDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_trans_dirbury" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_trans_dirbury" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_trans_dirbury" /><!-- 正式表名 -->
+	</bean>
+	<!-- 光缆-IrmsTransOpcable -->
+	<bean id="irmsTransOpcableDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.trans.IrmsTransOpcableDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_trans_opcable" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_trans_opcable" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_trans_opcable" /><!-- 正式表名 -->
+	</bean>
+	<!-- 光缆段-IrmsTransOpcablesec -->
+	<bean id="irmsTransOpcablesecDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.trans.IrmsTransOpcablesecDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_trans_opcablesec" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_trans_opcablesec" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_trans_opcablesec" /><!-- 正式表名 -->
+	</bean>
+	<!-- 直埋段-IrmsTransDirburysec -->
+	<bean id="irmsTransDirburysecDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.trans.IrmsTransDirburysecDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_trans_dirburysec" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_trans_dirburysec" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_trans_dirburysec" /><!-- 正式表名 -->
+	</bean>
+	<!-- 光交接箱-IrmsTransOdf -->
+	<bean id="irmsTransOdfDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.trans.IrmsTransOdfDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_trans_odf" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_trans_odf" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_trans_odf" /><!-- 正式表名 -->
+	</bean>
+	<!-- 光电接头盒-IrmsTransOpconbox -->
+	<bean id="irmsTransOpconboxDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.trans.IrmsTransOpconboxDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_trans_opconbox" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_trans_opconbox" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_trans_opconbox" /><!-- 正式表名 -->
+	</bean>
+</beans>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<!-- 
+			<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+		-->
+	</global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward
+          name="success"
+          path="/common/success.jsp"
+          redirect="false"
+          contextRelative="true"
+      	/>
+      	<forward
+          name="fail"
+          path="/common/fail.jsp"
+          redirect="false"
+          contextRelative="true"
+      	/>
+	</global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+
+
+	<action-mappings>
+	<action
+	      path="/carApprove"
+	      type="com.boco.eoms.partner.taskManager.webapp.action.CarApproveAction"
+	      scope="request"
+	      parameter="method"
+	      unknown="false"
+	      validate="false"
+	    >
+	      <set-property
+	        property="cancellable"
+	        value="true"
+	      />
+	      <forward
+	        name="carApplyFrom"
+	        path="/WEB-INF/pages/partner/taskManager/carApplyFrom.jsp"
+	        redirect="false"
+	        contextRelative="true"
+	      />
+	      <forward
+	        name="carApplyList"
+	        path="/WEB-INF/pages/partner/taskManager/carApplyList.jsp"
+	        redirect="false"
+	        contextRelative="true"
+	      />
+	      <forward
+	        name="carApproveList"
+	        path="/WEB-INF/pages/partner/taskManager/carApproveList.jsp"
+	        redirect="false"
+	        contextRelative="true"
+	      />
+	      <forward
+	        name="endCarApplyList"
+	        path="/WEB-INF/pages/partner/taskManager/endCarApproveList.jsp"
+	        redirect="false"
+	        contextRelative="true"
+	      />
+	      <forward
+	        name="carApproveForm"
+	        path="/WEB-INF/pages/partner/taskManager/carApproveForm.jsp"
+	        redirect="false"
+	        contextRelative="true"
+	      />
+	      
+	       <forward
+	        name="backCarForm"
+	        path="/WEB-INF/pages/partner/taskManager/carBackFrom.jsp"
+	        redirect="false"
+	        contextRelative="true"
+	      />
+	       <forward
+	        name="endCarApplyForm"
+	        path="/WEB-INF/pages/partner/taskManager/carEndFrom.jsp"
+	        redirect="false"
+	        contextRelative="true"
+	      />
+	       <forward
+	        name="byMeApplyList"
+	        path="/WEB-INF/pages/partner/taskManager/byMeApplyList.jsp"
+	        redirect="false"
+	        contextRelative="true"
+	      />
+	      <forward
+	        name="findCarApproveList"
+	        path="/WEB-INF/pages/partner/taskManager/findCarApproveList.jsp"
+	        redirect="false"
+	        contextRelative="true"
+	      />
+	      <forward
+	        name="carApproveDetail"
+	        path="/WEB-INF/pages/partner/taskManager/carApproveDetail.jsp"
+	        redirect="false"
+	        contextRelative="true"
+	      />
+	    </action>
+	    
+	  
+	    
+	</action-mappings>	
+	
+	<controller nocache="true" inputForward="true" maxFileSize="5M" />
+
+</struts-config>

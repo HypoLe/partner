@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"><hibernate-mapping>
+<class name="com.boco.eoms.examonline.model.ExamConfig"  table="ExamConfig">
+<id column="ISSUE_ID" name="issueId" type="string">
+<generator class="uuid.hex"/>
+</id>
+<property column="TITLE" length="255" name="title" not-null="true" type="string"/>
+<property column="START_TIME" length="7" name="startTime" not-null="true" type="timestamp"/>
+<property column="END_TIME" length="7" name="endTime" not-null="true" type="timestamp"/>
+<property column="ISSUE_USER" length="30" name="issueUser" not-null="true" type="string"/>
+<property column="testers" length="600" name="testers" not-null="true" type="string"/>
+<property column="TYPE_SEL" length="1000" name="typeSel" not-null="true" type="string"/>
+<property column="TESTER" length="2000" name="tester" not-null="true" type="string"/>
+<property column="ISSUE_STARTTIME" length="7" name="issueStarttime" type="timestamp"/>
+<property column="ISSUE_ENDTIME" length="7" name="issueEndtime" type="timestamp"/>
+<property column="companyId" length="32" name="companyId" not-null="true" type="string"/>
+<property column="deptId" length="32" name="deptId" not-null="true" type="string"/>
+<property column="testerCount" length="2" name="testerCount" type="integer"/>
+<property column="assignment"  name="assignment"  type="boolean"/>
+<property column="markFlag"  name="markFlag"  type="integer"/>
+<property column="mark" name="mark" type="integer"/>
+<property column="typesel_fk" name="typesel_fk" type="string"/>
+<property column="examType" name="examType"/>
+</class>
+</hibernate-mapping>

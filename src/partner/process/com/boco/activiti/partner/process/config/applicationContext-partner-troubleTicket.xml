@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="pnrTroubleTicketDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrTroubleTicketDaoHibernate" autowire="byName" />
+    <bean id="pnrTroubleTicketJDBCDao"
+          class="com.boco.activiti.partner.process.dao.hibernate.PnrTroubleTicketDaoJDBC" autowire="byName" >
+        <property name="taskService" ref="taskService" />
+        <property name="historyService" ref="historyService"/>
+    </bean>
+
+	<bean id="pnrTroubleTicketHandleDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrTroubleTicketHandleDaoHibernate" autowire="byName" />
+	
+	<bean id="pnrTroubleTicketService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class=" com.boco.activiti.partner.process.service.impl.PnrTroubleTicketServiceImpl">
+				<property name="pnrTroubleTicketDao" ref="pnrTroubleTicketDao" />
+                <property name="pnrTroubleTicketJDBCDao" ref="pnrTroubleTicketJDBCDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="pnrTroubleTicketHandleService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class=" com.boco.activiti.partner.process.service.impl.PnrTroubleTicketHandleServiceImpl">
+				<property name="pnrTroubleTicketHandleDao" ref="pnrTroubleTicketHandleDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="pnrAndroidWorkOderPhotoFileService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.PnrAndroidWorkOderPhotoFileServiceImpl">
+				<property name="pnrAndroidWorkOderPhotoFileDao" ref="pnrAndroidWorkOderPhotoFileDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="pnrAndroidWorkOderPhotoFileDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrAndroidWorkOderPhotoFileDaoHibernate" autowire="byName" />
+	
+	<bean id="processTaskService"
+		class="com.boco.activiti.partner.process.service.impl.ProcessTaskServiceImpl" autowire="byName" />
+	
+</beans>

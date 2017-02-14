@@ -1,0 +1,19 @@
+/*
+ COPYRIGHT 2009 ESRI
+
+ TRADE SECRETS: ESRI PROPRIETARY AND CONFIDENTIAL
+ Unpublished material - all rights reserved under the
+ Copyright Laws of the United States and applicable international
+ laws, treaties, and conventions.
+
+ For additional information, contact:
+ Environmental Systems Research Institute, Inc.
+ Attn: Contracts and Legal Services Department
+ 380 New York Street
+ Redlands, California, 92373
+ USA
+
+ email: contracts@esri.com
+ */
+
+window[esri._dojoScopeName||"dojo"]._xdResourceLoaded(function(_1,_2,_3){return {depends:[["provide","esri.InfoWindowBase"],["require","dijit._base.manager"]],defineResource:function(_4,_5,_6){if(!_4._hasResource["esri.InfoWindowBase"]){_4._hasResource["esri.InfoWindowBase"]=true;_4.provide("esri.InfoWindowBase");_4.require("dijit._base.manager");_4.declare("esri.InfoWindowBase",null,{constructor:function(){var _7=_4.hitch;this.__set_title=_7(this,this.__set_title);this.__err_title=_7(this,this.__err_title);this.__set_content=_7(this,this.__set_content);this.__err_content=_7(this,this.__err_content);},setMap:function(_8){this.map=_8;},unsetMap:function(_9){delete this.map;},setTitle:function(){},setContent:function(){},show:function(){},hide:function(){},resize:function(){},onShow:function(){},onHide:function(){},place:function(_a,_b){if(esri._isDefined(_a)){if(_4.isObject(_a)){_4.place(_a,_b,"only");}else{_b.innerHTML=_a;}}else{_b.innerHTML="";}},startupDijits:function(_c){this._processDijits(_c);},destroyDijits:function(_d){this._processDijits(_d,true);},_processDijits:function(_e,_f){if(_e&&_e.children.length===1){var _10=_e.children[0];if(_10){var _11=_5.byNode(_10);var _12=_11?[_11]:_5.findWidgets(_10);_4.forEach(_12,function(_13){if(_f){if(_13._started&&!_13._destroyed){try{if(_13.destroyRecursive){_13.destroyRecursive();}else{if(_13.destroy){_13.destroy();}}}catch(ex){console.debug("An error occurred when destroying a widget embedded within InfoWindow: "+ex.message);}}}else{if(!_13._started){try{_13.startup();}catch(ex2){console.debug("An error occurred when starting a widget embedded within InfoWindow: "+ex2.message);}}}});}}},__registerMapListeners:function(){this.__unregisterMapListeners();var map=this.map;this.__handles=[_4.connect(map,"onPan",this,this.__onMapPan),_4.connect(map,"onZoomStart",this,this.__onMapZmStart),_4.connect(map,"onExtentChange",this,this.__onMapExtChg)];},__unregisterMapListeners:function(){var _14=this.__handles;if(_14){_4.forEach(_14,_4.disconnect,_4);this.__handles=null;}},__onMapPan:function(_15,_16){this.move(_16,true);},__onMapZmStart:function(){this.__mcoords=this.mapCoords||this.map.toMap(new esri.geometry.Point(this.coords));this.hide(null,true);},__onMapExtChg:function(_17,_18,_19){var map=this.map,_1a=this.mapCoords;if(_1a){this.show(_1a,null,true);}else{var _1b;if(_19){_1b=map.toScreen(this.__mcoords);}else{_1b=this.coords.offset(_18.x,_18.y);}this.show(_1b,null,true);}},__setValue:function(_1c,_1d){this[_1c].innerHTML="";var dfd="_dfd"+_1c,_1e=this[dfd];if(_1e&&_1e.fired===-1){_1e.cancel();this[dfd]=null;}if(esri._isDefined(_1d)){if(_1d instanceof _4.Deferred){this[dfd]=_1d;_1d.addCallbacks(this["__set"+_1c],this["__err"+_1c]);}else{this.__render(_1c,_1d);}}},__set_title:function(_1f){this._dfd_title=null;this.__render("_title",_1f);},__err_title:function(_20){this._dfd_title=null;},__set_content:function(_21){this._dfd_content=null;this.__render("_content",_21);},__err_content:function(_22){this._dfd_content=null;},__render:function(_23,_24){var _25=this[_23];this.place(_24,_25);if(this.isShowing){this.startupDijits(_25);if(_23==="_title"&&this._adjustContentArea){this._adjustContentArea();}}}});}}};});

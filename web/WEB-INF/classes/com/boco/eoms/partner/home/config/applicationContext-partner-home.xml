@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+<!-- 公告管理  开始 -->
+		<bean id="refpublishInfoDao"
+			class="com.boco.eoms.partner.home.dao.impl.PublishInfoDaoImpl" autowire="byName" />
+		<bean id="reftaskDao"
+			class="com.boco.eoms.partner.home.dao.impl.TaskDaoImpl" autowire="byName" />	
+		<bean id="reflinkDao"
+			class="com.boco.eoms.partner.home.dao.impl.LinkDaoImpl" autowire="byName" />	
+			
+		<bean id="refpublishInfoMgr" parent="txProxyTemplate">
+			<property name="target">
+				<bean class="com.boco.eoms.partner.home.mgr.impl.PublishInfoMgrImpl">
+					<property name="publishInfoDao" ref="refpublishInfoDao" />
+				</bean>
+			</property>
+		</bean>
+		<bean id="reftaskMgr" parent="txProxyTemplate">
+			<property name="target">
+				<bean class="com.boco.eoms.partner.home.mgr.impl.TaskMgrImpl">
+					<property name="taskDao" ref="reftaskDao" />
+				</bean>
+			</property>
+		</bean>
+		<bean id="reflinkMgr" parent="txProxyTemplate">
+			<property name="target">
+				<bean class="com.boco.eoms.partner.home.mgr.impl.LinkMgrImpl">
+					<property name="linkDao" ref="reflinkDao" />
+				</bean>
+			</property>
+		</bean>
+		
+		<bean id="refpublishMgr" parent="txProxyTemplate">
+			<property name="target">
+				<bean class="com.boco.eoms.partner.home.mgr.impl.PublishMgrImpl">
+					<property name="publishInfoMgr" ref="refpublishInfoMgr" />
+					<property name="taskMgr" ref="reftaskMgr" />
+					<property name="linkMgr" ref="reflinkMgr" />
+				</bean>
+			</property>
+		</bean>
+		
+	<!-- 公告管理  结束 -->
+	
+	<!-- 资料库管理 开始 -->
+			<bean id="refmaterialLibDao"
+					class="com.boco.eoms.partner.home.dao.impl.MaterialLibDaoImpl" autowire="byName" />
+			<bean id="matlibScopeDeptDao"
+					class="com.boco.eoms.partner.home.dao.impl.MatlibScopeDeptDaoImpl" autowire="byName" />
+			<bean id="refmaterialLibMgr" parent="txProxyTemplate">
+					<property name="target">
+						<bean class="com.boco.eoms.partner.home.mgr.impl.MaterialLibMgrImpl">
+							<property name="materialLibDao" ref="refmaterialLibDao" />
+							<property name="matlibScopeDeptDao" ref="matlibScopeDeptDao" />
+						</bean>
+					</property>
+				</bean>
+	<!-- 资料库管理 结束 -->
+		
+</beans>

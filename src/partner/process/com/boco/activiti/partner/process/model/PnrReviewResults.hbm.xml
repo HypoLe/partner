@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.boco.activiti.partner.process.model.PnrReviewResults"
+		table="pnr_review_results" lazy="true">
+		<id name="id" type="java.lang.String"><!-- 主键 -->
+			<column name="id" length="32" />
+			<generator class="uuid.hex"></generator>
+		</id>
+		<property name="processInstanceId" column="process_instance_id" /><!--工单号  -->
+		<property name="backfillLink" column="backfill_link" /><!--回填环节  -->
+		<property name="reviewResult" column="review_result" /><!--会审结果  -->
+		<property name="expertOpinion" column="expert_opinion" /><!-- 专家意见 -->
+		<property name="reviewTime" column="review_time" /><!--会审时间  -->
+		<property name="themeInterface" column="theme_interface" /><!--工单流程类型  -->
+		<property name="handleMark" column="handle_mark" /><!--处理标志  -->
+		<property name="importUser" column="import_user" /><!--导入人  -->
+		<property name="uniqueMark" column="unique_mark" /><!--唯一标识  -->
+		<property name="importTime" column="import_time" /><!--导入时间  -->
+		<property name="isAgreeStriking" column="is_agree_striking" /><!--是否同意实施  -->
+	</class>
+</hibernate-mapping>

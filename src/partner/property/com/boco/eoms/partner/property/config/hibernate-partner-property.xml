@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="show_sql">true</property>
+    <property name="format_sql">false</property>
+    <!--电费-->
+	<mapping resource="com/boco/eoms/partner/property/model/PnrElectricityBills.hbm.xml"/>
+    <!--电费统计-->
+	<mapping resource="com/boco/eoms/partner/property/model/PnrElectricityBillsCount.hbm.xml"/>
+    <!--物业合同-->
+	<mapping resource="com/boco/eoms/partner/property/model/PnrPropertyAgreement.hbm.xml"/>
+    <!--租金-->
+	<mapping resource="com/boco/eoms/partner/property/model/PnrRentBills.hbm.xml"/>
+    <!--租金统计-->
+	<mapping resource="com/boco/eoms/partner/property/model/PnrRentBillsCount.hbm.xml"/>
+    <!--提醒 -->
+	<mapping resource="com/boco/eoms/partner/property/model/PnrRemindMsg.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

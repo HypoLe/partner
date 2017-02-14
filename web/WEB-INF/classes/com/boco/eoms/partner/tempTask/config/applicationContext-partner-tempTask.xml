@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="pnrTempTaskMainMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.tempTask.mgr.impl.PnrTempTaskMainMgrImpl">
+				<property name="pnrTempTaskMainDao" ref="pnrTempTaskMainDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="pnrTempTaskMainDao"
+		class="com.boco.eoms.partner.tempTask.dao.hibernate.PnrTempTaskMainDaoHibernate"
+		autowire="byName" />
+
+	<bean id="pnrTempTaskWorkMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.tempTask.mgr.impl.PnrTempTaskWorkMgrImpl">
+				<property name="pnrTempTaskWorkDao" ref="pnrTempTaskWorkDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="pnrTempTaskWorkDao"
+		class="com.boco.eoms.partner.tempTask.dao.hibernate.PnrTempTaskWorkDaoHibernate"
+		autowire="byName" />
+		
+	<bean id="pnrTempTaskAuditMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.tempTask.mgr.impl.PnrTempTaskAuditMgrImpl">
+				<property name="pnrTempTaskAuditDao" ref="pnrTempTaskAuditDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="pnrTempTaskExeDao"
+		class="com.boco.eoms.partner.tempTask.dao.hibernate.PnrTempTaskExeDaoHibernate"
+		autowire="byName" />	
+			<bean id="pnrTempTaskExeMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.tempTask.mgr.impl.PnrTempTaskExeMgrImpl">
+				<property name="pnrTempTaskExeDao" ref="pnrTempTaskExeDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="pnrTempTaskAuditDao"
+		class="com.boco.eoms.partner.tempTask.dao.hibernate.PnrTempTaskAuditDaoHibernate"
+		autowire="byName" />	
+		
+</beans>
+
+

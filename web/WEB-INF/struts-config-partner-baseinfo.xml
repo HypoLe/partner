@@ -1,0 +1,1296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean
+		  name="partnerUserAndAreaForm"
+		  type="com.boco.eoms.partner.baseinfo.webapp.form.PartnerUserAndAreaForm"
+		/> 
+		<form-bean
+		  name="partnerUserAndDeptForm"
+		  type="com.boco.eoms.partner.baseinfo.webapp.form.PartnerUserAndDeptForm"
+		/> 
+		<form-bean
+		  name="areaDeptTreeForm"
+		  type="com.boco.eoms.partner.baseinfo.webapp.form.AreaDeptTreeForm"
+		/>
+		<form-bean
+		  name="partnerDeptForm"
+		  type="com.boco.eoms.partner.baseinfo.webapp.form.PartnerDeptForm"
+		/>
+		
+		<form-bean
+		  name="partnerUserForm"
+		  type="com.boco.eoms.partner.baseinfo.webapp.form.PartnerUserForm"
+		/>
+		<form-bean
+		  name="tawApparatusForm"
+		  type="com.boco.eoms.partner.baseinfo.webapp.form.TawApparatusForm"
+		/>
+		<form-bean
+		  name="tawPartnerCarForm"
+		  type="com.boco.eoms.partner.baseinfo.webapp.form.TawPartnerCarForm"
+		/>
+		<form-bean
+		  name="tawPartnerOilForm"
+		  type="com.boco.eoms.partner.baseinfo.webapp.form.TawPartnerOilForm"
+		/>
+		<form-bean
+		  name="personConfigForm"
+		  type="com.boco.eoms.partner.baseinfo.webapp.form.PersonConfigForm"
+		/>		
+		<form-bean
+		  name="vehicleForm"
+		  type="com.boco.eoms.partner.baseinfo.webapp.form.VehicleForm"
+		/>
+		<form-bean
+		  name="instrumentConfigForm"
+		  type="com.boco.eoms.partner.baseinfo.webapp.form.InstrumentConfigForm"
+		/>
+		
+		<form-bean
+		  name="oilEngineConfigureForm"
+		  type="com.boco.eoms.partner.baseinfo.webapp.form.OilEngineConfigureForm"
+		/>
+		<form-bean
+		  name="stationForm"
+		  type="com.boco.eoms.partner.baseinfo.webapp.form.StationForm"
+		/>
+		<form-bean
+		  name="aptitudeForm"
+		  type="com.boco.eoms.partner.baseinfo.webapp.form.AptitudeForm"
+		/>
+		<form-bean
+		  name="resumeForm"
+		  type="com.boco.eoms.partner.baseinfo.webapp.form.ResumeForm"
+		/>
+		<form-bean
+		  name="pnrBaseSiteForm"
+		  type="com.boco.eoms.partner.baseinfo.webapp.form.PnrBaseSiteForm"
+		/>
+		<form-bean
+		  name="partnerEvaluationForm"
+		  type="com.boco.eoms.partner.baseinfo.webapp.form.PartnerEvaluationForm"
+		/>		
+	</form-beans>
+	<!-- ========== Global Exceptions Definitions =================================== -->
+    <global-exceptions>
+        <exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+    </global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward
+		  name="success"
+		  path="/common/success.jsp"
+		  redirect="true"
+		  contextRelative="true"
+		/>
+		<forward
+		  name="nopriv"
+		  path="/common/nopriv.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>
+		<forward
+		  name="fail"
+		  path="/common/failure.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>
+		<forward
+		  name="refreshSelf"
+		  path="/WEB-INF/pages/partner/baseinfo/refreshSelf.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>
+		
+		
+		<!-- 地域树模板 -->
+		<forward name="tpl-area-xtree" path="/templates/area/tpl-area-xtree.jsp" redirect="false" contextRelative="true"/>
+
+		
+    </global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+	
+   <!-- diyubumenshu -->
+	<action-mappings>
+		<action
+		  path="/areaDeptTrees"
+		  type="com.boco.eoms.partner.baseinfo.webapp.action.AreaDeptTreeAction"
+		  name="areaDeptTreeForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="tree"
+			  path="/WEB-INF/pages/partner/baseinfo/areaDeptTreeTree.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/partner/baseinfo/areaDeptTreeForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="editFactory"
+			  path="/WEB-INF/pages/partner/baseinfo/partnerDeptForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="selectAreas"
+			  path="/WEB-INF/pages/partner/baseinfo/selectAreas.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		</action>
+		
+        <!-- renyuandishiyingshebiao -->
+		<action
+		  path="/partnerUserAndAreas"
+		  type="com.boco.eoms.partner.baseinfo.webapp.action.PartnerUserAndAreaAction"
+		  name="partnerUserAndAreaForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/partner/baseinfo/partnerUserAndArea/partnerUserAndAreaForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/partnerUserAndArea/partnerUserAndAreaList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		</action>
+		<action
+		  path="/partnerUserAndDepts"
+		  type="com.boco.eoms.partner.baseinfo.webapp.action.PartnerUserAndDeptAction"
+		  name="partnerUserAndDeptForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/partner/baseinfo/partnerUserAndDept/partnerUserAndDeptForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/partnerUserAndDept/partnerUserAndDeptList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		</action>
+		<!-- 组织信息统计 add by fengguangping 2012 12.06 begin --> 
+		<action path="/pnrDeptStatistics"
+		  type="com.boco.eoms.partner.baseinfo.webapp.action.PartnerDeptStatisticsAction"
+		  scope="request" parameter="method"  unknown="false" validate="false">
+		  	<!--组织数量统计-->
+		  	<forward  name="pnrDeptCountStatistics" 
+		  	path="/WEB-INF/pages/partner/baseinfo/partnerDeptStatistics/pnrDeptCountStatistics.jsp" 
+		  	redirect="false" contextRelative="true"/>
+		  	<!--组织数量统计列表-->
+		  	<forward  name="pnrDeptCountStatisticsList" 
+		  	path="/WEB-INF/pages/partner/baseinfo/partnerDeptStatistics/pnrDeptCountStatisticsList.jsp" 
+		  	redirect="false" contextRelative="true"/>
+		  	<!--组织入围资金统计-->
+		  	<forward  name="pnrDeptFundStatistics" 
+		  	path="/WEB-INF/pages/partner/baseinfo/partnerDeptStatistics/pnrDeptFundStatistics.jsp" 
+		  	redirect="false" contextRelative="true"/>
+		  	<!--组织入围资金统计列表-->
+		  	<forward  name="pnrDeptFundStatisticsList" 
+		  	path="/WEB-INF/pages/partner/baseinfo/partnerDeptStatistics/pnrDeptFundStatisticsList.jsp" 
+		  	redirect="false" contextRelative="true"/>
+		  	<!--组织性质统计-->
+		  	<forward  name="pnrDeptTypeStatistics" 
+		  	path="/WEB-INF/pages/partner/baseinfo/partnerDeptStatistics/pnrDeptTypeStatistics.jsp" 
+		  	redirect="false" contextRelative="true"/>
+		  	<!--组织性质统计列表-->
+		  	<forward  name="pnrDeptTypeStatisticsList" 
+		  	path="/WEB-INF/pages/partner/baseinfo/partnerDeptStatistics/pnrDeptTypeStatisticsList.jsp" 
+		  	redirect="false" contextRelative="true"/>
+		  	<!--组织入围级别统计-->
+		  	<forward  name="pnrDeptSelectedLevelStatistics" 
+		  	path="/WEB-INF/pages/partner/baseinfo/partnerDeptStatistics/pnrDeptSelectedLevelStatistics.jsp" 
+		  	redirect="false" contextRelative="true"/>
+		  	<!--组织入围级别统计列表-->
+		  	<forward  name="pnrDeptSelectedLevelStatisticsList" 
+		  	path="/WEB-INF/pages/partner/baseinfo/partnerDeptStatistics/pnrDeptSelectedLevelStatisticsList.jsp" 
+		  	redirect="false" contextRelative="true"/>
+		  	<!--组织详情统计 针对黑龙江需求 add 2013 04 08-->
+		  	<forward  name="pnrDeptStatistics" 
+		  	path="/WEB-INF/pages/partner/baseinfo/partnerDeptStatistics/pnrDeptStatistics.jsp" 
+		  	redirect="false" contextRelative="true"/>
+		  		<!--组织入围级别统计列表-->
+		  	<forward  name="pnrDeptStatisticsList" 
+		  	path="/WEB-INF/pages/partner/baseinfo/partnerDeptStatistics/pnrDeptStatisticsList.jsp" 
+		  	redirect="false" contextRelative="true"/>
+		</action>
+		<!-- 组织信息统计 add by fengguangping 2012 12.06 end --> 
+		<!-- 代维资源标准配置 add by fengguangping 2012 12.27 begin --> 
+		<action 
+			  path="/pnrSourceConfig"
+			  type="com.boco.eoms.partner.baseinfo.webapp.action.PnrSourceStandardConfigAction"
+			  scope="request"
+			  input="mainMenu"
+			  parameter="method"
+			  unknown="false"
+			  validate="false"
+			  >
+			<!-- 详细页面 -->
+		  	<forward  name="gotoPnrSourceStandardConfigDetailPage" 
+		  	path="/WEB-INF/pages/partner/baseinfo/pnrSourceConfig/pnrSourceStandardConfigDetail.jsp" 
+		  	redirect="false" contextRelative="true"/>
+		  	<!-- 列表页面 -->
+		  	<forward  name="gotoPnrSourceStandardConfigListPage" 
+		  	path="/WEB-INF/pages/partner/baseinfo/pnrSourceConfig/pnrSourceStandardConfigList.jsp" 
+		  	redirect="false" contextRelative="true"/>
+		  	<!-- 添加页面 -->
+		  	<forward  name="gotoAddPnrSourceStandardConfigPage" 
+		  	path="/WEB-INF/pages/partner/baseinfo/pnrSourceConfig/pnrSourceStandardConfigForm.jsp" 
+		  	redirect="false" contextRelative="true"/>
+		  	<!--编辑页面 -->
+		  	<forward  name="gotoEditPnrSourceStandardConfigPage" 
+		  	path="/WEB-INF/pages/partner/baseinfo/pnrSourceConfig/pnrSourceStandardConfigForm.jsp" 
+		  	redirect="false" contextRelative="true"/>
+		</action>
+		<!-- 代维资源标准配置 add by fengguangping 2012 12.27 end -->
+		<!-- 资源标准配置 add by fengguangping 2013 01.22 begin --> 
+		<action 
+			  path="/pnrStandardConfig"
+			  type="com.boco.eoms.partner.baseinfo.webapp.action.PnrStandardConfigAction"
+			  scope="request"
+			  input="mainMenu"
+			  parameter="method"
+			  unknown="false"
+			  validate="false"
+			  >
+			<!-- 详细页面 -->
+		  	<forward  name="gotoPnrStandardConfigDetailPage" 
+		  	path="/WEB-INF/pages/partner/baseinfo/pnrSourceConfig/pnrStandardConfigDetail.jsp" 
+		  	redirect="false" contextRelative="true"/>
+		  	<!-- 列表页面 -->
+		  	<forward  name="gotoPnrStandardConfigListPage" 
+		  	path="/WEB-INF/pages/partner/baseinfo/pnrSourceConfig/pnrStandardConfigList.jsp" 
+		  	redirect="false" contextRelative="true"/>
+		  	<!-- 添加页面 -->
+		  	<forward  name="gotoAddPnrStandardConfigPage" 
+		  	path="/WEB-INF/pages/partner/baseinfo/pnrSourceConfig/pnrStandardConfigForm.jsp" 
+		  	redirect="false" contextRelative="true"/>
+		  	<!--编辑页面 -->
+		  	<forward  name="gotoEditPnrStandardConfigPage" 
+		  	path="/WEB-INF/pages/partner/baseinfo/pnrSourceConfig/pnrStandardConfigForm.jsp" 
+		  	redirect="false" contextRelative="true"/>
+		</action>
+		<!-- 资源标准配置 add by fengguangping 2013 01.22 end -->
+		<!-- changshang -->
+		<action
+		  path="/partnerDepts"
+		  type="com.boco.eoms.partner.baseinfo.webapp.action.PartnerDeptAction"
+		  name="partnerDeptForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/partner/baseinfo/partnerDeptForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<!-- 显示组织架构图 begin-->
+			<forward
+			  name="goToShowOrganization"
+			  path="/WEB-INF/pages/partner/baseinfo/organization/partnerOrganization.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<!-- 显示组织架构图 end-->
+			<forward
+			  name="detail"
+			  path="/WEB-INF/pages/partner/baseinfo/partnerDeptDetail.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>			
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/partnerDeptList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="refreshParent"
+			  path="/WEB-INF/pages/partner/baseinfo/refreshParent.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward name="newExpert"
+				path="/WEB-INF/pages/partner/baseinfo/aptitude/newPar.jsp"
+				redirect="false" 
+				contextRelative="true" />	
+			<forward
+			  name="listUser"
+			  path="/WEB-INF/pages/partner/baseinfo/partnerUserList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			
+			<!-- 代维公司相关 -->
+			<forward
+			  name="companyBaseInfoForm"
+			  path="/WEB-INF/pages/partner/baseinfo/companyBaseInfo/companyBaseInfoForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="companyBaseInfoFormSub"
+			  path="/WEB-INF/pages/partner/baseinfo/companyBaseInfo/companyBaseInfoSubForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="partnerDeptGrandsonForm"
+			  path="/WEB-INF/pages/partner/baseinfo/companyBaseInfo/partnerDeptCountyForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="partnerDeptGrandsonGroupForm"
+			  path="/WEB-INF/pages/partner/baseinfo/companyBaseInfo/partnerDeptCountyGroupForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="companyBaseInfoEdit"
+			  path="/WEB-INF/pages/partner/baseinfo/companyBaseInfo/companyBaseInfoEdit.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="companyBaseInfoSubEdit"
+			  path="/WEB-INF/pages/partner/baseinfo/companyBaseInfo/companyBaseInfoEditSub.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="companyBaseInfoGrandsonEdit"
+			  path="/WEB-INF/pages/partner/baseinfo/companyBaseInfo/companyBaseInfoEditCounty.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="companyBaseInfoGrandsonGroupEdit"
+			  path="/WEB-INF/pages/partner/baseinfo/companyBaseInfo/partnerDeptCountyGroupEdit.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="companyBaseInfoList"
+			  path="/WEB-INF/pages/partner/baseinfo/companyBaseInfo/companyBaseInfoList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>		
+			<forward
+			  name="companyBaseInfoListSub"
+			  path="/WEB-INF/pages/partner/baseinfo/companyBaseInfo/companyBaseInfoListSub.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="companyBaseInfoListGrandson"
+			  path="/WEB-INF/pages/partner/baseinfo/companyBaseInfo/companyBaseInfoListCounty.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="companyBaseInfoListGrandsonGroup"
+			  path="/WEB-INF/pages/partner/baseinfo/companyBaseInfo/companyBaseInfoListCountyGroup.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+					
+			<forward
+			  name="xtree"
+			  path="/WEB-INF/pages/partner/baseinfo/companyBaseInfo/childJson.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			
+			<forward name="companyBaseInfoListred"
+				path="/partner/baseinfo/partnerDepts.do?method=findCompanyBaseInfo" redirect="true"
+				contextRelative="true" />
+				
+			<forward name="companyBaseInfoListSubred"
+				path="/partner/baseinfo/partnerDepts.do?method=findSubCompanyBaseInfo" redirect="true"
+				contextRelative="true" />
+				
+					
+		</action>
+		
+		<!--人员信息 fengguangping-->
+		<action
+		  path="/partnerUsers"
+		  type="com.boco.eoms.partner.baseinfo.webapp.action.PartnerUserAction"
+		  name="partnerUserForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/partner/baseinfo/partnerUserForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="detail"
+			  path="/WEB-INF/pages/partner/baseinfo/partnerUserDetail.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>			
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/partnerUserList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="xlsInput"
+			  path="/WEB-INF/pages/partner/baseinfo/xlsUserInput.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="uploadPhoto"
+			  path="/WEB-INF/pages/partner/baseinfo/uploadPhoto.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="refreshParent"
+			  path="/WEB-INF/pages/partner/baseinfo/refreshParent.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			
+			<forward
+			  name="editCompanyUser"
+			  path="/WEB-INF/pages/partner/baseinfo/companyUser/companyUserForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="detailCompanyUser"
+			  path="/WEB-INF/pages/partner/baseinfo/companyUser/companyUserDetail.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>			
+			<forward
+			  name="listCompanyUser"
+			  path="/WEB-INF/pages/partner/baseinfo/companyUser/companyUserList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="commonListCompanyUser"
+			  path="/WEB-INF/pages/partner/baseinfo/companyUser/commonCompanyUserList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="commonDetail"
+			  path="/WEB-INF/pages/partner/baseinfo/companyUser/commonCompanyUserDetail.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="companyExamUserList"
+			  path="/WEB-INF/pages/partner/baseinfo/companyUser/companyExamUserList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="companyExamUserApproveList"
+			  path="/WEB-INF/pages/partner/baseinfo/companyUser/companyExamUserApproveList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+		</action>
+		
+		
+		
+		
+			<action
+		  path="/tawApparatuss"
+		  type="com.boco.eoms.partner.baseinfo.webapp.action.TawApparatusAction"
+		  name="tawApparatusForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/partner/baseinfo/tawApparatus/tawApparatusForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+     
+
+			<forward
+			  name="listAcl"
+			  path="/WEB-INF/pages/partner/baseinfo/tawApparatus/list.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+						<forward
+			  name="tawApparatusStaffDetail"
+			  path="/WEB-INF/pages/partner/baseinfo/tawApparatus/tawApparatusStaffDetail.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="detail"
+			  path="/WEB-INF/pages/partner/baseinfo/tawApparatus/tawApparatusDetail.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			
+			<forward
+			  name="goToShowPage"
+			  path="/WEB-INF/pages/partner/baseinfo/tawApparatus/apparatusStaffStatistiscally.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="apparatusStaffList"
+			  path="/WEB-INF/pages/partner/baseinfo/tawApparatus/apparatusStaffStatistiscally.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/tawApparatus/tawApparatusList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="xlsInput"
+			  path="/WEB-INF/pages/partner/baseinfo/tawApparatus/xlsInput.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		</action>
+		<action
+		  path="/tawPartnerCars"
+		  type="com.boco.eoms.partner.baseinfo.webapp.action.TawPartnerCarAction"
+		  name="tawPartnerCarForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/partner/baseinfo/tawPartnerCar/tawPartnerCarForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="detail"
+			  path="/WEB-INF/pages/partner/baseinfo/tawPartnerCar/tawPartnerCarDetail.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>			
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/tawPartnerCar/tawPartnerCarList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="listone"
+			  path="/WEB-INF/pages/partner/baseinfo/tawPartnerCar/tawPartnerCarList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			
+			<forward
+			  name="partnerCarList"
+			  path="/WEB-INF/pages/partner/baseinfo/tawPartnerCar/partnerCarList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="xlsInput"
+			  path="/WEB-INF/pages/partner/baseinfo/tawPartnerCar/xlsInput.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="goToShowPage"
+			  path="/WEB-INF/pages/partner/baseinfo/tawPartnerCar/tawParCarStatistiscally.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		</action>
+		<action
+		  path="/tawPartnerOils"
+		  type="com.boco.eoms.partner.baseinfo.webapp.action.TawPartnerOilAction"
+		  name="tawPartnerOilForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/partner/baseinfo/tawPartnerOil/tawPartnerOilForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="detail"
+			  path="/WEB-INF/pages/partner/baseinfo/tawPartnerOil/tawPartnerOilDetail.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>			
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/tawPartnerOil/tawPartnerOilList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="xlsInput"
+			  path="/WEB-INF/pages/partner/baseinfo/tawPartnerOil/xlsInput.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		</action>
+		<action
+		  path="/personConfigs"
+		  type="com.boco.eoms.partner.baseinfo.webapp.action.PersonConfigAction"
+		  name="personConfigForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/partner/baseinfo/personConfig/personConfigForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/personConfig/personConfigList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward name="search"
+				path="/partner/baseinfo/personConfigs.do?method=search" redirect="true"
+				contextRelative="true" />
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/baseinfo/personConfig/personConfigDetail.jsp" redirect="false"
+				contextRelative="true" />
+		</action>
+
+		<!-- 车辆配置 -->
+		<action path="/vehicles"
+			type="com.boco.eoms.partner.baseinfo.webapp.action.VehicleAction"
+			name="vehicleForm" scope="request" input="mainMenu"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/baseinfo/vehicle/vehicleForm.jsp" redirect="false"
+				contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/baseinfo/vehicle/vehicleList.jsp" redirect="false"
+				contextRelative="true" />
+				
+			<forward name="search"
+				path="/partner/baseinfo/vehicles.do?method=search" redirect="true"
+				contextRelative="true" />
+				
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/baseinfo/vehicle/vehicleDetail.jsp" redirect="false"
+				contextRelative="true" />
+				
+		</action>
+
+		<!-- 仪器仪表配置 -->
+		<action
+		  path="/instrumentConfigs"
+		  type="com.boco.eoms.partner.baseinfo.webapp.action.InstrumentConfigAction"
+		  name="instrumentConfigForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/partner/baseinfo/instrumentConfig/instrumentConfigForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/instrumentConfig/instrumentConfigList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward name="search"
+				path="/partner/baseinfo/instrumentConfigs.do?method=search" redirect="true"
+				contextRelative="true" />
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/baseinfo/instrumentConfig/instrumentConfigDetail.jsp" redirect="false"
+				contextRelative="true" />
+		</action>
+		
+		<!-- 油机配置 -->
+		<action path="/oilEngineConfigures"
+			type="com.boco.eoms.partner.baseinfo.webapp.action.OilEngineConfigureAction"
+			name="oilEngineConfigureForm" scope="request" input="mainMenu"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/baseinfo/oilEngineConfigure/oilEngineConfigureForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/baseinfo/oilEngineConfigure/oilEngineConfigureList.jsp"
+				redirect="false" contextRelative="true" />
+				
+			<forward name="search"
+				path="/partner/baseinfo/oilEngineConfigures.do?method=search" redirect="true"
+				contextRelative="true" />
+				
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/baseinfo/oilEngineConfigure/oilEngineConfigureDetail.jsp" redirect="false"
+				contextRelative="true" />
+				
+		</action>
+
+		<!-- 驻点 -->
+		<action
+		  path="/stations"
+		  type="com.boco.eoms.partner.baseinfo.webapp.action.StationAction"
+		  name="stationForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/partner/baseinfo/station/stationForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/station/stationList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			
+			<forward name="search"
+				path="/partner/baseinfo/stations.do?method=search" redirect="true"
+				contextRelative="true" />
+				
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/baseinfo/station/stationDetail.jsp" redirect="false"
+				contextRelative="true" />
+		</action>
+		<!-- 合作伙伴资质 -->
+		<action
+		  path="/aptitudes"
+		  type="com.boco.eoms.partner.baseinfo.webapp.action.AptitudeAction"
+		  name="aptitudeForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/partner/baseinfo/aptitude/aptitudeForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="editNor"
+			  path="/WEB-INF/pages/partner/baseinfo/aptitude/aptitudeFormNor.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>			
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/aptitude/aptitudeList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="listone"
+			  path="/WEB-INF/pages/partner/baseinfo/aptitude/aptitudeListOne.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward name="search"
+				path="/partner/baseinfo/aptitudes.do?method=search" redirect="true"
+				contextRelative="true" />
+			<forward name="newExpert"
+				path="/WEB-INF/pages/partner/baseinfo/aptitude/newPar.jsp"
+				redirect="false" contextRelative="true" />	
+				
+			<forward
+			  name="detail"
+			  path="/WEB-INF/pages/partner/baseinfo/aptitude/aptitudeDetail.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+				
+		</action>
+		<action
+		  path="/resumes"
+		  type="com.boco.eoms.partner.baseinfo.webapp.action.ResumeAction"
+		  name="resumeForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/partner/baseinfo/resume/resumeForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="editNor"
+			  path="/WEB-INF/pages/partner/baseinfo/resume/resumeFormNor.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/resume/resumeList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="listone"
+			  path="/WEB-INF/pages/partner/baseinfo/resume/resumeListOne.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward name="search"
+				path="/partner/baseinfo/resumes.do?method=search" redirect="true"
+				contextRelative="true" />
+				
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/baseinfo/resume/resumeDetail.jsp" redirect="false"
+				contextRelative="true" />
+				
+			<forward name="newExpert"
+				path="/WEB-INF/pages/partner/baseinfo/resume/newPer.jsp"
+				redirect="false" contextRelative="true" />	
+			<forward name="commonNewExpert"
+				path="/WEB-INF/pages/partner/baseinfo/companyUser/commonNewPer.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="commonResumeListOne"
+				path="/WEB-INF/pages/partner/baseinfo/companyUser/commonResumeListOne.jsp"
+				redirect="false" contextRelative="true" />			
+		</action>
+
+		
+		
+		<!-- ========== 缩略图上传- =========== -->
+		<action path="/pnrBasePhotos"
+			type="com.boco.eoms.partner.baseinfo.webapp.action.PnrBasePhotoAction"
+			name="tawPartnerCarForm" scope="request" input="mainMenu"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="uploadPhoto"
+				path="/WEB-INF/pages/partner/baseinfo/tawPartnerCar/pnrBaseCarUploadPhoto.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="uploadPhotoJ"
+				path="/WEB-INF/pages/partner/baseinfo/tawPartnerCar/pnrBaseUploadPhoto.jsp"
+				redirect="false" contextRelative="true" />	
+		</action>
+
+
+		<!-- ========== 统计报表 =========== -->
+		<action path="/pnrStats"
+			type="com.boco.eoms.partner.baseinfo.webapp.action.PnrStatAction"
+			name="tawPartnerCarForm" scope="request" input="mainMenu"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="lineCondition"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/line/lineCondition.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="lineStatReport"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/line/lineStatReport.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="searchMark"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/markStat.jsp"
+				redirect="false" contextRelative="true" />						
+			<forward name="lineConditionByLineLevel"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/line/lineConditionByLineLevel.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="lineStatReportByLineLevel"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/line/lineStatReportByLineLevel.jsp"
+				redirect="false" contextRelative="true" />
+			
+			<forward name="listSiteStat"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/site/siteStatReport.jsp"
+				redirect="false" contextRelative="true" />				
+
+			<forward name="listSite"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/site/listSite.jsp"
+				redirect="false" contextRelative="true" />
+				
+			<forward name="listSiteStatBylevel"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/site/siteStatReportBylevel.jsp"
+				redirect="false" contextRelative="true" />										
+			<!-- 车辆统计 -->
+			<forward name="carCondition"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/car/carCondition.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="carStatReport"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/car/carStatReport.jsp"
+				redirect="false" contextRelative="true" />
+
+
+			<!-- 仪器仪表统计 -->
+			<forward name="apparatusNumCondition"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/apparatus/apparatusNumCondition.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="apparatusNumStatReport"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/apparatus/apparatusNumStatReport.jsp"
+				redirect="false" contextRelative="true" />
+
+			<forward name="apparatusStatCondition"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/apparatus/apparatusStatCondition.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="apparatusStatReport"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/apparatus/apparatusStatReport.jsp"
+				redirect="false" contextRelative="true" />
+
+				
+
+<!-- 人员统计 -->
+			<forward name="listPersonStat"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/person/personStatReport.jsp"
+				redirect="false" contextRelative="true" />	
+<!-- 人员统计按等级 -->
+			<forward name="listPersonStatByPro"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/person/personStatReportByPro.jsp"
+				redirect="false" contextRelative="true" />					
+				<!-- 合作伙伴信息统计条件选择 -->
+			<forward name="baseinfoByCtiy"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/baseinfo/baseinfoByCtiy.jsp"
+				redirect="false" contextRelative="true" />	
+				<!-- 合作伙伴信息统计列表 -->
+			<forward name="listBaseinfoByCtiy"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/baseinfo/listBaseinfoByCtiy.jsp"
+				redirect="false" contextRelative="true" />
+				
+				<!-- 人力资源视图 -->
+			<forward name="listPersonViewStat"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/person/personStatViswReport.jsp"
+				redirect="false" contextRelative="true" />		
+				
+			<forward name="listKPImStat"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/kpi/gridKPIMonthStat.jsp"
+				redirect="false" contextRelative="true" />								
+			
+				<!-- 合作伙伴各功率油机数量统计条件选择 -->
+			<forward name="oilStatByCtiy"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/oil/oilStatByCtiy.jsp"
+				redirect="false" contextRelative="true" />	
+
+				<!-- 合作伙伴各功率油机数量统计列表 -->
+			<forward name="listOilStatByCtiy"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/oil/listOilStatByCtiy.jsp"
+				redirect="false" contextRelative="true" />	
+			    <!-- 合作伙伴按类型对油机数量统计条件选择 -->
+			<forward name="oilStatByState"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/oil/oilStatByState.jsp"
+				redirect="false" contextRelative="true" />	
+				<!-- 合作伙伴按类型对油机数量统计列表 -->
+			<forward name="listOilStatByState"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/oil/listOilStatByState.jsp"
+				redirect="false" contextRelative="true" />	
+				<!-- 合作伙伴各功率油机数量统计列表 -->
+			<forward name="oilList"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/oil/oilList.jsp"
+				redirect="false" contextRelative="true" />		
+			<!-- 合作伙伴使用情况统计 -->
+			<forward name="useCaseCondition"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/useCase/useCaseCondition.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="useCaseStatReport"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/useCase/useCaseStatReport.jsp"
+				redirect="false" contextRelative="true" />
+			<!-- 网格综合满意度上报统计报表 -->
+			<forward name="listGridSatisfyStat"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/gsf/listGridSatisfyStat.jsp"
+				redirect="false" contextRelative="true" />	
+			<!-- 数据点饼型图显示 -->
+			<forward name="pointPiepage"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/pie/pointPiepage.jsp"
+				redirect="false" contextRelative="true" />
+			<!-- 基站饼型图显示 -->
+			<forward name="sitePiepage"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/pie/sitePiepage.jsp"
+				redirect="false" contextRelative="true" />
+			<!-- 代维响应速度上报统计报表 -->
+			<forward name="listServiceSpeedStat"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/serviceSpeedStat/listServiceSpeedStat.jsp"
+				redirect="false" contextRelative="true" />	
+			<!-- 各地市的合作伙伴数量统计报表 -->
+			<forward name="partnerNumforChart"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/fusionChart/partnerNumforChart.jsp"
+				redirect="false" contextRelative="true" />
+			<!-- 各地市的合作伙伴资源统计报表 -->
+			<forward name="partnerNumRes"
+				path="/WEB-INF/pages/partner/baseinfo/pnrStat/fusionChart/NumforChart.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+		
+<action
+		  path="/pnrBaseSites"
+		  type="com.boco.eoms.partner.baseinfo.webapp.action.PnrBaseSiteAction"
+		  name="pnrBaseSiteForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="detail"
+			  path="/WEB-INF/pages/partner/baseinfo/pnrBaseSite/pnrBaseSiteDetail.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/partner/baseinfo/pnrBaseSite/pnrBaseSiteForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/pnrBaseSite/pnrBaseSiteList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		</action>
+		<!-- 弹出提醒窗口 -->
+		<action path="/msg" parameter="method" input="mainMenu"  type="com.boco.eoms.partner.baseinfo.webapp.action.PnrMsgAction" scope="request" validate="false">
+			<forward name="msgWin" path="/WEB-INF/pages/partner/msg/msgFreq.jsp" redirect="false" contextRelative="true"/>
+		</action>
+		<!-- 弹出提醒窗口 -->
+		<action path="/index" parameter="method" input="mainMenu"  type="com.boco.eoms.partner.baseinfo.webapp.action.pnrindexaction" scope="request" validate="false">
+			<forward name="pnrIndex" path="/partner/pnrIndex/pnrIndex.jsp" redirect="false" contextRelative="true"/>
+			<forward name="unAudit" path="/WEB-INF/pages/partner/index/pnrUnAudit.jsp" redirect="false" contextRelative="true"/>
+			<forward name="undo" path="/WEB-INF/pages/partner/index/pnrUndo.jsp" redirect="false" contextRelative="true"/>
+			<forward name="evaUnAuditList" path="/WEB-INF/pages/partner/index/evaUnAuditList.jsp" redirect="false" contextRelative="true"/>
+			<forward name="agreeUnAuditList" path="/WEB-INF/pages/partner/index/agreeUnAuditList.jsp" redirect="false" contextRelative="true"/>
+			<forward name="workplanUnAuditList" path="/WEB-INF/pages/partner/index/workplanUnAuditList.jsp" redirect="false" contextRelative="true"/>
+			<forward name="tempTaskUnAuditList" path="/WEB-INF/pages/partner/index/tempTaskUnAuditList.jsp" redirect="false" contextRelative="true"/>
+			<forward name="feeUnAuditList" path="/WEB-INF/pages/partner/index/feeUnAuditList.jsp" redirect="false" contextRelative="true"/>
+			<forward name="workplanUndoList" path="/WEB-INF/pages/partner/index/workplanUndoList.jsp" redirect="false" contextRelative="true"/>
+			<forward name="tempTaskUndoList" path="/WEB-INF/pages/partner/index/tempTaskUndoList.jsp" redirect="false" contextRelative="true"/>
+			<forward name="evaUndoList" path="/WEB-INF/pages/partner/index/evaUndoList.jsp" redirect="false" contextRelative="true"/>
+			<forward name="feepayUndoList" path="/WEB-INF/pages/partner/index/feepayUndoList.jsp" redirect="false" contextRelative="true"/>			
+			<forward name="reciverMsg" path="/WEB-INF/pages/partner/index/tawWorkbenchMemo.jsp" redirect="false" contextRelative="true"/>			
+			<forward name="listInfopub" path="/WEB-INF/pages/partner/index/listInfopub.jsp" redirect="false" contextRelative="true"/>
+			<forward name="undoAgreeList" path="/WEB-INF/pages/partner/index/pnrAgreementUndoList.jsp" redirect="false" contextRelative="true"/>
+			<forward name="unAuditList" path="/WEB-INF/pages/partner/index/unAuditList.jsp" redirect="false" contextRelative="true"/>	
+			<forward name="addContract" path="/WEB-INF/pages/partner/index/addContract.jsp" redirect="false" contextRelative="true"/>
+			<forward name="addEva" path="/WEB-INF/pages/partner/index/addEva.jsp" redirect="false" contextRelative="true"/>						
+		</action>
+		
+		<!-- UI人员所属地域配置 -->
+		<action path="/xtree" parameter="method" input="navTreeTemplate" type="com.boco.eoms.partner.baseinfo.webapp.action.PartnerUserAndAreaAction" scope="request" validate="false">
+			<forward name="main" path="/test/tree.jsp" redirect="false" />
+		</action>
+		<action path="/partnerEvaluations"
+			type="com.boco.eoms.partner.baseinfo.webapp.action.PartnerEvaluationAction"
+			name="partnerEvaluationForm" scope="request" input="mainMenu"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/baseinfo/partnerEvaluation/partnerEvaluationForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/baseinfo/partnerEvaluation/partnerEvaluationDetail.jsp"
+				redirect="false" contextRelative="true" />				
+			<forward name="list"
+				path="/WEB-INF/pages/partner/baseinfo/partnerEvaluation/partnerEvaluationList.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+		<!-- 合作伙伴树图点击事件 -->
+		<action path="/pnrBaseClicks"
+			type="com.boco.eoms.partner.baseinfo.webapp.action.PnrBaseClickAction"
+			scope="request" input="mainMenu" parameter="method" unknown="false"
+			validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="newExpert"
+				path="/WEB-INF/pages/partner/baseinfo/aptitude/newPar.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="listUser"
+				path="/WEB-INF/pages/partner/baseinfo/partnerUserList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/baseinfo/partnerDeptList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward
+			  name="tawApparatusList"
+			  path="/WEB-INF/pages/partner/baseinfo/tawApparatus/tawApparatusList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>		
+			<forward
+			  name="tawPartnerCarList"
+			  path="/WEB-INF/pages/partner/baseinfo/tawPartnerCar/tawPartnerCarList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>					
+			<forward
+			  name="tawPartnerOilList"
+			  path="/WEB-INF/pages/partner/baseinfo/tawPartnerOil/tawPartnerOilList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>			
+		</action>
+		<!-- 合作伙伴系统流程图 -->
+		<action path="/pnrFlow"
+			type="com.boco.eoms.partner.baseinfo.webapp.action.PnrFlowAction"
+			scope="request" input="mainMenu" parameter="method" unknown="false"
+			validate="false">
+			<forward name="showFlow"
+				path="/partner/flow/partnerFlow.jsp"
+				redirect="false" contextRelative="true" />	
+			<forward name="showFeeFlow"
+				path="/partner/flow/feeFlow.jsp"
+				redirect="false" contextRelative="true" />	
+		</action>
+		<!-- 合作伙伴联动调用action -->
+		<action path="/linkage"
+			type="com.boco.eoms.partner.baseinfo.webapp.action.LinkageAction"
+			scope="request" input="mainMenu" parameter="method" unknown="false"
+			validate="false">
+		</action>
+		<action path="/tagExcelExport"
+			type="com.boco.eoms.commons.excelexporttag.action.ExcelExportTagAction"
+			scope="request" parameter="method" unknown="false"
+			validate="false">
+		</action>
+	</action-mappings>
+ 	<controller nocache="true" inputForward="true" maxFileSize="4M" />
+		 <message-resources parameter="com/boco/eoms/parter/baseinfo/config/applicationResources-partner-baseinfo"/>
+	<!-- ========== Validator plugin ===================  -->
+	<!-- 
+		<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+		value="/WEB-INF/validator-rules.xml,
+		/WEB-INF/validator-rules-custom.xml,
+		/WEB-INF/validation.xml" />
+		</plug-in>
+	-->
+</struts-config>

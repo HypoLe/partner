@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="multiPageForm"
+			type="com.boco.activiti.partner.process.webapp.form.MultiPageForm" />
+		<form-bean name="iPnrPartnerAppOpsUserForm"
+			type="com.boco.eoms.partner.appops.webapp.form.IPnrPartnerAppOpsUserForm" />
+		<form-bean
+		  name="iPnrPartnerAppOpsDeptForm"
+		  type="com.boco.eoms.partner.appops.webapp.form.IPnrPartnerAppOpsDeptForm"/>
+	</form-beans>
+	<!-- ========== Global Exceptions Definitions =================================== -->
+    <global-exceptions>
+        <exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+    </global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward
+		  name="success"
+		  path="/common/success.jsp"
+		  redirect="true"
+		  contextRelative="true"
+		/>
+		<forward
+		  name="nopriv"
+		  path="/common/nopriv.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>
+		<forward
+		  name="fail"
+		  path="/common/failure.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>	
+		
+    </global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+	
+   <!-- diyubumenshu -->
+	<action-mappings>
+	
+		<action
+		  path="/partnerAppOpsDept"
+		  type="com.boco.eoms.partner.appops.action.PartnerAppOpsDeptAction"
+		  name="iPnrPartnerAppOpsDeptForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="detail"
+			  path="/WEB-INF/pages/partner/baseinfo/appops/appopsDept/partnerDeptDetail.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="companyBaseInfoList"
+			  path="/WEB-INF/pages/partner/baseinfo/appops/appopsDept/companyBaseInfoList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>		
+			<forward
+			  name="companyBaseInfoForm"
+			  path="/WEB-INF/pages/partner/baseinfo/appops/appopsDept/companyBaseInfoForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="companyBaseInfoFormSub"
+			  path="/WEB-INF/pages/partner/baseinfo/appops/appopsDept/companyBaseInfoSubForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="companyBaseInfoListSub"
+			  path="/WEB-INF/pages/partner/baseinfo/appops/appopsDept/companyBaseInfoListSub.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="partnerDeptGrandsonForm"
+			  path="/WEB-INF/pages/partner/baseinfo/appops/appopsDept/partnerDeptCountyForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="companyBaseInfoListGrandson"
+			  path="/WEB-INF/pages/partner/baseinfo/appops/appopsDept/companyBaseInfoListCounty.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="companyBaseInfoListGrandsonGroup"
+			  path="/WEB-INF/pages/partner/baseinfo/appops/appopsDept/companyBaseInfoListCountyGroup.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="partnerDeptGrandsonGroupForm"
+			  path="/WEB-INF/pages/partner/baseinfo/appops/appopsDept/partnerDeptCountyGroupForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="companyBaseInfoEdit"
+			  path="/WEB-INF/pages/partner/baseinfo/appops/appopsDept/companyBaseInfoEdit.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="companyBaseInfoGrandsonGroupEdit"
+			  path="/WEB-INF/pages/partner/baseinfo/appops/appopsDept/partnerDeptCountyGroupEdit.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="companyBaseInfoGrandsonEdit"
+			  path="/WEB-INF/pages/partner/baseinfo/appops/appopsDept/companyBaseInfoEditCounty.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="companyBaseInfoSubEdit"
+			  path="/WEB-INF/pages/partner/baseinfo/appops/appopsDept/companyBaseInfoEditSub.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		</action>
+		<!--人员信息 fengguangping-->
+		<action
+		  path="/partnerAppOpsUsers"
+		  type="com.boco.eoms.partner.appops.action.PartnerAppOpsUserAction"
+		  name="iPnrPartnerAppOpsUserForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false">
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/partner/baseinfo/appops/appopsUser/appopsUserForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="addUser"
+			  path="/WEB-INF/pages/partner/baseinfo/appops/appopsUser/appopsUserForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="detail"
+			  path="/WEB-INF/pages/partner/baseinfo/partnerUserDetail.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>			
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/appops/appopsUser/appopsUserList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="statisticsByspecailly"
+			  path="/WEB-INF/pages/partner/baseinfo/appops/appopsUser/statisticsAppopsUserBySpeactilly.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="statisticsByCompanyAndDept"
+			  path="/WEB-INF/pages/partner/baseinfo/appops/appopsUser/statisticsByCompanyAndDept.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="statisticsBySpecialtyAndDept"
+			  path="/WEB-INF/pages/partner/baseinfo/appops/appopsUser/statisticsByCityAndSpecialty.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="statisticsByCityAndSpecialty"
+			  path="/WEB-INF/pages/partner/baseinfo/appops/appopsUser/statisticsBySpecialtyAndDept.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+		</action>
+		
+		
+	</action-mappings>
+ 	<controller nocache="true" inputForward="true" maxFileSize="4M" />
+		 <message-resources parameter="com/boco/eoms/parter/baseinfo/config/applicationResources-partner-baseinfo"/>
+</struts-config>

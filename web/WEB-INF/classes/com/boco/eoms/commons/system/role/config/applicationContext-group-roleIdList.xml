@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="roleIdInGroup"
+		class="com.boco.eoms.commons.system.role.util.RoleIdList">
+		<property name="deptAdminRoleId">
+			<value>399</value>
+		</property>
+		<property name="userAdminRoleId">
+			<value>400</value>
+		</property>
+		<property name="privAdminRoleId">
+			<value>401</value>
+		</property>
+		
+	</bean>
+</beans>
+
+
+
+
+
+
+
+

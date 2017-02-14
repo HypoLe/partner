@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- 仪器仪表 -->
+	<bean id="apparatusDao" class="com.boco.eoms.partner.resourceInfo.dao.hibernate.ApparatusDaoHibernate"
+		autowire="byName">
+	</bean>
+	<bean id="apparatusService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.resourceInfo.service.ApparatusServiceImpl">
+				<property name="apparatusDao" ref="apparatusDao"/>
+			</bean>
+		</property>
+	</bean>
+	<!-- 车辆管理 -->
+	<bean id="carDao" class="com.boco.eoms.partner.resourceInfo.dao.hibernate.CarDaoHibernate"
+		autowire="byName">
+	</bean>
+	<bean id="carService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.resourceInfo.service.CarServiceImpl">
+				<property name="carDao" ref="carDao"/>
+			</bean>
+		</property>
+	</bean>
+	<!-- 油机管理 -->
+	<bean id="oilEngineDao" class="com.boco.eoms.partner.resourceInfo.dao.hibernate.OilEngineDaoHibernate"
+		autowire="byName">
+	</bean>
+	<bean id="oilEngineService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.resourceInfo.service.OilEngineServiceImpl">
+				<property name="oilEngineDao" ref="oilEngineDao"/>
+			</bean>
+		</property>
+	</bean>
+	<!-- 移动终端管理 -->
+	<bean id="mobileTerminalDao" class="com.boco.eoms.partner.resourceInfo.dao.hibernate.MobileTerminalDaoHibernate"
+		autowire="byName">
+	</bean>
+	<bean id="mobileTerminalService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.resourceInfo.service.MobileTerminalServiceImpl">
+				<property name="mobileTerminalDao" ref="mobileTerminalDao"/>
+			</bean>
+		</property>
+	</bean>
+</beans>

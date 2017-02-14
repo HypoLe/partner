@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+	  <form-bean
+        name="linesForm"
+        type="com.boco.eoms.netresource.line.model.LinesForm"
+      />
+      <form-bean
+        name="pointsForm"
+        type="com.boco.eoms.netresource.point.webapp.form.PointsForm"
+      />
+      <form-bean
+        name="importLinesForm"
+        type="com.boco.eoms.netresource.line.model.ImportLinesForm"
+      />
+	</form-beans>
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<!-- 
+			<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+		-->
+	</global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+        <forward
+          name="success"
+          path="/common/success.jsp"
+          redirect="false"
+          contextRelative="true"/>
+        <forward
+          name="nopriv"
+          path="/common/nopriv.jsp"
+          redirect="false"
+          contextRelative="true"/>
+        <forward
+          name="fail"
+          path="/common/failure.jsp"
+          redirect="false"
+          contextRelative="true"/>
+    </global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+
+
+	<action-mappings>
+	
+	<action
+          path="/lines"
+          type="com.boco.eoms.netresource.line.action.LinesAction"
+          name="linesForm"
+          scope="request"
+          input="mainMenu"
+          parameter="method"
+          unknown="false"
+          validate="false">
+            <set-property
+              property="cancellable"
+              value="true"/>
+            <forward
+              name="add"
+              path="/WEB-INF/pages/netresource/line/linesForm.jsp"
+              redirect="false"
+              contextRelative="true"/>
+            <forward
+              name="edit"
+              path="/WEB-INF/pages/netresource/line/linesForm.jsp"
+              redirect="false"
+              contextRelative="true"/>
+            <forward
+              name="list"
+              path="/WEB-INF/pages/netresource/line/linesSearch.jsp"
+              redirect="false"
+              contextRelative="true"/>
+            <forward
+              name="detail"
+              path="/WEB-INF/pages/netresource/line/linesDetail.jsp"
+              redirect="false"
+              contextRelative="true"/>
+        </action>
+        
+        <action
+          path="/linesImport"
+          type="com.boco.eoms.netresource.line.action.LinesAction"
+          name="importLinesForm"
+          scope="request"
+          input="mainMenu"
+          parameter="method"
+          unknown="false"
+          validate="false">
+          <forward
+              name="importLines"
+              path="/WEB-INF/pages/netresource/line/linesImport.jsp"
+              redirect="false"
+              contextRelative="true"/>
+        </action>
+        
+        <action
+          path="/addPointByLine"
+          type="com.boco.eoms.netresource.line.action.LinesAction"
+          name="pointsForm"
+          scope="request"
+          input="mainMenu"
+          parameter="method"
+          unknown="false"
+          validate="false">
+          <forward
+              name="addPointByLine"
+              path="/WEB-INF/pages/netresource/line/addPointByLine.jsp"
+              redirect="false"
+              contextRelative="true"/>
+        </action>
+    	
+	</action-mappings>	
+	
+	<controller nocache="true" inputForward="true" maxFileSize="10M" />
+	<message-resources parameter="com/boco/eoms/netresource/line/config/ApplicationResources-line"/>
+	<!-- ========== Validator plugin ===================  -->
+	<!-- 
+		<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+		value="/WEB-INF/validator-rules.xml,
+		/WEB-INF/validator-rules-custom.xml,
+		/WEB-INF/validation.xml" />
+		</plug-in>
+	-->
+</struts-config>

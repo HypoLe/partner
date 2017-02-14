@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+	<!--
+		Struts1 template v1.0.0 configuration for Nop3 based on eoms. Author:
+		Steve Create: July,2011
+	-->
+
+<struts-config>
+	<!-- ============ Form beans ============ -->
+	<form-beans>
+		<form-bean name="feeApplicationMainForm" type="com.boco.eoms.deviceManagement.charge.model.FeeApplicationMainForm" />
+	</form-beans>
+	
+	
+	
+
+	<!--
+		========== Global Exceptions Definitions
+		===================================
+	-->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+
+	<!-- ============ Global forwards ============ -->
+	<global-forwards type="org.apache.struts.action.ActionForward">
+		<forward name="failure" path="/common/fail.jsp"
+			contextRelative="true" />
+		<forward name="success" path="/common/success.jsp" contextRelative="true" />
+		<forward name="error" path="/common/error.jsp" contextRelative="true" />
+	</global-forwards>
+
+	<!-- ============ Action Mapping definitions ============ -->
+	<action-mappings type="org.apache.struts.action.ActionMapping">
+		<!-- Adding by steve. 2010-02-17 Circuit Start modual mapping.  -->
+		<action path="/charge" type="com.boco.eoms.deviceManagement.charge.action.FeeApplicationAction"
+			name="feeApplicationMainForm" scope="request" input="list" parameter="method"
+			unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="goToAdd" path="/WEB-INF/pages/deviceManagement/charge/add.jsp"
+				redirect="false" contextRelative="true" />
+
+			<forward name="list1" path="/WEB-INF/pages/deviceManagement/charge/list.jsp"
+				redirect="false" contextRelative="true" />
+				
+			
+			<forward name="list2" path="/WEB-INF/pages/deviceManagement/charge/list2.jsp"
+				redirect="false" contextRelative="true" />	
+				
+            <forward name="list3" path="/WEB-INF/pages/deviceManagement/charge/list3.jsp"
+				redirect="false" contextRelative="true" />	
+				
+			<forward name="list4" path="/WEB-INF/pages/deviceManagement/charge/list4.jsp"
+				redirect="false" contextRelative="true" />	
+							
+            <forward name="statisticsList" path="/WEB-INF/pages/deviceManagement/charge/statisticsList.jsp"
+				redirect="false" contextRelative="true" />	
+
+			<forward name="goToEdit" path="/WEB-INF/pages/deviceManagement/charge/edit.jsp"
+				redirect="false" contextRelative="true" />
+
+			<forward name="goToDetail"
+				path="/WEB-INF/pages/deviceManagement/charge/detail.jsp"
+				redirect="false" contextRelative="true" />
+
+            <forward name="goToDeal"
+				path="/WEB-INF/pages/deviceManagement/charge/deal.jsp"
+				redirect="false" contextRelative="true" /> 
+
+          
+          
+            <forward name="goToShowPage" 
+                path="/WEB-INF/pages/deviceManagement/charge/statistics.jsp"			
+				redirect="false" contextRelative="true" />
+					
+
+
+
+			<forward name="forwardlist" path="/charge.do?method=list"
+				redirect="false" contextRelative="true" />
+
+            <forward name="staffContent" 
+            path="/WEB-INF/pages/deviceManagement/charge/statistics.jsp"
+				redirect="false" contextRelative="true" />
+				
+			
+		</action>
+	
+		
+
+	</action-mappings>
+
+	<!--
+		========== Plug Ins Configuration ==================================
+	-->
+	<!--
+		Add multiple validator resource files by setting the pathname property
+	-->
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/validator-rules.xml,/WEB-INF/validation-duty.xml" />
+	</plug-in>
+
+</struts-config>

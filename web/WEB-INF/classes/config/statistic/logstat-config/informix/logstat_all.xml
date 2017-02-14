@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--所有标签名称都为固定值,不能修改,否则无法解析. -->
+<KpiConfig>
+	<title>kpi统计</title>
+	<est-module-id></est-module-id>
+
+
+	<kpi-define>
+		<name>first</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		<dynamic-row-param  page-name="revdeptid"/>
+		
+		<summary-define>
+			<id>s1</id>
+			<sequence>1</sequence>
+			<column>'@revdeptid@'</column>
+			<id2name-service>statBaseDeptId2name_v35</id2name-service>
+		</summary-define>
+	 <auto-append-groupby>false</auto-append-groupby>
+	 <stat-detail-vo>com.boco.eoms.commons.statistic.logstat.vo.LogstatDetailVO</stat-detail-vo>
+   <query-define>
+			<name>query1</name>			
+			<from>taw_common_logoperator lg</from>
+			<where>
+			   lg.beginnotetime &gt;='@beginTime@' and lg.beginnotetime &lt;='@endTime@' and  lg.operId not in('0001','0002') and
+			   lg.deptid in (select deptid from taw_system_dept where linkid like (select concat(linkid,'%') from taw_system_dept where deptid=@revdeptid@  and deleted=0) and deleted=0)	
+			</where>
+      <field-define>
+				<id>f1</id>
+				<sequence>1</sequence>
+				<stat-type>field_sql</stat-type><!--"field_sql,single_sql,expression"  -->
+				<stat-sql>count(distinct lg.opername)</stat-sql>
+				<list-count-select-sql></list-count-select-sql>
+				<list-hsql>
+			
+			  </list-hsql>
+			</field-define>
+      <field-define>
+				<id>f2</id>
+				<sequence>1</sequence>
+				<stat-type>field_sql</stat-type><!--"field_sql,single_sql,expression"  -->
+				<stat-sql>count(distinct lg.userid)</stat-sql>
+				<list-count-select-sql></list-count-select-sql>
+				<list-hsql>
+			
+			  </list-hsql>
+			</field-define>
+      <field-define>
+				<id>f3</id>
+				<sequence>1</sequence>
+				<stat-type>field_sql</stat-type><!--"field_sql,single_sql,expression"  -->
+				<stat-sql>count(lg.id)</stat-sql>
+				<list-count-select-sql>select count(lg.id)</list-count-select-sql>
+				<list-hsql>
+			select lg.opername,lg.modelname,lg.username,lg.beginnotetime  from taw_common_logoperator lg
+      where lg.beginnotetime &gt;='@beginTime@' and lg.beginnotetime &lt;='@endTime@' and  lg.operId not in('0001','0002') 
+      and lg.deptid in (select deptid from taw_system_dept where linkid like (select concat(linkid,'%')
+      from taw_system_dept where deptid=@s1@  and deleted=0) and deleted=0)
+			  </list-hsql>
+			</field-define>			
+		</query-define>
+		
+	</kpi-define>
+
+
+
+
+  <kpi-define>
+		<name>fifth</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		<condition-param page-name="revdeptid"/>
+		
+		<summary-define>
+			<id>s1</id>
+			<sequence>1</sequence>
+			<column>'@revdeptid@'</column>
+			<id2name-service>statBaseDeptId2name_v35</id2name-service>
+		</summary-define>
+	  <summary-define>
+			<id>s2</id>
+			<sequence>1</sequence>
+			<column>lg.deptid</column>
+			<id2name-service>statBaseDeptId2name_v35</id2name-service>
+		</summary-define>
+		
+	 <stat-detail-vo>com.boco.eoms.commons.statistic.logstat.vo.LogstatDetailVO</stat-detail-vo>
+   <query-define>
+			<name>query1</name>			
+			<from>taw_common_logoperator lg</from>
+			<where>
+			   lg.beginnotetime &gt;='@beginTime@' and lg.beginnotetime &lt;='@endTime@' and  lg.operId not in('0001','0002') and
+			   lg.deptid in (select deptid from taw_system_dept where linkid like (select concat(linkid,'%') from taw_system_dept where deptid=@revdeptid@  and deleted=0) and deleted=0)	
+			</where>
+      <field-define>
+				<id>f1</id>
+				<sequence>1</sequence>
+				<stat-type>field_sql</stat-type><!--"field_sql,single_sql,expression"  -->
+				<stat-sql>count(distinct lg.opername)</stat-sql>
+				<list-count-select-sql></list-count-select-sql>
+				<list-hsql>
+			
+			  </list-hsql>
+			</field-define>
+      <field-define>
+				<id>f2</id>
+				<sequence>1</sequence>
+				<stat-type>field_sql</stat-type><!--"field_sql,single_sql,expression"  -->
+				<stat-sql>count(distinct lg.userid)</stat-sql>
+				<list-count-select-sql></list-count-select-sql>
+				<list-hsql>
+			
+			  </list-hsql>
+			</field-define>
+      <field-define>
+				<id>f3</id>
+				<sequence>1</sequence>
+				<stat-type>field_sql</stat-type><!--"field_sql,single_sql,expression"  -->
+				<stat-sql>count(lg.id)</stat-sql>
+				<list-count-select-sql>select count(lg.id)</list-count-select-sql>
+				<list-hsql>
+			select lg.opername,lg.modelname,lg.username,lg.beginnotetime  from taw_common_logoperator lg
+      where lg.beginnotetime &gt;='@beginTime@' and lg.beginnotetime &lt;='@endTime@' and  lg.operId not in('0001','0002') 
+      and lg.deptid=@s2@
+			  </list-hsql>
+			</field-define>			
+		</query-define>
+		
+	</kpi-define>
+	
+	
+	
+	<kpi-define>
+		<name>fourth</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		<condition-param page-name="revdeptid"/>
+		
+	  <summary-define>
+			<id>s1</id>
+			<sequence>1</sequence>
+			<column>'@revdeptid@'</column>
+			<id2name-service>statBaseDeptId2name_v35</id2name-service>
+		</summary-define>
+	  <summary-define>
+			<id>s2</id>
+			<sequence>1</sequence>
+			<column>lg.operid</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+	 <summary-define>
+			<id>s22</id>
+			<sequence>1</sequence>
+			<column>lg.opername</column>
+			<id2name-service></id2name-service>
+	</summary-define>	
+	 <stat-detail-vo>com.boco.eoms.commons.statistic.logstat.vo.LogstatDetailVO</stat-detail-vo>
+   <query-define>
+			<name>query1</name>			
+			<from>taw_common_logoperator lg</from>
+			<where>
+			   lg.beginnotetime &gt;='@beginTime@' and lg.beginnotetime &lt;='@endTime@' and  lg.operId not in('0001','0002') and
+			   lg.deptid in (select deptid from taw_system_dept where linkid like (select concat(linkid,'%') from taw_system_dept where deptid=@revdeptid@  and deleted=0) and deleted=0)	
+			</where>
+     
+      <field-define>
+				<id>f1</id>
+				<sequence>1</sequence>
+				<stat-type>field_sql</stat-type><!--"field_sql,single_sql,expression"  -->
+				<stat-sql>count(distinct lg.userid)</stat-sql>
+				<list-count-select-sql></list-count-select-sql>
+				<list-hsql>
+			
+			  </list-hsql>
+			</field-define>
+      <field-define>
+				<id>f2</id>
+				<sequence>1</sequence>
+				<stat-type>field_sql</stat-type><!--"field_sql,single_sql,expression"  -->
+				<stat-sql>count(lg.id)</stat-sql>
+				<list-count-select-sql>select count(lg.id)</list-count-select-sql>
+				<list-hsql>
+			select lg.opername,lg.modelname,lg.username,lg.beginnotetime  from taw_common_logoperator lg
+      where lg.beginnotetime &gt;='@beginTime@' and lg.beginnotetime &lt;='@endTime@'  
+      and lg.operid='@s2@' and lg.deptid in (select deptid from taw_system_dept where linkid like (select concat(linkid,'%') from taw_system_dept where deptid=@revdeptid@  and deleted=0) and deleted=0)	
+			  </list-hsql>
+			</field-define>			
+		</query-define>
+		
+	</kpi-define>
+	
+	
+	
+		<kpi-define>
+		<name>sixth</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		<condition-param page-name="revdeptid"/>
+		<condition-param page-name="operid"/>
+		
+		<summary-define>
+			<id>s1</id>
+			<sequence>1</sequence>
+			<column>'@revdeptid@'</column>
+			<id2name-service>statBaseDeptId2name_v35</id2name-service>
+		</summary-define>
+	  <summary-define>
+			<id>s2</id>
+			<sequence>1</sequence>
+			<column>'@operid@'</column>
+			<id2name-service>ItawSystemPrivOperationManager</id2name-service>
+		</summary-define>
+		<summary-define>
+			<id>s3</id>
+			<sequence>1</sequence>
+			<column>lg.modelid</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		<summary-define>
+			<id>s33</id>
+			<sequence>1</sequence>
+			<column>lg.modelname</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		
+		
+		
+	 <stat-detail-vo>com.boco.eoms.commons.statistic.logstat.vo.LogstatDetailVO</stat-detail-vo>
+   <query-define>
+			<name>query1</name>			
+			<from>taw_common_logoperator lg</from>
+			<where>
+			   lg.beginnotetime &gt;='@beginTime@' and lg.beginnotetime &lt;='@endTime@' and  lg.operId not in('0001','0002') and lg.operid='@operid@' and 
+			   lg.deptid in (select deptid from taw_system_dept where linkid like (select concat(linkid,'%') from taw_system_dept where deptid=@revdeptid@  and deleted=0) and deleted=0)	
+			</where>
+     
+      <field-define>
+				<id>f1</id>
+				<sequence>1</sequence>
+				<stat-type>field_sql</stat-type><!--"field_sql,single_sql,expression"  -->
+				<stat-sql>count(distinct lg.userid)</stat-sql>
+				<list-count-select-sql></list-count-select-sql>
+				<list-hsql>
+			
+			  </list-hsql>
+			</field-define>
+      <field-define>
+				<id>f2</id>
+				<sequence>1</sequence>
+				<stat-type>field_sql</stat-type><!--"field_sql,single_sql,expression"  -->
+				<stat-sql>count(lg.id)</stat-sql>
+				<list-count-select-sql>select count(lg.id)</list-count-select-sql>
+				<list-hsql>
+			select lg.opername,lg.modelname,lg.username,lg.beginnotetime  from taw_common_logoperator lg
+      where lg.beginnotetime &gt;='@beginTime@' and lg.beginnotetime &lt;='@endTime@' and  lg.operId not in('0001','0002') and   lg.operid='@operid@' 
+      and lg.modelid='@s3@' and lg.deptid in (select deptid from taw_system_dept where linkid like (select concat(linkid,'%') from taw_system_dept where deptid=@revdeptid@  and deleted=0) and deleted=0)	
+			  </list-hsql>
+			</field-define>			
+		</query-define>
+		
+	</kpi-define>
+	
+	
+	
+	
+		<kpi-define>
+		<name>second</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		<condition-param page-name="revdeptid"/>
+		<condition-param page-name="operid"/>
+		<condition-param page-name="modelid"/>
+		
+		<summary-define>
+			<id>s1</id>
+			<sequence>1</sequence>
+			<column>lg.userid</column>
+			<id2name-service>statBaseUserId2name_v35</id2name-service>
+		</summary-define>
+	 
+	 <stat-detail-vo>com.boco.eoms.commons.statistic.logstat.vo.LogstatDetailVO</stat-detail-vo>
+   <query-define>
+			<name>query1</name>			
+			<from>taw_common_logoperator lg</from>
+			<where>
+			   lg.beginnotetime &gt;='@beginTime@' and lg.beginnotetime &lt;='@endTime@' and  lg.operId not in('0001','0002') and lg.operid='@operid@' and 
+			   lg.modelid='@modelid@'  and 
+			   lg.deptid in (select deptid from taw_system_dept where linkid like (select concat(linkid,'%') from taw_system_dept where deptid=@revdeptid@  and deleted=0) and deleted=0)	
+			</where>
+     
+     
+      <field-define>
+				<id>f1</id>
+				<sequence>1</sequence>
+				<stat-type>field_sql</stat-type><!--"field_sql,single_sql,expression"  -->
+				<stat-sql>count(lg.id)</stat-sql>
+				<list-count-select-sql>select count(lg.id)</list-count-select-sql>
+				<list-hsql>
+			select lg.opername,lg.modelname,lg.username,lg.beginnotetime  from taw_common_logoperator lg
+      where lg.beginnotetime &gt;='@beginTime@' and lg.beginnotetime &lt;='@endTime@' and  lg.operId not in('0001','0002') and   lg.operid='@operid@' 
+      and lg.modelid='@modelid@'   and lg.userid='@s1@' and
+       lg.deptid in (select deptid from taw_system_dept where linkid like (select concat(linkid,'%') from taw_system_dept where deptid=@revdeptid@  and deleted=0) and deleted=0)	
+			  </list-hsql>
+			</field-define>			
+		</query-define>
+		
+	</kpi-define>
+	
+	
+	
+	<kpi-define>
+		<name>fourthfif</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		<condition-param page-name="revdeptid"/>
+		
+		<summary-define>
+			<id>s1</id>
+			<sequence>1</sequence>
+			<column>'@revdeptid@'</column>
+			<id2name-service>statBaseDeptId2name_v35</id2name-service>
+		</summary-define>
+	  <summary-define>
+			<id>s2</id>
+			<sequence>1</sequence>
+			<column>lg.operid</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		<summary-define>
+			<id>s22</id>
+			<sequence>1</sequence>
+			<column>lg.opername</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+	 <stat-detail-vo>com.boco.eoms.commons.statistic.logstat.vo.LogstatDetailVO</stat-detail-vo>
+   <query-define>
+			<name>query1</name>			
+			<from>taw_common_logoperator lg</from>
+			<where>
+			   lg.beginnotetime &gt;='@beginTime@' and lg.beginnotetime &lt;='@endTime@' and  lg.operId not in('0001','0002') and
+			   lg.deptid=@revdeptid@ 
+			</where>
+     
+      <field-define>
+				<id>f1</id>
+				<sequence>1</sequence>
+				<stat-type>field_sql</stat-type><!--"field_sql,single_sql,expression"  -->
+				<stat-sql>count(distinct lg.userid)</stat-sql>
+				<list-count-select-sql></list-count-select-sql>
+				<list-hsql>
+			
+			  </list-hsql>
+			</field-define>
+      <field-define>
+				<id>f2</id>
+				<sequence>1</sequence>
+				<stat-type>field_sql</stat-type><!--"field_sql,single_sql,expression"  -->
+				<stat-sql>count(lg.id)</stat-sql>
+				<list-count-select-sql>select count(lg.id)</list-count-select-sql>
+				<list-hsql>
+			select lg.opername,lg.modelname,lg.username,lg.beginnotetime  from taw_common_logoperator lg
+      where lg.beginnotetime &gt;='@beginTime@' and lg.beginnotetime &lt;='@endTime@' and  lg.operId not in('0001','0002') 
+      and lg.operid='@s2@' and lg.deptid=@revdeptid@
+			  </list-hsql>
+			</field-define>			
+		</query-define>
+		
+	</kpi-define>
+	
+	
+	
+		<kpi-define>
+		<name>sixthfif</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		<condition-param page-name="revdeptid"/>
+		<condition-param page-name="operid"/>
+		
+		<summary-define>
+			<id>s1</id>
+			<sequence>1</sequence>
+			<column>'@revdeptid@'</column>
+			<id2name-service>statBaseDeptId2name_v35</id2name-service>
+		</summary-define>
+	  <summary-define>
+			<id>s2</id>
+			<sequence>1</sequence>
+			<column>'@operid@'</column>
+			<id2name-service>ItawSystemPrivOperationManager</id2name-service>
+		</summary-define>
+		<summary-define>
+			<id>s3</id>
+			<sequence>1</sequence>
+			<column>lg.modelid</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+		<summary-define>
+			<id>s33</id>
+			<sequence>1</sequence>
+			<column>lg.modelname</column>
+			<id2name-service></id2name-service>
+		</summary-define>
+	 <stat-detail-vo>com.boco.eoms.commons.statistic.logstat.vo.LogstatDetailVO</stat-detail-vo>
+   <query-define>
+			<name>query1</name>			
+			<from>taw_common_logoperator lg</from>
+			<where>
+			   lg.beginnotetime &gt;='@beginTime@' and lg.beginnotetime &lt;='@endTime@' and  lg.operId not in('0001','0002') and lg.operid='@operid@' and 
+			   lg.deptid=@revdeptid@
+			</where>
+     
+      <field-define>
+				<id>f1</id>
+				<sequence>1</sequence>
+				<stat-type>field_sql</stat-type><!--"field_sql,single_sql,expression"  -->
+				<stat-sql>count(distinct lg.userid)</stat-sql>
+				<list-count-select-sql></list-count-select-sql>
+				<list-hsql>
+			
+			  </list-hsql>
+			</field-define>
+      <field-define>
+				<id>f2</id>
+				<sequence>1</sequence>
+				<stat-type>field_sql</stat-type><!--"field_sql,single_sql,expression"  -->
+				<stat-sql>count(lg.id)</stat-sql>
+				<list-count-select-sql>select count(lg.id)</list-count-select-sql>
+				<list-hsql>
+			select lg.opername,lg.modelname,lg.username,lg.beginnotetime  from taw_common_logoperator lg
+      where lg.beginnotetime &gt;='@beginTime@' and lg.beginnotetime &lt;='@endTime@' and  lg.operId not in('0001','0002') and   lg.operid='@operid@' 
+      and lg.modelid='@s3@' and lg.deptid=@revdeptid@
+			  </list-hsql>
+			</field-define>			
+		</query-define>
+		
+	</kpi-define>
+	
+	
+	
+	
+		<kpi-define>
+		<name>secondfif</name>
+		<kpi-caption></kpi-caption>
+
+		<condition-param page-name="beginTime"/>
+		<condition-param page-name="endTime"/>
+		<condition-param page-name="revdeptid"/>
+		<condition-param page-name="operid"/>
+		<condition-param page-name="modelid"/>
+		
+		<summary-define>
+			<id>s1</id>
+			<sequence>1</sequence>
+			<column>lg.userid</column>
+			<id2name-service>statBaseUserId2name_v35</id2name-service>
+		</summary-define>
+	 
+	 <stat-detail-vo>com.boco.eoms.commons.statistic.logstat.vo.LogstatDetailVO</stat-detail-vo>
+   <query-define>
+			<name>query1</name>			
+			<from>taw_common_logoperator lg</from>
+			<where>
+			   lg.beginnotetime &gt;='@beginTime@' and lg.beginnotetime &lt;='@endTime@' and  lg.operId not in('0001','0002') and lg.operid='@operid@' and 
+			   lg.modelid='@modelid@'  and  lg.deptid=@revdeptid@
+			  
+			</where>
+     
+     
+      <field-define>
+				<id>f1</id>
+				<sequence>1</sequence>
+				<stat-type>field_sql</stat-type><!--"field_sql,single_sql,expression"  -->
+				<stat-sql>count(lg.id)</stat-sql>
+				<list-count-select-sql>select count(lg.id)</list-count-select-sql>
+				<list-hsql>
+			select lg.opername,lg.modelname,lg.username,lg.beginnotetime  from taw_common_logoperator lg
+      where lg.beginnotetime &gt;='@beginTime@' and lg.beginnotetime &lt;='@endTime@' and  lg.operId not in('0001','0002') and   lg.operid='@operid@' 
+      and lg.modelid='@modelid@'   and lg.userid='@s1@' and  lg.deptid=@revdeptid@
+       
+			  </list-hsql>
+			</field-define>			
+		</query-define>
+		
+	</kpi-define>
+	
+	
+</KpiConfig>	

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.group.IrmsGroupSms" table="irms_group_sms">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="customerName" column="customer_name"/>
+				<property name="relatedInstance" column="related_instance"/>
+				<property name="smsEnterpriseCod" column="sms_enterprise_cod"/>
+				<property name="smsServiceNumType" column="sms_service_num_type"/>
+				<property name="smsServiceNum" column="sms_service_num"/>
+				<property name="smsBusiCode" column="sms_busi_code"/>
+				<property name="smsServiceScope" column="sms_service_scope"/>
+				<property name="serviceDistrict" column="service_district"/>
+				<property name="smsProtocolType" column="sms_protocol_type"/>
+				<property name="tranAccessWay" column="tran_access_way"/>
+				<property name="businessHostingWay" column="business_hosting_way"/>
+				<property name="productInstanceId" column="product_instance_id"/>
+				<property name="accessGatewayRoom" column="access_gateway_room"/>
+				<property name="accessGateway" column="access_gateway"/>
+				<property name="gatewayIp" column="gateway_ip"/>
+				<property name="enterpriseServerIp" column="enterprise_server_ip"/>
+				<property name="servicePortNo" column="service_port_no"/>
+				<property name="gatewayLoginName" column="gateway_login_name"/>
+				<property name="relatedCircuitName" column="related_circuit_name"/>
+				<property name="relatedOcName" column="related_oc_name"/>
+				<property name="customerAccessDate" column="customer_access_date"/>
+				<property name="createTime" column="create_time"/>
+				<property name="remark" column="remark"/>
+				<property name="relatedInstanceId" column="related_instance_id"/>
+				<property name="accessGatewayId" column="access_gateway_id"/>
+				<property name="gatewayIpId" column="gateway_ip_id"/>
+				<property name="relatedCircuitNameId" column="related_circuit_name_id"/>
+				<property name="relatedOcNameId" column="related_oc_name_id"/>
+    </class>    
+</hibernate-mapping>

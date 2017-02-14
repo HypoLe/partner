@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.wlan.IrmsWlanAp" table="irms_wlan_ap">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="apName" column="ap_name"/>
+				<property name="relatedDistrict" column="related_district"/>
+				<property name="relatedHotpoint" column="related_hotpoint"/>
+				<property name="apVendor" column="ap_vendor"/>
+				<property name="apType" column="ap_type"/>
+				<property name="apMacAddr" column="ap_mac_addr"/>
+				<property name="manageApAddr" column="manage_ap_addr"/>
+				<property name="stressPattern" column="stress_pattern"/>
+				<property name="apLocation" column="ap_location"/>
+				<property name="apCoverageArea" column="ap_coverage_area"/>
+				<property name="is2g3gDistributo" column="is_2g3g_distributo"/>
+				<property name="relatedHotpingSw" column="related_hotping_sw"/>
+				<property name="hotpotSwPort" column="hotpot_sw_port"/>
+				<property name="softVersion" column="soft_version"/>
+				<property name="relatedBackAcCu" column="related_back_ac_cu"/>
+				<property name="neWorkingState" column="ne_working_state"/>
+				<property name="remark" column="remark"/>
+				<property name="createTime" column="create_time"/>
+				<property name="relatedDistrictId" column="related_district_id"/>
+				<property name="relatedHotpointId" column="related_hotpoint_id"/>
+				<property name="relatedHotpingSwId" column="related_hotping_sw_id"/>
+				<property name="relatedBackAcCuId" column="related_back_ac_cu_id"/>
+    </class>    
+</hibernate-mapping>

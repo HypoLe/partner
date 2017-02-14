@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="projectCostDao"
+		class="com.boco.eoms.partner.projectCost.dao.ProjectCostDaoImpl"
+		autowire="byName" />
+
+	<bean id="projectCostService" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.projectCost.service.ProjectCostServiceImpl">
+				<property name="projectCostDao"
+					ref="projectCostDao" />				
+			</bean>
+		</property>
+	</bean>
+
+</beans>

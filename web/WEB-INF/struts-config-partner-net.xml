@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+		
+		<form-bean
+		  name="gridForm"
+		  type="com.boco.eoms.partner.net.webapp.form.GrideForm"
+		/>
+			
+		<form-bean
+		  name="siteForm"
+		  type="com.boco.eoms.partner.net.webapp.form.StationPointForm"
+		/>		    
+	</form-beans>
+	<!-- ========== Global Exceptions Definitions =================================== -->
+    <global-exceptions>
+        <exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+    </global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward name="success" path="/common/success.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="nopriv" path="/common/nopriv.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="fail" path="/common/failure.jsp" redirect="false"
+			contextRelative="true" />
+	</global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+
+	<action-mappings>
+	    
+		
+		<action path="/grids"
+		  type="com.boco.eoms.partner.net.webapp.action.GridAction"
+		  name="gridForm" scope="request" input="mainMenu"
+		  parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true"/>
+			<forward name="edit"
+			  	path="/WEB-INF/pages/partner/net/grid/gridForm.jsp"
+			  	redirect="false" contextRelative="true"/>
+			<forward name="list"
+			  	path="/WEB-INF/pages/partner/net/grid/gridList.jsp"
+			  	redirect="false" contextRelative="true"/>
+			<forward name="search"
+				path="/partner/net/grids.do?method=search"
+				redirect="true" contextRelative="true" />
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/net/grid/gridDetail.jsp"
+				redirect="false" contextRelative="true" />	
+				
+			<!-- 抽检 基站巡检记录（广西基站列表即福建的网格） -->	 
+			<forward name="searchCyc"
+				path="/WEB-INF/pages/partner/siteManager/spotCheck/checkCycSample.jsp"
+				redirect="false" contextRelative="true" />
+							
+		</action>
+		
+		<action  path="/sites"
+		  type="com.boco.eoms.partner.net.webapp.action.SiteAction"
+		  name="siteForm" scope="request" input="mainMenu"
+		  parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true"/>
+			<forward name="newExpert"
+				path="/WEB-INF/pages/partner/net/site/newSite.jsp"
+				redirect="false" contextRelative="true" />			
+			<forward name="edit"
+			  	path="/WEB-INF/pages/partner/net/site/siteForm.jsp"
+			  	redirect="false" contextRelative="true"/>
+			<forward name="list"
+			 	 path="/WEB-INF/pages/partner/net/site/siteList.jsp"
+			 	 redirect="false" contextRelative="true"/>
+			<forward name="detail"
+			 	 path="/WEB-INF/pages/partner/net/site/siteDetail.jsp"
+			 	 redirect="false" contextRelative="true"/>
+			
+			<!-- 抽查对象列表（基站） -->	 
+			<forward name="searchSample"
+				path="/WEB-INF/pages/partner/maintenance/check/checkSample.jsp"
+				redirect="false" contextRelative="true" />
+
+			<!-- 抽检 基站巡检记录（基站列表） -->	 
+			<forward name="searchCyc"
+				path="/WEB-INF/pages/partner/siteManager/spotCheck/checkCycSample.jsp"
+				redirect="false" contextRelative="true" />
+			 	 
+		</action>		
+	</action-mappings>
+ 	<controller nocache="true" inputForward="true" maxFileSize="2M" />
+		 <message-resources parameter="config/ApplicationResources"/>
+	<!-- ========== Validator plugin ===================  -->
+	<!-- 
+		<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+		value="/WEB-INF/validator-rules.xml,
+		/WEB-INF/validator-rules-custom.xml,
+		/WEB-INF/validation.xml" />
+		</plug-in>
+	-->
+</struts-config>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.boco.eoms.mobile.model.AndroidAppInfo" table="pnr_android_app">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="appName" column="app_Name"/>
+		<property name="packageName" column="package_Name"/>
+		<property name="fileName" column="file_Name"/>
+		<property name="versionName" column="version_Name"/>
+		<property name="versionCode" column="version_Code"/>
+		<property name="introduction" column="introduction"/>
+		<property name="fileSize" column="file_Size"/>
+		<property name="addTime" column="add_Time"/>
+		<property name="addUser" column="add_User"/>
+		<property name="downloadStatus" column="download_Status"/>
+		<property name="filePath" column="file_path"/>
+		<property name="developer" column="developer"/>
+		<property name="publicKey" column="publicKey"/>
+		<property name="serialNumber" column="serialNumber"/>
+		<property name="updateType" column="updateType"/>
+	</class>
+</hibernate-mapping>

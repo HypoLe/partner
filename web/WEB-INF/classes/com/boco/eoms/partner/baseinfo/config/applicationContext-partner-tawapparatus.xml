@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="tawApparatusMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.baseinfo.mgr.impl.TawApparatusMgrImpl">
+				<property name="tawApparatusDao" ref="tawApparatusDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="tawApparatusDao"
+		class="com.boco.eoms.partner.baseinfo.dao.hibernate.TawApparatusDaoHibernate"
+		autowire="byName" />
+
+<!-- modify    huhao     begin -->
+
+
+     <bean id="tawApparatusStaffDao"
+		class="com.boco.eoms.partner.baseinfo.dao.TawApparatusStaffDaoImpl" autowire="byName" />
+
+	<bean id="tawApparatusStaffService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.baseinfo.mgr.impl.TawApparatusStaffServiceImpl">
+				<property name="tawApparatusStaffDao"
+					ref="tawApparatusStaffDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- modify    huhao    end -->
+</beans>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <!-- Add new Managers here -->
+    
+    <!--PnrEvaTree-DAO START-->
+    <bean id="pnrEvaTreeDao" class="com.boco.eoms.partner.eva.dao.hibernate.PnrEvaTreeDaoHibernate" autowire="byName"/>
+    <!--PnrEvaTree-DAO END-->
+    <!--PnrEvaTree-START-->    
+    <bean id="iPnrEvaTreeMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.eva.mgr.impl.PnrEvaTreeMgrImpl">
+                <property name="pnrEvaTreeDao" ref="pnrEvaTreeDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--PnrEvaTree-END-->
+    
+    <!--PnrEvaKpi-DAO START-->
+    <bean id="pnrEvaKpiDao" class="com.boco.eoms.partner.eva.dao.hibernate.PnrEvaKpiDaoHibernate" autowire="byName"/>
+    <!--PnrEvaKpi-DAO END-->
+    <!--PnrEvaKpi-START-->    
+    <bean id="iPnrEvaKpiMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.eva.mgr.impl.PnrEvaKpiMgrImpl">
+                <property name="pnrEvaKpiDao" ref="pnrEvaKpiDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--PnrEvaKpi-END-->
+    
+    <!--PnrEvaTemplate-DAO START-->
+    <bean id="pnrEvaTemplateDao" class="com.boco.eoms.partner.eva.dao.hibernate.PnrEvaTemplateDaoHibernate" autowire="byName"/>
+    <!--PnrEvaTemplate-DAO END-->
+    <!--PnrEvaTemplate-START-->    
+    <bean id="iPnrEvaTemplateMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.eva.mgr.impl.PnrEvaTemplateMgrImpl">
+                <property name="pnrEvaTemplateDao" ref="pnrEvaTemplateDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--PnrEvaTemplate-END-->
+    
+    <!--PnrEvaTask-DAO START-->
+    <bean id="pnrEvaTaskDao" class="com.boco.eoms.partner.eva.dao.hibernate.PnrEvaTaskDaoHibernate" autowire="byName"/>
+    <!--PnrEvaTask-DAO END-->
+    <!--PnrEvaTask-START-->    
+    <bean id="iPnrEvaTaskMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.eva.mgr.impl.PnrEvaTaskMgrImpl">
+                <property name="pnrEvaTaskDao" ref="pnrEvaTaskDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--PnrEvaTask-END-->
+    
+    <!--PnrEvaTaskDetail-DAO START-->
+    <bean id="pnrEvaTaskDetailDao" class="com.boco.eoms.partner.eva.dao.hibernate.PnrEvaTaskDetailDaoHibernate" autowire="byName"/>
+    <!--PnrEvaTaskDetail-DAO END-->
+    <!--PnrEvaTaskDetail-START-->    
+    <bean id="iPnrEvaTaskDetailMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.eva.mgr.impl.PnrEvaTaskDetailMgrImpl">
+                <property name="pnrEvaTaskDetailDao" ref="pnrEvaTaskDetailDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--PnrEvaTaskDetail-END-->
+    
+    <!--PnrEvaKpiInstance-DAO START-->
+    <bean id="pnrEvaKpiInstanceDao" class="com.boco.eoms.partner.eva.dao.hibernate.PnrEvaKpiInstanceDaoHibernate" autowire="byName"/>
+    <!--PnrEvaKpiInstance-DAO END-->
+    <!--PnrEvaKpiInstance-START-->    
+    <bean id="iPnrEvaKpiInstanceMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.eva.mgr.impl.PnrEvaKpiInstanceMgrImpl">
+                <property name="pnrEvaKpiInstanceDao" ref="pnrEvaKpiInstanceDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--PnrEvaKpiInstance-END-->
+
+    <!--PnrEvaAuditInfo-DAO START-->
+    <bean id="pnrEvaAuditInfoDao" class="com.boco.eoms.partner.eva.dao.hibernate.PnrEvaAuditInfoDaoHibernate" autowire="byName"/>
+    <!--PnrEvaAuditInfo-DAO END-->
+    <!--PnrEvaAuditInfo-START-->    
+    <bean id="iPnrEvaAuditInfoMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.eva.mgr.impl.PnrEvaAuditInfoMgrImpl">
+                <property name="pnrEvaAuditInfoDao" ref="pnrEvaAuditInfoDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--PnrEvaAuditInfo-END-->
+    
+    <!--PnrEvaAuditInfo-DAO START-->
+    <bean id="pnrEvaReportInfoDao" class="com.boco.eoms.partner.eva.dao.hibernate.PnrEvaReportInfoDaoHibernate" autowire="byName"/>
+    <!--PnrEvaAuditInfo-DAO END-->
+    <!--PnrEvaAuditInfo-START-->    
+    <bean id="iPnrEvaReportInfoMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.eva.mgr.impl.PnrEvaReportInfoMgrImpl">
+                <property name="pnrEvaReportInfoDao" ref="pnrEvaReportInfoDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--PnrEvaAuditInfo-END-->
+    
+    <!--PnrEvaWeight-DAO START-->
+    <bean id="pnrEvaWeightDao" class="com.boco.eoms.partner.eva.dao.hibernate.PnrEvaWeightDaoHibernate" autowire="byName"/>
+    <!--PnrEvaWeight-DAO END-->
+    <!--PnrEvaWeight-START-->    
+    <bean id="iPnrEvaWeightMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.eva.mgr.impl.PnrEvaWeightMgrImpl">
+                <property name="pnrEvaWeightDao" ref="pnrEvaWeightDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--PnrEvaWeight-END-->
+    
+    <!--PnrEvaKpiFactury-DAO START-->
+    <bean id="pnrEvaKpiFacturyDao" class="com.boco.eoms.partner.eva.dao.hibernate.PnrEvaKpiFacturyDaoHibernate" autowire="byName"/>
+    <!--PnrEvaKpiFactury-DAO END-->
+    <!--PnrEvaKpiFactury-START-->    
+    <bean id="iPnrEvaKpiFacturyMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.eva.mgr.impl.PnrEvaKpiFacturyMgrImpl">
+                <property name="pnrEvaKpiFacturyDao" ref="pnrEvaKpiFacturyDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--PnrEvaKpiFactury-END-->
+      
+    <!--PnrEvaTaskAudit-DAO START-->
+    <bean id="pnrEvaTaskAuditDao" class="com.boco.eoms.partner.eva.dao.hibernate.PnrEvaTaskAuditDaoHibernate" autowire="byName"/>
+    <!--PnrEvaTaskAudit-DAO END-->
+    <!--PnrEvaTaskAudit-START-->    
+    <bean id="iPnrTaskAuditMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.eva.mgr.impl.PnrEvaTaskAuditMgrImpl">
+                <property name="pnrEvaTaskAuditDao" ref="pnrEvaTaskAuditDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--PnrEvaTaskAudit-END-->
+    
+    <!--PnrEvaTree-END-->
+    
+    <import
+		resource="classpath:com/boco/eoms/partner/eva/config/applicationContext-partner-eva-versionlog.xml" />
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

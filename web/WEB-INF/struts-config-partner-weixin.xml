@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	<!-- ========== Data Sources Definitions =================================== -->
+	<!--
+		Define your Struts data sources in a file called struts-data-sources.xml and place
+		it in your merge directory.
+	-->
+	 
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+	<action-mappings>
+        <!--新预检预修工单  -->
+        <action path="/weixin"
+			type="com.boco.weixin.webapp.action.WeiXinAction"
+			name="multiPageForm"
+			scope="request"
+		    input="mainMenu"
+		    parameter="method"
+		    unknown="false"
+		    validate="false"
+			>			
+			<set-property property="cancellable" value="true" />
+			<forward name="success"
+					 path="/weixin_success.jsp"
+				     redirect="false" contextRelative="true" />
+		</action>
+	</action-mappings>
+	<controller nocache="true" inputForward="true" maxFileSize="2M" />
+</struts-config>

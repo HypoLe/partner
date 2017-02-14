@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="GBK"?>
+<dicts description="服务范围管理">
+
+	<dict id="isFullService" description="是否全业务内">
+		<item id="1" name="是" description="是" />
+		<item id="2" name="否" description="否" />
+	</dict>
+    <dict id="maintainType" description="自维或代维">
+		<item id="1" name="自维" description="自维" />
+		<item id="2" name="代维" descripRtion="代维" />
+	</dict>	
+    <dict id="specialtyType" description="专业类型">
+		<item id="base" name="基站" description="基站" />
+		<item id="data" name="数据" descripRtion="数据" />
+	</dict>	
+		
+</dicts>
+
+

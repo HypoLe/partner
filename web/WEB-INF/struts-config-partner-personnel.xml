@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+	<!-- 证书 -->
+		<form-bean 
+		name="certificateForm" 
+		type="com.boco.eoms.partner.personnel.webapp.form.CertificateForm"/>
+	<!-- 奖励 -->	
+		<form-bean 
+		name="rewardForm" 
+		type="com.boco.eoms.partner.personnel.webapp.form.RewardForm"/>
+	<!-- 资质 -->
+		<form-bean 
+		name="dwInfoForm" 
+		type="com.boco.eoms.partner.personnel.webapp.form.DWInfoForm"/>
+	<!-- 培训经历 -->	
+		<form-bean 
+		name="pxExperienceForm" 
+		type="com.boco.eoms.partner.personnel.webapp.form.PXExperienceForm"/>	
+	<!-- 教育经历经历 -->	
+		<form-bean 
+		name="studyExperienceForm" 
+		type="com.boco.eoms.partner.personnel.webapp.form.StudyExperienceForm"/>		
+	<!-- 工作经历  add by fengguangping-->	
+		<form-bean 
+		name="workExperienceForm" 
+		type="com.boco.eoms.partner.personnel.webapp.form.WorkExperienceForm"/>		
+	</form-beans>
+	<!-- ========== Global Exceptions Definitions =================================== -->
+    <global-exceptions>
+        <exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+    </global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward
+		  name="success"
+		  path="/common/success.jsp"
+		  redirect="true"
+		  contextRelative="true"
+		/>
+		<forward
+		  name="nopriv"
+		  path="/common/nopriv.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>
+		<forward
+		  name="fail"
+		  path="/common/failure.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>
+    </global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+	<action-mappings>
+	<!-- 统计 -->
+		<action
+		  path="/statistics"
+		  type="com.boco.eoms.partner.personnel.webapp.action.StatisticsAction"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+		<!-- 证书统计 -->
+		<forward
+			  name="certificateStatistiscally"   
+			  path="/WEB-INF/pages/partner/statistically/certificateStatistiscally.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="certificatelist"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/certificateList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		<!-- 学历统计 -->	
+			<forward
+			  name="studyExperienceStatistiscally"
+			  path="/WEB-INF/pages/partner/statistically/studyExperienceStatistiscally.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="studyExperiencelist"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/studyExperienceList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<!-- 人员 流失率统计 -->
+			<forward
+			  name="dutyStatistiscally"
+			  path="/WEB-INF/pages/partner/statistically/dutyStatistiscally.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<!-- 技能信息统计 -->
+			<forward
+			  name="skillStatistiscally"
+			  path="/WEB-INF/pages/partner/statistically/skillStatistiscally.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="skilllist"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/dwInfoList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<!-- 技能信息统计 add by fengguangping begin -->
+			<!--统计 -->
+			<forward
+			  name="dwInfoStatistics"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/dwInfoStatistics.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<!--钻取-->
+			<forward
+			  name="dwInfoStatisticsSearchInto"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/dwInfoStatisticsList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<!-- 技能信息统计 add by fengguangping  end -->
+			<!-- 证书信息统计 add by fengguangping begin -->
+			<!--统计 -->
+			<forward
+			  name="certStatistics"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/certificateStatistics.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<!--钻取-->
+			<forward
+			  name="certStatisticsSearchInto"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/certificateStatisticsList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<!-- 证书信息统计 add by fengguangping  end -->
+			<!-- 人员配置率统计 add by fengguangping begin -->
+			<!--统计 -->
+			<forward
+			  name="pnrUserConfigRateStatistics"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/partnerUserConfigRateStatistics.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<!--钻取-->
+			<forward
+			  name="pnrUserConfigRateStatisticsSearchInto"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/partnerUserConfigRateStatisticsList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<!--人员配置率统计 add by fengguangping  end -->
+			<!-- 人员流失率统计 add by fengguangping begin -->
+			<!--统计 -->
+			<forward
+			  name="pnrUserLostRateStatistics"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/partnerUserLostRateStatistics.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<!--钻取-->
+			<forward
+			  name="pnrUserLostRateStatisticsSearchInto"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/partnerUserLostRateStatisticsList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<!--人员流失率统计 add by fengguangping  end -->
+			<!-- 人员详细统计 针对黑龙江 add by fengguangping begin 2013 04 08-->
+			<!--统计 -->
+			<forward
+			  name="pnrUserStatistics"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/partnerUserStatistics.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<!--钻取-->
+			<forward
+			  name="pnrUserStatisticsSearchInto"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/partnerUserAndDwinfoDetail.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<!--人员信息统计 针对黑龙江 add by fengguangping  end 2013 04 08-->
+			<!-- 人员学历统计 add by fengguangping begin -->
+			<!--统计 -->
+			<forward
+			  name="pnrUserDegreeStatistics"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/partnerUserDegreeStatistics.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<!--钻取-->
+			<forward
+			  name="pnrUserDegreeStatisticsSearchInto"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/partnerUserDegreeStatisticsList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<!--人员学历统计 add by fengguangping  end -->
+		</action>
+	<!-- 证书 -->
+		<action
+		  path="/certificate"
+		  type="com.boco.eoms.partner.personnel.webapp.action.CertificateAction"
+		  name="certificateForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/certificateList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="listmgr"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/certificateListMgr.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>			
+			<forward
+			  name="add_edit"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/certificateEdit.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="detail"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/certificateDetail.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="statistics"
+			  path="/WEB-INF/pages/partner/statistically/certificateStatistiscally.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		</action>
+	<!-- 奖励管理 -->
+		<action
+		  path="/reward"
+		  type="com.boco.eoms.partner.personnel.webapp.action.RewardAction"
+		  name="rewardForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<forward
+			  name="listmgr"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/rewardListMgr.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>		
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/rewardList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="detail"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/rewardDetail.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="add_edit"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/rewardEdit.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		
+		</action>
+	<!-- 代维资质 -->
+		<action
+		  path="/dwInfo"
+		  type="com.boco.eoms.partner.personnel.webapp.action.DWInfoAction"
+		  name="dwInfoForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+		<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/dwInfoList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		<forward
+			  name="listmgr"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/dwInfoListMgr.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		<forward
+			  name="add_edit"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/dwInfoEdit.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="detail"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/dwInfoDetail.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		</action>
+	<!-- 培训经历 -->	
+		<action
+		  path="/pxExperience"
+		  type="com.boco.eoms.partner.personnel.webapp.action.PXExperienceAction"
+		  name="pxExperienceForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+		<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/pxExperienceList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="listmgr"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/pxExperienceListMgr.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>		
+			<forward
+			  name="detail"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/pxExperienceDetail.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+		<forward
+			  name="add_edit"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/pxExperienceEdit.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		</action>
+		<!-- 教育经历 -->	
+		<action
+		  path="/studyExperience"
+		  type="com.boco.eoms.partner.personnel.webapp.action.StudyExperienceAction"
+		  name="studyExperienceForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+		<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/studyExperienceList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="listmgr"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/studyExperienceListMgr.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>			
+		<forward
+			  name="add_edit"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/studyExperienceEdit.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>		
+			<forward
+			  name="detail"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/studyExperienceDetail.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		<forward
+			  name="statistics"
+			  path="/WEB-INF/pages/partner/statistically/studyExperienceStatistiscally.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>		
+		</action>
+		<!-- 工作经历 add by fengguangping -->	
+		<action
+		  path="/workExperience"
+		  type="com.boco.eoms.partner.personnel.webapp.action.WorkExperienceAction"
+		  name="workExperienceForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+		<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/workExperienceList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="listmgr"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/workExperienceListMgr.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>	
+			<forward
+			  name="detail"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/workExperienceDetail.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>		
+		<forward
+			  name="add_edit"
+			  path="/WEB-INF/pages/partner/baseinfo/personnel/workExperienceEdit.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>		
+		<forward
+			  name="statistics"
+			  path="/WEB-INF/pages/partner/statistically/workExperienceStatistiscally.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>		
+		</action>
+	</action-mappings>
+</struts-config>

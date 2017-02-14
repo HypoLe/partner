@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 区域-IrmsSpaceArea -->
+	<bean id="irmsSpaceAreaMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.space.IrmsSpaceAreaMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsSpaceAreaDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsSpaceAreaMappingRule" />
+				<property name="dataType" value="空间资源" /><!-- 专业类型-->
+				<property name="deviceType" value="区域" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 机房-IrmsSpaceRoom -->
+	<bean id="irmsSpaceRoomMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.space.IrmsSpaceRoomMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsSpaceRoomDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsSpaceRoomMappingRule" />
+				<property name="dataType" value="空间资源" /><!-- 专业类型-->
+				<property name="deviceType" value="机房" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 站点-IrmsSpaceSite -->
+	<bean id="irmsSpaceSiteMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.space.IrmsSpaceSiteMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsSpaceSiteDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsSpaceSiteMappingRule" />
+				<property name="dataType" value="空间资源" /><!-- 专业类型-->
+				<property name="deviceType" value="站点" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,62 @@
+[
+  {
+    "text": "部门 iconCls:\"dept\"",
+    "leaf": 1,
+    "nodeType": "dept",
+    "iconCls": "dept"
+  },
+  {
+    "text": "代维部门 iconCls:\"partner-dept\"",
+    "leaf": 1,
+    "nodeType": "dept",
+    "iconCls": "partner-dept"
+  },
+  {
+    "text": "大角色 iconCls:\"role\"",
+    "leaf": 1,
+    "nodeType": "role",
+    "iconCls": "role"
+  },
+  {
+    "text": "子角色 iconCls:\"subrole\"",
+    "leaf": 1,
+    "nodeType": "subrole",
+    "iconCls": "subrole"
+  },
+  {
+    "text": "人员 iconCls:\"user\"",
+    "leaf": 1,
+    "nodeType": "user",
+    "iconCls": "user"
+  },
+  {
+    "text": "组长 iconCls:\"leader\"",
+    "leaf": 1,
+    "nodeType": "user",
+    "iconCls": "leader"
+  },
+  {
+    "text": "岗位 iconCls:\"post\"",
+    "leaf": 1,
+    "nodeType": "post",
+    "iconCls": "post"
+  },
+  {
+    "text": "成功 iconCls:\"success\"",
+    "leaf": 1,
+    "nodeType": "success",
+    "iconCls": "success"
+  },
+  {
+    "text": "失败 iconCls:\"failure\"",
+    "leaf": 1,
+    "nodeType": "failure",
+    "iconCls": "failure"
+  },
+  {
+    "text": "空 iconCls:\"empty\"",
+    "leaf": 1,
+    "nodeType": "empty",
+    "iconCls": "empty"
+  }
+]

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="GpsManagementdao"
+		class="com.boco.eoms.deviceManagement.GPSManagement.dao.GpsManagementdaoImpl"
+		autowire="byName" />
+
+	<bean id="gpsManagementService" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.deviceManagement.GPSManagement.service.GpsManagementServiceImpl">
+				<property name="gpsManagementdao"
+					ref="GpsManagementdao" />
+				
+			</bean>
+		</property>
+	</bean>
+
+</beans>

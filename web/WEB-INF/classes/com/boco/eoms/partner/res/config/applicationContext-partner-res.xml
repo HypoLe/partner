@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+   <bean id = "PnrResConfigMgr" parent="txProxyTemplate">
+       <property name="target">
+           <bean class="com.boco.eoms.partner.res.mgr.impl.PnrResConfigMgrImpl">
+                 <property name="pnrResConfigDao" ref="pnrResConfigDao"></property>
+                 <property name="pnrResConfigDaoJdbc" ref="pnrResConfigDaoJdbc"></property>                 
+           </bean> 
+       </property> 
+   </bean>
+   
+   <bean id="PnrResIronMgr" parent="txProxyTemplate">
+   		<property name="target">
+           <bean class="com.boco.eoms.partner.res.mgr.impl.PnrResIronMgrImpl">
+                 <property name="pnrResIronDao" ref="pnrResIronDao"></property>
+           </bean> 
+       </property> 
+   </bean>
+   <bean id="PnrResJiekeMgr" parent="txProxyTemplate">
+   		<property name="target">
+           <bean class="com.boco.eoms.partner.res.mgr.impl.PnrResJiekeMgrImpl">
+                 <property name="pnrResJiekeDao" ref="pnrResJiekeDao"></property>
+           </bean> 
+       </property> 
+   </bean>
+   <bean id="PnrResLineMgr" parent="txProxyTemplate">
+   		<property name="target">
+           <bean class="com.boco.eoms.partner.res.mgr.impl.PnrResLineMgrImpl">
+                 <property name="pnrResLineDao" ref="pnrResLineDao"></property>
+           </bean> 
+       </property> 
+   </bean>
+   <bean id="PnrResChangeHistoryMgr" parent="txProxyTemplate">
+   		<property name="target">
+           <bean class="com.boco.eoms.partner.res.mgr.impl.PnrResChangeHistoryMgrImpl">
+                 <property name="pnrResChangeHistoryDao" ref="pnrResChangeHistoryDao"></property>
+           </bean> 
+       </property> 
+   </bean>
+   <bean id="PnrResRepeatersMgr" parent="txProxyTemplate" >
+   		<property name="target">
+           <bean class="com.boco.eoms.partner.res.mgr.impl.PnrResRepeatersMgrImpl">
+                 <property name="pnrResRepeatersDao" ref="pnrResRepeatersDao"></property>
+           </bean> 
+       </property> 
+   </bean>
+   <bean id="PnrResConfigStationMgr" parent="txProxyTemplate">
+   		<property name="target">
+           <bean class="com.boco.eoms.partner.res.mgr.impl.PnrResConfigStationMgrImpl">
+                 <property name="pnrResConfigStationDao" ref="pnrResConfigStationDao"></property>
+           </bean> 
+       </property> 
+   </bean>
+   <bean id="PnrResToWeekTimeMgr" parent="txProxyTemplate" >
+   		<property name="target">
+           <bean class="com.boco.eoms.partner.res.mgr.impl.PnrResToWeekTimeMgrImpl">
+                 <property name="pnrResToWeekTimeDao" ref="pnrResToWeekTimeDao"></property>
+                 <property name="tawSystemDictTypeManager" ref="ItawSystemDictTypeManager"></property>
+                 
+           </bean> 
+       </property> 
+   </bean>
+     <bean id="PnrResWlanMgr" parent="txProxyTemplate" >
+   		<property name="target">
+           <bean class="com.boco.eoms.partner.res.mgr.impl.PnrResWlanMgrImpl">
+                 <property name="pnrResWlanDao" ref="pnrResWlanDao"></property>
+           </bean> 
+       </property> 
+   </bean>
+     <bean id="PnrResFamilyBroadbandMgr" parent="txProxyTemplate" >
+   		<property name="target">
+           <bean class="com.boco.eoms.partner.res.mgr.impl.PnrResFamilyBroadbandMgrImpl">
+                 <property name="pnrResFamilyBroadbandDao" ref="pnrResFamilyBroadbandDao"></property>
+           </bean> 
+       </property> 
+   </bean>
+   <!-- 线路巡检 begin add by zhangkeqi -->
+   <bean id="pnrTransLineMgrImpl" parent="txProxyTemplate" >
+   		<property name="target">
+           <bean class="com.boco.eoms.partner.res.mgr.impl.PnrTransLineMgrImpl">
+                 <property name="pnrTransLineDao" ref="pnrTransLineDao"></property>
+           </bean> 
+       </property> 
+   </bean>
+   <bean id="pnrTransLineDao" class="com.boco.eoms.partner.res.dao.hibernate.PnrTransLineDaoImpl" autowire="byName"></bean>
+   <!-- 线路巡检 end add by zhangkeqi -->
+   
+   <bean id="pnrResConfigDao" class="com.boco.eoms.partner.res.dao.hibernate.PnrResConfigDaoHibernate" autowire="byName"></bean>
+   <bean id="pnrResConfigStationDao" class="com.boco.eoms.partner.res.dao.hibernate.PnrResConfigStationDaoHibernate" autowire="byName"></bean>
+   <bean id="pnrResIronDao" class="com.boco.eoms.partner.res.dao.hibernate.PnrResIronDaoHibernate" autowire="byName"></bean>
+   <bean id="pnrResJiekeDao" class="com.boco.eoms.partner.res.dao.hibernate.PnrResJiekeDaoHibernate" autowire="byName"></bean>
+   <bean id="pnrResLineDao" class="com.boco.eoms.partner.res.dao.hibernate.PnrResLineDaoHibernate" autowire="byName"></bean>
+   <bean id="pnrResChangeHistoryDao" class="com.boco.eoms.partner.res.dao.hibernate.PnrResChangeHistoryDaoHibernate" autowire="byName"></bean>
+   <bean id="pnrResRepeatersDao" class="com.boco.eoms.partner.res.dao.hibernate.PnrResRepeatersDaoImpl" autowire="byName"></bean>
+   <bean id="pnrResToWeekTimeDao" class="com.boco.eoms.partner.res.dao.hibernate.PnrResToWeekTimeDaoImpl" autowire="byName"></bean>
+   <bean id="pnrResConfigDaoJdbc" class="com.boco.eoms.partner.res.dao.jdbc.PnrResConfigDaoJdbc" autowire="byName"></bean>
+   <bean id="pnrResWlanDao" class="com.boco.eoms.partner.res.dao.hibernate.PnrResWlanDaoHibernate" autowire="byName"></bean>
+   <bean id="pnrResFamilyBroadbandDao" class="com.boco.eoms.partner.res.dao.hibernate.PnrResFamilyBroadbandDaoHibernate" autowire="byName"></bean>
+   
+   <!-- 资源清查 -->
+   <bean id="pnrResourceInventoryRoomDao" class="com.boco.eoms.partner.res.dao.hibernate.PnrResourceInventoryRoomDaoImpl" autowire="byName"></bean>
+   <bean id="jkRoomFillGpsDao" class="com.boco.eoms.partner.res.dao.hibernate.JkRoomFillGpsDaoImpl" autowire="byName"></bean>
+   <bean id="pnrResourceSuccessLogDao" class="com.boco.eoms.partner.res.dao.hibernate.PnrResourceSuccessLogDaoImpl" autowire="byName"></bean>
+   <bean id = "pnrResourceInventoryRoomService" parent="txProxyTemplate">
+	   <property name="target">
+	       <bean class="com.boco.eoms.partner.res.mgr.impl.PnrResourceInventoryRoomServiceImpl">
+	             <property name="pnrResourceInventoryRoomDao" ref="pnrResourceInventoryRoomDao"></property>
+	       </bean> 
+	   </property> 
+   </bean>
+   <bean id = "jkRoomFillGpsService" parent="txProxyTemplate">
+	   <property name="target">
+	       <bean class="com.boco.eoms.partner.res.mgr.impl.JkRoomFillGpsServiceImpl">
+	             <property name="jkRoomFillGpsDao" ref="jkRoomFillGpsDao"></property>
+	       </bean> 
+	   </property> 
+   </bean>
+   <bean id = "pnrResourceSuccessLogService" parent="txProxyTemplate">
+	   <property name="target">
+	       <bean class="com.boco.eoms.partner.res.mgr.impl.PnrResourceSuccessLogServiceImpl">
+	             <property name="pnrResourceSuccessLogDao" ref="pnrResourceSuccessLogDao"></property>
+	       </bean> 
+	   </property> 
+   </bean>
+   
+              
+</beans>
+
+

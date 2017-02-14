@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root> 
+  <inspectAwoke> 
+    <!--提醒名称-->  
+    <name>巡检提醒</name>  
+    <!--提醒内容-->  
+    <description>你有未完成的巡检项即将超时</description>  
+    <!--提醒时间（分）-->  
+    <awokeTime>4320</awokeTime>  
+    <!--每日提醒开始时间-->  
+    <awokeStartTime>2011-08-10 09:28:01</awokeStartTime>  
+    <!--每日提醒结束时间-->  
+    <awokeEndTime>2111-08-31 17:39:12</awokeEndTime>  
+    <!--备注-->  
+    <remark>备注222</remark> 
+  </inspectAwoke>
+</root>

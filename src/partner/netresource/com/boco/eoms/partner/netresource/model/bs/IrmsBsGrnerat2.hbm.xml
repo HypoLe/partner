@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.bs.IrmsBsGrnerat2" table="irms_bs_grnerat2">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="relatedRoom" column="related_room"/>
+				<property name="deviceType" column="device_type"/>
+				<property name="deviceSubclass" column="device_subclass"/>
+				<property name="labelDev" column="label_dev"/>
+				<property name="deviceSequence" column="device_sequence"/>
+				<property name="sysNo" column="sys_no"/>
+				<property name="equipmentcode" column="equipmentcode"/>
+				<property name="model" column="model"/>
+				<property name="relatedVendor" column="related_vendor"/>
+				<property name="trademark" column="trademark"/>
+				<property name="supplier" column="supplier"/>
+				<property name="manageCompany" column="manage_company"/>
+				<property name="startTime" column="start_time"/>
+				<property name="endTime" column="end_time"/>
+				<property name="status" column="status"/>
+				<property name="expRatingVoltage" column="exp_rating_voltage"/>
+				<property name="smpsType" column="smps_type"/>
+				<property name="monitorModel" column="monitor_model"/>
+				<property name="commModelNum" column="comm_model_num"/>
+				<property name="commModel" column="comm_model"/>
+				<property name="commModelVoltage" column="comm_model_voltage"/>
+				<property name="commModelExpCap" column="comm_model_exp_cap"/>
+				<property name="batteryCapability" column="battery_capability"/>
+				<property name="batteryEleccapGr" column="battery_eleccap_gr"/>
+				<property name="isUnderSecond" column="is_under_second"/>
+				<property name="preserver" column="preserver"/>
+				<property name="isConstructShare" column="is_construct_share"/>
+				<property name="constructCompany" column="construct_company"/>
+				<property name="isShared" column="is_shared"/>
+				<property name="sharedCompany" column="shared_company"/>
+				<property name="createTime" column="create_time"/>
+				<property name="remark" column="remark"/>
+				<property name="relatedRoomId" column="related_room_id"/>
+    </class>    
+</hibernate-mapping>

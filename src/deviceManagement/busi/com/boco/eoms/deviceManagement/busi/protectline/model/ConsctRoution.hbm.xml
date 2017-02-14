@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.boco.eoms.deviceManagement.busi.protectline.model.ConsctRouting"
+		table="dm_protectline_construction">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+		 <property name="creatUser"/>               
+		 <property name="creatDept"/>               
+		 <property name="status"/>                  
+		 <property name="creatTime"/>               
+		 <property name="areaId"/>               
+		 <property name="approvalUser"/>            
+		 <property name="projectName"/>             
+		 <property name="repeaterSection"/>         
+		 <property name="repeaterSectionMileage"/>   
+		 <property name="location"/>                
+		 <property name="riskLevel"/>               
+		 <property name="maintainLevel"/>           
+		 <property name="disseminationMeasures"/>   
+		 <property name="careMeasures"/>            
+		 <property name="result"/>                  
+		 <property name="deleted"/>                 
+		 <property name="deletedTime"/>                 
+		 <property name="remark"/>                  
+
+
+	</class>
+</hibernate-mapping>

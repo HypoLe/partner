@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="show_sql">true</property>
+    <mapping resource="com/boco/eoms/partner/res/model/PnrResConfig.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/res/model/PnrResConfigStation.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/res/model/PnrResIron.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/res/model/PnrResJieke.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/res/model/PnrResLine.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/res/model/PnrResRepeaters.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/res/model/PnrResWlan.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/res/model/PnrResFamilyBoradband.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/res/model/PnrTransLinePoint.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/res/model/PnrArrivedRate.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/res/model/PnrLocationCycle.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/res/model/PnrResToWeekTime.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/res/model/PnrResChangeHistory.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/res/model/PnrResourceInventoryRoom.hbm.xml"/><!-- 资源清查机房基本信息表 -->
+    <mapping resource="com/boco/eoms/partner/res/model/JkRoomFillGps.hbm.xml"/><!-- 资源清查给资源系统回传数据的表 -->
+    <mapping resource="com/boco/eoms/partner/res/model/PnrResourceSuccessLog.hbm.xml"/><!-- 保存插入成功的条数的日志表 -->
+  </session-factory>
+</hibernate-configuration>
+
+

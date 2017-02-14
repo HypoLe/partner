@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.boco.eoms.materials.model.StoreAllot"
+            table="mate_store_allot">
+
+    	<id name="id" column="id" unsaved-value="null" >
+    		<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    		<generator class="uuid.hex" />
+    	</id>
+		<property name="inputStoreName" column="input_store_name"  />
+		<property name="inputStoreId" column="input_store_id"  />
+		<property name="auditSuggestion" column="audit_suggestion"  />
+		<property name="deleteFlag" column="delete_flag"  />
+        <property name="storeNum" column="store_num"  />
+        <property name="storeOriginalNum" column="store_original_num"  />
+        <property name="storeSname" column="store_sname"  />
+        <property name="storeSid" column="store_sid"  />
+        <property name="storeRequisitioner" column="store_requisitioner"  />
+        <property name="storeBillingDate" column="store_billing_date"  />
+        <property name="storeMakeBillDate" column="store_make_bill_date"  />
+        <property name="storeMakeBillPeople" column="store_make_bill_people"  />
+        <property name="storeExamineStatus" column="store_examine_status"  />
+        <property name="storeExaminePeople" column="store_examine_people"  />
+        <property name="storeCompany" column="store_company"  />
+        <property name="storeLastModifyPeople" column="store_last_modify_people"  />
+        <property name="storeLastModifyDate" column="store_last_modify_date"  />
+        <property name="storeBillType" column="store_bill_type"  />
+        <property name="storeDepartment" column="store_department"  />
+        <property name="storeCompanyId" column="store_company_id"  />
+        <property name="storeRemark" column="store_remark"  />
+        
+
+    </class>    
+
+</hibernate-mapping>
+

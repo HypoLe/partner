@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- For mail settings and future properties files -->
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:config/mail.properties</value>
+				<!-- 
+					<value>classpath:config/adapter-jndi.properties</value>
+				-->
+			</list>
+		</property>
+	</bean>
+	
+<!-- 	
+<bean id="dataSource"
+		class="org.logicalcobwebs.proxool.ProxoolDataSource"
+		destroy-method="close">
+		<property name="driver">
+			<value>com.informix.jdbc.IfxDriver</value>
+		</property>
+		<property name="driver">
+			<value>oracle.jdbc.driver.OracleDriver</value>
+		</property>		 
+		<property name="driverUrl">
+			<value>jdbc:informix-sqli://172.30.29.84:1526/partner_xi_an:INFORMIXSERVER=eomstestdb;NEWCODESET=GBK,8859_1,819;IFX_LOCK_MODE_WAIT=20;IFX_USE_STRENC=true;</value>
+		</property>
+		<property name="user">
+			<value>partner_dev</value>
+		</property>
+		<property name="password">
+			<value>partner_dev</value>
+		</property>
+		 <property name="driverUrl">
+			<value>jdbc:informix-sqli://172.30.29.84:1526/partner_xi_an:INFORMIXSERVER=eomstestdb;NEWCODESET=GBK,8859_1,819;IFX_LOCK_MODE_WAIT=20;IFX_USE_STRENC=true;</value>
+		</property>
+		<property name="user">
+			<value>informix</value>
+		</property>
+		<property name="password">
+			<value>informix</value>
+		</property>
+		<property name="alias">
+			<value>platformpool</value>
+		</property>
+		<property name="prototypeCount">
+			<value>5</value>
+		</property>
+		<property name="maximumConnectionCount">
+			<value>100</value>
+		</property>
+		<property name="minimumConnectionCount">
+			<value>5</value>
+		</property>
+		<property name="maximumActiveTime">
+			<value>1200000</value>
+		</property>
+		<property name="trace">
+			<value>true</value>
+		</property>
+		<property name="verbose">
+			<value>true</value>
+		</property>
+		<property name="statistics">
+			<value>1d</value>
+		</property>
+		<property name="maximumActiveTime">
+			<value>1200000</value>
+		</property>
+		
+	</bean>	
+ -->	
+	
+	<!--<bean id="dataSource"
+			class="org.logicalcobwebs.proxool.ProxoolDataSource"
+			destroy-method="close">
+	-->
+	<bean id="dataSource"
+			class="com.boco.eoms.commons.db.security.DataSource"
+			destroy-method="close">
+			<property name="driver">
+				<value>oracle.jdbc.driver.OracleDriver</value>
+			</property>
+			<property name="driverUrl">
+		 		<value>jdbc:oracle:thin:@172.30.29.92:1521:Eoms</value> 
+			</property>
+			<property name="user">
+				<value>partner_dev</value>
+			</property>
+			<property name="security">
+				<value>true</value>
+			</property>
+			<property name="password">
+				<value>mlHlMlLA5B37t5f5cRW+Qg==</value>
+			</property>
+			<property name="alias">
+				<value>platformpool</value>
+			</property>
+			<property name="prototypeCount">
+				<value>5</value>
+			</property>
+			<property name="maximumConnectionCount">
+				<value>10</value>
+			</property>
+			<property name="minimumConnectionCount">
+				<value>2</value>
+			</property>
+			<property name="maximumActiveTime">
+				<value>1200000</value>
+			</property>
+			<property name="trace">
+				<value>true</value>
+			</property>
+			<property name="verbose">
+				<value>true</value>
+			</property>
+			<property name="statistics">
+				<value>1d</value>
+			</property>
+		</bean> 
+	
+	<bean id="voiceSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
+        <property name="driverClassName">  
+            <value>com.informix.jdbc.IfxDriver</value>  
+        </property> 
+		<property name="url">
+			<value>jdbc:informix-sqli://10.0.2.113:8004/eoms35:INFORMIXSERVER=eomsserverpro;NEWCODESET=GBK,8859_1,819;</value>
+		</property>
+		<property name="username">
+			<value>informix</value>
+		</property>
+		<property name="password">
+			<value>informix</value>
+		</property>
+	</bean> 
+
+</beans>

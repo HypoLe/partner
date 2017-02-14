@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.boco.eoms.deviceManagement.externalForceCheck.model.ExternalForceCheckSublist" table="dm_externalforcechecksublist">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+
+		<property name="executeUser" />
+		<property name="dutyStartTime" />
+		<property name="dutyEndTime" />
+		<property name="dutyDiary" />
+		<property name="safety" />
+		<property name="dutySpace" />
+		<property name="dutyError" />
+		<property name="planId" />
+		<property name="inOrder" />
+		<property name="dutyStatus" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.boco.eoms.partner.inspect.model.InspectPlanApprove" table="pnr_inspect_plan_approve">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="planId" column="plan_id"/>
+		<property name="planChangeId" column="plan_Change_Id"/>
+		<property name="approveStatus" column="approve_Status"/>
+		<property name="approveIdea" column="approve_Idea"/>
+		<property name="approver" column="approver"/>
+		<property name="approverDept" column="approver_Dept"/>
+		<property name="approveTime" column="approve_Time"/>
+		<property name="planType" column="plan_Type"/>
+	</class>
+</hibernate-mapping>

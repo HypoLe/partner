@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- session中的key为：pnrInspect2SwitchConfig -->
+<pnrInspect2SwitchConfig>
+	<open-main-switch>true</open-main-switch>
+	<sheet-inspect-switch>false</sheet-inspect-switch>
+	<open-trans-line-inspect>true</open-trans-line-inspect>
+	<open-sheet-query-rights>false</open-sheet-query-rights>
+	<open-evaluation-switch>false</open-evaluation-switch>
+</pnrInspect2SwitchConfig>

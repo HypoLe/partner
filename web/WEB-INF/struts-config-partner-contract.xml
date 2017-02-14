@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="ctTableDictForm"
+			type="com.boco.eoms.partner.contract.table.webapp.form.CtTableDictForm" />
+		<form-bean name="ctTableGeneralForm"
+			type="com.boco.eoms.partner.contract.table.webapp.form.CtTableGeneralForm" />
+		<form-bean name="ctTableThemeForm"
+			type="com.boco.eoms.partner.contract.table.webapp.form.CtTableThemeForm" />
+		<form-bean name="ctTableColumnForm"
+			type="com.boco.eoms.partner.contract.table.webapp.form.CtTableColumnForm" />
+		<form-bean name="ctContentsForm"
+			type="com.boco.eoms.partner.contract.contents.webapp.form.CtContentsForm" />
+		<form-bean name="ctContentsPlanForm"
+			type="com.boco.eoms.partner.contract.contents.webapp.form.CtContentsPlanForm" />
+		<form-bean name="ctContentsHistoryForm"
+			type="com.boco.eoms.partner.contract.contents.webapp.form.CtContentsHistoryForm" />
+		<form-bean name="ctContentsOpinionForm"
+			type="com.boco.eoms.partner.contract.contents.webapp.form.CtContentsOpinionForm" />
+		<form-bean name="ctContentsDictForm"
+			type="com.boco.eoms.partner.contract.contents.webapp.form.CtContentsDictForm" />
+		<form-bean name="ctContentsSubscribeForm"
+			type="com.boco.eoms.partner.contract.contents.webapp.form.CtContentsSubscribeForm">
+		</form-bean>
+		<form-bean name="ctContentsApplyForm"
+			type="com.boco.eoms.partner.contract.contents.webapp.form.CtContentsApplyForm" />
+		<form-bean name="ctAclForm"
+			type="com.boco.eoms.partner.contract.acl.webapp.form.CtAclForm" />
+	</form-beans>
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward name="success" path="/common/success.jsp"
+			redirect="true" contextRelative="true" />
+		<forward name="nopriv" path="/common/nopriv.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="fail" path="/common/failure.jsp" redirect="false"
+			contextRelative="true" />
+	</global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+
+	<!-- 地域部门树-->
+	<action-mappings>
+
+		<action path="/ctTableDicts"
+			type="com.boco.eoms.partner.contract.table.webapp.action.CtTableDictAction"
+			name="ctTableDictForm" scope="request" input="mainMenu"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/contract/table/ctTableDict/ctTableDictForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/contract/table/ctTableDict/ctTableDictList.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+
+		<!-- 知识模型管理 -->
+		<action path="/ctTableGenerals"
+			type="com.boco.eoms.partner.contract.table.webapp.action.CtTableGeneralAction"
+			name="ctTableGeneralForm" scope="request" input="mainMenu"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/contract/table/ctTableGeneral/ctTableGeneralForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/contract/table/ctTableGeneral/ctTableGeneralList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="tree"
+				path="/WEB-INF/pages/partner/contract/table/ctTableGeneral/ctTableGeneralTree.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+
+		<!-- 知识主题管理 -->
+		<action path="/ctTableThemes"
+			type="com.boco.eoms.partner.contract.table.webapp.action.CtTableThemeAction"
+			name="ctTableThemeForm" scope="request" input="mainMenu"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="tree"
+				path="/WEB-INF/pages/partner/contract/table/ctTableTheme/ctTableThemeTree.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/contract/table/ctTableTheme/ctTableThemeForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="audit"
+				path="/WEB-INF/pages/partner/contract/table/ctAuditer/ctAuditerForm.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+
+		<!-- 知识字段管理 -->
+		<action path="/ctTableColumns"
+			type="com.boco.eoms.partner.contract.table.webapp.action.CtTableColumnAction"
+			name="ctTableColumnForm" scope="request" input="mainMenu"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="add"
+				path="/WEB-INF/pages/partner/contract/table/ctTableColumn/ctTableColumnAdd.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/contract/table/ctTableColumn/ctTableColumnEdit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/contract/table/ctTableColumn/ctTableColumnList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="success1"
+				path="/WEB-INF/pages/partner/contract/table/ctTableColumn/success.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="addLayout"
+				path="/WEB-INF/pages/partner/contract/table/ctTableColumn/addLayout.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+
+		<!-- 合同管理 -->
+		<action path="/ctContentss"
+			type="com.boco.eoms.partner.contract.contents.webapp.action.CtContentsAction"
+			name="ctContentsForm" scope="request" input="mainMenu"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="add"
+				path="/WEB-INF/pages/partner/contract/ctContents/ctContentsAdd.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/contract/ctContents/ctContentsEdit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="editFile"
+				path="/WEB-INF/pages/partner/contract/ctContents/ctContentsEditFile.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/contract/ctContents/ctContentsList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="forwardlist"
+				path="/ctContentss.do?method=goToSearch" redirect="false"
+				contextRelative="true" />
+			<forward name="goToShowPage"
+			    path="/WEB-INF/pages/partner/contract/ctContents/contractStaffStatistiscally.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="listStaffAcl"
+				path="/WEB-INF/pages/partner/contract/ctContents/ctContentsStaffAclList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="contentStaffList"
+				path="/WEB-INF/pages/partner/contract/ctContents/contractStaffStatistiscally.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="ctContentsListShow"
+				path="/WEB-INF/pages/partner/contract/ctContents/ctContentsListShow.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="detailedList"
+				path="/WEB-INF/pages/partner/contract/ctContents/ctContentsDetailedList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToSearch"
+				path="/WEB-INF/pages/partner/contract/ctContents/ctContentsAclList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="listAcl"
+				path="/WEB-INF/pages/partner/contract/ctContents/ctContentsAclList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="fail"
+				path="/WEB-INF/pages/partner/contract/ctContents/ctContentsFail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="allList"
+				path="/WEB-INF/pages/partner/contract/ctContents/ctContentsAllList.jsp"
+				redirect="false" contextRelative="true" />
+				<forward name="contractSaffDetail"
+				path="/WEB-INF/pages/partner/contract/ctContents/ctContentsStaffDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/contract/ctContents/ctContentsDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="detailDraft"
+				path="/WEB-INF/pages/partner/contract/ctContents/ctContentsDetailDraft.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="query"
+				path="/WEB-INF/pages/partner/contract/ctContents/ctContentsQuery.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="complexQuery"
+				path="/WEB-INF/pages/partner/contract/ctContents/ctContentsComplexQuery.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="queryList"
+				path="/WEB-INF/pages/partner/contract/ctContents/ctContentsQueryList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="isNotLeaf"
+				path="/WEB-INF/pages/partner/contract/ctContents/isNotLeaf.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="notFindGeneralList"
+				path="/WEB-INF/pages/partner/contract/ctContents/notFindGeneralList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="detailHistory"
+				path="/WEB-INF/pages/partner/contract/ctContents/ctContentsDetailHistory.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="recycle"
+				path="/WEB-INF/pages/partner/contract/ctContents/ctRecycle.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="backRecycle"
+				path="/ctContentss.do?method=recycle" />
+			<forward name="ctdraft"
+				path="/WEB-INF/pages/partner/contract/ctContents/ctMyDraftList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="excelJsp"
+				path="/WEB-INF/pages/partner/contract/ctExcelFiles/excel.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="chartForContents"
+				path="/WEB-INF/pages/partner/contract/ctContents/chartForContents.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+
+		<action path="/ctContentsHistorys"
+			type="com.boco.eoms.partner.contract.contents.webapp.action.CtContentsHistoryAction"
+			name="ctContentsHistoryForm" scope="request" input="mainMenu"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/contract/ctContentsHistory/ctContentsHistoryForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/contract/ctContentsHistory/ctContentsHistoryList.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+
+		<action path="/ctContentsOpinions"
+			type="com.boco.eoms.partner.contract.contents.webapp.action.CtContentsOpinionAction"
+			name="ctContentsOpinionForm" scope="request" input="mainMenu"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/contract/ctContentsOpinion/ctContentsOpinionForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/contract/ctContentsOpinion/ctContentsOpinionList.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+
+		<action path="/ctContentsDicts"
+			type="com.boco.eoms.partner.contract.contents.webapp.action.CtContentsDictAction"
+			name="ctContentsDictForm" scope="request" input="mainMenu"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/contract/ctContentsDict/ctContentsDictForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/contract/ctContentsDict/ctContentsDictList.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+
+		<!-- 根据分类查询相对应的知识 -->
+		<action path="/themes"
+			type="com.boco.eoms.partner.contract.table.webapp.action.CtTableThemeAction"
+			name="ctTableThemeForm" scope="request" input="mainMenu"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="treeValid"
+				path="/WEB-INF/pages/partner/contract/ctContents/ctTableThemeTreeValid.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="tree"
+				path="/WEB-INF/pages/partner/contract/ctContents/ctTableThemeTree.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/contract/ctContents/ctContentsList.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+	</action-mappings>
+	<controller nocache="true" inputForward="true" maxFileSize="4M" />
+	<message-resources
+		parameter="com/boco/eoms/parter/contract/config/applicationResources-partner-contract" />
+</struts-config>

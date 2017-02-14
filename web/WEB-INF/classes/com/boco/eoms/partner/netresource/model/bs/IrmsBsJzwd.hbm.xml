@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.bs.IrmsBsJzwd" table="irms_bs_jzwd">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="relatedProvince" column="related_province"/>
+				<property name="relatedCity" column="related_city"/>
+				<property name="relatedCounty" column="related_county"/>
+				<property name="relatedSite" column="related_site"/>
+				<property name="relatedSiteName" column="related_site_name"/>
+				<property name="relatedSiteNo" column="related_site_no"/>
+				<property name="property" column="property"/>
+				<property name="importantLevel" column="important_level"/>
+				<property name="roomAddr" column="room_addr"/>
+				<property name="oneSubstation" column="one_substation"/>
+				<property name="twoSubstation" column="two_substation"/>
+				<property name="preserver" column="preserver"/>
+				<property name="utilityCpacity" column="utility_cpacity"/>
+				<property name="utilityMode" column="utility_mode"/>
+				<property name="line" column="line"/>
+				<property name="cablesLength" column="cables_length"/>
+				<property name="electKind" column="elect_kind"/>
+				<property name="turnInfo" column="turn_info"/>
+				<property name="height" column="height"/>
+				<property name="longitude" column="longitude"/>
+				<property name="latitude" column="latitude"/>
+				<property name="electContract" column="elect_contract"/>
+				<property name="substationTel" column="substation_tel"/>
+				<property name="ownerLinkman" column="owner_linkman"/>
+				<property name="queryLinkman" column="query_linkman"/>
+				<property name="ownerLinktel" column="owner_linktel"/>
+				<property name="queryLinktel" column="query_linktel"/>
+				<property name="powerMaint" column="power_maint"/>
+				<property name="transMaint" column="trans_maint"/>
+				<property name="environmentMaint" column="environment_maint"/>
+				<property name="fireMaint" column="fire_maint"/>
+				<property name="airConditionMain" column="air_condition_main"/>
+				<property name="createTime" column="create_time"/>
+				<property name="remark" column="remark"/>
+				<property name="relatedSiteId" column="related_site_id"/>
+    </class>    
+</hibernate-mapping>

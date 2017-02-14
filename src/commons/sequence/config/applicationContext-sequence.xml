@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="SequenceFacade"
+		class="com.boco.eoms.sequence.SequenceFacadeImpl" />
+
+	<bean id="SequenceRegister"
+		class="com.boco.eoms.sequence.SequenceRegister">
+		<property name="register">
+			<list>
+				<value>duty</value>
+				<value>msg</value>
+				<value>email</value>
+				<value>voice</value>
+				<value>log</value>
+				<value>smsmonitorbak</value>
+				<value>sendmsg</value>
+				<value>savelog</value>
+				<value>mapping</value>
+				<value>sendmsg4webservice</value>
+				
+				<!-- 以下为持久化队列配置，不可修改或使用 -->
+				<value>initPQ</value>
+				<value>retainPQ</value>
+				<value>holdPQ</value>
+			</list>
+		</property>
+	</bean>
+
+</beans>
+
+
+

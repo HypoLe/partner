@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.boco.eoms.materials.model.Store"
+            table="mate_store">
+
+    	<id name="id" column="id" unsaved-value="null" >
+    		<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    		<generator class="uuid.hex" />
+    	</id>
+
+        <property name="name" column="s_name"  />
+        <property name="controller" column="s_controller"  />
+        <property name="responsiblePerson" column="s_responsible_person"  />
+        <property name="address" column="s_address" />
+        <property name="telephone" column="s_telephone"  />
+        <property name="manageDepartmant" column="s_manage_departmant"  />
+        <property name="inventoryCategory" column="s_inventory_category"  />
+        <property name="remark" column="s_remark" />
+
+    </class>    
+
+</hibernate-mapping>
+

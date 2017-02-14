@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="GBK"?>
+<dicts description="公用">
+	<dict id="startsWith" description="文件开头">
+		<item id="1" name="测试1" description="1" />
+	</dict>
+</dicts>  

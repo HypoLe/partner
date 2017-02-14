@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.boco.eoms.partner.inspect.model.InspectPlanResChange" table="pnr_inspect_plan_res_change">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="planId" column="plan_Id"/>
+		<property name="planChangeId" column="plan_Change_Id"/>
+		<property name="planResId" column="plan_Res_Id"/>
+		<property name="executeObject" column="execute_Object"/>
+		<property name="executeDept" column="execute_Dept"/>
+		<property name="executeType" column="execute_Type"/>
+		<property name="planStartTime" column="plan_Start_Time"/>
+		<property name="planEndTime" column="plan_End_Time"/>
+		<property name="changeType" column="change_Type"/>
+		<property name="preExecuteObject" column="pre_execute_Object"/>
+		<property name="prePlanStartTime" column="pre_plan_Start_Time"/>
+		<property name="prePlanEndTime" column="pre_plan_End_Time"/>
+		<property name="preChangeType" column="pre_change_Type"/>
+	</class>
+</hibernate-mapping>

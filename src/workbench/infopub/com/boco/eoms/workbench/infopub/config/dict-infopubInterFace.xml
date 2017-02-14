@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="GBK"?>
+<dicts description="信息发布接口">
+	<dict id="threadInterFace" description="信息发布接口">
+		<item id="1" name="8aa0813d2015dad0012015e5edfd00a6" description="huawei" />
+		<item id="2" name="8aa081e123c0713b0123c086798a0006" description="yaxin" />
+	</dict>
+	<dict id="threadUrl" description="接口url">
+		<item id="1" name="8aa0813d2015dad0012015e5edfd00a6" description="http://localhost:8085/eoms/services/Bulletin"/>
+		<item id="2" name="8aa081e123c0713b0123c086798a0006" description="http://localhost:8085/eoms/services/Bulletin"/>
+	</dict>
+</dicts>
+
+

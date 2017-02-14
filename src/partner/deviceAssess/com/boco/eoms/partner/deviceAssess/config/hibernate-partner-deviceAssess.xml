@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="show_sql">true</property>
+    <mapping resource="com/boco/eoms/partner/deviceAssess/model/InsideDispose.hbm.xml"/>
+	<mapping resource="com/boco/eoms/partner/deviceAssess/model/FactoryDispose.hbm.xml"/>
+	<mapping resource="com/boco/eoms/partner/deviceAssess/model/BigFault.hbm.xml"/>
+	<mapping resource="com/boco/eoms/partner/deviceAssess/model/Counsel.hbm.xml"/>
+	<mapping resource="com/boco/eoms/partner/deviceAssess/model/FacilityNum.hbm.xml"/>		
+	<mapping resource="com/boco/eoms/partner/deviceAssess/model/Peventinfo.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/deviceAssess/model/Ftraininfo.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/deviceAssess/model/Lserveinfo.hbm.xml"/> 
+    <mapping resource="com/boco/eoms/partner/deviceAssess/model/Softupinfo.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/deviceAssess/model/Facilityinfo.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/deviceAssess/model/Repairinfo.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/deviceAssess/model/BackEstimate.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/deviceAssess/model/AssessConfig.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/deviceAssess/model/AssessIndicator.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/deviceAssess/model/AssessIndicatorSub.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/deviceAssess/model/DeviceAssessApprove.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/deviceAssess/model/DeviceAssessContent.hbm.xml"/>  
+    <mapping resource="com/boco/eoms/partner/deviceAssess/model/FacilityQuantity.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/deviceAssess/model/SoftApplyRecord.hbm.xml"/>
+  </session-factory>
+  
+  </hibernate-configuration>

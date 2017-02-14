@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="lineForm"
+			type="com.boco.eoms.partner.serviceArea.webapp.form.LineForm" />
+
+		<form-bean name="pointForm"
+			type="com.boco.eoms.partner.serviceArea.webapp.form.PointForm" />
+
+		<form-bean
+		  name="gridForm"
+		  type="com.boco.eoms.partner.serviceArea.webapp.form.GridForm"
+		/>
+		<form-bean
+		  name="sitePapersForm"
+		  type="com.boco.eoms.partner.serviceArea.webapp.form.SitePapersForm"
+		/>	
+		<form-bean
+		  name="siteForm"
+		  type="com.boco.eoms.partner.serviceArea.webapp.form.SiteForm"
+		/>
+		<form-bean
+		  name="residentSiteForm"
+		  type="com.boco.eoms.partner.serviceArea.webapp.form.ResidentSiteForm"
+		/>
+					
+	</form-beans>
+	<!-- ========== Global Exceptions Definitions =================================== -->
+    <global-exceptions>
+        <exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+    </global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward name="success" path="/common/success.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="nopriv" path="/common/nopriv.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="fail" path="/common/failure.jsp" redirect="false"
+			contextRelative="true" />
+	</global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+
+	<action-mappings>
+		<action path="/lines"
+			type="com.boco.eoms.partner.serviceArea.webapp.action.LineAction"
+			name="lineForm" scope="request" input="mainMenu" parameter="method"
+			unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/serviceArea/line/lineForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/serviceArea/line/lineList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="search"
+				path="/partner/serviceArea/lines.do?method=search" redirect="true"
+				contextRelative="true" />
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/serviceArea/line/lineDetail.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+		<action path="/grids"
+		  type="com.boco.eoms.partner.serviceArea.webapp.action.GridAction"
+		  name="gridForm" scope="request" input="mainMenu"
+		  parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true"/>
+			<forward name="edit"
+			  	path="/WEB-INF/pages/partner/serviceArea/grid/gridForm.jsp"
+			  	redirect="false" contextRelative="true"/>
+			<forward name="list"
+			  	path="/WEB-INF/pages/partner/serviceArea/grid/gridList.jsp"
+			  	redirect="false" contextRelative="true"/>
+			<forward name="search"
+				path="/partner/serviceArea/grids.do?method=search"
+				redirect="true" contextRelative="true" />
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/serviceArea/grid/gridDetail.jsp"
+				redirect="false" contextRelative="true" />				
+		</action>
+		<action path="/sitePaperss"
+		  type="com.boco.eoms.partner.serviceArea.webapp.action.SitePapersAction"
+		  name="sitePapersForm" scope="request" input="mainMenu"
+		  parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true"/>
+			<forward name="edit"
+			  	path="/WEB-INF/pages/partner/serviceArea/sitePapers/sitePapersForm.jsp"
+			  	redirect="false" contextRelative="true"/>
+			<forward name="list" 
+			  	path="/WEB-INF/pages/partner/serviceArea/sitePapers/sitePapersList.jsp"
+			  	redirect="false" contextRelative="true"/>
+		</action>
+		<action  path="/sites"
+		  type="com.boco.eoms.partner.serviceArea.webapp.action.SiteAction"
+		  name="siteForm" scope="request" input="mainMenu"
+		  parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true"/>
+			<forward name="newExpert"
+				path="/WEB-INF/pages/partner/serviceArea/site/newSite.jsp"
+				redirect="false" contextRelative="true" />			
+			<forward name="edit"
+			  	path="/WEB-INF/pages/partner/serviceArea/site/siteForm.jsp"
+			  	redirect="false" contextRelative="true"/>
+			<forward name="list"
+			 	 path="/WEB-INF/pages/partner/serviceArea/site/siteList.jsp"
+			 	 redirect="false" contextRelative="true"/>
+			
+			<!-- 抽查对象列表（基站） -->	 
+			<forward name="searchSample"
+				path="/WEB-INF/pages/partner/maintenance/check/checkSample.jsp"
+				redirect="false" contextRelative="true" />
+			 	 
+		</action>		
+
+		<action path="/points"
+			type="com.boco.eoms.partner.serviceArea.webapp.action.PointAction"
+			name="pointForm" scope="request" input="mainMenu" parameter="method"
+			unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/serviceArea/point/pointForm.jsp" redirect="false"
+				contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/serviceArea/point/pointList.jsp" redirect="false"
+				contextRelative="true" />
+			<forward name="search"
+				path="/partner/serviceArea/points.do?method=search" redirect="true"
+				contextRelative="true" />
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/serviceArea/point/pointDetail.jsp" redirect="false"
+				contextRelative="true" />
+		</action>
+		<action  path="/residentSites"
+		  type="com.boco.eoms.partner.serviceArea.webapp.action.ResidentSiteAction"
+		  name="residentSiteForm" scope="request" input="mainMenu"
+		  parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true"/>		
+			<forward name="edit"
+			  	path="/WEB-INF/pages/partner/serviceArea/residentSite/residentSiteForm.jsp"
+			  	redirect="false" contextRelative="true"/>
+			<forward name="list"
+			 	 path="/WEB-INF/pages/partner/serviceArea/residentSite/residentSiteList.jsp"
+			 	 redirect="false" contextRelative="true"/>			 	 
+		</action>	
+	</action-mappings>
+ 	<controller nocache="true" inputForward="true" maxFileSize="2M" />
+		 <message-resources parameter="config/ApplicationResources"/>
+
+</struts-config>

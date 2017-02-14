@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+
+>
+
+    <class
+            name="com.boco.eoms.partner.net.model.Gride"
+            table="pnr_net_grid"
+    >
+
+    <id
+        name="id"
+            column="id"
+            unsaved-value="null"
+    >
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+
+    </id>
+
+	<property
+            name="gridName"
+            	column="GRID_NAME"
+                length="32"
+                not-null="true"
+                unique="true"
+        >
+
+        </property>
+
+	<property
+            name="region"
+            	column="REGION"
+                length="32"
+                not-null="true"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="city"
+            	column="CITY"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="provider"
+            	column="PROVIDER"
+                length="32"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="addUser"
+            	column="add_user"
+                length="32"
+                not-null="true"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="addTime"
+            	column="add_time"
+                length="32"
+                not-null="true"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="updateUser"
+            	column="update_user"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="updateTime"
+            	column="update_time"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="delUser"
+            	column="del_user"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="delTime"
+            	column="del_time"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="isDel"
+            	column="isdel"
+                length="2"
+                not-null="true"
+                unique="false"
+        >
+
+        </property>
+        
+	<property
+            name="gridNumber"
+            	column="gridNumber"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+        <property
+            name="partnerid"
+            	column="partnerid"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+        </property>    
+        <property
+            name="bigpartnerid"
+            	column="bigpartnerid"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+        </property>  
+        <property
+            name="levle"
+            	column="levle"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+        </property>    
+        <property
+            name="regionExplain"
+            	column="region_explain"
+                length="255"
+                not-null="false"
+                unique="false"
+        >
+        </property>          
+        <property
+            name="gridMonitor"
+            	column="grid_monitor"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+        </property>    
+        <property
+            name="gridYardman"
+            	column="grid_yardman"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+        </property>   
+        <property
+            name="maintainType"
+            	column="maintain_Type"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+        </property>    
+        <property
+            name="gridExplain"
+            	column="grid_Explain"
+                length="255"
+                not-null="false"
+                unique="false"
+        >
+        </property>      
+        <property name="longitude" column="LONGITUDE" length="32"
+        	not-null="true" unique="false">
+        </property>
+        <property name="latitude" column="LATITUDE" length="32"
+        	not-null="true" unique="false">
+        </property>
+    </class>    
+
+</hibernate-mapping>
+

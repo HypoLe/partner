@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+    <hibernate-mapping>
+                     
+    	<class name="com.boco.eoms.deviceManagement.busi.protectline.model.MechanicalArmManagement" table="dm_mechanicalArmManagement ">
+		<id name="id" column="id">
+   			<generator class="uuid.hex" />
+   		</id>	
+		<property name="writePerson" />
+		<property name="writeTime" />	
+		<property name="belongTheLocal" />
+  		<property name="approvingPerson" />
+  		<property name="projectName" />	
+  		<property name="constructionMachineryName" />
+  		<property name="mechanicalArm_workyard" />
+  		<property name="mechanicalArmName" />	
+  		<property name="contactNumber" />
+  		<property name="visitSituation" />
+  		<property name="remarks" />
+		<property name="state" />
+		<property name="suggest" />
+		<property name="approvingtime" />
+		<property name="approvingresult" />
+    </class>    
+</hibernate-mapping>

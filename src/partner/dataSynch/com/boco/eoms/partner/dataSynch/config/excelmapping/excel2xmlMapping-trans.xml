@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 传输线路-专业 -->
+<excel2xml>
+	<!-- 人手井-IrmsTransWell -->
+	<IrmsTransWell>
+		<field name="name"		excelCellNum="1"			remark="人手井名称"/>
+		<field name="related_area"		excelCellNum="2"			remark="所属区域"/>
+		<field name="well_mode"		excelCellNum="3"			remark="人手井型号"/>
+		<field name="well_type"		excelCellNum="4"			remark="人手井类型"/>
+		<field name="ownership"		excelCellNum="5"			remark="产权"/>
+		<field name="purpose"		excelCellNum="6"			remark="用途"/>
+		<field name="well_real_type"		excelCellNum="7"			remark="人手井具体类型"/>
+		<field name="longitude"		excelCellNum="8"			remark="经度"/>
+		<field name="latitude"		excelCellNum="9"			remark="纬度"/>
+		<field name="use_unit"		excelCellNum="10"			remark="使用单位"/>
+		<field name="owner_unit"		excelCellNum="11"			remark="所有权人"/>
+	</IrmsTransWell>
+	<!-- 杆路-IrmsTransPoleline -->
+	<IrmsTransPoleline>
+		<field name="poleline_name"		excelCellNum="1"			remark="杆路名称"/>
+		<field name="related_district"		excelCellNum="2"			remark="所属区域"/>
+		<field name="status"		excelCellNum="3"			remark="设施状态"/>
+		<field name="project_name"		excelCellNum="4"			remark="工程名称"/>
+		<field name="length"		excelCellNum="5"			remark="长度"/>
+		<field name="completed_date"		excelCellNum="6"			remark="竣工时间"/>
+	</IrmsTransPoleline>
+	<!-- 管孔-IrmsTransPipehole -->
+	<IrmsTransPipehole>
+		<field name="pipe_hole_name"		excelCellNum="1"			remark="管孔名称"/>
+		<field name="related_pipeline_section"		excelCellNum="2"			remark="所属管道段"/>
+		<field name="cross_section_position"		excelCellNum=""			remark="截面位置"/>
+		<field name="status"		excelCellNum="3"			remark="管孔状态"/>
+		<field name="type"		excelCellNum="4"			remark="管孔类型"/>
+		<field name="material"		excelCellNum="6"			remark="管孔材料"/>
+		<field name="use"		excelCellNum="7"			remark="用途"/>
+		<field name="use_unit"		excelCellNum="8"			remark="使用单位"/>
+		<field name="owner"		excelCellNum="9"		remark="所有权人"/>
+	</IrmsTransPipehole>
+	<!-- 管道段-IrmsTransPipesec -->
+	<IrmsTransPipesec>
+		<field name="pipe_section_name"		excelCellNum="1"			remark="管道段名称"/>
+		<field name="start_well_name"		excelCellNum="2"			remark="起始点人手井名称"/>
+		<field name="end_well_name"		excelCellNum="3"			remark="末端点人手井名称"/>
+		<field name="stuff"		excelCellNum="4"			remark="材料"/>
+		<field name="pore_count"		excelCellNum="5"			remark="移动管孔数目"/>
+		<field name="sub_pore_count"		excelCellNum="6"			remark="移动子孔数目"/>
+		<field name="related_pipe"		excelCellNum="7"			remark="所属管道"/>
+		<field name="related_section"		excelCellNum="12"			remark="承载光缆段"/>
+		<field name="property"		excelCellNum="8"			remark="产权"/>
+		<field name="use_unit"		excelCellNum="9"			remark="使用单位"/>
+		<field name="owner_unit"		excelCellNum=""			remark="所有权人"/>
+		<field name="section_length"		excelCellNum="11"			remark="管道段长度"/>
+		<field name="is_construct_share"		excelCellNum=""			remark="是否共建"/>
+		<field name="construct_company"		excelCellNum=""			remark="共建单位"/>
+		<field name="is_shared"		excelCellNum=""			remark="是否共享"/>
+		<field name="shared_company"		excelCellNum=""			remark="共享单位"/>
+	</IrmsTransPipesec>
+	<!-- 管道-IrmsTransPipe -->
+	<IrmsTransPipe>
+		<field name="pipe_name"		excelCellNum="1"			remark="管道名称"/>
+		<field name="related_area"		excelCellNum="7"			remark="所属区域"/>
+		<field name="status"		excelCellNum="2"			remark="设施状态"/>
+		<field name="project_name"		excelCellNum="3"			remark="工程名称"/>
+		<field name="length"		excelCellNum="5"			remark="长度"/>
+		<field name="complete_time"		excelCellNum="6"			remark="竣工时间"/>
+	</IrmsTransPipe>
+	<!-- 电杆-IrmsTransPoles -->
+	<IrmsTransPoles>
+		<field name="pole_name"		excelCellNum="1"			remark="电杆名称"/>
+		<field name="related_distirct"		excelCellNum="2"			remark="所属区域"/>
+		<field name="pole_height"		excelCellNum="3"			remark="电杆高度"/>
+		<field name="pole_property"		excelCellNum="4"			remark="产权"/>
+		<field name="pole_use"		excelCellNum="5"			remark="用途"/>
+		<field name="pole_use_unit"		excelCellNum="6"			remark="使用单位"/>
+		<field name="pole_owership"		excelCellNum="7"			remark="所有权人"/>
+		<field name="pole_longitude"		excelCellNum="8"			remark="经度"/>
+		<field name="pole_latitude"		excelCellNum="9"			remark="纬度"/>
+	</IrmsTransPoles>
+	<!-- 杆路段-IrmsTransPolelinesec -->
+	<IrmsTransPolelinesec>
+		<field name="poleline_section_name"		excelCellNum="9"			remark="杆路段名称"/>
+		<field name="related_poleline"		excelCellNum="8"			remark="所属杆路"/>
+		<field name="related_start_pole_name"		excelCellNum="1"			remark="起点电杆名称"/>
+		<field name="related_end_pole_name"		excelCellNum="2"			remark="末端电杆名称"/>
+		<field name="property"		excelCellNum="3"			remark="产权"/>
+		<field name="use_unit"		excelCellNum="4"			remark="使用单位"/>
+		<field name="owner"		excelCellNum="5"			remark="所有权人"/>
+		<field name="use"		excelCellNum="6"			remark="用途"/>
+		<field name="section_length"		excelCellNum="7"			remark="线段长度"/>
+		<field name="is_construct_shared"		excelCellNum=""			remark="是否共建"/>
+		<field name="construct_company"		excelCellNum=""			remark="共建单位"/>
+		<field name="is_shared"		excelCellNum=""			remark="是否共享"/>
+		<field name="shared_company"		excelCellNum=""			remark="共享单位"/>
+	</IrmsTransPolelinesec>
+	<!-- 标石-IrmsTransMarkstone -->
+	<IrmsTransMarkstone>
+		<field name="mark_stone_name"		excelCellNum="1"			remark="标石名称"/>
+		<field name="related_district"		excelCellNum="2"			remark="所属区域"/>
+		<field name="longitude"		excelCellNum="3"			remark="经度"/>
+		<field name="latitude"		excelCellNum="4"			remark="纬度"/>
+		<field name="bury_deep"		excelCellNum="5"			remark="埋深"/>
+		<field name="property"		excelCellNum="6"			remark="产权"/>
+		<field name="use_unit"		excelCellNum="7"			remark="使用单位"/>
+		<field name="owner"		excelCellNum="8"			remark="所有权人"/>
+		<field name="type"		excelCellNum="9"			remark="类型"/>
+	</IrmsTransMarkstone>
+	<!-- 直埋-IrmsTransDirbury -->
+		<IrmsTransDirbury>
+		<field name="dirbury_name"		excelCellNum="1"			remark="直埋名称"/>
+		<field name="related_district"		excelCellNum="2"			remark="所属区域"/>
+		<field name="status"		excelCellNum="3"			remark="设施状态"/>
+		<field name="project_name"		excelCellNum="4"			remark="工程名称"/>
+		<field name="length"		excelCellNum="5"			remark="长度"/>
+		<field name="completed_date"		excelCellNum="6"			remark="竣工时间"/>
+	</IrmsTransDirbury>
+	<!-- 光缆-IrmsTransOpcable -->
+	<IrmsTransOpcable>
+		<field name="opcable_name"		excelCellNum="1"			remark="光缆名称"/>
+		<field name="opcable_status"		excelCellNum="3"			remark="设施状态"/>
+		<field name="related_district"		excelCellNum="2"			remark="所属区域"/>
+		<field name="project_name"		excelCellNum="9"			remark="工程名称"/>
+		<field name="business_level"		excelCellNum="4"			remark="业务级别"/>
+		<field name="property"		excelCellNum="5"			remark="产权"/>
+		<field name="type"		excelCellNum=""			remark="光缆类型"/>
+		<field name="use_unit"		excelCellNum="8"			remark="使用单位"/>
+		<field name="completed_date"		excelCellNum="7"			remark="竣工时间"/>
+		<field name="owner"		excelCellNum=""			remark="所有权人"/>
+	</IrmsTransOpcable>
+	<!-- 光缆段-IrmsTransOpcablesec -->
+	<IrmsTransOpcablesec>
+		<field name="opcablesection_name"		excelCellNum="1"			remark="光缆段名称"/>
+		<field name="related_opcable"		excelCellNum="2"			remark="所属光缆"/>
+		<field name="start_point_name"		excelCellNum="3"			remark="起始点名称"/>
+		<field name="end_point_name"		excelCellNum="4"			remark="末端点名称"/>
+		<field name="opcable_connect_facilities"		excelCellNum=""			remark="光缆串通设施"/>
+		<field name="opcable_core_num"		excelCellNum="6"			remark="纤芯数"/>
+		<field name="opcable_type"		excelCellNum=""			remark="光缆类型"/>
+		<field name="vendor"		excelCellNum="12"			remark="生产厂家"/>
+		<field name="property"		excelCellNum="5"			remark="产权"/>
+		<field name="use_unit"		excelCellNum="11"			remark="使用单位"/>
+		<field name="owner"		excelCellNum="10"			remark="所有权人"/>
+		<field name="use"		excelCellNum="7"			remark="用途"/>
+		<field name="length"		excelCellNum="8"			remark="长度"/>
+	</IrmsTransOpcablesec>
+	<!-- 直埋段-IrmsTransDirburysec -->
+	<IrmsTransDirburysec>
+		<field name="dirbury_sec_name"		excelCellNum="1"			remark="直埋段名称"/>
+		<field name="related_dirbury"		excelCellNum="9"			remark="所属直埋"/>
+		<field name="related_opcable_sec"		excelCellNum=""			remark="承载光缆段"/>
+		<field name="related_start_point_name"		excelCellNum="2"			remark="起点名称"/>
+		<field name="related_end_point_name"		excelCellNum="3"			remark="末端名称"/>
+		<field name="property"		excelCellNum="4"			remark="产权"/>
+		<field name="use_unit"		excelCellNum="5"			remark="使用单位"/>
+		<field name="owner"		excelCellNum="6"			remark="所有权人"/>
+		<field name="use"		excelCellNum="7"			remark="用途"/>
+		<field name="length"		excelCellNum=""			remark="线段长度"/>
+		<field name="is_construt_shared"		excelCellNum=""			remark="是否共建"/>
+		<field name="construct_company"		excelCellNum=""			remark="共建单位"/>
+		<field name="is_shared"		excelCellNum=""			remark="是否共享"/>
+		<field name="shared_unit"		excelCellNum=""			remark="共享单位"/>
+	</IrmsTransDirburysec>
+	<!-- 光交接箱-IrmsTransOdf -->
+	<IrmsTransOdf>
+		<field name="odf_name"		excelCellNum=""			remark="光交接箱名称"/>
+		<field name="odf_no"		excelCellNum=""			remark="光交接箱编号"/>
+		<field name="related_district"		excelCellNum=""			remark="所属区域"/>
+		<field name="status"		excelCellNum=""			remark="设备状态"/>
+		<field name="vendor"		excelCellNum=""			remark="设备厂家"/>
+		<field name="position"		excelCellNum=""			remark="具体位置"/>
+		<field name="longitude"		excelCellNum=""			remark="经度"/>
+		<field name="latitude"		excelCellNum=""			remark="纬度"/>
+		<field name="type"		excelCellNum=""			remark="型号"/>
+		<field name="face_num"		excelCellNum=""			remark="面数"/>
+		<field name="each_face_row_num"		excelCellNum=""			remark="每面行数"/>
+		<field name="each_face_col_num"		excelCellNum=""			remark="每面列数"/>
+		<field name="property"		excelCellNum=""			remark="产权"/>
+		<field name="use"		excelCellNum=""			remark="用途"/>
+		<field name="use_unit"		excelCellNum=""			remark="使用单位"/>
+		<field name="owner"		excelCellNum=""			remark="所有权人"/>
+		<field name="capacity"		excelCellNum=""			remark="容量"/>
+	</IrmsTransOdf>
+	<!-- 光电接头盒-IrmsTransOpconbox -->
+	<IrmsTransOpconbox>
+		<field name="box_name"		excelCellNum=""			remark="光电接头盒名称"/>
+		<field name="box_type"		excelCellNum=""			remark="接头盒类型"/>
+		<field name="related_district"		excelCellNum=""			remark="所属区域"/>
+		<field name="box_object"		excelCellNum=""			remark="所属对象"/>
+		<field name="vendor"		excelCellNum=""			remark="设备厂家"/>
+		<field name="status"		excelCellNum=""			remark="设备状态"/>
+		<field name="connect_way"		excelCellNum=""			remark="接头方式"/>
+		<field name="capacity"		excelCellNum=""			remark="容量"/>
+	</IrmsTransOpconbox>
+</excel2xml>

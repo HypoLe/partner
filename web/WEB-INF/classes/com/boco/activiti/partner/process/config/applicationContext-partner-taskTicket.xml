@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="pnrTaskTicketDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrTaskTicketDaoHibernate" autowire="byName" />
+
+    <bean id="pnrTaskTicketJDBCDao"
+          class="com.boco.activiti.partner.process.dao.hibernate.PnrTaskTicketDaoJDBC" autowire="byName">
+        <property name="taskService" ref="taskService" />
+        <property name="historyService" ref="historyService" />
+          </bean>
+    
+	
+	<bean id="pnrTaskTicketHandleDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrTaskTicketHandleDaoHibernate" autowire="byName" />
+	
+	<bean id="pnrWorkerStateDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrWorkerStateDaoHibernate" autowire="byName" />
+	<bean id="pnrAccreditOrderDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrAccreditOrderDaoHibernate" autowire="byName" />
+    <bean id="pnrTaskTicketService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.PnrTaskTicketServiceImpl">
+				<property name="pnrTaskTicketDao" ref="pnrTaskTicketDao" />
+                <property name="pnrTaskTicketJDBCDao" ref="pnrTaskTicketJDBCDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="pnrTaskTicketHandleService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.PnrTaskTicketHandleServiceImpl">
+				<property name="pnrTaskTicketHandleDao" ref="pnrTaskTicketHandleDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="pnrWorkerStateService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.PnrWorkerStateServiceImpl">
+				<property name="pnrWorkerStateDao" ref="pnrWorkerStateDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="pnrAccreditOrderService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.PnrAccreditOrderServiceImpl">
+				<property name="pnrAccreditOrderDao" ref="pnrAccreditOrderDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	
+  <!-- 	现场抢修- dao  - service   -->
+  
+  	<bean id="pnrAndroidPhotoFileDao"
+			class="com.boco.eoms.partner.process.dao.hibernate.PnrAndroidPhotoFileDaoHibernate" autowire="byName" />
+  
+	<bean id="ipnrAndroidMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.IPnrAndroidMgrImpl">
+				<property name="pnrAndroidPhotoFileDao" ref="pnrAndroidPhotoFileDao" />
+			</bean>
+		</property>
+	</bean>
+	<!--公客系统局站信息与基站信息的同步表-->
+	<bean id="pnrBsResourceSynchJDBCDao"
+          class="com.boco.activiti.partner.process.dao.hibernate.PnrBsResourceSynchDaoJDBC" autowire="byName">
+     </bean>
+     
+     <!-- 交接箱核查 -->
+     <bean id="junctionBoxCheckDaoJDBC"
+     	class="com.boco.activiti.partner.process.dao.hibernate.JunctionBoxCheckDaoJDBC"
+     	autowire="byName">
+     </bean>
+     <bean id="junctionBoxCheckPhotoDao"
+			class="com.boco.activiti.partner.process.dao.hibernate.JunctionBoxCheckPhotoDaoHibernate" autowire="byName" />
+	<bean id="junctionBoxCheckDao"
+			class="com.boco.activiti.partner.process.dao.hibernate.JunctionBoxCheckDaoHibernate" autowire="byName" />		
+			
+     <bean id="junctionBoxCheckService" parent="txProxyTemplate">
+     	<property name="target">
+     		<bean
+     			class="com.boco.activiti.partner.process.service.impl.JunctionBoxCheckServiceImpl">
+     			<property name="junctionBoxCheckDao" ref="junctionBoxCheckDao" />
+     			<property name="junctionBoxCheckDaoJDBC" ref="junctionBoxCheckDaoJDBC" />
+     		</bean>
+     	</property>
+     </bean>
+     <!-- 交接箱核查照片 -->
+      <bean id="junctionBoxCheckPhotoService" parent="txProxyTemplate">
+     	<property name="target">
+     		<bean
+     			class="com.boco.activiti.partner.process.service.impl.JunctionBoxCheckPhotoServiceImpl">
+     			<property name="junctionBoxCheckPhotoDao" ref="junctionBoxCheckPhotoDao" />
+     		</bean>
+     	</property>
+     </bean>
+
+
+</beans>

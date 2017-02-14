@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="baseStationFaultRecordDao"
+		class="com.boco.eoms.deviceManagement.faultInfo.dao.BaseStationFaultRecordDaoImpl" autowire="byName" />
+
+	<bean id="baseStationFaultRecordService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.deviceManagement.faultInfo.service.BaseStationFaultRecordServiceImpl">
+				<property name="baseStationFaultRecordDao"
+					ref="baseStationFaultRecordDao" />
+			</bean>
+		</property>
+	</bean>
+</beans>

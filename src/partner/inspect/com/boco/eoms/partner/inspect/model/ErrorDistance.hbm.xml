@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.boco.eoms.partner.inspect.model.ErrorDistance" table="pnr_inspect_error_distance">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="speciality" column="speciality"/>
+		<property name="resource" column="distance_resource"/>
+		<property name="rule" column="distance_rule"/>
+		<property name="intervalTime" column="intervalTime"/>
+		<property name="addTime" column="addTime"/>
+		<property name="addUser" column="addUser"/>
+		<property name="delete" column="deleteflag"/>
+	</class>
+</hibernate-mapping>

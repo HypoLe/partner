@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.boco.eoms.examonline.model.TawSystemDeptExam" table="taw_system_dept_exam">
+    <id column="id" name="id" unsaved-value="null">
+      <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+      <generator class="increment">
+	   </generator>
+    </id>
+    <property length="10" name="deleted">
+
+		</property>
+    <property length="100" name="deptemail">
+
+		</property>
+    <property length="100" name="deptfax">
+
+		</property>
+    <property length="1000" name="deptId">
+		
+		</property>
+    <property length="100" name="deptmanager">
+
+		</property>
+    <property length="100" name="deptmobile">
+
+		</property>
+    <property length="100" name="deptName">
+
+		</property>
+    <property length="100" name="deptphone">
+
+		</property>
+    <property length="100" name="deptType">
+
+		</property>
+    <property length="100" name="operremoteip">
+
+		</property>
+    <property length="100" name="opertime">
+
+		</property>
+    <property length="100" name="operuserid">
+
+		</property>
+    <property length="100" name="ordercode">
+
+		</property>
+    <property length="100" name="parentDeptid">
+
+		</property>
+    <property length="100" name="regionflag">
+
+		</property>
+    <property length="100" name="remark">
+
+		</property>
+    <property length="50" name="tmporarybegintime">
+
+		</property>
+    <property length="100" name="tmporaryManager">
+
+		</property>
+    <property length="100" name="tmporarystopTime">
+
+		</property>
+    <property length="100" name="updatetime"/>
+    <property length="10" name="leaf">
+
+		</property>
+    <property length="100" name="areaid">
+
+		</property>
+    <property length="100" name="linkid"/>
+    <property length="100" name="parentLinkid"/>
+    <property length="50" name="tmpdeptid"/>
+    <property length="100" name="isPartners"/>
+    <property length="10" name="isDaiweiRoot"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 区域-IrmsSpaceArea -->
+	<bean id="irmsSpaceAreaMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.space.IrmsSpaceAreaMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 机房-IrmsSpaceRoom -->
+	<bean id="irmsSpaceRoomMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.space.IrmsSpaceRoomMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 站点-IrmsSpaceSite -->
+	<bean id="irmsSpaceSiteMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.space.IrmsSpaceSiteMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+</beans>

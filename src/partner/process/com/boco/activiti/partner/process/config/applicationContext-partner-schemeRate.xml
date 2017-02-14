@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="schemeRateDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.SchemeRateDaoHibernate" autowire="byName"/>
+	<bean id="schemeRateJDBCDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.SchemeRateDaoJDBC" autowire="byName"/>
+	<!-- 方案合格率统计 -->
+	<bean id="schemeRateService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.SchemeRateServiceImpl">
+				<property name="schemeRateDao" ref="schemeRateDao" />
+				<property name="schemeRateJDBCDao" ref="schemeRateJDBCDao" />
+			</bean>
+		</property>
+	</bean>
+	
+</beans>

@@ -1,0 +1,4 @@
+window[esri._dojoScopeName||"dojo"]._xdResourceLoaded(function(dojo, dijit, dojox){
+return {depends: [["provide", "dijit._editor.nls.ro.LinkDialog"]],
+defineResource: function(dojo, dijit, dojox){dojo.provide("dijit._editor.nls.ro.LinkDialog");dojo._xdLoadFlattenedBundle("dijit._editor", "LinkDialog", "ro", {"text":"Descriere:","insertImageTitle":"Proprietăţi imagine","set":"Setare","newWindow":"Fereastra nouă","topWindow":"Fereastra cea mai de sus","target":"Destinaţie:","createLinkTitle":"Proprietăţi legătură","parentWindow":"Fereastra părinte","currentWindow":"Fereastra curentă","url":"URL:"});
+}};});

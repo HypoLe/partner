@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+    <class
+            name="com.boco.eoms.partner.quality.model.PnrQualityMain"
+            table="pnr_quality_main"
+    >
+    <id name="id" column="id" unsaved-value="null">
+    	<generator class="uuid.hex"></generator>
+    </id>
+    	<property name="title" column="title" />
+    	<property name="publishUser" column="publish_User" />
+		<property name="publishTel" column="publish_Tel" />
+		<property name="publishDept" column="publish_Dept" />    
+		<property name="type" column="type" />				
+		<property name="cycle" column="cycle" />
+		<property name="summary" column="summary" />				
+		<property name="keyWord" column="key_Word" />
+		<property name="report" column="report" />
+    	<property name="auditUser" column="audit_User" />
+		<property name="state" column="state" />
+		
+    </class>    
+</hibernate-mapping>    

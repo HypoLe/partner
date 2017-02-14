@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+		<hibernate-mapping>
+		<class name="com.boco.eoms.partner.tempTask.model.PnrTempTaskMain" table="pnr_tempTask_main">
+		<id name="id" column="id" unsaved-value="null">
+			<generator class="uuid.hex"></generator>
+		</id>
+
+		<!-- 临时任务制定时间 -->
+		<property name="createTime" column="create_time" length="32" not-null="true" unique="false" >
+        </property>
+        <!-- 临时任务制定人 -->
+		<property name="createUser" column="create_user" length="32" not-null="true" unique="false">
+        </property>
+        <!-- 临时任务制定部门 -->
+		<property name="createDept" column="create_dept" length="21" not-null="true" unique="false">
+        </property>
+        <!-- 临时任务编号 -->
+		<property name="tempTaskNO" column="tempTask_no" length="32" not-null="true" unique="true">
+        </property>
+        <!-- 临时任务名称 -->
+		<property name="tempTaskName" column="tempTask_name" length="100" not-null="true" unique="false">
+        </property>
+        <!-- 临时任务预计开始时间 -->
+		<property name="startTime" column="start_time" length="32" not-null="false" unique="false">
+        </property>
+        <!-- 临时任务预计结束时间 -->
+		<property name="endTime" column="end_time" length="32" not-null="false" unique="false">
+        </property>
+        <!-- 临时任务执行者 -->
+		<property name="toOrgId" column="to_org_id" length="32" not-null="true" unique="true">
+        </property>
+        <!-- 临时任务执行者类型 -->
+		<property name="toOrgType" column="to_org_type" length="32" not-null="true" unique="true">
+        </property>
+        
+        <!-- 实际开始时间
+		<property name="realStartTime" column="real_start_time" length="32" not-null="false" unique="false">
+        </property>
+               实际完成时间
+		<property name="realEndTime" column="real_end_time" length="32" not-null="false" unique="false">
+        </property>
+        	 实际完成情况
+		<property name="completeDescription" column="complete_description" length="2000" not-null="false" unique="false">
+        </property>
+        -->
+   		<!-- 附件 -->
+		<property name="accessoriesId" column="accessories_id" length="50" not-null="false" unique="false">
+		</property>
+		<!-- 临时任务状态 -->
+		<property name="state" column="state" length="10" not-null="false" unique="false" >
+        </property>
+		<!-- 临时任务审核状态 -->
+		<property name="auditFlag" column="audit_flag" length="10" not-null="false" unique="false" >
+        </property>
+        
+		<!-- 临时任务状态 -->
+		<property name="toEvaOrgId" column="toeva_org_id" length="32" not-null="false" unique="false" >
+        </property>
+		<!-- 临时任务审核状态 -->
+		<property name="toEvaOrgType" column="toeva_org_type" length="32" not-null="false" unique="false" >
+        </property>	
+		<!-- 临时任务考核id -->
+		<property name="evaTemplateId" column="eva_template_id" length="32" not-null="false" unique="false" >
+        </property>	        	
+    </class>    
+
+</hibernate-mapping>
+

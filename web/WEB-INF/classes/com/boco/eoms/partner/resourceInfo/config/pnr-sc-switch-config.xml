@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- session中的key为：pnrScSwitchConfig -->
+<pnrScSwitchConfig>
+	<open-sc-switch>false</open-sc-switch>
+<!-- <sheet-inspect-switch>false</sheet-inspect-switch> -->	
+</pnrScSwitchConfig>

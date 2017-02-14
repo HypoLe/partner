@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="faultSataDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.FaultSataDaoHibernate" autowire="byName"/>
+	<!-- 故障统计 -->
+	<bean id="faultStatService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.FaultStatServiceImpl">
+				<property name="faultSataDao" ref="faultSataDao" />
+			</bean>
+		</property>
+	</bean>
+	
+</beans>

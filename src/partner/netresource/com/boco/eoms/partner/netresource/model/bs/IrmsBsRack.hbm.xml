@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.bs.IrmsBsRack" table="irms_bs_rack">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="labelCn" column="label_cn"/>
+				<property name="relatedDeviceCui" column="related_device_cui"/>
+				<property name="relatedBody" column="related_body"/>
+				<property name="vendor" column="vendor"/>
+				<property name="rackType" column="rack_type"/>
+				<property name="shelfAmount" column="shelf_amount"/>
+				<property name="createTime" column="create_time"/>
+				<property name="remark" column="remark"/>
+				<property name="relatedDeviceCuiId" column="related_device_cui_id"/>
+				<property name="relatedBodyId" column="related_body_id"/>
+    </class>    
+</hibernate-mapping>

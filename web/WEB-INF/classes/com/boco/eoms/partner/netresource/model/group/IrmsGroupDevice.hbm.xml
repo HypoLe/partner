@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.group.IrmsGroupDevice" table="irms_group_device">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="deviceName" column="device_name"/>
+				<property name="deviceSerialNum" column="device_serial_num"/>
+				<property name="deviceCity" column="device_city"/>
+				<property name="deviceCounty" column="device_county"/>
+				<property name="deviceTown" column="device_town"/>
+				<property name="deviceRoom" column="device_room"/>
+				<property name="deviceVendor" column="device_vendor"/>
+				<property name="deviceModel" column="device_model"/>
+				<property name="deviceStatus" column="device_status"/>
+				<property name="devicePropertyUnit" column="device_property_unit"/>
+				<property name="deviceUseUnit" column="device_use_unit"/>
+				<property name="deviceManageUnit" column="device_manage_unit"/>
+				<property name="deviceIp" column="device_ip"/>
+				<property name="deviceVersion" column="device_version"/>
+				<property name="deviceAccessNetDate" column="device_access_net_date"/>
+				<property name="deviceFixedAssetId" column="device_fixed_asset_id"/>
+				<property name="relatedIinstance" column="related_iinstance"/>
+				<property name="clientDeviceType" column="client_device_type"/>
+				<property name="clientDevicePortType" column="client_device_port_type"/>
+				<property name="clientDevicePortId" column="client_device_port_id"/>
+				<property name="devicePortStatus" column="device_port_status"/>
+				<property name="inerconnectIp" column="inerconnect_ip"/>
+				<property name="clientDeviceVlan" column="client_device_vlan"/>
+				<property name="clientDeviceMac" column="client_device_mac"/>
+				<property name="pointaLongitude" column="pointa_longitude"/>
+				<property name="pointaLatitude" column="pointa_latitude"/>
+				<property name="createTime" column="create_time"/>
+				<property name="remark" column="remark"/>
+				<property name="deviceRoomId" column="device_room_id"/>
+				<property name="relatedInstanceId" column="related_instance_id"/>
+    </class>    
+</hibernate-mapping>

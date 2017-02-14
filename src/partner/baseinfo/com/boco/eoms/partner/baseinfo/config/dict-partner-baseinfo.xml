@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="GBK"?>
+<dicts description="基本信息管理">
+
+
+
+	
+	<dict id="isbackbone" description="是否骨干员工">
+		<item id="1" name="是" description="是" />
+		<item id="2" name="否" descripRtion="否" />
+	</dict>
+
+	<dict id="state" description="在职状态">
+		<item id="1" name="在职" description="在职" />
+		<item id="2" name="离职" descripRtion="离职" />
+	</dict>
+	
+	<dict id="evaResult" description="结果">
+		<item id="1" name="优秀" description="优秀" />
+		<item id="2" name="良好" descripRtion="良好" />
+		<item id="3" name="一般" description="一般" />
+		<item id="4" name="不合格" descripRtion="不合格" />		
+	</dict>
+</dicts>
+
+

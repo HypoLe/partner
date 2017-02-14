@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+  <cell id="1" type="InitialActionCell" height="30" width="100" x="163" y="27" />
+  <cell id="2" type="StepCell" height="30" width="100" x="271" y="86" />
+  <cell id="4" type="StepCell" height="30" width="100" x="685" y="77" />
+  <cell id="3" type="StepCell" height="30" width="100" x="527" y="83" />
+  <cell id="5" type="StepCell" height="30" width="100" x="365" y="177" />
+  <cell id="6" type="StepCell" height="30" width="100" x="364" y="283" />
+  <connector id="90" linewidth="1.0" color="-16777216" labelx="835" labely="67" from="0" to="0" start="163,27" end="365,177">
+    <routing id="90" x="430" y="39" />
+  </connector>
+  <connector id="91" linewidth="1.0" color="-16777216" labelx="537" labely="651" from="0" to="0" start="163,27" end="271,86">
+    <routing id="91" x="219" y="110" />
+  </connector>
+  <connector id="92" linewidth="1.0" color="-16777216" labelx="479" labely="685" from="0" to="0" start="271,86" end="365,177">
+    <routing id="92" x="313" y="194" />
+  </connector>
+  <connector id="93" linewidth="1.0" color="-16777216" labelx="537" labely="-13" from="0" to="0" start="527,83" end="365,177">
+    <routing id="93" x="450" y="102" />
+  </connector>
+  <connector id="94" linewidth="1.0" color="-16777216" labelx="2000" labely="434" from="0" to="0" start="365,177" end="364,283" />
+  <connector id="95" linewidth="1.0" color="-16777216" labelx="1069" labely="367" from="0" to="0" start="365,177" end="527,83">
+    <routing id="95" x="552" y="193" />
+  </connector>
+  <connector id="96" linewidth="1.0" color="-16777216" labelx="1015" labely="180" from="0" to="0" start="364,283" end="685,77">
+    <routing id="96" x="735" y="296" />
+  </connector>
+  <channel id="chl-1" y1="0" y2="133" text="工单派发人" />
+  <channel id="chl-2" y1="133" y2="253" text="巡检公司调度人员" />
+  <channel id="chl-3" y1="253" y2="370" text="巡检公司发电人员" />
+</layout>
+

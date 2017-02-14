@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class
+  name="com.boco.eoms.deviceManagement.busi.line.model.ProjectOperInfo" table="dm_line_projectoperinfo">
+  <id column="id" name="id">
+   <generator class="uuid.hex"/>
+  </id>
+  
+  <property name="projectId"/>
+  <property name="operator"/>
+  <property name="nextOperator"/>
+  <property name="operateType"/>
+  <property name="operateTime"/>
+  <property name="operateRemarks"/>
+  
+ </class>
+</hibernate-mapping>

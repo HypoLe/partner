@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+
+>
+
+    <class
+            name="com.boco.eoms.partner.deviceAssess.model.BackEstimate"
+            table="pnr_deviceAssess_backEstimate"
+    >
+
+    <id
+        name="id"
+            column="id"
+            unsaved-value="null"
+    >
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+
+    </id>
+	<property
+            name="facilityFauTar"
+            	column="facility_Fau_tar"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="badPlankTar"
+            	column="bad_Plank_Tar"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="bigFaultTar"
+            	column="big_Fault_Tar"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="facilityQueTar"
+            	column="facility_Que_Tar"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="faultAvgTar"
+            	column="fault_Avg_Tar"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="operationRenewTar"
+            	column="operation_Renew_Tar"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="plankRepairTar"
+            	column="plank_Repair_Tar"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="referServeTar"
+            	column="refer_Serve_Tar"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="artServeTar"
+            	column="art_Serve_Tar"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="projectServeTar"
+            	column="project_Serve_Tar"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="trainServeTar"
+            	column="train_Serve_Tar"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="specialServeTar"
+            	column="special_Serve_Tar"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="softwareSucTar"
+            	column="software_Suc_Tar"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="facilityFauPoi"
+            	column="facility_Fau_Poi"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="badPlankPoi"
+            	column="bad_Plank_Poi"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="bigFaultPoi"
+            	column="big_Fault_Poi"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="facilityQuePoi"
+            	column="facility_Que_Poi"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="faultAvgPoi"
+            	column="fault_Avg_Poi"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="operationRenewPoi"
+            	column="operation_Renew_Poi"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="plankRepairPoi"
+            	column="plank_Repair_Poi"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="referServePoi"
+            	column="refer_Serve_Poi"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="artServePoi"
+            	column="art_Serve_Poi"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="projectServePoi"
+            	column="project_Serve_Poi"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="trainServePoi"
+            	column="train_Serve_Poi"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="specialServePoi"
+            	column="special_Serve_Poi"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="softwareSucPoi"
+            	column="software_Suc_Poi"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="year"
+            	column="year"
+                length="5"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="quarter"
+            	column="quarter"
+                length="5"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="factory"
+            	column="factory"
+                length="64"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="speciality"
+            	column="speciality"
+                length="64"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="equipmentType"
+            	column="equipment_Type"
+                length="64"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="total"
+            	column="total"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>        
+    </class>    
+
+</hibernate-mapping>
+

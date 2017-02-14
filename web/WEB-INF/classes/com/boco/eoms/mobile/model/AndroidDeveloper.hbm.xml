@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.boco.eoms.mobile.model.AndroidDeveloper" table="pnr_android_developer">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="developerName" column="developerName"/>
+		<property name="serialNumber" column="serialNumber"/>
+		<property name="publicKey" column="publicKey"/>
+		<property name="remark" column="remark"/>
+		<property name="isAllow" column="isAllow"/>
+		<property name="addUser" column="addUser"/>
+		<property name="addTime" column="addTime"/>
+		<property name="deleteFlag" column="deleteFlag"/>
+	</class>
+</hibernate-mapping>

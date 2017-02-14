@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.boco.eoms.partner.deviceAssess.model.AssessIndicator" 
+	table="Assess_indicator">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+
+		<property name="indicatorType" />
+		<property name="indicatorName" />
+		<property name="configid" />
+		<property name="typeScore" />
+		<property name="nameScor" />
+	</class>
+</hibernate-mapping>

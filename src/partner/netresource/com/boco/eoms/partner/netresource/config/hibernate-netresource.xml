@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		 <property name="show_sql">true</property>
+		 <!--基站机房设备 -->
+    	<mapping resource="com/boco/eoms/partner/netresource/model/bs/AccessNetworkRoom.hbm.xml"/>
+    	<mapping resource="com/boco/eoms/partner/netresource/model/bs/BsBtQuipment.hbm.xml"/>
+    	<mapping resource="com/boco/eoms/partner/netresource/model/bs/BsBtResource.hbm.xml"/>
+    	<mapping resource="com/boco/eoms/partner/netresource/model/bs/BsBtAp.hbm.xml"/>
+    	<mapping resource="com/boco/eoms/partner/netresource/model/bs/KeyCustomerRoom.hbm.xml"/><!-- 添加重点客户机房 -->
+    	<mapping resource="com/boco/eoms/partner/netresource/model/bs/OutdoorCabinet.hbm.xml"/>
+    	<mapping resource="com/boco/eoms/partner/netresource/model/bs/RoomResource.hbm.xml"/>
+    	<mapping resource="com/boco/eoms/partner/netresource/model/bs/AccessNetworkQuipment.hbm.xml"/>
+    	<mapping resource="com/boco/eoms/partner/netresource/model/bs/TowerAntennas.hbm.xml"/>
+		<!--  网络资源基站设备及配套专业下的配置 begin-->
+    	<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsBtssite.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsJzwd.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsTransfor.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsShelf.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsSlot.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsUtrancell.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsCell.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsNodeb.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsRack.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsCard.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsGrnerat.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsStorage.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsGrnerat2.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsUps.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsAircon.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsSpeaircon.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsMme.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsVens.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsHes.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsWep.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsWpc.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsSee.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsMppt.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsCc.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/bs/IrmsBsBb.hbm.xml"/>
+		<!--  网络资源基站设备及配套专业下的配置 end-->
+		<!--  网络资源传输线路专业下的配置 begin-->
+    	<mapping resource="com/boco/eoms/partner/netresource/model/trans/IrmsTransWell.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/trans/IrmsTransPoleline.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/trans/IrmsTransPipehole.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/trans/IrmsTransPipesec.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/trans/IrmsTransPipe.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/trans/IrmsTransPoles.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/trans/IrmsTransPolelinesec.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/trans/IrmsTransMarkstone.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/trans/IrmsTransDirbury.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/trans/IrmsTransOpcable.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/trans/IrmsTransOpcablesec.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/trans/IrmsTransDirburysec.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/trans/IrmsTransOdf.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/trans/IrmsTransOpconbox.hbm.xml"/>
+	<!--  网络资源传输线路专业下的配置 end-->
+	<!--  网络资源直放站室分及WLAN专业下的配置 begin-->
+		<mapping resource="com/boco/eoms/partner/netresource/model/wlan/IrmsWlanRepeater.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/wlan/IrmsWlanHot.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/wlan/IrmsWlanAc.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/wlan/IrmsWlanAp.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/wlan/IrmsWlanSwitch.hbm.xml"/>
+	<!--  网络资源直放站室分及WLAN专业下的配置 end-->
+	<!--  网络资源铁塔及天馈专业下的配置 begin-->
+    	<mapping resource="com/boco/eoms/partner/netresource/model/tower/IrmsTowerTower.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/tower/IrmsTowerAnt.hbm.xml"/>
+	<!--  网络资源铁塔及天馈专业下的配置 end-->
+	<!--  网络资集客家客专业下的配置 begin-->
+    	<mapping resource="com/boco/eoms/partner/netresource/model/group/IrmsGrouCustomer.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/group/IrmsGroupLine.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/group/IrmsGroupProduct.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/group/IrmsGroupSound.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/group/IrmsGroupGprs.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/group/IrmsGroupSms.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/group/IrmsGroupMms.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/group/IrmsGroupRent.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/group/IrmsGroupDevice.hbm.xml"/>
+	<!--  网络资源集客家客专业下的配置 end-->
+	<!--  网络资空间资源下的配置 begin-->
+    	<mapping resource="com/boco/eoms/partner/netresource/model/space/IrmsSpaceArea.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/space/IrmsSpaceRoom.hbm.xml"/>
+		<mapping resource="com/boco/eoms/partner/netresource/model/space/IrmsSpaceSite.hbm.xml"/>
+	<!--  网络资源空间资源下的配置 end-->
+	</session-factory>
+</hibernate-configuration> 

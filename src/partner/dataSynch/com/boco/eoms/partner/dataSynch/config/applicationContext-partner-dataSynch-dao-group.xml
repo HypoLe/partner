@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 客户信息表-IrmsGrouCustomer -->
+	<bean id="irmsGrouCustomerDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.group.IrmsGrouCustomerDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_grou_customer" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_grou_customer" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_grou_customer" /><!-- 正式表名 -->
+	</bean>
+	<!-- 数据(互联网)专线信息表-IrmsGroupLine -->
+	<bean id="irmsGroupLineDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.group.IrmsGroupLineDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_group_line" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_group_line" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_group_line" /><!-- 正式表名 -->
+	</bean>
+	<!-- 客户开通业务信息表-IrmsGroupProduct -->
+	<bean id="irmsGroupProductDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.group.IrmsGroupProductDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_group_product" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_group_product" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_group_product" /><!-- 正式表名 -->
+	</bean>
+	<!-- 语音专线信息表-IrmsGroupSound -->
+	<bean id="irmsGroupSoundDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.group.IrmsGroupSoundDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_group_sound" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_group_sound" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_group_sound" /><!-- 正式表名 -->
+	</bean>
+	<!-- GPRS信息表-IrmsGroupGprs -->
+	<bean id="irmsGroupGprsDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.group.IrmsGroupGprsDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_group_gprs" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_group_gprs" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_group_gprs" /><!-- 正式表名 -->
+	</bean>
+	<!-- 短信信息表-IrmsGroupSms -->
+	<bean id="irmsGroupSmsDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.group.IrmsGroupSmsDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_group_sms" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_group_sms" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_group_sms" /><!-- 正式表名 -->
+	</bean>
+	<!-- 彩信息表-IrmsGroupMms -->
+	<bean id="irmsGroupMmsDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.group.IrmsGroupMmsDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_group_mms" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_group_mms" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_group_mms" /><!-- 正式表名 -->
+	</bean>
+	<!-- 出租专线信息表-IrmsGroupRent -->
+	<bean id="irmsGroupRentDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.group.IrmsGroupRentDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_group_rent" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_group_rent" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_group_rent" /><!-- 正式表名 -->
+	</bean>
+	<!-- 客户端设备信息表-IrmsGroupDevice -->
+	<bean id="irmsGroupDeviceDaoJdbcImpl" class="com.boco.eoms.partner.dataSynch.dao.jdbc.group.IrmsGroupDeviceDaoJdbcImpl" 
+		autowire="byName" parent="abstractDataSynchDaoJdbc">
+		<property name="tmpTableName" value="tmp_irms_group_device" /><!-- 临时表名 -->
+		<property name="hisTableName" value="his_irms_group_device" /><!-- 历史表名 -->
+		<property name="tableName" value="irms_group_device" /><!-- 正式表名 -->
+	</bean>
+</beans>

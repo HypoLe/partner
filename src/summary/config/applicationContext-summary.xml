@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+      
+    <bean id="tawzjWeekDao" class="com.boco.eoms.summary.dao.hibernate.TawzjWeekHibernate" autowire="byName"/>
+    <bean id="tawzjMonthDao" class="com.boco.eoms.summary.dao.hibernate.TawzjMonthHibernate" autowire="byName" />
+     
+    <bean id="ITawzjWeekManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.summary.service.impl.TawzjWeekManagerImpl">
+                <property name="tawzjWeekDao" ref="tawzjWeekDao"/>
+            </bean>
+        </property>
+    </bean>
+
+      <bean id="tawzjMonthMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.summary.service.impl.TawzjMonthMgrImpl">
+				<property name="tawzjMonthDao" ref="tawzjMonthDao" />
+			</bean>
+		</property>
+	</bean>
+
+	
+      
+
+    <bean id="tawDutyWeekDao"
+		class="com.boco.eoms.summary.dao.hibernate.TawDutyWeekDaoHibernate"
+		autowire="byName" />
+      <bean id="tawDutyWeekMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.summary.mgr.impl.TawDutyWeekMgrImpl">
+				<property name="tawDutyWeekDao" ref="tawDutyWeekDao" />
+			</bean>
+		</property>
+	</bean>
+	<import
+		resource="classpath:config/applicationContext-summary-versionlog.xml" />
+</beans>
+
+  
+

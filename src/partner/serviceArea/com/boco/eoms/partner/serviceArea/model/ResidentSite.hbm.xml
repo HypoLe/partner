@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.boco.eoms.partner.serviceArea.model.ResidentSite" table="pnr_servicearea_residentSite">
+
+    <id name="id" column="id" unsaved-value="null" >
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+
+    </id>
+
+	<property name="residentSiteName" column="RESIDENT_SITE_NAME" ></property>
+
+	<property name="residentSiteNo" column="RESIDENT_SITE_NO"></property>
+
+	<property name="city" column="city"></property>
+
+	<property name="country" column="country"></property>
+	
+	<property name="monitorCompany" column="monitorCompany"></property>
+	
+    <property name="partnerId" column="partnerid"></property>
+        
+    <property name="bigPartnerId" column="bigpartnerid" length="32" not-null="false" unique="false"></property>  
+
+    <property name="address" column="address" length="200" not-null="false" unique="false"></property>  
+    
+    <property name="personNum" column="personNum" length="10" not-null="false" unique="false"></property>
+    
+    <property name="carNum" column="carNum" length="10" not-null="false" unique="false"></property>  
+    
+    <property name="telNum" column="telNum" length="20" not-null="false" unique="false"></property>
+    
+    <property name="mobileTelNum" column="mobileTelNum" length="20" not-null="false" unique="false"></property>
+
+    <property name="dutyMan" column="dutyMan" length="50" not-null="false" unique="false"></property>
+
+	<property name="createUser" column="createUser" length="32" not-null="true" unique="false"></property>
+
+	<property name="createTime" column="createTime" length="32" not-null="true" unique="false"></property>
+
+	<property name="delTime" column="delTime" length="32" not-null="false" unique="false"></property>
+
+	<property name="delUser" column="delUser" length="32" not-null="false" unique="false"></property>
+
+	<property name="isDel" column="isDel" length="32" not-null="true" unique="false"></property>
+
+    </class>    
+
+</hibernate-mapping>
+

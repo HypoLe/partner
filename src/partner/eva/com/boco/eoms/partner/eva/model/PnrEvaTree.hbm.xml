@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+
+>
+
+    <class
+            name="com.boco.eoms.partner.eva.model.PnrEvaTree"
+            table="pnr_eva_tree"
+    >
+
+    <id
+        name="id"
+            column="id"
+            unsaved-value="null"
+    >
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+
+    </id>
+
+        <property
+            name="nodeId"
+            	column="node_id"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+        
+        <property
+            name="nodeName"
+            	column="node_name"
+                length="255"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+        
+        <property
+            name="nodeType"
+            	column="node_type"
+                length="255"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+        <property
+            name="nodeRemark"
+            	column="node_remark"
+                length="255"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+        
+        <property
+            name="parentNodeId"
+            	column="parent_node_id"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+        
+        <property
+            name="leaf"
+            	column="leaf"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+        
+        <property
+            name="objectId"
+            	column="object_id"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+        
+        <property
+            name="weight"
+            	column="weight"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+        
+        <property
+            name="orgType"
+            	column="ORG_TYPE"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property> 
+        
+        <property
+            name="isLock"
+            	column="IS_LOCK"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>    
+        
+        <property
+            name="state"
+            	column="STATE"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>    
+                
+        <property
+            name="createTime"
+            	column="CREATE_TIME"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>  
+                  
+        <property
+            name="creatArea"
+            	column="CREATE_AREA"
+                length="20"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>  
+                          
+        <property
+            name="createUser"
+            	column="CREATE_USER"
+                length="20"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>  
+    </class>    
+
+</hibernate-mapping>
+

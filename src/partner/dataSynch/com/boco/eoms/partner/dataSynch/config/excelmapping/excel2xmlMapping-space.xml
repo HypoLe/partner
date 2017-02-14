@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 空间资源-专业 -->
+<excel2xml>
+	<!-- 区域-IrmsSpaceArea -->
+	<IrmsSpaceArea>
+		<field name="area_name"		excelCellNum="1"			remark="区域名称"/>
+		<field name="abbreviation"		excelCellNum="2"			remark="区域名称中文缩写"/>
+		<field name="spellabbreviation"		excelCellNum="3"			remark="拼音缩写"/>
+		<field name="area_alias"		excelCellNum="4"			remark="别名"/>
+		<field name="area_code"		excelCellNum="5"			remark="长途区号"/>
+		<field name="related_space"		excelCellNum="6"			remark="所属区域名称"/>
+		<field name="area_type"		excelCellNum="7"			remark="地区类型"/>
+		<field name="is_capital"		excelCellNum="8"			remark="是否省会"/>
+		<field name="remark"		excelCellNum="9"			remark="备注"/>
+	</IrmsSpaceArea>
+	<!-- 机房-IrmsSpaceRoom -->
+	<IrmsSpaceRoom>
+		<field name="room_name" 	excelCellNum="1" 	      remark="机房名称"/>
+		<field name="abbreviation" 	excelCellNum="15" 	      remark="机房缩写"/>
+		<field name="room_alias" 	excelCellNum="17" 		remark="机房别名"/>
+		<field name="room_type" 	excelCellNum="4"       remark="机房类型"/>
+		<field name="service_level" 	excelCellNum="3"       remark="传输业务级别"/>
+		<field name="related_site_name" excelCellNum="8"       remark="所属站点"/>
+		<field name="floor_num" 	excelCellNum="25"       remark="所在楼层"/>
+		<field name="length" 		excelCellNum="27"       remark="长"/>
+		<field name="width" 		excelCellNum="29"       remark="宽"/>
+		<field name="height" 		excelCellNum="28"       remark="高"/>
+		<field name="rack_start_row_num" excelCellNum="9"       remark="机架起始行号"/>
+		<field name="rack_end_row_num" 	excelCellNum="10"       remark="机架终止行号"/>
+		<field name="rack_start_col_num" excelCellNum="11"       remark="机架起始列号"/>
+		<field name="rack_end_col_num"  excelCellNum="12"       remark="机架终止列号"/>
+		<field name="rack_row_direct" 	excelCellNum="32"       remark="机架行方向"/>
+		<field name="rack_column_direct" excelCellNum="33"       remark="机架列方向"/>
+		<field name="is_construct_share" excelCellNum="47"       remark="是否共建"/>
+		<field name="build_togther_unit" excelCellNum="48"       remark="共建单位"/>
+		<field name="is_shared" 	excelCellNum="49"       remark="是否共享"/>
+		<field name="shared_unit" 	excelCellNum="50"       remark="共享单位"/>
+		<field name="remark" 	excelCellNum="31"       remark="备注"/>
+
+	</IrmsSpaceRoom>
+	<!-- 站点-IrmsSpaceSite -->
+	<IrmsSpaceSite>
+		<field name="site_name"		excelCellNum="1"			remark="站点名称"/>
+		<field name="spellabbreviation"		excelCellNum="37"			remark="站点名称拼音缩写"/>
+		<field name="site_name_alias"		excelCellNum="2"			remark="站点名称别名"/>
+		<field name="sitecoding"		excelCellNum="14"			remark="站点编号"/>
+		<field name="site_type"		excelCellNum="4"			remark="站点类型"/>
+		<field name="location"		excelCellNum="11"			remark="站点地址"/>
+		<field name="related_space"		excelCellNum="5"			remark="所属区域"/>
+		<field name="longitude"		excelCellNum="6"			remark="经度"/>
+		<field name="latitude"		excelCellNum="7"			remark="纬度"/>
+		<field name="service_level"		excelCellNum="8"			remark="传输等级"/>
+		<field name="floor_maxnum"		excelCellNum="15"			remark="楼层数"/>
+	</IrmsSpaceSite>
+</excel2xml>

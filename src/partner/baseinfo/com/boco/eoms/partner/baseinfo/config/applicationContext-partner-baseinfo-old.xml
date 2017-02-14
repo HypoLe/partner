@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+   <!-- diyubumenshu -->
+	<bean id="areaDeptTreeMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.baseinfo.mgr.impl.AreaDeptTreeMgrImpl">
+				<property name="areaDeptTreeDao" ref="areaDeptTreeDao" />
+				<property name="partnerUserDao" ref="partnerUserDao" />
+				<property name="tawPartnerCarDao" ref="tawPartnerCarDao" />
+				<property name="tawPartnerOilDao" ref="tawPartnerOilDao" />
+				<property name="tawApparatusDao" ref="tawApparatusDao" />
+			</bean>
+		</property>
+	</bean>	
+
+	<bean id="areaDeptTreeDao"
+		class="com.boco.eoms.partner.baseinfo.dao.hibernate.AreaDeptTreeDaoHibernate"
+		autowire="byName" />
+	
+	
+	
+		
+	<!-- hezuohuoban -->	
+	<bean id="partnerDeptMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.baseinfo.mgr.impl.PartnerDeptMgrImpl">
+				<property name="partnerDeptDao" ref="partnerDeptDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="partnerDeptAreaMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.baseinfo.mgr.impl.PartnerDeptAreaMgrImpl">
+				<property name="partnerDeptAreaDao" ref="partnerDeptAreaDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="partnerDeptAreaDao"
+		class="com.boco.eoms.partner.baseinfo.dao.hibernate.PartnerDeptAreaDaoHibernate"
+		autowire="byName" />
+
+	<bean id="partnerDeptDao"
+		class="com.boco.eoms.partner.baseinfo.dao.hibernate.PartnerDeptDaoHibernate"
+		autowire="byName" />
+		
+		<!-- renlixinxi -->
+	<bean id="partnerUserMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.baseinfo.mgr.impl.PartnerUserMgrImpl">
+				<property name="partnerUserDao" ref="partnerUserDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="partnerUserDao"
+		class="com.boco.eoms.partner.baseinfo.dao.hibernate.PartnerUserDaoHibernate"
+		autowire="byName" />
+	
+	<!-- renyuandiyuduizhao -->	
+	<bean id="partnerUserAndAreaMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.baseinfo.mgr.impl.PartnerUserAndAreaMgrImpl">
+				<property name="partnerUserAndAreaDao" ref="partnerUserAndAreaDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="partnerUserAndDeptMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.baseinfo.mgr.impl.PartnerUserAndDeptMgrImpl">
+				<property name="partnerUserAndDeptDao" ref="partnerUserAndDeptDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="partnerUserAndAreaDao"
+		class="com.boco.eoms.partner.baseinfo.dao.hibernate.PartnerUserAndAreaDaoHibernate"
+		autowire="byName" />
+	<bean id="partnerUserAndDeptDao"
+		class="com.boco.eoms.partner.baseinfo.dao.hibernate.PartnerUserAndDeptDaoHibernate"
+		autowire="byName" />
+<!-- renyuanpeizhi -->		
+	<bean id="iPersonConfigMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.baseinfo.mgr.impl.PersonConfigMgrImpl">
+				<property name="personConfigDao" ref="personConfigDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="personConfigDao"
+		class="com.boco.eoms.partner.baseinfo.dao.hibernate.PersonConfigDaoHibernate"
+		autowire="byName" />
+
+	<import
+		resource="classpath:com/boco/eoms/partner/baseinfo/config/applicationContext-partner-baseinfo-versionlog.xml" />
+
+	<!-- 车辆配置 -->
+	<bean id="iVehicleMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.baseinfo.mgr.impl.VehicleMgrImpl">
+				<property name="vehicleDao" ref="vehicleDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="vehicleDao"
+		class="com.boco.eoms.partner.baseinfo.dao.hibernate.VehicleDaoHibernate"
+		autowire="byName" />
+
+<!-- 仪器仪表配置 -->
+	<bean id="iInstrumentConfigMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.baseinfo.mgr.impl.InstrumentConfigMgrImpl">
+				<property name="instrumentConfigDao" ref="instrumentConfigDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 油机配置 -->	
+	<bean id="iOilEngineConfigureMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.baseinfo.mgr.impl.OilEngineConfigureMgrImpl">
+				<property name="oilEngineConfigureDao" ref="oilEngineConfigureDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="instrumentConfigDao"
+		class="com.boco.eoms.partner.baseinfo.dao.hibernate.InstrumentConfigDaoHibernate"
+		autowire="byName" />
+	<bean id="oilEngineConfigureDao"
+		class="com.boco.eoms.partner.baseinfo.dao.hibernate.OilEngineConfigureDaoHibernate"
+		autowire="byName" />
+
+	<bean id="iStationMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.baseinfo.mgr.impl.StationMgrImpl">
+				<property name="stationDao" ref="stationDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="stationDao"
+		class="com.boco.eoms.partner.baseinfo.dao.hibernate.StationDaoHibernate"
+		autowire="byName" />
+		
+	<bean id="iAptitudeMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.baseinfo.mgr.impl.AptitudeMgrImpl">
+				<property name="aptitudeDao" ref="aptitudeDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="aptitudeDao"
+		class="com.boco.eoms.partner.baseinfo.dao.hibernate.AptitudeDaoHibernate"
+		autowire="byName" />
+	
+	<bean id="iResumeMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.baseinfo.mgr.impl.ResumeMgrImpl">
+				<property name="resumeDao" ref="resumeDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="resumeDao"
+		class="com.boco.eoms.partner.baseinfo.dao.hibernate.ResumeDaoHibernate"
+		autowire="byName" />
+		
+		
+		<!-- 统计报表 -->	
+	<bean id="iPnrStatMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.baseinfo.mgr.impl.IPnrStatMgrImpl">
+				<property name="ipnrStatDao" ref="ipnrStatDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="ipnrStatDao"
+		class="com.boco.eoms.partner.baseinfo.dao.hibernate.PnrStatDaoHibernate"
+		autowire="byName" />
+
+	<bean id="pnrBaseSiteMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.baseinfo.mgr.impl.PnrBaseSiteMgrImpl">
+				<property name="pnrBaseSiteDao" ref="pnrBaseSiteDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="pnrBaseSiteDao"
+		class="com.boco.eoms.partner.baseinfo.dao.hibernate.PnrBaseSiteDaoHibernate"
+		autowire="byName" />
+		
+	<bean id="partnerEvaluationMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.baseinfo.mgr.impl.PartnerEvaluationMgrImpl">
+				<property name="partnerEvaluationDao" ref="partnerEvaluationDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="partnerEvaluationDao"
+		class="com.boco.eoms.partner.baseinfo.dao.hibernate.PartnerEvaluationDaoHibernate"
+		autowire="byName" />
+		
+	
+	<!-- 代维组织入围资质表单 begin 2012-07-18 -->
+	<bean id="pnrOrgFinalistSheetDao"
+		class="com.boco.eoms.partner.baseinfo.dao.hibernate.PnrOrgFinalistSheetDaoHibernate"
+		autowire="byName" />
+		
+	<bean id="pnrOrgFinalistSheetMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.baseinfo.mgr.impl.PnrOrgFinalistSheetMgrImpl">
+				<property name="pnrOrgFinalistSheetDao" ref="pnrOrgFinalistSheetDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- 代维组织入围资质表单 begin 2012-07-18 -->
+	<!-- PnrSourceStandardConfigSpring文件配置 begin 2012-12-27 16:18:56-->
+	<bean id="pnrSourceStandardConfigDao"
+		class="com.boco.eoms.partner.baseinfo.dao.hibernate.PnrSourceStandardConfigDaoHibernateImpl"
+		autowire="byName" />
+		
+	<bean id="pnrSourceStandardConfigService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.baseinfo.mgr.impl.PnrSourceStandardConfigServiceImpl">
+				<property name="pnrSourceStandardConfigDao" ref="pnrSourceStandardConfigDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- PnrSourceStandardConfigSpring文件配置 end 2012-12-27 16:18:56 -->
+	<!-- 代维组织资质表单 begin 2013-03-18 -->
+	<bean id="pnrQualificationDao"
+		class="com.boco.eoms.partner.baseinfo.dao.hibernate.PnrQualificationDaoHibernateImpl"
+		autowire="byName" />
+	<bean id="pnrQualificationMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.baseinfo.mgr.impl.PnrQualificationMgrImpl">
+				<property name="pnrQualificationDao" ref="pnrQualificationDao" />
+			</bean>
+		</property>
+	</bean>
+	<!--代维组织资质表单 end 2013-03-18 -->
+	<!-- 代维组织各项配置设置 begin 2013-03-25 -->
+	<bean id="pnrDeptAndUserConfigSetList"	class="com.boco.eoms.partner.baseinfo.util.PnrDeptAndUserConfigSetList">
+		<property name="qualificationConfig">
+			<!--是否需要代维资质这个模块:"0"-不需要 "1"-需要-->
+			<value>0</value>
+		</property>
+		<property name="dwInfoValidateType">
+			<!--技能验证方式，有userid和身份证两种验证方式值为:userId和personCardNo-->
+			<value>userId</value>
+		</property>
+		<property name="partnerDeptExcelModel">
+			<!--代维组织使用的是否是新模版:"0"-旧模板 "1"-新模版-->
+			<value>1</value>
+		</property>
+	</bean>
+	<!--代维组织各项配置设置 begin 2013-03-25-->
+</beans>
+
+
+
+
+
+
+
+
+

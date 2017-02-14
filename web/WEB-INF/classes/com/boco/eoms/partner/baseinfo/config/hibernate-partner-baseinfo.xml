@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="show_sql">true</property>
+    <mapping resource="com/boco/eoms/partner/baseinfo/model/AreaDeptTree.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/baseinfo/model/PartnerDept.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/baseinfo/model/PartnerUser.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/baseinfo/model/PartnerUserAndArea.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/baseinfo/model/PartnerUserAndDept.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/baseinfo/model/PersonConfig.hbm.xml"/> 
+    <mapping resource="com/boco/eoms/partner/baseinfo/model/InstrumentConfig.hbm.xml"/>   
+    <!-- 车辆配置 -->
+    <mapping resource="com/boco/eoms/partner/baseinfo/model/Vehicle.hbm.xml"/>
+    <!-- 油机配置 -->
+    <mapping resource="com/boco/eoms/partner/baseinfo/model/OilEngineConfigure.hbm.xml"/>
+	<mapping resource="com/boco/eoms/partner/baseinfo/model/Station.hbm.xml"/>
+	<mapping resource="com/boco/eoms/partner/baseinfo/model/Aptitude.hbm.xml"/>
+	<mapping resource="com/boco/eoms/partner/baseinfo/model/Resume.hbm.xml"/>
+	<mapping resource="com/boco/eoms/partner/baseinfo/model/PnrBaseSite.hbm.xml"/>
+	<mapping resource="com/boco/eoms/partner/baseinfo/model/PartnerEvaluation.hbm.xml"/>
+    <!-- 代维组织入围资质表单 -->
+	<mapping resource="com/boco/eoms/partner/baseinfo/model/PnrOrgFinalistSheet.hbm.xml"/>
+    <!-- 代维组织资质表单 -->
+	<mapping resource="com/boco/eoms/partner/baseinfo/model/PnrQualification.hbm.xml"/>
+	<!--资源的标准配置 -->
+	<mapping resource="com/boco/eoms/partner/baseinfo/model/PnrSourceStandardConfig.hbm.xml"/>
+	<mapping resource="com/boco/eoms/partner/baseinfo/model/PnrStandardConfig.hbm.xml"/>
+	<mapping resource="com/boco/eoms/partner/baseinfo/model/PnrResConfigAmount.hbm.xml"/>
+	<!--资源的标准配置 -->
+	<!-- 人员管理 -->
+	<mapping resource="com/boco/eoms/partner/personnel/model/Certificate.hbm.xml" />
+	<mapping resource="com/boco/eoms/partner/personnel/model/Reward.hbm.xml" />
+	<mapping resource="com/boco/eoms/partner/personnel/model/DWInfo.hbm.xml" />
+	<mapping resource="com/boco/eoms/partner/personnel/model/PXExperience.hbm.xml" />
+	<mapping resource="com/boco/eoms/partner/personnel/model/StudyExperience.hbm.xml" />
+    <mapping resource="com/boco/eoms/partner/personnel/model/WorkExperience.hbm.xml" />
+    
+  </session-factory>
+</hibernate-configuration>

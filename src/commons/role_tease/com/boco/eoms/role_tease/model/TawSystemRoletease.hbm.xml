@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+
+>
+
+    <class
+            name="com.boco.eoms.role_tease.model.TawSystemRoletease"
+            table="taw_system_role_tease"
+    >
+
+    <id
+        name="id"
+            column="id"
+            unsaved-value="null"
+    >
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+
+    </id>
+
+	<property
+            name="workflowId"
+            	column="workflow_id"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="workflowName"
+            	column="workflow_name"
+                length="64"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="roleId"
+            	column="role_id"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="roleName"
+            	column="role_name"
+                length="64"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="subRole_id"
+            	column="subrole_id"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="subRoleName"
+            	column="subrole_name"
+                length="64"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="workTemple"
+            	column="work_temple"
+                length="128"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="timeLimite"
+            	column="time_limite"
+                length="64"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="skillRequire"
+            	column="skill_require"
+                length="128"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="checkLine"
+            	column="check_line"
+                length="128"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="deptId"
+            	column="dept_id"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="deptName"
+            	column="dept_name"
+                length="64"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="userId"
+            	column="user_id"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="userName"
+            	column="user_name"
+                length="64"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+
+    </class>    
+
+</hibernate-mapping>
+

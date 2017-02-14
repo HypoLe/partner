@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <!-- Add new Managers here -->
+    
+    <!--LineEvaTree-DAO START-->
+    <bean id="lineEvaTreeDao" class="com.boco.eoms.partner.lineEva.dao.hibernate.LineEvaTreeDaoHibernate" autowire="byName"/>
+    <!--LineEvaTree-DAO END-->  
+    <!--LineEvaTree-START-->    
+    <bean id="IlineEvaTreeMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.lineEva.mgr.impl.LineEvaTreeMgrImpl">   
+                <property name="lineEvaTreeDao" ref="lineEvaTreeDao"/>
+            </bean>
+        </property>
+    </bean> 
+    <!--LineEvaTree-END-->  
+    
+    <!--LineEvaKpi-DAO START-->
+    <bean id="lineEvaKpiDao" class="com.boco.eoms.partner.lineEva.dao.hibernate.LineEvaKpiDaoHibernate" autowire="byName"/>
+    <!--LineEvaKpi-DAO END-->
+    <!--LineEvaKpi-START-->    
+    <bean id="IlineEvaKpiMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.lineEva.mgr.impl.LineEvaKpiMgrImpl">
+                <property name="lineEvaKpiDao" ref="lineEvaKpiDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--LineEvaKpi-END-->
+    
+    <!--LineEvaTemplate-DAO START-->
+    <bean id="lineEvaTemplateDao" class="com.boco.eoms.partner.lineEva.dao.hibernate.LineEvaTemplateDaoHibernate" autowire="byName"/>
+    <!--LineEvaTemplate-DAO END-->
+    <!--LineEvaTemplate-START-->    
+    <bean id="IlineEvaTemplateMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.lineEva.mgr.impl.LineEvaTemplateMgrImpl">
+                <property name="lineEvaTemplateDao" ref="lineEvaTemplateDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--LineEvaTemplate-END-->
+    
+    <!--LineEvaTask-DAO START-->
+    <bean id="lineEvaTaskDao" class="com.boco.eoms.partner.lineEva.dao.hibernate.LineEvaTaskDaoHibernate" autowire="byName"/>
+    <!--LineEvaTask-DAO END-->
+    <!--LineEvaTask-START-->    
+    <bean id="IlineEvaTaskMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.lineEva.mgr.impl.LineEvaTaskMgrImpl">
+                <property name="lineEvaTaskDao" ref="lineEvaTaskDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--LineEvaTask-END-->
+    
+    <!--LineEvaTaskDetail-DAO START-->
+    <bean id="lineEvaTaskDetailDao" class="com.boco.eoms.partner.lineEva.dao.hibernate.LineEvaTaskDetailDaoHibernate" autowire="byName"/>
+    <!--LineEvaTaskDetail-DAO END-->
+    <!--LineEvaTaskDetail-START-->    
+    <bean id="IlineEvaTaskDetailMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.lineEva.mgr.impl.LineEvaTaskDetailMgrImpl">
+                <property name="lineEvaTaskDetailDao" ref="lineEvaTaskDetailDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--LineEvaTaskDetail-END-->
+    
+    <!--LineEvaKpiInstance-DAO START-->
+    <bean id="lineEvaKpiInstanceDao" class="com.boco.eoms.partner.lineEva.dao.hibernate.LineEvaKpiInstanceDaoHibernate" autowire="byName"/>
+    <!--LineEvaKpiInstance-DAO END-->
+    <!--LineEvaKpiInstance-START-->    
+    <bean id="IlineEvaKpiInstanceMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.lineEva.mgr.impl.LineEvaKpiInstanceMgrImpl">
+                <property name="lineEvaKpiInstanceDao" ref="lineEvaKpiInstanceDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--LineEvaKpiInstance-END-->
+    
+    <!--LineEvaOrg-DAO START-->
+    <bean id="lineEvaOrgDao" class="com.boco.eoms.partner.lineEva.dao.hibernate.LineEvaOrgDaoHibernate" autowire="byName"/>
+    <!--LineEvaOrg-DAO END-->
+    <!--LineEvaOrg-START-->    
+    <bean id="IlineEvaOrgMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.lineEva.mgr.impl.LineEvaOrgMgrImpl">
+                <property name="lineEvaOrgDao" ref="lineEvaOrgDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--LineEvaOrg-END-->
+
+    <!--LineEvaAuditInfo-DAO START-->
+    <bean id="lineEvaAuditInfoDao" class="com.boco.eoms.partner.lineEva.dao.hibernate.LineEvaAuditInfoDaoHibernate" autowire="byName"/>
+    <!--LineEvaAuditInfo-DAO END-->
+    <!--LineEvaAuditInfo-START-->    
+    <bean id="IlineEvaAuditInfoMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.lineEva.mgr.impl.LineEvaAuditInfoMgrImpl">
+                <property name="lineEvaAuditInfoDao" ref="lineEvaAuditInfoDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--LineEvaAuditInfo-END-->
+    
+    <!--LineEvaAuditInfo-DAO START-->
+    <bean id="lineEvaReportInfoDao" class="com.boco.eoms.partner.lineEva.dao.hibernate.LineEvaReportInfoDaoHibernate" autowire="byName"/>
+    <!--LineEvaAuditInfo-DAO END-->
+    <!--LineEvaAuditInfo-START-->    
+    <bean id="IlineEvaReportInfoMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.partner.lineEva.mgr.impl.LineEvaReportInfoMgrImpl">
+                <property name="lineEvaReportInfoDao" ref="lineEvaReportInfoDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--LineEvaAuditInfo-END-->
+    <import
+		resource="classpath:com/boco/eoms/partner/lineEva/config/applicationContext-partner-lineEva-versionlog.xml" />
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd"
+    
+    >
+
+<beans>
+	<bean id="pnrQualityMainDao"
+		class="com.boco.eoms.partner.quality.dao.hibernate.PnrQualityMainDaoHibernate"
+		autowire="byName" />
+
+	<bean id="pnrQualityMainMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.quality.mgr.impl.PnrQualityMainMgrImpl">
+				<property name="pnrQualityMainDao" ref="pnrQualityMainDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="pnrQualityAuditDao"
+		class="com.boco.eoms.partner.quality.dao.hibernate.PnrQualityAuditDaoHibernate"
+		autowire="byName" />
+
+	<bean id="pnrQualityAuditMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.quality.mgr.impl.PnrQualityAuditMgrImpl">
+				<property name="pnrQualityAuditDao" ref="pnrQualityAuditDao" />
+			</bean>
+		</property>
+	</bean>
+	
+</beans>

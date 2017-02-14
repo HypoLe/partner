@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="iLineMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.serviceArea.mgr.impl.LineMgrImpl">
+				<property name="lineDao" ref="lineDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="lineDao"
+		class="com.boco.eoms.partner.serviceArea.dao.hibernate.LineDaoHibernate"
+		autowire="byName" />
+
+	<bean id="iGridMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.serviceArea.mgr.impl.GridMgrImpl">
+				<property name="gridDao" ref="gridDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="gridDao"
+		class="com.boco.eoms.partner.serviceArea.dao.hibernate.GridDaoHibernate"
+		autowire="byName" />
+
+	<bean id="iSiteMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.serviceArea.mgr.impl.SiteMgrImpl">
+				<property name="siteDao" ref="siteDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="siteDao"
+		class="com.boco.eoms.partner.serviceArea.dao.hibernate.SiteDaoHibernate"
+		autowire="byName" />
+
+	<bean id="iSitePapersMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.serviceArea.mgr.impl.SitePapersMgrImpl">
+				<property name="sitePapersDao" ref="sitePapersDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="sitePapersDao"
+		class="com.boco.eoms.partner.serviceArea.dao.hibernate.SitePapersDaoHibernate"
+		autowire="byName" />
+
+	<bean id="iPointMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.serviceArea.mgr.impl.PointMgrImpl">
+				<property name="pointDao" ref="pointDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="pointDao"
+		class="com.boco.eoms.partner.serviceArea.dao.hibernate.PointDaoHibernate"
+		autowire="byName" />
+
+
+	<bean id="residentSiteDao"
+		class="com.boco.eoms.partner.serviceArea.dao.hibernate.ResidentSiteDaoHibernate"
+		autowire="byName" />
+
+	<bean id="iResidentSiteMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.serviceArea.mgr.impl.ResidentSiteMgrImpl">
+				<property name="residentSiteDao" ref="residentSiteDao" />
+			</bean>
+		</property>
+	</bean>
+</beans>
+
+
+
+
+
+
+
+
+

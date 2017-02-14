@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="residentSiteForm"
+			type="com.boco.eoms.partner.oilmachine.form.OilResidentSiteForm" />
+
+		<form-bean name="oilEngineForm"
+			type="com.boco.eoms.partner.oilmachine.form.OilEngineForm" />
+
+		<form-bean name="netOilEngineForm"
+			type="com.boco.eoms.partner.oilmachine.form.NetOilEngineForm" />
+	</form-beans>
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward name="success" path="/common/success.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="nopriv" path="/common/nopriv.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="fail" path="/common/failure.jsp" redirect="false"
+			contextRelative="true" />
+	</global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+
+	<action-mappings>
+
+		<action path="/OilEngineManagement" name="oilEngineForm"
+			type="com.boco.eoms.partner.oilmachine.action.OilEngineManagementAction"
+			scope="request" parameter="method" unknown="false"
+			validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="oilEngineAdd"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/oilEngineAdd.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="oilEngineDetail"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/oilEngineDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="oilEngineList"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/oilEngineList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="oilEngineStat"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/oilEngineManagementStat.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="oilEngineContrastList"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/oilEngineContrastList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="oilEngineContrast"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/contrastDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="oilUseTimesStatistiscally"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/oilUseTimesStatistiscally.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="chargeContrast"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/chargeContrastList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="chargeContrastDetail"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/chargeContrastDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToDetailReport"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/reportDetail.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+
+		<action path="/NetOilEngineManagement" name="netOilEngineForm"
+			type="com.boco.eoms.partner.oilmachine.action.NetOilEngineManagementAction"
+			scope="request" parameter="method" unknown="false"
+			validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="netOilEngineAdd"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/netOilEngineAdd.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="netOilEngineDetail"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/netOilEngineDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="netOilEngineList"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/netOilEngineList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToExcelPage"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/select.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="importok"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/importok.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+
+		<action path="/BaseStation"
+			type="com.boco.eoms.partner.oilmachine.action.BaseStationAction"
+			scope="request" parameter="method" unknown="false"
+			validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="baseStationAdd"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/baseStationAdd.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="baseStationDetail"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/baseStationDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="baseStationList"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/baseStationList.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+
+		<action path="/oilResidentSites"
+			type="com.boco.eoms.partner.oilmachine.action.OilResidentSiteAction"
+			name="residentSiteForm" scope="request" input="mainMenu"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/residentSiteForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/residentSiteList.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+
+		<action path="/oilEngineStatistics"
+			type="com.boco.eoms.partner.oilmachine.action.OilEngineStatisticsAction"
+			name="residentSiteForm" scope="request" input="mainMenu"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="index"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/oilEngineStatistics.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="number"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/oilEngineStatisticsNumber.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="numberList"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/oilEngineStatisticsNumberList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="times"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/oilEngineStatisticsTimes.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="timesList"
+				path="/WEB-INF/pages/outlay/oilMachineManagement/oilEngineStatisticsTimesList.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+	</action-mappings>
+	<controller maxFileSize="2M"></controller>
+</struts-config>

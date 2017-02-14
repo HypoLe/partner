@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<!-- 网络资源泛型Dao基础类，供继承使用和通用 -->
+	<bean id="eomsDao" class="com.boco.eoms.partner.netresource.dao.hibernate.EomsDaoHibernateImpl" >
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	
+	<!-- 网络资源泛型Service基础类，供继承使用和通用 -->
+	<bean id="eomsService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.netresource.service.impl.EomsServiceImpl">
+				<property name="eomsDao" ref="eomsDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="pnrNetResourceDaoJdbc"
+		class="com.boco.eoms.partner.netresource.dao.jdbc.PnrNetResourceDaoJdbcImpl" autowire="byName">
+		<property name="dataSynchJdbcUtil" ref="dataSynchJdbcUtil" />
+	</bean>
+	<bean id="pnrNetResourceService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.netresource.service.impl.PnrNetResourceServiceImpl">
+				<property name="pnrNetResourceDaoJdbc" ref="pnrNetResourceDaoJdbc" />
+			</bean>
+		</property>
+	</bean>
+	<!-- 网络资源下的基站机房设备 -->
+	<bean id="anQuipmentService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.netresource.service.impl.AccessNetworkQuipmentMgrImpl">
+				<property name="anQuipmentDao" ref="accessNetworkQuipmentDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="bsBtQuipmentService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.netresource.service.impl.BsBtQuipmentMgrImpl">
+				<property name="bsBtQuipmentDao" ref="bsBtQuipmentDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="sdBsbtConfigService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.netresource.service.impl.BsBtConfigMgrImpl">
+				<property name="sdBsBtConfigDao" ref="sdBsbtConfigDao" />
+				<property name="bsBtDaoJdbc" ref="iBsBtConfigDaoJdbc"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="anrService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.netresource.service.impl.AccessNetworkRoomMgrImpl">
+				<property name="anrDao" ref="accessNetworkRoomDao" />
+				<property name="anrJdbc" ref="iAccessNetworkRoomDaoJdbc"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="bsbtApService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.netresource.service.impl.BsBtApMgrImpl">
+				<property name="apDao" ref="bsBtApDao" />
+				<property name="apJdbc" ref="iBsBtApDaoJdbc"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="keyCustomerRoomService" parent="txProxyTemplate"><!-- 添加重点机房 -->
+		<property name="target">
+			<bean class="com.boco.eoms.partner.netresource.service.impl.KeyCustomerRoomMgrImpl">
+				<property name="kcroomDao" ref="keyCustomerRoomDao" />
+				<property name="kcroomJdbc" ref="iKeyCustomerRoomDaoJdbc"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="outdoorCabinetService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.netresource.service.impl.OutdoorCabinetMgrImpl">
+				<property name="ocDao" ref="outdoorCabinetDao" />
+				<property name="ocJdbc" ref="iOutdoorCabinetDaoJdbc"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="roomResourceService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.netresource.service.impl.RoomResourceMgrImpl">
+				<property name="rerDao" ref="roomResourceDao" />
+				<property name="rerJdbc" ref="iRoomResourceDaoJdbc"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="towerAntennasService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.netresource.service.impl.TowerAntennasMgrImpl">
+				<property name="towerAntennasDao" ref="towerAntennasDao" />
+				<property name="towerAntennasDaoJdbc" ref="iTowerAntennasDaoJdbc"/>
+			</bean>
+		</property>
+	</bean>
+	
+    <bean id="towerAntennasDao" class="com.boco.eoms.partner.netresource.dao.hibernate.TowerAntennasDaoHibernate" autowire="byName"></bean>
+    <bean id="accessNetworkQuipmentDao" class="com.boco.eoms.partner.netresource.dao.hibernate.AccessNetworkQuipmentDaoHibernate" autowire="byName"></bean>
+    <bean id="roomResourceDao" class="com.boco.eoms.partner.netresource.dao.hibernate.RoomResourceDaoHibernate" autowire="byName"></bean>
+    <bean id="outdoorCabinetDao" class="com.boco.eoms.partner.netresource.dao.hibernate.OutdoorCabinetDaoHibernate" autowire="byName"></bean>
+    <bean id="bsBtApDao" class="com.boco.eoms.partner.netresource.dao.hibernate.BsBtApDaoHibernate" autowire="byName"></bean>
+    <bean id="bsBtQuipmentDao" class="com.boco.eoms.partner.netresource.dao.hibernate.BsBtQuipmentDaoHibernate" autowire="byName"></bean>
+    <bean id="sdBsbtConfigDao" class="com.boco.eoms.partner.netresource.dao.hibernate.BsBtConfigDaoHibernate" autowire="byName"></bean>
+    <bean id="accessNetworkRoomDao" class="com.boco.eoms.partner.netresource.dao.hibernate.AccessNetworkRoomDaoHibernate" autowire="byName"></bean>
+    <bean id="iAccessNetworkRoomDaoJdbc" class="com.boco.eoms.partner.netresource.dao.jdbc.AccessNetworkRoomDaoJdbcImpl" autowire="byName"></bean>
+    <bean id="iBsBtConfigDaoJdbc" class="com.boco.eoms.partner.netresource.dao.jdbc.BsBtConfigDaoJdbcImpl" autowire="byName"></bean>
+    <bean id="iBsBtApDaoJdbc" class="com.boco.eoms.partner.netresource.dao.jdbc.BsBtApDaoJdbcImpl" autowire="byName"></bean>
+    <bean id="iOutdoorCabinetDaoJdbc" class="com.boco.eoms.partner.netresource.dao.jdbc.OutdoorCabinetDaoJdbcImpl" autowire="byName"></bean>
+    <bean id="iRoomResourceDaoJdbc" class="com.boco.eoms.partner.netresource.dao.jdbc.RoomResourceDaoJdbcImpl" autowire="byName"></bean>
+    <bean id="iTowerAntennasDaoJdbc" class="com.boco.eoms.partner.netresource.dao.jdbc.TowerAntennasDaoJdbcImpl" autowire="byName"></bean>
+    <bean id="keyCustomerRoomDao" class="com.boco.eoms.partner.netresource.dao.hibernate.KeyCustomerRoomDaoHibernate" autowire="byName"></bean><!-- 添加重点机房 -->
+    <bean id="iKeyCustomerRoomDaoJdbc" class="com.boco.eoms.partner.netresource.dao.jdbc.KeyCustomerRoomDaoJdbcImpl" autowire="byName"></bean><!-- 添加重点机房 -->
+	
+</beans>

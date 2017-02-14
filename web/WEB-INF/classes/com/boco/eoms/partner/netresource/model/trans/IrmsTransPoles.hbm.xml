@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.trans.IrmsTransPoles" table="irms_trans_poles">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="poleName" column="pole_name"/>
+				<property name="relatedDistirct" column="related_distirct"/>
+				<property name="poleHeight" column="pole_height"/>
+				<property name="poleProperty" column="pole_property"/>
+				<property name="poleUse" column="pole_use"/>
+				<property name="poleUseUnit" column="pole_use_unit"/>
+				<property name="poleOwership" column="pole_owership"/>
+				<property name="poleLongitude" column="pole_longitude"/>
+				<property name="poleLatitude" column="pole_latitude"/>
+				<property name="remark" column="remark"/>
+				<property name="createTime" column="create_time"/>
+				<property name="relatedDistirctId" column="related_distirct_id"/>
+    </class>    
+</hibernate-mapping>

@@ -1,0 +1,244 @@
+body {
+    font-family:"Microsoft YaHei","Segoe UI",Arial;
+    text-align:left;
+    color: #505050;
+    font-size:12px;
+    background:url(../../images/partnerIndex/images/main_bg.png) repeat-x;
+}
+
+a:link {
+    COLOR: #5c676e; TEXT-DECORATION: none;
+}
+a:visited {
+    COLOR: #5c676e; TEXT-DECORATION: none;
+}
+a:hover {
+    COLOR: #5c676e; TEXT-DECORATION: underline;
+}
+a:active {
+    COLOR: #5c676e; TEXT-DECORATION: none;
+}
+body{ }
+
+* {
+    /*margin:1px;*/
+}
+
+span {
+    /*cursor:pointer;*/
+}
+
+#container {
+    margin:0 auto;
+    width: 99%;
+    margin-top:10px;
+}
+#main-content {
+    /*height:500px;*/
+    margin-bottom:5px;
+    /*height:400px;*/
+}
+
+/**左侧 开始*/
+#sidebar-left {
+    float:left;
+    width:196px;
+    /*height:500px;*/
+    /*background:#9ff;*/
+}
+.sidebar-left-1 {
+    margin-bottom:10px;
+}
+.sidebar-left-1 h2{
+    background:url(../../images/partnerIndex/images/title_bg.png) no-repeat;
+    height:45px;
+    padding-left:40px;
+    line-height:40px;
+    font-size:14px;
+    color:#fff;
+    font-weight:normal;
+}
+.service_main{
+    background:#deeefe;
+    border:1px solid #afcdff;
+    border-top:0;
+    padding-bottom:4px;
+}
+.service_main ul{
+    background:url(../../images/partnerIndex/images/title_bg_as.png) repeat-y;
+}
+.service_main ul li{
+    height:32px;
+    line-height:32px;
+    padding-left:10px;
+}
+.service_main ul li a{color:#000;}
+.service_main ul li span{padding-top:3px; padding-right:5px;}
+
+/**左侧 结束*/
+
+/**右侧 开始*/
+#sidebar-right {
+    float:right;
+    width:268px;
+    /*background:#9ff;*/
+}
+.sbr-box {
+    border:1px solid #a6d0e7;
+    background:#fff;
+}
+.sbr-box-con {
+    background: url(../../images/partnerIndex/images/title_bg_1.png) repeat-x;
+    margin: 0 0 7px 0;
+}
+.sbr-box-con h2 {
+    background: url(../../images/partnerIndex/images/icon_1.png) no-repeat;
+    height: 32px;
+    padding-left: 45px;
+    line-height: 32px;
+}
+.sbr-box-list {
+    margin: 0 6px;
+}
+.sbr-box-ul {
+
+}
+.sbr-box-ul li{
+    border-bottom: 1px dotted #a6a6a6;
+    background: url(../../images/partnerIndex/images/icon_18.png) no-repeat 4px 5px;
+    padding-left: 25px;
+    line-height: 26px;
+}
+/**右侧 结束*/
+/**主区域 开始*/
+#content {
+    /*margin:0 260px !important;*/
+    margin:0 278px 0 206px !important;
+    /*height:500px;*/
+    /*background:#cff;*/
+}
+/**主区域 结束*/
+#footer {
+    height:	31px;
+    background: url("../../images/partnerIndex/footer-bg.jpg") repeat-x;
+    margin-top:10px;
+    padding:10px 50px 0 50px;
+}
+
+/*盒子样式开始 begin*/
+.box {
+
+}
+.box-top {
+
+}
+.btl {
+    float:left;
+    background: url(../../images/partnerIndex/images/title_left_bg.png) no-repeat;
+    height:27px;
+    width: 120px;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+}
+.btc {
+    background: url(../../images/partnerIndex/images/title_m_bg.png) repeat-x;
+    margin:0 21px 0 120px;
+    height:27px;
+}
+.btr {
+    float:right;
+    background: url(../../images/partnerIndex/images/title_right_bg.png) no-repeat;
+    width: 21px;
+    height:27px;
+}
+
+.bt-text {
+    line-height: 25px;
+    font-size: 14px;
+}
+
+.box-content {
+    margin-bottom: 10px;
+    border: 1px solid #a6d0e7;
+    border-top: 0;
+    padding: 5px 8px 0px 8px;
+    background:#fff;
+}
+/*盒子样式结束 end*/
+
+/*页面其它样式 begin*/
+table {
+    border: 1px solid gray;
+    padding:0;
+    margin:0 auto;
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid #98c0f4;
+    height:21px;
+    font-family: 微软雅黑;
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    color: #333;
+    text-align:center;
+}
+table thead th.title {
+    border: 1px solid inherit;
+    height:30px;
+    background: #c0c0c0;
+    text-align: center;
+    line-height: 18px;
+    font-family: 微软雅黑;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: normal;
+    text-decoration: none;
+    color: #000000;
+}
+
+
+.highlight{background-color:00FF00;}
+
+.side-r-box a {
+    text-decoration:none;
+    font-weight:bold;
+    color:#039;
+}
+/*页面其它样式 end*/
+
+
+
+.ui-tabs-nav
+{
+    /*导航容器定义*/
+}
+.ui-tabs-nav span.ui-tabs-li
+{
+    /*默认标签样式*/
+    color:#fff;
+    cursor:pointer;
+}
+.ui-tabs-nav span.ui-tabs-selected
+{
+    /*激活的标签样式*/
+    color:red;
+}
+.ui-tabs-panel
+{
+    /*默认的显示区域样式*/
+}
+.ui-tabs-hide
+{
+    display: none;
+}
+.ui-hide {
+    display: none;
+}
+
+#ywlxhDiv table td {
+    text-align:left;
+}

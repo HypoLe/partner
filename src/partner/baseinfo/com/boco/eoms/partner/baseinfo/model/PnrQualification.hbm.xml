@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.boco.eoms.partner.baseinfo.model.PnrQualification"
+		table="pnr_qualification">
+		<id name="id" column="id" unsaved-value="null">
+			<!-- The generator-class attribute of @hibernate.id is deprecated, use 
+				the @hibernate.generator tag instead -->
+			<generator class="uuid.hex">
+			</generator>
+		</id>
+		<property  name="qualifyName" column="qualify_name"></property>
+		<property  name="qualifyLevel" column="qualify_level"></property>
+		<property  name="issueAuthority" column="issue_authority"></property>
+		<property  name="outOfDate" column="out_of_date"></property>
+		<property  name="remark" column="remark"></property>
+		<property  name="addTime" column="add_time"></property>
+		<property  name="isDeleted" column="isdeleted"></property>
+		<property  name="accessories" column="accessories"></property>
+		<property  name="relatedDeptId" column="related_dept_id"></property>
+		<property  name="sysno" column="sysno"></property>
+	</class>
+
+</hibernate-mapping>
+

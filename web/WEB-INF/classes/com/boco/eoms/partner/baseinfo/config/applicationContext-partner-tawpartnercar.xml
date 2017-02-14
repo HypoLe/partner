@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="tawPartnerCarMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.baseinfo.mgr.impl.TawPartnerCarMgrImpl">
+				<property name="tawPartnerCarDao"
+					ref="tawPartnerCarDao" />
+				<property name="partnerDeptAreaDao"
+					ref="partnerDeptAreaDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="tawPartnerCarDao"
+		class="com.boco.eoms.partner.baseinfo.dao.hibernate.TawPartnerCarDaoHibernate"
+		autowire="byName" />
+	<bean id="partnerDeptAreaDao"
+		class="com.boco.eoms.partner.baseinfo.dao.hibernate.PartnerDeptAreaDaoHibernate"
+		autowire="byName" />
+
+ <bean id="tawParCarDao"
+		class="com.boco.eoms.partner.baseinfo.dao.TawParCarDaoImpl" autowire="byName" />
+
+	<bean id="tawParCarService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.baseinfo.dao.TawParCarServiceImpl">
+				<property name="tawParCarDao"
+					ref="tawParCarDao" />
+			</bean>
+		</property>
+	</bean>
+	
+</beans>
+
+
+
+
+
+
+
+
+

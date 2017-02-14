@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+    <form-beans> 
+        <form-bean
+          name="assetForm"
+          type="com.boco.eoms.netresource.asset.webapp.form.AssetForm"/>
+    </form-beans>
+    
+    <!-- ========== Global Exceptions Definitions =================================== -->
+    <global-exceptions>
+        <exception type="java.lang.Exception" key="errors.general"
+          handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+    </global-exceptions>
+
+    <!-- ========== Global Forward Definitions =================================== -->
+    <global-forwards>
+        <forward
+          name="success"
+          path="/common/success.jsp"
+          redirect="false"
+          contextRelative="true"/>
+        <forward
+          name="nopriv"
+          path="/common/nopriv.jsp"
+          redirect="false"
+          contextRelative="true"/>
+        <forward
+          name="fail"
+          path="/common/failure.jsp"
+          redirect="false"
+          contextRelative="true"/>
+    </global-forwards>
+
+    <!-- ========== Action Mapping Definitions =================================== -->
+    <action-mappings>
+        <action
+          path="/assets"
+          type="com.boco.eoms.netresource.asset.webapp.action.AssetAction"
+          name="assetForm"
+          scope="request"
+          input="mainMenu"
+          parameter="method"
+          unknown="false"
+          validate="false">
+            <set-property
+              property="cancellable"
+              value="true"/>
+            <forward
+              name="edit"
+              path="/WEB-INF/pages/netresource/asset/assetForm.jsp"
+              redirect="false"
+              contextRelative="true"/>
+            <forward
+              name="list"
+              path="/WEB-INF/pages/netresource/asset/assetSearch.jsp"
+              redirect="false"
+              contextRelative="true"/>
+            <forward
+              name="detail"
+              path="/WEB-INF/pages/netresource/asset/assetDetail.jsp"
+              redirect="false"
+              contextRelative="true"/>
+        </action>
+    </action-mappings>
+    
+    <controller nocache="true" inputForward="true" maxFileSize="2M" />
+    <message-resources parameter="config/ApplicationResources"/>
+    <!-- ========== Validator plugin ===================  -->
+    <!-- 
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property property="pathnames"
+          value="/WEB-INF/validator-rules.xml,
+            /WEB-INF/validator-rules-custom.xml,
+            /WEB-INF/validation.xml" />
+    </plug-in>
+    -->
+</struts-config>
+
+

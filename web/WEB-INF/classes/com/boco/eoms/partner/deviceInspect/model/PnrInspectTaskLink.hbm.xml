@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.deviceInspect.model.PnrInspectTaskLink" table="pnr_inspect_task_link">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="planId" column="plan_id"/>
+				<property name="planResId" column="plan_res_id"/>
+				<property name="inspectId" column="inspect_id"/>
+				<property name="inspectLinkId" column="inspect_link_id"/>
+				
+				<property name="inspectMappingId" column="inspect_mapping_id"/>
+				<property name="netResId" column="netres_id"></property>
+				<property name="deviceSpecialtyName" column="device_specialty_name"></property>
+				<property name="deviceTypeName" column="device_type_name"></property>
+				<property name="netresTableName" column="netres_table_name"></property>
+				<property name="netresName" column="netres_name"></property>
+                <property name="resBar" column="res_Bar"/>     <!--资源查询.apk  条形码字段-->
+				<property name="barState" column="bar_State"/> <!--  条码持有状态-->
+                <property name="barSite" column="bar_Site"/>    <!-- 现场条码-->
+                <property name="barCodeSite" column="bar_Code_Site"/>     <!--  现场条码状态-->
+
+
+				<property name="resType" column="res_type"></property>
+				<property name="city" column="city"></property>
+				<property name="createTime" column="create_time"></property>
+				
+<!-- 线路巡检使用 begin -->				
+		<property name="tlpInspectFlag" column="tlp_inspect_flag" />
+		<property name="tlpDis" column="tlp_dis" />
+		<property name="tlpWire" column="tlp_wire" />
+		<property name="tlpSeg" column="tlp_seg" />
+		<property name="tlpPAName" column="tlp_pa_name" />
+		<property name="tlpPALo" column="tlp_pa_lo" />
+		<property name="tlpPALa" column="tlp_pa_la" />
+		<property name="tlpPZName" column="tlp_pz_name" />
+		<property name="tlpPZLo" column="tlp_pz_lo" />
+		<property name="tlpPZLa" column="tlp_pz_la" />
+		<property name="tlpType" column="tlp_type" />
+		<property name="tlpSortNum" column="tlp_sort_num" />
+		<property name="isMustArrive" column="is_must_arrive" />
+		<property name="tlpCity" column="tlp_city" />
+		<property name="tlpCountry" column="tlp_country" />
+		
+				<property name="inspectTrackId" column="inspect_track_id"></property>
+				<property name="arrivedLo" column="arrived_lo"></property>
+				<property name="arrivedLa" column="arrived_la"></property>
+				<property name="arrivedTime" column="arrived_time"></property>
+				<property name="isArrived" column="is_arrived"></property>
+				<property name="tlpSource" column="tlp_source"></property>
+				<property name="signStatus" column="sign_status"></property>
+<!-- 线路巡检使用 end -->				
+    </class>    
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="GBK"?>
+<sms>
+  <ContactMsgProcess>
+      <processCnMame>业务联系函短信</processCnMame>
+      <smsServiceId>
+        <instant>2c9e9d913d5854f8013d5864e3b40005</instant>
+        <preOverTime>
+          <accept></accept>
+          <deal></deal>
+        </preOverTime>
+        <postOverTime>
+          <accept></accept>
+          <deal></deal>
+        </postOverTime>
+      </smsServiceId>
+    </ContactMsgProcess>
+</sms>

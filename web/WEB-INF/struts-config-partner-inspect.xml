@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="inspectPlanMainForm"
+			type="com.boco.eoms.partner.inspect.webapp.form.InspectPlanMainForm" />
+		<form-bean name="pnrInspectTaskFileForm"
+			type="com.boco.eoms.partner.inspect.webapp.form.PnrInspectTaskFileForm"></form-bean>
+	</form-beans>
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<!-- <exception type="java.lang.Exception" key="errors.general" handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" 
+			/> -->
+	</global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward name="success" path="/common/success.jsp" redirect="false"
+			contextRelative="true" />
+		<forward name="fail" path="/common/fail.jsp" redirect="false"
+			contextRelative="true" />
+		<forward name="nopriv" path="/common/nopriv.jsp" redirect="false"
+			contextRelative="true" />
+		<forward name="inspectnopriv" path="/common/inspectnopriv.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="inspectnoprivforarcgis" path="/common/inspectnoprivforarcgis.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="failure" path="/WEB-INF/pages/partner/inspect/failure.jsp"
+			redirect="false" contextRelative="true" />
+	</global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+
+
+	<action-mappings>
+		<action path="/inspectPlan"
+			type="com.boco.eoms.partner.inspect.webapp.action.InspectPlanAction"
+			name="inspectPlanMainForm" scope="request" parameter="method"
+			unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="inspectPlanMainList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanMain/inspectPlanMainList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanMainDetail"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanMain/inspectPlanMainDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanMainForm"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanMain/inspectPlanMainForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanResAssignList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanRes/inspectPlanResAssignList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanResDetailAllList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanRes/inspectPlanResDetailAllList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanResDetailList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanRes/inspectPlanResDetailList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanResDetailBurstList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanRes/inspectPlanResDetailBurstList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanResList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanRes/inspectPlanResList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanResTimeCfg"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanRes/inspectPlanResTimeCfg.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanResTimeCfgBurst"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanRes/inspectPlanResTimeCfgBurst.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanApproveList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanApprove/inspectPlanApproveList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanApproveForm"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanApprove/inspectPlanApproveForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanApproveObjectForm"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanApprove/inspectPlanApproveObjectForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanItemListByCheckUserDetai"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanExecute/inspectPlanItemListByCheckUserDetail2.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToDeviceInspectList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanExecute/deviceInspectList2.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+
+		<action path="/inspectPlanChange"
+			type="com.boco.eoms.partner.inspect.webapp.action.InspectPlanChangeAction"
+			scope="request" parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="inspectPlanMainList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanChange/inspectPlanMainChangeList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanChangeList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanChange/inspectPlanChangeList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanChangeForm"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanChange/inspectPlanChangeForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanResChangeList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanChange/inspectPlanResChangeList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanResChangeForm"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanChange/inspectPlanResChangeForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanResChangeBurstForm"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanChange/inspectPlanResChangeBurstForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanChangeApproveList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanApprove/inspectPlanChangeApproveList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanResChangeApproveList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanApprove/inspectPlanResChangeApproveList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanResChangeDetail"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanChange/inspectPlanResChangeDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanChangeApproveForm"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanApprove/inspectPlanChangeApproveForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanApproveListSheet"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanApprove/inspectPlanApproveListSheet.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+
+		<action path="/inspectSpotcheckAction"
+			type="com.boco.eoms.partner.inspect.webapp.action.InspectSpotcheckAction"
+			scope="request" parameter="method" unknown="false" validate="false">
+			<forward name="inspectTemplateList"
+				path="/WEB-INF/pages/partner/inspect/inspectSpotcheck/inspectTemplateList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="spotcheckTemplateList"
+				path="/WEB-INF/pages/partner/inspect/inspectSpotcheck/spotcheckTemplateList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="spotcheckTemplateEdit"
+				path="/WEB-INF/pages/partner/inspect/inspectSpotcheck/spotcheckTemplateEdit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanMainSpotcheckList"
+				path="/WEB-INF/pages/partner/inspect/inspectSpotcheck/inspectPlanMainSpotcheckList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanResSpotcheckList"
+				path="/WEB-INF/pages/partner/inspect/inspectSpotcheck/inspectPlanResSpotcheckList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanItemSpotcheckList"
+				path="/WEB-INF/pages/partner/inspect/inspectSpotcheck/inspectPlanItemSpotcheckList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanItemSpotcheckListByMobile"
+				path="/WEB-INF/pages/partner/inspect/inspectSpotcheck/inspectPlanItemSpotcheckListByMobile.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="mobileError"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanExecute/spotcheckerror.jsp"
+				redirect="false" contextRelative="true" />
+
+		</action>
+
+		<action path="/inspectPlanStatistic"
+			type="com.boco.eoms.partner.inspect.webapp.action.InspectPlanStatisticAction"
+			scope="request" parameter="method" unknown="false" validate="false">
+			<forward name="cityStatistic"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanStatistic/cityStatistic.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="cityStatisticNew"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanStatistic/cityStatisticNew.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="cityStatisticSpecialtyNew"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanStatistic/partnerListSpecialtyStatistic.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="countryStatistic"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanStatistic/countryStatistic.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="partnerHeadStatistic"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanStatistic/partnerHeadStatistic.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="partnerCityStatistic"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanStatistic/partnerCityStatistic.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="partnerCountryStatistic"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanStatistic/partnerCountryStatistic.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+		<action path="/inspectPlanExecute"
+			type="com.boco.eoms.partner.inspect.webapp.action.InspectPlanExecuteAction"
+			scope="request" name="pnrInspectTaskFileForm" parameter="method"
+			unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="gotoUpdateAuditStatePage"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanExecute/updateAuditStatePage.jsp"
+				redirect="false" contextRelative="true" />
+            <forward name="gotoUpdateAuditStateSendTask"
+                     path="/WEB-INF/pages/partner/inspect/inspectPlanExecute/updateAuditStateSendTask.jsp"
+                     redirect="false" contextRelative="true" />
+			<forward name="updateException"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanExecute/upateExceptionWindow.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="findInspectPlanMainByCheckUserList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanExecute/inspectPlanMainByCheckUserList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="findInspectPlanMainByCheckUserListSheet"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanExecute/inspectPlanMainByCheckUserListSheet.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanMainDetailByCheckUser"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanExecute/inspectPlanMainDetailByCheckUser.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanItemListByCheckUser"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanExecute/inspectPlanItemListByCheckUser.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanItemListByCheckUserDetai"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanExecute/inspectPlanItemListByCheckUserDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="gotoInspectPlanMainUploadPicture"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanExecute/inspectPlanMainUploadPicture.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="gotoShowPicture"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanExecute/inspectPlanMainShowPicture.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanItemListByCheckUserMobile"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanExecute/inspectPlanItemListByCheckUserMobile.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanItemListByCheckUserJstlMobile"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanExecute/inspectPlanItemListByCheckUserJstlMobile.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="waitExceptionSheet"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanExecute/waitExceptionSheet.jsp"
+				redirect="false" contextRelative="true" />
+
+			<forward name="aleradyExceptionSheet"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanExecute/aleradyExceptionSheep.jsp"
+				redirect="false" contextRelative="true" />
+
+			<forward name="inspectPlanMainDetailByCheckUserSheet"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanExecute/inspectPlanMainDetailByCheckUserSheet.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="gotoWiteQualityInspectList"
+				path="/WEB-INF/pages/partner/inspect/qualityInspect/waitQualityInspectList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="aleradyWiteQualityInspectList"
+				path="/WEB-INF/pages/partner/inspect/qualityInspect/aleradyQualityInspectList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="gotoQualityInspectForm"
+				path="/WEB-INF/pages/partner/inspect/qualityInspect/qualityInspectFrom.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="qualityInspectDetail"
+				path="/WEB-INF/pages/partner/inspect/qualityInspect/qualityInspectDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToDeviceInspectList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanExecute/deviceInspectList.jsp"
+				redirect="false" contextRelative="true" />
+
+			<forward name="deviceInspectPlanItemListByCheckUser"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanExecute/deviceInspectPlanItemListByCheckUser.jsp"
+				redirect="false" contextRelative="true" />
+				
+			<forward name="inspectPlanMainDetailByCheckUserList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanExecute/inspectPlanMainDetailByCheckUserList.jsp"
+				redirect="false" contextRelative="true" />	
+			<forward name="inspectPlanItemListByCheckUserDetaiList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanExecute/inspectPlanItemListByCheckUserDetailList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanItemListByCheckUserList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanExecute/inspectPlanItemListByCheckUserList.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+
+		<action path="/inspectTemplateManger"
+			type="com.boco.eoms.partner.inspect.webapp.action.InspectTemplateMangerAction"
+			scope="request" parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="goToTemplatesList"
+				path="/WEB-INF/pages/partner/inspect/templateManage/templatesList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToEditTemplate"
+				path="/WEB-INF/pages/partner/inspect/templateManage/editTemplate.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToTemplateItemsList"
+				path="/WEB-INF/pages/partner/inspect/templateManage/templateItemsList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToAddTemplateItem"
+				path="/WEB-INF/pages/partner/inspect/templateManage/addTemplateItem.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToimportTemplateItem"
+				path="/WEB-INF/pages/partner/inspect/templateManage/importTemplateItem.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="alterTemplateItem"
+				path="/WEB-INF/pages/partner/inspect/templateManage/alterTemplateItem.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToAddNetResourceTemplateItem"
+				path="/WEB-INF/pages/partner/deviceInspect/templateManage/addNetResourceTemplateItem.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToDeviceTemplateItemsList"
+				path="/WEB-INF/pages/partner/deviceInspect/templateManage/deviceTemplateItemsList.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+
+
+		<action path="/inspectGenerateAction"
+			type="com.boco.eoms.partner.inspect.webapp.action.InspectGenerateAction"
+			name="inspectPlanMainForm" scope="request" parameter="method"
+			unknown="false" validate="false">
+			<forward name="inspectGenerate"
+				path="/WEB-INF/pages/partner/inspect/inspectGenerate/inspectGenerate.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="toPnrResConfigGenerate"
+				path="/WEB-INF/pages/partner/inspect/inspectGenerate/PnrResConfigGenerateList.jsp"
+				redirect="false" contextRelative="true" />
+
+			<forward name="pnrTransLineGenerateList"
+				path="/WEB-INF/pages/partner/inspect/inspectGenerate/pnrTransLineGenerateList.jsp"
+				redirect="false" contextRelative="true" />
+
+		</action>
+		<action path="/inspectTestAction"
+			type="com.boco.eoms.partner.inspect.webapp.action.InspectTestAction"
+			name="inspectPlanMainForm" scope="request" parameter="method"
+			unknown="false" validate="false">
+			<forward name="test"
+				path="/WEB-INF/pages/partner/inspect/insepectTest/test.jsp"
+				redirect="false" contextRelative="true" />
+
+		</action>
+
+		<action path="/inspectPlanGisAction"
+			type="com.boco.eoms.partner.inspect.webapp.action.InspectPlanGisAction"
+			name="inspectPlanMainForm" scope="request" parameter="method"
+			unknown="false" validate="false">
+			<forward name="inspectPlanMainFindList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanGis/inspectPlanMainFindList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanMainFindListForArcGis"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanGis/inspectPlanMainFindListForArcGis.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanGisTaskList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanGis/inspectPlanGisTaskList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanGisTaskListForArcGis"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanGis/inspectPlanGisTaskListForArcGis.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanGisTaskFindList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanGis/inspectPlanGisTaskFindList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanGisTaskFindListForArcGis"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanGis/inspectPlanGisTaskFindListForArcGis.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanGisLocusFindList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanGis/inspectPlanGisLocusFindList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanGisTrack"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanGis/inspectPlanGisTrack.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="getAllInspectMainPlan"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanGis/inspectPlanGisMainList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="getAllInspectMainPlanForArcGis"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanGis/inspectPlanGisMainListForArcGis.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanGisResList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanGis/inspectPlanGisResList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanGisResListForArcGis"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanGis/inspectPlanGisResListForArcGis.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanGisErrorRes"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanGis/inspectPlanGisErrorRes.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+
+		<action path="/inspectPlanHis"
+			type="com.boco.eoms.partner.inspect.webapp.action.InspectPlanHisAction"
+			scope="request" parameter="method" unknown="false" validate="false">
+			<forward name="inspectPlanMainHisList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanHis/inspectPlanMainHisList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanMainHisDetail"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanHis/inspectPlanMainHisDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanResHisList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanHis/inspectPlanResHisList.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+		<action path="/errorDistanceAction"
+			type="com.boco.eoms.partner.inspect.webapp.action.ErrorDistanceAction"
+			scope="request" parameter="method" unknown="false" validate="false">
+			<forward name="errorDistanceList"
+				path="/WEB-INF/pages/partner/inspect/errordistance/errorDistanceList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="errorDistanceMainForm"
+				path="/WEB-INF/pages/partner/inspect/errordistance/errorDistanceMainForm.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+		<action path="/inspectLineTrackAction"
+			type="com.boco.eoms.partner.inspect.webapp.action.InspectLineTrackAction"
+			scope="request" parameter="method" unknown="false" validate="false">
+		</action>
+		<action path="/inspectPlanResQc"
+			type="com.boco.eoms.partner.inspect.webapp.action.InspectPlanResQualityCheckAction"
+			scope="request" parameter="method" unknown="false" validate="false">
+			<forward name="qualityInspectDetail"
+				path="/WEB-INF/pages/partner/inspect/qualityInspect/qualityInspectDetail.jsp"
+				redirect="false" contextRelative="true" />
+
+			<forward name="qualityInspectFrom"
+				path="/WEB-INF/pages/partner/inspect/qualityInspect/qualityInspectFrom.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+		<action path="/inspectPlanResCount"
+			type="com.boco.eoms.partner.inspect.webapp.action.InspectPlanResCountAction"
+			name="inspectPlanMainForm" scope="request" parameter="method"
+			unknown="false" validate="false">
+			<forward name="inspectPlanResCountList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanGis/count/inspectPlanResCountList.jsp"
+				redirect="false" contextRelative="true" />
+		    <forward name="inspectPlanResCountListSpecialty"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanGis/count/inspectPlanResCountListSpecialty.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanResCountDetailList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanGis/count/inspectPlanResCountDetailList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanItemCountDetailList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanGis/count/inspectPlanItemCountDetailList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanResExceptionCountList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanGis/count/inspectPlanResExceptionCountList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanResExceptionCountDetailList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanGis/count/inspectPlanResExceptionCountDetailList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="inspectPlanItemExceptionCountDetailList"
+				path="/WEB-INF/pages/partner/inspect/inspectPlanGis/count/inspectPlanItemExceptionCountDetailList.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+	</action-mappings>
+
+	<controller nocache="true" inputForward="true" maxFileSize="5M" />
+
+</struts-config>

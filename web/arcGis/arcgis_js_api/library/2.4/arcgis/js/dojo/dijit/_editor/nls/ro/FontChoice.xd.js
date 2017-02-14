@@ -1,0 +1,4 @@
+window[esri._dojoScopeName||"dojo"]._xdResourceLoaded(function(dojo, dijit, dojox){
+return {depends: [["provide", "dijit._editor.nls.ro.FontChoice"]],
+defineResource: function(dojo, dijit, dojox){dojo.provide("dijit._editor.nls.ro.FontChoice");dojo._xdLoadFlattenedBundle("dijit._editor", "FontChoice", "ro", {"noFormat":"Fără","1":"xxs (xx-small)","2":"xs (x-small)","formatBlock":"Format","3":"s (small)","4":"m (medium)","5":"l (large)","6":"xl (x-large)","7":"xxl (xx-large)","fantasy":"fantasy","serif":"serif","p":"Paragraf","pre":"Preformatat","sans-serif":"sans-serif","fontName":"Font","h1":"Titlu","h2":"Subtitlu","h3":"Sub-subtitlu","monospace":"monospace","fontSize":"Dimensiune","cursive":"cursive"});
+}};});

@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+    <!--TawWorkbenchMemo-DAO START-->
+   
+    <bean id="ExamDAO" 
+    class="com.boco.eoms.examonline.dao.ExamDAO"  autowire="byName"/>
+    <bean id="examTypeSelDao" 
+    class="com.boco.eoms.examonline.dao.ExamTypeSelDao"  autowire="byName"/>
+    <bean id="examWarehouseDao" 
+    class="com.boco.eoms.examonline.dao.ExamWarehouseDao"  autowire="byName"/>
+    <bean id="examNoticeDao" 
+    	class="com.boco.eoms.examonline.dao.ExamNoticeDaoImpl"  autowire="byName"/>
+    <bean id="examPartnerDao" 
+    	class="com.boco.eoms.examonline.dao.ExamPartnerDaoImpl"  autowire="byName"/>
+    	<bean id="examResultDao" 
+    	class="com.boco.eoms.examonline.dao.ExamResultDaoImpl"  autowire="byName"/>
+
+
+
+    <bean id="examService" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.examonline.service.ExamService">
+                <property name="DAO" ref="ExamDAO"/>
+            </bean>
+        </property>
+    </bean>
+    <bean id="examTypeSelService" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.examonline.service.ExamTypeSelService">
+                <property name="examTypeSelDao" ref="examTypeSelDao"/>
+            </bean>
+        </property>
+    </bean>
+    <bean id="examWarehouseService" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.examonline.service.ExamWarehouseService">
+                <property name="examWarehouseDao" ref="examWarehouseDao"/>
+            </bean>
+        </property>
+    </bean>
+    <bean id="examNoticeService" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.examonline.service.ExamNoticeServiceImpl">
+                <property name="examNoticeDao" ref="examNoticeDao"/>
+            </bean>
+        </property>
+    </bean>
+    
+     <bean id="examPartnerService" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.examonline.service.ExamPartnerServiceImpl">
+                <property name="examPartnerDao" ref="examPartnerDao"/>
+                <property name="examDao" ref="ExamDAO"/>
+            </bean>
+        </property>
+    </bean>
+    
+     <bean id="examResultService" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.examonline.service.ExamResultServiceImpl">
+                <property name="examResultDao" ref="examResultDao"/>
+            </bean>
+        </property>
+    </bean>
+</beans>

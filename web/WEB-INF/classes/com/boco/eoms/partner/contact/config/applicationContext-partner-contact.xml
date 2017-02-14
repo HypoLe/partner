@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+<!-- 联系函管理  开始 -->
+		<bean id="refcontactMainDao"
+			class="com.boco.eoms.partner.contact.dao.impl.ContactMainDaoImpl" autowire="byName" />
+		<bean id="refcontactTaskDao"
+			class="com.boco.eoms.partner.contact.dao.impl.ContactTaskDaoImpl" autowire="byName" />	
+		<bean id="refcontactLinkDao"
+			class="com.boco.eoms.partner.contact.dao.impl.ContactLinkDaoImpl" autowire="byName" />	
+				
+		<bean id="refcontactMainMgr" parent="txProxyTemplate">
+			<property name="target">
+				<bean class="com.boco.eoms.partner.contact.mgr.impl.ContactMainMgrImpl">
+					<property name="contactMainDao" ref="refcontactMainDao" />
+				</bean>
+			</property>
+		</bean>
+		<bean id="refcontactTaskMgr" parent="txProxyTemplate">
+			<property name="target">
+				<bean class="com.boco.eoms.partner.contact.mgr.impl.ContactTaskMgrImpl">
+					<property name="contactTaskDao" ref="refcontactTaskDao" />
+				</bean>
+			</property>
+		</bean>
+		<bean id="refcontactLinkMgr" parent="txProxyTemplate">
+			<property name="target">
+				<bean class="com.boco.eoms.partner.contact.mgr.impl.ContactLinkMgrImpl">
+					<property name="contactLinkDao" ref="refcontactLinkDao" />
+				</bean>
+			</property>
+		</bean>
+		<bean id="refcontactMgr" parent="txProxyTemplate">
+			<property name="target">
+				<bean class="com.boco.eoms.partner.contact.mgr.impl.ContactMgrImpl">
+					<property name="contactMainMgr" ref="refcontactMainMgr" />
+					<property name="contactTaskMgr" ref="refcontactTaskMgr" />
+				</bean>
+			</property>
+		</bean>
+		
+		
+		
+	<!-- 联系函管理  结束 -->
+	
+</beans>

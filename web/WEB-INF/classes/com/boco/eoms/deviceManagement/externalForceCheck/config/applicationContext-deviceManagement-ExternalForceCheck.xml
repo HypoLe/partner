@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="ExternalForceCheckdao"
+		class="com.boco.eoms.deviceManagement.externalForceCheck.dao.ExternalForceCheckdaoImpl"
+		autowire="byName" />
+
+	<bean id="externalForceCheckService" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.deviceManagement.externalForceCheck.service.ExternalForceCheckServiceImpl">
+				<property name="externalForceCheckdao"
+					ref="ExternalForceCheckdao" />
+				
+			</bean>
+		</property>
+	</bean>
+	
+	
+	<bean id="ExternalForceCheckSublistdao"
+		class="com.boco.eoms.deviceManagement.externalForceCheck.dao.ExternalForceCheckSublistdaoImpl"
+		autowire="byName" />
+
+	<bean id="externalForceCheckSublistService" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.deviceManagement.externalForceCheck.service.ExternalForceCheckSublistServiceImpl">
+				<property name="externalForceCheckSublistdao"
+					ref="ExternalForceCheckSublistdao" />
+				
+			</bean>
+		</property>
+	</bean>
+
+</beans>

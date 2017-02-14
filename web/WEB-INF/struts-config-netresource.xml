@@ -1,0 +1,615 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+	</form-beans>
+	<!-- ========== Global Exceptions Definitions =================================== -->
+    <global-exceptions>
+        <exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+    </global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward name="success" path="/common/success.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="nopriv" path="/common/nopriv.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="fail" path="/common/failure.jsp" redirect="false"
+			contextRelative="true" />
+	</global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+	<action-mappings>
+		<action path="/pnrResMeteringAction"
+		  type="com.boco.eoms.partner.dataSynch.webapp.action.PnrResMeteringAction"  scope="request" input="mainMenu"
+		  parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true"/>
+		 	<forward name="pnrResMeteringList" 
+			  	path="/WEB-INF/pages/partner/netresource/pnrResMeteringList.jsp"
+			  	redirect="false" contextRelative="true"/>
+		 	<forward name="pnrResMeteringDetail" 
+			  	path="/WEB-INF/pages/partner/netresource/pnrResMeteringDetail.jsp"
+			  	redirect="false" contextRelative="true"/>
+		 	<forward name="sheetMeteringList" 
+			  	path="/WEB-INF/pages/partner/netresource/sheetMeteringList.jsp"
+			  	redirect="false" contextRelative="true"/>
+		</action>
+		<action path="/synchExceRecord"
+		  type="com.boco.eoms.partner.dataSynch.webapp.action.SynchExceptionRecordAction"  scope="request" input="mainMenu"
+		  parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true"/>
+		 	<forward name="list" 
+			  	path="/WEB-INF/pages/partner/dataSynch/exceptionRecord/exceptionRecordList.jsp"
+			  	redirect="false" contextRelative="true"/>
+		 	<forward name="inspectFeeDetailList" 
+			  	path="/WEB-INF/pages/partner/netresource/inspectFeeDetailList.jsp"
+			  	redirect="false" contextRelative="true"/>
+		</action>
+		<action path="/synchExcel2XmlAction"
+		  type="com.boco.eoms.partner.dataSynch.webapp.action.SynchExcel2XmlAction"  scope="request" input="mainMenu"
+		  parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true"/>
+		 	<forward name="gotoIrmsBsBtssiteListPage" 
+			  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsBtssiteList.jsp"
+			  	redirect="false" contextRelative="true"/>
+		</action>
+		
+		<action path="/pnrNetResourceAction"
+		  type="com.boco.eoms.partner.netresource.action.PnrNetResourceAction"
+		  name="gridForm" scope="request" input="mainMenu"
+		  parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true"/>		 
+			
+			<!--  网络资源空间资源下的 bs 配置 begin-->
+			 	<forward name="gotoIrmsBsBtssiteListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsBtssiteList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsBtssiteDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsBtssiteDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsBtssiteDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsBtssiteDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsJzwdListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsJzwdList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsJzwdDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsJzwdDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsJzwdDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsJzwdDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsTransforListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsTransforList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsTransforDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsTransforDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsTransforDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsTransforDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsShelfListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsShelfList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsShelfDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsShelfDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsShelfDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsShelfDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsSlotListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsSlotList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsSlotDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsSlotDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsSlotDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsSlotDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsUtrancellListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsUtrancellList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsUtrancellDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsUtrancellDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsUtrancellDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsUtrancellDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsCellListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsCellList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsCellDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsCellDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsCellDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsCellDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsNodebListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsNodebList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsNodebDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsNodebDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsNodebDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsNodebDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsRackListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsRackList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsRackDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsRackDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsRackDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsRackDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsCardListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsCardList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsCardDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsCardDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsCardDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsCardDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsGrneratListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsGrneratList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsGrneratDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsGrneratDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsGrneratDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsGrneratDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsStorageListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsStorageList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsStorageDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsStorageDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsStorageDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsStorageDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsGrnerat2ListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsGrnerat2List.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsGrnerat2DetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsGrnerat2Detail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsGrnerat2DSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsGrnerat2DSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsUpsListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsUpsList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsUpsDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsUpsDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsUpsDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsUpsDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsAirconListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsAirconList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsAirconDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsAirconDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsAirconDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsAirconDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsSpeairconListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsSpeairconList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsSpeairconDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsSpeairconDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsSpeairconDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsSpeairconDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsMmeListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsMmeList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsMmeDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsMmeDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsMmeDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsMmeDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsVensListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsVensList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsVensDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsVensDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsVensDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsVensDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsHesListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsHesList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsHesDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsHesDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsHesDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsHesDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsWepListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsWepList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsWepDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsWepDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsWepDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsWepDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsWpcListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsWpcList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsWpcDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsWpcDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsWpcDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsWpcDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsSeeListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsSeeList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsSeeDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsSeeDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsSeeDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsSeeDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsMpptListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsMpptList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsMpptDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsMpptDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsMpptDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsMpptDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsCcListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsCcList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsCcDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsCcDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsCcDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsCcDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsBsBbListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsBbList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsBbDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/bs/irmsBsBbDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsBsBbDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/bs/irmsBsBbDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			<!--  网络资集空间资源下的 bs配置 end-->
+			
+			<!--  网络资源空间资源下的 trans 配置 begin-->
+			 	<forward name="gotoIrmsTransWellListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransWellList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransWellDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransWellDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransWellDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/trans/irmsTransWellDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsTransPolelineListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransPolelineList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransPolelineDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransPolelineDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransPolelineDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/trans/irmsTransPolelineDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsTransPipeholeListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransPipeholeList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransPipeholeDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransPipeholeDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransPipeholeDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/trans/irmsTransPipeholeDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsTransPipesecListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransPipesecList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransPipesecDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransPipesecDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransPipesecDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/trans/irmsTransPipesecDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsTransPipeListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransPipeList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransPipeDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransPipeDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransPipeDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/trans/irmsTransPipeDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsTransPolesListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransPolesList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransPolesDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransPolesDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransPolesDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/trans/irmsTransPolesDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsTransPolelinesecListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransPolelinesecList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransPolelinesecDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransPolelinesecDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransPolelinesecDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/trans/irmsTransPolelinesecDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsTransMarkstoneListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransMarkstoneList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransMarkstoneDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransMarkstoneDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransMarkstoneDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/trans/irmsTransMarkstoneDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsTransDirburyListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransDirburyList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransDirburyDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransDirburyDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransDirburyDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/trans/irmsTransDirburyDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsTransOpcableListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransOpcableList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransOpcableDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransOpcableDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransOpcableDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/trans/irmsTransOpcableDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsTransOpcablesecListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransOpcablesecList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransOpcablesecDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransOpcablesecDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransOpcablesecDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/trans/irmsTransOpcablesecDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsTransDirburysecListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransDirburysecList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransDirburysecDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransDirburysecDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransDirburysecDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/trans/irmsTransDirburysecDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsTransOdfListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransOdfList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransOdfDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransOdfDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransOdfDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/trans/irmsTransOdfDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsTransOpconboxListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransOpconboxList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransOpconboxDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/trans/irmsTransOpconboxDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTransOpconboxDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/trans/irmsTransOpconboxDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			<!--  网络资集空间资源下的 trans配置 end-->
+			
+			<!--  网络资源空间资源下的 wlan 配置 begin-->
+			 	<forward name="gotoIrmsWlanRepeaterListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/wlan/irmsWlanRepeaterList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsWlanRepeaterDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/wlan/irmsWlanRepeaterDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsWlanRepeaterDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/wlan/irmsWlanRepeaterDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsWlanHotListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/wlan/irmsWlanHotList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsWlanHotDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/wlan/irmsWlanHotDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsWlanHotDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/wlan/irmsWlanHotDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsWlanAcListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/wlan/irmsWlanAcList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsWlanAcDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/wlan/irmsWlanAcDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsWlanAcDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/wlan/irmsWlanAcDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsWlanApListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/wlan/irmsWlanApList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsWlanApDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/wlan/irmsWlanApDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsWlanApDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/wlan/irmsWlanApDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsWlanSwitchListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/wlan/irmsWlanSwitchList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsWlanSwitchDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/wlan/irmsWlanSwitchDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsWlanSwitchDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/wlan/irmsWlanSwitchDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			<!--  网络资集空间资源下的 wlan配置 end-->
+			
+			<!--  网络资源空间资源下的 tower 配置 begin-->
+			 	<forward name="gotoIrmsTowerTowerListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/tower/irmsTowerTowerList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTowerTowerDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/tower/irmsTowerTowerDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTowerTowerDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/tower/irmsTowerTowerDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsTowerAntListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/tower/irmsTowerAntList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTowerAntDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/tower/irmsTowerAntDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsTowerAntDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/tower/irmsTowerAntDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			<!--  网络资集空间资源下的 tower配置 end-->
+			
+			<!--  网络资源空间资源下的 group 配置 begin-->
+			 	<forward name="gotoIrmsGrouCustomerListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/group/irmsGrouCustomerList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsGrouCustomerDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/group/irmsGrouCustomerDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsGrouCustomerDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/group/irmsGrouCustomerDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsGroupLineListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/group/irmsGroupLineList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsGroupLineDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/group/irmsGroupLineDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsGroupLineDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/group/irmsGroupLineDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsGroupProductListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/group/irmsGroupProductList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsGroupProductDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/group/irmsGroupProductDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsGroupProductDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/group/irmsGroupProductDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsGroupSoundListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/group/irmsGroupSoundList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsGroupSoundDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/group/irmsGroupSoundDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsGroupSoundDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/group/irmsGroupSoundDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsGroupGprsListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/group/irmsGroupGprsList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsGroupGprsDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/group/irmsGroupGprsDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsGroupGprsDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/group/irmsGroupGprsDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsGroupSmsListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/group/irmsGroupSmsList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsGroupSmsDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/group/irmsGroupSmsDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsGroupSmsDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/group/irmsGroupSmsDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsGroupMmsListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/group/irmsGroupMmsList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsGroupMmsDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/group/irmsGroupMmsDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsGroupMmsDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/group/irmsGroupMmsDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsGroupRentListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/group/irmsGroupRentList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsGroupRentDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/group/irmsGroupRentDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsGroupRentDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/group/irmsGroupRentDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsGroupDeviceListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/group/irmsGroupDeviceList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsGroupDeviceDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/group/irmsGroupDeviceDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsGroupDeviceDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/group/irmsGroupDeviceDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			<!--  网络资集空间资源下的 group配置 end-->
+			
+			<!--  网络资源空间资源下的 space 配置 begin-->
+			 	<forward name="gotoIrmsSpaceAreaListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/space/irmsSpaceAreaList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsSpaceAreaDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/space/irmsSpaceAreaDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsSpaceAreaDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/space/irmsSpaceAreaDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsSpaceRoomListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/space/irmsSpaceRoomList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsSpaceRoomDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/space/irmsSpaceRoomDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsSpaceRoomDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/space/irmsSpaceRoomDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			 	<forward name="gotoIrmsSpaceSiteListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/space/irmsSpaceSiteList.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsSpaceSiteDetailPage" 
+				  	path="/WEB-INF/pages/partner/netresource/space/irmsSpaceSiteDetail.jsp"
+				  	redirect="false" contextRelative="true"/>
+				<forward name="gotoIrmsSpaceSiteDSRListPage" 
+				  	path="/WEB-INF/pages/partner/netresource/dsr/space/irmsSpaceSiteDSRList.jsp"
+				  	redirect="false" contextRelative="true"/>
+			<!--  网络资集空间资源下的 space配置 end-->
+			
+			<!-- 网络资源同步统计 -->
+			<forward name="netResourceCount" 
+				  	path="/WEB-INF/pages/partner/netresource/pnrResCount.jsp"
+				  	redirect="false" contextRelative="true"/>
+		</action>
+	</action-mappings>
+	
+ 	<controller nocache="true" inputForward="true" maxFileSize="2M" />
+	<message-resources parameter="config/ApplicationResources"/>
+</struts-config>

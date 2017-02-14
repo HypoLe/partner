@@ -1,0 +1,2315 @@
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+<distributable/>
+	<servlet>
+		<servlet-name>proxoolServletConfigurator</servlet-name>
+		<servlet-class>
+			org.logicalcobwebs.proxool.configuration.ServletConfigurator
+		</servlet-class>
+		
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>proxooladmin</servlet-name>
+		<servlet-class>
+			org.logicalcobwebs.proxool.admin.servlet.AdminServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>proxooladmin</servlet-name>
+		<url-pattern>/dbpool</url-pattern>
+	</servlet-mapping>
+	
+	<!-- open it when server is wps	-->
+	<!-- if your container start error ,please close 闂傚倸鍊搁崐鐑芥嚄閸洖纾婚柕濞炬櫅绾惧潡鏌＄仦璇插姎閸ユ潙顪㈤妶鍐ㄥ妞ゆ柨鏁唀xtLoaderListener闂傚倸鍊搁崐椋庣矆娴ｈ桨鐒婇柛娑欐綑缁狀垶鏌ㄩ悤鍌涘?-->
+	<listener>
+		<!-- 
+			<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+			</listener-class>
+		 -->
+		<listener-class>
+			com.boco.eoms.base.webapp.listener.UserCounterListener
+		</listener-class>
+	</listener>
+
+	<!-- fckeditor -START -->
+	<servlet>
+		<servlet-name>Connector</servlet-name>
+		<servlet-class>
+			net.fckeditor.connector.ConnectorServlet
+		</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Connector</servlet-name>
+		<url-pattern>
+			/fckeditor/editor/filemanager/connectors/*
+		</url-pattern>
+	</servlet-mapping>
+
+	<!--  闂ㄦ埛鍙�4a鐨勯摼鎺ilter閰嶇疆 
+	<filter>
+    	<filter-name>AppFilter</filter-name>
+		<filter-class>
+			com.boco.sso.client.filter.AppFilter
+	</filter-class>
+
+    	<init-param>
+      		<param-name>encoding</param-name>
+      		<param-value>UTF-8</param-value>
+    	</init-param>
+  	</filter>
+  	
+  	<filter>
+		<filter-name>EOMS_Portal4AFilter</filter-name>
+		<filter-class>
+			com.boco.eoms.base.util.Portal4AFilter
+		</filter-class>
+		<init-param>
+			<param-name>ft_paramtype</param-name>
+			<param-value>filter_session</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ft_paramname</param-name>
+			<param-value>sso_account</param-value>
+		</init-param>
+	</filter>
+	-->
+	
+		<!-- android鎵嬫満filter閰嶇疆 -->
+	<filter>
+    	<filter-name>AndroidFilter</filter-name>
+		<filter-class>
+			com.boco.eoms.base.util.AndroidFilter
+		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<!--<param-value>GB2312</param-value>-->
+			<param-value>UTF-8</param-value>
+		</init-param>
+  	</filter>
+<filter>
+   <filter-name>OpenSessionInViewFilter</filter-name>
+   <filter-class>
+    org.springframework.orm.hibernate3.support.OpenSessionInViewFilter
+   </filter-class>
+	   <init-param>
+	   		 <param-name>sessionFactoryBeanName</param-name>
+	    	<param-value>sessionFactory</param-value>
+	   </init-param>
+  		<init-param>
+            <param-name>singleSession</param-name>
+            <param-value>true</param-value>           
+        </init-param>
+        <init-param>
+       		 <param-name> flushMode </param-name>
+  			 <param-value>AUTO </param-value>        
+        </init-param>
+</filter> 
+<filter-mapping>
+        <filter-name>OpenSessionInViewFilter</filter-name>
+        <url-pattern>*.do</url-pattern>
+</filter-mapping>  	
+	<filter>
+		<filter-name>Set Character Encoding</filter-name>
+		<filter-class>
+			com.boco.eoms.base.util.SetCharacterEncodingFilter
+		</filter-class>
+		<init-param>
+			<param-name>timeoutpage</param-name>
+			<param-value>timeout.jsp</param-value>
+		</init-param>
+		<init-param>
+			<param-name>waptimeoutpage</param-name> 
+			<param-value>waptimeout.jsp</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ignore</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>encoding</param-name>
+			<!--<param-value>GB2312</param-value>-->
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+
+	<!-- 鍥涘窛闂ㄦ埛filter閮ㄧ讲鍖�
+	<filter-mapping>
+    	<filter-name>AppFilter</filter-name>
+    	<url-pattern>*.do</url-pattern>
+  	</filter-mapping>
+  		<filter-mapping>
+    	<filter-name>AppFilter</filter-name>
+    	<url-pattern>*.jsp</url-pattern>
+  	</filter-mapping>
+  	
+  	<filter-mapping>
+		<filter-name>EOMS_Portal4AFilter</filter-name>
+		<servlet-name>action</servlet-name>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>EOMS_Portal4AFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>	
+	<filter-mapping>
+		<filter-name>EOMS_Portal4AFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	 鍥涘窛闂ㄦ埛filter閮ㄧ讲鍖� end 
+	-->
+	
+	
+	<filter-mapping>
+		<filter-name>Set Character Encoding</filter-name>
+		<servlet-name>action</servlet-name>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>Set Character Encoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	
+	<filter-mapping>
+		<filter-name>AndroidFilter</filter-name>
+		<servlet-name>action</servlet-name>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>AndroidFilter</filter-name>
+		<url-pattern>/examonline/myexamList.do</url-pattern>
+	</filter-mapping>
+	
+	<!-- displaytag鐨勫垪琛ㄤ笉鑳藉鍑篍xcel鐨勯棶棰� -->
+	<filter>
+		<filter-name>ResponseOverrideFilter</filter-name>
+		<filter-class>
+			org.displaytag.filter.ResponseOverrideFilter
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>ResponseOverrideFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>ResponseOverrideFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+
+
+	<!-- 鍖归厤鎵嬫満缁堢鐨剈rl
+	<filter-mapping>
+		<filter-name>AndroidFilter</filter-name>
+		<url-pattern></url-pattern>
+	</filter-mapping>
+	 -->
+	
+	
+	<display-name>appfuse</display-name>
+<!-- fckeditor -END -->
+	
+	<!-- CAS -START-->
+	 <!--     
+	<filter>
+   		<filter-name>CAS Single Sign Out Filter</filter-name>
+   		<filter-class>org.jasig.cas.client.session.SingleSignOutFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+   		<filter-name>CAS Single Sign Out Filter</filter-name>
+   		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<listener>
+    	<listener-class>org.jasig.cas.client.session.SingleSignOutHttpSessionListener</listener-class>
+	</listener>
+	
+	<filter>
+        <filter-name>CASFilter</filter-name>
+    		<filter-class>edu.yale.its.tp.cas.client.filter.CASFilter</filter-class>
+	        <init-param>
+	        	<param-name>edu.yale.its.tp.cas.client.filter.loginUrl</param-name>
+	        	<param-value>https://localhost:8443/cas/login</param-value>
+	        </init-param>
+
+	        <init-param>
+	        	<param-name>edu.yale.its.tp.cas.client.filter.validateUrl</param-name>
+	        	<param-value>https://localhost:8443/cas/proxyValidate</param-value>
+	        </init-param>
+
+	        <init-param>         
+	        	<param-name>edu.yale.its.tp.cas.client.filter.serverName</param-name>
+	            <param-value>localhost:8080</param-value>
+	        </init-param>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>CASFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping> 
+ --> 
+    <!-- CAS -END -->
+	<!-- precompiled jsp mappings -->
+
+	<!-- Define the default CSS Theme -->
+	<context-param>
+		<param-name>theme</param-name>
+		<param-value>default</param-value>
+	</context-param>
+	<!-- Define the basename for a resource bundle for I18N -->
+	<context-param>
+		<param-name>
+			javax.servlet.jsp.jstl.fmt.localizationContext
+		</param-name>
+		<param-value>config/ApplicationResources</param-value>
+	</context-param>
+	<!-- Fallback locale if no bundles found for browser's preferred locale -->
+	<!-- Force a single locale using param-name 'javax.servlet.jsp.jstl.fmt.locale' -->
+	<context-param>
+		<param-name>
+			javax.servlet.jsp.jstl.fmt.fallbackLocale
+		</param-name>
+		<param-value>en</param-value>
+	</context-param>
+
+
+	<!-- 070319 end zhoucz -->
+
+	<!-- Context Configuration locations for Spring XML files -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:config/applicationContext-all.xml,/WEB-INF/security.xml
+		</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/classes/config/log4j.properties
+		</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>
+			org.springframework.web.util.Log4jConfigListener
+		</listener-class>
+	</listener>
+
+	<!-- 婵犵數濮烽弫鎼佸磻閻愬搫鍨傞柛顐ｆ礀缁犱即鏌涘┑鍕姢闁活厽鎹囬弻褑绠涢敐鍛敖缂備胶濞�缁犳牠寮诲☉銏犖ㄦい鏃傚帶椤ゅ﹪姊虹粙娆惧剭闁告梹鍨垮璇差吋婢跺锟界粯淇婇婊冨付缂侇煈娈廹i闂傚倸鍊搁崐鐑芥倿閿曞倹鍎戠憸鐗堝笒缁�澶岋拷鐧告嫹闁跨喍绮欓弫鎾绘嚍閵夈儱姣堥梺鍝ュУ閻楃娀宕洪姀鐙�鍚嬪璺好￠妸鈺傜厓闁告繂瀚敓鐣屾暬楠炴劙宕橀瑙ｆ嫼缂備緡鍨卞ú鏍ㄦ櫠閺屻儲瀚呴梺顒�绉甸悡鐔兼煙閹屽殶闁瑰啿鎳橀弻銊╂偄鐠囨畫鎾淬亜閺冿拷閻楃姴鐣锋导鏉戝唨妞ゎ厽鍨堕娆撴椤愩垺澶勬繛鍙夛耿閳ユ牞绠涢弮鍌滎啎闂佺硶鍓濊摫閻忓浚鍙冮弻鐔兼偡閹殿喖鐓熼梺鍝勮嫰缁夊綊骞冨鍏剧喖宕崟顒�鐨╬licationcontext-attributes.xml闂傚倸鍊搁崐鎼佸磹閻戣姤鍊块柨鏇氶檷娴滃綊鏌涢幇闈涙灍闁稿孩顨￠弻娑樼暆閿熶粙宕戝☉銏犵＜闁靛ň鏅滈悡蹇涙煕椤愶絿绠栫�瑰憡绻勯惀顏堝礈瑜嶆禍楣冩煏閸パ冾伃鐎殿喗鎸抽幃娆撳箹椤撶噦绱︾紓鍌氬�风欢銈夊箯閻戣姤鐓曢柍鈺佸暟閳句線鏌ｉ幘鍗炲姕缂佺粯鐩獮瀣倻閸℃瑥濮洪梻浣虹帛鐢帡骞夐敍鍕床婵炴垯鍨圭粻濠氭煕閹邦剚鈻曢柡鍡愬灲濮婅櫣娑甸崨顓犳婵犫拃鍕垫妤犵偛绻樺畷銊╁级閹存粎鐐婇梻渚�娼ч¨灞句繆閸モ晝鐭撻柟鎯板Г閳锋帒霉閿濆牆袚妞ゃ儲娲熼幃妤�顬楅悡搴♀拫闂佽桨鐒﹂幐鑽ょ矉閹烘棑鎷烽敐鍛粵闁哄拋浜滈埞鎴︻敊缁涘鍔搁梺绯曟櫆閻楃娀骞冮悙娣亝闁告劏鏅濋崢顏呯節閻㈤潧浠滈柣蹇旂箞瀹曟繂顬楅懜鐢靛幗闁瑰吋鎯岄崹杈╋拷姘炬嫹 -->
+	<filter>
+		<filter-name>securityFilter</filter-name>
+		<filter-class>
+			org.acegisecurity.util.FilterToBeanProxy
+		</filter-class>
+		<init-param>
+			<param-name>targetClass</param-name>
+			<param-value>
+				org.acegisecurity.util.FilterChainProxy
+			</param-value>
+		</init-param>
+	</filter>
+
+	<!--
+		<filter>
+		<filter-name>cacheFilter</filter-name>
+		<filter-class>
+		com.opensymphony.oscache.web.filter.CacheFilter
+		</filter-class>
+		<init-param>
+		<param-name>time</param-name>
+		<param-value>600</param-value>
+		</init-param>
+		<init-param>
+		<param-name>scope</param-name>
+		<param-value>session</param-value>
+		</init-param>
+		</filter>
+	-->
+	<filter>
+		<filter-name>clickstreamFilter</filter-name>
+		<filter-class>
+			com.opensymphony.clickstream.ClickstreamFilter
+		</filter-class>
+	</filter>
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>
+			org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
+		<init-param>  
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<!--
+		<filter>
+		<filter-name>hibernateFilter</filter-name>
+		<filter-class>
+		org.springframework.orm.hibernate3.support.OpenSessionInViewFilter
+		</filter-class>
+		</filter>
+	-->
+	<filter>
+		<filter-name>rewriteFilter</filter-name>
+		<filter-class>
+			org.tuckey.web.filters.urlrewrite.UrlRewriteFilter
+		</filter-class>
+		<init-param>
+			<param-name>logLevel</param-name>
+			<param-value>commons</param-value>
+		</init-param>
+	</filter>
+	<!--
+		<filter>
+		<filter-name>sitemesh</filter-name>
+		<filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
+		</filter>
+	-->
+	<filter>
+		<filter-name>exportFilter</filter-name>
+		<filter-class>
+			org.displaytag.filter.ResponseOverrideFilter
+		</filter-class>
+	</filter>
+	<filter>
+		<filter-name>compressionFilter</filter-name>
+		<filter-class>
+			com.boco.eoms.base.webapp.filter.GZIPFilter
+		</filter-class>
+	</filter>
+	<filter>
+		<filter-name>localeFilter</filter-name>
+		<filter-class>
+			com.boco.eoms.base.webapp.filter.LocaleFilter
+		</filter-class>
+	</filter>
+
+
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/j_security_check</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>*.html</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+
+	<!-- 婵犵數濮烽弫鎼佸磻閻愬搫鍨傞柛顐ｆ礀缁犱即鏌涘┑鍕姢闁活厽鎹囬弻褑绠涢敐鍛敖缂備胶濞�缁犳牠寮诲☉銏犖ㄦい鏃傚帶椤ゅ﹪姊虹粙娆惧剭闁告梹鍨垮璇差吋婢跺锟界粯淇婇婊冨付缂侇煈娈廹i闂傚倸鍊搁崐鐑芥倿閿曞倹鍎戠憸鐗堝笒缁�澶岋拷鐧告嫹闁跨喍绮欓弫鎾绘嚍閵夈儱姣堥梺鍝ュУ閻楃娀宕洪姀鐙�鍚嬪璺好￠妸鈺傜厓闁告繂瀚敓鐣屾暬楠炴劙宕橀瑙ｆ嫼缂備緡鍨卞ú鏍ㄦ櫠閺屻儲瀚呴梺顒�绉甸悡鐔兼煙閹屽殶闁瑰啿鎳橀弻銊╂偄鐠囨畫鎾淬亜閺冿拷閻楃姴鐣锋导鏉戝唨妞ゎ厽鍨堕娆撴椤愩垺澶勬繛鍙夛耿閳ユ牞绠涢弮鍌滎啎闂佺硶鍓濊摫閻忓浚鍙冮弻鐔兼偡閹殿喖鐓熼梺鍝勮嫰缁夊綊骞冨鍏剧喖宕崟顒�鐨╬licationcontext-attributes.xml闂傚倸鍊搁崐鎼佸磹閻戣姤鍊块柨鏇氶檷娴滃綊鏌涢幇闈涙灍闁稿孩顨￠弻娑樼暆閿熶粙宕戝☉銏犵＜闁靛ň鏅滈悡蹇涙煕椤愶絿绠栫�瑰憡绻勯惀顏堝礈瑜嶆禍楣冩煏閸パ冾伃鐎殿喗鎸抽幃娆撳箹椤撶噦绱︾紓鍌氬�风欢銈夊箯閻戣姤鐓曢柍鈺佸暟閳句線鏌ｉ幘鍗炲姕缂佺粯鐩獮瀣倻閸℃瑥濮洪梻浣虹帛鐢帡骞夐敍鍕床婵炴垯鍨圭粻濠氭煕閹邦剚鈻曢柡鍡愬灲濮婅櫣娑甸崨顓犳婵犫拃鍕垫妤犵偛绻樺畷銊╁级閹存粎鐐婇梻渚�娼ч¨灞句繆閸モ晝鐭撻柟鎯板Г閳锋帒霉閿濆牆袚妞ゃ儲娲熼幃妤�顬楅悡搴♀拫闂佽桨鐒﹂幐鑽ょ矉閹烘棑鎷烽敐鍛粵闁哄拋浜滈埞鎴︻敊缁涘鍔搁梺绯曟櫆閻楃娀骞冮悙娣亝闁告劏鏅濋崢顏呯節閻㈤潧浠滈柣蹇旂箞瀹曟繂顬楅懜鐢靛幗闁瑰吋鎯岄崹杈╋拷姘炬嫹 -->
+	<filter-mapping>
+		<filter-name>securityFilter</filter-name>
+		<url-pattern>/j_security_check</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>securityFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>securityFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+
+	<!-- Commented out for 2 reasons: 1) it's a pain when developing JSPs, and
+		2) it causes the Signup webtest to fail -->
+
+	<!--
+		<filter-mapping>
+		<filter-name>cacheFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+		</filter-mapping>
+	-->
+	<!-- 
+		<filter-mapping>
+		<filter-name>hibernateFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+		</filter-mapping>
+	-->
+	<!--<filter-mapping>
+		<filter-name>clickstreamFilter</filter-name>
+		<url-pattern>*.html</url-pattern>
+		</filter-mapping>-->
+	<filter-mapping>
+		<filter-name>localeFilter</filter-name>
+		<url-pattern>*.html</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>localeFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>exportFilter</filter-name>
+		<url-pattern>*.html</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>compressionFilter</filter-name>
+		<url-pattern>*.css</url-pattern>
+	</filter-mapping>
+	<!--2007-11-28 cause attachment is null闂傚倸鍊搁崐鎼佸磹閻戣姤鍊块柨鏃�鎷濋幏椋庣箔濞戞ɑ鍣介柣顓熺懇閺岀喐娼忛幆褏妲ｉ梺杞扮閿曨亪寮婚悢鐑樺閻熸瑥瀚锟� commet this area modify by qinmin begin
+		<filter-mapping>
+		<filter-name>compressionFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+		</filter-mapping>
+		2007-11-28 end
+	-->
+	<filter-mapping>
+		<filter-name>compressionFilter</filter-name>
+		<url-pattern>*.js</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>compressionFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>rewriteFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<!--
+		<filter-mapping>
+		<filter-name>sitemesh</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+		</filter-mapping>
+	-->
+	<servlet>
+		<servlet-name>InitApplicationContextServlet</servlet-name>
+		<servlet-class>
+			com.boco.eoms.base.util.InitApplicationContextServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>
+			org.apache.struts.action.ActionServlet
+		</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/struts-config.xml</param-value>
+		</init-param>
+		<!-- 
+			<init-param>
+			<param-name>config/sheet/security</param-name>
+			<param-value>
+			/WEB-INF/struts-config-sheet-security.xml
+			</param-value>
+			</init-param>
+		-->
+		
+			 <!-- 浠ｇ淮浜哄憳绠＄悊-->
+		<init-param>
+			<param-name>config/personnel</param-name>
+			<param-value>/WEB-INF/struts-config-partner-personnel.xml</param-value>
+		</init-param>
+		    <!-- 涓汉宸ヤ綔骞冲彴绠＄悊  2012-8-27  -->
+		<init-param>
+			<param-name>config/home</param-name>
+			<param-value>/WEB-INF/struts-config-partner-home.xml</param-value>
+		</init-param>		    
+		<init-param>
+			<param-name>config/cache</param-name>
+			<param-value>/WEB-INF/struts-config-cache.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/rule</param-name>
+			<param-value>/WEB-INF/struts-config-rule.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/log</param-name>
+			<param-value>/WEB-INF/struts-config-log.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/message</param-name>
+			<param-value>
+				/WEB-INF/struts-config-message.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/sysuser</param-name>
+			<param-value>
+				/WEB-INF/struts-config-sysuser.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/partner/shortperiod</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-shortperiod.xml
+			</param-value>
+		</init-param>
+		<init-param>
+		     <param-name>config/mappingstorage</param-name>
+		     <param-value>/WEB-INF/struts-config-mapping.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/dept</param-name>
+			<param-value>/WEB-INF/struts-config-dept.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/sheet/special</param-name>
+			<param-value>
+				/WEB-INF/struts-config-sheet-special.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/job</param-name>
+			<param-value>/WEB-INF/struts-config-job.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/accessories</param-name>
+			<param-value>
+				/WEB-INF/struts-config-accessories.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/dict</param-name>
+			<param-value>/WEB-INF/struts-config-dict.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/role</param-name>
+			<param-value>/WEB-INF/struts-config-role.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/reported</param-name>
+			<param-value>/WEB-INF/struts-config-reported.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/workbench/memo</param-name>
+			<param-value>
+				/WEB-INF/struts-config-workbench-memo.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/taskplan</param-name>
+			<param-value>
+				/WEB-INF/struts-config-taskplan.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/priv</param-name>
+			<param-value>/WEB-INF/struts-config-priv.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/area</param-name>
+			<param-value>/WEB-INF/struts-config-area.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/testcard</param-name>
+			<param-value>
+				/WEB-INF/struts-config-testcard.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/sparepart</param-name>
+			<param-value>
+				/WEB-INF/struts-config-sparepart.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/eva</param-name>
+			<param-value>
+				/WEB-INF/struts-config-eva.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/assEva</param-name>
+			<param-value>
+				/WEB-INF/struts-config-assEva.xml
+			</param-value>
+		</init-param>		
+		<init-param>
+			<param-name>config/partner/eva</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-eva.xml
+			</param-value>
+		</init-param>
+				
+		<init-param>
+			<param-name>config/partner/assess</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-assess.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/partner/contract</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-contract.xml
+			</param-value>
+		</init-param>
+		<!-- 
+			<init-param>
+			<param-name>config/sheet/apply</param-name>
+			<param-value>
+			/WEB-INF/struts-config-sheet-apply.xml
+			</param-value>
+			</init-param>
+			
+			<init-param>
+			<param-name>config/sheet/Esm</param-name>
+			<param-value>
+			/WEB-INF/struts-config-sheet-esm.xml
+			</param-value>
+			</init-param>
+			<init-param>
+			<param-name>config/sheet/performance</param-name>
+			<param-value>
+			/WEB-INF/struts-config-sheet-performance.xml
+			</param-value>
+			</init-param>
+			<init-param>
+			<param-name>config/sheet/alarm</param-name>
+			<param-value>
+			/WEB-INF/struts-config-sheet-alarm.xml
+			</param-value>
+			</init-param>
+			<init-param>
+			<param-name>config/sheet/Nop</param-name>
+			<param-value>
+			/WEB-INF/struts-config-sheet-nop.xml
+			</param-value>
+			</init-param>
+			<init-param>
+			<param-name>config/sheet/WorkPlan</param-name>
+			<param-value>
+			/WEB-INF/struts-config-sheet-workplan.xml
+			</param-value>
+			</init-param>
+			<init-param>
+			<param-name>config/sheet/ts</param-name>
+			<param-value>
+			/WEB-INF/struts-config-sheet-ts.xml
+			</param-value>
+			</init-param>
+			<init-param>
+			<param-name>config/sheet/business</param-name>
+			<param-value>
+			/WEB-INF/struts-config-sheet-business.xml
+			</param-value>
+			</init-param>
+			<init-param>
+			<param-name>config/sheet/pvm</param-name>
+			<param-value>
+			/WEB-INF/struts-config-sheet-pvm.xml
+			</param-value>
+			</init-param>
+			<init-param>
+			<param-name>config/sheet/itrequire</param-name>
+			<param-value>
+			/WEB-INF/struts-config-sheet-itrequire.xml
+			</param-value>
+			</init-param>
+		-->
+		<init-param>
+			<param-name>config/supplierkpi</param-name>
+			<param-value>
+				/WEB-INF/struts-config-supplierkpi.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/individual</param-name>
+			<param-value>
+				/WEB-INF/struts-config-individual.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/roletease</param-name>
+			<param-value>
+				/WEB-INF/struts-config-tawsystemroletease.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/cptroom</param-name>
+			<param-value>
+				/WEB-INF/struts-config-cptroom.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/workdayset</param-name>
+			<param-value>
+				/WEB-INF/struts-config-workdayset.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/tawSystemCode</param-name>
+			<param-value>
+				/WEB-INF/struts-config-code.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/msg</param-name>
+			<param-value>/WEB-INF/struts-config-msg.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/duty</param-name>
+			<param-value>/WEB-INF/struts-duty.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/workplan</param-name>
+			<param-value>/WEB-INF/struts-workplan.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/workplanpartner</param-name>
+			<param-value>/WEB-INF/struts-config-workplanpartner.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/infmanage</param-name>
+			<param-value>/WEB-INF/struts-infmanage.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/workplan</param-name>
+			<param-value>/WEB-INF/struts-workplan.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/workbench/netdisk</param-name>
+			<param-value>
+				/WEB-INF/struts-config-workbench-netdisk.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/workbench/onlineuser</param-name>
+			<param-value>
+				/WEB-INF/struts-config-workbench-onlineuser.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/workbench/infopub</param-name>
+			<param-value>
+				/WEB-INF/struts-config-workbench-infopub.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/workbench/contact</param-name>
+			<param-value>
+				/WEB-INF/struts-config-workbench-contact.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/workbench/commission</param-name>
+			<param-value>
+				/WEB-INF/struts-config-workbench-commission.xml
+			</param-value>
+		</init-param>
+
+		<init-param>
+			<param-name>config/interfaceMonitoring</param-name>
+			<param-value>
+				/WEB-INF/struts-config-commons-interfaceMonitoring.xml
+			</param-value>
+		</init-param>
+		<!-- <init-param>
+			<param-name>config/plancontent</param-name>
+			<param-value>
+			/WEB-INF/struts-config-plancontent.xml
+			</param-value>
+			</init-param>-->
+
+		<!-- <init-param>
+			<param-name>config/loanrecord</param-name>
+			<param-value>
+			/WEB-INF/struts-config-loanrecord.xml
+			</param-value>
+			</init-param>-->
+
+		<!-- <init-param>
+			<param-name>config/visitrecord</param-name>
+			<param-value>
+			/WEB-INF/struts-config-visitrecord.xml
+			</param-value>
+			</init-param>-->
+
+		<!-- <init-param>
+			<param-name>config/dispatchrecord</param-name>
+			<param-value>
+			/WEB-INF/struts-config-dispatchrecord.xml
+			</param-value>
+			</init-param>-->
+
+		<!-- <init-param>
+			<param-name>config/reliefrecord</param-name>
+			<param-value>
+			/WEB-INF/struts-config-reliefrecord.xml
+			</param-value>
+			</init-param>-->
+
+		<init-param>
+			<param-name>config/statistic/sample</param-name>
+			<param-value>
+				/WEB-INF/struts-config-statistic-sample.xml
+			</param-value>
+		</init-param>
+
+		<!-- EOMS 宸ュ崟缁熻 struts 
+		<init-param>
+			<param-name>config/statistic/task</param-name>
+			<param-value>
+				/WEB-INF/struts-config-statistic-task.xml
+			</param-value>
+		</init-param>
+
+		<init-param>
+			<param-name>config/statistic/commontask</param-name>
+			<param-value>
+				/WEB-INF/struts-config-statistic-commontask.xml
+			</param-value>
+		</init-param>
+				<init-param>
+			<param-name>config/statistic/complaint</param-name>
+			<param-value>
+				/WEB-INF/struts-config-statistic-complaint.xml
+			</param-value>
+</init-param>
+				<init-param>
+			<param-name>config/statistic/circuitdispatch</param-name>
+			<param-value>
+				/WEB-INF/struts-config-statistic-circuitdispatch.xml
+			</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>config/statistic/netdata</param-name>
+			<param-value>
+				/WEB-INF/struts-config-statistic-netdata.xml
+			</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>config/statistic/urgentfault</param-name>
+			<param-value>
+				/WEB-INF/struts-config-statistic-urgentfault.xml
+			</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>config/statistic/netchange</param-name>
+			<param-value>
+				/WEB-INF/struts-config-statistic-netchange.xml
+			</param-value>
+		</init-param>
+		
+		
+		<init-param>
+			<param-name>config/statistic/businesspilot</param-name>
+			<param-value>
+				/WEB-INF/struts-config-statistic-businesspilot.xml
+			</param-value>
+		</init-param>
+		
+		
+		<init-param>
+			<param-name>config/statistic/commonfault</param-name>
+			<param-value>
+				/WEB-INF/struts-config-statistic-commonfault.xml
+			</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>config/statistic/businessoperation</param-name>
+			<param-value>
+				/WEB-INF/struts-config-statistic-businessoperation.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/statistic/softchange</param-name>
+			<param-value>
+				/WEB-INF/struts-config-statistic-softchange.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/statistic/businessplan</param-name>
+			<param-value>
+				/WEB-INF/struts-config-statistic-businessplan.xml
+			</param-value>
+		</init-param> 
+		-->
+		<init-param>
+			<param-name>config/statistic/customstat</param-name>
+			<param-value>
+				/WEB-INF/struts-config-statistic-customstat.xml
+			</param-value>
+		</init-param> 
+		
+		<init-param>
+			<param-name>config/statistic/notflow/partner/baseinfo</param-name>
+			<param-value>
+				/WEB-INF/struts-config-statistic-notflow-partner-baseinfo.xml
+			</param-value>
+		</init-param> 
+		
+		<init-param>
+			<param-name>config/statistic/operuser</param-name>
+			<param-value>
+				/WEB-INF/struts-config-statistic-operuser.xml
+			</param-value>
+		</init-param> 
+
+		<init-param>
+			<param-name>config/statistic/logstat</param-name>
+			<param-value>
+				/WEB-INF/struts-config-statistic-logstat.xml
+			</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>config/statistic/precheckreply</param-name>
+			<param-value>
+				/WEB-INF/struts-config-statistic-precheckreply.xml
+			</param-value>
+		</init-param> 
+		
+			<init-param>
+			<param-name>config/bureaudata</param-name>
+			<param-value>
+				/WEB-INF/struts-config-bureaudata.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/testcard</param-name>
+			<param-value>/WEB-INF/struts-eventmanager.xml</param-value>
+		</init-param>
+		<!-- add by lizhenyou MMS -->
+		<init-param>
+			<param-name>config/mms</param-name>
+			<param-value>/WEB-INF/struts-config-mms.xml</param-value>
+		</init-param>
+		
+		<!-- begin by xugengxian_090218 for wap -->
+		<init-param>
+			<param-name>config/wap</param-name>
+			<param-value>/WEB-INF/struts-config-wap.xml</param-value>
+		</init-param>
+		<!-- end by xugengxian -->
+			
+
+		<!-- <init-param>
+			<param-name>config/logunite</param-name>
+			<param-value>
+			/WEB-INF/struts-config-logunite.xml
+			</param-value>
+			</init-param>-->
+		<init-param>
+			<param-name>config/failureRecord</param-name>
+			<param-value>
+			/WEB-INF/struts-config-commons-failureRecord.xml
+			</param-value>
+			</init-param>
+		<!-- <init-param>
+			<param-name>config/workorderrecord</param-name>
+			<param-value>
+			/WEB-INF/struts-config-workorderrecord.xml
+			</param-value>
+			</init-param>-->
+		<init-param>
+			<param-name>config/hongxun</param-name>
+			<param-value>
+				/WEB-INF/struts-config-hongxun.xml
+			</param-value>
+		</init-param>
+		<init-param>
+      <param-name>config/voiceMessage</param-name>
+      <param-value>/WEB-INF/struts-voiceMessage.xml</param-value>
+       </init-param> 
+		
+		<init-param>
+			<param-name>config/networkcalendar</param-name>
+			<param-value>
+				/WEB-INF/struts-config-workbench-networkcalendar.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/filemanager</param-name>
+			<param-value>/WEB-INF/struts-filemanager.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/myinfo</param-name>
+			<param-value>/WEB-INF/struts-config-myinfo.xml</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>config/workbench/report</param-name>
+			<param-value>/WEB-INF/struts-config-workbench-report.xml</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>config/partner/baseinfo</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-baseinfo.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/partner/appops</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-appops.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/operuser</param-name>
+			<param-value>
+				/WEB-INF/struts-config-operuser.xml
+			</param-value>
+		</init-param>
+
+		<!-- 骞茬嚎鍒囧壊绠＄悊  -->
+		<init-param>
+			<param-name>config/cutapply</param-name>
+			<param-value>
+				/WEB-INF/struts-config-cutapply.xml
+			</param-value>
+		</init-param>
+
+		<init-param>
+			<param-name>config/duty/papers</param-name>
+			<param-value>
+				/WEB-INF/struts-config-papers.xml
+			</param-value>
+		</init-param>
+
+		<!--鎻愰啋鏈嶅姟 -->		
+
+		<!--鍚堝悓绠＄悊 -->
+		<init-param>
+			<param-name>config/contract</param-name>
+			<param-value>
+				/WEB-INF/struts-config-tawcontract.xml
+			</param-value>
+		</init-param>
+		
+		<!-- Nop3 By Steve Declare Start -->
+		<!-- Nop3 WorkReport Management. -->
+		<init-param>
+			<param-name>config/partner2/workReport</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner2-workReport.xml
+			</param-value>
+		</init-param>
+		<!-- Nop3 circuit Management. -->
+		<init-param>
+			<param-name>config/partner2/circuit</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner2-circuit.xml
+			</param-value>
+		</init-param>
+		<!-- Nop3 baseStation Management. -->
+		<init-param>
+			<param-name>config/partner2/baseStation</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner2-baseStation.xml
+			</param-value>
+		</init-param>
+		<!-- Nop3 target Management. -->
+		<init-param>
+			<param-name>config/partner2/target</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner2-target.xml
+			</param-value>
+		</init-param>
+		<!-- Nop3 target Management. -->
+		<init-param>
+			<param-name>config/partner2</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner2-appraisal.xml
+			</param-value>
+		</init-param>
+		<!--鐫ｅ姙椤规ā鍧�-->
+		<init-param>
+			<param-name>config/partner2/supervision</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner2-supervision.xml
+			</param-value>
+		</init-param>
+		<!-- Nop3 Declare By Steve End -->
+		
+		<!--骞茬嚎浠〃閰嶇疆-->
+		<init-param>
+			<param-name>config/mainmetermgr</param-name>
+			<param-value>
+				/WEB-INF/struts-config-parter-baseinfo-mainmetermgr.xml
+			</param-value>
+		</init-param>
+		<!--鍚堝悓淇℃伅  -->
+		<init-param>
+			<param-name>config/pnrcompact</param-name>
+			<param-value>
+				/WEB-INF/struts-config-parter-baseinfo-pnrcompact.xml
+			</param-value>
+		</init-param>
+		<!--浠ｇ淮浠〃绠＄悊 -->
+		<init-param>
+			<param-name>config/basemetermgr</param-name>
+			<param-value>
+				/WEB-INF/struts-config-parter-baseinfo-basemetermgr.xml
+			</param-value>
+		</init-param>
+		<!--浠ｇ淮浠〃绠＄悊-->
+		<init-param>
+			<param-name>config/metermgr</param-name>
+			<param-value>
+				/WEB-INF/struts-config-parter-baseinfo-metermgr.xml
+			</param-value>
+		</init-param>
+		
+		<!-- 鍚堜綔浼欎即璐圭敤绠＄悊 -->
+		<init-param>
+			<param-name>config/fee</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-baseinfo-fee.xml
+			</param-value>
+		</init-param>
+		
+		<!--鐭ヨ瘑绠＄悊 config/kmmanager/ -->
+		<init-param>
+			<param-name>config/kmmanager</param-name>
+			<param-value>
+				/WEB-INF/struts-config-kmmanager.xml
+			</param-value>
+		</init-param>
+
+		<!-- 鍚堜綔浼欎即鏃ュ父缁存姢 config/partner/maintenance/ -->
+		<init-param>
+			<param-name>config/partner/maintenance</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-maintenance.xml
+			</param-value>
+		</init-param>
+
+		<!--鍚堜綔浼欎即鏈嶅姟鑼冨洿绠＄悊 config/partner/serviceArea/ -->
+		<init-param>
+			<param-name>config/partner/serviceArea</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-serviceArea.xml
+			</param-value>
+		</init-param>
+
+		<!-- 鍚堜綔浼欎即excel瀵煎叆   config/partner/excel/ -->
+		<init-param>
+			<param-name>config/partner/excel</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-excel.xml
+			</param-value>
+		</init-param>
+				<!-- 鍚堜綔浼欎即鏈嶅姟鍗忚绠＄悊  config/partner/agreement/ -->
+		<init-param>
+			<param-name>config/partner/agreement</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-agreement.xml
+			</param-value>
+		</init-param>
+						<!-- 鍚堜綔浼欎即宸ヤ綔璁″垝浠诲姟绠＄悊  config/partner/workplan/ -->
+		<init-param>
+			<param-name>config/partner/workplan</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-workplan.xml
+			</param-value>
+		</init-param>
+						<!-- 鍚堜綔浼欎即涓存椂浠诲姟绠＄悊   config/partner/tempTask/ -->
+		<init-param>
+			<param-name>config/partner/tempTask</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-tempTask.xml
+			</param-value>
+		</init-param>	
+		<!-- 鍚堜綔浼欎即璐圭敤绠＄悊 config/partner/feeInfo/ -->
+		<init-param>
+			<param-name>config/partner/feeInfo</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-feeInfo.xml
+			</param-value>
+		</init-param>		
+		<!-- 鍚堜綔浼欎即鏈嶅姟璐圭敤缁撶畻绠＄悊 config/partner/closcost -->
+		<init-param>
+			<param-name>config/partner/costmanage</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-costmanage.xml
+			</param-value>
+		</init-param>
+		<!-- 鍚堜綔浼欎即璁惧鍘傚鍚庤瘎浼� config/partner/deviceAssess -->
+		<init-param>
+			<param-name>config/partner/deviceAssess</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-deviceAssess.xml
+			</param-value>
+		</init-param>	
+		
+		<!-- 杈呭姪璁惧浠ｇ淮鍘傚晢鍚庤瘎浼�  config/partner/assiEva -->
+		<init-param>
+			<param-name>config/partner/assiEva</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-assiEva.xml
+			</param-value>
+		</init-param>		
+		<!-- 绾胯矾浠ｇ淮鍘傚晢鍚庤瘎浼扮鐞� config/partner/lineEva -->
+		<init-param>
+			<param-name>config/partner/lineEva</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-lineEva.xml
+			</param-value>
+		</init-param>		
+		<!-- 鍩虹珯浠ｇ淮鍘傚晢鍚庤瘎浼扮鐞� config/partner/siteEva -->
+		<init-param>
+			<param-name>config/partner/siteEva</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-siteEva.xml
+			</param-value>
+		</init-param>			
+		<!-- 浼犺緭涓撲笟鍘傚晢鍚庤瘎浼扮鐞� config/partner/tranEva -->
+		<init-param>
+			<param-name>config/partner/tranEva</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-tranEva.xml
+			</param-value>
+		</init-param>		
+		<!-- 浜ゆ崲涓撲笟鍘傚晢鍚庤瘎浼� config/partner/chanEva -->
+		<init-param>
+			<param-name>config/partner/chanEva</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-chanEva.xml
+			</param-value>
+		</init-param>		
+			
+		<!-- 鍛ㄦ�荤粨鏈堟�荤粨 -->
+		<init-param>
+			<param-name>config/summary</param-name>
+			<param-value>
+				/WEB-INF/struts-config-summary.xml
+			</param-value>
+		</init-param>
+		
+		<!-- 鎸佷箙闃熷垪-->
+		<init-param>
+			<param-name>config/pq</param-name>
+			<param-value>
+				/WEB-INF/struts-config-pq.xml
+			</param-value>
+		</init-param>
+		
+		<!-- 浠诲姟绠＄悊 -->
+		<init-param>
+			<param-name>config/task</param-name>
+			<param-value>
+				/WEB-INF/struts-config-task.xml
+			</param-value>
+		</init-param>
+				
+		<!-- deviceManagement faultInfo -->
+		<init-param>
+			<param-name>config/faultInfo</param-name>
+			<param-value>
+				/WEB-INF/struts-deviceManagement-faultInfo.xml
+			</param-value>
+		</init-param>
+		<!-- deviceManagement technicData -->
+		<init-param>
+			<param-name>config/technicData</param-name>
+			<param-value>
+				/WEB-INF/struts-deviceManagement-technicData.xml
+			</param-value>
+		</init-param>
+		
+		<!--  deviceManagement-charge   -->
+		<init-param>
+			<param-name>config/deviceManagement/chargeFeeAppli</param-name>
+			<param-value>
+				/WEB-INF/struts-deviceManagement-charge-FeeAppli.xml
+			</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>config/faultSheethz</param-name>
+			<param-value>
+				/WEB-INF/struts-deviceManagement-faultSheet.xml
+			</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>config/partner/statistically</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-statistics.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/taskorder</param-name>
+			<param-value>
+				/WEB-INF/struts-deviceManagement-taskorder.xml
+			</param-value>
+		</init-param>
+		<!--鍏夌紗淇℃伅-->
+		<init-param>
+			<param-name>config/fiber</param-name>
+			<param-value>
+				/WEB-INF/struts-deviceManagement-fiberInformation.xml
+			</param-value>
+		</init-param>
+		<!-- GPS缁堢璁惧淇℃伅绠＄悊 -->
+		<init-param>
+			<param-name>config/gpsmanagement</param-name>
+			<param-value>
+				/WEB-INF/struts-hlj-GpsManagement.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/externalForceCheck</param-name>
+			<param-value>
+				/WEB-INF/struts-hlj-ExternalForceCheck.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/advertisementPlan</param-name>
+			<param-value>
+				/WEB-INF/struts-deviceManagement-advertisementPlan.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/baseinfo</param-name>
+			<param-value>
+				/WEB-INF/struts-deviceManagement-baseinfo.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/checkSegment</param-name>
+			<param-value>
+				/WEB-INF/struts-deviceManagement-checkSegment.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/lineProject</param-name>
+			<param-value>
+				/WEB-INF/struts-deviceManagement-lineProject.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/deviceManagement/promoagreement</param-name>
+			<param-value>
+				/WEB-INF/struts-deviceManagement-promoagreement.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/deviceManagement/warningboard</param-name>
+			<param-value>
+				/WEB-INF/struts-deviceManagement-warningboard.xml
+			</param-value>
+		</init-param>
+		<init-param>
+            <param-name>config/activiti/pnrTransferQuestion</param-name>
+            <param-value>
+                /WEB-INF/struts-config-partner-activiti-pnrTransferQuestion.xml
+            </param-value>
+        </init-param>
+		
+		<init-param>
+			<param-name>config/armypolicecivilian</param-name>
+			<param-value>
+				/WEB-INF/struts-hlj-armypolicecivilian.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/checkpoint</param-name>
+			<param-value>
+				/WEB-INF/struts-deviceManagement-checkpoint.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/hiddenTrouble</param-name>
+			<param-value>
+				/WEB-INF/struts-deviceManagement-HiddenTrouble.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/consctRouting</param-name>
+			<param-value>
+				/WEB-INF/struts-deviceManagement-consctRouting.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/deviceManagement/advertisement</param-name>
+			<param-value>
+				/WEB-INF/struts-hlj-advertisement.xml
+			</param-value>
+		</init-param>
+		
+		
+		
+		
+		<init-param>
+			<param-name>config/deviceManagement/mediaPublicity</param-name>
+			<param-value>
+				/WEB-INF/struts-hlj-mediaPublicity.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/deviceManagement/publicityCatchline</param-name>
+			<param-value>
+				/WEB-INF/struts-hlj-publicityCatchline.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/mechanicalArm</param-name>
+			<param-value>
+				/WEB-INF/struts-mechanicalArmManagement-baseInfo.xml
+			</param-value>
+		</init-param>
+		
+		<!-- 宸℃绾胯矾 2012骞村勾鍒濆皝闂椂鐨勭増鏈紝鎸�6鏈堣鑼冨紑鍙戝悗璇ユā鍧楀凡缁忎笉鐢紝鎵�浠ユ敞閲�
+		<init-param>
+			<param-name>config/deviceManagement/publicizeArticle</param-name>
+			<param-value>
+				/WEB-INF/struts-deviceManagement-publicizeArticle.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/deviceManagement/line</param-name>
+			<param-value>
+				/WEB-INF/struts-deviceManagement-publicizeArticle.xml
+			</param-value>
+		</init-param>
+		 -->
+		<!-- 鎶�鑳借璇�-->
+		<init-param>
+			<param-name>config/examonline</param-name>
+			<param-value>/WEB-INF/struts-config-examonline.xml</param-value>
+		</init-param>
+		
+		<!-- 娌规満瀹氭绠＄悊 -->
+		<init-param>
+			<param-name>config/oilEngineCheck</param-name>
+			<param-value>/WEB-INF/struts-config-oilEngineCheck.xml</param-value>
+		</init-param>
+		<!-- 澶囧搧澶囦欢绠＄悊-->
+		<init-param>
+			<param-name>config/spare</param-name>
+			<param-value>/WEB-INF/struts-config-spare.xml</param-value>
+		</init-param>	
+		
+		<init-param>
+			<param-name>config/partner/net</param-name>
+			<param-value>/WEB-INF/struts-config-partner-net.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/partner/inspect</param-name>
+			<param-value>/WEB-INF/struts-config-partner-inspect.xml</param-value>
+		</init-param>
+		
+		<!-- 绾胯矾绠＄悊 add by wgp 2012骞�2鏈�16鏃�14:37:41 -->
+		<init-param>
+			<param-name>config/netresource/line</param-name>
+			<param-value>/WEB-INF/struts-netresource-line.xml</param-value>
+		</init-param>
+
+		<!-- 鏍囩偣绠＄悊 add by wgp 2012骞�2鏈�20鏃�10:16:55 -->
+		<init-param>
+			<param-name>config/netresource/point</param-name>
+			<param-value>/WEB-INF/struts-netresource-point.xml</param-value>
+		</init-param>
+
+		<!-- 璧勬簮淇℃伅鍙樻洿绠＄悊 add by wgp 2012骞�2鏈�21鏃�14:13:54 -->
+		<init-param>
+			<param-name>config/netresource/modify</param-name>
+			<param-value>/WEB-INF/struts-netresource-modify.xml</param-value>
+		</init-param>
+		
+		<!-- 璧勪骇淇℃伅绠＄悊 add by WangGuangping 2012骞�3鏈�8鏃�16:17:28 -->
+		<init-param>
+			<param-name>config/netresource/asset</param-name>
+			<param-value>/WEB-INF/struts-netresource-asset.xml</param-value>
+		</init-param>
+		
+		<!-- 澶栧姏鐩槻绠＄悊 -->
+		<init-param>
+			<param-name>config/forceCheck</param-name>
+			<param-value>/WEB-INF/struts-config-forceCheck.xml</param-value>
+		</init-param>
+		
+		<!-- GIS -->
+		<init-param>
+			<param-name>config/partner/gis</param-name>
+			<param-value>/WEB-INF/struts-config-partner-gis.xml</param-value>
+		</init-param>
+		
+		<!-- 鍩硅绠＄悊 -->
+		<init-param>
+			<param-name>config/partner/training</param-name>
+			<param-value>/WEB-INF/struts-config-partner-training.xml</param-value>
+		</init-param>
+		
+		<!-- 绾胯矾鏁呴殰绠＄悊 -->
+		<init-param>
+			<param-name>config/authorities</param-name>
+			<param-value>/WEB-INF/struts-config-analyseFaily.xml</param-value>
+		</init-param>
+		
+		<!-- 鍦ㄥ悎浣滀紮浼村贰妫�涓姞鍏ヤ笌缃戠粶璧勬簮鍏宠仈鐨勮澶� add by zhangkeqi -->
+		<init-param>
+			<param-name>config/partner/deviceInspect</param-name>
+			<param-value>/WEB-INF/struts-config-partner-deviceInspect.xml</param-value>
+		</init-param>
+		
+		<!-- 宸℃璧勬簮绠＄悊 -->
+		<init-param>
+			<param-name>config/partner/res</param-name>
+			<param-value>/WEB-INF/struts-config-partner-res.xml</param-value>
+		</init-param>
+		<!-- fengguangping start -->
+		<!--浠ｇ淮鐗╄祫绠＄悊-->
+		<init-param>
+			<param-name>config/partner/resourceInfo</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-resourceInfo.xml
+			</param-value>
+		</init-param>
+		 <!-- 涓氬姟鑱旂郴鍑� 2012-8-27  -->
+		<init-param>
+			<param-name>config/contact</param-name>
+			<param-value>/WEB-INF/struts-config-partner-contact.xml</param-value>
+		</init-param>
+		<!--鐗╄祫鍙樻洿娴佺▼-->
+		<init-param>
+			<param-name>config/partner/process</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-process.xml
+			</param-value>
+		</init-param>
+		<!--鐗╀笟绠＄悊-->
+		<init-param>
+			<param-name>config/partner/property</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-property.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/android</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-android.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/partner/taskManager</param-name>
+			<param-value>/WEB-INF/struts-config-partner-taskManager.xml</param-value>
+		</init-param>
+		<!-- fengguangping end -->
+   <!-- 鎻愰啋鏈嶅姟 -->
+		<!--<init-param>
+			<param-name>config/remind</param-name>
+			<param-value>/WEB-INF/struts-config-remind.xml</param-value>
+		</init-param>-->
+ 
+ 
+		<!-- 闂傚倸鍊峰ù鍥х暦閸偅鍙忛柣銏㈩焾缁�澶愭煛閸モ晛鍓抽柤鏉挎健濮婃椽顢楅敓鐣岀矓閹绢喖鍑犲〒姘炬嫹闁哄本娲熷畷鐓庘攽閸パ呯崺濠电偞鍨堕幐鍝ョ矓瑜版帒钃熼柕濞垮劗濡插牊淇婇娆掝劅濞寸娀绠栧铏圭矙濞嗗墽鍙氶梺鐟板殩閹凤拷	-->
+		<!-- <init-param>
+			<param-name>config/fees</param-name>
+			<param-value>/WEB-INF/struts-fees.xml</param-value>
+			</init-param>-->
+		<init-param>
+			<param-name>config/partner/evaluation</param-name>
+			<param-value>/WEB-INF/struts-config-partner-evaluation.xml</param-value>
+		</init-param>
+		<!-- 浠ｇ淮鐗╄祫绠＄悊 -->
+		<init-param>
+			<param-name>config/partner/resourceInfo</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-resourceInfo.xml
+			</param-value>
+		</init-param>
+		
+ 		<!--鐗╄祫鍙樻洿娴佺▼-->
+		<init-param>
+			<param-name>config/partner/process</param-name>
+			<param-value>
+				/WEB-INF/struts-config-partner-process.xml
+			</param-value>
+		</init-param>
+		
+		<!-- 浠ｇ淮缃戠粶璧勬簮绠＄悊  add by zhangkeqi 2012-08-30 begin -->
+		<init-param>
+			<param-name>config/netresource</param-name>
+			<param-value>/WEB-INF/struts-config-netresource.xml</param-value>
+		</init-param>
+		<!-- 浠ｇ淮缃戠粶璧勬簮绠＄悊  add by zhangkeqi 2012-08-30 end -->
+		
+		<!-- 浠ｇ淮缁勭粐鍏ュ洿璧勮川琛ㄥ崟-->
+		<init-param>
+			<param-name>config/pnrOrgFinalistSheet</param-name>
+			<param-value>/WEB-INF/struts-config-pnrOrgFinalistSheet.xml</param-value>
+		</init-param>
+		<!--鐧惧害GIS-->
+		<init-param>
+		<param-name>config/partner/gis</param-name>
+			<param-value>/WEB-INF/struts-config-partner-baiduGis.xml</param-value>
+		</init-param>
+	        <!--AcrGis-->
+		<init-param>
+		<param-name>config/partner/arcGis</param-name>
+			<param-value>/WEB-INF/struts-config-partner-arcGis.xml</param-value>
+		</init-param>
+		
+		<!-- 浠ｇ淮璐圭敤绠＄悊 -->
+		<init-param>
+			<param-name>config/partner/feeManage</param-name>
+			<param-value>/WEB-INF/struts-config-partner-feeManage.xml</param-value>
+		</init-param>
+		<!-- 閫氱敤浠诲姟宸ュ崟 -->
+		<init-param>
+			<param-name>config/sheet/pnrcommontask</param-name>
+			<param-value>
+			   /WEB-INF/struts-config-sheet-pnrcommontask.xml
+			</param-value>
+		 </init-param>
+		 <!--娌规満璐圭敤绠＄悊-->
+		<init-param>
+			<param-name>config/partner/oilmachine</param-name>
+			<param-value>/WEB-INF/struts-partner-oilmachine.xml</param-value>
+		</init-param>
+        <!-- 鏁呴殰澶勭悊宸ュ崟-鏂� -->
+        <init-param>
+            <param-name>config/activiti/pnrTroubleTicket</param-name>
+            <param-value>
+                /WEB-INF/struts-config-partner-activiti-pnrTroubleTicket.xml
+            </param-value>
+        </init-param>
+        <!-- 浠诲姟宸ュ崟-鏂�-->
+        <init-param>
+            <param-name>config/activiti/pnrTaskTicket</param-name>
+            <param-value>
+                /WEB-INF/struts-config-partner-activiti-pnrTaskTicket.xml
+            </param-value>
+        </init-param>
+        <!-- 宸ュ崟缁熻-鏂� -->
+        <init-param>
+            <param-name>config/activiti/statistics</param-name>
+            <param-value>
+                /WEB-INF/struts-config-partner-activiti-statistics.xml
+            </param-value>
+        </init-param>
+        <!--浼犺緭灞�-2014-06-16-->
+        <init-param>
+            <param-name>config/activiti/pnrTransferOffice</param-name>
+            <param-value>
+                /WEB-INF/struts-config-partner-activiti-pnrTransferOffice.xml
+            </param-value>
+        </init-param>
+		 <!-- 鏁呴殰澶勭悊宸ュ崟 -->
+		<init-param>
+			<param-name>config/sheet/pnrfaultdeal</param-name>
+			<param-value>
+			   /WEB-INF/struts-config-sheet-pnrfaultdeal.xml
+			</param-value>
+		 </init-param>
+		<!-- 鎶曡瘔宸ュ崟 -->
+		<init-param>
+			<param-name>config/sheet/pnrcomplaint</param-name>
+			<param-value>
+			   /WEB-INF/struts-config-sheet-pnrcomplaint.xml
+			</param-value>
+		 </init-param>
+		  <!-- 璧勬簮鏍告煡宸ュ崟-->
+		 <init-param>
+			<param-name>config/sheet/pnrrescheck</param-name>
+			<param-value>
+			   /WEB-INF/struts-config-sheet-pnrrescheck.xml
+			</param-value>
+		 </init-param>
+		 <!-- 宸ュ崟缁熶竴鏌ヨ -->
+		 <init-param>
+			<param-name>config/sheet/alllist</param-name>
+			<param-value>
+			   /WEB-INF/struts-config-sheet-alllist.xml
+			</param-value>
+		</init-param>
+		 
+		 <!--  闅愭偅宸ュ崟 -->
+		<init-param>
+			<param-name>config/sheet/pnrhiddentrouble</param-name>
+			<param-value>
+			   /WEB-INF/struts-config-sheet-pnrhiddentrouble.xml
+			</param-value>
+		 </init-param>
+		 
+		 <!-- 鍙戠數宸ュ崟 -->
+		 <init-param>
+			<param-name>config/sheet/pnrgenerateelectricity</param-name>
+			<param-value>
+			   /WEB-INF/struts-config-sheet-pnrgenerateelectricity.xml
+			</param-value>
+		 </init-param>
+
+		 
+		 <init-param>
+			<param-name>config/partner/mainPage</param-name>
+			<param-value>/WEB-INF/struts-config-mainpage.xml</param-value>
+		</init-param>
+		 <init-param>
+		 <!-- 缃戠粶璁惧璧勬簮-->
+			<param-name>config/netresource/bsbt</param-name>
+			<param-value>/WEB-INF/struts-config-partner-netresource-pnrbsbt.xml</param-value>
+		</init-param>
+
+        <!-- 閽ュ寵绠＄悊-->
+        <init-param>
+            <param-name>config/partner/key</param-name>
+            <param-value>/WEB-INF/struts-config-partner-keyManagement.xml</param-value>
+        </init-param>
+        <!--鐢ㄤ簬鎵嬫満宸ュ崟-->
+        <init-param>
+            <param-name>config/activiti/android</param-name>
+            <param-value>/WEB-INF/struts-config-partner-activiti-android.xml</param-value>
+        </init-param>
+        <!--
+         <init-param>
+        	<param-name>config/activiti/pnrTransferInterface</param-name>
+        	<param-value>
+        	/WEB-INF/struts-config-partner-activiti-pnrTransferOfficeInterface.xml
+        	</param-value>
+        </init-param>
+        -->
+        <init-param>
+        	<param-name>config/activiti/pnrTransferMaleGuest</param-name>
+        	<param-value>
+        	/WEB-INF/struts-config-partner-activiti-pnrTransferOfficeMaleGuest.xml
+        	</param-value>
+        </init-param>
+        <!--鏂伴妫�棰勪慨宸ュ崟-->
+        <init-param>
+        	<param-name>config/activiti/pnrTransferPrecheck</param-name>
+        	<param-value>
+        	/WEB-INF/struts-config-partner-activiti-pnrTransferPrecheck.xml
+        	</param-value>
+        </init-param>
+		<!-- 宸℃浼楃 寰俊绔殣鎮ｄ笂鎶� -->
+		<init-param>
+		   <param-name>config/weixin</param-name>
+		   <param-value>/WEB-INF/struts-config-partner-weixin.xml</param-value>
+		  </init-param>
+        <!--鏈烘埧浼樺寲鐢宠-->
+        <init-param>
+        	<param-name>config/activiti/pnrOltBbuRoom</param-name>
+        	<param-value>
+        	/WEB-INF/struts-config-partner-activiti-pnrOltBbuRoom.xml
+        	</param-value>
+        </init-param>
+        <!--闅愭偅涓婃姤娴佺▼
+        <init-param>
+        	<param-name>config/activiti/netResInspect</param-name>
+        	<param-value>
+        	/WEB-INF/struts-config-partner-activiti-netResInspect.xml
+        	</param-value>
+        </init-param>-->
+        <!--鏃ч妫�棰勪慨宸ュ崟-->
+        <init-param>
+        	<param-name>config/activiti/pnrTransferOldPrecheck</param-name>
+        	<param-value>
+        	/WEB-INF/struts-config-partner-activiti-pnrTransferOldPrecheck.xml
+        	</param-value>
+        </init-param>
+		<!--鐗╂枡绠＄悊
+		 <init-param>
+        	<param-name>config/materials</param-name>
+        	<param-value>
+        	/WEB-INF/struts-materials.xml
+        	</param-value>
+        </init-param>
+        -->
+        <init-param>
+        	<param-name>config/activiti/roomDemolition</param-name>
+        	<param-value>
+        	/WEB-INF/struts-config-partner-activiti-roomDemolition.xml
+        	</param-value>
+        </init-param>
+        
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+ 
+ 
+ 	<!-- global app config -->
+ 	<servlet>
+		<servlet-name>ConfigServlet</servlet-name>
+		<servlet-class>
+			com.boco.eoms.deviceManagement.common.servlet.ConfigServlet
+		</servlet-class>
+		<load-on-startup>3</load-on-startup>
+	</servlet>
+	
+<!-- 
+	<servlet>
+		<servlet-name>JobInitServlet</servlet-name>
+		<servlet-class>
+			com.boco.eoms.commons.job.util.JobInitServlet
+		</servlet-class>
+		<load-on-startup>3</load-on-startup>
+	</servlet>
+	-->
+ 
+	<!--
+		<servlet>
+		<servlet-name>wapengine</servlet-name>
+		<servlet-class>
+		com.boco.eoms.mobilewap.wapengine.control.WapServlet
+		</servlet-class>
+		<load-on-startup>3</load-on-startup>
+		</servlet>
+		
+		<servlet-mapping>
+		<servlet-name>wapengine</servlet-name>
+		<url-pattern>/wap</url-pattern>
+		</servlet-mapping>
+		
+		<servlet>
+		<servlet-name>wapdbconnection</servlet-name>
+		<servlet-class>
+		com.boco.eoms.mobilewap.webtool.control.WapDBConnectionServlet
+		</servlet-class>
+		</servlet>
+		<servlet-mapping>
+		<servlet-name>wapdbconnection</servlet-name>
+		<url-pattern>/webtool/wapdbconnection</url-pattern>
+		</servlet-mapping>
+		
+		<servlet>
+		<servlet-name>nodelist</servlet-name>
+		<servlet-class>
+		com.boco.eoms.mobilewap.webtool.control.NodeListServlet
+		</servlet-class>
+		</servlet>
+		<servlet-mapping>
+		<servlet-name>nodelist</servlet-name>
+		<url-pattern>/webtool/nodelist</url-pattern>
+		</servlet-mapping>
+		
+		<servlet>
+		<servlet-name>wapnode</servlet-name>
+		<servlet-class>
+		com.boco.eoms.mobilewap.webtool.control.WapNodeServlet
+		</servlet-class>
+		</servlet>
+		<servlet-mapping>
+		<servlet-name>wapnode</servlet-name>
+		<url-pattern>/webtool/wapnode</url-pattern>
+		</servlet-mapping>
+		
+		
+		<servlet>
+		<servlet-name>card</servlet-name>
+		<servlet-class>
+		com.boco.eoms.mobilewap.webtool.control.CardServlet
+		</servlet-class>
+		</servlet>
+		<servlet-mapping>
+		<servlet-name>card</servlet-name>
+		<url-pattern>/webtool/card</url-pattern>
+		</servlet-mapping>
+		
+		
+		<servlet>
+		<servlet-name>tag</servlet-name>
+		<servlet-class>
+		com.boco.eoms.mobilewap.webtool.control.TagServlet
+		</servlet-class>
+		</servlet>
+		<servlet-mapping>
+		<servlet-name>tag</servlet-name>
+		<url-pattern>/webtool/tag</url-pattern>
+		</servlet-mapping>
+	-->
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+	<session-config>
+		<session-timeout>240</session-timeout>
+	</session-config>
+
+	<!-- MIME mapping -->
+	<mime-mapping>
+		<extension>doc</extension>
+		<mime-type>application/vnd.ms-word</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>gif</extension>
+		<mime-type>image/gif</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>htm</extension>
+		<mime-type>text/html</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>html</extension>
+		<mime-type>text/html</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>jnlp</extension>
+		<mime-type>application/x-java-jnlp-file</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>jpeg</extension>
+		<mime-type>image/jpeg</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>jpg</extension>
+		<mime-type>image/jpeg</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>js</extension>
+		<mime-type>application/x-javascript</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>pdf</extension>
+		<mime-type>application/pdf</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>png</extension>
+		<mime-type>image/png</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>txt</extension>
+		<mime-type>application/txt</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>xls</extension>
+		<mime-type>application/vnd.ms-excel</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>xml</extension>
+		<mime-type>text/xml</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>xul</extension>
+		<mime-type>application/vnd.mozilla.xul-xml</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>zhtml</extension>
+		<mime-type>text/html</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>zip</extension>
+		<mime-type>application/x-zip</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>zul</extension>
+		<mime-type>text/html</mime-type>
+	</mime-mapping>
+	<welcome-file-list>
+		<welcome-file>login.jsp</welcome-file>
+		
+	</welcome-file-list>
+
+
+
+
+
+	<!-- add by weizhongsheng begin 
+	<servlet>
+		<servlet-name>menutree</servlet-name>
+		<servlet-class>
+			com.boco.eoms.commons.ui.servlet.MenuTreeServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>menutree</servlet-name>
+		<url-pattern>/menutree</url-pattern>
+	</servlet-mapping>
+-->
+
+
+
+	<servlet>
+		<servlet-name>AdminServlet</servlet-name>
+		<display-name>Axis Admin Servlet</display-name>
+		<servlet-class>
+			org.apache.axis.transport.http.AdminServlet
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AxisServlet</servlet-name>
+		<display-name>Apache-Axis Servlet</display-name>
+		<servlet-class>
+			org.apache.axis.transport.http.AxisServlet
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>JCSAdminServlet</servlet-name>
+		<servlet-class>
+			org.apache.jcs.admin.servlet.BocoJCSAdminServlet
+		</servlet-class>
+		<init-param>
+			<param-name>properties</param-name>
+			<param-value>
+				WEB-INF/conf/JCSAdminServlet.velocity.properties
+			</param-value>
+		</init-param>
+	</servlet>
+	<servlet>
+		<servlet-name>SOAPMonitorService</servlet-name>
+		<display-name>SOAP Monitor Service</display-name>
+		<servlet-class>
+			org.apache.axis.monitor.SOAPMonitorService
+		</servlet-class>
+		<init-param>
+			<param-name>SOAPMonitorPort</param-name>
+			<param-value>5001</param-value>
+		</init-param>
+	</servlet>
+	<!--  
+		<servlet>
+		<servlet-name>cacheinitservlet</servlet-name>
+		<servlet-class>
+		com.boco.eoms.cache.CacheInitServlet
+		</servlet-class>
+		<load-on-startup>2</load-on-startup>
+		</servlet>
+	
+	<servlet>
+		<servlet-name>dataservlet</servlet-name>
+		<servlet-class>
+			com.boco.eoms.nmmis.controller.DataServlet
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>fileInit</servlet-name>
+		<servlet-class>
+			com.boco.eoms.common.util.FileInitServlet
+		</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/configfiles</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/failureRecord</param-name>
+			<param-value>
+			/WEB-INF/struts-config-commons-failureRecord.xml
+			</param-value>
+			</init-param>
+		
+		<init-param>
+			<param-name>webinf</param-name>
+			<param-value>/WEB-INF</param-value>
+		</init-param>
+		<init-param>
+			<param-name>root</param-name>
+			<param-value>/</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>laststepservlet</servlet-name>
+		<servlet-class>
+			com.boco.eoms.autosheet.servlet.LastStepServlet
+		</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>messagerouter</servlet-name>
+		<display-name>Apache-SOAP Message Router</display-name>
+		<servlet-class>
+			org.apache.soap.server.http.MessageRouterServlet
+		</servlet-class>
+		<init-param>
+			<param-name>faultListener</param-name>
+			<param-value>
+				org.apache.soap.server.DOMFaultListener
+			</param-value>
+		</init-param>
+	</servlet>
+	<servlet>
+		<servlet-name>rpcrouter</servlet-name>
+		<display-name>Apache-SOAP RPC Router</display-name>
+		<description>no description</description>
+		<servlet-class>
+			org.apache.soap.server.http.RPCRouterServlet
+		</servlet-class>
+		<init-param>
+			<param-name>faultListener</param-name>
+			<param-value>
+				org.apache.soap.server.DOMFaultListener
+			</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AxisServlet</servlet-name>
+		<url-pattern>*.jws</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>JCSAdminServlet</servlet-name>
+		<url-pattern>/JCSAdminServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SOAPMonitorService</servlet-name>
+		<url-pattern>/SOAPMonitor</url-pattern>
+	</servlet-mapping>
+	
+		<servlet-mapping>
+		<servlet-name>cacheinitservlet</servlet-name>
+		<url-pattern>/cacheinitservlet</url-pattern>
+		</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>laststepservlet</servlet-name>
+		<url-pattern>/laststepservlet</url-pattern>
+	</servlet-mapping>
+		-->
+	<servlet-mapping>
+		<servlet-name>AxisServlet</servlet-name>
+		<url-pattern>/services/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdminServlet</servlet-name>
+		<url-pattern>/servlet/AdminServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AxisServlet</servlet-name>
+		<url-pattern>/servlet/AxisServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AxisServlet</servlet-name>
+		<url-pattern>/servlet/AxisServlet/*</url-pattern>
+	</servlet-mapping>
+	<!--
+	<servlet-mapping>
+		<servlet-name>dataservlet</servlet-name>
+		<url-pattern>
+			/servlet/com.boco.eoms.nmmis.controller.DataServlet
+		</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>messagerouter</servlet-name>
+		<url-pattern>/servlet/messagerouter</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>rpcrouter</servlet-name>
+		<url-pattern>/servlet/rpcrouter</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>sheetattrservlet</servlet-name>
+		<servlet-class>
+			com.boco.eoms.autosheet.servlet.SheetAttrServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>sheetattrservlet</servlet-name>
+		<url-pattern>/sheetattrservlet</url-pattern>
+	</servlet-mapping>
+	 
+	<servlet>
+		<servlet-name>sheetform</servlet-name>
+		<servlet-class>
+			com.boco.eoms.autosheet.servlet.HtmlFormServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>sheetform</servlet-name>
+		<url-pattern>/htmlformservlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>sheetnameservlet</servlet-name>
+		<servlet-class>
+			com.boco.eoms.autosheet.servlet.SheetNameServlet
+		</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>sheetnameservlet</servlet-name>
+		<url-pattern>/sheetnameservlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>sheetvalueservlet</servlet-name>
+		<servlet-class>
+			com.boco.eoms.autosheet.servlet.SheetValueServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>sheetvalueservlet</servlet-name>
+		<url-pattern>/sheetvalueservlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>useractionservlet</servlet-name>
+		<servlet-class>
+			com.boco.eoms.autosheet.servlet.UserActionServlet
+		</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>useractionservlet</servlet-name>
+		<url-pattern>/useractionservlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>userhtmlservlet</servlet-name>
+		<servlet-class>
+			com.boco.eoms.autosheet.servlet.UserHtmlServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>userhtmlservlet</servlet-name>
+		<url-pattern>/htmlservlet</url-pattern>
+	</servlet-mapping>
+
+		<servlet>
+		<servlet-name>test</servlet-name>
+		<servlet-class>
+			com.boco.eoms.wap.wabapp.action.TestServlet1
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>test</servlet-name>
+		<url-pattern>/test</url-pattern>
+	</servlet-mapping>
+-->
+	<listener >
+  	<listener-class>com.boco.eoms.partner.interfaces.common.init.ContextListener</listener-class><!-- 4A闂傚倷绀侀幉锟犲礄瑜版帒鍨傞柣妤�鐗婇崣蹇涙煥閻曞倹瀚� -->
+  </listener>
+	<!-- add by weizhongsheng end -->
+	<!--
+		<taglib>
+		<taglib-uri>http://lightPortal.org/portal</taglib-uri>
+		<taglib-location>/WEB-INF/tlds/light.tld</taglib-location>
+		</taglib>
+		<taglib>
+		<taglib-uri>http://java.sun.com/portlet</taglib-uri>
+		<taglib-location>/WEB-INF/tlds/portlet.tld</taglib-location>
+		</taglib>
+		
+		<taglib>
+		<taglib-uri>/WEB-INF/tlds/oscache.tld</taglib-uri>
+		<taglib-location>/WEB-INF/tlds/oscache.tld</taglib-location>
+		</taglib>
+	-->
+	<!-- zhoucz end 070319 -->
+	<!--
+		<error-page>
+		<error-code>500</error-code>
+		<location>/error.jsp</location>
+		</error-page>
+		<error-page>
+		<error-code>400</error-code>
+		<location>/index.jsp</location>
+		</error-page>
+		<error-page>
+		<error-code>403</error-code>
+		<location>/403.jsp</location>
+		</error-page>
+		<error-page>
+		<error-code>404</error-code>
+		<location>/404.jsp</location>
+		</error-page>
+	-->
+</web-app>
+
+
+

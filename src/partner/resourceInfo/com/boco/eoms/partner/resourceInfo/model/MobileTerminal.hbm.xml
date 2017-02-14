@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.boco.eoms.partner.resourceInfo.model.MobileTerminal" table="pnr_mobileTerminalinfo">
+	 <id name="id" column="id" unsaved-value="null">
+	  	<generator class="increment"></generator>
+     </id><!--
+    <property name="refid" column="ref_id"  not-null="false" unique="false"></property>
+    --><property name="mobileTerminalNumber" column="num" not-null="false" unique="false" ></property>                   
+	<property name="maintainCompany" column="company" not-null="false" unique="false" ></property>                             
+	<property name="maintainTeam" column="team" not-null="false" unique="false" ></property>                                   
+	<property name="mobileTerminalType" column="type" not-null="false" unique="false" ></property>                       
+	<property name="mobileTerminalFactory" column="factory" not-null="false" unique="false" ></property>                 
+	<property name="mobileTerminalSerilNumber" column="seril_number" not-null="false" unique="false" ></property>        
+	<property name="simCardNumber" column="simCard_number" not-null="false" unique="false" ></property>                                 
+	<!--<property name="identificationCode" column="identification_code" not-null="false" unique="false" ></property>                       
+	<property name="simCardType" column="simCard_type" not-null="false" unique="false" ></property>                                     
+	-->
+	<property name="area" column="area" not-null="false" unique="false" ></property>       
+	 <property name="visible" column="visible"  not-null="false" unique="false"></property>
+     <property name="deleted" column="deleted"  not-null="false" unique="false"></property>                                             
+	<property name="notes" column="notes" not-null="false" unique="false" ></property>                       
+	<property name="addTime" column="add_time" not-null="false" unique="false" ></property>                                                    
+	</class>
+</hibernate-mapping>

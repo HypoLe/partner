@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+    <bean id="pointsMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean
+                class="com.boco.eoms.netresource.point.mgr.impl.PointsMgrImpl">
+                <property name="pointsDao" ref="pointsDao" />
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="pointsDao"
+        class="com.boco.eoms.netresource.point.dao.hibernate.PointsDaoHibernate"
+        autowire="byName" />
+
+</beans>
+
+

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	<!-- ========== Data Sources Definitions =================================== -->
+	<!--
+		Define your Struts data sources in a file called struts-data-sources.xml and place
+		it in your merge directory.
+	-->
+
+	<!-- ========== Form Bean Definitions =================================== -->
+	<form-beans>
+	<form-bean name="multiPageForm"
+			type="com.boco.activiti.partner.process.webapp.form.MultiPageForm" />
+		<!--bean for EsmProcess end-->
+	</form-beans>
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward name="selectFile" path="/selectFile.do" />
+		<forward name="logout" path="/logout.jsp" />
+		<forward name="error"
+			path="/WEB-INF/pages/partner/activiti/common/sheet_fail.jsp"
+			contextRelative="true" />
+		<forward name="failure"
+			path="/WEB-INF/pages/partner/activiti/common/failure.jsp"
+			contextRelative="true" />
+	</global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+	<action-mappings>
+		<action path="/pnrTransferQuestion"
+			type="com.boco.eoms.partner.question.action.PnrTransferQuestionAction"
+			name="multiPageForm"
+			scope="request" 
+			input="error" 
+			parameter="method"
+			unknown="false" 
+			validate="false"
+			>			
+			<set-property property="cancellable" value="true" />
+			
+			<forward name="commonQuestion"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferQuestion/commonProblem.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="newQuestion"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferQuestion/newQuestion.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="showSuccess"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferQuestion/showSuccess.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="showError"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferQuestion/error.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="selectQuestion"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferQuestion/selectQuestion.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="controlQuestion"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferQuestion/controlQuestion.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="oneQuestionInformation"
+				path="/WEB-INF/pages/partner/activiti/pnrTransferQuestion/oneQuestionInformation.jsp"
+				redirect="false" contextRelative="true" />
+        </action>
+	</action-mappings>
+	<controller nocache="true" inputForward="true" maxFileSize="2M" />
+</struts-config>

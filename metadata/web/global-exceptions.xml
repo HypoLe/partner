@@ -1,0 +1,5 @@
+    <global-exceptions>
+        <exception type="java.lang.Exception"
+            key="errors.general"
+            handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler"/>
+    </global-exceptions>

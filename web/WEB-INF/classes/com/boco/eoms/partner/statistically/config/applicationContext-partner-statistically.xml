@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!--
+		This is a real generic dao for partner statistically standard CRUD only.By WuChunHui Start,
+		September,2011
+	-->
+	<bean id="BaseDao" class="com.boco.eoms.partner.statistically.utils.BaseDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="partnerStaffsDao" class="com.boco.eoms.partner.statistically.dao.PartnerStaffsDaoImpl"
+		autowire="byName" />
+		
+	<bean id="partnerStaffsService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.statistically.service.PartnerStaffsServiceImpl">
+				<property name="partnerStaffsDao" ref="partnerStaffsDao" />
+
+			</bean>
+		</property>
+	</bean>
+</beans>

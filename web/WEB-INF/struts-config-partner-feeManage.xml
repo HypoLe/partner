@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<!-- Generated with Karapan Sapi Struts Generator -->
+<!-- Visit http://www.javanovic.com         -->
+
+<struts-config>
+	<!-- ============ Form beans ============ -->
+	<form-beans>
+		
+
+
+	</form-beans>
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+	<!-- ============ Global forwards ============ -->
+	<global-forwards type="org.apache.struts.action.ActionForward">
+		<forward name="failure" path="/nop3/common/fail.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="success" path="/common/success.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="error" path="/WEB-INF/pages/partner/feeManage/notRecords.jsp"
+			contextRelative="true" redirect="false" />
+		<forward name="cancel" path="/servlet/main.do" />
+		<forward name="nopriv" path="/nop3/common/nopriv.jsp"
+			contextRelative="true" redirect="false" />
+	</global-forwards>
+
+	<!-- ============ Action Mapping definitions ============ -->
+	<action-mappings type="org.apache.struts.action.ActionMapping">
+		
+		<action path="/monthServiceCountPay"
+			type="com.boco.eoms.partner.feeManage.action.MonthServiceCountPayAction"
+			scope="request" parameter="method" input="list"
+			unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="save"
+				path="/WEB-INF/pages/partner/monthPay/checkRule/checkRuleEdit.jsp"
+				redirect="false" contextRelative="true" />
+			
+				</action>
+		<action path="/monthOtherPay"
+			type="com.boco.eoms.partner.feeManage.action.MonthOtherPayAction"			
+			scope="request" parameter="method" input="list"
+			unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="monthOtherPay"
+				path="/WEB-INF/pages/partner/feeManage/monthOtherPay.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="showMonthOtherPay"
+				path="/WEB-INF/pages/partner/feeManage/showMonthOtherPay.jsp"
+				redirect="false" contextRelative="true" />
+				<forward name="editMonthOtherPay"
+				path="/WEB-INF/pages/partner/feeManage/editMonthOtherPay.jsp"
+				redirect="false" contextRelative="true" />			
+				<forward name="showMonthOtherPayById"
+				path="/WEB-INF/pages/partner/feeManage/showMonthOtherPayById.jsp"
+				redirect="false" contextRelative="true" />			
+			
+			
+				</action>
+		<action path="/feeCountManage"
+			type="com.boco.eoms.partner.feeManage.action.FeeCountManageAction"			
+			scope="request" parameter="method" input="list"
+			unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="feeCountPrcTmpl"
+				path="/WEB-INF/pages/partner/feeManage/feeCountPrcTmpl.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="feeCountDetailTmpl"
+				path="/WEB-INF/pages/partner/feeManage/feeCountDetailTmpl.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="feeCountFilter"
+				path="/WEB-INF/pages/partner/feeManage/feeCountFilter.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="feeCountEntity"
+				path="/WEB-INF/pages/partner/feeManage/feeCountEntity.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="feeCountPrcTmplList"
+				path="/WEB-INF/pages/partner/feeManage/feeCountPrcTmplList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="editFeeCountDetailTmpl"
+				path="/WEB-INF/pages/partner/feeManage/editFeeCountDetailTmpl.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="feeCountPrcTmplListByMajor4entity"
+				path="/WEB-INF/pages/partner/feeManage/feeCountPrcTmplListByMajor4entity.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="feeCountEntityList"
+				path="/WEB-INF/pages/partner/feeManage/feeCountEntityList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="editFeeCountEntity"
+				path="/WEB-INF/pages/partner/feeManage/editFeeCountEntity.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="feeCountDetailTmplView"
+				path="/WEB-INF/pages/partner/feeManage/feeCountDetailTmplView.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="viewFeeCountEntity"
+				path="/WEB-INF/pages/partner/feeManage/viewFeeCountEntity.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="tmplList"
+				path="/WEB-INF/pages/partner/feeManage/feeCountTmplList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="viewFeeCountCntTypEntity"
+				path="/WEB-INF/pages/partner/feeManage/viewFeeCountCntTypEntity.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="feeCountDetailTmpl2"
+				path="/WEB-INF/pages/partner/feeManage/feeCountDetailTmpl2.jsp"
+				redirect="false" contextRelative="true" />				
+			<forward name="editFeeCountDetailTmpl2"
+				path="/WEB-INF/pages/partner/feeManage/editFeeCountDetailTmpl2.jsp"
+				redirect="false" contextRelative="true" />				
+
+			
+			
+				</action>
+         <action path="/evaluFee"
+			type="com.boco.eoms.partner.feeManage.action.MonthEvaluFeeAction"
+			scope="request"  parameter="method" unknown="false"
+			validate="false">
+            <set-property property="cancellable" value="true" />
+			<forward name="evalu_feeprctmpl"
+				path="/WEB-INF/pages/partner/feeManage/evalu_feeprctmpl.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="loadDtlprcframe"
+				path="/WEB-INF/pages/partner/feeManage/evalu_feedtlprc.jsp"
+				redirect="false" contextRelative="true" />	
+				
+			<forward name="evalu_feeprctmpl_edit"
+				path="/WEB-INF/pages/partner/feeManage/evalu_feeprctmpl_edit.jsp"
+				redirect="false" contextRelative="true" />	
+			<forward name="initate_evalu_feeentity"
+				path="/WEB-INF/pages/partner/feeManage/initate_evalu_feeentity.jsp"
+				redirect="false" contextRelative="true" />	
+			<forward name="evalu_feeprctmpl_view"
+				path="/WEB-INF/pages/partner/feeManage/evalu_feeprctmpl_view.jsp"
+				redirect="false" contextRelative="true" />		
+			<forward name="create_evalu_feeentity"
+				path="/WEB-INF/pages/partner/feeManage/create_evalu_feeentity.jsp"
+				redirect="false" contextRelative="true" />	
+			<forward name="evalu_feeentity_view"
+				path="/WEB-INF/pages/partner/feeManage/evalu_feeentity_view.jsp"
+				redirect="false" contextRelative="true" />	
+			<forward name="evalu_feeentity_edit"
+				path="/WEB-INF/pages/partner/feeManage/evalu_feeentity_edit.jsp"
+				redirect="false" contextRelative="true" />	
+			<forward name="evalu_feeprctmpl_list"
+				path="/WEB-INF/pages/partner/feeManage/evalu_feeprctmpl_list.jsp"
+				redirect="false" contextRelative="true" />							
+		</action>
+
+	    <action path="/feeManage"
+			type="com.boco.eoms.partner.feeManage.action.FeePoolMainAction"			
+			scope="request" parameter="method" input="list"
+			unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			
+			<forward name="goTotest"
+				path="/WEB-INF/pages/partner/feeManage/feeManageTest.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToList"
+				path="/WEB-INF/pages/partner/feeManage/feeManageList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToSecondList"
+				path="/WEB-INF/pages/partner/feeManage/feeManageSecondList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToFeeInforForm"
+				path="/WEB-INF/pages/partner/feeManage/feeInforForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="priceConfigChangedConfirm"
+				path="/WEB-INF/pages/partner/feeManage/priceConfigChangedConfirm.jsp"
+				redirect="false" contextRelative="true" />	
+			<forward name="goToApprovePage"
+				path="/WEB-INF/pages/partner/feeManage/approvePage.jsp"
+				redirect="false" contextRelative="true" />		
+			<forward name="goToBaseEntityList"
+				path="/WEB-INF/pages/partner/feeManage/baseEntityList.jsp"
+				redirect="false" contextRelative="true" />	
+			<forward name="evaluStatistics"
+				path="/WEB-INF/pages/partner/feeManage/evaluStatistics.jsp"
+				redirect="false" contextRelative="true" />	
+			<forward name="feeStatistics"
+				path="/WEB-INF/pages/partner/feeManage/feeStatistics.jsp"
+				redirect="false" contextRelative="true" />				
+			</action>
+			
+			<action path="/feeRule"
+			  type="com.boco.eoms.partner.feeManage.action.FeeRuleAction"			
+			  scope="request" parameter="method" 
+			  unknown="false" validate="false">
+			  <set-property property="cancellable" value="true" />						  
+			  <forward name="goToList"
+				  path="/WEB-INF/pages/partner/feeManage/rule/rulelist.jsp"
+				  redirect="false" contextRelative="true" />
+			   <forward name="goToAdd"
+				  path="/WEB-INF/pages/partner/feeManage/rule/addRule.jsp"
+				  redirect="false" contextRelative="true" />	
+			  <forward name="goToView"
+				  path="/WEB-INF/pages/partner/feeManage/rule/viewRule.jsp"
+				  redirect="false" contextRelative="true" />	    			
+			</action>
+
+			<action path="/feeMetering"
+			type="com.boco.eoms.partner.feeManage.action.FeePoolMeteringAction"			
+			scope="request" parameter="method" input="list"
+			unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			
+			<forward name="meteringForm"
+				path="/WEB-INF/pages/partner/feeManage/metering/meteringForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="meteringList"
+				path="/WEB-INF/pages/partner/feeManage/metering/meteringList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="indexForm"
+				path="/WEB-INF/pages/partner/feeManage/metering/indexForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="indexList"
+				path="/WEB-INF/pages/partner/feeManage/metering/indexList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="factorForm"
+				path="/WEB-INF/pages/partner/feeManage/metering/factorForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="factorList"
+				path="/WEB-INF/pages/partner/feeManage/metering/factorList.jsp"
+				redirect="false" contextRelative="true" />	
+			<forward name="meteringStatistics"
+				path="/WEB-INF/pages/partner/feeManage/metering/meteringStatistics.jsp"
+				redirect="false" contextRelative="true" />	
+			<forward name="meteringDataList"
+				path="/WEB-INF/pages/partner/feeManage/metering/meteringDataList.jsp"
+				redirect="false" contextRelative="true" />			
+			</action>
+			
+			<action path="/feeApplication"
+			type="com.boco.eoms.partner.feeManage.action.FeeApplicationAction"			
+			scope="request" parameter="method" input="list"
+			unknown="false" validate="false">
+			    <set-property property="cancellable" value="true" />
+				<forward name="feeApplication"
+				path="/WEB-INF/pages/partner/feeManage/feeApplication.jsp"
+				redirect="false" contextRelative="true" />	
+				<forward name="feeApplicationEdit"
+				path="/WEB-INF/pages/partner/feeManage/feeApplicationEdit.jsp"
+				redirect="false" contextRelative="true" />	
+				<forward name="feeApplicationView"
+				path="/WEB-INF/pages/partner/feeManage/feeApplicationView.jsp"
+				redirect="false" contextRelative="true" />	
+				<forward name="feeApplicationList"
+				path="/WEB-INF/pages/partner/feeManage/feeApplicationList.jsp"
+				redirect="false" contextRelative="true" />	
+				<forward name="feeApplicationExamine"
+				path="/WEB-INF/pages/partner/feeManage/feeApplicationExamine.jsp"
+				redirect="false" contextRelative="true" />			
+				<forward name="feeApplicationExamineList"
+				path="/WEB-INF/pages/partner/feeManage/feeApplicationExamineList.jsp"
+				redirect="false" contextRelative="true" />	
+				<forward name="feeApplicationDtlEdit"
+				path="/WEB-INF/pages/partner/feeManage/feeApplicationDtlEdit.jsp"
+				redirect="false" contextRelative="true" />			  
+			</action>
+	</action-mappings>
+</struts-config>

@@ -1,0 +1,4 @@
+window[esri._dojoScopeName||"dojo"]._xdResourceLoaded(function(dojo, dijit, dojox){
+return {depends: [["provide", "dijit._editor.nls.pt-pt.LinkDialog"]],
+defineResource: function(dojo, dijit, dojox){dojo.provide("dijit._editor.nls.pt-pt.LinkDialog");dojo._xdLoadFlattenedBundle("dijit._editor", "LinkDialog", "pt-pt", {"text":"Descrição:","insertImageTitle":"Propriedades da imagem","set":"Definir","newWindow":"Nova janela","topWindow":"Janela superior","target":"Destino:","createLinkTitle":"Propriedades da ligação","parentWindow":"Janela ascendente","currentWindow":"Janela actual","url":"URL:"});
+}};});

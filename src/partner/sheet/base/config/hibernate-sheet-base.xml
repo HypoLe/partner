@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+
+<property name="show_sql">true</property>
+    <mapping resource="com/boco/eoms/sheet/base/model/TawSystemWorkflow.hbm.xml"/>
+    <mapping resource="com/boco/eoms/sheet/base/model/EomsUndoSheetView.hbm.xml"/>
+    <mapping resource="com/boco/eoms/sheet/base/model/EomsStartedByMeView.hbm.xml"/>
+    <mapping resource="com/boco/eoms/sheet/base/model/EomsDoneSheetView.hbm.xml"/>
+    
+    <mapping resource="com/boco/eoms/sheet/limit/model/LevelLimit.hbm.xml"/>
+ 	<mapping resource="com/boco/eoms/sheet/limit/model/StepLimit.hbm.xml"/>
+  	<mapping resource="com/boco/eoms/sheet/overtimetip/model/OvertimeTip.hbm.xml"/>
+    <mapping resource="com/boco/eoms/sheet/tool/access/model/TawSheetAccess.hbm.xml"/>   
+    <mapping resource="com/boco/eoms/sheet/dealtypeconfig/model/DealTypeConfig.hbm.xml"/>
+    <mapping resource="com/boco/eoms/sheet/tool/limit/model/SheetLimit.hbm.xml"/>
+    <mapping resource="com/boco/eoms/sheet/tool/relation/model/TawSheetRelation.hbm.xml"/>
+    
+    <mapping resource="com/boco/eoms/sheet/base/model/PnrSheetQuery.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
+

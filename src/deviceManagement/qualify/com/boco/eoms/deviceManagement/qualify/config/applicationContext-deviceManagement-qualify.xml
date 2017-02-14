@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!--
+		This is a real generic dao for nop3 standard CRUD only.By Steve Start,
+		July,2011
+	-->
+	
+	<bean id="taskOrderDao"
+		class="com.boco.eoms.deviceManagement.qualify.dao.TaskOrderDaoImpl" autowire="byName" >
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="taskOrderService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.deviceManagement.qualify.service.TaskOrderServiceImpl">
+				<property name="taskOrderDao"
+					ref="taskOrderDao" />
+				<property name="systemDictTypeDao" ref="ItawSystemDictTypeDao" />
+			</bean>
+		</property>
+	</bean>
+
+
+</beans>

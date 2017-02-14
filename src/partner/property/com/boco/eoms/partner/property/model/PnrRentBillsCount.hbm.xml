@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.property.model.PnrRentBillsCount" table="pnr_rent_bills_count">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="province" column="province"/>
+				<property name="city" column="city"/>
+				<property name="district" column="district"/>
+				<property name="site" column="site"/>
+				<property name="timeYear" column="time_year"/>
+				<property name="januaryBills" column="january_bills"/>
+				<property name="februaryBills" column="february_bills"/>
+				<property name="marchBills" column="march_bills"/>
+				<property name="aprilBills" column="april_bills"/>
+				<property name="mayBills" column="may_bills"/>
+				<property name="juneBills" column="june_bills"/>
+				<property name="julyBills" column="july_bills"/>
+				<property name="augustBills" column="august_bills"/>
+				<property name="septemberBills" column="september_bills"/>
+				<property name="octoberBills" column="october_bills"/>
+				<property name="novemberBills" column="november_bills"/>
+				<property name="decemberBills" column="december_bills"/>
+				<property name="totalBills" column="total_bills"/>
+				<property name="paidTotalBills" column="paid_total_bills"/>
+				<property name="unpaidTotalBills" column="unpaid_total_bills"/>
+				<property name="relatedAgreementid" column="related_agreement_id"/>
+    </class>    
+</hibernate-mapping>

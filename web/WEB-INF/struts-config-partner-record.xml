@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<!-- Generated with Karapan Sapi Struts Generator -->
+<!-- Visit http://www.javanovic.com         -->
+
+<struts-config>
+	<!-- ============ Form beans ============ -->
+	<form-beans>
+		<form-bean
+		  name="recordMainForm"
+		  type="com.boco.eoms.partner.record.webapp.form.PnrRecordForm"
+		/>
+
+
+	</form-beans>
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+	<!-- ============ Global forwards ============ -->
+	<global-forwards type="org.apache.struts.action.ActionForward">
+		<forward name="failure" path="/nop3/common/fail.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="success" path="/common/success.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="error" path="/WEB-INF/pages/partner/feeManage/notRecords.jsp"
+			contextRelative="true" redirect="false" />
+		<forward name="cancel" path="/servlet/main.do" />
+		<forward name="nopriv" path="/nop3/common/nopriv.jsp"
+			contextRelative="true" redirect="false" />
+	</global-forwards>
+
+	<!-- ============ Action Mapping definitions ============ -->
+	<action-mappings type="org.apache.struts.action.ActionMapping">
+		
+		<action path="/recordAction"
+			type="com.boco.eoms.partner.record.webapp.action.PnrRecordAction"
+			scope="request" parameter="method" input="list"
+			unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="add"
+				path="/WEB-INF/pages/partner/record/pnrRecordForm.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/partner/record/pnrRecordList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="editList"
+				path="/WEB-INF/pages/partner/record/pnrRecordEditList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="edit"
+				path="/WEB-INF/pages/partner/record/pnrRecordEdit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="detail"
+				path="/WEB-INF/pages/partner/record/pnrRecordDetail.jsp"
+				redirect="false" contextRelative="true" />
+			
+			<forward name="statistic"
+				path="/WEB-INF/pages/partner/record/pnrRecordStatistic.jsp"
+				redirect="false" contextRelative="true" />
+
+			<forward name="statisticsList"
+				path="/WEB-INF/pages/partner/record/pnrRecordStatisticList.jsp"
+				redirect="false" contextRelative="true" />				
+				</action>
+
+	</action-mappings>
+</struts-config>

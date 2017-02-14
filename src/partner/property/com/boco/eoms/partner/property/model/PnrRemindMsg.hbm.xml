@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.property.model.PnrRemindMsg" table="pnr_remind_msg">
+				<id name="id" column="id" unsaved-value="null">
+					<generator class="uuid.hex"></generator>
+				</id>
+				<property name="sendTime" column="send_time"/>
+				<property name="content" column="content"/>
+				<property name="readUser" column="read_user"/>
+				<property name="isRead" column="is_read"/>
+				<property name="deletedFlag" column="deleted_flag"/>
+				<property name="type" column="type"/>
+				<property name="remindObject" column="remind_object"/>
+				<property name="refId" column="ref_id"/>
+				<property name="readTime" column="read_time"/>
+				<property name="creatTime" column="creat_time"/>
+				<property name="remark" column="remark"/>
+    </class>    
+</hibernate-mapping>

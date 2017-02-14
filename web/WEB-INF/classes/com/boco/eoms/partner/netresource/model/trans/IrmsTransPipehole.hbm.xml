@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.trans.IrmsTransPipehole" table="irms_trans_pipehole">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="pipeHoleName" column="pipe_hole_name"/>
+				<property name="relatedPipelineSection" column="related_pipeline_section"/>
+				<property name="crossSectionPosition" column="cross_section_position"/>
+				<property name="status" column="status"/>
+				<property name="type" column="type"/>
+				<property name="material" column="material"/>
+				<property name="use" column="use"/>
+				<property name="useUnit" column="use_unit"/>
+				<property name="owner" column="owner"/>
+				<property name="remark" column="remark"/>
+				<property name="createTime" column="create_time"/>
+				<property name="relatedPipelineSectionId" column="related_pipeline_section_id"/>
+    </class>    
+</hibernate-mapping>

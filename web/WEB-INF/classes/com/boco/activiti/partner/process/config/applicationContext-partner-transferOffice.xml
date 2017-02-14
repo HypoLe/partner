@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="operationReturnResultDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.OperationReturnResultDaoHibernate" autowire="byName"/>
+  
+	<bean id="operationReturnResultDetailDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.OperationReturnResultDetailDaoHibernate" autowire="byName"/>
+  
+	<bean id="pnrTransferOfficeDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrTransferOfficeDaoHibernate" autowire="byName"/>
+  
+	<bean id="pnrTransferOfficeDaoJDBC"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrTransferOfficeDaoJDBC" autowire="byName"/>
+  
+	<bean id="pnrTransferOfficeHandleDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrTransferOfficeHandleDaoHibernate" autowire="byName"/>
+		
+	<bean id="pnrTransferOfficeHandleJDBCDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrTransferOfficeHandleDaoJDBC" autowire="byName"/><!-- 11 -->
+  
+	<bean id="pnrTransferSpotcheckDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrTransferSpotcheckDaoHibernate" autowire="byName"/>
+  
+	<bean id="roomDemolitionSpotcheckDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.RoomDemolitionSpotcheckDaoHibernate" autowire="byName"/>
+  
+  <bean id="pnrTransferMaleGuestInformDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrTransfermaleGuestInformDaoHibernate" autowire="byName"/>
+   <bean id="pnrTransferPrecheckDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrTransferPrecheckDaoJDBC" autowire="byName"/>
+   <bean id="pnrTransferOldPrecheckDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrTransferOldPrecheckDaoJDBC" autowire="byName"/>
+	<!-- 新预检预修工单 -->
+   <bean id="pnrTransferNewPrecheckDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrTransferNewPrecheckDaoJDBC" autowire="byName"/>
+	
+	<!-- 机房优化申请 -->
+	<bean id="pnrOltBbuRoomDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrOltBbuRoomDaoHibernate" autowire="byName"/>
+   	<bean id="pnrOltBbuRoomJDBCDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrOltBbuRoomDaoJDBC" autowire="byName"/>
+	<bean id="pnrOltBbuOfficeRelationDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrOltBbuOfficeRelationDaoHibernate" autowire="byName"/>
+   	<bean id="pnrOltBbuOfficeRelationJDBCDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrOltBbuOfficeRelationDaoJDBC" autowire="byName"/>
+	
+	<!-- 干线预检预修工单 -->
+   <bean id="pnrTransferArteryPrecheckDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrTransferArteryPrecheckDaoJDBC" autowire="byName"/>
+	<!-- 本地网和干线工单与图片关联表 -->	
+	<bean id="pnrPrecheckPhotoDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrPrecheckPhotoDaoHibernate" autowire="byName"/>
+  
+	<!-- 会审人员配置 -->
+	<bean id="pnrActReviewStaffDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrActReviewStaffDaoHibernate" autowire="byName"/>
+	<bean id="pnrActReviewStaffDaoJDBC"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrActReviewStaffDaoJDBC" autowire="byName"/>
+	<!-- 新大修改造工单 -->
+   <bean id="pnrTransferOverhaulRemakeJDBCDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrTransferOverhaulRemakeDaoJDBC" autowire="byName"/>
+   <!-- 机房拆除流程 -->
+   <bean id="roomDemolitionJDBCDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.RoomDemolitionDaoJDBC" autowire="byName"/>
+   <bean id="roomDemolitionDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.RoomDemolitionDaoHibernate" autowire="byName"/>
+   <!-- 机房拆除流程回复 -->
+   <bean id="roomDemolitionHandleJDBCDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.RoomDemolitionHandleDaoJDBC" autowire="byName"/>
+   <bean id="roomDemolitionHandleDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.RoomDemolitionHandleDaoHibernate" autowire="byName"/>
+	<!-- 机房拆除材料 -->
+	<bean id="pnrActMaterialJDBCDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrActMaterialDaoJDBC" autowire="byName"/>
+	<bean id="pnrActMaterialDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrActMaterialDaoHibernate" autowire="byName"/>
+	<!-- 地市预算金额配置 -->
+	<bean id="pnrActCityBudgetAmountDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrActCityBudgetAmountDaoHibernate" autowire="byName"/>
+	<bean id="pnrActCityBudgetAmountDaoJDBC"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrActCityBudgetAmountDaoJDBC" autowire="byName"/>
+	<!-- 会审结果 -->
+	<bean id="pnrReviewResultsDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrReviewResultsDaoHibernate" autowire="byName"/>
+	<bean id="pnrReviewResultsJDBCDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.PnrReviewResultsDaoJDBC" autowire="byName"/>
+		
+ 	<!-- 机房资产 -->
+    <bean id="roomAssetsJDBCDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.RoomAssetsDaoJDBC" autowire="byName"/>
+    <bean id="roomAssetsDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.RoomAssetsDaoHibernate" autowire="byName"/>
+	<!-- 机房资产和流程关联 -->
+    <bean id="roomAssetsRelationDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.RoomAssetsRelationDaoHibernate" autowire="byName"/>
+		
+	<bean id="masteRelTaskItemDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.MasteRelTaskItemDaoHibernate" autowire="byName"/>
+  
+	<bean id="masteDataTaskDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.MasteDataTaskDaoHibernate" autowire="byName"/>
+  
+	<bean id="masteSelCopyTaskDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.MasteSelCopyTaskDaoHibernate" autowire="byName"/>
+		
+   <!-- 网络资源巡检众筹 主表 -->
+   <bean id="netResInspectJDBCDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.NetResInspectDaoJDBC" autowire="byName"/>
+   <bean id="netResInspectDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.NetResInspectDaoHibernate" autowire="byName"/>
+   <bean id="netResInspectInfoDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.NetResInspectInfoDaoHibernate" autowire="byName"/>
+   <!-- 网络资源巡检众筹 流转信息 -->
+   <bean id="netResInspectHandleJDBCDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.NetResInspectHandleDaoJDBC" autowire="byName"/>
+   <bean id="netResInspectHandleDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.NetResInspectHandleDaoHibernate" autowire="byName"/>
+	<!-- 网络资源巡检众筹 照片信息 -->
+   <bean id="netResInspectPhotoJDBCDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.NetResInspectPhotoDaoJDBC" autowire="byName"/>
+   <bean id="netResInspectPhotoDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.NetResInspectPhotoDaoHibernate" autowire="byName"/>
+	<!-- 网络资源巡检众筹 草稿 -->	
+	<bean id="netResInspectDraftDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.NetResInspectDraftDaoHibernate" autowire="byName"/>
+	<!-- 网络资源巡检众筹 用户表 -->
+	<bean id="netResInspectUserDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.NetResInspectUserDaoHibernate" autowire="byName"/>
+   <bean id="netResInspectUserJDBCDao"
+		class="com.boco.activiti.partner.process.dao.hibernate.NetResInspectUserDaoJDBC" autowire="byName"/>
+  
+	<bean id="masteSelCopyTaskService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.MasteSelCopyTaskServiceImpl">
+				<property name="masteSelCopyTaskDao" ref="masteSelCopyTaskDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="masteDataTaskService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.MasteDataTaskServiceImpl">
+				<property name="masteDataTaskDao" ref="masteDataTaskDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="masteRelTaskItemService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.MasteRelTaskItemServiceImpl">
+				<property name="masteRelTaskItemDao" ref="masteRelTaskItemDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="pnrTransferOfficeService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.PnrTransferOfficeServiceImpl">
+				<property name="pnrTransferOfficeDao" ref="pnrTransferOfficeDao" />
+				<property name="pnrTransferOfficeDaoJDBC" ref="pnrTransferOfficeDaoJDBC" />
+				<property name="historyService" ref="historyService" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="pnrTransferOfficeHandleService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.PnrTransferOfficeHandleServiceImpl">
+				<property name="pnrTransferOfficeHandleDao" ref="pnrTransferOfficeHandleDao" />
+				<property name="pnrTransferOfficeHandleJDBCDao" ref="pnrTransferOfficeHandleJDBCDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="pnrTransferSpotcheckService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.PnrTransferSpotcheckServiceImpl">
+				<property name="pnrTransferSpotcheckDao" ref="pnrTransferSpotcheckDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="roomDemolitionSpotcheckService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.RoomDemolitionSpotcheckServiceImpl">
+				<property name="roomDemolitionSpotcheckDao" ref="roomDemolitionSpotcheckDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="pnrTransferMaleGuestInformService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.PnrTransferMaleGuestInformServiceImpl">
+				<property name="pnrTransferMaleGuestInformDao" ref="pnrTransferMaleGuestInformDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="operationReturnResultService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.OperationReturnResultServiceImpl">
+				<property name="operationReturnResultDao" ref="operationReturnResultDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="operationReturnResultDetailService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.OperationReturnResultDetailServiceImpl">
+				<property name="operationReturnResultDetailDao" ref="operationReturnResultDetailDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="pnrTransferPrecheckService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.PnrTransferPrecheckServiceImpl">
+				<property name="pnrTransferPrecheckDao" ref="pnrTransferPrecheckDao" />
+				<property name="pnrTransferOfficeDao" ref="pnrTransferOfficeDao" />
+				<property name="historyService" ref="historyService" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="pnrTransferOldPrecheckService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.PnrTransferOldPrecheckServiceImpl">
+				<property name="pnrTransferOldPrecheckDao" ref="pnrTransferOldPrecheckDao" />
+				<property name="pnrTransferOfficeDao" ref="pnrTransferOfficeDao" />
+				<property name="historyService" ref="historyService" />
+			</bean>
+		</property>
+	</bean>
+	<!-- 新版预检预修工单 -->
+	<bean id="pnrTransferNewPrecheckService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.PnrTransferNewPrecheckServiceImpl">
+				<property name="pnrTransferNewPrecheckDao" ref="pnrTransferNewPrecheckDao" />
+				<property name="pnrTransferOfficeDao" ref="pnrTransferOfficeDao" />
+				<property name="historyService" ref="historyService" />
+				<property name="taskService" ref="taskService" /><!--测试任意回退  -->
+				<property name="repositoryService" ref="repositoryService" /><!--测试任意回退  -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 机房优化申请 -->
+	<bean id="pnrOltBbuRoomService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.PnrOltBbuRoomServiceImpl">
+				<property name="pnrOltBbuRoomDao" ref="pnrOltBbuRoomDao" />
+				<property name="pnrOltBbuRoomJDBCDao" ref="pnrOltBbuRoomJDBCDao" />
+				<property name="pnrTransferNewPrecheckDao" ref="pnrTransferNewPrecheckDao" />
+				<property name="pnrTransferOfficeDao" ref="pnrTransferOfficeDao" />
+				<property name="historyService" ref="historyService" />
+				<property name="taskService" ref="taskService" /><!--测试任意回退  -->
+				<property name="repositoryService" ref="repositoryService" /><!--测试任意回退  -->
+			</bean>
+		</property>
+	</bean>
+	<bean id="pnrOltBbuOfficeRelationService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.PnrOltBbuOfficeRelationServiceImpl">
+				<property name="pnrOltBbuOfficeRelationDao" ref="pnrOltBbuOfficeRelationDao" />
+				<property name="pnrOltBbuOfficeRelationJDBCDao" ref="pnrOltBbuOfficeRelationJDBCDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- 干线预检预修工单 -->
+	<bean id="pnrTransferArteryPrecheckService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.PnrTransferArteryPrecheckServiceImpl">
+				<property name="pnrTransferArteryPrecheckDao" ref="pnrTransferArteryPrecheckDao" />
+				<property name="pnrTransferOfficeDao" ref="pnrTransferOfficeDao" />
+				<property name="historyService" ref="historyService" />
+			</bean>
+		</property>
+	</bean>
+	<!-- 本地网和干线预检预修工单与图片关联表 -->
+	<bean id="pnrPrecheckPhotoService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.PnrPrecheckPhotoServiceImpl">
+				<property name="pnrPrecheckPhotoDao" ref="pnrPrecheckPhotoDao" />
+				<property name="historyService" ref="historyService" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="precheckRoleModel" class="com.boco.activiti.partner.process.po.PrecheckRoleModel">
+         <!--角色-市公司-->
+        <property name="cityCompany" value="6883"/>
+         <!--省线路维护中心-->
+        <property name="provinceLineExamine" value="6884"/>
+         <!--省线运维部-->
+        <property name="provinceManageExamine" value="6885"/>
+         <!--省线路分管总经理-->
+        <property name="provinceLineConductor" value="6887"/>
+         <!--省运维分管总经理-->
+        <property name="provinceManageConductor" value="6888"/>
+         <!--是否干线处的金额-->
+        <property name="firstMoneyLimitDicId" value="101231201"/>
+         <!--派单审批之后的金额-->
+        <property name="secondMoneyLimitDicId" value="101231202"/>
+         <!--第三处的金额限制-->
+        <property name="threeMoneyLimtDicId" value="101231203"/>
+         <!--最后的金额限制-->
+        <property name="fourMoneyLimtDicId" value="101231204"/>
+         <!--干线预检预修-第一处金额限制-->
+        <property name="arteryFirstDicId" value="101231205"/>
+         <!--干线预检预修-最后一处金额限制-->
+        <property name="arteryLastDicId" value="101231206"/>
+        <!--手机端巡检图片存放的远端windows共享地址-->
+        <property name="imgInspectPublicUrl" value="101231501" />
+         <!--手机工单相关的图片存放的远端windows共享地址-->
+        <property name="imgWorksheetPublicUrl" value="101231502" />
+        <!--机房拆除流程省公司运维部主管-->
+        <property name="roomDemolitionProvinceManage" value="6894" />
+        <!--交接箱核查的图片存放的远端windows共享地址-->
+        <property name="imgJunctionBoxCheckPublicUrl" value="101231504" />
+        <!-- 干线 省线路维护中心-->
+        <property name="arteryProvinceLineExamine" value="6898"/>
+        <!-- 干线 省线路分管总经理 -->
+        <property name="arteryProvinceLineConductor" value="6899"/>
+        
+        <!-- 网络资源巡检众筹 设备专业 综合调度环节 调度人 -->
+        <property name="equipmentDispatcher" value="6900"/>
+        <!-- 网络资源巡检众筹 线路专业 综合调度环节 调度人 -->
+        <property name="circuitDispatcher" value="6901"/>
+    </bean>
+    
+    <!-- 会审人员配置 -->
+	<bean id="pnrActReviewStaffService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.PnrActReviewStaffServiceImpl">
+				<property name="pnrActReviewStaffDao" ref="pnrActReviewStaffDao" />
+				<property name="pnrActReviewStaffDaoJDBC" ref="pnrActReviewStaffDaoJDBC" />
+			</bean>
+		</property>
+	</bean>
+	<!-- 新版大修改造工单 -->
+	<bean id="pnrTransferOverhaulRemakeService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.PnrTransferOverhaulRemakeServiceImpl">
+				<property name="pnrTransferOverhaulRemakeJDBCDao" ref="pnrTransferOverhaulRemakeJDBCDao" />
+				<property name="historyService" ref="historyService" />
+			</bean>
+		</property>
+	</bean>
+	<!-- 机房拆除流程 -->
+	<bean id="roomDemolitionService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.RoomDemolitionServiceImpl">
+				<property name="roomDemolitionJDBCDao" ref="roomDemolitionJDBCDao" />
+				<property name="roomDemolitionDao" ref="roomDemolitionDao" />
+				<property name="historyService" ref="historyService" />
+				<property name="pnrTransferOfficeDaoJDBC" ref="pnrTransferOfficeDaoJDBC" />
+			</bean>
+		</property>
+	</bean>
+	<!-- 机房拆除流程 回复-->
+	<bean id="roomDemolitionHandleService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.RoomDemolitionHandleServiceImpl">
+				<property name="roomDemolitionHandleJDBCDao" ref="roomDemolitionHandleJDBCDao" />
+				<property name="roomDemolitionHandleDao" ref="roomDemolitionHandleDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- 机房拆除材料-->
+	<bean id="pnrActMaterialService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.PnrActMaterialServiceImpl">
+				<property name="pnrActMaterialDao" ref="pnrActMaterialDao" />
+				<property name="pnrActMaterialJDBCDao" ref="pnrActMaterialJDBCDao" />
+				<property name="historyService" ref="historyService" />
+			</bean>
+		</property>
+	</bean>
+		  <!-- 地市预算金额配置 -->
+	<bean id="pnrActCityBudgetAmountService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.PnrActCityBudgetAmountServiceImpl">
+				<property name="pnrActCityBudgetAmountDao" ref="pnrActCityBudgetAmountDao" />
+				<property name="pnrActCityBudgetAmountDaoJDBC" ref="pnrActCityBudgetAmountDaoJDBC" />
+			</bean>
+		</property>
+	</bean>
+	<!-- 会审结果 -->
+	<bean id="pnrReviewResultsService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.PnrReviewResultsServiceImpl">
+				<property name="pnrReviewResultsDao" ref="pnrReviewResultsDao" />
+				<property name="pnrReviewResultsJDBCDao" ref="pnrReviewResultsJDBCDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- 机房资产 -->
+	<bean id="roomAssetsService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.RoomAssetsServiceImpl">
+				<property name="roomAssetsJDBCDao" ref="roomAssetsJDBCDao" />
+				<property name="roomAssetsDao" ref="roomAssetsDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 机房资产关联 -->
+	<bean id="roomAssetsRelationService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.RoomAssetsRelationServiceImpl">
+				<property name="roomAssetsRelationDao" ref="roomAssetsRelationDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 场景模板 -->
+	<bean id="sceneTemplateService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.SceneTemplateServiceImpl">
+				<property name="masteRelTaskItemService" ref="masteRelTaskItemService" />
+				<property name="masteSelCopyTaskService" ref="masteSelCopyTaskService" />
+				<property name="masteDataTaskService" ref="masteDataTaskService" />
+				<property name="commonSpringJdbcService" ref="commonSpringJdbcService" />
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 网络资源巡检众筹 流转信息-->
+	<bean id="netResInspectHandleService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.NetResInspectHandleServiceImpl">
+				<property name="netResInspectHandleJDBCDao" ref="netResInspectHandleJDBCDao" />
+				<property name="netResInspectHandleDao" ref="netResInspectHandleDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- 网络资源巡检众筹 照片 -->
+	<bean id="netResInspectPhotoService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.NetResInspectPhotoServiceImpl">
+				<property name="netResInspectPhotoJDBCDao" ref="netResInspectPhotoJDBCDao" />
+				<property name="netResInspectPhotoDao" ref="netResInspectPhotoDao" />
+				<property name="historyService" ref="historyService" />
+				<property name="pnrTransferOfficeDaoJDBC" ref="pnrTransferOfficeDaoJDBC" />
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 网络资源巡检众筹 草稿 -->
+	<bean id="netResInspectDraftService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.NetResInspectDraftServiceImpl">
+				<property name="netResInspectDraftDao" ref="netResInspectDraftDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- 网络资源巡检众筹 主表 -->
+	<bean id="netResInspectService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.NetResInspectServiceImpl">
+				<property name="netResInspectJDBCDao" ref="netResInspectJDBCDao" />
+				<property name="netResInspectDao" ref="netResInspectDao" />
+				<property name="netResInspectInfoDao" ref="netResInspectInfoDao" />
+				<property name="historyService" ref="historyService" />
+				<property name="pnrTransferOfficeDaoJDBC" ref="pnrTransferOfficeDaoJDBC" />
+				<property name="netResInspectHandleService" ref="netResInspectHandleService" />
+				<property name="formService" ref="formService" />
+				<property name="taskService" ref="taskService" />
+				<property name="identityService" ref="identityService" />
+				<property name="runtimeService" ref="runtimeService" />
+				<property name="netResInspectDraftService" ref="netResInspectDraftService" />
+				<property name="processTaskService" ref="processTaskService" />
+			</bean>
+		</property>
+	</bean>
+	
+	
+	<!-- 场景模板-公客 -->
+	<bean id="sceneTemplateMaleGuestService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.SceneTemplateMaleGuestServiceImpl">
+				<property name="commonSpringJdbcService" ref="commonSpringJdbcService" />
+				<property name="jdbcTemplate" ref="jdbcTemplate"/>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 网络资源巡检众筹 用户信息-->
+	<bean id="netResInspectUserService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.activiti.partner.process.service.impl.NetResInspectUserServiceImpl">
+				<property name="netResInspectUserDao" ref="netResInspectUserDao" />
+				<property name="netResInspectUserJDBCDao" ref="netResInspectUserJDBCDao" />
+				<property name="tawSystemUserSaveManagerFlush" ref="ItawSystemUserSaveManagerFlush" />
+			</bean>
+		</property>
+	</bean>
+</beans>

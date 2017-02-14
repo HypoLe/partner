@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<layout>
+  <image x="74" y="12"/>
+  <cell id="1" type="StepCell" height="42.0" width="99.0" x="170.0" y="386.0" actionName=""/>
+  <cell id="2" type="StepCell" height="41.0" width="99.0" x="170.0" y="236.0" actionName=""/>
+  <cell id="3" type="StepCell" height="41.0" width="99.0" x="285.0" y="104.0" actionName=""/>
+  <cell id="4" type="StepCell" height="41.0" width="99.0" x="393.0" y="389.0" actionName=""/>
+  <cell id="5" type="StepCell" height="41.0" width="99.0" x="558.0" y="388.0" actionName=""/>
+  <cell id="6" type="StepCell" height="41.0" width="99.0" x="746.0" y="389.0" actionName=""/>
+  
+  <step0 done="" undo="1" href=""/><!-- 付款信息发起状态 -->
+  <step1 done="1" undo="2" href=""/><!-- 付款信息等待甲方负责人确认状态 -->
+  <step2 done="2" undo="1" href=""/><!-- 付款信息 甲方负责人驳回付款申请 -->
+  <step3 done="1,2" undo="3" href=""/><!-- 付款信息等待乙方提交相关材料附件状态 -->
+  <step4 done="1,2,3" undo="4" href=""/><!-- 付款信息等待付款负责人确认乙方提交的材料状态 -->
+  <step5 done="1,2,4" undo="3" href=""/><!-- 付款信息驳回乙方提交的材料状态 -->
+  <step6 done="1,2,3,4" undo="5" href=""/><!-- 付款信息确认乙方提供的材料有效，开始付款状态 -->
+  <step7 done="1,2,3,4,5,6" undo="" href=""/><!-- 完成状态 -->
+</layout>

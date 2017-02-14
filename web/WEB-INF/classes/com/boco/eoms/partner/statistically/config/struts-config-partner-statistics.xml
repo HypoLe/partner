@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+
+	</form-beans>
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+
+	</global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+	</global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+
+
+	<action-mappings>
+	
+	<action
+      path="/paternerStaff"
+      type="com.boco.eoms.partner.statistically.action.PartnerStatisticallyAction"
+      scope="request"
+      parameter="method"
+      unknown="false"
+      validate="false"
+    >
+     
+      <forward
+        name="goToStaffShowPage"
+        path="/WEB-INF/pages/partner/statistically/paternerStaffStatistiscally.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      
+         <forward
+        name="goToCompanyShowPage"
+        path="/WEB-INF/pages/partner/statistically/paternerCompanyStatistiscally.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      
+        <forward
+        name="paternerStaffList"
+        path="/WEB-INF/pages/partner/statistically/paternerStaffStatistiscally.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      
+         <forward
+        name="paternerCompanyList"
+        path="/WEB-INF/pages/partner/statistically/paternerCompanyStatistiscally.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+        <forward
+        name="goToApparatusShowPage"
+        path="/WEB-INF/pages/partner/statistically/partnerApparatusStatistiscally.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+       <forward
+        name="paternerApparatusList"
+        path="/WEB-INF/pages/partner/statistically/partnerApparatusStatistiscally.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      
+         <forward
+        name="goToCarShowPage"
+        path="/WEB-INF/pages/partner/statistically/paternerCarStatistiscally.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      
+           <forward
+        name="paternerCarList"
+        path="/WEB-INF/pages/partner/statistically/paternerCarStatistiscally.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      
+      </action>
+      <!-- 人员统计钻取 -->
+      <action
+       path="/paternerStaffSearch"
+      type="com.boco.eoms.partner.statistically.action.PartnerStaffSearchAction"
+      scope="request"
+      parameter="method"
+      unknown="false"
+      validate="false"
+      >
+         <forward
+        name="staffList"
+        path="/WEB-INF/pages/partner/statistically/paternerStaffsList.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      </action>
+          <!-- 公司信息钻取 -->
+          <action
+       path="/paternerCompanySearch"
+      type="com.boco.eoms.partner.statistically.action.PartnerCompanySearchAction"
+      scope="request"
+      parameter="method"
+      unknown="false"
+      validate="false"
+      >
+         <forward
+        name="companyList"
+        path="/WEB-INF/pages/partner/statistically/partnerDeptList.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      </action>  
+      <!-- 仪器仪表信息钻取 -->
+              <action
+       path="/paternerApparatusSearch"
+      type="com.boco.eoms.partner.statistically.action.PartnerApparatusSearchAction"
+      scope="request"
+      parameter="method"
+      unknown="false"
+      validate="false"
+      >
+         <forward
+        name="tawApparatusList"
+        path="/WEB-INF/pages/partner/statistically/partnerApparatusList.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      </action>  
+            <action
+       path="/PartnerCarSearch"
+      type="com.boco.eoms.partner.statistically.action.PartnerCarSearchAction"
+      scope="request"
+      parameter="method"
+      unknown="false"
+      validate="false"
+      >
+         <forward
+        name="partnerCarList"
+        path="/WEB-INF/pages/partner/statistically/partnerCarList.jsp"
+        redirect="false"
+        contextRelative="true"
+      />
+      </action> 
+      
+	</action-mappings>	
+
+</struts-config>

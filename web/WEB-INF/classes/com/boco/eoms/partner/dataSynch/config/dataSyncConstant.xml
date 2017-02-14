@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataConstant>
+	<!-- 应用环境ip,端口,应用名 begin -->
+	<LOCAL_IP>10.210.17.65</LOCAL_IP>
+	<LOCAL_PORT>8080</LOCAL_PORT>
+	<LOCAL_PROJECT>partner</LOCAL_PROJECT>
+	<!-- 应用环境ip,端口,应用名 end -->
+	
+	<!-- 综合资源webservice地址  -->
+	<DeliveryRequestSOAPport_http_address>http://10.209.2.150:8777/webmaster/services/DeliveryRequestSOAPport_http</DeliveryRequestSOAPport_http_address>
+	
+	<!-- 数据库类型  -->
+	<db-type>informix</db-type>
+	
+	<!-- 手动数据同步配置 -->
+	<handle-config>
+		<is-open>false</is-open>
+		<excel-begin-row>2</excel-begin-row>
+		<page-file-size>20000</page-file-size>
+		<zip-path>E:\workspace_xa\partner_demo\web\dataSynch\excel2xml</zip-path>
+	</handle-config>
+</dataConstant>

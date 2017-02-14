@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+
+<property name="show_sql">true</property>
+    <mapping resource="com/boco/eoms/partner/siteEva/model/SiteEvaTree.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/siteEva/model/SiteEvaKpi.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/siteEva/model/SiteEvaTemplate.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/siteEva/model/SiteEvaTask.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/siteEva/model/SiteEvaTaskDetail.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/siteEva/model/SiteEvaKpiInstance.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/siteEva/model/SiteEvaOrg.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/siteEva/model/SiteEvaAuditInfo.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/siteEva/model/SiteEvaReportInfo.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
+

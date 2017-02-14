@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.bs.IrmsBsCard" table="irms_bs_card">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="labelCn" column="label_cn"/>
+				<property name="relatedDeviceCui" column="related_device_cui"/>
+				<property name="relatedSlotCuid" column="related_slot_cuid"/>
+				<property name="step" column="step"/>
+				<property name="projectNo" column="project_no"/>
+				<property name="deviceType" column="device_type"/>
+				<property name="functionType" column="function_type"/>
+				<property name="cardModel" column="card_model"/>
+				<property name="propertyNo" column="property_no"/>
+				<property name="serialNo" column="serial_no"/>
+				<property name="ifSpare" column="if_spare"/>
+				<property name="produceTime" column="produce_time"/>
+				<property name="createTime" column="create_time"/>
+				<property name="remark" column="remark"/>
+				<property name="relatedDeviceCuiId" column="related_device_cui_id"/>
+				<property name="relatedSlotCuidId" column="related_slot_cuid_id"/>
+    </class>    
+</hibernate-mapping>

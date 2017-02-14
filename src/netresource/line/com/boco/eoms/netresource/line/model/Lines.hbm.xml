@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class
+            name="com.boco.eoms.netresource.line.model.Lines"
+            table="pnr_net_line"
+    >
+
+    <id
+        name="id"
+            column="id"
+            unsaved-value="null"
+    >
+    <generator class="uuid.hex"></generator>
+    </id>
+
+        <property
+            name="lineNo"
+            	column="lineNo"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+        <property
+            name="lineName"
+            	column="lineName"
+                length="200"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+        <property
+            name="city"
+            	column="city"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+
+        <property
+            name="region"
+            	column="region"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+        <property
+            name="grid"
+            	column="grid"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+        <property
+            name="partner"
+            	column="partner"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+        <property
+            name="maintainType"
+            	column="maintainType"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+        <property
+            name="level"
+            	column="level1"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+      
+        <property
+            name="manager"
+            	column="manager"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+        <property
+            name="managerTel"
+            	column="managerTel"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+        <property
+            name="contacter"
+            	column="contacter"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+        <property
+            name="contacterTel"
+            	column="contacterTel"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+        <property
+            name="remark"
+            	column="remark"
+                length="255"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+        <property
+            name="createTime"
+            	column="createTime"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+        <property
+            name="creator"
+            	column="creator"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+        <property
+            name="modifyTime"
+            	column="modifyTime"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+        <property
+            name="mender"
+            	column="mender"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+        <property
+            name="isdeleted"
+            	column="isdeleted"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+        <property
+            name="openTime"
+            	column="openTime"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+        <property
+            name="userYear"
+            	column="userYear"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+        <property
+            name="beginLong"
+            	column="beginLong"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+        <property
+            name="beginLat"
+            	column="beginLat"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+        <property
+            name="endLong"
+            	column="endLong"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+        <property
+            name="endLat"
+            	column="endLat"
+                length="100"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+        <property
+            name="orderId"
+            	column="orderId"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+        <property
+            name="errorScope"
+            	column="errorScope"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+        </property>
+        
+    </class>    
+
+</hibernate-mapping>
+

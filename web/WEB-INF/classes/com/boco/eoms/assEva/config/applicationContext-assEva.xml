@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <!-- Add new Managers here -->
+    
+    <!--AssEvaTree-DAO START-->
+    <bean id="assEvaTreeDao" class="com.boco.eoms.assEva.dao.hibernate.AssEvaTreeDaoHibernate" autowire="byName"/>
+    <!--AssEvaTree-DAO END-->  
+    <!--AssEvaTree-START-->    
+    <bean id="IassEvaTreeMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.assEva.mgr.impl.AssEvaTreeMgrImpl">   
+                <property name="assEvaTreeDao" ref="assEvaTreeDao"/>
+            </bean>
+        </property>
+    </bean> 
+    <!--AssEvaTree-END-->  
+    
+    <!--AssEvaKpi-DAO START-->
+    <bean id="assEvaKpiDao" class="com.boco.eoms.assEva.dao.hibernate.AssEvaKpiDaoHibernate" autowire="byName"/>
+    <!--AssEvaKpi-DAO END-->
+    <!--AssEvaKpi-START-->    
+    <bean id="IassEvaKpiMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.assEva.mgr.impl.AssEvaKpiMgrImpl">
+                <property name="assEvaKpiDao" ref="assEvaKpiDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--AssEvaKpi-END-->
+    
+    <!--AssEvaTemplate-DAO START-->
+    <bean id="assEvaTemplateDao" class="com.boco.eoms.assEva.dao.hibernate.AssEvaTemplateDaoHibernate" autowire="byName"/>
+    <!--AssEvaTemplate-DAO END-->
+    <!--AssEvaTemplate-START-->    
+    <bean id="IassEvaTemplateMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.assEva.mgr.impl.AssEvaTemplateMgrImpl">
+                <property name="assEvaTemplateDao" ref="assEvaTemplateDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--AssEvaTemplate-END-->
+    
+    <!--AssEvaTask-DAO START-->
+    <bean id="assEvaTaskDao" class="com.boco.eoms.assEva.dao.hibernate.AssEvaTaskDaoHibernate" autowire="byName"/>
+    <!--AssEvaTask-DAO END-->
+    <!--AssEvaTask-START-->    
+    <bean id="IassEvaTaskMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.assEva.mgr.impl.AssEvaTaskMgrImpl">
+                <property name="assEvaTaskDao" ref="assEvaTaskDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--AssEvaTask-END-->
+    
+    <!--AssEvaTaskDetail-DAO START-->
+    <bean id="assEvaTaskDetailDao" class="com.boco.eoms.assEva.dao.hibernate.AssEvaTaskDetailDaoHibernate" autowire="byName"/>
+    <!--AssEvaTaskDetail-DAO END-->
+    <!--AssEvaTaskDetail-START-->    
+    <bean id="IassEvaTaskDetailMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.assEva.mgr.impl.AssEvaTaskDetailMgrImpl">
+                <property name="assEvaTaskDetailDao" ref="assEvaTaskDetailDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--AssEvaTaskDetail-END-->
+    
+    <!--AssEvaKpiInstance-DAO START-->
+    <bean id="assEvaKpiInstanceDao" class="com.boco.eoms.assEva.dao.hibernate.AssEvaKpiInstanceDaoHibernate" autowire="byName"/>
+    <!--AssEvaKpiInstance-DAO END-->
+    <!--AssEvaKpiInstance-START-->    
+    <bean id="IassEvaKpiInstanceMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.assEva.mgr.impl.AssEvaKpiInstanceMgrImpl">
+                <property name="assEvaKpiInstanceDao" ref="assEvaKpiInstanceDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--AssEvaKpiInstance-END-->
+    
+    <!--AssEvaOrg-DAO START-->
+    <bean id="assEvaOrgDao" class="com.boco.eoms.assEva.dao.hibernate.AssEvaOrgDaoHibernate" autowire="byName"/>
+    <!--AssEvaOrg-DAO END-->
+    <!--AssEvaOrg-START-->    
+    <bean id="IassEvaOrgMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.assEva.mgr.impl.AssEvaOrgMgrImpl">
+                <property name="assEvaOrgDao" ref="assEvaOrgDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--AssEvaOrg-END-->
+
+    <!--AssEvaAuditInfo-DAO START-->
+    <bean id="assEvaAuditInfoDao" class="com.boco.eoms.assEva.dao.hibernate.AssEvaAuditInfoDaoHibernate" autowire="byName"/>
+    <!--AssEvaAuditInfo-DAO END-->
+    <!--AssEvaAuditInfo-START-->    
+    <bean id="IassEvaAuditInfoMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.assEva.mgr.impl.AssEvaAuditInfoMgrImpl">
+                <property name="assEvaAuditInfoDao" ref="assEvaAuditInfoDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--AssEvaAuditInfo-END-->
+    
+    <!--AssEvaAuditInfo-DAO START-->
+    <bean id="assEvaReportInfoDao" class="com.boco.eoms.assEva.dao.hibernate.AssEvaReportInfoDaoHibernate" autowire="byName"/>
+    <!--AssEvaAuditInfo-DAO END-->
+    <!--AssEvaAuditInfo-START-->    
+    <bean id="IassEvaReportInfoMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.assEva.mgr.impl.AssEvaReportInfoMgrImpl">
+                <property name="assEvaReportInfoDao" ref="assEvaReportInfoDao"/>
+            </bean>
+        </property>
+    </bean>
+	<bean id="IassKpiConfigMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.assEva.mgr.impl.AssKpiConfigMgrImpl">
+				<property name="assKpiConfigDao" ref="assKpiConfigDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="assKpiConfigDao"
+		class="com.boco.eoms.assEva.dao.hibernate.AssKpiConfigDaoHibernate"
+		autowire="byName" />     
+    <!--AssEvaAuditInfo-END-->
+    <import
+		resource="classpath:com/boco/eoms/assEva/config/applicationContext-assEva-versionlog.xml" />
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

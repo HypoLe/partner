@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="pnrEvaRoleIdList"
+		class="com.boco.eoms.partner.eva.util.PnrEvaRoleIdList">
+		<!-- 考核模板区负责人(一期保留) -->
+		<property name="provinceAdminRoleId">
+			<value>390</value>
+		</property>
+        <!-- 考核模型管理角色 -->
+		<property name="treeConfigRoleId">
+			<value>909</value>
+		</property>
+		<!-- 考核模板审核角色 -->
+		<property name="templateAuditRoleId">
+			<value>911</value>
+		</property>
+		<!-- 考核记录审核角色 -->
+		<property name="reportAuditRoleId">
+			<value>911</value>
+		</property>
+		<!-- 考核表执行角色 -->
+		<property name="reportExecuteRoleId">
+			<value>909</value>
+		</property>
+		<!-- 考核表查看角色 -->
+		<property name="reportShowRoleId">
+			<value>913</value>
+		</property>
+		<!-- 厂家字典类型id(现在改为黑龙江合作伙伴树的省公司节点nodeid) -->
+		<property name="factoryDictType">
+			<value>10117</value>
+		</property>
+		<!-- 省公司地域id -->
+		<property name="rootAreaId">
+			<value>101</value>
+		</property>
+		<!-- 省网络部部门id -->
+		<property name="ndDept">
+			<value>1010712</value>
+		</property>
+		<!-- 省网络中心部门id -->
+		<property name="nmcDept">
+			<value>1010711</value>
+		</property>
+	</bean>
+</beans>
+
+
+
+
+
+
+
+

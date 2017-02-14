@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!--
+		This is a real generic dao for nop3 standard CRUD only.By Steve Start,
+		July,2011
+	-->
+
+	<bean id="feeApplicationDao" class="com.boco.eoms.deviceManagement.charge.dao.FeeApplicationDaoImpl"
+		autowire="byName" />
+	
+	<bean id="feeApplicationLinkDao" class="com.boco.eoms.deviceManagement.charge.dao.FeeApplicationLinkDaoImpl"
+		autowire="byName" />
+
+	<bean id="feeApplicationService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.deviceManagement.charge.service.FeeApplicationServiceImpl">
+				<property name="feeApplicationDao" ref="feeApplicationDao" />
+
+
+	            <property name="bigRole">
+						<value>393</value>
+						</property>
+				 <property name="parterRole">
+						<value>391</value>
+						</property>		
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="feeApplicationLinkService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.deviceManagement.charge.service.FeeApplicationLinkServiceImpl">
+				<property name="feeApplicationLinkDao" ref="feeApplicationLinkDao" />
+
+			</bean>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server>
+	<ftp>
+		<ip>10.0.2.109</ip>
+		<username>eomsftp</username>
+		<password>eoms#2008</password>
+	</ftp>
+	<rootpath>
+		<http>ftp://root:root@10.32.2.112/export/home/IBM/profiles/Custom01/installedApps/eoms-solarisCell01/eoms35EAR.ear/eoms35.war/</http>
+		<httproot>E:\eoms\upload</httproot>
+		<ftp>/opt/ftp/file/</ftp>
+	</rootpath>
+</server>

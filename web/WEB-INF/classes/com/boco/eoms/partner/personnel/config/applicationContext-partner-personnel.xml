@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+
+	<!-- 人员证书管理 -->
+	<bean id="refcertificateDao"
+		class="com.boco.eoms.partner.personnel.dao.impl.CertificateDaoImpl" autowire="byName" />
+	<bean id="refcertificateMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.personnel.mgr.impl.CertificateMgrImpl">
+				<property name="certificateDao" ref="refcertificateDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 人员奖励管理 -->
+	<bean id="refrewardDao"
+		class="com.boco.eoms.partner.personnel.dao.impl.RewardDaoImpl" autowire="byName" />
+	<bean id="refrewardMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.personnel.mgr.impl.RewardMgrImpl">
+				<property name="rewardDao" ref="refrewardDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	
+	<!-- 人员资质信息管理 -->
+	<bean id="refdwinfoDao"
+		class="com.boco.eoms.partner.personnel.dao.impl.DWInfoDaoImpl" autowire="byName" />
+	<bean id="refdwinfoMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.personnel.mgr.impl.DWInfoMgrImpl">
+				<property name="dwinfoDao" ref="refdwinfoDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 人员培训经历管理 -->
+	<bean id="refpxexperienceDao"
+		class="com.boco.eoms.partner.personnel.dao.impl.PXExperienceDaoImpl" autowire="byName" />
+	<bean id="refpxexperienceMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.personnel.mgr.impl.PXExperienceMgrImpl">
+				<property name="pxexperienceDao" ref="refpxexperienceDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 人员教育经历管理 -->
+	<bean id="refstudyExperienceDao"
+		class="com.boco.eoms.partner.personnel.dao.impl.StudyExperienceDaoImpl" autowire="byName" />
+	<bean id="refstudyExperienceMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.personnel.mgr.impl.StudyExperienceMgrImpl">
+				<property name="studyExperienceDao" ref="refstudyExperienceDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- 人员工作经历管理 add by fengguangping-->
+	<bean id="workExperienceDao"
+		class="com.boco.eoms.partner.personnel.dao.impl.WorkExperienceDaoImpl" autowire="byName" />
+	<bean id="workExperienceMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.personnel.mgr.impl.WorkExperienceMgrImpl">
+				<property name="workExperienceDao" ref="workExperienceDao" />
+			</bean>
+		</property>
+	</bean>
+	
+</beans>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.boco.eoms.partner.res.model.PnrTransLinePoint" table="pnr_trans_line_point">
+	            
+    <id name="id" column="id" unsaved-value="null">
+	    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+	    <generator class="uuid.hex">
+	    </generator>
+    </id>
+    
+     	<property name="tlpDis" column="tlp_dis" />
+		<property name="tlpWire" column="tlp_wire" />
+		<property name="tlpSeg" column="tlp_seg" />
+		<property name="tlpPAName" column="tlp_pa_name" />
+		<property name="tlpPALo" column="tlp_pa_lo" />
+		<property name="tlpPALa" column="tlp_pa_la" />
+		<property name="tlpPZName" column="tlp_pz_name" />
+		<property name="tlpPZLo" column="tlp_pz_lo" />
+		<property name="tlpPZLa" column="tlp_pz_la" />
+		<property name="resCfgId" column="res_cfg_id" />
+		<property name="tlpType" column="tlp_type" />
+		<property name="tlpSortNum" column="tlp_sort_num" />
+		<property name="isMustArrive" column="is_must_arrive" />
+		<property name="city" column="city" />
+		<property name="country" column="country" />
+		
+		<property name="inspectMappingId" column="inspect_mapping_id" />
+		<property name="tlpSource" column="tlp_source" />
+		
+</class>    
+</hibernate-mapping>
+

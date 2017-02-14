@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.boco.eoms.partner.baseinfo.model.PartnerDept"
+		table="pnr_dept">
+
+		<id name="id" column="id" unsaved-value="null">
+
+			<!-- The generator-class attribute of @hibernate.id is deprecated, use 
+				the @hibernate.generator tag instead -->
+			<generator class="uuid.hex">
+
+			</generator>
+
+		</id>
+
+		<property name="name" column="name" length="255" not-null="true"
+			unique="true">
+
+		</property>
+
+		<property name="type" column="type" length="32" not-null="false"
+			unique="false">
+
+		</property>
+
+		<property name="aptitude" column="aptitude" length="32"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="deadline" column="deadline" length="32"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="manager" column="manager" length="255"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="areaId" column="area_id" length="32"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="areaName" column="area_name" length="255"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="fund" column="fund" length="255" not-null="false"
+			unique="false">
+
+		</property>
+
+		<property name="phone" column="phone" length="255" not-null="false"
+			unique="false">
+
+		</property>
+
+		<property name="address" column="address" length="255"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="fax" column="fax" length="255" not-null="false"
+			unique="false">
+
+		</property>
+
+		<property name="bank" column="bank" length="255" not-null="false"
+			unique="false">
+
+		</property>
+
+		<property name="account" column="account" length="255"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="third" column="third" length="255" not-null="false"
+			unique="false">
+
+		</property>
+
+		<property name="accessory" column="accessory" length="255"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="remark" column="remark" length="255"
+			not-null="false" unique="false">
+
+		</property>
+
+		<property name="treeId" column="tree_id" length="32"
+			not-null="false" unique="true">
+
+		</property>
+
+		<property name="treeNodeId" column="tree_node_id" length="32"
+			not-null="false" unique="true">
+
+		</property>
+
+		<property name="deleted" column="deleted" length="2"
+			not-null="false" unique="false">
+		</property>
+
+		<property name="contactor" column="contactor" length="32"
+			not-null="false" unique="false">
+		</property>
+
+		<property name="zip" column="zip" length="32" not-null="false"
+			unique="false">
+		</property>
+
+		<property name="email" column="email" length="64" not-null="false"
+			unique="false">
+		</property>
+
+		<property name="companyRegister" column="company_register"
+			length="64" not-null="false" unique="false">
+		</property>
+
+		<property name="honestAgreement" column="honest_agreement"
+			length="64" not-null="false" unique="false">
+		</property>
+
+		<property name="interfaceHeadId" column="interface_head_id"
+			length="255" not-null="false" unique="false">
+
+		</property>
+
+		<property name="createTime" column="create_time" not-null="false"
+			unique="false">
+
+		</property>
+		<property name="licenceNum" column="licenceNum" length="128"
+			not-null="false" unique="false">
+		</property>
+		<property name="homepage" column="homepage" length="128"
+			not-null="false" unique="false">
+		</property>
+		<property name="managercop" column="managercop" length="128"
+			not-null="false" unique="false">
+		</property>
+		<property name="personCou" column="personCou" length="32"
+			not-null="false" unique="false">
+		</property>
+		<property name="selected" column="selected" length="32"
+			not-null="false" unique="false">
+		</property>
+		<property name="accName" column="accName" length="128"
+			not-null="false" unique="false">
+		</property>
+		<property name="registNo" column="registNo" length="128"
+			not-null="false" unique="false">
+		</property>
+		<property name="deptMagId" column="dept_mag_id" length="32"
+			not-null="false" unique="false">
+		</property>
+		<property name="bigType" column="big_type" length="255"
+			not-null="false" unique="false">
+		</property>
+		<property name="specialty" column="specialty" length="32"
+			not-null="false" unique="false">
+		</property>
+		<property name="deptLevel" column="deptLevel" length="2"
+			not-null="false" unique="false">
+		</property>
+		<property name="organizationNo" column="organizationNo"
+			length="255" not-null="false" unique="false">
+		</property>
+		<property name="ifCompany" column="ifCompany" length="32"
+			not-null="false" unique="false">
+		</property>
+		<property name="kindCurrencies" column="kindCurrencies"
+			length="32" not-null="false" unique="false">
+		</property>
+		<property name="companySynopses" column="companySynopses"
+			length="255" not-null="false" unique="false">
+		</property>
+		<property name="registerTime" column="registerTime" length="32"
+			not-null="false" unique="false">
+		</property>
+		<property name="selectedLevel" column="selectedLevel" length="32"
+			not-null="false" unique="false">
+		</property>
+		<!-- for statistics add by fengguangping begin -->
+		<property name="provinceId" column="province_id" not-null="false"
+			unique="false"></property>
+		<property name="cityId" column="city_id" not-null="false"
+			unique="false"></property>
+		<property name="countyId" column="county_id" not-null="false"
+			unique="false"></property>
+		<property name="pro1" column="pro_1" not-null="false" unique="false"></property>
+		<property name="pro2" column="pro_2" not-null="false" unique="false"></property>
+		<property name="pro3" column="pro_3" not-null="false" unique="false"></property>
+		<property name="pro4" column="pro_4" not-null="false" unique="false"></property>
+		<property name="pro5" column="pro_5" not-null="false" unique="false"></property>
+		<property name="pro6" column="pro_6" not-null="false" unique="false"></property>
+		<property name="pro7" column="pro_7" not-null="false" unique="false"></property>
+		<property name="pro8" column="pro_8" not-null="false" unique="false"></property>
+		<property name="pro9" column="pro_9" not-null="false" unique="false"></property>
+		<property name="fund1" column="fund_1" not-null="false"
+			unique="false"></property>
+		<property name="fund2" column="fund_2" not-null="false"
+			unique="false"></property>
+		<property name="fund3" column="fund_3" not-null="false"
+			unique="false"></property>
+		<property name="fund4" column="fund_4" not-null="false"
+			unique="false"></property>
+		<property name="sellevel1" column="sellevel_1" not-null="false"
+			unique="false"></property>
+		<property name="sellevel2" column="sellevel_2" not-null="false"
+			unique="false"></property>
+		<property name="sellevel3" column="sellevel_3" not-null="false"
+			unique="false"></property>
+		<property name="companyType1" column="comtype_1" not-null="false"
+			unique="false"></property>
+		<property name="companyType2" column="comtype_2" not-null="false"
+			unique="false"></property>
+		<property name="companyType3" column="comtype_3" not-null="false"
+			unique="false"></property>
+		<property name="companyType4" column="comtype_4" not-null="false"
+			unique="false"></property>
+		<property name="companyType5" column="comtype_5" not-null="false"
+			unique="false"></property>
+		<property name="companyType6" column="comtype_6" not-null="false"
+			unique="false"></property>
+		<property name="companyType7" column="comtype_7" not-null="false"
+			unique="false"></property>
+		<property name="companyType8" column="comtype_8" not-null="false"
+			unique="false"></property>
+		<property name="isPartner" column="is_partner" not-null="false"
+			unique="false">
+		</property>
+	</class>
+
+</hibernate-mapping>
+

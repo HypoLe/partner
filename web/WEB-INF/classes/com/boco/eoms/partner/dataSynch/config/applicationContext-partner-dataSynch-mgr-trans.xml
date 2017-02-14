@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 人手井-IrmsTransWell -->
+	<bean id="irmsTransWellMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.trans.IrmsTransWellMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsTransWellDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsTransWellMappingRule" />
+				<property name="dataType" value="传输线路" /><!-- 专业类型-->
+				<property name="deviceType" value="人手井" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 杆路-IrmsTransPoleline -->
+	<bean id="irmsTransPolelineMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.trans.IrmsTransPolelineMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsTransPolelineDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsTransPolelineMappingRule" />
+				<property name="dataType" value="传输线路" /><!-- 专业类型-->
+				<property name="deviceType" value="杆路" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 管孔-IrmsTransPipehole -->
+	<bean id="irmsTransPipeholeMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.trans.IrmsTransPipeholeMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsTransPipeholeDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsTransPipeholeMappingRule" />
+				<property name="dataType" value="传输线路" /><!-- 专业类型-->
+				<property name="deviceType" value="管孔" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 管道段-IrmsTransPipesec -->
+	<bean id="irmsTransPipesecMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.trans.IrmsTransPipesecMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsTransPipesecDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsTransPipesecMappingRule" />
+				<property name="dataType" value="传输线路" /><!-- 专业类型-->
+				<property name="deviceType" value="管道段" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 管道-IrmsTransPipe -->
+	<bean id="irmsTransPipeMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.trans.IrmsTransPipeMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsTransPipeDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsTransPipeMappingRule" />
+				<property name="dataType" value="传输线路" /><!-- 专业类型-->
+				<property name="deviceType" value="管道" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 电杆-IrmsTransPoles -->
+	<bean id="irmsTransPolesMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.trans.IrmsTransPolesMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsTransPolesDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsTransPolesMappingRule" />
+				<property name="dataType" value="传输线路" /><!-- 专业类型-->
+				<property name="deviceType" value="电杆" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 杆路段-IrmsTransPolelinesec -->
+	<bean id="irmsTransPolelinesecMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.trans.IrmsTransPolelinesecMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsTransPolelinesecDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsTransPolelinesecMappingRule" />
+				<property name="dataType" value="传输线路" /><!-- 专业类型-->
+				<property name="deviceType" value="杆路段" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 标石-IrmsTransMarkstone -->
+	<bean id="irmsTransMarkstoneMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.trans.IrmsTransMarkstoneMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsTransMarkstoneDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsTransMarkstoneMappingRule" />
+				<property name="dataType" value="传输线路" /><!-- 专业类型-->
+				<property name="deviceType" value="标石" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 直埋-IrmsTransDirbury -->
+	<bean id="irmsTransDirburyMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.trans.IrmsTransDirburyMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsTransDirburyDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsTransDirburyMappingRule" />
+				<property name="dataType" value="传输线路" /><!-- 专业类型-->
+				<property name="deviceType" value="直埋" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 光缆-IrmsTransOpcable -->
+	<bean id="irmsTransOpcableMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.trans.IrmsTransOpcableMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsTransOpcableDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsTransOpcableMappingRule" />
+				<property name="dataType" value="传输线路" /><!-- 专业类型-->
+				<property name="deviceType" value="光缆" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 光缆段-IrmsTransOpcablesec -->
+	<bean id="irmsTransOpcablesecMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.trans.IrmsTransOpcablesecMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsTransOpcablesecDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsTransOpcablesecMappingRule" />
+				<property name="dataType" value="传输线路" /><!-- 专业类型-->
+				<property name="deviceType" value="光缆段" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 直埋段-IrmsTransDirburysec -->
+	<bean id="irmsTransDirburysecMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.trans.IrmsTransDirburysecMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsTransDirburysecDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsTransDirburysecMappingRule" />
+				<property name="dataType" value="传输线路" /><!-- 专业类型-->
+				<property name="deviceType" value="直埋段" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 光交接箱-IrmsTransOdf -->
+	<bean id="irmsTransOdfMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.trans.IrmsTransOdfMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsTransOdfDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsTransOdfMappingRule" />
+				<property name="dataType" value="传输线路" /><!-- 专业类型-->
+				<property name="deviceType" value="光交接箱" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 光电接头盒-IrmsTransOpconbox -->
+	<bean id="irmsTransOpconboxMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.trans.IrmsTransOpconboxMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsTransOpconboxDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsTransOpconboxMappingRule" />
+				<property name="dataType" value="传输线路" /><!-- 专业类型-->
+				<property name="deviceType" value="光电接头盒" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+</beans>

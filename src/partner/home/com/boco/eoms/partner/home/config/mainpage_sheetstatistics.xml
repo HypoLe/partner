@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sheet-statistics>
+	<!-- 代维处理人员工单统计 -->
+	select pro_get_areaname(province) as province,
+        pro_get_areaname(city) as city, 
+        pro_get_areaname(country) as country,
+        pro_get_deptname(groupdeptid) as groupdept,
+        pro_get_username(dealuserid) as dealuser,
+        holdyear,
+        holdhalfyear,
+        holdquarter,
+        holdmonth,
+        holdday,
+        count(*) as sheetcount,
+        sum(timelyflag)/count(*)*100 || '%' as intime_deg,
+        sum(qualifiedflag)/count(*)*100 || '%' as qualified_deg
+ from pnr_metering_main 
+ group by province,city,country,groupdeptid,dealuserid,
+                                   holdyear,holdhalfyear,holdquarter,holdmonth,holdday
+ having dealuserid = 'luoyuping'
+ order by province,city,country,groupdept,dealuser,
+                                   holdyear,holdhalfyear,holdquarter,holdmonth,holdday,sheetcount,intime_deg,qualified_deg
+</sheet-statistics>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class
+  name="com.boco.eoms.deviceManagement.busi.protectline.model.AdvertisementPlan" table="dm_advertisementplan_info">
+  <id column="id" name="id">
+   <generator class="uuid.hex"/>
+  </id>
+  <property generated="never" lazy="false" name="advertisement"/>
+  <property generated="never" lazy="false" name="city"/>
+  <property generated="never" lazy="false" name="createTime"/>
+  <property generated="never" lazy="false" name="passTime"/>
+  <property generated="never" lazy="false" name="createUserId"/>
+  <property generated="never" lazy="false" name="detectStone"/>
+  <property generated="never" lazy="false" name="generalStone"/>
+  <property generated="never" lazy="false" name="remarks"/>
+  <property generated="never" lazy="false" name="reviewer"/>
+  <property generated="never" lazy="false" name="status"/>
+  <property generated="never" lazy="false" name="nextOper"/>
+ </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.boco.eoms.deviceManagement.busi.protectline.model.WarningBoard"
+		table="dm_protectline_warningboard"
+		>
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+		
+		<property name="personnelId"  />
+		<property name="greatTime"  />
+		<property name="areaId" />
+		<property name="auditId" />
+		<property name="itemName" />
+		<property name="repeaterSection" />
+		<property name="repeaterSectionMileage" />
+		<property name="warningBoardOldNumber" />
+		<property name="warningBoardNewNumber" />
+		<property name="actualCompletion" />
+		<property name="completionTime" />
+		<property name="unfinishedReason" />
+		<property name="assessResult" />
+	    <property name="remarks" />
+	    <property name="status" />
+	    <property name="deleted" />
+	</class>
+</hibernate-mapping>

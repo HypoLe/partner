@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+
+<property name="show_sql">true</property>
+    <mapping resource="com/boco/eoms/materials/model/BillMaterial.hbm.xml"/>
+    <mapping resource="com/boco/eoms/materials/model/ContactCompany.hbm.xml"/>
+    <mapping resource="com/boco/eoms/materials/model/Material.hbm.xml"/>
+    <mapping resource="com/boco/eoms/materials/model/Store.hbm.xml"/>
+    <mapping resource="com/boco/eoms/materials/model/StoreAllot.hbm.xml"/>
+    <mapping resource="com/boco/eoms/materials/model/StoreInput.hbm.xml"/>
+    <mapping resource="com/boco/eoms/materials/model/StoreInventory.hbm.xml"/>
+    <mapping resource="com/boco/eoms/materials/model/StoreInventoryHistory.hbm.xml"/>
+    <mapping resource="com/boco/eoms/materials/model/StoreOut.hbm.xml"/>
+    <mapping resource="com/boco/eoms/materials/model/SysDict.hbm.xml"/>
+    <mapping resource="com/boco/eoms/materials/model/SysUser.hbm.xml"/>
+    <mapping resource="com/boco/eoms/materials/model/MatePermission.hbm.xml"/>
+
+  </session-factory>
+</hibernate-configuration>
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"><hibernate-mapping>
+<class name="com.boco.eoms.examonline.model.ExamTypeSel"  table="examtypesel">
+<id column="id" name="id" type="string">
+<generator class="uuid.hex"/>
+</id>
+<property column="SPECIALTY" length="100" name="specialty" not-null="false" type="string"/>
+<property column="MANUFACTURER"  name="manufacturer" not-null="false" type="integer"/>
+<property column="DIFFICULTY"  name="difficulty" not-null="false" type="integer"/>
+<property column="RADIO_COUNT"  name="radioCount" not-null="false" type="integer"/>
+<property column="MULTIPLE_COUNT"  name="multipleCount" not-null="false" type="integer"/>
+<property column="JUDGE_COUNT"  name="judgeCount" not-null="false" type="integer"/>
+<property column="QA_COUNT"  name="qaCount" not-null="false" type="integer"/>
+<property column="ESSAY_COUNT"  name="essayCount" not-null="false" type="integer"/>
+<property column="RADIO_SCORE"  name="radioScore" not-null="false" type="integer"/>
+<property column="MULTIPLE_SCORE"  name="multipleScore" not-null="false" type="integer"/>
+<property column="JUDGE_SCORE"  name="judgeScore" not-null="false" type="integer"/>
+<property column="QA_SCORE"  name="qaScore" not-null="false" type="integer"/>
+<property column="ESSAY_SCORE"  name="essayScore" not-null="false" type="integer"/>
+<property column="TYPESEL_FK" length="32" name="typesel_fk" not-null="false" type="string"/>
+<property column="STATE"  name="state" not-null="false" type="integer"/>
+</class>
+</hibernate-mapping>

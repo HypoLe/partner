@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <!-- Add new Managers here -->
+    
+    <!--TechnicData-DAO START-->
+    <bean id="technicDataDao" class="com.boco.eoms.deviceManagement.technicData.dao.TechnicDataDaoImpl" autowire="byName"/>
+    <!--TawWorkbenchNetDisk-DAO END-->
+    <!--TawWorkbenchNetDisk-START-->    
+    <bean id="technicDataService" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.deviceManagement.technicData.service.TechnicDataServiceImpl">
+                <property name="technicDataDao" ref="technicDataDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--TechnicData-DAO-END-->
+    <!--<import
+		resource="classpath:com/boco/eoms/workbench/netdisk/config/applicationContext-workbench-netdisk-versionlog.xml" />
+-->
+
+	<import resource="classpath:com/boco/eoms/deviceManagement/technicData/config/technicData-config.xml" />
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

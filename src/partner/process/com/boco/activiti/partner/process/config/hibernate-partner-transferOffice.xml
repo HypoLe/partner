@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		 <property name="show_sql">true</property>
+		 <mapping resource="com/boco/activiti/partner/process/model/RoomDemolitionSpotcheck.hbm.xml"/>
+		 <mapping resource="com/boco/activiti/partner/process/model/PnrTransferSpotcheck.hbm.xml"/>
+		 <mapping resource="com/boco/activiti/partner/process/model/PnrTransferOffice.hbm.xml"/>
+		 <mapping resource="com/boco/activiti/partner/process/model/PnrTransferOfficeHandle.hbm.xml"/>
+		 <mapping resource="com/boco/activiti/partner/process/model/TransferMaleGuestInform.hbm.xml"/>
+		 <mapping resource="com/boco/activiti/partner/process/model/OperationReturnResult.hbm.xml"/>
+		 <mapping resource="com/boco/activiti/partner/process/model/OperationReturnResultDetail.hbm.xml"/>
+		 <mapping resource="com/boco/activiti/partner/process/model/PnrActReviewStaff.hbm.xml"/><!-- 预检预修会审人员配置 -->
+		 <mapping resource="com/boco/activiti/partner/process/model/PnrPrecheckPhoto.hbm.xml"/><!-- 预检预修工单和图片关联表配置 -->
+		 <mapping resource="com/boco/activiti/partner/process/model/RoomDemolition.hbm.xml"/><!-- 机房拆除流程 -->
+		 <mapping resource="com/boco/activiti/partner/process/model/RoomDemolitionHandle.hbm.xml"/><!-- 机房拆除流程回复表 -->
+		 <mapping resource="com/boco/activiti/partner/process/model/PnrActMaterial.hbm.xml"/><!-- 机房拆除材料表 -->
+		 <mapping resource="com/boco/activiti/partner/process/model/PnrActCityBudgetAmount.hbm.xml"/><!-- 地市预算金额 -->	
+		 <mapping resource="com/boco/activiti/partner/process/model/PnrActCountyBudgetAmount.hbm.xml"/><!-- 区县预算金额 -->		 
+		 <mapping resource="com/boco/activiti/partner/process/model/PnrReviewResults.hbm.xml"/><!-- 会审结果导入 -->
+		 <mapping resource="com/boco/activiti/partner/process/model/RoomAssets.hbm.xml"/><!-- 机房资源 -->
+		 <mapping resource="com/boco/activiti/partner/process/model/RoomAssetsRelation.hbm.xml"/><!-- 机房资产和流程关联 -->		 		 
+		 <mapping resource="com/boco/activiti/partner/process/model/MasteRelTaskItem.hbm.xml"/>	 
+		 <mapping resource="com/boco/activiti/partner/process/model/MasteSelCopyTask.hbm.xml"/>		 
+		 <mapping resource="com/boco/activiti/partner/process/model/MasteDataTask.hbm.xml"/>
+		 <mapping resource="com/boco/activiti/partner/process/model/PnrOltBbuRoom.hbm.xml"/><!-- 机房优化申请 -->
+		 <mapping resource="com/boco/activiti/partner/process/model/PnrOltBbuOfficeRelation.hbm.xml"/><!-- olt-bbu机房优化工单和机房关联Model -->
+		 <mapping resource="com/boco/activiti/partner/process/model/NetResInspect.hbm.xml"/><!-- 网络资源巡检众筹 主表 -->
+		 <mapping resource="com/boco/activiti/partner/process/model/NetResInspectHandle.hbm.xml"/><!-- 网络资源巡检众筹 流转信息 -->
+		 <mapping resource="com/boco/activiti/partner/process/model/NetResInspectPhoto.hbm.xml"/><!-- 网络资源巡检众筹 照片 -->
+		 <mapping resource="com/boco/activiti/partner/process/model/NetResInspectDraft.hbm.xml"/><!-- 网络资源巡检众筹 草稿 -->
+		 <mapping resource="com/boco/activiti/partner/process/model/NetResInspectTurnToSend.hbm.xml"/><!-- 网络资源巡检众筹 转派表 -->
+		 <mapping resource="com/boco/activiti/partner/process/model/SchemeRate.hbm.xml"/><!-- 方案合格率 报表 -->
+		 <mapping resource="com/boco/activiti/partner/process/model/NetResInspectUser.hbm.xml"/><!-- 网络资源巡检众筹 用户表 -->
+	</session-factory>
+</hibernate-configuration>

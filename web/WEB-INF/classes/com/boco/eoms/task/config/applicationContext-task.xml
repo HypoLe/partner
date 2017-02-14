@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>	
+	<bean id="taskDao" class="com.boco.eoms.task.dao.hibernate.TaskDaoHibernate" autowire="byName" />
+	
+	<bean id="taskMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.task.mgr.impl.TaskMgrImpl">
+				<property name="taskDao" ref="taskDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="accessoriesDao" class="com.boco.eoms.task.dao.hibernate.TaskAccessoriesDaoHibernate" autowire="byName" />
+	
+	<bean id="accessoriesMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.task.mgr.impl.TaskAccessoriesMgrImpl">
+				<property name="accessoriesDao" ref="accessoriesDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	
+	<bean id="IEomsTaskDao" class="com.boco.eoms.task.dao.hibernate.EomsTaskDaoHibernate" autowire="byName"/>
+  
+    <bean id="IEomsTaskManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.task.mgr.impl.EomsTaskImpl">
+                <property name="eomsTaskDao" ref="IEomsTaskDao"/>
+            </bean>
+        </property>
+    </bean>
+	
+</beans>
+
+
+
+
+
+
+
+
+

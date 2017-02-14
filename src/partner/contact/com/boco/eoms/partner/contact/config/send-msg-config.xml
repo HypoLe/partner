@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="GB2312"?>
+<boco>
+	<ServiceUrl>http://10.101.16.53:8081/newSmsWebService/services/SMSService</ServiceUrl>
+	<base>
+		<username>214</username>
+		<password>111</password>
+		<licence>1</licence>
+	</base>
+</boco>

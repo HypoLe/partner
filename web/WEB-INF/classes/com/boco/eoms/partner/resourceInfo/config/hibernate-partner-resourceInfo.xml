@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="show_sql">true</property>
+		<property name="format_sql">false</property>
+		<!-- 仪器仪表模块 -->
+		<mapping resource="com/boco/eoms/partner/resourceInfo/model/Apparatus.hbm.xml" />
+		<!-- 车辆模块 -->
+		<mapping resource="com/boco/eoms/partner/resourceInfo/model/Car.hbm.xml" />
+		<!-- 油机模块 -->
+		<mapping resource="com/boco/eoms/partner/resourceInfo/model/OilEngine.hbm.xml" />
+		<!-- 移动终端模块-->
+		<mapping resource="com/boco/eoms/partner/resourceInfo/model/MobileTerminal.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

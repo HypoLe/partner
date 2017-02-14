@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+   
+<beans>
+<!--默认配置文件中不加载任何组件,需要部署统计模块,在具体项目中加入配置,在产品发布时,这个配置文件要用空配置-->
+</beans>

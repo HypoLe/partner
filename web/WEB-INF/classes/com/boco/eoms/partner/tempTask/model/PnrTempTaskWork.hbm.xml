@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+
+>
+
+    <class
+            name="com.boco.eoms.partner.tempTask.model.PnrTempTaskWork"
+            table="pnr_tempTask_work"
+    >
+
+    <id
+        name="id"
+            column="id"
+            unsaved-value="null"
+    >
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+
+    </id>
+
+	<property
+            name="tempTaskId"
+            	column="tempTask_id"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="startTime"
+            	column="start_time"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="endTime"
+            	column="end_time"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="workContent"
+            	column="work_content"
+                length="2000"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+        
+	<property
+            name="workStandard"
+            	column="work_standard"
+                length="2000"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="evaStandard"
+            	column="eva_standard"
+                length="2000"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+        
+    
+    <property
+            name="cycle"
+            	column="cycle"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+    </property>
+       
+	<property
+            name="summarize"
+            	column="summarize"
+                length="2000"
+                not-null="false"
+                unique="false"
+        >
+
+    </property>
+    
+    <property
+            name="lastExecuteTime"
+            	column="last_execute_time"
+                length="32"
+                not-null="false"
+                unique="false"
+        >
+
+    </property>
+    
+    <property
+            name="workFlag"
+            	column="work_flag"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+    </property>
+
+	<property
+            name="workEvaName"
+            	column="work_eva_name"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="workEvaWeight"
+            	column="work_eva_weight"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="workEvaContent"
+            	column="work_eva_content"
+                length="500"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+	<property
+            name="workEvaCycle"
+            	column="work_eva_cycle"
+                length="10"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="workEvaEndTime"
+            	column="work_eva_end_time"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>
+
+	<property
+            name="workEvaStartTime"
+            	column="work_eva_start_time"
+                length="50"
+                not-null="false"
+                unique="false"
+        >
+
+        </property>               
+			     
+		<property name="workType" column="work_type"
+			length="32" not-null="false" unique="false">
+
+		</property>	   
+		
+		<property name="taskUrl" column="task_url"
+			length="2000" not-null="false" unique="false">
+
+		</property>	        
+						
+		<property name="warnTime" column="warn_time"
+			length="32" not-null="false" unique="false">
+
+		</property>	  
+		
+		<property name="toOrgUserName" column="to_org_user_name"
+			length="255" not-null="false" unique="false">
+
+		</property>
+			
+		<property name="toOrgUser" column="to_org_user"
+			length="255" not-null="false" unique="false">
+
+		</property>	        
+						
+		<property name="algorithmType" column="algorithm_type"
+			length="32" not-null="false" unique="false">
+
+		</property>			         
+    </class>    
+
+</hibernate-mapping>
+

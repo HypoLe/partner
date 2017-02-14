@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<bean id="pnrDeptAreaCache"
+		class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<property name="cacheManager">
+			<ref bean="appCacheManager" />
+		</property>
+		<property name="cacheName">
+			<value>com.boco.eoms.partner.baseinfo.PNR_DEPT_AREA_CACHE</value>
+		</property>
+		<!-- 若ehcache.xml没有chacheName相关配置，则使用下面配置 -->
+		<property name="maxElementsInMemory">
+			<value>100001</value>
+		</property>
+		<property name="overflowToDisk">
+			<value>true</value>
+		</property>
+		<property name="eternal">
+			<value>true</value>
+		</property>
+		<property name="timeToLive">
+			<value>600</value>
+		</property>
+		<property name="timeToIdle">
+			<value>600</value>
+		</property>
+		<property name="diskPersistent">
+			<value>false</value>
+		</property>
+		<property name="diskExpiryThreadIntervalSeconds">
+			<value>120</value>
+		</property>
+
+	</bean>
+
+
+
+	<bean id="pnrDeptCacheInterceptor"
+		class="com.boco.eoms.commons.cache.support.MethodCacheInterceptor">
+		<property name="cache">
+			<ref local="pnrDeptAreaCache" />
+		</property>
+	</bean>
+
+	<bean id="pnrDeptCachePointCut"
+		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property name="advice">
+			<ref local="pnrDeptCacheInterceptor" />
+		</property>
+		<property name="patterns">
+			<list>
+				<value>.*deptIdToName</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<bean id="pnrDeptBaseCacheProxy"
+		class="org.springframework.aop.framework.ProxyFactoryBean"
+		abstract="true">
+		<property name="interceptorNames">
+			<list>
+				<value>pnrDeptCachePointCut</value>
+				<value>txInterceptor</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 自动更新缓存 -->
+	<bean id="pnrDeptFlushCachePointCut"
+		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property name="advice">
+			<ref local="pnrDeptFlushCacheInterceptor" />
+		</property>
+		<property name="patterns">
+			<list>
+				<value>.*savePartnerDept</value>
+				<value>.*removePartnerDept</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="pnrDeptFlushCacheInterceptor"
+		class="com.boco.eoms.commons.cache.support.MethodFlushCacheInterceptor">
+		<property name="cache">
+			<ref local="pnrDeptAreaCache" />
+		</property>
+		<property name="method">
+			<props>
+				<prop
+					key="com.boco.eoms.partner.baseinfo.mgr.impl.PartnerDeptMgrImpl.savePartnerDept">
+					pnrDeptCacheKeyCallback
+				</prop>
+				<prop
+					key="com.boco.eoms.partner.baseinfo.mgr.impl.PartnerDeptMgrImpl.removePartnerDept">
+					pnrDeptCacheKeyCallback
+				</prop>
+
+			</props>
+		</property>
+	</bean>
+
+	<bean id="pnrDeptBaseFlushCacheProxy"
+		class="org.springframework.aop.framework.ProxyFactoryBean"
+		abstract="true">
+		<property name="interceptorNames">
+			<list>
+				<value>pnrDeptFlushCachePointCut</value>
+				<value>txInterceptor</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="pnrDeptCacheKeyCallback"
+		class="com.boco.eoms.partner.baseinfo.cache.PnrDeptAreaCacheKeyCallback" />
+
+
+	<bean id="PartnerDeptAreaMgrImplFlush"
+		parent="pnrDeptBaseCacheProxy">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.partner.baseinfo.mgr.impl.PartnerDeptAreaMgrImpl">
+				<property name="partnerDeptAreaDao"
+					ref="partnerDeptAreaDao" />
+			</bean>
+		</property>
+	</bean>
+
+
+</beans>

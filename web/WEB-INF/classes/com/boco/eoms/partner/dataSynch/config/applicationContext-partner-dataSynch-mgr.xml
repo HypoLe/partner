@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 空间资源开始 -->
+	<import resource="classpath:com/boco/eoms/partner/dataSynch/config/applicationContext-partner-dataSynch-mgr-space.xml"/>
+	<!-- 空间资源结束 -->
+	
+	<!-- 基站设备及配套开始 -->
+	<import resource="classpath:com/boco/eoms/partner/dataSynch/config/applicationContext-partner-dataSynch-mgr-bs.xml"/>
+	<!-- 基站设备及配套结束 -->
+	
+	<!-- 传输线路开始 -->
+	<import resource="classpath:com/boco/eoms/partner/dataSynch/config/applicationContext-partner-dataSynch-mgr-trans.xml"/>
+	<!-- 传输线路结束 -->
+	
+	<!-- 直放站室分及WLAN开始 -->
+	<import resource="classpath:com/boco/eoms/partner/dataSynch/config/applicationContext-partner-dataSynch-mgr-wlan.xml"/>
+	<!-- 直放站室分及WLAN结束 -->
+	
+	<!-- 铁塔及天馈开始 -->
+	<import resource="classpath:com/boco/eoms/partner/dataSynch/config/applicationContext-partner-dataSynch-mgr-tower.xml"/>
+	<!-- 铁塔及天馈结束 -->
+	
+	<!-- 集客家客开始 -->
+	<import resource="classpath:com/boco/eoms/partner/dataSynch/config/applicationContext-partner-dataSynch-mgr-group.xml"/>
+	<!-- 集客家客结束 -->
+</beans>
+
+
+
+
+
+
+
+
+

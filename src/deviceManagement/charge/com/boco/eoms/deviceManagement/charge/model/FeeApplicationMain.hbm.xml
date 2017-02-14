@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.boco.eoms.deviceManagement.charge.model.FeeApplicationMain"
+		>
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+		
+		<property name="feeApplicationUser"  />
+		<property name="feeApplicationCall"  />
+		<property name="feeApplicationDept" />
+		<property name="feeApplicationArea" />
+		<property name="feeApplicationCity" />
+		<property name="feeApplicationGreatTime" />
+		<property name="feeApplicationType" />
+		<property name="feeApplicationMoney" />
+		<property name="feeApplicationDiscribe" />
+		<property name="feeApplicationRemark" />
+		<property name="feeApplicationAccessory" />
+		<property name="feeApplicationStatus" />
+	    <property name="deleted" />
+	    <property name="deleteTime" />
+	    <property name="feeApplicationRoleID" />
+	    <property name="feeApplicationCompanyName" />
+	    <property name="subType" />
+		
+	</class>
+</hibernate-mapping>

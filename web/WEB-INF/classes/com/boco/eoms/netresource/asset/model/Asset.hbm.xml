@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.boco.eoms.netresource.asset.model.Asset" table="PNR_NET_ASSET">
+	            
+    <id name="id" column="id" unsaved-value="null">
+    	<generator class="uuid.hex"></generator>
+    </id>
+    				                
+    <property name="createUser"
+            column="createUser"
+            not-null="true"
+            unique="false">
+    </property>
+    		            
+    <property name="createTime"
+            column="createTime"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="assetName"
+            column="assetName"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="assetType"
+            column="assetType"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="assetModel"
+            column="assetModel"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="assetUseTime"
+            column="assetUseTime"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="assetBarCode"
+            column="assetBarCode"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="assetSitusTag"
+            column="assetSitusTag"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="assetLocation"
+            column="assetLocation"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="assetRemark"
+            column="assetRemark"
+            not-null="false"
+            unique="false">
+    </property>
+    		            
+    <property name="isDeleted"
+            column="isDeleted"
+            not-null="false"
+            unique="false">
+    </property>
+    
+</class>    
+</hibernate-mapping>
+

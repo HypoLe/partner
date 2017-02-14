@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 直放站-IrmsWlanRepeater -->
+	<bean id="irmsWlanRepeaterMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.wlan.IrmsWlanRepeaterMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsWlanRepeaterDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsWlanRepeaterMappingRule" />
+				<property name="dataType" value="直放站室分及WLAN" /><!-- 专业类型-->
+				<property name="deviceType" value="直放站" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 热点-IrmsWlanHot -->
+	<bean id="irmsWlanHotMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.wlan.IrmsWlanHotMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsWlanHotDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsWlanHotMappingRule" />
+				<property name="dataType" value="直放站室分及WLAN" /><!-- 专业类型-->
+				<property name="deviceType" value="热点" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- AC-IrmsWlanAc -->
+	<bean id="irmsWlanAcMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.wlan.IrmsWlanAcMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsWlanAcDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsWlanAcMappingRule" />
+				<property name="dataType" value="直放站室分及WLAN" /><!-- 专业类型-->
+				<property name="deviceType" value="AC" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- AP-IrmsWlanAp -->
+	<bean id="irmsWlanApMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.wlan.IrmsWlanApMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsWlanApDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsWlanApMappingRule" />
+				<property name="dataType" value="直放站室分及WLAN" /><!-- 专业类型-->
+				<property name="deviceType" value="AP" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 交换机-IrmsWlanSwitch -->
+	<bean id="irmsWlanSwitchMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.wlan.IrmsWlanSwitchMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsWlanSwitchDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsWlanSwitchMappingRule" />
+				<property name="dataType" value="直放站室分及WLAN" /><!-- 专业类型-->
+				<property name="deviceType" value="交换机" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+</beans>

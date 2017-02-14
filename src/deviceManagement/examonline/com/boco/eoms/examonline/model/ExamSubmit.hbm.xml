@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping>
+<class name="com.boco.eoms.examonline.model.ExamSubmit"  table="ExamSubmit">
+<id column="ID" name="id" type="string">
+<generator class="uuid.hex"/>
+</id>
+<property column="ISSUE_ID" length="32" name="issueId" type="string"/>
+<property column="USER_ID" length="30" name="userId" not-null="true" type="string"/>
+<property column="SUBMIT_TIME" length="7" name="submitTime" type="timestamp"/>
+</class>
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.boco.eoms.deviceManagement.busi.line.model.MaintainReport" table="dm_protectline_maintainreport">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="addMan" />
+		<property name="maintainNameId" />
+		<property name="approvalId" />
+		<property name="approvalUser" />
+		<property name="maintainDate" />
+		<property name="useTime" />
+		<property name="peopleNum" />
+		<property name="factualAttenuation" />
+		<property name="status" />
+		<property name="remark" />
+		<property name="addTime" />
+	</class>
+</hibernate-mapping>

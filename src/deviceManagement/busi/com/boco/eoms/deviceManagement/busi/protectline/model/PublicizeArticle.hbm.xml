@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.boco.eoms.deviceManagement.busi.protectline.model.PublicizeArticle" table="dm_protectline_pubzearticle">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+
+		<property name="creatUser" />
+		<property name="creatTime" />
+		<property name="creatDept" />
+		<property name="approvalUser" />
+		<property name="projectName" />
+		<property name="publicizeArticlePlace" />
+		<property name="publicizeArticlePlanAmount" />
+		<property name="publicizeArticleActualAmount" />
+		<property name="publicizeArticleType" />
+		<property name="finishTime" />
+		<property name="incompleteCause" />
+		<property name="approvalType" />
+		<property name="remark" />
+		<property name="deleted" />
+		<property name="modifyUser" />
+		<property name="modifyTime" />
+		<property name="modifyDept" />
+		<property name="remark1" />
+		<property name="remark2" />
+		<property name="remark3" />
+		<property name="remark4" />
+	</class>
+</hibernate-mapping>

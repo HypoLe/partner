@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="roleIdList"
+		class="com.boco.eoms.partner.baseinfo.util.RoleIdList">
+		<property name="provinceAdminRoleId">
+			<value>387</value>
+		</property>
+		<property name="areaAdminRoleId">
+			<value>388</value>
+		</property>
+		<property name="userRoleId">
+			<value>386</value>
+		</property>
+		<!-- 厂家字典类型id(省公司节点nodeid随现场要求进行修改) -->
+		<property name="factoryDictType">
+			<value>10117</value>
+		</property>	
+		<!-- 总公司部门的id -->
+		<property name="parDeptId">
+			<value>2</value>
+		</property>		
+		<!-- 合作伙伴大单位类型 -->
+		<property name="bigType">
+			<value>1121310</value>
+		</property>			
+	</bean>
+</beans>
+
+
+
+
+
+
+
+

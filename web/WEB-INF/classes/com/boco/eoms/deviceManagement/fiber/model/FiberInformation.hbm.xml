@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.boco.eoms.deviceManagement.fiber.model.FiberInformation" table="dm_fiber">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="fiberType" />
+		<property name="fiberLevel" />
+		<property name="fiberStructure" />
+		<property name="fiberNumber" />
+		<property name="fiberCoreNumber" />
+		<property name="fiberCoreType" />
+		<property name="installTime" />
+		<property name="paragraphNumber" />
+		<property name="paragraph" />
+		<property name="createUser" />
+		<property name="createTime" />
+		<property name="isDel" />
+	</class>
+</hibernate-mapping>

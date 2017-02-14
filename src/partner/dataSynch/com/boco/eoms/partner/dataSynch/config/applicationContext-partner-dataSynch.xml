@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 数据同步配置 -->
+	<bean id="dataSynchConfig" class="com.boco.eoms.partner.dataSynch.util.DataSynchConfig">
+		<property name="filePath"><!-- 属地化端数据文件以及核查文件保存路径 -->
+			<!--<value>E://ftp/</value>-->
+			<value>E:\ftp\</value>
+		</property>
+		<property name="batchListSize"><!-- 批量插入数据条数 -->
+			<value>20000</value>
+		</property>
+		<property name="synchToMainDev"><!-- 是否往设备主表同步 -->
+			<value>false</value>
+		</property>
+		<property name="tmpTableCountQuery"><!-- 临时表总数据条数查询开关，部署正式环境请关闭 -->
+			<value>false</value>
+		</property>
+	</bean>
+	
+	<!-- 同步异常 -->
+	<bean id="synchExceptionRecordDao" class="com.boco.eoms.partner.dataSynch.dao.hibernate.SynchExceptionRecordDaoHibernate"
+			autowire="byName" />
+	<bean id="synchExceptionRecordMgr" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.SynchExceptionRecordMgrImpl">
+				<property name="synchExceptionRecordDao" ref="synchExceptionRecordDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 数据同步JDBC工具类 -->
+	<bean id="dataSynchJdbcUtil" class="com.boco.eoms.partner.dataSynch.util.DataSynchJdbcUtil"
+			autowire="byName" />
+			
+	<!-- 数据同步JDBC_DAO基类 -->
+	<bean id="abstractDataSynchDaoJdbc" class="com.boco.eoms.partner.dataSynch.dao.AbstractDataSynchDaoJdbc" 
+		abstract="true" autowire="byName">
+		<property name="dataSynchJdbcUtil" ref="dataSynchJdbcUtil" />
+		<property name="synchExceptionRecordDao" ref="synchExceptionRecordDao" />
+	</bean>
+	<!-- 数据同步业务Mgr基类 -->
+	<bean id="abstractDataSynchMgr" class="com.boco.eoms.partner.dataSynch.mgr.AbstractDataSynchMgr" abstract="true">
+		<property name="dataSynchConfig" ref="dataSynchConfig" />
+		<property name="dataSynchJdbcUtil" ref="dataSynchJdbcUtil" />
+	</bean>
+	<!-- 数据解析映射基类 -->
+	<bean id="abstractDataMappingRule" class="com.boco.eoms.partner.dataSynch.rule.AbstractDataMappingRule"
+		 abstract="true">
+		<property name="synchExceptionRecordMgr" ref="synchExceptionRecordMgr" />
+		<!-- <property name="tawSystemAreaDaoJdbc" ref="TawSystemAreaDaoJdbc" /> -->
+	</bean>
+	
+	<import resource="classpath:com/boco/eoms/partner/dataSynch/config/applicationContext-partner-dataSynch-dao.xml"/>
+	<import resource="classpath:com/boco/eoms/partner/dataSynch/config/applicationContext-partner-dataSynch-mgr.xml"/>
+	<import resource="classpath:com/boco/eoms/partner/dataSynch/config/applicationContext-partner-dataSynch-rule.xml"/>
+	
+</beans>

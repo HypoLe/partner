@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<!-- Struts1 template v1.0.0 configuration for Nop3 based on eoms.
+	Author: Steve
+	Create: July,2011
+-->
+
+<struts-config>
+	<!-- ============ Form beans ============ -->
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+	<!-- ============ Global forwards ============ -->
+	<global-forwards type="org.apache.struts.action.ActionForward">
+		<forward name="failure" path="/common/fail.jsp"
+			contextRelative="true" />
+		<forward name="success" path="/common/success.jsp"
+			contextRelative="true" />
+		<forward name="error" path="/error.jsp" contextRelative="true" />
+	</global-forwards>
+	
+	<!-- ============ Action Mapping definitions ============ -->
+	<action-mappings type="org.apache.struts.action.ActionMapping">
+		
+		<action path="/gisReq"
+			type="com.boco.eoms.partner.gis.action.GisAction" 
+			scope="request"  parameter="method" unknown="false"
+			validate="false">
+			<forward name="gisIndex"
+				path="/WEB-INF/pages/partner/gis/gisIndex.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="checkPointList"
+				path="/WEB-INF/pages/partner/gis/checkPointList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="checkSegmentList"
+				path="/WEB-INF/pages/partner/gis/checkSegmentList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="hiddenTroubleList"
+				path="/WEB-INF/pages/partner/gis/hiddenTrouble/hiddenTroubleList.jsp"
+				redirect="false" contextRelative="true" />
+				
+				
+			<forward name="goToGisCSPage"
+				path="/WEB-INF/pages/partner/gis/gisCheckSegmentPage.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToGisCPPage"
+				path="/WEB-INF/pages/partner/gis/gisCheckPointPage.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToGisHTPage"
+				path="/WEB-INF/pages/partner/gis/hiddenTrouble/gisHiddenTroublePage.jsp"
+				redirect="false" contextRelative="true" />
+				
+		</action>
+		<action path="/gisGridReq"
+			type="com.boco.eoms.partner.gis.action.GisGridAction" 
+			scope="request"  parameter="method" unknown="false"
+			validate="false">
+			<forward name="showGridList"
+				path="/WEB-INF/pages/partner/gis/grid/showGridList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="gisGrid"
+				path="/WEB-INF/pages/partner/gis/grid/gisGrid.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+		<action path="/gisSiteReq"
+			type="com.boco.eoms.partner.gis.action.GisSiteAction" 
+			scope="request"  parameter="method" unknown="false"
+			validate="false">
+			<forward name="showSiteList"
+				path="/WEB-INF/pages/partner/gis/site/showSiteList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="gisSite"
+				path="/WEB-INF/pages/partner/gis/site/gisSite.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+		<action path="/gisHiddenTroubleReq"
+			type="com.boco.eoms.partner.gis.action.GisHiddenTroubleAction" 
+			scope="request"  parameter="method" unknown="false"
+			validate="false">
+			<forward name="showHiddenTroubleList"
+				path="/WEB-INF/pages/partner/gis/hiddenTrouble/showHiddenTroubleList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="gisHiddenTrouble"
+				path="/WEB-INF/pages/partner/gis/hiddenTrouble/gisHiddenTrouble.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+		<action path="/gisHistoryReq"
+			type="com.boco.eoms.partner.gis.action.GisHistoryAction" 
+			scope="request"  parameter="method" unknown="false"
+			validate="false">
+			<forward name="showHiddenTroubleList"
+				path="/WEB-INF/pages/partner/gis/history/showHistoryList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="gisHiddenTrouble"
+				path="/WEB-INF/pages/partner/gis/history/gisHistory.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+	</action-mappings>
+	<!-- ========== Plug Ins Configuration ================================== -->
+	<!-- Add multiple validator resource files by setting the pathname property -->
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/validator-rules.xml,/WEB-INF/validation-duty.xml" />
+	</plug-in>
+
+</struts-config>

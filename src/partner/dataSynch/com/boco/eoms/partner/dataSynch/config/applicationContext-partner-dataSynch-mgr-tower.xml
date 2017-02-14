@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 铁塔-IrmsTowerTower -->
+	<bean id="irmsTowerTowerMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.tower.IrmsTowerTowerMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsTowerTowerDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsTowerTowerMappingRule" />
+				<property name="dataType" value="铁塔及天馈" /><!-- 专业类型-->
+				<property name="deviceType" value="铁塔" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+	<!-- 天线-IrmsTowerAnt -->
+	<bean id="irmsTowerAntMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.dataSynch.mgr.impl.tower.IrmsTowerAntMgrImpl" parent="abstractDataSynchMgr">
+				<property name="dataDaoJdbcImpl" ref="irmsTowerAntDaoJdbcImpl" />
+				<property name="dataMappingRule" ref="irmsTowerAntMappingRule" />
+				<property name="dataType" value="铁塔及天馈" /><!-- 专业类型-->
+				<property name="deviceType" value="天线" /><!-- 设备类型 -->
+			</bean>
+		</property>
+	</bean>
+</beans>

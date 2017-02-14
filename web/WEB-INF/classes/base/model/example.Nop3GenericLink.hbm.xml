@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+    <hibernate-mapping>
+    	<class name="yourClass" table="yourTable">
+		<id name="id" column="id">
+   			<generator class="uuid.hex" />
+   		</id>
+		<!-- Public Area begin WARNING:DO NOT MODIFY,COMMENT BY STEVE -->
+		<property name="mainId" />
+		<property name="taskHandler" />
+		<property name="taskHandlerType" />
+  		<property name="taskReceiver" />
+  		<property name="taskReceiverType" />
+  		<property name="operateTime" />
+  		<property name="operateTimeAtom" />
+  		<property name="operateType" />
+  		<property name="myText" />
+  		<property name="myTextType" />
+		<!-- Public Area end:DO NOT MODIFY,COMMENT BY STEVE -->
+    </class>    
+</hibernate-mapping>

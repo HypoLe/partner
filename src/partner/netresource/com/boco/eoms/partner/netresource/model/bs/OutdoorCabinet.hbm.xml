@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.bs.OutdoorCabinet" table="pnr_outdoor_cabinet">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="resIdentifier" column="res_identifier"/>
+				<property name="dataIdentifier" column="data_identifier"/>
+				<property name="outCabinetName" column="out_cabinet_name"/>
+				<property name="anotherOCName" column="another_oc_name"/>
+				<property name="city" column="city"/>
+				<property name="country" column="country"/>
+				<property name="specialty" column="specialty"/>
+				<property name="resType" column="res_type"/>
+				<property name="resLevel" column="res_level"/>				
+				<property name="maintenanceArea" column="maintenance_area"/>
+				<property name="ocAddress" column="oc_address"/>
+				<property name="place" column="place"/>
+				<property name="longitude" column="longitude"/>
+				<property name="latitude" column="latitude"/>
+				<property name="isRentSpace" column="is_rent_space"/>
+				<property name="rentalSpaceArea" column="rental_space_area"/>
+				<property name="lessor" column="lessor"/>
+				<property name="leaseDuration" column="lease_duration"/>
+				<property name="remark" column="remark"/>
+    </class>    
+</hibernate-mapping>

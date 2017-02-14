@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+
+<property name="show_sql">true</property>
+    <mapping resource="com/boco/eoms/partner/eva/model/PnrEvaTree.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/eva/model/PnrEvaKpi.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/eva/model/PnrEvaTemplate.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/eva/model/PnrEvaWeight.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/eva/model/PnrEvaTask.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/eva/model/PnrEvaTaskDetail.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/eva/model/PnrEvaKpiInstance.hbm.xml"/>
+    <mapping resource="com/boco/eoms/partner/eva/model/PnrEvaReportInfo.hbm.xml"/>
+  	<mapping resource="com/boco/eoms/partner/eva/model/PnrEvaKpiFactury.hbm.xml"/>
+  	<mapping resource="com/boco/eoms/partner/eva/model/PnrEvaAuditInfo.hbm.xml"/>
+  	<mapping resource="com/boco/eoms/partner/eva/model/PnrEvaTaskAudit.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
+

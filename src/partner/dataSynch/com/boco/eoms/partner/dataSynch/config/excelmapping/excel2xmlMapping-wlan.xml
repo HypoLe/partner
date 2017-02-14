@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 直放站室分及WLAN-专业 -->
+<excel2xml>
+	<!-- 直放站-IrmsWlanRepeater -->
+	<IrmsWlanRepeater>
+		<field name="label_cn"							excelCellNum="1"			remark="直放站站点名称"/>
+		<field name="status"								excelCellNum="10"			remark="状态"/>
+		<field name="nodetype"							excelCellNum="20"			remark="直放站站点类型"/>
+		<field name="related_cell_cuid"			excelCellNum="19"			remark="所属小区"/>
+		<field name="coverage_type"					excelCellNum="21"			remark="覆盖类型"/>
+		<field name="longitude"							excelCellNum="15"			remark="经度"/>
+		<field name="latitude"							excelCellNum="16"			remark="纬度"/>
+		<field name="related_vendor"				excelCellNum="7"			remark="设备提供商名称"/>
+		<field name="signal_receivetype"		excelCellNum="22"			remark="信号接收方式"/>
+		<field name="power_type"						excelCellNum="23"			remark="供电方式"/>
+		<field name="manage_company"				excelCellNum="24"			remark="代维公司"/>
+		<field name="remark"								excelCellNum=""				remark="备注"/>
+	</IrmsWlanRepeater>
+	<!-- 热点-IrmsWlanHot -->
+	<IrmsWlanHot>
+		<field name="label_cn"		excelCellNum="1"			remark="热点名称"/>
+		<field name="related_district"		excelCellNum="2"			remark="地市"/>
+		<field name="nas_id"		excelCellNum="3"			remark="NAS_ID"/>
+		<field name="hotpoint_type"		excelCellNum="4"			remark="热点类型或覆盖类型"/>
+		<field name="longitude"		excelCellNum="5"			remark="热点地理位置经度"/>
+		<field name="latitude"		excelCellNum="6"			remark="热点地理位置纬度"/>
+		<field name="trans_type"		excelCellNum="7"			remark="传输类型"/>
+		<field name="related_vendor"		excelCellNum="8"			remark="设备厂家"/>
+		<field name="ap_count"		excelCellNum="9"			remark="AP数量"/>
+		<field name="address"		excelCellNum="10"			remark="热点详细地址"/>
+		<field name="wlan_coverage_area"		excelCellNum="11"			remark="WLAN网络覆盖区域"/>
+		<field name="remark"		excelCellNum="12"			remark="备注"/>
+	</IrmsWlanHot>
+	<!-- AC-IrmsWlanAc -->
+	<IrmsWlanAc>
+		<field name="related_district"		excelCellNum="1"			remark="地市"/>
+		<field name="ac_name"		excelCellNum="2"			remark="AC名称"/>
+		<field name="related_vendor"		excelCellNum="3"			remark="设备厂家"/>
+		<field name="hard_mode"		excelCellNum="58"			remark="硬件型号"/>
+		<field name="soft_version"		excelCellNum="4"			remark="AC软件版本"/>
+		<field name="manage_ip_addr"		excelCellNum="5"			remark="管理IP地址"/>
+		<field name="up_orig_dev_name"		excelCellNum="6"			remark="上行互联设备端口"/>
+		<field name="up_dateinterface_s"		excelCellNum="9"			remark="上行数据接口线速转发速率总和"/>
+		<field name="label_no"		excelCellNum=""			remark="机柜编号"/>
+		<field name="insert_power_locat"		excelCellNum="11"			remark="接入电源柜位置"/>
+		<field name="ne_working_state"		excelCellNum="12"			remark="工程状态"/>
+		<field name="max_manage_ap_coun"		excelCellNum="13"			remark="设备最大管理AP数量"/>
+		<field name="ac_name2"		excelCellNum="14"			remark="AC_NAME"/>
+		<field name="nas_ip"		excelCellNum="15"			remark="AC NAS_IP"/>
+		<field name="setup_time"		excelCellNum="16"			remark="入网时间"/>
+		<field name="ap_count"		excelCellNum="17"			remark="实际管理AP数量"/>
+		<field name="remark"		excelCellNum="18"			remark="备注"/>
+	</IrmsWlanAc>
+	<!-- AP-IrmsWlanAp -->
+	<IrmsWlanAp>
+		<field name="ap_name"		excelCellNum="17"			remark="AP名称"/>
+		<field name="related_district"		excelCellNum="2"			remark="地市"/>
+		<field name="related_hotpoint"		excelCellNum="3"			remark="所属热点名称"/>
+		<field name="ap_vendor"		excelCellNum="4"			remark="AP厂家"/>
+		<field name="ap_type"		excelCellNum="5"			remark="AP类型"/>
+		<field name="ap_mac_addr"		excelCellNum="6"			remark="AP MAC地址"/>
+		<field name="manage_ap_addr"		excelCellNum="7"			remark="AP管理地址"/>
+		<field name="stress_pattern"		excelCellNum="8"			remark="空口制式"/>
+		<field name="ap_location"		excelCellNum="9"			remark="AP安装位置"/>
+		<field name="ap_coverage_area"		excelCellNum="10"			remark="AP覆盖区域"/>
+		<field name="is_2g3g_distributo"		excelCellNum="11"			remark="是否2G/3G室分合路"/>
+		<field name="related_hotping_sw"		excelCellNum="12"			remark="所属热点交换机名称"/>
+		<field name="hotpot_sw_port"		excelCellNum="13"			remark="所属热点交换机端口"/>
+		<field name="soft_version"		excelCellNum="14"			remark="软件版本"/>
+		<field name="related_back_ac_cu"		excelCellNum="15"			remark="所属AC名称"/>
+		<field name="ne_working_state"		excelCellNum="16"			remark="工程状态"/>
+	</IrmsWlanAp>
+	<!-- 交换机-IrmsWlanSwitch -->
+	<IrmsWlanSwitch>
+		<field name="related_district"		excelCellNum=""			remark="地市"/>
+		<field name="label_cn"		excelCellNum=""			remark="交换机名称"/>
+		<field name="related_vendor_cui"		excelCellNum=""			remark="设备厂家"/>
+		<field name="model"		excelCellNum=""			remark="硬件型号"/>
+		<field name="soft_version"		excelCellNum=""			remark="交换机软件版本"/>
+		<field name="manage_ip_addr"		excelCellNum=""			remark="管理IP地址"/>
+		<field name="related_up_orig_port_name"		excelCellNum=""			remark="上行互联设备端口"/>
+		<field name="up_port_type"		excelCellNum=""			remark="上行端口类型"/>
+		<field name="sw_port_count"		excelCellNum=""			remark="交换机端口数量"/>
+		<field name="related_hotpot_cui"		excelCellNum=""			remark="交换机所属热点"/>
+		<field name="related_room_cuid"		excelCellNum=""			remark="所在机房"/>
+		<field name="status"		excelCellNum=""			remark="工程状态"/>
+		<field name="net_level"		excelCellNum=""			remark="交换机所属网络层次"/>
+		<field name="related_tsw_dev_cu"		excelCellNum=""			remark="归属汇聚层交换机"/>
+		<field name="related_tsw_dev_po"		excelCellNum=""			remark="归属汇聚层交换机端口"/>
+		<field name="max_access_ap_coun"		excelCellNum=""			remark="设备最大接入AP数量"/>
+		<field name="max_access_sw_coun"		excelCellNum=""			remark="最大可接入的接入层交换机数量"/>
+		<field name="setup_time"		excelCellNum=""			remark="入网时间"/>
+		<field name="real_access_ap_cou"		excelCellNum=""			remark="实际接入的交换机或AP数量"/>
+		<field name="real_aceess_sw_cou"		excelCellNum=""			remark="实际接入的接入层交换机数量"/>
+		<field name="remark"		excelCellNum=""			remark="备注"/>
+	</IrmsWlanSwitch>
+</excel2xml>

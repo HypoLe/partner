@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout>
+  <cell id="0" roleName="草稿" operater="reportExecuteRoleId" description="草稿" rejectCell="" gotoCell="0" pageType="editAssess"/>
+  <cell id="1" roleName="完成" operater="reportExecuteRoleId" description="完成" rejectCell="" gotoCell="" pageType="holdAssess"/>
+  <cell id="2" roleName="市公司代维管理员" operater="reportExecuteRoleId" description="市公司代维管理员填写评估表" rejectCell="" gotoCell="3" pageType="editAssess"/>
+  <cell id="3" roleName="线路专业厂家确认人" operater="factoryAdminRoleId" description="厂商确认" rejectCell="2" gotoCell="4" pageType="confirmAssess"/>
+  <cell id="4" roleName="处理确认信息" operater="reportExecuteRoleId" description="处理确认信息" rejectCell="3" gotoCell="1" pageType="holdAssess"/>
+</layout>

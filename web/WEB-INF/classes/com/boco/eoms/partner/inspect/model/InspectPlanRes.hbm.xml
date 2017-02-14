@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.boco.eoms.partner.inspect.model.InspectPlanRes" table="pnr_inspect_plan_res">
+		<id name="id" type="java.lang.Long">
+            <column name="id" precision="22" scale="0" />
+            <generator class="sequence">
+            	<param name="sequence">seq_pnr_inspect_plan_res</param>
+            </generator>
+        </id>
+        <property name="planId" column="plan_Id"/>
+        <property name="templateId" column="template_Id"/>
+        <property name="resCfgId" column="res_Cfg_Id"/>
+		<property name="specialty" column="specialty"/>
+		<property name="resType" column="res_Type"/>
+		<property name="resName" column="res_Name"/>
+        <property name="resBar" column="res_Bar"/>     <!--资源查询.apk  条形码字段-->
+		<property name="resLevel" column="res_Level"/>
+		<property name="city" column="city"/>
+		<property name="country" column="country"/>
+		<property name="inspectCycle" column="inspect_Cycle"/>
+		<property name="cycleStartTime" column="cycle_Start_Time"/>
+		<property name="cycleEndTime" column="cycle_End_Time"/>
+		<property name="planStartTime" column="plan_Start_Time"/>
+		<property name="planEndTime" column="plan_End_Time"/>
+		<property name="executeObject" column="execute_Object"/>
+		<property name="executeDept" column="execute_Dept"/>
+		<property name="executeType" column="execute_Type"/>
+		<property name="forceAssign" column="force_Assign"/>
+		<property name="inspectUser" column="inspect_User"/>
+		<property name="createTime" column="create_Time"/>
+		<property name="creator" column="creator"/>
+		<property name="changeState" column="change_State"/>
+		<property name="planChangeId" column="plan_Change_Id"/>
+		<property name="resLongitude" column="res_Longitude"/>
+		<property name="resLatitude" column="res_Latitude"/>
+		<property name="endLongitude" column="end_Longitude"/>
+		<property name="endLatitude" column="end_Latitude"/>
+		<property name="filePath" column="file_Path"/>
+		<property name="signTime" column="sign_Time"/>
+		<property name="inspectTime" column="inspect_Time"/>
+		<property name="lastInspectTime" column="last_inspect_Time"/>
+		<property name="inspectState" column="inspect_State"/>
+		<property name="exceptionFlag" column="exception_Flag"/>
+		<property name="timeOnSite" column="time_On_Site"/>
+		<property name="itemNum" column="item_Num"/>
+		<property name="itemDoneNum" column="item_Done_Num"/>
+		<property name="hasPicture" column="has_picture"/>
+		<property name="errorDistance" column="error_distance"/>
+		<property name="endSignTimes" column="endSignTimes"/>
+		<property name="startSignTimes" column="startSignTimes"/>
+		<property name="burstFlag" column="burst_flag"/>
+		<property name="signStatus" column="sign_Status"/>
+		<property name="eographicalEnvironment" column="eographical_environment"/>
+	    <property name="regionType" column="region_type"/>
+		<property name="signLongitude" column="sign_Longitude"/>
+		<property name="signLatitude" column="sign_Latitude"/>
+		<property name="satisfaction" column="satisfaction"/>
+		<property name="textRemark" column="text_remark"/>
+		<property name="qualityInspectTime" column="quality_inspect_time"/>
+		<property name="qualityInspectUser" column="quality_inspect_user"/>
+		<property name="inspectPoint" column="inspect_point"/>
+		<property name="inspectPointId" column="inspect_point_id"/>
+		
+		
+		<property name="forcedSubmit" column="forced_Submit"></property>  <!-- 强制提交标识 -->
+		
+		
+		<!-- 线路巡检字段使用 begin -->
+		<property name="tlInspectFlag" column="tl_inspect_flag"/>
+		<property name="tlDis" column="tl_dis"/>
+		<property name="tlWire" column="tl_wire"/>
+		<property name="tlSystemLevel" column="tl_system_level"/>
+		<property name="tlSeg" column="tl_seg"/>
+		<property name="tlLayType" column="tl_lay_type"/>
+		<property name="tlLength" column="tl_length"/>
+		<property name="tlFiberCount" column="tl_fiber_count"/>
+		<property name="tlPAName" column="tl_pa_name"/>
+		<property name="tlPALo" column="tl_pa_lo"/>
+		<property name="tlPALa" column="tl_pa_la"/>
+		<property name="tlPZName" column="tl_pz_name"/>
+		<property name="tlPZLo" column="tl_pz_lo"/>
+		<property name="tlPZLa" column="tl_pz_la"/>
+		
+		<property name="arrivedRateId" column="arrived_rate_id"/>
+		<property name="locationCycleId" column="location_cycle_id"/>
+		<property name="tlArrivedRate" column="tl_arrived_rate"/>
+		<property name="tlRealArrivedRate" column="tl_real_arrived_rate"/>
+		<property name="tlExecuteType" column="tl_execute_type"/>
+		<property name="tlReportInterval" column="tl_report_interval"/>
+		<!-- 线路巡检字段使用 end -->
+   		<!-- 是否处理过 0或空 未处理 1处理完成 -->
+		<property name="isHandle" column="is_Handle"/>	
+		<!-- 审核状态 -->
+		<property name="auditState" column="audit_State"/>
+		<!-- 审核意见 -->
+		<property name="auditOpinion" column="audit_Opinion"/>	
+	</class>
+</hibernate-mapping>

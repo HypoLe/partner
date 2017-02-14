@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="pnrForceCheckPlanForm" type="com.boco.eoms.forceCheck.webapp.form.PnrForceCheckPlanForm" />
+    <form-bean name="pnrForceCheckTaskForm" type="com.boco.eoms.forceCheck.webapp.form.PnrForceCheckTaskForm" />
+    <form-bean name="pnrForceCheckMainForm" type="com.boco.eoms.forceCheck.webapp.form.PnrForceCheckMainForm" />
+    
+  </form-beans>
+	<!-- ========== Global Exceptions Definitions =================================== -->
+    <global-exceptions>
+        <exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+    </global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward
+		  name="success"
+		  path="/common/success.jsp"
+		  redirect="true"
+		  contextRelative="true"
+		/>
+		<forward
+		  name="nopriv"
+		  path="/common/nopriv.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>
+		<forward
+		  name="fail"
+		  path="/common/failure.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>
+		
+		<!-- 地域树模板 -->
+		<forward name="tpl-area-xtree" path="/templates/area/tpl-area-xtree.jsp" redirect="false" contextRelative="true"/>
+
+		
+    </global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+	<action-mappings>
+	    <action path="/forceCheckPlan"
+		  type="com.boco.eoms.forceCheck.webapp.action.PnrForceCheckPlanAction"
+		  name="pnrForceCheckPlanForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false">
+		  <set-property property="cancellable" value="true" />
+		  <forward name="edit" path="/WEB-INF/pages/forceCheck/forceCheckPlanForm.jsp"
+		       redirect="false" contextRelative="true" />
+		  <forward name="list" path="/WEB-INF/pages/forceCheck/forceCheckPlanList.jsp"
+		       redirect="false" contextRelative="true" />
+		  <forward name="detail" path="/WEB-INF/pages/forceCheck/forceCheckPlanDetail.jsp"
+		       redirect="false" contextRelative="true" />
+	    </action>
+	    <action path="/forceCheckTask"
+		  type="com.boco.eoms.forceCheck.webapp.action.PnrForceCheckTaskAction"
+		  name="pnrForceCheckTaskForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false">
+		  <set-property property="cancellable" value="true" />
+		  <forward name="edit" path="/WEB-INF/pages/forceCheck/forceCheckTaskForm.jsp"
+		       redirect="false" contextRelative="true" />
+		  <forward name="list" path="/WEB-INF/pages/forceCheck/forceCheckTaskList.jsp"
+		       redirect="false" contextRelative="true" />
+		  <forward name="detail" path="/WEB-INF/pages/forceCheck/forceCheckTaskDetail.jsp"
+		       redirect="false" contextRelative="true" />
+		  <forward name="audit" path="/WEB-INF/pages/forceCheck/forceCheckTaskAudit.jsp"
+		       redirect="false" contextRelative="true" />
+	    </action>
+	    <action path="/forceCheckMain"
+		  type="com.boco.eoms.forceCheck.webapp.action.PnrForceCheckTaskAction"
+		  name="pnrForceCheckMainForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false">
+		  <set-property property="cancellable" value="true" />
+		  <forward name="edit" path="/WEB-INF/pages/forceCheck/forceCheckTaskForm.jsp"
+		       redirect="false" contextRelative="true" />
+		  <forward name="list" path="/WEB-INF/pages/forceCheck/forceCheckTaskList.jsp"
+		       redirect="false" contextRelative="true" />
+		  <forward name="detail" path="/WEB-INF/pages/forceCheck/forceCheckTaskDetail.jsp"
+		       redirect="false" contextRelative="true" />
+	    </action>
+	</action-mappings>
+	<!-- ========== Validator plugin ===================  -->
+	<!-- 
+		<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+		value="/WEB-INF/validator-rules.xml,
+		/WEB-INF/validator-rules-custom.xml,
+		/WEB-INF/validation.xml" />
+		</plug-in>
+	-->
+</struts-config>

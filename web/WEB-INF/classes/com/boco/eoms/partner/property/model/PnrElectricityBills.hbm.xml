@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.property.model.PnrElectricityBills" table="pnr_electricity_bills">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+				<property name="relatedAgreementNo" column="related_agreement_no"/>
+				<property name="refId" column="ref_id"/>
+				<property name="relatedAgreementName" column="related_agreement_name"/>
+				<property name="relatedParta" column="related_parta"/>
+				<property name="relatedPartb" column="related_partb"/>
+				<property name="relatedAgreementType" column="related_agreement_type"/>
+				<property name="relatedDistrict" column="related_district"/>
+				<property name="payCircle" column="pay_circle"/>
+				<property name="settlementTimeSectStart" column="settlement_time_sect_st"/>
+				<property name="settlementTimeSectEnd" column="settlement_time_sect_en"/>
+				<property name="lastNum" column="last_num"/>
+				<property name="nowNum" column="now_num"/>
+				<property name="univalency" column="univalency"/>
+				<property name="mustPayMoney" column="must_pay_money"/>
+				<property name="paidMoney" column="paid_money"/>
+				<property name="unpaidMoney" column="unpaid_money"/>
+				<property name="payWay" column="pay_way"/>
+				<property name="payStatus" column="pay_status"/>
+				<property name="settlementDate" column="settlement_date"/>
+				<property name="planPayDate" column="pay_date"/>
+				<property name="manager" column="manager"/>
+				<property name="remindObject" column="remind_object"/>
+				<property name="attachment" column="attachment"/>
+				<property name="remark" column="remark"/>
+				<property name="createTime" column="create_time"/>
+				<property name="province" column="province"/>
+				<property name="city" column="city"/>
+				<property name="relatedSite" column="related_site"/>
+				<property name="relatedCountId" column="related_count_id"/>
+				
+    </class>    
+</hibernate-mapping>

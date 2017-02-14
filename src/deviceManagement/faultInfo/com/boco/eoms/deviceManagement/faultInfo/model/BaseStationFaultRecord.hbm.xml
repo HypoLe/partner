@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.boco.eoms.deviceManagement.faultInfo.model.BaseStationFaultRecord" table="db_faultInfo">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+
+		<property name="reportPerson" />
+		<property name="deptId" />
+		<property name="roleId" />
+		<property name="contactNumber" />
+		<property name="reportTime" />
+		<property name="bsfrDateTime" />
+		<property name="stagnationPoint" />
+		<property name="baseStationName" />
+		<property name="maintainLevel" />
+		
+		<property name="sheetId" />
+		<property name="sheetType" />
+		<property name="sheetTaskInfor" />
+		<property name="sheetStartTime" />
+		<property name="sheetConfirmTime" />
+		<property name="sheeEndTime" />
+		<property name="takeTime" />
+		<property name="sheetReceivePerson" />
+		<property name="sheetEndPerson" />
+		<property name="sheetStartType" />
+		
+		<property name="processingResults" />
+		<property name="faultType" />
+		<property name="isExit" />
+		<property name="deviceAdjust" />
+		<property name="residualProblem" />
+		<property name="other" />
+		<property name="isDeleted" />
+		<property name="deleteTime" />
+		<property name="remark1" column="isintime"/>
+		<property name="remark2" column="istimeout"/>
+		<property name="remark3" />
+		<property name="remark4" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<net-resource-name>
+	<field tablename="irms_bs_btssite"        modelname="IrmsBsBtssite"               fieldname="USERLABEL_CM"            devicetypename="BTSSITE"/>
+	<field tablename="irms_bs_jzwd"           modelname="IrmsBsJzwd"               fieldname="related_site_name"            devicetypename="机楼基站外电"/>
+	<field tablename="irms_bs_transfor"           modelname="IrmsBsTransfor"               fieldname="related_room"            devicetypename="变压器或调压器"/>
+	<field tablename="irms_bs_shelf"           modelname="IrmsBsShelf"               fieldname="label_cn"            devicetypename="机框"/>
+	<field tablename="irms_bs_slot"           modelname="IrmsBsSlot"               fieldname="label_cn"            devicetypename="机槽"/>
+	<field tablename="irms_bs_utrancell"           modelname="IrmsBsUtrancell"               fieldname="label_cn"            devicetypename="UTRANCELL"/>
+	<field tablename="irms_bs_cell"           modelname="IrmsBsCell"               fieldname="userlabel_cm"            devicetypename="CELL"/>
+	<field tablename="irms_bs_nodeb"           modelname="IrmsBsNodeb"               fieldname="label_cn"            devicetypename="NODEB"/>
+	<field tablename="irms_bs_rack"           modelname="IrmsBsRack"               fieldname="label_cn"            devicetypename="机柜"/>
+	<field tablename="irms_bs_card"           modelname="IrmsBsCard"               fieldname="label_cn"            devicetypename="板卡"/>
+	<field tablename="irms_bs_grnerat"           modelname="IrmsBsGrnerat"               fieldname="related_room"            devicetypename="发电机组"/>
+	<field tablename="irms_bs_storage"           modelname="IrmsBsStorage"               fieldname="label_dev"            devicetypename="蓄电池组"/>
+	<field tablename="irms_bs_grnerat2"           modelname="IrmsBsGrnerat2"               fieldname="label_dev"            devicetypename="开关电源"/>
+	<field tablename="irms_bs_ups"           modelname="IrmsBsUps"               fieldname="label_dev"            devicetypename="UPS主机"/>
+	<field tablename="irms_bs_aircon"           modelname="IrmsBsAircon"               fieldname="label_dev"            devicetypename="普通空调"/>
+	<field tablename="irms_bs_speaircon"           modelname="IrmsBsSpeaircon"               fieldname="label_dev"            devicetypename="专用空调"/>
+	<field tablename="irms_bs_mme"           modelname="IrmsBsMme"               fieldname="label_dev"            devicetypename="动环监控设备"/>
+	<field tablename="irms_bs_vens"           modelname="IrmsBsVens"               fieldname="label_dev"            devicetypename="通风系统"/>
+	<field tablename="irms_bs_hes"           modelname="IrmsBsHes"               fieldname="label_dev"            devicetypename="换热系统"/>
+	<field tablename="irms_bs_wep"           modelname="IrmsBsWep"               fieldname="label_dev"            devicetypename="风能设备"/>
+	<field tablename="irms_bs_wpc"           modelname="IrmsBsWpc"               fieldname="label_dev"            devicetypename="风电控制器"/>
+	<field tablename="irms_bs_see"           modelname="IrmsBsSee"               fieldname="label_dev"            devicetypename="太阳能设备"/>
+	<field tablename="irms_bs_mppt"           modelname="IrmsBsMppt"               fieldname="label_dev"            devicetypename="太阳能控制器"/>
+	<field tablename="irms_bs_cc"           modelname="IrmsBsCc"               fieldname="label_dev"            devicetypename="风光互补控制器"/>
+	<field tablename="irms_bs_bb"           modelname="IrmsBsBb"               fieldname="label_dev"            devicetypename="电源恒温箱"/>
+	<field tablename="irms_space_area"           modelname="IrmsSpaceArea"               fieldname="area_name"            devicetypename="区域"/>
+	<field tablename="irms_space_room"           modelname="IrmsSpaceRoom"               fieldname="room_alias"            devicetypename="机房"/>
+	<field tablename="irms_space_site"           modelname="IrmsSpaceSite"               fieldname="site_name"            devicetypename="站点"/>
+	<field tablename="irms_trans_well"           modelname="IrmsTransWell"               fieldname="name"            devicetypename="人手井"/>
+	<field tablename="irms_trans_poleline"           modelname="IrmsTransPoleline"               fieldname="poleline_name"            devicetypename="杆路"/>
+	<field tablename="irms_trans_pipehole"           modelname="IrmsTransPipehole"               fieldname="pipe_hole_name"            devicetypename="管孔"/>
+	<field tablename="irms_trans_pipesec"           modelname="IrmsTransPipesec"               fieldname="pipe_section_name"            devicetypename="管道段"/>
+	<field tablename="irms_trans_pipe"           modelname="IrmsTransPipe"               fieldname="pipe_name"            devicetypename="管道"/>
+	<field tablename="irms_trans_poles"           modelname="IrmsTransPoles"               fieldname="pole_name"            devicetypename="电杆"/>
+	<field tablename="irms_trans_polelinesec"           modelname="IrmsTransPolelinesec"               fieldname="poleline_section_name"            devicetypename="杆路段"/>
+	<field tablename="irms_trans_markstone"           modelname="IrmsTransMarkstone"               fieldname="mark_stone_name"            devicetypename="标石"/>
+	<field tablename="irms_trans_dirbury"           modelname="IrmsTransDirbury"               fieldname="dirbury_name"            devicetypename="直埋"/>
+	<field tablename="irms_trans_opcable"           modelname="IrmsTransOpcable"               fieldname="opcable_name"            devicetypename="光缆"/>
+	<field tablename="irms_trans_opcablesec"           modelname="IrmsTransOpcablesec"               fieldname="opcablesection_name"            devicetypename="光缆段"/>
+	<field tablename="irms_trans_dirburysec"           modelname="IrmsTransDirburysec"               fieldname="dirbury_sec_name"            devicetypename="直埋段"/>
+	<field tablename="irms_trans_odf"           modelname="IrmsTransOdf"               fieldname="odf_name"            devicetypename="光交接箱"/>
+	<field tablename="irms_trans_opconbox"           modelname="IrmsTransOpconbox"               fieldname="box_name"            devicetypename="光电接头盒"/>
+	<field tablename="irms_wlan_repeater"           modelname="IrmsWlanRepeater"               fieldname="label_cn"            devicetypename="直放站"/>
+	<field tablename="irms_wlan_hot"           modelname="IrmsWlanHot"               fieldname="label_cn"            devicetypename="热点"/>
+	<field tablename="irms_wlan_ac"           modelname="IrmsWlanAc"               fieldname="ac_name"            devicetypename="AC"/>
+	<field tablename="irms_wlan_ap"           modelname="IrmsWlanAp"               fieldname="ap_name"            devicetypename="AP"/>
+	<field tablename="irms_wlan_switch"           modelname="IrmsWlanSwitch"               fieldname="label_cn"            devicetypename="交换机"/>
+	<field tablename="irms_tower_tower"           modelname="IrmsTowerTower"               fieldname="label_cn"            devicetypename="铁塔"/>
+	<field tablename="irms_tower_ant"           modelname="IrmsTowerAnt"               fieldname="label_cn"            devicetypename="天线"/>
+	<field tablename="irms_grou_customer"           modelname="IrmsGrouCustomer"               fieldname="customer_name"            devicetypename="客户信息表"/>
+	<field tablename="irms_group_line"           modelname="IrmsGroupLine"               fieldname="related_client_device_name"            devicetypename="数据(互联网)专线信息表"/>
+	<field tablename="irms_group_product"           modelname="IrmsGroupProduct"               fieldname="customer_name"            devicetypename="客户开通业务信息表"/>
+	<field tablename="irms_group_sound"           modelname="IrmsGroupSound"               fieldname="customer_name"            devicetypename="语音专线信息表"/>
+	<field tablename="irms_group_gprs"           modelname="IrmsGroupGprs"               fieldname="customer_name"            devicetypename="GPRS信息表"/>
+	<field tablename="irms_group_sms"           modelname="IrmsGroupSms"               fieldname="customer_name"            devicetypename="短信信息表"/>
+	<field tablename="irms_group_mms"           modelname="IrmsGroupMms"               fieldname="customer_name"            devicetypename="彩信息表"/>
+	<field tablename="irms_group_rent"           modelname="IrmsGroupRent"               fieldname="customer_name"            devicetypename="出租专线信息表"/>
+	<field tablename="irms_group_device"           modelname="IrmsGroupDevice"               fieldname="device_name"            devicetypename="客户端设备信息表"/>
+	
+</net-resource-name>

@@ -1,0 +1,838 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+  <!-- ========== Data Sources Definitions =================================== -->
+  <!--
+    Define your Struts data sources in a file called struts-data-sources.xml and place
+    it in your merge directory.
+  -->
+
+  <!-- ========== Form Bean Definitions =================================== -->
+  <form-beans>
+    <form-bean
+      name="smsMonitorForm"
+      type="com.boco.eoms.message.webapp.form.SmsMonitorForm"
+    />
+    <form-bean name="smsUserLogForm" type="com.boco.eoms.message.webapp.form.SmsUserLogForm"></form-bean>
+    <form-bean
+      name="smsLogForm"
+      type="com.boco.eoms.message.webapp.form.SmsLogForm"
+    />
+    <form-bean
+      name="uploadForm"
+      type="com.boco.eoms.base.webapp.form.UploadForm"
+    />
+    <form-bean
+      name="smsModuleForm"
+      type="com.boco.eoms.message.webapp.form.SmsModuleForm"
+    />
+    <form-bean name="smsUserForm" 
+    	type="com.boco.eoms.message.webapp.form.SmsUserForm"></form-bean>
+    <form-bean
+      name="smsApplyForm"
+      type="com.boco.eoms.message.webapp.form.SmsApplyForm"
+    />
+    <form-bean
+      name="roleForm"
+      type="com.boco.eoms.base.webapp.form.RoleForm"
+    />
+    <form-bean
+      name="smsServiceForm"
+      type="com.boco.eoms.message.webapp.form.SmsServiceForm"
+    />
+	<form-bean
+      name="emailMonitorForm"
+      type="com.boco.eoms.message.webapp.form.EmailMonitorForm"
+    />
+    <form-bean
+      name="smsMobilesTemplateForm"
+      type="com.boco.eoms.message.webapp.form.SmsMobilesTemplateForm"
+    />
+    <form-bean
+      name="smsContentTemplateForm"
+      type="com.boco.eoms.message.webapp.form.SmsContentTemplateForm"
+    />
+    <form-bean
+      name="smsSendForm"
+      type="com.boco.eoms.message.webapp.form.SmsSendForm"
+    />
+    <form-bean
+      name="mmsSendForm"
+      type="com.boco.eoms.message.webapp.form.MmsSendForm"
+    />
+    <!--
+         If you have non XDoclet forms, define them in a file called struts-forms.xml and
+         place it in your merge directory.
+    -->
+  </form-beans>
+
+  <!-- ========== Global Exceptions Definitions =================================== -->
+      <global-exceptions>
+        <exception type="java.lang.Exception"
+            key="errors.general"
+            handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler"/>
+    </global-exceptions>
+
+  <!-- ========== Global Forward Definitions =================================== -->
+      <global-forwards>
+        <forward name="mainMenu" path="/mainMenu.html" redirect="true"/>
+        <!-- Forwards specified in actions -->        
+        <forward name="addUser" path="/editUser.html?method=Add&amp;amp;from=list" redirect="true"/>
+        <forward name="cancelUser" path="/editUser.html?method=Cancel"/>
+        <forward name="deleteUser" path="/editUser.html?method=Delete"/>
+        <forward name="updateUser" path="/userProfile.html"/>
+        <!-- Forwards for links used in Menu -->
+        <forward name="editProfile" path="/editProfile.html"/>
+        <forward name="editUser" path="/editUser.html"/>
+        <forward name="viewUsers" path="/users.html" redirect="true"/>
+        <forward name="selectFile" path="/selectFile.html"/>
+        <forward name="logout" path="/logout.jsp"/>
+        <forward name="success" path="/common/success.jsp" redirect="false" contextRelative="true"/>
+        <forward name="nopriv" path="/common/nopriv.jsp" redirect="false" contextRelative="true" />
+    </global-forwards>
+
+  <!-- ========== Action Mapping Definitions =================================== -->
+   <action-mappings>
+   <action path="/newModule"
+   			type="org.apache.struts.actions.ForwardAction"
+			parameter="/WEB-INF/pages/message/smsService/smsModuleNew.jsp" />
+   <action path="/newService"
+			type="org.apache.struts.actions.ForwardAction"
+			parameter="/WEB-INF/pages/message/smsService/smsServiceNew.jsp" />
+   <action path="/coptToClipboard"
+			type="org.apache.struts.actions.ForwardAction"
+			parameter="/WEB-INF/pages/message/smsService/copySuccess.jsp" />
+   <action path="/smsserviceBasicDataCfg"
+			type="org.apache.struts.actions.ForwardAction"
+			parameter="/WEB-INF/pages/message/smsService/smsServiceTree.jsp"/>
+   <action path="/smsContentMgr"
+			type="org.apache.struts.actions.ForwardAction"
+			parameter="/WEB-INF/pages/smsContentTemplate/smsContentTemplate.jsp"/>
+   <action path="/smsContentNew"
+			type="org.apache.struts.actions.ForwardAction"
+			parameter="/WEB-INF/pages/smsContentTemplate/smsContentTemplateNew.jsp"/>
+   <action path="/mmsSend"
+			type="org.apache.struts.actions.ForwardAction"
+			parameter="/WEB-INF/pages/message/mmsSend/mmsSend.jsp"/>
+   <action path="/smsPage"
+			type="org.apache.struts.actions.ForwardAction"
+			parameter="/WEB-INF/pages/message/smsSend/smsSend.jsp"/>
+	
+    <action
+      path="/smsModules"
+      type="com.boco.eoms.message.webapp.action.SmsModuleAction"
+      name="smsModuleForm"
+      scope="request"
+      input="mainMenu"
+      parameter="method"
+      unknown="false"
+      validate="false"
+    >
+      <set-property
+        property="cancellable"
+        value="true"
+      />
+      <forward
+        name="edit"
+        path="/WEB-INF/pages/message/smsModule/smsModuleForm.jsp"
+        redirect="false" contextRelative="true"
+      />
+      
+      <forward
+        name="list"
+        path="/WEB-INF/pages/message/smsModule/smsModuleTree.jsp"
+        redirect="false"
+      />
+      <forward
+        name="search"
+        path="/smsModules.do"
+        redirect="true"
+      />
+      
+    </action>
+    <action
+      path="/saveUser"
+      type="com.boco.eoms.message.webapp.action.SmsUserAction"
+      name="smsUserForm"
+      unknown="false"
+      validate="false"
+    >
+    <set-property
+        property="cancellable"
+        value="true"
+      />
+    <forward 
+    	name="saveUser" path="/WEB-INF/pages/message/msgsend/smsMobilesTemplate/userListDetail.jsp" redirect="true"></forward>
+    </action>
+    <action
+      path="/reload"
+      type="com.boco.eoms.base.webapp.action.ReloadAction"
+      roles="admin"
+      unknown="false"
+      validate="false"
+    >
+    </action>
+    <action
+      path="/smsLogs"
+      type="com.boco.eoms.message.webapp.action.SmsLogAction"
+      name="smsLogForm"
+      scope="request"
+      input="mainMenu"
+      parameter="method"
+      unknown="false"
+      validate="false"
+    >
+      <set-property
+        property="cancellable"
+        value="true"
+      />
+      <forward
+        name="edit"
+        path="/WEB-INF/pages/smsLog/smsLogForm.jsp"
+        redirect="false"
+      />
+      <forward
+        name="list"
+        path="/WEB-INF/pages/smsLog/smsLogList.jsp"
+        redirect="false"
+      />
+      <forward
+        name="search"
+        path="/smsLogs.html"
+        redirect="true"
+      />
+    </action>
+  
+    <action
+      path="/users"
+      type="com.boco.eoms.base.webapp.action.UserAction"
+      name="userForm"
+      scope="request"
+      input="mainMenu"
+      roles="admin"
+      parameter="method"
+      unknown="false"
+      validate="false"
+    >
+      <forward
+        name="list"
+        path="/WEB-INF/pages/userList.jsp"
+        redirect="false"
+      />
+      <forward
+        name="edit"
+        path="/WEB-INF/pages/userForm.jsp"
+        redirect="false"
+      />
+    </action>
+    <action
+      path="/editUser"
+      type="com.boco.eoms.base.webapp.action.UserAction"
+      name="userForm"
+      scope="request"
+      input="list"
+      roles="admin"
+      parameter="method"
+      unknown="false"
+      validate="false"
+    >
+      <forward
+        name="list"
+        path="/WEB-INF/pages/userList.jsp"
+        redirect="false"
+      />
+      <forward
+        name="edit"
+        path="/WEB-INF/pages/userForm.jsp"
+        redirect="false"
+      />
+    </action>
+    <action
+      path="/editProfile"
+      type="com.boco.eoms.base.webapp.action.UserAction"
+      name="userForm"
+      scope="request"
+      input="mainMenu"
+      parameter="method"
+      unknown="false"
+      validate="false"
+    >
+      <forward
+        name="list"
+        path="/WEB-INF/pages/userList.jsp"
+        redirect="false"
+      />
+      <forward
+        name="edit"
+        path="/WEB-INF/pages/userForm.jsp"
+        redirect="false"
+      />
+    </action>
+    <action
+      path="/saveUser"
+      type="com.boco.eoms.base.webapp.action.UserAction"
+      name="userForm"
+      scope="request"
+      input="edit"
+      parameter="method"
+      unknown="false"
+      validate="false"
+    >
+      <forward
+        name="list"
+        path="/WEB-INF/pages/userList.jsp"
+        redirect="false"
+      />
+      <forward
+        name="edit"
+        path="/WEB-INF/pages/userForm.jsp"
+        redirect="false"
+      />
+    </action>
+    <action
+      path="/smsApplys"
+      type="com.boco.eoms.message.webapp.action.SmsApplyAction"
+      name="smsApplyForm"
+      scope="request"
+      input="mainMenu"
+      parameter="method"
+      unknown="false"
+      validate="false"
+    >
+      <set-property
+        property="cancellable"
+        value="true"
+      />
+      <forward
+        name="selectApply"
+        path="/WEB-INF/pages/message/smsApply/selectApply.jsp"
+        redirect="false" contextRelative="true"
+      />
+      <forward
+        name="cacleApply"
+        path="/WEB-INF/pages/message/smsApply/cacelApply.jsp"
+        redirect="false" contextRelative="true"
+      />
+      <forward
+        name="customApply"
+        path="/WEB-INF/pages/message/smsApply/customApply.jsp"
+        redirect="false" contextRelative="true"
+      />
+      <forward
+        name="diyApply"
+        path="/WEB-INF/pages/message/smsApply/diyApply.jsp"
+        redirect="false" contextRelative="true"
+      />
+      <forward
+        name="edit"
+        path="/WEB-INF/pages/smsApply/smsApplyForm.jsp"
+        redirect="false"
+      />
+      <forward
+        name="list"
+        path="/WEB-INF/pages/smsApply/smsApplyList.jsp"
+        redirect="false"
+      />
+      <forward
+        name="search"
+        path="/smsApplys.html"
+        redirect="true"
+      />
+    </action>
+    
+    <action
+      path="/smsServices"
+      type="com.boco.eoms.message.webapp.action.SmsServiceAction"
+      name="smsServiceForm"
+      scope="request"
+      input="mainMenu"
+      parameter="method"
+      unknown="false"
+      validate="false"
+    >
+      <set-property
+        property="cancellable"
+        value="true"
+      />
+      <forward
+        name="edit"
+        path="/WEB-INF/pages/smsService/smsServiceForm.jsp"
+        redirect="false"
+      />
+      <forward
+        name="editinit"
+        path="/WEB-INF/pages/message/smsService/smsModuleEdit.jsp"
+        redirect="false" contextRelative="true"
+      />
+      <forward
+        name="edit2service"
+        path="/WEB-INF/pages/message/smsService/smsServiceEdit.jsp"
+        redirect="false" contextRelative="true"
+      />
+      <forward
+        name="list"
+        path="/WEB-INF/pages/smsService/smsServiceList.jsp"
+        redirect="false"
+      />
+      <forward
+        name="search"
+        path="/smsserviceBasicDataCfg.do"
+        redirect="true"
+      />
+    </action>
+    <action
+      path="/editSmsService"
+      type="com.boco.eoms.message.webapp.action.SmsServiceAction"
+      name="smsServiceForm"
+      scope="request"
+      input="list"
+      parameter="method"
+      unknown="false"
+      validate="false"
+    >
+      <set-property
+        property="cancellable"
+        value="true"
+      />
+      <forward
+        name="edit"
+        path="/WEB-INF/pages/smsService/smsServiceForm.jsp"
+        redirect="false"
+      />
+      <forward
+        name="list"
+        path="/WEB-INF/pages/smsService/smsServiceList.jsp"
+        redirect="false"
+      />
+      <forward
+        name="editinit"
+        path="/WEB-INF/pages/message/smsService/smsModuleEdit.jsp"
+        redirect="false" contextRelative="true"
+      />
+      <forward
+        name="xedit2service"
+        path="/WEB-INF/pages/smsService/smsServiceEdit.jsp"
+        redirect="true"
+      />
+      <forward
+        name="search"
+        path="/smsserviceBasicDataCfg.do"
+        redirect="true"
+      />
+    </action>
+    
+   
+    <action
+      path="/signup"
+      type="com.boco.eoms.base.webapp.action.SignupAction"
+      name="userForm"
+      scope="request"
+      input="failure"
+      unknown="false"
+      validate="false"
+    >
+      <forward
+        name="failure"
+        path="/WEB-INF/pages/signup.jsp"
+        redirect="false"
+      />
+      <forward
+        name="success"
+        path="/mainMenu.html"
+        redirect="true"
+      />
+    </action>
+    <action
+      path="/passwordHint"
+      type="com.boco.eoms.base.webapp.action.PasswordHintAction"
+      unknown="false"
+      validate="false"
+    >
+      <forward
+        name="previousPage"
+        path="/"
+        redirect="false"
+      />
+    </action>
+    <action
+      path="/uploadFile"
+      type="com.boco.eoms.base.webapp.action.UploadAction"
+      name="uploadForm"
+      scope="request"
+      input="failure"
+      unknown="false"
+      validate="true"
+    >
+      <set-property
+        property="cancellable"
+        value="true"
+      />
+      <forward
+        name="failure"
+        path="/WEB-INF/pages/uploadForm.jsp"
+        redirect="false"
+      />
+      <forward
+        name="success"
+        path="/WEB-INF/pages/uploadDisplay.jsp"
+        redirect="false"
+      />
+    </action>
+  
+	<action
+      path="/emailMonitors"
+      type="com.boco.eoms.message.webapp.action.EmailMonitorAction"
+      name="emailMonitorForm"
+      scope="request"
+      input="main"
+      parameter="method"
+      unknown="false"
+      validate="false"
+    >
+      <set-property
+        property="cancellable"
+        value="true"
+      />
+      <forward
+        contextRelative="true"
+        name="main"
+        path="/WEB-INF/pages/emailMonitor/emailMonitorTree.jsp"
+        redirect="false"
+      />
+      <forward
+        contextRelative="true"
+        name="edit"
+        path="/WEB-INF/pages/emailMonitor/emailMonitorForm.jsp"
+        redirect="false"
+      />
+      <forward
+        contextRelative="true"
+        name="list"
+        path="/WEB-INF/pages/emailMonitor/emailMonitorList.jsp"
+        redirect="false"
+      />
+    </action>
+    <action
+      path="/smsContentTemplates"
+      type="com.boco.eoms.message.webapp.action.SmsContentTemplateAction"
+      name="smsContentTemplateForm"
+      scope="request"
+      input="main"
+      parameter="method"
+      unknown="false"
+      validate="false"
+    >
+      <set-property
+        property="cancellable"
+        value="true"
+      />
+      <forward
+        contextRelative="true"
+        name="main"
+        path="/WEB-INF/pages/smsContentTemplate/smsContentTemplateNew.jsp"
+        redirect="false"
+      />
+      <forward
+        contextRelative="true"
+        name="edit"
+        path="/WEB-INF/pages/smsContentTemplate/smsContentTemplateForm.jsp"
+        redirect="false"
+      />
+      <forward
+        contextRelative="true"
+        name="list"
+        path="/WEB-INF/pages/smsContentTemplate/smsContentTemplate.jsp"
+        redirect="false"
+      />
+    </action>
+    <action
+      path="/saveSmsContentTemplate"
+      type="com.boco.eoms.message.webapp.action.SmsContentTemplateAction"
+      name="smsContentTemplateForm"
+      scope="request"
+      input="main"
+      parameter="method"
+      unknown="false"
+      validate="true"
+    >
+      <set-property
+        property="cancellable"
+        value="true"
+      />
+      <forward
+        name="edit"
+        path="/WEB-INF/pages/smsContentTemplate/smsContentTemplateForm.jsp"
+        redirect="false"
+      />
+      <forward
+        name="list"
+        contextRelative="true"
+        path="/WEB-INF/pages/smsContentTemplate/smsContentTemplate.jsp"
+        redirect="false"
+      />
+    </action>
+    <action
+      path="/saveSmsMobilesTemplate"
+      type="com.boco.eoms.message.webapp.action.SmsMobilesTemplateAction"
+      name="smsMobilesTemplateForm"
+      scope="request"
+      input="main"
+      parameter="method"
+      unknown="false"
+      validate="true"
+    >
+      <set-property
+        property="cancellable"
+        value="true"
+      />
+      <forward
+        name="edit"
+        path="/WEB-INF/pages/smsMobilesTemplate/smsMobilesTemplateForm.jsp"
+        redirect="false"
+      />
+      <forward
+        name="list"
+        contextRelative="true"
+        path="/WEB-INF/pages/smsMobilesTemplate/smsMobilesTemplate.jsp"
+        redirect="false"
+      />
+    </action>
+    <action
+      path="/smsMobilesTemplates"
+      type="com.boco.eoms.message.webapp.action.SmsMobilesTemplateAction"
+      name="smsMobilesTemplateForm"
+      scope="request"
+      input="main"
+      parameter="method"
+      unknown="false"
+      validate="false"
+    >
+      <set-property
+        property="cancellable"
+        value="true"
+      />
+     
+      <forward
+        contextRelative="true"
+        name="newMsgSend"
+        path="/WEB-INF/pages/message/msgSend/smsMobilesTemplate/smsMobilesTemplateNew.jsp"
+        redirect="false"
+      />
+      <forward
+        contextRelative="true"
+        name="add"
+        path="/WEB-INF/pages/message/msgSend/smsMobilesTemplate/smsMobilesTemplateTeamNew.jsp"
+        redirect="false"
+      />
+      <forward
+        contextRelative="true"
+        name="getUsersList"
+        path="/WEB-INF/pages/message/msgSend/smsMobilesTemplate/userList.jsp"
+        redirect="false"
+      />
+      <forward
+        contextRelative="true"
+        name="edit"
+        path="/WEB-INF/pages/smsMobilesTemplate/smsMobilesTemplateForm.jsp"
+        redirect="false"
+      />
+      <forward
+        contextRelative="true"
+        name="xedit"
+        path="/WEB-INF/pages/message/msgSend/smsMobilesTemplate/smsUserForm.jsp"
+        redirect="false"
+      />
+      <forward
+        contextRelative="true"
+        name="editUserInit"
+        path="/WEB-INF/pages/message/msgSend/smsMobilesTemplate/smsUsersMgr.jsp"
+        redirect="false"
+      />
+     
+      <forward
+        contextRelative="true"
+        name="editInit"
+        path="/WEB-INF/pages/smsMobilesTemplate/smsMobilesTemplateEdit.jsp"
+        redirect="false"
+      />
+      <forward
+        contextRelative="true"
+        name="editInitUser"
+        path="/WEB-INF/pages/message/msgSend/smsMobilesTemplate/smsMobilesTemplateEditUser.jsp"
+        redirect="false"
+      />
+      <forward
+        contextRelative="true"
+        name="userList"
+        path="/WEB-INF/pages/message/msgSend/smsMobilesTemplate/userListDetail.jsp"
+        redirect="false"
+      />
+      <forward
+        contextRelative="true"
+        name="newUser"
+        path="/WEB-INF/pages/message/msgSend/smsMobilesTemplate/newUser.jsp"
+        redirect="false"
+      />
+      <forward
+        contextRelative="true"
+        name="list"
+        path="/WEB-INF/pages/smsMobilesTemplate/smsMobilesTemplate.jsp"
+        redirect="false"
+      />
+      
+    </action>
+    <action
+      path="/smsUserLog"
+      type="com.boco.eoms.message.webapp.action.SmsUserLogAction"
+      name="smsUserLogForm"
+      scope="request"
+      input="main"
+      parameter="method"
+      unknown="false"
+      validate="false"
+    >
+    
+   
+    
+      <forward
+        contextRelative="true"
+        name="logList"
+        path="/WEB-INF/pages/message/msgSend/smsMobilesTemplate/logList.jsp"
+        redirect="false"
+      />
+       <forward
+        contextRelative="true"
+        name="searchForm"
+        path="/WEB-INF/pages/message/msgSend/smsMobilesTemplate/searchForm.jsp"
+        redirect="false"
+      />
+       </action>
+    <action
+      path="/smsSend"
+      type="com.boco.eoms.message.webapp.action.SmsSendAction"
+      name="smsSendForm"
+      scope="request"
+      input="main"
+      parameter="method"
+      unknown="false"
+      validate="false"
+    >
+      <set-property
+        property="cancellable"
+        value="true"
+      />
+      <forward
+        contextRelative="true"
+        name="main"
+        path="/WEB-INF/pages/smsSend/smsSend.jsp"
+        redirect="false"
+      />
+      <forward
+        contextRelative="true"
+        name="content"
+        path="/WEB-INF/pages/smsContentTemplate/smsContentTemplateList.jsp"
+        redirect="false"
+      />
+      <forward
+        contextRelative="true"
+        name="mobiles"
+        path="/WEB-INF/pages/smsMobilesTemplate/smsMobilesTemplateList.jsp"
+        redirect="false"
+      />
+      <forward
+        contextRelative="true"
+        name="success"
+        path="/WEB-INF/pages/message/smsSend/success.jsp"
+        redirect="false"
+      />
+      <forward
+        contextRelative="true"
+        name="smsFailure"
+        path="/WEB-INF/pages/message/smsSend/smsFailure.jsp"
+        redirect="false"
+      />
+      <forward
+        contextRelative="true"
+        name="voiceFailure"
+        path="/WEB-INF/pages/message/smsSend/voiceFailure.jsp"
+        redirect="false"
+      />
+      <forward
+        contextRelative="true"
+        name="bothFailure"
+        path="/WEB-INF/pages/message/smsSend/bothFailure.jsp"
+        redirect="false"
+      />
+      <forward
+        contextRelative="true"
+        name="failure"
+        path="/WEB-INF/pages/message/smsSend/failure.jsp"
+        redirect="false"
+      />
+      <forward
+        contextRelative="true"
+        name="msgSend"
+        path="/WEB-INF/pages/message/msgSend/msgSend.jsp"
+        redirect="false"
+      />
+    </action>
+    <!-- 彩信页面发送 -->
+    <action
+      path="/mms"
+      type="com.boco.eoms.message.webapp.action.MmsSendAction"
+      name="mmsSendForm"
+      scope="request"
+      input="main"
+      parameter="method"
+      unknown="false"
+      validate="false"
+    >
+      <set-property
+        property="cancellable"
+        value="true"
+      />      
+      <forward
+        contextRelative="true"
+        name="success"
+        path="/WEB-INF/pages/message/mmsSend/success.jsp"
+        redirect="false"
+      />
+      <forward
+        contextRelative="true"
+        name="failure"
+        path="/WEB-INF/pages/message/mmsSend/failure.jsp"
+        redirect="false"
+      />
+    </action>
+       <!-- Forwards to the mainMenu tile definition -->
+    <action path="/mainMenu" type="org.apache.struts.actions.ForwardAction"
+        parameter="/WEB-INF/pages/mainMenu.jsp"/>
+
+    <!-- Action to flush cache -->
+    <action path="/flush" type="org.apache.struts.actions.ForwardAction"
+        parameter="/WEB-INF/pages/flushCache.jsp" roles="admin"/>
+
+    <!-- Forward to page to begin file upload -->
+    <action path="/selectFile" type="org.apache.struts.actions.ForwardAction"
+        parameter="/WEB-INF/pages/uploadForm.jsp"/>
+    <!-- Forward to view Active Users -->
+    <action path="/activeUsers" type="org.apache.struts.actions.ForwardAction"
+        parameter="/WEB-INF/pages/activeUsers.jsp" roles="admin"/>
+
+  </action-mappings>
+
+  <controller nocache="true" inputForward="true" maxFileSize="2M"/>
+      <message-resources parameter="com/boco/eoms/message/config/ApplicationResources-msg"/>
+
+      <!-- ========== Validator plugin ===================  -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property property="pathnames" 
+                      value="/WEB-INF/validator-rules.xml,
+                             /WEB-INF/validator-rules-custom.xml,
+                             /WEB-INF/validation.xml"/>
+    </plug-in>
+
+</struts-config>

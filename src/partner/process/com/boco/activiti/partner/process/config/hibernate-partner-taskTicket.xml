@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		 <property name="show_sql">true</property>
+		 <mapping resource="com/boco/activiti/partner/process/model/PnrTaskTicket.hbm.xml"/>
+		 <mapping resource="com/boco/activiti/partner/process/model/PnrTaskTicketHandle.hbm.xml"/>
+		 <mapping resource="com/boco/activiti/partner/process/model/PnrAndroidPhotoFile.hbm.xml"/>
+		 <mapping resource="com/boco/activiti/partner/process/model/PnrAndroidWorkOrderPhotoFile.hbm.xml"/>
+		 <mapping resource="com/boco/activiti/partner/process/model/JunctionBoxCheckInfor.hbm.xml"/><!-- 交接箱核查信息 -->
+		 <mapping resource="com/boco/activiti/partner/process/model/JunctionBoxCheckPhoto.hbm.xml"/><!-- 交接箱核查照片 -->
+	</session-factory>
+</hibernate-configuration>

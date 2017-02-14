@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	<!-- ========== Data Sources Definitions =================================== -->
+	<!--
+		Define your Struts data sources in a file called struts-data-sources.xml and place
+		it in your merge directory.
+	-->
+
+	<!-- ========== Form Bean Definitions =================================== -->
+	<form-beans>
+	<form-bean name="multiPageForm"
+			type="com.boco.activiti.partner.process.webapp.form.MultiPageForm" />
+			
+	<form-bean
+		  name="pnrActReviewStaffForm"
+		  type="com.boco.activiti.partner.process.webapp.form.PnrActReviewStaffForm"/>
+	
+	<form-bean
+		  name="pnrActCityBudgetAmountForm"
+		  type="com.boco.activiti.partner.process.webapp.form.PnrActCityBudgetAmountForm"/>
+		  
+		<!--bean for EsmProcess end-->
+	</form-beans>
+	 
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward name="selectFile" path="/selectFile.do" />
+		<forward name="logout" path="/logout.jsp" />
+		<forward name="error"
+			path="/WEB-INF/pages/partner/activiti/common/sheet_fail.jsp"
+			contextRelative="true" />
+		<forward name="failure"
+			path="/WEB-INF/pages/partner/activiti/common/failure.jsp"
+			contextRelative="true" />
+	</global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+	<action-mappings>
+	
+		
+        <!--机房优化申请  -->
+        <action path="/pnrOltBbuRoom"
+			type="com.boco.activiti.partner.process.webapp.action.PnrOltBbuRoomAction"
+			name="multiPageForm"
+			scope="request"
+		    input="mainMenu"
+		    parameter="method"
+		    unknown="false"
+		    validate="false"
+			>			
+			<set-property property="cancellable" value="true" />
+			<forward name="new"
+                     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/transferNewPrecheck.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="success"
+					 path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/sheet_new_success.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="backlogList"
+				     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/backlogList.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="waitWorkOrderList"
+				     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/waitWorkOrderList.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="workOrderAudit"
+				     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/workOrderAudit.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="cityLineChargeAudit"
+				     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/cityLineChargeAudit.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="cityLineDirectorAudit"
+				     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/cityLineDirectorAudit.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="cityManageChargeAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/cityManageChargeAudit.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="viewHistory"
+                     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/viewHistory.jsp"
+                     redirect="false" contextRelative="true" />	 
+            <forward name="showSuccess"
+				     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/sheet_success.jsp"
+				     redirect="false" contextRelative="true" />
+            <forward name="cityManageDirectorAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/cityManageDirectorAudit.jsp"
+                     redirect="false" contextRelative="true" /> 
+            <forward name="troublePhotos"
+                     path="/WEB-INF/pages/partner/activiti/common/troublePhotos.jsp"
+                     redirect="false" contextRelative="true" /> 
+			<forward name="cityViceAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/cityViceAudit.jsp"
+                     redirect="false" contextRelative="true" />	
+            <forward name="provinceLineChargeAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/provinceLineChargeAudit.jsp"
+                     redirect="false" contextRelative="true" /> 
+            <forward name="provinceLineViceAudit"
+					 path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/provinceLineViceAudit.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="provinceManageChargeAudit"
+					 path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/provinceManageChargeAudit.jsp"
+					 redirect="false" contextRelative="true" />  
+			<forward name="provinceManageViceAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/provinceManageViceAudit.jsp"
+                     redirect="false" contextRelative="true" />	 
+            <forward name="openRejectView"
+                     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/rejectView.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="sheetAccessories" 
+		        	 path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/sheetAccessories.jsp"
+		             redirect="false" contextRelative="true"/>
+		    <forward name="mainSecond"
+					 path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/mainSecond.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="transferHandle"
+				     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/transferHandle.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="secondAudit"
+                     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/secondAudit.jsp"
+                     redirect="false" contextRelative="true" />	 
+             <forward name="sheetAccessories" 
+		        path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/sheetAccessories.jsp"
+		        redirect="false" contextRelative="true"/>
+		     <forward name="openBatchApproveView"
+                     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/batchApproveView.jsp"
+                     redirect="false" contextRelative="true" />
+		     <forward name="openBatchRegressionView"
+                     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/batchRegressionView.jsp"
+                     redirect="false" contextRelative="true" />
+		     <forward name="showPhotoView"
+                     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/shwPhotoeList.jsp"
+                     redirect="false" contextRelative="true" />
+             <forward name="involvedProcessInstancesList"
+                     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/involvedProcessInstancesList.jsp"
+                     redirect="false" contextRelative="true" />
+             <forward name="gotoDetail"
+					 path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/transferDetail.jsp"
+				     redirect="false" contextRelative="true" />
+			 <forward name="runningProcessInstancesList"
+                     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/runningProcessInstancesList.jsp"
+                     redirect="false" contextRelative="true" />
+             <forward name="delete_success"
+				     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/sheet_delete_success.jsp"
+				     redirect="false" contextRelative="true" />       
+             <forward name="openSelectPhotoView"
+				     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/photoChooseList.jsp"
+				     redirect="false" contextRelative="true" />
+		     <forward name="getBack"
+                     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/getBack.jsp"
+                     redirect="false" contextRelative="true" />  
+              <forward name="catchBackSuccess"
+					 path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/catchback_success.jsp"
+				     redirect="false" contextRelative="true" />
+			  <forward name="involvedFinishedList"
+                     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/involvedFinishedList.jsp"
+                     redirect="false" contextRelative="true" />
+              <forward name="openDealWithView"
+                     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/dealWithView.jsp"
+                     redirect="false" contextRelative="true" />
+                     
+                            
+            <!-- 下载附件 add by wyl 20150429 -->         
+			<forward name="downAttachMentList"
+                     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/downAttachMentList.jsp"
+                     redirect="false" contextRelative="true" />
+
+                     
+            <!-- 工单下载 add by wangchang 20150507 -->         
+			<forward name="downWorkOrderList"
+                     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/downWorkOrderList.jsp"
+                     redirect="false" contextRelative="true" />
+            
+            
+                      
+            <!-- 图片下载 add by wangchang 20150508 -->         
+			<forward name="downImageImportList"
+                     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/downImageImportList.jsp"
+                     redirect="false" contextRelative="true" />
+                                                      
+
+            <forward name="orderAudit"
+				     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/orderAudit.jsp"
+				     redirect="false" contextRelative="true" />
+		    <forward name="mainMaterial"
+				     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/mainMaterialList.jsp"
+				     redirect="false" contextRelative="true" />   
+			
+			<!-- 子场景的显示 -->
+			<forward name="childSceneForDetails"
+				     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/childSceneForDetails.jsp"
+				     redirect="false" contextRelative="true" />
+			<!-- 主材的显示 -->
+			<forward name="mainMaterialForDetails"
+				     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/mainMaterialForDetails.jsp"
+				     redirect="false" contextRelative="true" />
+			<!-- 辅材的显示 -->
+			<forward name="assistMaterialForDetails"
+				     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/assistMaterialForDetails.jsp"
+				     redirect="false" contextRelative="true" />
+			<!-- 按地市权限工单查询 -->	     
+            <forward name="oltBbuWorkOrderList"
+				     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/oltBbuWorkOrderList.jsp"
+				     redirect="false" contextRelative="true" />
+				     
+			<forward name="openRejectTaskView"
+				     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/openRejectTaskView.jsp"
+				     redirect="false" contextRelative="true" />
+			 <!-- 任意驳回 -->
+			<forward name="linkRejectedPage"
+				     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/linkRejectedPage.jsp"
+				     redirect="false" contextRelative="true" />
+			<forward name="selectPnrOltBbuRoom"
+                     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/selectPnrOltBbuRoom.jsp"
+                     redirect="false" contextRelative="true" />
+			<forward name="cityManagefile"
+                     path="/WEB-INF/pages/partner/activiti/pnrOltBbuRoom/cityManagefile.jsp"
+                     redirect="false" contextRelative="true" />         
+		</action>     
+	</action-mappings>
+	<controller nocache="true" inputForward="true" maxFileSize="2M" />
+</struts-config>

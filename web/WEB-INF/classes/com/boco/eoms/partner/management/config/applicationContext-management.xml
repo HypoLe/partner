@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+    <bean id="managementMgr" parent="txProxyTemplate">
+        <property name="target">
+            <bean
+                class="com.boco.eoms.partner.management.mgr.impl.ManagementMgrImpl">
+                <property name="managementDao" ref="managementDao" />
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="managementDao"
+        class="com.boco.eoms.partner.management.dao.hibernate.ManagementDaoHibernate"
+        autowire="byName" />
+
+</beans>
+
+

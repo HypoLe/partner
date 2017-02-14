@@ -1,0 +1,4 @@
+window[esri._dojoScopeName||"dojo"]._xdResourceLoaded(function(dojo, dijit, dojox){
+return {depends: [["provide", "dijit._editor.nls.sl.FontChoice"]],
+defineResource: function(dojo, dijit, dojox){dojo.provide("dijit._editor.nls.sl.FontChoice");dojo._xdLoadFlattenedBundle("dijit._editor", "FontChoice", "sl", {"noFormat":"Brez","1":"xx-majhno","2":"x-majhno","formatBlock":"Oblika","3":"majhno","4":"srednje","5":"veliko","6":"x-veliko","7":"xx-veliko","fantasy":"fantasy","serif":"serif","p":"Odstavek","pre":"Vnaprej oblikovan","sans-serif":"sans-serif","fontName":"Pisava","h1":"Naslovni slog","h2":"Podnaslovni slog","h3":"Pod-podnaslovni slog","monospace":"monospace","fontSize":"Velikost","cursive":"cursive"});
+}};});

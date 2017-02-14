@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<!-- Struts1 template v1.0.0 configuration for Nop3 based on eoms.
+	Author: Steve
+	Create: July,2011
+-->
+
+<struts-config>
+	<!-- ============ Form beans ============ -->
+	
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+	<!-- ============ Global forwards ============ -->
+	<global-forwards type="org.apache.struts.action.ActionForward">
+		<forward name="failure" path="/common/fail.jsp"
+			contextRelative="true" />
+		<forward name="success" path="/common/success.jsp"
+			contextRelative="true" />
+		<forward name="error" path="/error.jsp" contextRelative="true" />
+	</global-forwards>
+	
+	<!-- ============ Action Mapping definitions ============ -->
+	<action-mappings type="org.apache.struts.action.ActionMapping">
+		<!-- Adding by steve. 2010-02-17 Circuit Start modual mapping.  -->
+		<action path="/lineProjectAction"
+			type="com.boco.eoms.deviceManagement.busi.line.action.LineProjectAction" 
+			scope="request" input="list" parameter="method" unknown="false"
+			validate="false">
+			<set-property property="cancellable" value="true" />
+			<!-- This is Jsp page template here. Do not modify these templates. Begin. -->
+			<forward name="goToAdd"
+				path="/WEB-INF/pages/deviceManagement/busi/lineProject/add.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="listCheck"
+				path="/WEB-INF/pages/deviceManagement/busi/lineProject/listCheck.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToCheck"
+				path="/WEB-INF/pages/deviceManagement/busi/lineProject/check.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="listCommis"
+				path="/WEB-INF/pages/deviceManagement/busi/lineProject/lisCommis.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToCommis"
+				path="/WEB-INF/pages/deviceManagement/busi/lineProject/commis.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="listConstruct"
+				path="/WEB-INF/pages/deviceManagement/busi/lineProject/listConstruct.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToConsturct"
+				path="/WEB-INF/pages/deviceManagement/busi/lineProject/construct.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="listAccept"
+				path="/WEB-INF/pages/deviceManagement/busi/lineProject/listAccept.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToAccept"
+				path="/WEB-INF/pages/deviceManagement/busi/lineProject/accept.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="listUncheck"
+				path="/WEB-INF/pages/deviceManagement/busi/lineProject/listUncheck.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToReapply1"
+				path="/WEB-INF/pages/deviceManagement/busi/lineProject/reapply1.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToReapply2"
+				path="/WEB-INF/pages/deviceManagement/busi/lineProject/reapply2.jsp"
+				redirect="false" contextRelative="true" />
+				
+			<forward name="forwardlist" path="/faultInfo.do?method=list"
+				redirect="true" />
+		</action>
+	</action-mappings>
+	<!-- ========== Plug Ins Configuration ================================== -->
+	<!-- Add multiple validator resource files by setting the pathname property -->
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/validator-rules.xml,/WEB-INF/validation-duty.xml" />
+	</plug-in>
+
+</struts-config>

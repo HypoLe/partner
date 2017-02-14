@@ -1,0 +1,59 @@
+ <undoSheet>
+    <![CDATA[insert into undo_TMP_VIEW_NAME SELECT 'pnrfaultdeal','故障处理工单',task.ID ,task.TASKNAME,task.TASKDISPLAYNAME,task.CREATETIME,task.TASKSTATUS,task.PROCESSID,
+		task.SHEETKEY,main.SHEETID,main.TITLE,main.sheetacceptlimit,main.sheetcompletelimit,task.OPERATEROLEID,task.TASKOWNER,task.PRELINKID,
+		task.FLOWNAME,task.CURRENTLINKID,task.SUBTASKFLAG,task.OPERATETYPE,task.PARENTTASKID,task.IFWAITFORSUBTASK,task.SUBTASKDEALFalG,task.createtime
+	FROM Pnr_FaultDeal_task task, Pnr_FaultDeal_main main 
+	WHERE (task.taskOwner='OCCU_USERID' OR task.taskOwner='OCCU_DEPTID' 
+		OR task.taskOwner IN (	OCCU_SUBROLEID )
+		) AND (task.taskStatus=2 OR task.taskStatus=8 OR task.taskStatus=1) AND
+		task.taskDisplayName<>'草稿' AND main.id=task.sheetKey AND main.deleted<>'1' AND main.status=0;
+	]]>
+	
+	 <![CDATA[insert into undo_TMP_VIEW_NAME SELECT 'pnrcomplaint','投诉工单',task.ID ,task.TASKNAME,task.TASKDISPLAYNAME,task.CREATETIME,task.TASKSTATUS,task.PROCESSID,
+		task.SHEETKEY,main.SHEETID,main.TITLE,main.sheetacceptlimit,main.sheetcompletelimit,task.OPERATEROLEID,task.TASKOWNER,task.PRELINKID,
+		task.FLOWNAME,task.CURRENTLINKID,task.SUBTASKFLAG,task.OPERATETYPE,task.PARENTTASKID,task.IFWAITFORSUBTASK,task.SUBTASKDEALFalG,task.createtime
+	FROM Pnr_complaint_task task, Pnr_complaint_main main 
+	WHERE (task.taskOwner='OCCU_USERID' OR task.taskOwner='OCCU_DEPTID' 
+		OR task.taskOwner IN (	OCCU_SUBROLEID )
+		) AND (task.taskStatus=2 OR task.taskStatus=8 OR task.taskStatus=1) AND
+		task.taskDisplayName<>'草稿' AND main.id=task.sheetKey AND main.deleted<>'1' AND main.status=0;
+	]]>
+	
+	<![CDATA[insert into undo_TMP_VIEW_NAME SELECT 'pnrcommontask','通用任务工单',task.ID ,task.TASKNAME,task.TASKDISPLAYNAME,task.CREATETIME,task.TASKSTATUS,task.PROCESSID,
+		task.SHEETKEY,main.SHEETID,main.TITLE,main.sheetacceptlimit,main.sheetcompletelimit,task.OPERATEROLEID,task.TASKOWNER,task.PRELINKID,
+		task.FLOWNAME,task.CURRENTLINKID,task.SUBTASKFLAG,task.OPERATETYPE,task.PARENTTASKID,task.IFWAITFORSUBTASK,task.SUBTASKDEALFalG,task.createtime
+	FROM Pnr_CommonTask_task task, Pnr_CommonTask_main main 
+	WHERE (task.taskOwner='OCCU_USERID' OR task.taskOwner='OCCU_DEPTID' 
+		OR task.taskOwner IN (	OCCU_SUBROLEID ) 
+		) AND (task.taskStatus=2 OR task.taskStatus=8 OR task.taskStatus=1) AND
+		task.taskDisplayName<>'草稿' AND main.id=task.sheetKey AND main.deleted<>'1' AND main.status=0;
+	]]>
+	<![CDATA[insert into undo_TMP_VIEW_NAME SELECT 'pnrHiddenTrouble','隐患工单',task.ID ,task.TASKNAME,task.TASKDISPLAYNAME,task.CREATETIME,task.TASKSTATUS,task.PROCESSID,
+		task.SHEETKEY,main.SHEETID,main.TITLE,main.sheetacceptlimit,main.sheetcompletelimit,task.OPERATEROLEID,task.TASKOWNER,task.PRELINKID,
+		task.FLOWNAME,task.CURRENTLINKID,task.SUBTASKFLAG,task.OPERATETYPE,task.PARENTTASKID,task.IFWAITFORSUBTASK,task.SUBTASKDEALFalG,task.createtime
+	FROM Pnr_hiddentrouble_task task, Pnr_hiddenTrouble_main main 
+	WHERE (task.taskOwner='OCCU_USERID' OR task.taskOwner='OCCU_DEPTID' 
+		OR task.taskOwner IN (	OCCU_SUBROLEID ) 
+		) AND (task.taskStatus=2 OR task.taskStatus=8 OR task.taskStatus=1) AND
+		task.taskDisplayName<>'草稿' AND main.id=task.sheetKey AND main.deleted<>'1' AND main.status=0;
+	]]>
+	<![CDATA[insert into undo_TMP_VIEW_NAME SELECT 'pnrrescheck','资源核查工单',task.ID ,task.TASKNAME,task.TASKDISPLAYNAME,task.CREATETIME,task.TASKSTATUS,task.PROCESSID,
+		task.SHEETKEY,main.SHEETID,main.TITLE,main.sheetacceptlimit,main.sheetcompletelimit,task.OPERATEROLEID,task.TASKOWNER,task.PRELINKID,
+		task.FLOWNAME,task.CURRENTLINKID,task.SUBTASKFLAG,task.OPERATETYPE,task.PARENTTASKID,task.IFWAITFORSUBTASK,task.SUBTASKDEALFalG,task.createtime
+	FROM Pnr_ResCheck_task task, Pnr_ResCheck_main main 
+	WHERE (task.taskOwner='OCCU_USERID' OR task.taskOwner='OCCU_DEPTID' 
+		OR task.taskOwner IN (	OCCU_SUBROLEID ) 
+		) AND (task.taskStatus=2 OR task.taskStatus=8 OR task.taskStatus=1) AND
+		task.taskDisplayName<>'草稿' AND main.id=task.sheetKey AND main.deleted<>'1' AND main.status=0;
+	]]>
+	<![CDATA[insert into undo_TMP_VIEW_NAME SELECT 'pnrgenerateelectricity','发电工单',task.ID ,task.TASKNAME,task.TASKDISPLAYNAME,task.CREATETIME,task.TASKSTATUS,task.PROCESSID,
+		task.SHEETKEY,main.SHEETID,main.TITLE,main.sheetacceptlimit,main.sheetcompletelimit,task.OPERATEROLEID,task.TASKOWNER,task.PRELINKID,
+		task.FLOWNAME,task.CURRENTLINKID,task.SUBTASKFLAG,task.OPERATETYPE,task.PARENTTASKID,task.IFWAITFORSUBTASK,task.SUBTASKDEALFalG,task.createtime
+	FROM Pnr_GenerateElectricity_task task, Pnr_GenerateElectricity_main main 
+	WHERE (task.taskOwner='OCCU_USERID' OR task.taskOwner='OCCU_DEPTID' 
+		OR task.taskOwner IN (	OCCU_SUBROLEID ) 
+		) AND (task.taskStatus=2 OR task.taskStatus=8 OR task.taskStatus=1) AND
+		task.taskDisplayName<>'草稿' AND main.id=task.sheetKey AND main.deleted<>'1' AND main.status=0;
+	]]>
+    </undoSheet>
+    

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="fileAttributes"
+		class="com.boco.eoms.netresource.line.util.FileAttributes">
+		
+		<!-- 网络资源管理根路径windows环境下的配置-->
+		<property name="netDiskRootPath">
+			<value>E:/partner/uploadfile/partner/uploadfile/netresource</value>
+		</property>
+		
+		<!-- 网络资源管理根路径Unix环境下的配置 绝对路径-->
+	    <!-- 
+	    <property name="netDiskRootPath">
+            <value>/partner/uploadfile/partner/uploadfile/netresource</value>
+        </property> 
+        -->
+		
+	</bean>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

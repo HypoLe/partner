@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<!-- Struts1 
+	Author: huhao	
+	Create: 2011-10
+-->
+
+<struts-config>
+	<!-- ============ Form beans ============ -->
+	<form-beans>
+		<form-bean name="publicityCatchlineForm"
+			type="com.boco.eoms.deviceManagement.busi.protectline.form.PublicityCatchlineForm" />
+		<form-bean name="publicityCatchlineApprovalForm"
+			type="com.boco.eoms.deviceManagement.busi.protectline.form.PublicityCatchlineApprovalForm" />
+	</form-beans>
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+	<!-- ============ Global forwards ============ -->
+	<global-forwards type="org.apache.struts.action.ActionForward">
+		<forward name="failure" path="/common/fail.jsp"
+			contextRelative="true" />
+		<forward name="success" path="/success.jsp"
+			contextRelative="true" />
+		<forward name="error" path="/error.jsp" contextRelative="true" />
+	</global-forwards>
+
+	<!-- ============ Action Mapping definitions ============ -->
+	<action-mappings type="org.apache.struts.action.ActionMapping">
+
+		<action path="/publicityCatchline"
+			type="com.boco.eoms.deviceManagement.busi.protectline.action.PublicityCatchlineAction"
+			name="publicityCatchlineForm" scope="request" input="list"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<!-- This is Jsp page template here. Do not modify these templates. Begin. -->
+			<forward name="goToEdit"
+				path="/WEB-INF/pages/deviceManagement/busi/publicityCatchline/publicityCatchlineEdit.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="list"
+				path="/WEB-INF/pages/deviceManagement/busi/publicityCatchline/publicityCatchlineList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToDetail"
+				path="/WEB-INF/pages/deviceManagement/busi/publicityCatchline/publicityCatchlineDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToImport"
+				path="/WEB-INF/pages/deviceManagement/busi/publicityCatchline/publicityCatchlineImport.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToAdd"
+				path="/WEB-INF/pages/deviceManagement/busi/publicityCatchline/publicityCatchlineAdd.jsp"
+				redirect="false" contextRelative="true" />
+
+			<forward name="forwardlist"
+				path="/publicityCatchline.do?method=list" redirect="true" />
+			<forward name="success"
+				path="/WEB-INF/pages/deviceManagement/busi/success.jsp"
+				redirect="true" />
+			<forward name="approvaledDetail"
+				path="/WEB-INF/pages/deviceManagement/busi/publicityCatchline/publicityCatchlineApprovaledDetail.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="goToApproval"
+				path="/WEB-INF/pages/deviceManagement/busi/publicityCatchline/publicityCatchlineApproval.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="approvaledList"
+				path="/WEB-INF/pages/deviceManagement/busi/publicityCatchline/publicityCatchlineApprovaledList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="staffPublicityCatchline"
+				path="/WEB-INF/pages/deviceManagement/busi/publicityCatchline/staffPublicityCatchline.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="searchInto"
+				path="/WEB-INF/pages/deviceManagement/busi/publicityCatchline/staffPublicityCatchlineSearchInto.jsp"
+				redirect="false" contextRelative="true" />
+							<forward name="approvalList"
+				path="/WEB-INF/pages/deviceManagement/busi/publicityCatchline/publicityCatchlineApprovalList.jsp"
+				redirect="false" contextRelative="true" />
+		</action>
+
+		<action path="/publicityCatchlineApproval"
+			type="com.boco.eoms.deviceManagement.busi.protectline.action.PublicityCatchlineAction"
+			name="publicityCatchlineApprovalForm" scope="request" input="list"
+			parameter="method" unknown="false" validate="false">
+			<set-property property="cancellable" value="true" />
+			<forward name="approvalList"
+				path="/WEB-INF/pages/deviceManagement/busi/publicityCatchline/publicityCatchlineApprovalList.jsp"
+				redirect="false" contextRelative="true" />
+
+
+
+			<forward name="forwardApprovalList"
+				path="/publicityCatchlineApproval.do?method=approvalList"
+				redirect="true" />
+		</action>
+	</action-mappings>
+	<!-- ========== Plug Ins Configuration ================================== -->
+	<!-- Add multiple validator resource files by setting the pathname property -->
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/WEB-INF/validator-rules.xml,/WEB-INF/validation-duty.xml" />
+	</plug-in>
+
+</struts-config>

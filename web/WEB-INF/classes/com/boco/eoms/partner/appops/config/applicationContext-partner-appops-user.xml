@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="partnerAppopsUserDao"
+		class="com.boco.eoms.partner.appops.dao.hibernate.PartnerAppopsUserHibernate" autowire="byName"/>
+  
+	<bean id="partnerAppopsDeptDao"
+		class="com.boco.eoms.partner.appops.dao.hibernate.PartnerAppopsDeptHibernate" autowire="byName"/>
+  
+  <bean id="partnerAppopsUserJDBCDao"
+		class="com.boco.eoms.partner.appops.dao.hibernate.PartnerAppopsUserDaoJDBC" autowire="byName"/>
+	<bean id="pnrAppopsUserService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.appops.service.impl.PartnerAppopsUserSevriceImpl">
+				<property name="partnerAppopsUserDao" ref="partnerAppopsUserDao" />
+				<property name="partnerAppopsUserJDBCDao" ref="partnerAppopsUserJDBCDao" />
+				<property name="pnrAppopsDeptService" ref="pnrAppopsDeptService" />
+				<property name="itawSystemDeptManager" ref="ItawSystemDeptManager" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="pnrAppopsDeptService" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="com.boco.eoms.partner.appops.service.impl.PartnerAppopsDeptServiceImpl">
+				<property name="partnerAppopsDeptDao" ref="partnerAppopsDeptDao" />
+			</bean>
+		</property>
+	</bean>
+	
+</beans>

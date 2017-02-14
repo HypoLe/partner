@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <!-- Add new Managers here -->
+    
+    <!--BillMaterial-DAO START-->
+    <bean id="billMaterialDao" class="com.boco.eoms.materials.dao.hibernate.BillMaterialDaoHibernate" autowire="byName"/>
+    <!--BillMaterial-DAO END-->
+    <!--BillMaterial-Service START-->    
+    <bean id="billMaterialManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.materials.service.impl.BillMaterialManagerImpl">
+                <property name="billMaterialDao" ref="billMaterialDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--BillMaterial-Service END-->
+    
+   <!--ContactCompany-DAO START-->
+    <bean id="contactCompanyDao" class="com.boco.eoms.materials.dao.hibernate.ContactCompanyDaoHibernate" autowire="byName"/>
+    <!--ContactCompany-DAO END-->
+    <!--ContactCompany-Service START-->    
+    <bean id="contactCompanyManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.materials.service.impl.ContactCompanyManagerImpl">
+                <property name="contactCompanyDao" ref="contactCompanyDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--ContactCompany-Service END-->
+   
+    <!--Material-DAO START-->
+    <bean id="materialDao" class="com.boco.eoms.materials.dao.hibernate.MaterialDaoHibernate" autowire="byName"/>
+    <!--Material-DAO END-->
+    <!--Material-Service START-->    
+    <bean id="materialManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.materials.service.impl.MaterialManagerImpl">
+                <property name="materialDao" ref="materialDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--Material-Service END-->
+    
+    <!--Store-DAO START-->
+    <bean id="storeDao" class="com.boco.eoms.materials.dao.hibernate.StoreDaoHibernate" autowire="byName"/>
+    <!--Store-DAO END-->
+    <!--Store-Service START-->    
+    <bean id="storeManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.materials.service.impl.StoreManagerImpl">
+                <property name="storeDao" ref="storeDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--Store-Service END-->
+    
+    <!--StoreAllot-DAO START-->
+    <bean id="storeAllotDao" class="com.boco.eoms.materials.dao.hibernate.StoreAllotDaoHibernate" autowire="byName"/>
+    <!--StoreAllot-DAO END-->
+    <!--StoreAllot-Service START-->    
+    <bean id="storeAllotManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.materials.service.impl.StoreAllotManagerImpl">
+                <property name="storeAllotDao" ref="storeAllotDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--StoreAllot-Service END-->
+    
+    <!--StoreInput-DAO START-->
+    <bean id="storeInputDao" class="com.boco.eoms.materials.dao.hibernate.StoreInputDaoHibernate" autowire="byName"/>
+     <!-- 权限控制 -->
+    <bean id="matePerDao" class="com.boco.eoms.materials.dao.hibernate.MatePermissionDaoHibernate" autowire="byName"/>
+    <!--StoreInput-DAO END-->
+    <!--StoreInput-Service START-->    
+    <bean id="storeInputManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.materials.service.impl.StoreInputManagerImpl">
+                <property name="storeInputDao" ref="storeInputDao"/>
+                <property name="matePerDao" ref="matePerDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--StoreInput-Service END-->
+    
+    <!--StoreInventory-DAO START-->
+    <bean id="storeInventoryDao" class="com.boco.eoms.materials.dao.hibernate.StoreInventoryDaoHibernate" autowire="byName"/>
+    <!--StoreInventory-DAO END-->
+    <!--StoreInventory-Service START-->    
+    <bean id="storeInventoryManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.materials.service.impl.StoreInventoryManagerImpl">
+                <property name="storeInventoryDao" ref="storeInventoryDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--StoreInventory-Service END-->
+    
+    <!--StoreInventoryHistory-DAO START-->
+    <bean id="storeInventoryHistoryDao" class="com.boco.eoms.materials.dao.hibernate.StoreInventoryHistoryDaoHibernate" autowire="byName"/>
+    <!--StoreInventoryHistory-DAO END-->
+    <!--StoreInventoryHistory-Service START-->    
+    <bean id="storeInventoryHistoryManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.materials.service.impl.StoreInventoryHistoryManagerImpl">
+                <property name="storeInventoryHistoryDao" ref="storeInventoryHistoryDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--StoreInventoryHistory-Service END-->
+    
+     <!--StoreOut-DAO START-->
+    <bean id="storeOutDao" class="com.boco.eoms.materials.dao.hibernate.StoreOutDaoHibernate" autowire="byName"/>
+    <!--StoreOut-DAO END-->
+    <!--StoreOut-Service START-->    
+    <bean id="storeOutManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.materials.service.impl.StoreOutManagerImpl">
+                <property name="storeOutDao" ref="storeOutDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--StoreOut-Service END-->
+    
+       <!--SysDict-DAO START-->
+    <bean id="sysDictDao" class="com.boco.eoms.materials.dao.hibernate.SysDictDaoHibernate" autowire="byName"/>
+    <!--SysDict-DAO END-->
+    <!--SysDict-Service START-->    
+    <bean id="sysDictManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.materials.service.impl.SysDictManagerImpl">
+                <property name="sysDictDao" ref="sysDictDao"/>
+            </bean>
+        </property>
+    </bean>
+    <!--SysDict-Service END-->
+    
+    <!--SysUser-DAO START-->
+    <bean id="sysUserDao" class="com.boco.eoms.materials.dao.hibernate.SysUserDaoHibernate" autowire="byName"/>
+    <!--SysUser-DAO END-->
+    <!--SysUser-Service START-->    
+    <bean id="sysUserManager" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.boco.eoms.materials.service.impl.SysUserManagerImpl">
+                <property name="sysUserDao" ref="sysUserDao"/>
+            </bean>
+        </property>
+    </bean>
+    
+   
+    <!--SysUser-Service END-->
+</beans>
+
+
+
+
+
+
+

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="SequenceFacade"
+		class="com.boco.eoms.sequence.SequenceFacadeImpl" />
+
+	<bean id="SequenceRegister"
+		class="com.boco.eoms.sequence.SequenceRegister">
+		<property name="register">
+			<list>
+				<value>duty</value>
+				<value>msg</value>
+				<value>email</value>
+				<value>voice</value>
+				<value>log</value>
+				<value>smsmonitorbak</value>
+				<value>sendmsg</value>
+				<value>savelog</value>
+				<value>mapping</value>
+				<value>closemsg</value>
+				<value>closesinglemsg</value>
+				<value>sendVoice</value>
+				<value>sendMms</value>
+				
+				<value>Interface</value>
+				<!-- 一级持久队列使用的内存队列 -->
+				<value>initMQ</value>
+				<!-- 二级持久队列使用的内存队列 -->
+				<value>retainMQ</value>
+				<!-- 三级持久队列使用的内存队列 -->
+				<value>holdMQ</value>
+				<!-- 在线考试使用的内存队列 -->
+				<value>saveexam</value>
+				
+				<!-- 数据同步 -->
+				
+				<!--空间资源-->
+					<!-- 区域 -->
+					<value>irms_space_area</value>
+					<!-- 机房 -->
+					<value>irms_space_room</value>
+					<!-- 站点 -->
+					<value>irms_space_site</value>
+				<!--基站设备及配套-->
+					<!-- BTSSITE -->
+					<value>irms_bs_btssite</value>
+					<!-- 机楼基站外电 -->
+					<value>irms_bs_jzwd</value>
+					<!-- 变压器或调压器 -->
+					<value>irms_bs_transfor</value>
+					<!-- 机框 -->
+					<value>irms_bs_shelf</value>
+					<!-- 机槽 -->
+					<value>irms_bs_slot</value>
+					<!-- UTRANCELL -->
+					<value>irms_bs_utrancell</value>
+					<!-- CELL -->
+					<value>irms_bs_cell</value>
+					<!-- NODEB -->
+					<value>irms_bs_nodeb</value>
+					<!-- 机柜 -->
+					<value>irms_bs_rack</value>
+					<!-- 板卡 -->
+					<value>irms_bs_card</value>
+					<!-- 发电机组 -->
+					<value>irms_bs_grnerat</value>
+					<!-- 蓄电池组 -->
+					<value>irms_bs_storage</value>
+					<!-- 开关电源 -->
+					<value>irms_bs_grnerat2</value>
+					<!-- UPS主机 -->
+					<value>irms_bs_ups</value>
+					<!-- 普通空调 -->
+					<value>irms_bs_aircon</value>
+					<!-- 专用空调 -->
+					<value>irms_bs_speaircon</value>
+					<!-- 动环监控设备 -->
+					<value>irms_bs_mme</value>
+					<!-- 通风系统 -->
+					<value>irms_bs_vens</value>
+					<!-- 换热系统 -->
+					<value>irms_bs_hes</value>
+					<!-- 风能设备 -->
+					<value>irms_bs_wep</value>
+					<!-- 风电控制器 -->
+					<value>irms_bs_wpc</value>
+					<!-- 太阳能设备 -->
+					<value>irms_bs_see</value>
+					<!-- 太阳能控制器 -->
+					<value>irms_bs_mppt</value>
+					<!-- 风光互补控制器 -->
+					<value>irms_bs_cc</value>
+					<!-- 电源恒温箱 -->
+					<value>irms_bs_bb</value>
+									
+				<!--传输线路-->
+					<!-- 人手井 -->
+					<value>irms_trans_well</value>
+					<!-- 杆路 -->
+					<value>irms_trans_poleline</value>
+					<!-- 管孔 -->
+					<value>irms_trans_pipehole</value>
+					<!-- 管道段 -->
+					<value>irms_trans_pipesec</value>
+					<!-- 管道 -->
+					<value>irms_trans_pipe</value>
+					<!-- 电杆 -->
+					<value>irms_trans_poles</value>
+					<!-- 杆路段 -->
+					<value>irms_trans_polelinesec</value>
+					<!-- 标石 -->
+					<value>irms_trans_markstone</value>
+					<!-- 直埋 -->
+					<value>irms_trans_dirbury</value>
+					<!-- 光缆 -->
+					<value>irms_trans_opcable</value>
+					<!-- 光缆段 -->
+					<value>irms_trans_opcablesec</value>
+					<!-- 直埋段 -->
+					<value>irms_trans_dirburysec</value>
+					<!-- 光交接箱 -->
+					<value>irms_trans_odf</value>
+					<!-- 光电接头盒 -->
+					<value>irms_trans_opconbox</value>
+					
+				<!--直放站室分及WLAN-->
+					<!-- 直放站 -->
+					<value>irms_wlan_repeater</value>
+					<!-- 热点 -->
+					<value>irms_wlan_hot</value>
+					<!-- AC -->
+					<value>irms_wlan_ac</value>
+					<!-- AP -->
+					<value>irms_wlan_ap</value>
+					<!-- 交换机 -->
+					<value>irms_wlan_switch</value>
+				<!--铁塔及天馈-->
+					<!-- 铁塔 -->
+					<value>irms_tower_tower</value>
+					<!-- 天线 -->
+					<value>irms_tower_ant</value>
+				<!--集客家客-->
+					<!-- 客户信息表 -->
+					<value>irms_grou_customer</value>
+					<!-- 数据(互联网)专线信息表 -->
+					<value>irms_group_line</value>
+					<!-- 客户开通业务信息表 -->
+					<value>irms_group_product</value>
+					<!-- 语音专线信息表 -->
+					<value>irms_group_sound</value>
+					<!-- GPRS信息表 -->
+					<value>irms_group_gprs</value>
+					<!-- 短信信息表 -->
+					<value>irms_group_sms</value>
+					<!-- 彩信息表 -->
+					<value>irms_group_mms</value>
+					<!-- 出租专线信息表 -->
+					<value>irms_group_rent</value>
+					<!-- 客户端设备信息表 -->
+					<value>irms_group_device</value>
+			</list>
+		</property>
+	</bean>
+	<import
+		resource="classpath:com/boco/eoms/sequence/config/applicationContext-sequence-versionlog.xml" />
+</beans>
+
+
+

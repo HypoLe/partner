@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.boco.eoms.materials.model.StoreInventoryHistory"
+            table="store_inventory_history">
+
+    	<id name="id" column="id" unsaved-value="null" >
+    		<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    		<generator class="uuid.hex" />
+    	</id>
+
+        <property name="storeSid" column="store_sid"  />
+        <property name="storeSname" column="store_sname"  />
+        <property name="materialName" column="materialName"  />
+        <property name="materialId" column="material_id"  />
+        <property name="materialUpdateDate" column="material_update_date"  />
+        <property name="onhand"   />
+        
+    </class>    
+
+</hibernate-mapping>
+

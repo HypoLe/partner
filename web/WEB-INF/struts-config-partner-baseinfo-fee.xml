@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans> 
+		<form-bean  name="partnerFeePlanForm" type="com.boco.eoms.parter.baseinfo.fee.webapp.form.PartnerFeePlanForm"/>
+		<form-bean  name="partnerFeeUnitForm" type="com.boco.eoms.parter.baseinfo.fee.webapp.form.PartnerFeeUnitForm"/>
+		<form-bean  name="partnerFeeInfoForm" type="com.boco.eoms.parter.baseinfo.fee.webapp.form.PartnerFeeInfoForm"/>
+	</form-beans>
+	<!-- ========== Global Exceptions Definitions =================================== -->
+    <global-exceptions>
+        <exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+    </global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward
+		  name="success"
+		  path="/common/success.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>
+		<forward
+		  name="nopriv"
+		  path="/common/nopriv.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>
+		<forward
+		  name="fail"
+		  path="/common/failure.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>
+    </global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+
+	<action-mappings>
+		<action
+		  path="/partnerFeePlans"
+		  type="com.boco.eoms.parter.baseinfo.fee.webapp.action.PartnerFeePlanAction"
+		  name="partnerFeePlanForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/partner/baseinfo/fee/partnerFeePlanForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/fee/partnerFeePlanList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			 <forward name="planStatistics" 
+			 path="/WEB-INF/pages/partner/baseinfo/fee/partnerFeePlanStatistics.jsp"
+			 redirect="false"
+			 contextRelative="true"
+			 />
+			 <forward
+			  name="detail"
+			  path="/WEB-INF/pages/partner/baseinfo/fee/feePlanDetail.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			 <forward
+			  name="queryContentsList"
+			  path="/WEB-INF/pages/partner/baseinfo/fee/contentsList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			 <forward
+			  name="selectFeePlanList"
+			  path="/WEB-INF/pages/partner/baseinfo/fee/feePlanList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			 <forward
+			  name="unAuditPlanList"
+			  path="/WEB-INF/pages/partner/baseinfo/fee/feePlanUnAuditList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			 <forward
+			  name="planAudit"
+			  path="/WEB-INF/pages/partner/baseinfo/fee/feePlanAudit.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		</action>
+		
+		<action
+		  path="/partnerFeeUnits"
+		  type="com.boco.eoms.parter.baseinfo.fee.webapp.action.PartnerFeeUnitAction"
+		  name="partnerFeeUnitForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/partner/baseinfo/fee/partnerFeeUnitForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/fee/partnerFeeUnitList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="detail"
+			  path="/WEB-INF/pages/partner/baseinfo/fee/partnerFeeUnitDetail.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		</action>
+		
+		<action
+		  path="/partnerFeeInfos"
+		  type="com.boco.eoms.parter.baseinfo.fee.webapp.action.PartnerFeeInfoAction"
+		  name="partnerFeeInfoForm"
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="edit"
+			  path="/WEB-INF/pages/partner/baseinfo/fee/partnerFeeInfoForm.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="detail"
+			  path="/WEB-INF/pages/partner/baseinfo/fee/partnerFeeInfoDetail.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="editPlanFee"
+			  path="/WEB-INF/pages/partner/baseinfo/fee/partnerFeeInfoChoice.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="list"
+			  path="/WEB-INF/pages/partner/baseinfo/fee/partnerFeeInfoList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward name="main"
+			 path="/WEB-INF/pages/partner/baseinfo/fee/partnerFeeList.jsp"
+			 redirect="false"
+			 contextRelative="true"
+			 />
+			 <forward name="planfee" 
+			 path="/WEB-INF/pages/partner/baseinfo/fee/partnerFeePlanInfoList.jsp"
+			 redirect="false"
+			 contextRelative="true"
+			 />
+			  <forward name="planFeeDetail" 
+			 path="/WEB-INF/pages/partner/baseinfo/fee/partnerFeePlanInfoDetail.jsp"
+			 redirect="false"
+			 contextRelative="true"
+			 />
+			 <forward name="collectStatistics" 
+			 path="/WEB-INF/pages/partner/baseinfo/fee/partnerFeeCollectStatistics.jsp"
+			 redirect="false"
+			 contextRelative="true"
+			 />
+			 <forward name="payStatistics" 
+			 path="/WEB-INF/pages/partner/baseinfo/fee/partnerFeePayStatistics.jsp"
+			 redirect="false"
+			 contextRelative="true"
+			 />
+			 <forward name="compactStatistics" 
+			 path="/WEB-INF/pages/partner/baseinfo/fee/partnerFeeCompactStatistics.jsp"
+			 redirect="false"
+			 contextRelative="true"
+			 />
+			 <forward
+			  name="listCollect"
+			  path="/WEB-INF/pages/partner/baseinfo/fee/partnerFeeInfoByCollectList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="listPay"
+			  path="/WEB-INF/pages/partner/baseinfo/fee/partnerFeeInfoByPayList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="listCompact"
+			  path="/WEB-INF/pages/partner/baseinfo/fee/partnerFeeInfoByCompactList.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+		</action>
+	</action-mappings>
+ 	<controller nocache="true" inputForward="true" maxFileSize="2M" />
+		 <message-resources parameter="config/ApplicationResources"/>
+	<!-- ========== Validator plugin ===================  -->
+	<!-- 
+		<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+		value="/WEB-INF/validator-rules.xml,
+		/WEB-INF/validator-rules-custom.xml,
+		/WEB-INF/validation.xml" />
+		</plug-in>
+	-->
+</struts-config>

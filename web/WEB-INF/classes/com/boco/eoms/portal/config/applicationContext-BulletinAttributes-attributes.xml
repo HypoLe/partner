@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="bulletinAttributes"
+		class="com.boco.eoms.util.BulletinAttributes">
+		<property name="bulletinHttpPortAddress">
+			<value>http://localhost:8085/eoms/services/Bulletin</value>
+		</property>
+		<property name="bulletionHttpPortAddressTwo">
+			<value>http://localhost:8085/eoms/services/Bulletin</value>
+		</property>
+		<property name="bulletinSerSupplier">
+			<value>BJ</value>
+		</property>
+		<property name="bulletinSerCaller">
+			<value>BJ</value>
+		</property>
+		<property name="bulletinCallerPwd">
+			<value></value>
+		</property>
+		<property name="bulletinForumsId">
+			<value>8aa0813d2015dad0012015e5edfd00a6</value>
+		</property>
+		<property name="bulletinForumsIdTwo">
+			<value>8aa081e123c0713b0123c086798a0006</value>
+		</property>
+		<property name="bulletinSerialNoType">
+			<value>002</value>
+		</property>
+		<property name="bulletinAccessories">
+			<value></value>
+		</property>
+		<property name="bulletinRootPath">
+			<value></value>
+		</property>
+		<property name="callMethod">
+			<value>BulletinService</value>
+		</property>
+	</bean>
+</beans>
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.boco.eoms.deviceManagement.busi.line.model.Maintain" table="dm_protectline_maintain">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="creatUser" />
+		<property name="creatTime" />
+		<property name="creatDept" />
+		<property name="approvalUser" />
+		<property name="maintainName" />
+		<property name="fiberSection" />
+		<property name="maintainCause" />
+		<property name="maintainPlace" />
+		<property name="influenceSystem" />
+		<property name="attenuation" />
+		<property name="expectationTimeConsuming" />
+		<property name="expectationDate" />
+		<property name="accessory" />
+		<property name="remark" />
+		<property name="approvalType" />
+		<property name="isCheck" />
+		<property name="maintainFinish" />
+		<property name="isRecord" />
+		<property name="isModify" />
+		<property name="isReport" />
+		<property name="deleted" />
+		<property name="modifyUser" />
+		<property name="modifyTime" />
+		<property name="modifyDept" />
+		<property name="remark1" />
+		<property name="remark2" />
+		<property name="remark3" />
+		<property name="remark4" />
+	</class>
+</hibernate-mapping>

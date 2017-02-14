@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eventMapping>
+<!-- 空间资源 -->
+	<!-- 区域-IrmsSpaceArea -->
+	<PNR-IrmsSpaceArea>
+		<eventID>irms_space_area</eventID>
+		<mgrBeanName>irmsSpaceAreaMgrImpl</mgrBeanName>
+	</PNR-IrmsSpaceArea>
+	<!-- 机房-IrmsSpaceRoom -->
+	<PNR-IrmsSpaceRoom>
+		<eventID>irms_space_room</eventID>
+		<mgrBeanName>irmsSpaceRoomMgrImpl</mgrBeanName>
+	</PNR-IrmsSpaceRoom>
+	<!-- 站点-IrmsSpaceSite -->
+	<PNR-IrmsSpaceSite>
+		<eventID>irms_space_site</eventID>
+		<mgrBeanName>irmsSpaceSiteMgrImpl</mgrBeanName>
+	</PNR-IrmsSpaceSite>
+
+<!-- 基站设备及配套 -->
+	<!-- BTSSITE-IrmsBsBtssite -->
+	<PNR-IrmsBsBtssite>
+		<eventID>irms_bs_btssite</eventID>
+		<mgrBeanName>irmsBsBtssiteMgrImpl</mgrBeanName>
+	</PNR-IrmsBsBtssite>
+	<!-- 机楼基站外电-IrmsBsJzwd -->
+	<PNR-IrmsBsJzwd>
+		<eventID>irms_bs_jzwd</eventID>
+		<mgrBeanName>irmsBsJzwdMgrImpl</mgrBeanName>
+	</PNR-IrmsBsJzwd>
+	<!-- 变压器或调压器-IrmsBsTransfor -->
+	<PNR-IrmsBsTransfor>
+		<eventID>irms_bs_transfor</eventID>
+		<mgrBeanName>irmsBsTransforMgrImpl</mgrBeanName>
+	</PNR-IrmsBsTransfor>
+	<!-- 机框-IrmsBsShelf -->
+	<PNR-IrmsBsShelf>
+		<eventID>irms_bs_shelf</eventID>
+		<mgrBeanName>irmsBsShelfMgrImpl</mgrBeanName>
+	</PNR-IrmsBsShelf>
+	<!-- 机槽-IrmsBsSlot -->
+	<PNR-IrmsBsSlot>
+		<eventID>irms_bs_slot</eventID>
+		<mgrBeanName>irmsBsSlotMgrImpl</mgrBeanName>
+	</PNR-IrmsBsSlot>
+	<!-- UTRANCELL-IrmsBsUtrancell -->
+	<PNR-IrmsBsUtrancell>
+		<eventID>irms_bs_utrancell</eventID>
+		<mgrBeanName>irmsBsUtrancellMgrImpl</mgrBeanName>
+	</PNR-IrmsBsUtrancell>
+	<!-- CELL-IrmsBsCell -->
+	<PNR-IrmsBsCell>
+		<eventID>irms_bs_cell</eventID>
+		<mgrBeanName>irmsBsCellMgrImpl</mgrBeanName>
+	</PNR-IrmsBsCell>
+	<!-- NODEB-IrmsBsNodeb -->
+	<PNR-IrmsBsNodeb>
+		<eventID>irms_bs_nodeb</eventID>
+		<mgrBeanName>irmsBsNodebMgrImpl</mgrBeanName>
+	</PNR-IrmsBsNodeb>
+	<!-- 机柜-IrmsBsRack -->
+	<PNR-IrmsBsRack>
+		<eventID>irms_bs_rack</eventID>
+		<mgrBeanName>irmsBsRackMgrImpl</mgrBeanName>
+	</PNR-IrmsBsRack>
+	<!-- 板卡-IrmsBsCard -->
+	<PNR-IrmsBsCard>
+		<eventID>irms_bs_card</eventID>
+		<mgrBeanName>irmsBsCardMgrImpl</mgrBeanName>
+	</PNR-IrmsBsCard>
+	<!-- 发电机组-IrmsBsGrnerat -->
+	<PNR-IrmsBsGrnerat>
+		<eventID>irms_bs_grnerat</eventID>
+		<mgrBeanName>irmsBsGrneratMgrImpl</mgrBeanName>
+	</PNR-IrmsBsGrnerat>
+	<!-- 蓄电池组-IrmsBsStorage -->
+	<PNR-IrmsBsStorage>
+		<eventID>irms_bs_storage</eventID>
+		<mgrBeanName>irmsBsStorageMgrImpl</mgrBeanName>
+	</PNR-IrmsBsStorage>
+	<!-- 开关电源-IrmsBsGrnerat2 -->
+	<PNR-IrmsBsGrnerat2>
+		<eventID>irms_bs_grnerat2</eventID>
+		<mgrBeanName>irmsBsGrnerat2MgrImpl</mgrBeanName>
+	</PNR-IrmsBsGrnerat2>
+	<!-- UPS主机-IrmsBsUps -->
+	<PNR-IrmsBsUps>
+		<eventID>irms_bs_ups</eventID>
+		<mgrBeanName>irmsBsUpsMgrImpl</mgrBeanName>
+	</PNR-IrmsBsUps>
+	<!-- 普通空调-IrmsBsAircon -->
+	<PNR-IrmsBsAircon>
+		<eventID>irms_bs_aircon</eventID>
+		<mgrBeanName>irmsBsAirconMgrImpl</mgrBeanName>
+	</PNR-IrmsBsAircon>
+	<!-- 专用空调-IrmsBsSpeaircon -->
+	<PNR-IrmsBsSpeaircon>
+		<eventID>irms_bs_speaircon</eventID>
+		<mgrBeanName>irmsBsSpeairconMgrImpl</mgrBeanName>
+	</PNR-IrmsBsSpeaircon>
+	<!-- 动环监控设备-IrmsBsMme -->
+	<PNR-IrmsBsMme>
+		<eventID>irms_bs_mme</eventID>
+		<mgrBeanName>irmsBsMmeMgrImpl</mgrBeanName>
+	</PNR-IrmsBsMme>
+	<!-- 通风系统-IrmsBsVens -->
+	<PNR-IrmsBsVens>
+		<eventID>irms_bs_vens</eventID>
+		<mgrBeanName>irmsBsVensMgrImpl</mgrBeanName>
+	</PNR-IrmsBsVens>
+	<!-- 换热系统-IrmsBsHes -->
+	<PNR-IrmsBsHes>
+		<eventID>irms_bs_hes</eventID>
+		<mgrBeanName>irmsBsHesMgrImpl</mgrBeanName>
+	</PNR-IrmsBsHes>
+	<!-- 风能设备-IrmsBsWep -->
+	<PNR-IrmsBsWep>
+		<eventID>irms_bs_wep</eventID>
+		<mgrBeanName>irmsBsWepMgrImpl</mgrBeanName>
+	</PNR-IrmsBsWep>
+	<!-- 风电控制器-IrmsBsWpc -->
+	<PNR-IrmsBsWpc>
+		<eventID>irms_bs_wpc</eventID>
+		<mgrBeanName>irmsBsWpcMgrImpl</mgrBeanName>
+	</PNR-IrmsBsWpc>
+	<!-- 太阳能设备-IrmsBsSee -->
+	<PNR-IrmsBsSee>
+		<eventID>irms_bs_see</eventID>
+		<mgrBeanName>irmsBsSeeMgrImpl</mgrBeanName>
+	</PNR-IrmsBsSee>
+	<!-- 太阳能控制器-IrmsBsMppt -->
+	<PNR-IrmsBsMppt>
+		<eventID>irms_bs_mppt</eventID>
+		<mgrBeanName>irmsBsMpptMgrImpl</mgrBeanName>
+	</PNR-IrmsBsMppt>
+	<!-- 风光互补控制器-IrmsBsCc -->
+	<PNR-IrmsBsCc>
+		<eventID>irms_bs_cc</eventID>
+		<mgrBeanName>irmsBsCcMgrImpl</mgrBeanName>
+	</PNR-IrmsBsCc>
+	<!-- 电源恒温箱-IrmsBsBb -->
+	<PNR-IrmsBsBb>
+		<eventID>irms_bs_bb</eventID>
+		<mgrBeanName>irmsBsBbMgrImpl</mgrBeanName>
+	</PNR-IrmsBsBb>
+	
+<!-- 传输线路 -->
+	<!-- 人手井-IrmsTransWell -->
+	<PNR-IrmsTransWell>
+		<eventID>irms_trans_well</eventID>
+		<mgrBeanName>irmsTransWellMgrImpl</mgrBeanName>
+	</PNR-IrmsTransWell>
+	<!-- 杆路-IrmsTransPoleline -->
+	<PNR-IrmsTransPoleline>
+		<eventID>irms_trans_poleline</eventID>
+		<mgrBeanName>irmsTransPolelineMgrImpl</mgrBeanName>
+	</PNR-IrmsTransPoleline>
+	<!-- 管孔-IrmsTransPipehole -->
+	<PNR-IrmsTransPipehole>
+		<eventID>irms_trans_pipehole</eventID>
+		<mgrBeanName>irmsTransPipeholeMgrImpl</mgrBeanName>
+	</PNR-IrmsTransPipehole>
+	<!-- 管道段-IrmsTransPipesec -->
+	<PNR-IrmsTransPipesec>
+		<eventID>irms_trans_pipesec</eventID>
+		<mgrBeanName>irmsTransPipesecMgrImpl</mgrBeanName>
+	</PNR-IrmsTransPipesec>
+	<!-- 管道-IrmsTransPipe -->
+	<PNR-IrmsTransPipe>
+		<eventID>irms_trans_pipe</eventID>
+		<mgrBeanName>irmsTransPipeMgrImpl</mgrBeanName>
+	</PNR-IrmsTransPipe>
+	<!-- 电杆-IrmsTransPoles -->
+	<PNR-IrmsTransPoles>
+		<eventID>irms_trans_poles</eventID>
+		<mgrBeanName>irmsTransPolesMgrImpl</mgrBeanName>
+	</PNR-IrmsTransPoles>
+	<!-- 杆路段-IrmsTransPolelinesec -->
+	<PNR-IrmsTransPolelinesec>
+		<eventID>irms_trans_polelinesec</eventID>
+		<mgrBeanName>irmsTransPolelinesecMgrImpl</mgrBeanName>
+	</PNR-IrmsTransPolelinesec>
+	<!-- 标石-IrmsTransMarkstone -->
+	<PNR-IrmsTransMarkstone>
+		<eventID>irms_trans_markstone</eventID>
+		<mgrBeanName>irmsTransMarkstoneMgrImpl</mgrBeanName>
+	</PNR-IrmsTransMarkstone>
+	<!-- 直埋-IrmsTransDirbury -->
+	<PNR-IrmsTransDirbury>
+		<eventID>irms_trans_dirbury</eventID>
+		<mgrBeanName>irmsTransDirburyMgrImpl</mgrBeanName>
+	</PNR-IrmsTransDirbury>
+	<!-- 光缆-IrmsTransOpcable -->
+	<PNR-IrmsTransOpcable>
+		<eventID>irms_trans_opcable</eventID>
+		<mgrBeanName>irmsTransOpcableMgrImpl</mgrBeanName>
+	</PNR-IrmsTransOpcable>
+	<!-- 光缆段-IrmsTransOpcablesec -->
+	<PNR-IrmsTransOpcablesec>
+		<eventID>irms_trans_opcablesec</eventID>
+		<mgrBeanName>irmsTransOpcablesecMgrImpl</mgrBeanName>
+	</PNR-IrmsTransOpcablesec>
+	<!-- 直埋段-IrmsTransDirburysec -->
+	<PNR-IrmsTransDirburysec>
+		<eventID>irms_trans_dirburysec</eventID>
+		<mgrBeanName>irmsTransDirburysecMgrImpl</mgrBeanName>
+	</PNR-IrmsTransDirburysec>
+	<!-- 光交接箱-IrmsTransOdf -->
+	<PNR-IrmsTransOdf>
+		<eventID>irms_trans_odf</eventID>
+		<mgrBeanName>irmsTransOdfMgrImpl</mgrBeanName>
+	</PNR-IrmsTransOdf>
+	<!-- 光电接头盒-IrmsTransOpconbox -->
+	<PNR-IrmsTransOpconbox>
+		<eventID>irms_trans_opconbox</eventID>
+		<mgrBeanName>irmsTransOpconboxMgrImpl</mgrBeanName>
+	</PNR-IrmsTransOpconbox>
+	
+<!-- 直放站室分及WLAN -->
+	<!-- 直放站-IrmsWlanRepeater -->
+	<PNR-IrmsWlanRepeater>
+		<eventID>irms_wlan_repeater</eventID>
+		<mgrBeanName>irmsWlanRepeaterMgrImpl</mgrBeanName>
+	</PNR-IrmsWlanRepeater>
+	<!-- 热点-IrmsWlanHot -->
+	<PNR-IrmsWlanHot>
+		<eventID>irms_wlan_hot</eventID>
+		<mgrBeanName>irmsWlanHotMgrImpl</mgrBeanName>
+	</PNR-IrmsWlanHot>
+	<!-- AC-IrmsWlanAc -->
+	<PNR-IrmsWlanAc>
+		<eventID>irms_wlan_ac</eventID>
+		<mgrBeanName>irmsWlanAcMgrImpl</mgrBeanName>
+	</PNR-IrmsWlanAc>
+	<!-- AP-IrmsWlanAp -->
+	<PNR-IrmsWlanAp>
+		<eventID>irms_wlan_ap</eventID>
+		<mgrBeanName>irmsWlanApMgrImpl</mgrBeanName>
+	</PNR-IrmsWlanAp>
+	<!-- 交换机-IrmsWlanSwitch -->
+	<PNR-IrmsWlanSwitch>
+		<eventID>irms_wlan_switch</eventID>
+		<mgrBeanName>irmsWlanSwitchMgrImpl</mgrBeanName>
+	</PNR-IrmsWlanSwitch>
+	
+	
+<!-- 铁塔及天馈 -->
+	<!-- 铁塔-IrmsTowerTower -->
+	<PNR-IrmsTowerTower>
+		<eventID>irms_tower_tower</eventID>
+		<mgrBeanName>irmsTowerTowerMgrImpl</mgrBeanName>
+	</PNR-IrmsTowerTower>
+	<!-- 天线-IrmsTowerAnt -->
+	<PNR-IrmsTowerAnt>
+		<eventID>irms_tower_ant</eventID>
+		<mgrBeanName>irmsTowerAntMgrImpl</mgrBeanName>
+	</PNR-IrmsTowerAnt>
+	
+<!-- 集客家客 -->
+	<!-- 客户信息表-IrmsGrouCustomer -->
+	<PNR-IrmsGrouCustomer>
+		<eventID>irms_grou_customer</eventID>
+		<mgrBeanName>irmsGrouCustomerMgrImpl</mgrBeanName>
+	</PNR-IrmsGrouCustomer>
+	<!-- 数据(互联网)专线信息表-IrmsGroupLine -->
+	<PNR-IrmsGroupLine>
+		<eventID>irms_group_line</eventID>
+		<mgrBeanName>irmsGroupLineMgrImpl</mgrBeanName>
+	</PNR-IrmsGroupLine>
+	<!-- 客户开通业务信息表-IrmsGroupProduct -->
+	<PNR-IrmsGroupProduct>
+		<eventID>irms_group_product</eventID>
+		<mgrBeanName>irmsGroupProductMgrImpl</mgrBeanName>
+	</PNR-IrmsGroupProduct>
+	<!-- 语音专线信息表-IrmsGroupSound -->
+	<PNR-IrmsGroupSound>
+		<eventID>irms_group_sound</eventID>
+		<mgrBeanName>irmsGroupSoundMgrImpl</mgrBeanName>
+	</PNR-IrmsGroupSound>
+	<!-- GPRS信息表-IrmsGroupGprs -->
+	<PNR-IrmsGroupGprs>
+		<eventID>irms_group_gprs</eventID>
+		<mgrBeanName>irmsGroupGprsMgrImpl</mgrBeanName>
+	</PNR-IrmsGroupGprs>
+	<!-- 短信信息表-IrmsGroupSms -->
+	<PNR-IrmsGroupSms>
+		<eventID>irms_group_sms</eventID>
+		<mgrBeanName>irmsGroupSmsMgrImpl</mgrBeanName>
+	</PNR-IrmsGroupSms>
+	<!-- 彩信息表-IrmsGroupMms -->
+	<PNR-IrmsGroupMms>
+		<eventID>irms_group_mms</eventID>
+		<mgrBeanName>irmsGroupMmsMgrImpl</mgrBeanName>
+	</PNR-IrmsGroupMms>
+	<!-- 出租专线信息表-IrmsGroupRent -->
+	<PNR-IrmsGroupRent>
+		<eventID>irms_group_rent</eventID>
+		<mgrBeanName>irmsGroupRentMgrImpl</mgrBeanName>
+	</PNR-IrmsGroupRent>
+	<!-- 客户端设备信息表-IrmsGroupDevice -->
+	<PNR-IrmsGroupDevice>
+		<eventID>irms_group_device</eventID>
+		<mgrBeanName>irmsGroupDeviceMgrImpl</mgrBeanName>
+	</PNR-IrmsGroupDevice>
+</eventMapping>

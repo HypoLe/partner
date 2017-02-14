@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- informix版本 -->
+<!-- service-id 彩信服务的id -->
+<reports service-id="40287ca0232253b401232275123b0007">
+	<!-- 四川彩信报 -->
+	<report id="04" type="告警工单">
+		<!-- index：标识excel sheet的索引 path：报表excel配置文件相对路径 type: stat(默认) 2维表格，txt 文字, column 柱图 ，line 线图 ,pie 饼图 ，columnline柱线结合 其中的1种 -->
+		<sheet id="0400" index="0" name="掉话率" type="line" >
+			<excel-path>classpath:config/mms/report-config/network/informix/statistic-config-excel-rate-diaohua-kpi.xls</excel-path>
+			<query-path></query-path>
+			
+			<!-- 配置指标: 配置预览的时候说明报表都显示了哪些指标 该标签只为了大概预览一下彩信报之用 ，一个target代表一个指标-->
+			<preview>
+				<target>8点掉话率</target>
+				<target>9点掉话率</target>
+				<target>10点掉话率</target>
+				<target>18点掉话率</target>
+				<target>19点掉话率</target>
+				<target>20点掉话率</target>
+			</preview>
+			
+			<!-- 自定义数据 -->
+			<custom-data-class>com.boco.eoms.commons.report.network.data.RateCustomDatatImpl</custom-data-class>
+			<!-- 自定义chart展现 -->
+			<custom-chart-class></custom-chart-class>
+			
+			<foot>
+				<info>掉话率统计，计算方法为：掉话次数/系统应答次数。统计时间段为：$info$beginTime$info$到$info$endTime$info$</info>
+				<!-- 类需要实现com.boco.eoms.commons.mms.base.foot.FootInfo接口 返回一个map,key为需要替换的字符串，value为替换后的值 -->
+				<cls>com.boco.eoms.commons.report.network.foot.RateFootInfo</cls>
+			</foot>
+		</sheet>
+	</report>
+	
+	<!-- 云南彩信报 -->
+	<report id="05" type="云南-综合信息彩信报">
+		<!-- index：标识excel sheet的索引 path：报表excel配置文件相对路径 type: stat(默认) 2维表格，txt 文字, column 柱图 ，line 线图 ,pie 饼图 ，columnline柱线结合 其中的1种 -->
+		<sheet id="0500" index="0" name="重大事件" type="txt" >
+			<excel-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-excel-ynsynthetical_oracle.xls</excel-path>
+			<query-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-query-ynsynthetical_oracle.xml</query-path>
+			
+			<!-- 配置指标: 配置预览的时候说明报表都显示了哪些指标 该标签只为了大概预览一下彩信报之用 ，一个target代表一个指标-->
+			<preview>
+				<target>重大事件信息</target>
+			</preview>
+			
+			<!-- 自定义数据 -->
+			<custom-data-class></custom-data-class>
+			<!-- 自定义chart展现 -->
+			<custom-chart-class></custom-chart-class>
+			
+			<foot>
+				<info>重大事件说明（$info$month$info$月$info$day$info$日）:$info$content$info$</info>
+				<!-- 类需要实现com.boco.eoms.commons.mms.base.foot.FootInfo接口 返回一个map,key为需要替换的字符串，value为替换后的值 -->
+				<cls>com.boco.eoms.commons.report.ynsynthetical.greatmatter.foot.GreatMatterFootInfo</cls>
+			</foot>
+		</sheet>
+		
+		<!-- index：标识excel sheet的索引 path：报表excel配置文件相对路径 type: stat(默认) 2维表格，txt 文字, column 柱图 ，line 线图 ,pie 饼图 ，columnline柱线结合 其中的1种 -->
+		<sheet id="0501" index="1" name="TD网KPI指标" type="txt" >
+			<excel-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-excel-ynsynthetical_oracle.xls</excel-path>
+			<query-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-query-ynsynthetical_oracle.xml</query-path>
+			
+			<!-- 配置指标: 配置预览的时候说明报表都显示了哪些指标 该标签只为了大概预览一下彩信报之用 ，一个target代表一个指标-->
+			<preview>
+				<target>TD用户数</target>
+				<target>TD系统语音话务量(RNC)</target>
+				<target>TD系统视频话务量(RNC)</target>
+				<target>TD系统分组域业务流量(RNC)</target>
+				<target>TD语音业务掉话率</target>
+				<target>TD语音业务无线接通率</target>
+				<target>PS域无线掉线率</target>
+				<target>PS域无线接通率</target>
+				<target>系统间CS域切换成功率(无线网侧)</target>
+				<target>系统间PS域切换成功率(无线网侧)</target>
+			</preview>
+			
+			<!-- 自定义数据 -->
+			<custom-data-class></custom-data-class>
+			<!-- 自定义chart展现 -->
+			<custom-chart-class></custom-chart-class>
+			
+			<foot>
+				<info>
+				TD网KPI指标（$info$month$info$月$info$day$info$日）:
+				TD用户数: $info$td_user_amount$info$，
+				TD系统语音话务量(RNC): $info$td_tch_traffic$info$，
+				TD系统视频话务量(RNC): $info$td_tv_traffic$info$，
+				TD系统分组域业务流量(RNC):$info$td_group_traffic$info$，
+				TD语音业务掉话率: $info$td_drop_rate$info$，
+				TD语音业务无线接通率: $info$td_conn_rate$info$，
+				PS域无线掉线率: $info$ps_drop_rate$info$，
+				PS域无线接通率: $info$ps_conn_rate$info$，
+				系统间CS域切换成功率(无线网侧)：$info$td_cs$info$，
+				系统间PS域切换成功率(无线网侧)：$info$td_ps$info$。
+				</info>
+				<!-- 类需要实现com.boco.eoms.commons.mms.base.foot.FootInfo接口 返回一个map,key为需要替换的字符串，value为替换后的值 -->
+				<cls>com.boco.eoms.commons.report.ynsynthetical.inditd.foot.IndiTdFootInfo</cls>
+			</foot>
+		</sheet>
+		
+		<!-- index：标识excel sheet的索引 path：报表excel配置文件相对路径 type: stat(默认) 2维表格，txt 文字, column 柱图 ，line 线图 ,pie 饼图 ，columnline柱线结合 其中的1种 -->
+		<sheet id="0502" index="2" name="全省短号使用情况" type="txt" >
+			<excel-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-excel-ynsynthetical_oracle.xls</excel-path>
+			<query-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-query-ynsynthetical_oracle.xml</query-path>
+			
+			<!-- 配置指标: 配置预览的时候说明报表都显示了哪些指标 该标签只为了大概预览一下彩信报之用 ，一个target代表一个指标-->
+			<preview>
+				<target>全省短号使用率</target>
+				<target>短号使用率第一名</target>
+				<target>短号使用率第二名</target>
+				<target>短号使用率第三名</target>
+				<target>短号使用率倒数第一名</target>
+				<target>短号使用率倒数第二名</target>
+				<target>短号使用率倒数第三名</target>
+				<target>全省大于500用户的集团数</target>
+				<target>短号使用率为100%的集团</target>
+				<target>短号使用率为70-99％的集团</target>
+				<target>短号使用率为30-69％的集团</target>
+				<target>短号使用率为10-30％的集团</target>
+				<target>短号使用率为0-10％的集团</target>
+				<target>短号使用率为0％的集团</target>
+			</preview>
+			
+			<!-- 自定义数据 -->
+			<custom-data-class></custom-data-class>
+			<!-- 自定义chart展现 -->
+			<custom-chart-class></custom-chart-class>
+			
+			<foot>
+				<info>
+					全省短号使用率为$info$short_num_used$info$，前三名为$info$short_num_used1$info$，$info$short_num_used2$info$，$info$short_num_used3$info$，后三名为$info$short_num_used4$info$，$info$short_num_used5$info$，$info$short_num_used6$info$。
+					全省大于500用户的集团数为$info$jt_num$info$，短号使用率为100%的集团为$info$jt_num1$info$个，70-99％为$info$jt_num2$info$个，30-69％为$info$jt_num3$info$个，10-30％为$info$jt_num4$info$个，0-10％为$info$jt_num5$info$个，0％为$info$jt_num6$info$个。
+				</info>
+				<!-- 类需要实现com.boco.eoms.commons.mms.base.foot.FootInfo接口 返回一个map,key为需要替换的字符串，value为替换后的值 -->
+				<cls>com.boco.eoms.commons.report.ynsynthetical.shortnum.foot.ShortNumFootInfo</cls>
+			</foot>
+		</sheet>
+		
+		<!-- index：标识excel sheet的索引 path：报表excel配置文件相对路径 type: stat(默认) 2维表格，txt 文字, column 柱图 ，line 线图 ,pie 饼图 ，columnline柱线结合 其中的1种 -->
+		<sheet id="0503" index="3" name="客户规模及业务情况(一)" type="stat" image-width="600">
+			<excel-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-excel-ynsynthetical_oracle.xls</excel-path>
+			<query-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-query-ynsynthetical_oracle.xml</query-path>
+			
+			<!-- 配置指标: 配置预览的时候说明报表都显示了哪些指标 该标签只为了大概预览一下彩信报之用 ，一个target代表一个指标-->
+			<preview>
+				<target>业务系统</target>
+				<target>昨日发送条数</target>
+				<target>上星期发送条数</target>
+				<target>上星期同期比较</target>
+			</preview>
+			
+			<!-- 自定义数据 -->
+			<custom-data-class></custom-data-class>
+			<!-- 自定义chart展现 -->
+			<custom-chart-class></custom-chart-class>
+			
+			<foot>
+				<info></info>
+				<cls></cls>
+			</foot>
+		</sheet>
+		
+		<!-- index：标识excel sheet的索引 path：报表excel配置文件相对路径 type: stat(默认) 2维表格，txt 文字, column 柱图 ，line 线图 ,pie 饼图 ，columnline柱线结合 其中的1种 -->
+		<sheet id="0504" index="4" name="客户规模及业务情况(二)" type="stat" image-width="600">
+			<excel-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-excel-ynsynthetical_oracle.xls</excel-path>
+			<query-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-query-ynsynthetical_oracle.xml</query-path>
+			
+			<!-- 配置指标: 配置预览的时候说明报表都显示了哪些指标 该标签只为了大概预览一下彩信报之用 ，一个target代表一个指标-->
+			<preview>
+				<target>业务系统</target>
+				<target>昨日发送条数</target>
+				<target>上星期发送条数</target>
+				<target>上星期同期比较</target>
+			</preview>
+			
+			<!-- 自定义数据 -->
+			<custom-data-class></custom-data-class>
+			<!-- 自定义chart展现 -->
+			<custom-chart-class></custom-chart-class>
+			
+			<foot>
+				<info></info>
+				<cls></cls>
+			</foot>
+		</sheet>
+		
+		<!-- index：标识excel sheet的索引 path：报表excel配置文件相对路径 type: stat(默认) 2维表格，txt 文字, column 柱图 ，line 线图 ,pie 饼图 ，columnline柱线结合 其中的1种 -->
+		<sheet id="0505" index="5" name="客户规模及业务情况(三)" type="stat" image-width="600">
+			<excel-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-excel-ynsynthetical_oracle.xls</excel-path>
+			<query-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-query-ynsynthetical_oracle.xml</query-path>
+			
+			<!-- 配置指标: 配置预览的时候说明报表都显示了哪些指标 该标签只为了大概预览一下彩信报之用 ，一个target代表一个指标-->
+			<preview>
+				<target>业务系统</target>
+				<target>昨日发送条数</target>
+				<target>上星期发送条数</target>
+				<target>上星期同期比较</target>
+			</preview>
+			
+			<!-- 自定义数据 -->
+			<custom-data-class></custom-data-class>
+			<!-- 自定义chart展现 -->
+			<custom-chart-class></custom-chart-class>
+			
+			<foot>
+				<info></info>
+				<cls></cls>
+			</foot>
+		</sheet>
+		
+		<!-- index：标识excel sheet的索引 path：报表excel配置文件相对路径 type: stat(默认) 2维表格，txt 文字, column 柱图 ，line 线图 ,pie 饼图 ，columnline柱线结合 其中的1种 -->
+		<sheet id="0506" index="6" name="话务量统计(一)" type="stat" image-width="250">
+
+			<excel-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-excel-ynsynthetical_oracle.xls</excel-path>
+			<query-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-query-ynsynthetical_oracle.xml</query-path>
+			
+			<!-- 配置指标: 配置预览的时候说明报表都显示了哪些指标 该标签只为了大概预览一下彩信报之用 ，一个target代表一个指标-->
+			<preview>
+				<target>地区名称</target>
+				<target>话务量</target>
+				<target>和前日比较</target>
+			</preview>
+			
+			<!-- 自定义数据 -->
+			<custom-data-class></custom-data-class>
+			<!-- 自定义chart展现 -->
+			<custom-chart-class></custom-chart-class>
+			
+			<foot>
+				<info></info>
+				<cls></cls>
+			</foot>
+		</sheet>
+		
+		<!-- index：标识excel sheet的索引 path：报表excel配置文件相对路径 type: stat(默认) 2维表格，txt 文字, column 柱图 ，line 线图 ,pie 饼图 ，columnline柱线结合 其中的1种 -->
+		<sheet id="0507" index="7" name="话务量统计(二)" type="stat" image-width="250">
+			<excel-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-excel-ynsynthetical_oracle.xls</excel-path>
+			<query-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-query-ynsynthetical_oracle.xml</query-path>
+			
+			<!-- 配置指标: 配置预览的时候说明报表都显示了哪些指标 该标签只为了大概预览一下彩信报之用 ，一个target代表一个指标-->
+			<preview>
+				<target>地区名称</target>
+				<target>话务量</target>
+				<target>和前日比较</target>
+			</preview>
+			
+			<!-- 自定义数据 -->
+			<custom-data-class></custom-data-class>
+			<!-- 自定义chart展现 -->
+			<custom-chart-class></custom-chart-class>
+			
+			<foot>
+				<info></info>
+				<cls></cls>
+			</foot>
+		</sheet>
+	
+		<!-- index：标识excel sheet的索引 path：报表excel配置文件相对路径 type: stat(默认) 2维表格，txt 文字, column 柱图 ，line 线图 ,pie 饼图 ，columnline柱线结合 其中的1种 -->
+		<sheet id="0508" index="8" name="网络运行KPI 指标(一)" type="stat" image-width="600">
+			<excel-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-excel-ynsynthetical_oracle.xls</excel-path>
+			<query-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-query-ynsynthetical_oracle.xml</query-path>
+			
+			<!-- 配置指标: 配置预览的时候说明报表都显示了哪些指标 该标签只为了大概预览一下彩信报之用 ，一个target代表一个指标-->
+			<preview>
+				<target>地区名称</target>
+				<target>小区完好率</target>
+				<target>掉话率</target>
+				<target>阻塞率</target>
+				<target>无线接入性</target>
+				<target>忙时无线资源利用率</target>
+			</preview>
+			
+			<!-- 自定义数据 -->
+			<custom-data-class></custom-data-class>
+			<!-- 自定义chart展现 -->
+			<custom-chart-class></custom-chart-class>
+			
+			<foot>
+				<info></info>
+				<cls></cls>
+			</foot>
+		</sheet>
+		
+		<sheet id="0509" index="9" name="网络运行KPI 指标(二)" type="stat" image-width="600">
+			<excel-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-excel-ynsynthetical_oracle.xls</excel-path>
+			<query-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-query-ynsynthetical_oracle.xml</query-path>
+			
+			
+			<!-- 配置指标: 配置预览的时候说明报表都显示了哪些指标 该标签只为了大概预览一下彩信报之用 ，一个target代表一个指标-->
+			<preview>
+				<target>地区名称</target>
+				<target>小区完好率</target>
+				<target>掉话率</target>
+				<target>阻塞率</target>
+				<target>无线接入性</target>
+				<target>忙时无线资源利用率</target>
+			</preview>
+			
+			<!-- 自定义数据 -->
+			<custom-data-class></custom-data-class>
+			<!-- 自定义chart展现 -->
+			<custom-chart-class></custom-chart-class>
+			
+			<foot>
+				<info></info>
+				<cls></cls>
+			</foot>
+		</sheet>
+		
+		<sheet id="0510" index="10" name="网络运行KPI VLR用户数(一)" type="stat" image-width="500">
+			<excel-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-excel-ynsynthetical_oracle.xls</excel-path>
+			<query-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-query-ynsynthetical_oracle.xml</query-path>
+			
+			<!-- 配置指标: 配置预览的时候说明报表都显示了哪些指标 该标签只为了大概预览一下彩信报之用 ，一个target代表一个指标-->
+			<preview>
+				<target>网元名称</target>
+				<target>忙时VRL用户数</target>
+				<target>上星期同期忙时VRL用户数</target>
+				<target>上星期同期比较值</target>
+			</preview>
+			
+			<!-- 自定义数据 -->
+			<custom-data-class></custom-data-class>
+			<!-- 自定义chart展现 -->
+			<custom-chart-class></custom-chart-class>
+			
+			<foot>
+				<info></info>
+				<cls></cls>
+			</foot>
+		</sheet>
+		
+		<sheet id="0511" index="11" name="网络运行KPI VLR用户数(二)" type="stat" image-width="500">
+			<excel-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-excel-ynsynthetical_oracle.xls</excel-path>
+			<query-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-query-ynsynthetical_oracle.xml</query-path>
+			
+			
+			<!-- 配置指标: 配置预览的时候说明报表都显示了哪些指标 该标签只为了大概预览一下彩信报之用 ，一个target代表一个指标-->
+			<preview>
+				<target>网元名称</target>
+				<target>忙时VRL用户数</target>
+				<target>上星期同期忙时VRL用户数</target>
+				<target>上星期同期比较值</target>
+			</preview>
+			
+			<!-- 自定义数据 -->
+			<custom-data-class></custom-data-class>
+			<!-- 自定义chart展现 -->
+			<custom-chart-class></custom-chart-class>
+			
+			<foot>
+				<info></info>
+				<cls></cls>
+			</foot>
+		</sheet>
+		
+		<sheet id="0512" index="12" name="全省昨日基站退服情况(一)" type="stat" image-width="400">
+			<excel-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-excel-ynsynthetical_oracle.xls</excel-path>
+			<query-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-query-ynsynthetical_oracle.xml</query-path>
+			
+			
+			<!-- 配置指标: 配置预览的时候说明报表都显示了哪些指标 该标签只为了大概预览一下彩信报之用 ，一个target代表一个指标-->
+			<preview>
+				<target>地区名称</target>
+				<target>中断总时间（分钟）</target>
+				<target>平均中断时长（分钟）</target>
+				<target>中断个数</target>
+				<target>中断次数</target>
+			</preview>
+			
+			<!-- 自定义数据 -->
+			<custom-data-class></custom-data-class>
+			<!-- 自定义chart展现 -->
+			<custom-chart-class></custom-chart-class>
+			
+			<foot>
+				<info></info>
+				<cls></cls>
+			</foot>
+		</sheet>
+		
+		<sheet id="0513" index="13" name="全省昨日基站退服情况(二)" type="stat" image-width="400">
+			<excel-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-excel-ynsynthetical_oracle.xls</excel-path>
+			<query-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-query-ynsynthetical_oracle.xml</query-path>
+			
+			<!-- 配置指标: 配置预览的时候说明报表都显示了哪些指标 该标签只为了大概预览一下彩信报之用 ，一个target代表一个指标-->
+			<preview>
+				<target>地区名称</target>
+				<target>中断总时间（分钟）</target>
+				<target>平均中断时长（分钟）</target>
+				<target>中断个数</target>
+				<target>中断次数</target>
+			</preview>
+			
+			<!-- 自定义数据 -->
+			<custom-data-class></custom-data-class>
+			<!-- 自定义chart展现 -->
+			<custom-chart-class></custom-chart-class>
+			
+			<foot>
+				<info></info>
+				<cls></cls>
+			</foot>
+		</sheet>
+		
+		<sheet id="0514" index="14" name="全省工单情况" type="stat" image-width="250">
+			<excel-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-excel-ynsynthetical_oracle.xls</excel-path>
+			<query-path>classpath:config/mms/report-config/ynsynthetical/oracle/statistic-config-query-ynsynthetical_oracle.xml</query-path>
+			
+			<!-- 配置指标: 配置预览的时候说明报表都显示了哪些指标 该标签只为了大概预览一下彩信报之用 ，一个target代表一个指标-->
+			<preview>
+				<target>地区名称</target>
+				<target>工单数</target>
+				<target>超时数</target>
+			</preview>
+			
+			<!-- 自定义数据 -->
+			<custom-data-class></custom-data-class>
+			<!-- 自定义chart展现 -->
+			<custom-chart-class></custom-chart-class>
+			
+			<foot>
+				<info></info>
+				<cls></cls>
+			</foot>
+		</sheet>
+	</report>
+	
+	<!-- 贵州 -->
+	<report id="06" type="贵州彩信报">
+		<!-- index：标识excel sheet的索引 path：报表excel配置文件相对路径 type: stat(默认) 2维表格，txt 文字, column 柱图 ，line 线图 ,pie 饼图 ，columnline柱线结合 其中的1种 -->
+		<sheet id="0600" index="0" name="彩信报" type="column" >
+			<excel-path>classpath:config/mms/report-config/guizhou/informix/statistic-config-excel-guizhou_informix.xls</excel-path>
+			<query-path>classpath:config/mms/report-config/guizhou/informix/statistic-config-query-guizhou_informix.xml</query-path>
+			
+			<!-- 配置指标: 配置预览的时候说明报表都显示了哪些指标 该标签只为了大概预览一下彩信报之用 ，一个target代表一个指标-->
+			<preview>
+				<target>传输量</target>
+			</preview>
+			
+			<!-- 自定义数据 -->
+			<custom-data-class></custom-data-class>
+			<!-- 自定义chart展现 -->
+			<custom-chart-class></custom-chart-class>
+			
+			<foot>
+				<info></info>
+				<cls></cls>
+			</foot>
+		</sheet>
+	</report>
+</reports>

@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<net-resource-mapping>
+	<!-- 专业下对应的资源类别 -->
+	<specialty>
+		<specialty-type name="bs" value="基站设备及配套"></specialty-type>
+		<specialty-type name="group" value="集客家客"></specialty-type>
+		<specialty-type name="space" value="空间资源"></specialty-type>
+		<specialty-type name="tower" value="铁塔及天馈"></specialty-type>
+		<specialty-type name="trans" value="传输线路"></specialty-type>
+		<specialty-type name="wlan" value="直放站室分及WLAN"></specialty-type>
+	</specialty>
+	
+	<!-- 基站设备及配套 -->
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsBtssite</resource-mark>
+		<resource-name>BTSSITE</resource-name>
+		<table-name>irms_bs_btssite</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsJzwd</resource-mark>
+		<resource-name>机楼基站外电</resource-name>
+		<table-name>irms_bs_jzwd</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsTransfor</resource-mark>
+		<resource-name>变压器或调压器</resource-name>
+		<table-name>irms_bs_transfor</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsShelf</resource-mark>
+		<resource-name>机框</resource-name>
+		<table-name>irms_bs_shelf</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsSlot</resource-mark>
+		<resource-name>机槽</resource-name>
+		<table-name>irms_bs_slot</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsUtrancell</resource-mark>
+		<resource-name>UTRANCELL</resource-name>
+		<table-name>irms_bs_utrancell</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsCell</resource-mark>
+		<resource-name>CELL</resource-name>
+		<table-name>irms_bs_cell</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsNodeb</resource-mark>
+		<resource-name>NODEB</resource-name>
+		<table-name>irms_bs_nodeb</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsRack</resource-mark>
+		<resource-name>机柜</resource-name>
+		<table-name>irms_bs_rack</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsCard</resource-mark>
+		<resource-name>板卡</resource-name>
+		<table-name>irms_bs_card</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsGrnerat</resource-mark>
+		<resource-name>发电机组</resource-name>
+		<table-name>irms_bs_grnerat</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsStorage</resource-mark>
+		<resource-name>蓄电池组</resource-name>
+		<table-name>irms_bs_storage</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsGrnerat2</resource-mark>
+		<resource-name>开关电源</resource-name>
+		<table-name>irms_bs_grnerat2</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsUps</resource-mark>
+		<resource-name>UPS主机</resource-name>
+		<table-name>irms_bs_ups</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsAircon</resource-mark>
+		<resource-name>普通空调</resource-name>
+		<table-name>irms_bs_aircon</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsSpeaircon</resource-mark>
+		<resource-name>专用空调</resource-name>
+		<table-name>irms_bs_speaircon</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsMme</resource-mark>
+		<resource-name>动环监控设备</resource-name>
+		<table-name>irms_bs_mme</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsVens</resource-mark>
+		<resource-name>通风系统</resource-name>
+		<table-name>irms_bs_vens</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsHes</resource-mark>
+		<resource-name>换热系统</resource-name>
+		<table-name>irms_bs_hes</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsWep</resource-mark>
+		<resource-name>风能设备</resource-name>
+		<table-name>irms_bs_wep</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsWpc</resource-mark>
+		<resource-name>风电控制器</resource-name>
+		<table-name>irms_bs_wpc</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsSee</resource-mark>
+		<resource-name>太阳能设备</resource-name>
+		<table-name>irms_bs_see</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsMppt</resource-mark>
+		<resource-name>太阳能控制器</resource-name>
+		<table-name>irms_bs_mppt</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsCc</resource-mark>
+		<resource-name>风光互补控制器</resource-name>
+		<table-name>irms_bs_cc</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="bs">
+		<resource-mark>IrmsBsBb</resource-mark>
+		<resource-name>电源恒温箱</resource-name>
+		<table-name>irms_bs_bb</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<!-- 集客家客 -->
+	<net-resource specialty-type="group">
+		<resource-mark>IrmsGrouCustomer</resource-mark>
+		<resource-name>客户信息表</resource-name>
+		<table-name>irms_grou_customer</table-name>
+		<type-by-filed>Y</type-by-filed>
+		<field name="customer_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="group">
+		<resource-mark>IrmsGroupLine</resource-mark>
+		<resource-name>数据(互联网)专线信息表</resource-name>
+		<table-name>irms_group_line</table-name>
+		<type-by-filed>Y</type-by-filed>
+		<field name="related_client_device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="group">
+		<resource-mark>IrmsGroupProduct</resource-mark>
+		<resource-name>客户开通业务信息表</resource-name>
+		<table-name>irms_group_product</table-name>
+		<type-by-filed>Y</type-by-filed>
+		<field name="customer_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="group">
+		<resource-mark>IrmsGroupSound</resource-mark>
+		<resource-name>语音专线信息表</resource-name>
+		<table-name>irms_group_sound</table-name>
+		<type-by-filed>Y</type-by-filed>
+		<field name="customer_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="group">
+		<resource-mark>IrmsGroupGprs</resource-mark>
+		<resource-name>GPRS信息表</resource-name>
+		<table-name>irms_group_gprs</table-name>
+		<type-by-filed>Y</type-by-filed>
+		<field name="customer_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="group">
+		<resource-mark>IrmsGroupSms</resource-mark>
+		<resource-name>短信信息表</resource-name>
+		<table-name>irms_group_sms</table-name>
+		<type-by-filed>Y</type-by-filed>
+		<field name="customer_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="group">
+		<resource-mark>IrmsGroupMms</resource-mark>
+		<resource-name>彩信息表</resource-name>
+		<table-name>irms_group_mms</table-name>
+		<type-by-filed>Y</type-by-filed>
+		<field name="customer_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="group">
+		<resource-mark>IrmsGroupRent</resource-mark>
+		<resource-name>出租专线信息表</resource-name>
+		<table-name>irms_group_rent</table-name>
+		<type-by-filed>Y</type-by-filed>
+		<field name="customer_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="group">
+		<resource-mark>IrmsGroupDevice</resource-mark>
+		<resource-name>客户端设备信息表</resource-name>
+		<table-name>irms_group_device</table-name>
+		<type-by-filed>Y</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<!-- 空间资源 -->
+	<net-resource specialty-type="space">
+		<resource-mark>IrmsSpaceArea</resource-mark>
+		<resource-name>区域</resource-name>
+		<table-name>irms_space_area</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="space">
+		<resource-mark>IrmsSpaceRoom</resource-mark>
+		<resource-name>机房</resource-name>
+		<table-name>irms_space_room</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="space">
+		<resource-mark>IrmsSpaceSite</resource-mark>
+		<resource-name>站点</resource-name>
+		<table-name>irms_space_site</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<!-- 传输线路 -->
+	<net-resource specialty-type="trans">
+		<resource-mark>PnrTransLinePoint</resource-mark>
+		<resource-name>敷设点</resource-name>
+		<table-name>pnr_trans_line_point</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+		</field>
+	</net-resource>
+	<net-resource specialty-type="trans">
+		<resource-mark>IrmsTransWell</resource-mark>
+		<resource-name>人手井</resource-name>
+		<table-name>irms_trans_well</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="trans">
+		<resource-mark>IrmsTransPoleline</resource-mark>
+		<resource-name>杆路</resource-name>
+		<table-name>irms_trans_poleline</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="trans">
+		<resource-mark>IrmsTransPipehole</resource-mark>
+		<resource-name>管孔</resource-name>
+		<table-name>irms_trans_pipehole</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="trans">
+		<resource-mark>IrmsTransPipesec</resource-mark>
+		<resource-name>管道段</resource-name>
+		<table-name>irms_trans_pipesec</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="trans">
+		<resource-mark>IrmsTransPipe</resource-mark>
+		<resource-name>管道</resource-name>
+		<table-name>irms_trans_pipe</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="trans">
+		<resource-mark>IrmsTransPoles</resource-mark>
+		<resource-name>电杆</resource-name>
+		<table-name>irms_trans_poles</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="trans">
+		<resource-mark>IrmsTransPolelinesec</resource-mark>
+		<resource-name>杆路段</resource-name>
+		<table-name>irms_trans_polelinesec</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="trans">
+		<resource-mark>IrmsTransMarkstone</resource-mark>
+		<resource-name>标石</resource-name>
+		<table-name>irms_trans_markstone</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="trans">
+		<resource-mark>IrmsTransDirbury</resource-mark>
+		<resource-name>直埋</resource-name>
+		<table-name>irms_trans_dirbury</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="trans">
+		<resource-mark>IrmsTransOpcable</resource-mark>
+		<resource-name>光缆</resource-name>
+		<table-name>irms_trans_opcable</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="trans">
+		<resource-mark>IrmsTransOpcablesec</resource-mark>
+		<resource-name>光缆段</resource-name>
+		<table-name>irms_trans_opcablesec</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="trans">
+		<resource-mark>IrmsTransDirburysec</resource-mark>
+		<resource-name>直埋段</resource-name>
+		<table-name>irms_trans_dirburysec</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="trans">
+		<resource-mark>IrmsTransOdf</resource-mark>
+		<resource-name>光交接箱</resource-name>
+		<table-name>irms_trans_odf</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="trans">
+		<resource-mark>IrmsTransOpconbox</resource-mark>
+		<resource-name>光电接头盒</resource-name>
+		<table-name>irms_trans_opconbox</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	<!--直放站室分及WLAN  -->
+	<net-resource specialty-type="wlan">
+		<resource-mark>IrmsWlanRepeater</resource-mark>
+		<resource-name>直放站</resource-name>
+		<table-name>irms_wlan_repeater</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="wlan">
+		<resource-mark>IrmsWlanHot</resource-mark>
+		<resource-name>热点</resource-name>
+		<table-name>irms_wlan_hot</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="wlan">
+		<resource-mark>IrmsWlanAc</resource-mark>
+		<resource-name>AC</resource-name>
+		<table-name>irms_wlan_ac</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="wlan">
+		<resource-mark>IrmsWlanAp</resource-mark>
+		<resource-name>AP</resource-name>
+		<table-name>irms_wlan_ap</table-name>
+		<type-by-filed>Y</type-by-filed>
+		<field name="related_district" chname="地市">
+			<value>哈尔滨</value>
+			<value>松北区</value>
+			<value>阿城区</value>
+			<value>尚志市</value>
+			<value>道里区</value>
+			<value>南岗区</value>
+			<value>香坊区</value>
+			<value>延寿县</value>
+			<value>双城市</value>
+			<value>五常市</value>
+			<value>木兰县</value>
+			<value>呼兰区</value>
+			<value>平房区</value>
+			<value>道外区</value>
+			<value>巴彦县</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="wlan">
+		<resource-mark>IrmsWlanSwitch</resource-mark>
+		<resource-name>交换机</resource-name>
+		<table-name>irms_wlan_switch</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<!-- 铁搭  -->
+	<net-resource specialty-type="tower">
+		<resource-mark>IrmsTowerTower</resource-mark>
+		<resource-name>铁塔</resource-name>
+		<table-name>irms_tower_tower</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+	<net-resource specialty-type="tower">
+		<resource-mark>IrmsTowerAnt</resource-mark>
+		<resource-name>天线</resource-name>
+		<table-name>irms_tower_ant</table-name>
+		<type-by-filed>N</type-by-filed>
+		<field name="device_name" chname="测试">
+			<value>value1</value>
+			<value>value2</value>
+			<value>value3</value>
+		</field>
+	</net-resource>
+	
+</net-resource-mapping>

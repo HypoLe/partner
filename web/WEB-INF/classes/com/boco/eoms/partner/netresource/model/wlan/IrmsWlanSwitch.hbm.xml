@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.boco.eoms.partner.netresource.model.wlan.IrmsWlanSwitch" table="irms_wlan_switch">
+				<id name="id" column="id" unsaved-value="null">
+					<!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+					<generator class="uuid.hex">
+					</generator>
+				</id>
+			    
+				<property name="relatedDistrict" column="related_district"/>
+				<property name="labelCn" column="label_cn"/>
+				<property name="relatedVendorCui" column="related_vendor_cui"/>
+				<property name="model" column="model"/>
+				<property name="softVersion" column="soft_version"/>
+				<property name="manageIpAddr" column="manage_ip_addr"/>
+				<property name="relatedUpOrigPortName" column="related_up_orig_port_name"/>
+				<property name="upPortType" column="up_port_type"/>
+				<property name="swPortCount" column="sw_port_count"/>
+				<property name="relatedHotpotCui" column="related_hotpot_cui"/>
+				<property name="relatedRoomCuid" column="related_room_cuid"/>
+				<property name="status" column="status"/>
+				<property name="netLevel" column="net_level"/>
+				<property name="relatedTswDevCu" column="related_tsw_dev_cu"/>
+				<property name="relatedTswDevPo" column="related_tsw_dev_po"/>
+				<property name="maxAccessApCoun" column="max_access_ap_coun"/>
+				<property name="maxAccessSwCoun" column="max_access_sw_coun"/>
+				<property name="setupTime" column="setup_time"/>
+				<property name="realAccessApCou" column="real_access_ap_cou"/>
+				<property name="realAceessSwCou" column="real_aceess_sw_cou"/>
+				<property name="remark" column="remark"/>
+				<property name="createTime" column="create_time"/>
+				<property name="relatedDistrictId" column="related_district_id"/>
+				<property name="relatedHotpotCuiId" column="related_hotpot_cui_id"/>
+    </class>    
+</hibernate-mapping>

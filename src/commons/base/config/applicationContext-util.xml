@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="doVersionHandler"
+		class="com.boco.eoms.version.DoVersionHandler">
+		<property name="versionMgr" ref="versionMgrImpl"/>
+		<property name="handlers">
+			<list>
+				<value>workplanVersionHandler</value>
+				<value>messageVersionHandler</value>
+				<value>kmmanagerVersionHandler</value>
+				<value>operuserVersionHandler</value>
+				<value>baseinfoVersionHandler</value>
+				<value>evaVersionHandler</value>
+				<value>reportVersionHandler</value>
+				<value>commissionVersionHandler</value>
+				<value>mmsVersionHandler</value>
+				<value>orgVersionHandler</value>
+				<value>filemanagerVersionHandler</value>
+				<value>hongxunVersionHandler</value>
+				<value>accessoriesVersionHandler</value>
+				<value>cutapplyVersionHandler</value>
+				<value>workdaysetVersionHandler</value>
+				<value>interfaceMonitoringVersionHandler</value>
+				<value>contactVersionHandler</value>
+				<value>netdiskVersionHandler</value>
+				<value>dictVersionHandler</value>
+				<value>privVersionHandler</value>
+				<value>roleVersionHandler</value>
+				<value>areaVersionHandler</value>
+				<value>deptVersionHandler</value>
+				<value>userVersionHandler</value>
+				<value>reportedVersionHandler</value>
+				<value>sheetSpecialVersionHandler</value>
+				<value>cacheVersionHandler</value>
+				<value>fileconfigVersionHandler</value>
+				<value>ruleVersionHandler</value>
+				<value>logVersionHandler</value>
+				<value>supplierkpiVersionHandler</value>
+				<value>prmVersionHandler</value>
+				<value>jobVersionHandler</value>
+				<value>fileVersionHandler</value>
+				<value>failureRecordVersionHandler</value>
+				<value>dutyVersionHandler</value>
+				<value>cptroomVersionHandler</value>
+				<value>sequenceVersionHandler</value>
+				<value>pqVersionHandler</value>
+				<value>memoVersionHandler</value>
+				<value>infopubVersionHandler</value>
+				<value>networkcalendarVersionHandler</value>				
+				<value>taskplanVersionHandler</value>
+				<value>bureaudataVersionHandler</value>
+				<value>codeVersionHandler</value>
+				<value>imVersionHandler</value>
+				<value>mappingVersionHandler</value>
+				<value>summaryRecordVersionHandler</value>
+				<value>otherwisetestcardVersionHandler</value>						
+			</list>
+		</property>
+
+		<property name="version">
+			<bean class="com.boco.eoms.version.Version">
+			<!-- 版本名称 -->
+				<property name="name">
+					<value>CMCC B5</value>
+				</property>
+					<!-- 版本号 -->
+				<property name="version">
+					<value>B5</value>
+				</property>
+					<!-- 版本发布日期 -->
+				<property name="onDate">
+					<value>2009-6-1</value>
+				</property>
+				<!-- 版本描述 -->
+				<property name="desc">
+					<value>主版本</value>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	
+	<bean id="versionMgrImpl" parent="txProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.boco.eoms.version.mgr.impl.VersionMgrImpl">
+				<property name="versionDao" ref="versionDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="versionDao"
+		class="com.boco.eoms.version.dao.hibernate.VersionDaoHibernate"
+		autowire="byName" />
+
+</beans>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+	 <form-bean
+        name="pnrbsbtResForm"
+        type="com.boco.eoms.partner.netresource.action.form.PnrbsbtResForm"
+      />
+	</form-beans>
+	<!-- ========== Global Exceptions Definitions =================================== -->
+    <global-exceptions>
+        <exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+    </global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward name="success" path="/common/success.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="nopriv" path="/common/nopriv.jsp"
+			redirect="false" contextRelative="true" />
+		<forward name="fail" path="/common/failure.jsp" redirect="false"
+			contextRelative="true" />
+	</global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+	<action-mappings>
+		<action path="/pnrbsbt"
+		  type="com.boco.eoms.partner.netresource.action.PnrbsbtAction"
+		  name="pnrbsbtResForm"
+		  scope="request"
+		  parameter="method" 
+		  unknown="false"
+	      validate="false">
+		<set-property property="cancellable" value="true"/>
+		 	<forward name="gotoSdBsBtResourceListPage" 
+			 	path="/WEB-INF/pages/partner/netresource/bs/sdBsBtResourceList.jsp"
+			  	redirect="false" contextRelative="true"/>						
+		 	<forward name="gotoBsBtResourceListPage" 
+			 	path="/WEB-INF/pages/partner/netresource/bs/bsBtResourceList.jsp"
+			  	redirect="false" contextRelative="true"/>	
+		 	<forward name="gotoBsBtQuipmentListPage" 
+			 	path="/WEB-INF/pages/partner/netresource/bs/bsBtQuipmentList.jsp"
+			  	redirect="false" contextRelative="true"/>	
+		 	<forward name="gotoAccessNetworkRoomListPage" 
+			 	path="/WEB-INF/pages/partner/netresource/bs/accessNetworkRoomList.jsp"
+			  	redirect="false" contextRelative="true"/>	
+		 	<forward name="gotoBsBtApListPage" 
+			 	path="/WEB-INF/pages/partner/netresource/bs/bsBtApList.jsp"
+			  	redirect="false" contextRelative="true"/>				  	
+		 	<forward name="gotoOutdoorCabinetListPage" 
+			 	path="/WEB-INF/pages/partner/netresource/bs/outdoorCabinetList.jsp"
+			  	redirect="false" contextRelative="true"/>				  	
+		 	<forward name="gotoRoomResourceListPage" 
+			 	path="/WEB-INF/pages/partner/netresource/bs/roomResourceList.jsp"
+			  	redirect="false" contextRelative="true"/>
+		 	<forward name="gotoTowerAntennasListPage" 
+			 	path="/WEB-INF/pages/partner/netresource/bs/towerAntennasList.jsp"
+			  	redirect="false" contextRelative="true"/>
+		 	<forward name="gotoAccessNetworkQuipmentListPage" 
+			 	path="/WEB-INF/pages/partner/netresource/bs/accessNetworkQuipmentList.jsp"
+			  	redirect="false" contextRelative="true"/>
+		 	<forward name="useSynPage" 
+			 	path="/WEB-INF/pages/partner/netresource/bs/bsBtQuipmentSync.jsp"
+			  	redirect="false" contextRelative="true"/>
+			  					  	
+		</action>
+				
+	</action-mappings>
+	
+ 	<controller nocache="true" inputForward="true" maxFileSize="5M" />
+</struts-config>

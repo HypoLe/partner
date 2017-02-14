@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- Add new Managers here -->
+
+	<!--TawWorkbenchNetDisk-DAO START-->
+	<bean id="Bulletin"
+		class="com.boco.eoms.Bulletin.mgr.impl.BulletinMgrImpl"
+		autowire="byName" />
+	<bean id="BulletinService"
+		class="com.boco.eoms.Bulletin.mgr.impl.BulletinServiceMgrImpl"
+		autowire="byName" />
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

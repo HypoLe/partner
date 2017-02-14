@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+
+>
+
+    <class
+            name="com.boco.eoms.summary.model.TawzjWeekCheck"
+            table="taw_zj_week_check"
+    >
+
+    <id
+        name="id"
+            column="id"
+            unsaved-value="null"
+    >
+
+    <!-- The generator-class attribute of @hibernate.id is deprecated, use the @hibernate.generator tag instead -->
+    <generator class="uuid.hex">
+
+    </generator>
+
+    </id>
+
+        <property
+            name="weekid"
+                length="32"
+        >
+
+        </property>
+
+        <property
+            name="sender"
+                length="32"
+        >
+
+        </property>
+
+        <property
+            name="auditer"
+                length="32"
+        >
+
+        </property>
+
+        <property
+            name="state"
+                length="4"
+        >
+
+        </property>
+
+        <property
+            name="opinion"
+                length="2000"
+        >
+        
+        </property>
+   		<property
+            name="flag"
+                length="4"
+        >
+
+        </property>
+    </class>    
+
+</hibernate-mapping>
+

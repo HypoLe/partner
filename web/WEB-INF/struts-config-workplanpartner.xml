@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans> 
+	</form-beans>
+	<!-- ========== Global Exceptions Definitions =================================== -->
+    <global-exceptions>
+        <exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+    </global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward
+		  name="success"
+		  path="/common/success.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>
+		<forward
+		  name="nopriv"
+		  path="/common/nopriv.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>
+		<forward
+		  name="fail"
+		  path="/common/failure.jsp"
+		  redirect="false"
+		  contextRelative="true"
+		/>
+    </global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+
+	<action-mappings>
+		<action
+		  path="/workplanpartners"
+		  type="com.boco.eoms.workplanpartner.webapp.action.WorkplanpartnerAction"
+		  name=""
+		  scope="request"
+		  input="mainMenu"
+		  parameter="method"
+		  unknown="false"
+		  validate="false"
+		>
+			<set-property
+			  property="cancellable"
+			  value="true"
+			/>
+			<forward
+			  name="tree"
+			  path="/WEB-INF/pages/workplanpartner/workplanpartnerTree.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			
+			<forward
+			  name="deptStat"
+			  path="/WEB-INF/pages/workplanpartner/deptStatistics.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			<forward
+			  name="personStat"
+			  path="/WEB-INF/pages/workplanpartner/personStatistics.jsp"
+			  redirect="false"
+			  contextRelative="true"
+			/>
+			
+		</action>
+	</action-mappings>
+ 	<controller nocache="true" inputForward="true" maxFileSize="2M" />
+		
+	<!-- ========== Validator plugin ===================  -->
+	<!-- 
+	 <message-resources parameter="config/ApplicationResources"/>
+		<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+		value="/WEB-INF/validator-rules.xml,
+		/WEB-INF/validator-rules-custom.xml,
+		/WEB-INF/validation.xml" />
+		</plug-in>
+	-->
+</struts-config>

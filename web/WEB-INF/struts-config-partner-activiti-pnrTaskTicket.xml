@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	<!-- ========== Data Sources Definitions =================================== -->
+	<!--
+		Define your Struts data sources in a file called struts-data-sources.xml and place
+		it in your merge directory.
+	-->
+
+	<!-- ========== Form Bean Definitions =================================== -->
+	<form-beans>
+	<form-bean name="multiPageForm"
+			type="com.boco.activiti.partner.process.webapp.form.MultiPageForm" />
+		<!--bean for EsmProcess end-->
+	</form-beans>
+
+	<!-- ========== Global Exceptions Definitions =================================== -->
+	<global-exceptions>
+		<exception type="java.lang.Exception" key="errors.general"
+			handler="com.boco.eoms.base.webapp.action.ActionExceptionHandler" />
+	</global-exceptions>
+
+	<!-- ========== Global Forward Definitions =================================== -->
+	<global-forwards>
+		<forward name="selectFile" path="/selectFile.do" />
+		<forward name="logout" path="/logout.jsp" />
+		<forward name="error"
+			path="/WEB-INF/pages/partner/activiti/common/sheet_fail.jsp"
+			contextRelative="true" />
+		<forward name="failure"
+			path="/WEB-INF/pages/partner/activiti/common/failure.jsp"
+			contextRelative="true" />
+	</global-forwards>
+
+	<!-- ========== Action Mapping Definitions =================================== -->
+	<action-mappings>
+		<action path="/pnrTaskTicket"
+			type="com.boco.activiti.partner.process.webapp.action.PnrTaskTicketAction"
+			name="multiPageForm"
+			scope="request" 
+			input="error" 
+			parameter="method"
+			unknown="false" 
+			validate="false"
+			>			
+			<set-property property="cancellable" value="true" />
+			
+			<forward name="new"
+				path="/WEB-INF/pages/partner/activiti/pnrtaskTicket/taskNew.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="todo"
+				path="/WEB-INF/pages/partner/activiti/pnrtaskTicket/taskTodo.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="taskCheck"
+				path="/WEB-INF/pages/partner/activiti/pnrtaskTicket/taskCheck.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="success"
+				path="/WEB-INF/pages/partner/activiti/common/sheet_success.jsp"
+				redirect="false" contextRelative="true" />
+            <forward name="backlogList"
+                     path="/WEB-INF/pages/partner/activiti/pnrtaskTicket/backlogList.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="viewHistory"
+                     path="/WEB-INF/pages/partner/activiti/pnrtaskTicket/taskWorkFlowView.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="collectTaskList"
+                     path="/WEB-INF/pages/partner/activiti/pnrtaskTicket/collectTaskList.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="involvedProcessInstancesList"
+                     path="/WEB-INF/pages/partner/activiti/pnrtaskTicket/involvedProcessInstancesList.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="runningProcessInstancesList"
+                     path="/WEB-INF/pages/partner/activiti/pnrtaskTicket/runningProcessInstancesList.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="gotoDetail"
+                     path="/WEB-INF/pages/partner/activiti/pnrtaskTicket/taskDetail.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="query"
+                     path="/WEB-INF/pages/partner/activiti/pnrtaskTicket/taskQuery.jsp"
+                     redirect="false" contextRelative="true" />
+            <forward name="taskQueryList"
+                     path="/WEB-INF/pages/partner/activiti/pnrtaskTicket/taskQueryList.jsp"
+                     redirect="false" contextRelative="true" />
+
+		 </action>
+	</action-mappings>
+	<message-resources parameter="config/ApplicationResources-sheet" key="sheet" />
+	<message-resources
+		parameter="com/boco/eoms/partner/sheet/faultdeal/config/ApplicationResources-sheet-pnrfaultdeal" key="pnrfaultdeal" />
+	<controller nocache="true" inputForward="true" maxFileSize="2M" />
+</struts-config>

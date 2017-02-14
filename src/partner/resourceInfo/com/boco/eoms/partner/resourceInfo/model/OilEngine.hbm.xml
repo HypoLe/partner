@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.boco.eoms.partner.resourceInfo.model.OilEngine" table="pnr_oilEngineInfo">
+	 <id name="id" column="id" unsaved-value="null">
+	  	<generator class="increment"></generator>
+     </id><!--
+    <property name="refid" column="ref_id"  not-null="false" unique="false"></property>
+	--><property name="oilEngineNumber" column="num" not-null="false" unique="false"></property>                    
+	<property name="oilEngineModel" column="model" not-null="false" unique="false"></property>                      
+	<property name="oilEngineFactory" column="factory" not-null="false" unique="false"></property>                  
+	<property name="powerRating" column="power_rating" not-null="false" unique="false"></property>                            
+	<property name="standardFuelConsumption" column="consumption" not-null="false" unique="false"></property>   
+	<property name="oilEngineType" column="type" not-null="false" unique="false"></property>                        
+	<property name="oilEngineProperty" column="property" not-null="false" unique="false"></property>                
+	<property name="oilEngineStatus" column="status" not-null="false" unique="false"></property>                   
+	<!-- 西安需求添加start -->
+	<property name="fuleType" column="fule_type" not-null="false" unique="false"></property>
+	<property name="longitude" column="longitude" not-null="false" unique="false"></property>
+	<property name="latitude" column="latitude" not-null="false" unique="false"></property>
+	<property name="place" column="place" not-null="false" unique="false"></property>
+	<!-- 西安需求添加end -->
+	<property name="area" column="area" not-null="false" unique="false"></property>                                           
+	<property name="maintainCompany" column="company" not-null="false" unique="false"></property>
+	 <property name="visible" column="visible"  not-null="false" unique="false"></property>
+     <property name="deleted" column="deleted"  not-null="false" unique="false"></property>                    
+	<property name="notes" column="notes" not-null="false" unique="false"></property>                    
+	<property name="addTime" column="add_time" not-null="false" unique="false"></property> 
+    <!-- 四川代维需求增加字段 -->
+    <property name="responseMan" column="response_man" not-null="false" unique="false"></property> 
+	<property name="telephone" column="telephone" not-null="false" unique="false"></property>   
+	<property name="siteId" column="site_id" not-null="false" unique="false"></property>      
+	<property name="longitudeNow" column="longitude_now" not-null="false" unique="false"></property>
+	<property name="latitudeNow" column="latitude_now" not-null="false" unique="false"></property> 
+	<property name="reportTime" column="report_time" not-null="false" unique="false"></property>  
+	<property name="specialty" column="specialty" not-null="false" unique="false"></property>   
+	<property name="changeType" column="change_type" not-null="false" unique="false"></property>  
+	<property name="changeMainId" column="change_main_id" not-null="false" unique="false"></property>
+	<property name="changeTime" column="change_time" not-null="false" unique="false"></property>   
+	<property name="changeMan" column="change_man" not-null="false" unique="false"></property>   
+    <!-- 四川代维需求字段 -->
+	     
+	</class>
+</hibernate-mapping>

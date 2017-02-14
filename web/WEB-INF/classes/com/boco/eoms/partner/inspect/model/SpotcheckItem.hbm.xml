@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.boco.eoms.partner.inspect.model.SpotcheckItem" table="pnr_spotcheck_item">
+		<id name="id" column="id">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="spotcheckResId" column="spotcheck_Res_Id"/>
+		<property name="planResId" column="plan_Res_Id"/>
+		<property name="planItemId" column="plan_Item_Id"/>
+		<property name="score" column="score"/>
+	</class>
+</hibernate-mapping>

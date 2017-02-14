@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.boco.eoms.partner.inspect.model.PnrInspectTaskFile" table="pnr_inspect_file" >
+	    <id name="id" column="id" unsaved-value="null">
+	    	<generator class="uuid.hex"> </generator>
+	    </id>
+	    
+	    <property name="file_id" />
+		<property name="idType" />
+		<property name="fileData" type="clob" length="20480000"/>
+		<property name="fileType"/>
+		<property name="createTime"/>
+		<property name="modifyTime"/>
+		<property name="photoType"/>
+		<property name="path"/>
+    </class>    
+
+</hibernate-mapping>
+

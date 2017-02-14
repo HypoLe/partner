@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 客户信息表-IrmsGrouCustomer -->
+	<bean id="irmsGrouCustomerMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.group.IrmsGrouCustomerMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 数据(互联网)专线信息表-IrmsGroupLine -->
+	<bean id="irmsGroupLineMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.group.IrmsGroupLineMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 客户开通业务信息表-IrmsGroupProduct -->
+	<bean id="irmsGroupProductMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.group.IrmsGroupProductMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 语音专线信息表-IrmsGroupSound -->
+	<bean id="irmsGroupSoundMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.group.IrmsGroupSoundMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- GPRS信息表-IrmsGroupGprs -->
+	<bean id="irmsGroupGprsMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.group.IrmsGroupGprsMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 短信信息表-IrmsGroupSms -->
+	<bean id="irmsGroupSmsMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.group.IrmsGroupSmsMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 彩信息表-IrmsGroupMms -->
+	<bean id="irmsGroupMmsMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.group.IrmsGroupMmsMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 出租专线信息表-IrmsGroupRent -->
+	<bean id="irmsGroupRentMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.group.IrmsGroupRentMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+	<!-- 客户端设备信息表-IrmsGroupDevice -->
+	<bean id="irmsGroupDeviceMappingRule" class="com.boco.eoms.partner.dataSynch.rule.impl.group.IrmsGroupDeviceMappingRule" 
+		autowire="byName" parent="abstractDataMappingRule"  init-method="initMappingRule">
+	</bean>
+</beans>

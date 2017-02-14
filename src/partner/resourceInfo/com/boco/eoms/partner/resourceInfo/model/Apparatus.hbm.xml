@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.boco.eoms.partner.resourceInfo.model.Apparatus" table="pnr_apparatusInfo">
+	 <id name="id" column="id" unsaved-value="null">
+	  	<generator class="increment"></generator>
+     </id><!--
+      <property name="refid" column="ref_id"  not-null="false" unique="false"></property>
+     --><property name="area" column="area"  not-null="false" unique="false"></property>
+     <property name="maintenanceMajor" column="major"  not-null="false" unique="false"></property>
+     <property name="apparatusName" column="name"  not-null="false" unique="false"></property>
+     <property name="apparatusType" column="type"  not-null="false" unique="false"></property>
+     <property name="apparatusSerialNumber" column="serial_number"  not-null="false" unique="false"></property>
+     <property name="purchasingTime" column="purchasing_time"  not-null="false" unique="false"></property>
+     <property name="apparatusDateOfProduction" column="dateOfProduction"  not-null="false" unique="false"></property>
+     <property name="apparatusServiceLife" column="serviceLife"  not-null="false" unique="false"></property>
+     <property name="apparatusStatus" column="status"  not-null="false" unique="false"></property>
+     <property name="apparatusProperty" column="property"  not-null="false" unique="false"></property>
+     <property name="apparatusBelongs" column="belongs"  not-null="false" unique="false"></property>
+     <property name="maintenanceCompany" column="company"  not-null="false" unique="false"></property>
+     <property name="visible" column="visible"  not-null="false" unique="false"></property>
+     <property name="deleted" column="deleted"  not-null="false" unique="false"></property>
+     <property name="notes" column="notes"  not-null="false" unique="false"></property>
+     <property name="addTime" column="add_time"  not-null="false" unique="false"></property>
+	</class>
+</hibernate-mapping>
