@@ -3,7 +3,7 @@
 <table class="formTable" width="80%" align="center">
 	<tr>
 		<td colspan="2" align="center" class="label">
-			${eoms:a2u('个人首页1111')}
+			${eoms:a2u('个人首页')}
 		</td>
 	</tr>
 	<tr>
