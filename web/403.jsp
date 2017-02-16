@@ -8,6 +8,7 @@
 <p>
     <fmt:message key="403.message">
         <fmt:param><c:url value="/"/></fmt:param>
+        	
     </fmt:message>
 </p>
 <p style="text-align: center; margin-top: 20px">
