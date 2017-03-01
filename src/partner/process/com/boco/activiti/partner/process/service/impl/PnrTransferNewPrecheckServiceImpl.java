@@ -657,6 +657,8 @@ public class PnrTransferNewPrecheckServiceImpl extends
 		
 		String keyWord = StaticMethod.nullObject2String(request.getParameter("keyWord"));//关键字
 		String subTypeName = StaticMethod.nullObject2String(request.getParameter("subTypeName"));//工单子类型
+		String approveStartTime = StaticMethod.nullObject2String(request.getParameter("approveStartTime"));//批复开始时间
+		String approveEndTime = StaticMethod.nullObject2String(request.getParameter("approveEndTime"));//批复结束时间
 	
 
 		System.out.println("----------sendStartTime=" + sendStartTime);
@@ -687,6 +689,8 @@ public class PnrTransferNewPrecheckServiceImpl extends
 		conditionQueryModel.setWorkOrderDegree(workOrderDegree);
 		conditionQueryModel.setKeyWord(keyWord);
 		conditionQueryModel.setSubTypeName(subTypeName);
+		conditionQueryModel.setApproveStartTime(approveStartTime);
+		conditionQueryModel.setApproveEndTime(approveEndTime);
 		return conditionQueryModel;
 	}
 	

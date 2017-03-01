@@ -7641,6 +7641,8 @@ public class PnrTransferNewPrecheckAction extends SheetAction {
 		String mainSceneId = request.getParameter("mainSceneId");//场景
 		String workOrderDegree = request.getParameter("workOrderDegree");//紧急程度
 		String keyWord = request.getParameter("keyWord");//关键字
+		String approveStartTime = request.getParameter("approveStartTime");//批复开始时间
+		String approveEndTime = request.getParameter("approveEndTime");//批复结束时间
 
 		ConditionQueryModel conditionQueryModel = new ConditionQueryModel();
 		conditionQueryModel.setSendStartTime(sendStartTime);
@@ -7658,7 +7660,8 @@ public class PnrTransferNewPrecheckAction extends SheetAction {
 		conditionQueryModel.setPrecheckFlag(precheckFlag);
 		conditionQueryModel.setMainSceneId(mainSceneId);
 		conditionQueryModel.setPageSize(Integer.toString(pageSize));
-		
+		conditionQueryModel.setApproveStartTime(approveStartTime);
+		conditionQueryModel.setApproveEndTime(approveEndTime);
 		
 		PnrBaseAreaIdList pnrBaseAreaIdList = (PnrBaseAreaIdList) getBean("pnrBaseAreaIdList");
 		String province = pnrBaseAreaIdList.getRootAreaId();
@@ -7735,10 +7738,13 @@ public class PnrTransferNewPrecheckAction extends SheetAction {
 		request.setAttribute("precheckFlag", precheckFlag);
 		request.setAttribute("mainSceneId", mainSceneId);
 		request.setAttribute("batchApprovalFlag", batchApprovalFlag);
+		request.setAttribute("approveStartTime", approveStartTime);
+		request.setAttribute("approveEndTime", approveEndTime);
+		
 		// 登录人，为了在页面区分是否是省级别的四个工作人员（是否显示批量处理按钮）
 		request.setAttribute("loginUserId", userId);
 		//返回查询条件
-		request.setAttribute("condition", this.jointListBacklogCondition(conditionQueryModel));
+		//request.setAttribute("condition", this.jointListBacklogCondition(conditionQueryModel));
 		return mapping.findForward("localNetworkWorkOrderList");
 	}
 	

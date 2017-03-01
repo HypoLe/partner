@@ -2870,6 +2870,19 @@ public class PnrTransferNewPrecheckDaoJDBC extends JdbcDaoSupport implements
 			whereSql += " and m.sub_type_name = ?";			
 			listsql.add(conditionQueryModel.getSubTypeName());			
 		}
+		//批复开始时间
+		if (conditionQueryModel.getApproveStartTime() != null
+				&& !conditionQueryModel.getApproveStartTime().equals("")) {
+			whereSql += " and to_char(m.distributed_interface_time,'yyyy-mm-dd hh24:mi:ss') >=?";
+			listsql.add(conditionQueryModel.getApproveStartTime());
+			
+		}
+		//批复结束时间
+		if (conditionQueryModel.getApproveEndTime() != null
+				&& !conditionQueryModel.getApproveEndTime().equals("")) {
+			whereSql += " and to_char(m.distributed_interface_time,'yyyy-mm-dd hh24:mi:ss') <= ?";
+			listsql.add(conditionQueryModel.getApproveEndTime());
+		}
 		
 		finalSql = " order by m.send_time ) temp1 where rownum <=?";
 		listsql.add(endResult * pageSize);
@@ -3247,8 +3260,19 @@ public class PnrTransferNewPrecheckDaoJDBC extends JdbcDaoSupport implements
 			whereSql += " and m.sub_type_name = ?";			
 			listsql.add(conditionQueryModel.getSubTypeName());			
 		}
-	
-		
+		//批复开始时间
+		if (conditionQueryModel.getApproveStartTime() != null
+				&& !conditionQueryModel.getApproveStartTime().equals("")) {
+			whereSql += " and to_char(m.distributed_interface_time,'yyyy-mm-dd hh24:mi:ss') >=?";
+			listsql.add(conditionQueryModel.getApproveStartTime());
+			
+		}
+		//批复结束时间
+		if (conditionQueryModel.getApproveEndTime() != null
+				&& !conditionQueryModel.getApproveEndTime().equals("")) {
+			whereSql += " and to_char(m.distributed_interface_time,'yyyy-mm-dd hh24:mi:ss') <= ?";
+			listsql.add(conditionQueryModel.getApproveEndTime());
+		}
 		finalSql = ") w ";
 		
 		if (conditionQueryModel.getStatus() != null

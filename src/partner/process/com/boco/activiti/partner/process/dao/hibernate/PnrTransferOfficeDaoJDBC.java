@@ -10923,13 +10923,13 @@ public class PnrTransferOfficeDaoJDBC extends JdbcDaoSupport implements
 		String whereSql = " where 1 = 1";
 		//开始时间
 		if (conditionQueryModel.getSendStartTime() != null && !"".equals(conditionQueryModel.getSendStartTime())) {
-			whereSql += "   and t.send_time >= to_date(?, 'yyyy-mm-dd')\n";
-			listsql.add(conditionQueryModel.getSendStartTime());
+			whereSql += "   and t.send_time >= to_date(?, 'yyyy-mm-dd HH24:MI:SS')\n";
+			listsql.add(conditionQueryModel.getSendStartTime()+" 00:00:00");
 		}
 		//结束时间
 		if (conditionQueryModel.getSendEndTime() != null && !"".equals(conditionQueryModel.getSendEndTime())) {
-			whereSql += "   and t.send_time <= to_date(?, 'yyyy-mm-dd') -- 时间\n";
-			listsql.add(conditionQueryModel.getSendEndTime());
+			whereSql += "   and t.send_time <= to_date(?, 'yyyy-mm-dd HH24:MI:SS') -- 时间\n";
+			listsql.add(conditionQueryModel.getSendEndTime() +" 23:59:59");
 		}
 		//工单号
 		if (conditionQueryModel.getWorkNumber() != null
@@ -11035,13 +11035,13 @@ public class PnrTransferOfficeDaoJDBC extends JdbcDaoSupport implements
 		String whereSql = " where 1=1 ";
 		//开始时间
 		if (conditionQueryModel.getSendStartTime() != null && !"".equals(conditionQueryModel.getSendStartTime())) {
-			whereSql += "   and t.send_time >= to_date(?, 'yyyy-mm-dd')\n";
-			listsql.add(conditionQueryModel.getSendStartTime());
+			whereSql += "   and t.send_time >= to_date(?, 'yyyy-mm-dd HH24:MI:SS')\n";
+			listsql.add(conditionQueryModel.getSendStartTime()+" 00:00:00");
 		}
 		//结束时间
 		if (conditionQueryModel.getSendEndTime() != null && !"".equals(conditionQueryModel.getSendEndTime())) {
-			whereSql += "   and t.send_time <= to_date(?, 'yyyy-mm-dd') -- 时间\n";
-			listsql.add(conditionQueryModel.getSendEndTime());
+			whereSql += "   and t.send_time <= to_date(?, 'yyyy-mm-dd HH24:MI:SS') -- 时间\n";
+			listsql.add(conditionQueryModel.getSendEndTime() +" 23:59:59");
 		}
 		//工单号
 		if (conditionQueryModel.getWorkNumber() != null

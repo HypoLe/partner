@@ -71,6 +71,11 @@ public class ConditionQueryModel {
 	//工单子类型
 	private String subTypeName;
 	
+	//批复开始时间
+	private String approveStartTime;
+	
+	//批复结束时间
+	private String approveEndTime;
 	
 	public String getSendStartTime() {
 		return sendStartTime;
@@ -252,5 +257,16 @@ public class ConditionQueryModel {
 	public void setSubTypeName(String subTypeName) {
 		this.subTypeName = subTypeName;
 	}
-	
+	public String getApproveStartTime() {
+		return approveStartTime;
+	}
+	public void setApproveStartTime(String approveStartTime) {
+		this.approveStartTime = approveStartTime;
+	}
+	public String getApproveEndTime() {
+		return approveEndTime;
+	}
+	public void setApproveEndTime(String approveEndTime) {
+		this.approveEndTime = approveEndTime;
+	}
 }
