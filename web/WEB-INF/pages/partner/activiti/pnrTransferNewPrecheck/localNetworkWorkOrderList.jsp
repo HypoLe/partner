@@ -75,6 +75,8 @@ var jq=$.noConflict(); //jquery交出控制权，以免和EXTJS冲突
 			document.getElementById("mainSceneId").value="";	 //场景       
 			document.getElementById("keyWord").value="";	 //关键字   
 			document.getElementById("workOrderDegree").value="";	 //紧急程度     
+			document.getElementById("approveStartTime").value="";	 //批复开始时间
+			document.getElementById("approveEndTime").value="";	 //批复结束时间
 		}
 		// 地区、区县连动
 function changeCity(con)
@@ -127,34 +129,58 @@ function changeCity(con)
 	function changeType1(){
 		var sheetAcceptLimit = document.getElementById("sheetAcceptLimit").value; 
 		var sheetCompleteLimit = document.getElementById("sheetCompleteLimit").value;
+		var approveStartTime = document.getElementById("approveStartTime").value;//批复开始时间
+		var approveEndTime = document.getElementById("approveEndTime").value;//批复结束时间
 		var wsNum = document.getElementById("wsNum").value; //工单号为空时校验时间，工单号不为空时校验时间
 		if(wsNum == ''){
-			if(sheetAcceptLimit == '' || sheetCompleteLimit == ''){
-				alert("开始时间和结束时间不能为空，请选择！");
-	 			return false;
-			} 
-			
-			//判断开始时间是否大于结束时间
-			var st=sheetAcceptLimit;
-	 		st = st.replace(/-/g,"/");
-	 		var date = new Date(st);
-	 	
-	 		var et=sheetCompleteLimit;
-	 		et = et.replace(/-/g,"/");
-	 		var date2 = new Date(et);
-	 	
-		 	if(date > date2){
-		 		alert("开始日期不能大于结束日期，请重新选择！");
-		 		return false;
-		 	}
-		 	
-		 	//判断开始时间和结束时间相差天数，默认查询31天之内的
-		 	time = date2.getTime()- date.getTime();
-	 		days = parseInt(time / (1000 * 60 * 60 * 24));
-	 		if(days > 150){
-		 		alert("统计周期为150天！请重新选择后再查询！");
-		 		return false;
-	 		}	
+			if((sheetAcceptLimit!=''&&sheetCompleteLimit!='')||(approveStartTime!=''&&approveEndTime!='')){
+				if(sheetAcceptLimit!=''&&sheetCompleteLimit!=''){
+					//判断开始时间是否大于结束时间
+					var st=sheetAcceptLimit;
+			 		st = st.replace(/-/g,"/");
+			 		var date = new Date(st);
+			 	
+			 		var et=sheetCompleteLimit;
+			 		et = et.replace(/-/g,"/");
+			 		var date2 = new Date(et);
+			 	
+				 	if(date > date2){
+				 		alert("开始日期不能大于结束日期，请重新选择！");
+				 		return false;
+				 	}
+				 	
+				 	//判断开始时间和结束时间相差天数，默认查询31天之内的
+				 	time = date2.getTime()- date.getTime();
+			 		days = parseInt(time / (1000 * 60 * 60 * 24));
+			 		if(days > 150){
+				 		alert("统计周期为150天！请重新选择后再查询！");
+				 		return false;
+			 		}	
+			 		
+			 		if(approveStartTime==''&&approveEndTime!=''){
+			 			alert("请选择批复开始时间！");
+			 			return false;
+			 		}
+			 		if(approveStartTime!=''&&approveEndTime==''){
+			 			alert("请选择批复结束时间！");
+			 			return false;
+			 		}
+				}
+				
+				if(approveStartTime!=''&&approveEndTime!=''){
+					if(sheetAcceptLimit==''&&sheetCompleteLimit!=''){
+						alert("请选择派单开始时间！");
+			 			return false;
+					}
+					if(sheetAcceptLimit!=''&&sheetCompleteLimit==''){
+						alert("请选择派单结束时间！");
+			 			return false;
+					}
+				}
+			}else{
+				alert("请选择:\n派单开始时间和派单结束时间\n或者\n批复开始时间和批复结束时间");
+				return false;
+			}
 		}
 	}	
      
@@ -389,7 +415,7 @@ function changeCity(con)
 				<input type="hidden" id="batchApprovalFlag" name="batchApprovalFlag" value="${batchApprovalFlag}" /><!-- 是否能进行批量处理标识 -->
 				<input type="hidden" id="wsStatusFlag" name="wsStatusFlag" value="${wsStatus}" /><!-- 工单状态标识 -->
 				<!-- <input type="hidden" name="pagesize" value="${pageSize}">  -->
-				<input type="hidden" id="condition" name="condition" value="${condition}" />
+			<!-- 	<input type="hidden" id="condition" name="condition" value="${condition}" /> -->
 				<table class="formTable">
 					<!--时间 -->
 					<tr>
@@ -582,7 +608,28 @@ function changeCity(con)
 					defaultValue="${keyWord}" initDicId="1012308"
 					alt="allowBlank:false" styleClass="select" />
 			 </td>
-		</tr>		
+		</tr>	
+		<tr>
+				<td class="label">
+					批复开始时间
+				</td>
+				<td class="class="text"">
+					<input type="text" class="text" name="approveStartTime"
+						readonly="readonly" id="approveStartTime" value="${approveStartTime}"
+						onclick="popUpCalendar(this, this,null,null,null,null,-1,0)"
+						alt="vtype:'lessThen',link:'approveEndTime',vtext:'批复开始时间不能晚于批复结束时间',allowBlank:true" />
+
+				</td>
+				<td class="label">
+					批复结束时间
+				</td>
+				<td class="class="text"">
+					<input type="text" class="text" name="approveEndTime"
+						readonly="readonly" id="approveEndTime" value="${approveEndTime}"
+						onclick="popUpCalendar(this, this,null,null,null,null,-1,0)"
+						alt="vtype:'moreThen',link:'approveStartTime',vtext:'批复结束时间不能早于批复开始时间',allowBlank:true" />
+				</td>
+			</tr>	
 				
 			<tr>
 				<td colspan="7" class="content">

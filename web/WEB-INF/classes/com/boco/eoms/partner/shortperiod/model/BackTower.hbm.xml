@@ -70,5 +70,7 @@
 		<property name="a49" column="a49"/><!-- 电力引入费 -->
 		<property name="towerRemark" column="tower_remark"/><!-- 备注 -->
 		<property name="towerDescribe" column="tower_describe"/><!-- 描述 -->
+		<property name="rruNum" column="rru_num"/><!-- RRU数量 -->
+		<property name="antennaNum" column="antenna_num"/><!-- 天线数量 -->
 	</class>
 </hibernate-mapping>
