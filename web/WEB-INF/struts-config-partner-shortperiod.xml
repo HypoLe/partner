@@ -55,6 +55,12 @@
 			<forward name="success"
 				path="/WEB-INF/pages/partner/shortPeriod/sheet_success.jsp"
 				redirect="false" contextRelative="true" />
+		    <forward name="backlognewList"
+				path="/WEB-INF/pages/partner/shortPeriod/backlognewList.jsp"
+				redirect="false" contextRelative="true" />
+			<forward name="towerUpdateNewPage"
+				path="/WEB-INF/pages/partner/shortPeriod/towerUpdateNewPage.jsp"
+				redirect="false" contextRelative="true" />
         </action>
 	</action-mappings>
 	<controller nocache="true" inputForward="true" maxFileSize="2M" />

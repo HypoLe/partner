@@ -23,6 +23,8 @@ import com.boco.eoms.base.util.ApplicationContextHolder;
 import com.boco.eoms.base.util.StaticMethod;
 import com.boco.eoms.commons.accessories.util.AccessoriesMgrLocator;
 import com.boco.eoms.commons.accessories.util.AccessoriesUtil;
+import com.boco.eoms.commons.system.dept.model.TawSystemDept;
+import com.boco.eoms.commons.system.dept.service.ITawSystemDeptManager;
 import com.boco.eoms.commons.system.dict.service.ID2NameService;
 import com.boco.eoms.commons.system.session.form.TawSystemSessionForm;
 import com.boco.eoms.partner.baseinfo.util.PartnerCityByUser;
@@ -162,9 +164,27 @@ public class ShortPeriodAction extends SheetAction {
 		int endResult = Strings.isNullOrEmpty(pageIndexString) ? 1 : Integer
 				.valueOf(pageIndexString).intValue();
 		
+		//导出
+		String exportType = StaticMethod.null2String(request
+				.getParameter(new org.displaytag.util.ParamEncoder("taskList")
+						.encodeParameterName(org.displaytag.tags.TableTagParameters.PARAMETER_EXPORTTYPE)));
+		System.out.println("------exportType="+exportType);
+		if (!exportType.equals("")) {
+			pageSize = new Integer(-1);
+		}
+		
 		TawSystemSessionForm sessionForm = (TawSystemSessionForm) request
 				.getSession().getAttribute("sessionform");
 		String userId = sessionForm.getUserid();
+		
+		ITowerInspectService towerInspectService = (ITowerInspectService) getBean("towerInspectService");
+		//区县
+		ITawSystemDeptManager deptSys = (ITawSystemDeptManager) getBean("ItawSystemDeptManager");
+		TawSystemDept tawSystemDept = deptSys.getDeptinfobydeptid(sessionForm
+				.getDeptid(), "0");
+		String areaId = tawSystemDept.getAreaid();
+		//判断修改权限tower_userid_power_config
+		boolean changePermissions = towerInspectService.judgeChangePermissions(areaId, userId);
 		
 		String flag = StaticMethod.nullObject2String(request.getParameter("flag"));// 查询标识
 		TowerQueryConditionModel towerQueryConditionModel = this.getConditionModel(request);
@@ -175,7 +195,7 @@ public class ShortPeriodAction extends SheetAction {
 		List city = PartnerCityByUser.getCityByProvince(province);
 		request.setAttribute("city", city);
 
-		ITowerInspectService towerInspectService = (ITowerInspectService) getBean("towerInspectService");
+		
 		this.oldID2Name(towerQueryConditionModel);
 		
 		// 工单管理-传输局工单-抢修工单-待回复工单 集合条数
@@ -184,12 +204,12 @@ public class ShortPeriodAction extends SheetAction {
 		List<TowerModel> rPnrTransferList = null;
 		if("1".equals(flag)){
 			try {
-				total = towerInspectService.getTowerCount(userId,towerQueryConditionModel);
+				total = towerInspectService.getTowerNewCount(areaId,userId,towerQueryConditionModel);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			try {
-				rPnrTransferList = towerInspectService.getTowerList(userId,towerQueryConditionModel,firstResult,endResult, pageSize);
+				rPnrTransferList = towerInspectService.getTowerNewList(areaId,userId,towerQueryConditionModel,firstResult,endResult, pageSize);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -212,7 +232,9 @@ public class ShortPeriodAction extends SheetAction {
 		request.setAttribute("oldRoomType",towerQueryConditionModel.getOldRoomType());
 		request.setAttribute("oldAntennaHeight",towerQueryConditionModel.getOldAntennaHeight());
 		request.setAttribute("condition", this.jointListBacklogCondition(towerQueryConditionModel));
-		return mapping.findForward("backlogList");
+		//request.setAttribute("changePermissions", true);
+		request.setAttribute("changePermissions", changePermissions);
+		return mapping.findForward("backlognewList");
 	}
 	
 	//获取request传递的查询条件封装到ConditionQueryModel中
@@ -242,13 +264,13 @@ public class ShortPeriodAction extends SheetAction {
 		towerQueryConditionModel.setConfirmNum(productNum);
 		ITowerInspectService towerInspectService = (ITowerInspectService) getBean("towerInspectService");
 		TowerModel towerModel = null;
-		List<TowerModel> list  = towerInspectService.getTowerList("",towerQueryConditionModel,0,1, 1);
+		List<TowerModel> list  = towerInspectService.getTowerNewList("","",towerQueryConditionModel,0,1,1);
 		if(list != null && list.size() > 0){
 			towerModel = list.get(0);
 		}
 		request.setAttribute("towerModel", towerModel);
 		request.setAttribute("condition", this.doRequestToCondition(request));
-		return mapping.findForward("towerUpdatePage");
+		return mapping.findForward("towerUpdateNewPage");
 	}
 	
 	/**
@@ -484,5 +506,68 @@ public class ShortPeriodAction extends SheetAction {
 		String rootFilePath = AccessoriesMgrLocator.getAccessoriesAttributes().getUploadPath();
 		String filePath = rootFilePath +"/tietaxunjian/"+tPath+"/";
 		return filePath;
+	}
+	
+	/**
+	 * 提交铁塔更新 铁塔核查20170210
+	 * @param mapping
+	 * @param form
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	public ActionForward updateTowerNew(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		String returnPage = "failure";
+		String productNum = StaticMethod.nullObject2String(request.getParameter("productNum"));//产品业务确认单编号
+		String bTowerType = StaticMethod.nullObject2String(request.getParameter("bTowerType"));//塔型
+		String bRoomType = StaticMethod.nullObject2String(request.getParameter("bRoomType"));//机房类型
+		String bHangHigh1 = StaticMethod.nullObject2String(request.getParameter("bHangHigh1"));//实际最高天线挂高（米）1
+		String bRruRoom1 = StaticMethod.nullObject2String(request.getParameter("bRruRoom1"));//RRU拉远时BBU是否放在铁塔公司机房1
+		String bTowerNum = StaticMethod.nullObject2String(request.getParameter("bTowerNum"));//铁塔共享用户数
+		String bRoomNum = StaticMethod.nullObject2String(request.getParameter("bRoomNum"));//机房共享用户数
+		String bSupportNum = StaticMethod.nullObject2String(request.getParameter("bSupportNum"));//配套共享用户数
+		String bMaitainNum = StaticMethod.nullObject2String(request.getParameter("bMaitainNum"));//维护费共享用户数
+		String bFieldNum = StaticMethod.nullObject2String(request.getParameter("bFieldNum"));//场地费共享用户数
+		String bPowerNum = StaticMethod.nullObject2String(request.getParameter("bPowerNum"));//电力引入费共享用户数
+		String bRruNum = StaticMethod.nullObject2String(request.getParameter("bRruNum"));//RRU数量
+		String bAntennaNum = StaticMethod.nullObject2String(request.getParameter("bAntennaNum"));//天线数量
+
+		TawSystemSessionForm sessionForm = (TawSystemSessionForm) request.getSession().getAttribute("sessionform");
+		String userId = sessionForm.getUserid();
+		
+		ITowerInspectService towerInspectService = (ITowerInspectService) getBean("towerInspectService");
+		Search search = new Search();
+		search.addFilterEqual("towerId", productNum);
+		List<BackTower> backTowerList = towerInspectService.search(search);
+		if (backTowerList != null) {
+			BackTower backTower = backTowerList.get(0);
+			if(backTower != null){
+				backTower.setA2(bTowerType);
+				backTower.setA3(bRoomType);
+				backTower.setA5(bHangHigh1);
+				backTower.setA6(bRruRoom1);
+				backTower.setA16(bTowerNum);
+				backTower.setA21(bRoomNum);
+				backTower.setA26(bSupportNum);
+				backTower.setA31(bMaitainNum); 
+				backTower.setA36(bFieldNum);
+				backTower.setA41(bPowerNum);
+				backTower.setRruNum(bRruNum);
+				backTower.setAntennaNum(bAntennaNum);
+				backTower.setLastModifyUserid(userId);
+				backTower.setLastModifyTime(new Date());
+				towerInspectService.save(backTower);
+				returnPage = "success";
+				request.setAttribute("condition", request.getParameter("condition"));
+			}else{
+				request.setAttribute("msg", "未找到，产品业务确认单编号:"+productNum+"的铁塔核查信息！");
+			}
+	}else{
+		request.setAttribute("msg", "不存在，产品业务确认单编号:"+productNum+"的铁塔核查信息！");
+	}
+		return mapping.findForward(returnPage);
 	}
 }

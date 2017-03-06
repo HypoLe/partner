@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
+import com.boco.eoms.base.util.StaticMethod;
 import com.boco.eoms.partner.shortperiod.dao.ITowerInspectJDBCDao;
 import com.boco.eoms.partner.shortperiod.po.TowerModel;
 import com.boco.eoms.partner.shortperiod.po.TowerQueryConditionModel;
@@ -503,5 +504,446 @@ public class TowerInspectDaoJDBC extends JdbcDaoSupport implements
 		
 		return r;
 	
+	}
+	
+	/**
+	 * 铁塔统计数(铁塔核查20170210) 
+	 * @param userId
+	 * @param towerQueryConditionModel
+	 * @return
+	 */
+	public int getTowerNewCount(String areaId,String userId,TowerQueryConditionModel towerQueryConditionModel){
+		List<Object> paramList = new ArrayList<Object>();
+		String sql = "";
+		String selectSql =  "select count(z.product_no) as total\n" +
+							"    from zhzy_tower z, BACK_TOWER b\n" + 
+							"   where z.product_no = b.tower_id\n" + 
+							"     and z.data_flag = '1'  "+
+							"     and b.last_modify_userid is null ";
+		String whereSql = "";
+		
+		// 当前登录人的区域权限
+		if(areaId != null && !"".equals(areaId)){
+//			if((StaticMethod.nullObject2String(areaid)).length()==2){
+//				
+//			}else
+			if((StaticMethod.nullObject2String(areaId)).length()==4){
+				whereSql += " and z.city_id = ? ";
+				paramList.add(areaId);
+			}else if((StaticMethod.nullObject2String(areaId)).length()==6){
+				whereSql += " and z.area_id = ? ";
+				paramList.add(areaId);
+			}
+		}
+		
+		//地市
+		if(towerQueryConditionModel.getRegion() != null && !"".equals(towerQueryConditionModel.getRegion())){
+			whereSql += " and z.city_id = ?";
+			paramList.add(towerQueryConditionModel.getRegion());
+		}
+		
+		//区县
+		if(towerQueryConditionModel.getCountry()!= null && !"".equals(towerQueryConditionModel.getCountry())){
+			whereSql += " and z.area_id = ?";
+			paramList.add(towerQueryConditionModel.getCountry());
+		}
+		
+		//站点名称
+		if(towerQueryConditionModel.getResName()!= null && !"".equals(towerQueryConditionModel.getResName())){
+			whereSql += " and instr(z.station_name,?)>0 ";
+			paramList.add(towerQueryConditionModel.getResName().trim());
+		}
+		
+		//产品业务确认编号
+		if(towerQueryConditionModel.getConfirmNum()!= null && !"".equals(towerQueryConditionModel.getConfirmNum())){
+			whereSql += " and z.product_no = ?";
+			paramList.add(towerQueryConditionModel.getConfirmNum().trim());
+		}
+//		
+//		//是否修改过
+//		if(towerQueryConditionModel.getIsModify() != null && !"".equals(towerQueryConditionModel.getIsModify())){
+//			if("0".equals(towerQueryConditionModel.getIsModify())){ //未修改过
+//				whereSql += " and b.last_modify_userid is null";
+//			}else if("1".equals(towerQueryConditionModel.getIsModify())){ //修改过
+//				whereSql += " and b.last_modify_userid is not null";
+//			}
+//		}
+//		
+//		//数据筛选条件
+//		if(towerQueryConditionModel.getDataFilter()!= null && !"".equals(towerQueryConditionModel.getDataFilter())){
+//			if("1".equals(towerQueryConditionModel.getDataFilter())){//无机房且有用户数
+//				whereSql += " and　b.a3 in('1030706','1030703')  and b.a21 <>'0'";
+//			}else if("2".equals(towerQueryConditionModel.getDataFilter())){//非RRU拉远且存在铁塔机房
+//				whereSql += " and b.a3 <>'1030705' and b.a6 ='1030101'";
+//			}else if("3".equals(towerQueryConditionModel.getDataFilter())){//铁塔站址重复数据
+//				whereSql += " and z.station_code in (select name_id from tower_repeat_data)";
+//			}else if("4".equals(towerQueryConditionModel.getDataFilter())){//产品类型为其他
+//				whereSql += " and b.a2 not in(select dictid from taw_system_dicttype where parentdictid='10308')";
+//			}else if("5".equals(towerQueryConditionModel.getDataFilter())){//机房类型为其他
+//				whereSql += " and b.a3 not in(select dictid from taw_system_dicttype where parentdictid='10307')";
+//			}else if("6".equals(towerQueryConditionModel.getDataFilter())){//天线挂高为其他
+//				whereSql += " and b.a5 not in(select dictid from taw_system_dicttype where parentdictid='10310')";
+//			}
+//		}
+//		
+		//产品类型（新）
+		if(towerQueryConditionModel.getNewProductType()!= null && !"".equals(towerQueryConditionModel.getNewProductType())){
+			whereSql += " and b.a2 = ?";
+			paramList.add(towerQueryConditionModel.getNewProductType());
+		}
+		
+		//机房类型（新）
+		if(towerQueryConditionModel.getNewRoomType()!= null && !"".equals(towerQueryConditionModel.getNewRoomType())){
+			whereSql += " and b.a3 = ?";
+			paramList.add(towerQueryConditionModel.getNewRoomType());
+		}
+		
+		//天线挂高（新）
+		if(towerQueryConditionModel.getNewAntennaHeight()!= null && !"".equals(towerQueryConditionModel.getNewAntennaHeight())){
+			whereSql += " and b.a5 = ?";
+			paramList.add(towerQueryConditionModel.getNewAntennaHeight());
+		}
+		
+		//产品类型（旧）
+		if(towerQueryConditionModel.getOldProductTypeName()!= null && !"".equals(towerQueryConditionModel.getOldProductTypeName())){
+			whereSql += " and z.tower_type = ?";
+			paramList.add(towerQueryConditionModel.getOldProductTypeName());
+		}
+		
+		//机房类型（旧）
+		if(towerQueryConditionModel.getOldRoomTypeName()!= null && !"".equals(towerQueryConditionModel.getOldRoomTypeName())){
+			whereSql += " and z.room_type = ?";
+			paramList.add(towerQueryConditionModel.getOldRoomTypeName());
+		}
+		
+		//天线挂高（旧）
+		if(towerQueryConditionModel.getOldAntennaHeightName()!= null && !"".equals(towerQueryConditionModel.getOldAntennaHeightName())){
+			whereSql += " and z.hang_high_1 = ?";
+			paramList.add(towerQueryConditionModel.getOldAntennaHeightName());
+		}
+		
+		sql += selectSql + whereSql;
+		System.out.println("-------------铁塔数="+sql);
+		Object[] args = paramList.toArray();
+		int size = this.getJdbcTemplate().queryForInt(sql,args);
+		return size;
+	}
+
+	/**
+	 * 铁塔详情(铁塔核查20170210)
+	 * @param userId
+	 * @param towerQueryConditionModel
+	 * @param firstResult
+	 * @param endResult
+	 * @param pageSize
+	 * @return
+	 */
+	public List<TowerModel> getTowerNewList(String areaId,String userId,TowerQueryConditionModel towerQueryConditionModel,int firstResult, int endResult, int pageSize){
+		List<Object> paramList = new ArrayList<Object>();
+		String sql = "";
+		if(pageSize != -1){ //查询和导出共用
+			 sql = "select temp2.* from (select temp1.*, rownum num from (";
+		}
+		String selectSql =  "select z.product_no, --产品业务确认单编号\n" +
+							"       z.station_name, --站址名称\n" + 
+							"       z.city_id, --地市\n" + 
+							"       z.area_id, --铁塔所属区县\n" + 
+							"       z.station_code, --站址编码\n" + 
+							"       z.need_no, --需求确认单编号\n" + 
+							"       z.tower_type, --塔型\n" + 
+							"       z.room_type, --机房类型\n" + 
+							"       z.hang_high_1, --实际最高天线挂高（米）1\n" + 
+							"       z.rru_room_1, --RRU拉远时BBU是否放在铁塔公司机房1\n" + 
+							"       z.tower_num, --铁塔共享用户数\n" + 
+							"       z.room_num, --机房共享用户数\n" + 
+							"       z.support_num, --配套共享用户数\n" + 
+							"       z.maitain_num, --维护费共享用户数\n" + 
+							"       z.field_num, --场地费共享用户数\n" + 
+							"       z.power_num, --电力引入费共享用户数\n" + 
+							"       z.rru_num, --RRU数量\n" + 
+							"       z.antenna_num, --天线数量\n" + 
+							"       b.A2           as b_tower_type, --塔型\n" + 
+							"       b.A3           as b_room_type, --机房类型\n" + 
+							"       b.A5           as b_hang_high1, --实际最高天线挂高（米）1\n" + 
+							"       b.A6           as b_rru_room1, --RRU拉远时BBU是否放在铁塔公司机房1\n" + 
+							"       b.A16          as b_tower_num, --铁塔共享用户数\n" + 
+							"       b.A21          as b_room_num, --机房共享用户数\n" + 
+							"       b.A26          as b_support_num, --配套共享用户数\n" + 
+							"       b.A31          as b_maitain_num, --维护费共享用户数\n" + 
+							"       b.A36          as b_field_num, --场地费共享用户数\n" + 
+							"       b.A41          as b_power_num, --电力引入费共享用户数\n" + 
+							"       b.rru_num      as b_rru_num, --RRU数量\n" + 
+							"       b.antenna_num  as b_antenna_num --天线数量\n" + 
+							"  from zhzy_tower z, BACK_TOWER b\n" + 
+							" where z.product_no = b.tower_id\n" + 
+							"   and z.data_flag = '1' "+
+		                    "   and b.last_modify_userid is null ";
+		String whereSql = "";
+		
+		// 当前登录人的区域权限
+		if(areaId != null && !"".equals(areaId)){
+//			if((StaticMethod.nullObject2String(areaid)).length()==2){
+//				
+//			}else
+			if((StaticMethod.nullObject2String(areaId)).length()==4){
+				whereSql += " and z.city_id = ? ";
+				paramList.add(areaId);
+			}else if((StaticMethod.nullObject2String(areaId)).length()==6){
+				whereSql += " and z.area_id = ? ";
+				paramList.add(areaId);
+			}
+		}
+		
+		//地市
+		if(towerQueryConditionModel.getRegion() != null && !"".equals(towerQueryConditionModel.getRegion())){
+			whereSql += " and z.city_id = ?";
+			paramList.add(towerQueryConditionModel.getRegion());
+			System.out.println("------towerQueryConditionModel.getRegion()="+towerQueryConditionModel.getRegion());
+		}
+		
+		//区县
+		if(towerQueryConditionModel.getCountry()!= null && !"".equals(towerQueryConditionModel.getCountry())){
+			whereSql += " and z.area_id = ?";
+			paramList.add(towerQueryConditionModel.getCountry());
+			System.out.println("------towerQueryConditionModel.getCountry()="+towerQueryConditionModel.getCountry());
+		}
+		
+		//站点名称
+		if(towerQueryConditionModel.getResName()!= null && !"".equals(towerQueryConditionModel.getResName())){
+			whereSql += " and instr(z.station_name,?)>0 ";
+			paramList.add(towerQueryConditionModel.getResName().trim());
+		}
+		
+		//产品业务确认编号
+		if(towerQueryConditionModel.getConfirmNum()!= null && !"".equals(towerQueryConditionModel.getConfirmNum())){
+			whereSql += " and z.product_no = ?";
+			paramList.add(towerQueryConditionModel.getConfirmNum().trim());
+		}
+//		
+//		//是否修改过
+//		if(towerQueryConditionModel.getIsModify() != null && !"".equals(towerQueryConditionModel.getIsModify())){
+//			if("0".equals(towerQueryConditionModel.getIsModify())){ //未修改过
+//				whereSql += " and b.last_modify_userid is null";
+//			}else if("1".equals(towerQueryConditionModel.getIsModify())){ //修改过
+//				whereSql += " and b.last_modify_userid is not null";
+//			}
+//		}
+//		
+//		//数据筛选条件
+//		if(towerQueryConditionModel.getDataFilter()!= null && !"".equals(towerQueryConditionModel.getDataFilter())){
+//			if("1".equals(towerQueryConditionModel.getDataFilter())){//无机房且有用户数
+//				whereSql += " and　b.a3 in('1030706','1030703')  and b.a21 <>'0'";
+//			}else if("2".equals(towerQueryConditionModel.getDataFilter())){//非RRU拉远且存在铁塔机房
+//				whereSql += " and b.a3 <>'1030705' and b.a6 ='1030101'";
+//			}else if("3".equals(towerQueryConditionModel.getDataFilter())){//铁塔站址重复数据
+//				whereSql += " and z.station_code in (select name_id from tower_repeat_data)";
+//			}else if("4".equals(towerQueryConditionModel.getDataFilter())){//产品类型为其他
+//				whereSql += " and b.a2 not in(select dictid from taw_system_dicttype where parentdictid='10308')";
+//			}else if("5".equals(towerQueryConditionModel.getDataFilter())){//机房类型为其他
+//				whereSql += " and b.a3 not in(select dictid from taw_system_dicttype where parentdictid='10307')";
+//			}else if("6".equals(towerQueryConditionModel.getDataFilter())){//天线挂高为其他
+//				whereSql += " and b.a5 not in(select dictid from taw_system_dicttype where parentdictid='10310')";
+//			}
+//		}
+//		
+		//产品类型（新）
+		if(towerQueryConditionModel.getNewProductType()!= null && !"".equals(towerQueryConditionModel.getNewProductType())){
+			whereSql += " and b.a2 = ?";
+			paramList.add(towerQueryConditionModel.getNewProductType());
+		}
+		
+		//机房类型（新）
+		if(towerQueryConditionModel.getNewRoomType()!= null && !"".equals(towerQueryConditionModel.getNewRoomType())){
+			whereSql += " and b.a3 = ?";
+			paramList.add(towerQueryConditionModel.getNewRoomType());
+		}
+		
+		//天线挂高（新）
+		if(towerQueryConditionModel.getNewAntennaHeight()!= null && !"".equals(towerQueryConditionModel.getNewAntennaHeight())){
+			whereSql += " and b.a5 = ?";
+			paramList.add(towerQueryConditionModel.getNewAntennaHeight());
+		}
+		
+		//产品类型（旧）
+		if(towerQueryConditionModel.getOldProductTypeName()!= null && !"".equals(towerQueryConditionModel.getOldProductTypeName())){
+			whereSql += " and z.tower_type = ?";
+			paramList.add(towerQueryConditionModel.getOldProductTypeName());
+		}
+		
+		//机房类型（旧）
+		if(towerQueryConditionModel.getOldRoomTypeName()!= null && !"".equals(towerQueryConditionModel.getOldRoomTypeName())){
+			whereSql += " and z.room_type = ?";
+			paramList.add(towerQueryConditionModel.getOldRoomTypeName());
+		}
+		
+		//天线挂高（旧）
+		if(towerQueryConditionModel.getOldAntennaHeightName()!= null && !"".equals(towerQueryConditionModel.getOldAntennaHeightName())){
+			whereSql += " and z.hang_high_1= ?";
+			paramList.add(towerQueryConditionModel.getOldAntennaHeightName());
+		}
+		
+		sql += selectSql+ whereSql;
+		
+		if(pageSize != -1){ //查询和导出共用
+			sql += " ) temp1 where rownum <=?) temp2 where temp2.num >? ";
+			paramList.add(endResult * pageSize);
+			paramList.add(firstResult * pageSize);
+		}
+		
+		System.out.println("-------------铁塔列表="+sql);
+		
+		Object[] args = paramList.toArray();		
+		//SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		List<TowerModel> r = new ArrayList<TowerModel>();
+		List<Map> list = this.getJdbcTemplate().queryForList(sql,args);
+		for (Map map : list) {
+			TowerModel model = new TowerModel();
+			//产品业务确认单编号
+			if (map.get("product_no") != null && !"".equals(map.get("product_no").toString())) {
+				model.setProductNum(map.get("product_no").toString());
+			}
+			//站址名称
+			if (map.get("station_name") != null && !"".equals(map.get("station_name").toString())) {
+				model.setResName(map.get("station_name").toString());
+			}
+			//地市ID
+			System.out.println("city_id="+map.get("city_id").toString());
+			if (map.get("city_id") != null && !"".equals(map.get("city_id").toString())) {
+				model.setCityId(map.get("city_id").toString());
+			}
+			//铁塔所属区县
+			System.out.println("area_id="+map.get("city_id").toString());
+			if (map.get("area_id") != null && !"".equals(map.get("area_id").toString())) {
+				model.setCountyId(map.get("area_id").toString());
+			}
+			//站址编码
+			if (map.get("station_code") != null && !"".equals(map.get("station_code").toString())) {
+				model.setStationCode(map.get("station_code").toString());
+			}
+			//需求确认单编号
+			if (map.get("need_no") != null && !"".equals(map.get("need_no").toString())) {
+				model.setNeedNo(map.get("need_no").toString());
+			}
+			//塔型
+			if (map.get("tower_type") != null && !"".equals(map.get("tower_type").toString())) {
+				model.setTowerType(map.get("tower_type").toString());
+			}
+			//机房类型
+			if (map.get("room_type") != null && !"".equals(map.get("room_type").toString())) {
+				model.setRoomType(map.get("room_type").toString());
+			}
+			//实际最高天线挂高（米）1
+			if (map.get("hang_high_1") != null && !"".equals(map.get("hang_high_1").toString())) {
+				model.setHangHigh1(map.get("hang_high_1").toString());
+			}
+			//RRU拉远时BBU是否放在铁塔公司机房1
+			if (map.get("rru_room_1") != null && !"".equals(map.get("rru_room_1").toString())) {
+				model.setRruRoom1(map.get("rru_room_1").toString());
+			}
+			//铁塔共享用户数
+			if (map.get("tower_num") != null && !"".equals(map.get("tower_num").toString())) {
+				model.setTowerNum(map.get("tower_num").toString());
+			}
+			//机房共享用户数
+			if (map.get("room_num") != null && !"".equals(map.get("room_num").toString())) {
+				model.setRoomNum(map.get("room_num").toString());
+			}
+			//配套共享用户数
+			if (map.get("support_num") != null && !"".equals(map.get("support_num").toString())) {
+				model.setSupportNum(map.get("support_num").toString());
+			}
+			//维护费共享用户数
+			if (map.get("maitain_num") != null && !"".equals(map.get("maitain_num").toString())) {
+				model.setMaitainNum(map.get("maitain_num").toString());
+			}
+			//场地费共享用户数
+			if (map.get("field_num") != null && !"".equals(map.get("field_num").toString())) {
+				model.setFieldNum(map.get("field_num").toString());
+			}
+			//电力引入费共享用户数
+			if (map.get("power_num") != null && !"".equals(map.get("power_num").toString())) {
+				model.setPowerNum(map.get("power_num").toString());
+			}
+			//RRU数量
+			if (map.get("rru_num") != null && !"".equals(map.get("rru_num").toString())) {
+				model.setRruNum(map.get("rru_num").toString());
+			}
+			//天线数量
+			if (map.get("antenna_num") != null && !"".equals(map.get("antenna_num").toString())) {
+				model.setAntennaNum(map.get("antenna_num").toString());
+			}
+			
+			//塔型(back表)
+			if (map.get("b_tower_type") != null && !"".equals(map.get("b_tower_type").toString())) {
+				model.setBTowerType(map.get("b_tower_type").toString());
+			}
+			//机房类型(back表)
+			if (map.get("b_room_type") != null && !"".equals(map.get("b_room_type").toString())) {
+				model.setBRoomType(map.get("b_room_type").toString());
+			}
+			//实际最高天线挂高（米）1(back表)
+			if (map.get("b_hang_high1") != null && !"".equals(map.get("b_hang_high1").toString())) {
+				model.setBHangHigh1(map.get("b_hang_high1").toString());
+			}
+			//RRU拉远时BBU是否放在铁塔公司机房1(back表)
+			if (map.get("b_rru_room1") != null && !"".equals(map.get("b_rru_room1").toString())) {
+				model.setBRruRoom1(map.get("b_rru_room1").toString());
+			}
+			//铁塔共享用户数(back表)
+			if (map.get("b_tower_num") != null && !"".equals(map.get("b_tower_num").toString())) {
+				model.setBTowerNum(map.get("b_tower_num").toString());
+			}
+			//机房共享用户数(back表)
+			if (map.get("b_room_num") != null && !"".equals(map.get("b_room_num").toString())) {
+				model.setBRoomNum(map.get("b_room_num").toString());
+			}
+			//配套共享用户数(back表)
+			if (map.get("b_support_num") != null && !"".equals(map.get("b_support_num").toString())) {
+				model.setBSupportNum(map.get("b_support_num").toString());
+			}
+			//维护费共享用户数(back表)
+			if (map.get("b_maitain_num") != null && !"".equals(map.get("b_maitain_num").toString())) {
+				model.setBMaitainNum(map.get("b_maitain_num").toString());
+			}
+			//场地费共享用户数(back表)
+			if (map.get("b_field_num") != null && !"".equals(map.get("b_field_num").toString())) {
+				model.setBFieldNum(map.get("b_field_num").toString());
+			}
+			//电力引入费共享用户数(back表)
+			if (map.get("b_power_num") != null && !"".equals(map.get("b_power_num").toString())) {
+				model.setBPowerNum(map.get("b_power_num").toString());
+			}
+			//RRU数量(back表)
+			if (map.get("b_rru_num") != null && !"".equals(map.get("b_rru_num").toString())) {
+				model.setBRruNum(map.get("b_rru_num").toString());
+			}
+			//天线数量(back表)
+			if (map.get("b_antenna_num") != null && !"".equals(map.get("b_antenna_num").toString())) {
+				model.setBAntennaNum(map.get("b_antenna_num").toString());
+			}
+			r.add(model);
+		}
+		return r;
+	}
+	
+	/**
+	 * 判断当前用户是否有修改权限
+	 * @param areaId 地市Id
+	 * @param userId 用户Id
+	 * @return
+	 */
+	public int getTowerUserIdPowerConfig(String areaId,String userId){
+		List<Object> paramList = new ArrayList<Object>();
+		String sql ="select count(c.id)" +
+					"  from tower_userid_power_config c" + 
+					" where c.areaid = ?" + 
+					"   and c.userid = ?";
+		paramList.add(areaId);
+		paramList.add(userId);
+		System.out.println("-------------判断当前用户是否有修改权限="+sql);
+		Object[] args = paramList.toArray();
+		int size = this.getJdbcTemplate().queryForInt(sql,args);
+		System.out.println("-------------条数="+size);
+		return size;
 	}
 }

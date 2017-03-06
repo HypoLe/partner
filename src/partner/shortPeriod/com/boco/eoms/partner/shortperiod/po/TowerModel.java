@@ -78,7 +78,38 @@ public class TowerModel {
 	private String newa45;//	电力引入费共享运营商2起租后的共享折扣(核查)
 	private String towerRemark;//备注
 	private String towerDescribe;//描述
-
+	
+	//以下针对铁塔核查20170210
+	private String cityId;//地市ID
+	private String countyId;//区县ID
+	private String stationCode;//站址编码(新)
+	private String needNo;//需求确认单编号
+	private String towerType;//塔型
+	private String roomType;//机房类型
+	private String hangHigh1;//实际最高天线挂高（米）1
+	private String rruRoom1;//RRU拉远时BBU是否放在铁塔公司机房1
+	private String towerNum;//铁塔共享用户数
+	private String roomNum;//机房共享用户数
+	private String supportNum;//配套共享用户数
+	private String maitainNum;//维护费共享用户数
+	private String fieldNum;//场地费共享用户数
+	private String powerNum;//电力引入费共享用户数
+	private String rruNum;//RRU数量
+	private String antennaNum;//天线数量
+	
+	private String bTowerType;//塔型(back表)
+	private String bRoomType;//机房类型(back表)
+    private String bHangHigh1;//实际最高天线挂高（米）1(back表)
+    private String bRruRoom1;//RRU拉远时BBU是否放在铁塔公司机房1(back表)
+    private String bTowerNum;//铁塔共享用户数(back表)
+    private String bRoomNum;//机房共享用户数(back表)
+    private String bSupportNum;//配套共享用户数(back表)
+    private String bMaitainNum;//维护费共享用户数(back表)
+    private String bFieldNum;//场地费共享用户数(back表)
+    private String bPowerNum;//电力引入费共享用户数(back表)
+    private String bRruNum;//RRU数量
+    private String bAntennaNum;//天线数量
+	
 	public String getProductNum() {
 		return productNum;
 	}
@@ -634,5 +665,229 @@ public class TowerModel {
 
 	public void setTowerDescribe(String towerDescribe) {
 		this.towerDescribe = towerDescribe;
+	}
+
+	public String getCityId() {
+		return cityId;
+	}
+
+	public void setCityId(String cityId) {
+		this.cityId = cityId;
+	}
+
+	public String getCountyId() {
+		return countyId;
+	}
+
+	public void setCountyId(String countyId) {
+		this.countyId = countyId;
+	}
+
+	public String getStationCode() {
+		return stationCode;
+	}
+
+	public void setStationCode(String stationCode) {
+		this.stationCode = stationCode;
+	}
+
+	public String getNeedNo() {
+		return needNo;
+	}
+
+	public void setNeedNo(String needNo) {
+		this.needNo = needNo;
+	}
+
+	public String getTowerType() {
+		return towerType;
+	}
+
+	public void setTowerType(String towerType) {
+		this.towerType = towerType;
+	}
+
+	public String getRoomType() {
+		return roomType;
+	}
+
+	public void setRoomType(String roomType) {
+		this.roomType = roomType;
+	}
+
+	public String getHangHigh1() {
+		return hangHigh1;
+	}
+
+	public void setHangHigh1(String hangHigh1) {
+		this.hangHigh1 = hangHigh1;
+	}
+
+	public String getRruRoom1() {
+		return rruRoom1;
+	}
+
+	public void setRruRoom1(String rruRoom1) {
+		this.rruRoom1 = rruRoom1;
+	}
+
+	public String getTowerNum() {
+		return towerNum;
+	}
+
+	public void setTowerNum(String towerNum) {
+		this.towerNum = towerNum;
+	}
+
+	public String getRoomNum() {
+		return roomNum;
+	}
+
+	public void setRoomNum(String roomNum) {
+		this.roomNum = roomNum;
+	}
+
+	public String getSupportNum() {
+		return supportNum;
+	}
+
+	public void setSupportNum(String supportNum) {
+		this.supportNum = supportNum;
+	}
+
+	public String getMaitainNum() {
+		return maitainNum;
+	}
+
+	public void setMaitainNum(String maitainNum) {
+		this.maitainNum = maitainNum;
+	}
+
+	public String getFieldNum() {
+		return fieldNum;
+	}
+
+	public void setFieldNum(String fieldNum) {
+		this.fieldNum = fieldNum;
+	}
+
+	public String getPowerNum() {
+		return powerNum;
+	}
+
+	public void setPowerNum(String powerNum) {
+		this.powerNum = powerNum;
+	}
+
+	public String getBTowerType() {
+		return bTowerType;
+	}
+
+	public void setBTowerType(String towerType) {
+		bTowerType = towerType;
+	}
+
+	public String getBRoomType() {
+		return bRoomType;
+	}
+
+	public void setBRoomType(String roomType) {
+		bRoomType = roomType;
+	}
+
+	public String getBHangHigh1() {
+		return bHangHigh1;
+	}
+
+	public void setBHangHigh1(String hangHigh1) {
+		bHangHigh1 = hangHigh1;
+	}
+
+	public String getBRruRoom1() {
+		return bRruRoom1;
+	}
+
+	public void setBRruRoom1(String rruRoom1) {
+		bRruRoom1 = rruRoom1;
+	}
+
+	public String getBTowerNum() {
+		return bTowerNum;
+	}
+
+	public void setBTowerNum(String towerNum) {
+		bTowerNum = towerNum;
+	}
+
+	public String getBRoomNum() {
+		return bRoomNum;
+	}
+
+	public void setBRoomNum(String roomNum) {
+		bRoomNum = roomNum;
+	}
+
+	public String getBSupportNum() {
+		return bSupportNum;
+	}
+
+	public void setBSupportNum(String supportNum) {
+		bSupportNum = supportNum;
+	}
+
+	public String getBMaitainNum() {
+		return bMaitainNum;
+	}
+
+	public void setBMaitainNum(String maitainNum) {
+		bMaitainNum = maitainNum;
+	}
+
+	public String getBFieldNum() {
+		return bFieldNum;
+	}
+
+	public void setBFieldNum(String fieldNum) {
+		bFieldNum = fieldNum;
+	}
+
+	public String getBPowerNum() {
+		return bPowerNum;
+	}
+
+	public void setBPowerNum(String powerNum) {
+		bPowerNum = powerNum;
+	}
+
+	public String getRruNum() {
+		return rruNum;
+	}
+
+	public void setRruNum(String rruNum) {
+		this.rruNum = rruNum;
+	}
+
+	public String getAntennaNum() {
+		return antennaNum;
+	}
+
+	public void setAntennaNum(String antennaNum) {
+		this.antennaNum = antennaNum;
+	}
+
+	public String getBRruNum() {
+		return bRruNum;
+	}
+
+	public void setBRruNum(String rruNum) {
+		bRruNum = rruNum;
+	}
+
+	public String getBAntennaNum() {
+		return bAntennaNum;
+	}
+
+	public void setBAntennaNum(String antennaNum) {
+		bAntennaNum = antennaNum;
 	}
 }

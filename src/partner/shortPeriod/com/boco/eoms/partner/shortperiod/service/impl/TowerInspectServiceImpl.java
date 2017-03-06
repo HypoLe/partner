@@ -181,4 +181,42 @@ public class TowerInspectServiceImpl extends
 		}
 		return wb;
 	}
+	
+	/**
+	 * 铁塔统计数(铁塔核查20170210) 
+	 * @param userId
+	 * @param towerQueryConditionModel
+	 * @return
+	 */
+	public int getTowerNewCount(String areaId,String userId,TowerQueryConditionModel towerQueryConditionModel){
+		return towerInspectJDBCDao.getTowerNewCount(areaId,userId,towerQueryConditionModel);
+	}
+
+	/**
+	 * 铁塔详情(铁塔核查20170210)
+	 * @param userId
+	 * @param towerQueryConditionModel
+	 * @param firstResult
+	 * @param endResult
+	 * @param pageSize
+	 * @return
+	 */
+	public List<TowerModel> getTowerNewList(String areaId,String userId,TowerQueryConditionModel towerQueryConditionModel,int firstResult, int endResult, int pageSize){
+		return towerInspectJDBCDao.getTowerNewList(areaId,userId,towerQueryConditionModel,firstResult,endResult,pageSize);
+	}
+	
+	/**
+	 * 判断当前用户是否有修改权限
+	 * @param areaId 地市Id
+	 * @param userId 用户Id
+	 * @return
+	 */
+	public boolean judgeChangePermissions(String areaId,String userId){
+		boolean result = false;
+		int total = towerInspectJDBCDao.getTowerUserIdPowerConfig(areaId,userId);
+		if(total >= 1){
+			result = true;
+		}
+		return result;
+	}
 }

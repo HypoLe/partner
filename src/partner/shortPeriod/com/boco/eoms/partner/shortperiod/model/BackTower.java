@@ -73,6 +73,10 @@ public class BackTower {
 	private String towerRemark;//备注
 	
 	private String towerDescribe;//描述
+	
+	private String rruNum;//RRU数量
+	
+	private String antennaNum;//天线数量
 
 	public String getId() {
 		return id;
@@ -552,5 +556,21 @@ public class BackTower {
 
 	public void setTowerDescribe(String towerDescribe) {
 		this.towerDescribe = towerDescribe;
+	}
+
+	public String getRruNum() {
+		return rruNum;
+	}
+
+	public void setRruNum(String rruNum) {
+		this.rruNum = rruNum;
+	}
+
+	public String getAntennaNum() {
+		return antennaNum;
+	}
+
+	public void setAntennaNum(String antennaNum) {
+		this.antennaNum = antennaNum;
 	}
 }
