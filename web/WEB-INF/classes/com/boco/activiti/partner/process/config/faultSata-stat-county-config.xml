@@ -179,6 +179,7 @@ select t.areaid,
                                    and @send_time@
                                    and nvl(m.male_guest_state, '0') in
                                        ('0', '3')
+                                   and barrier_number <> 'нч'
                                 union all
                                 select a.areaid, m.*
                                   from taw_system_area              a,
@@ -194,7 +195,9 @@ select t.areaid,
                                                m.parent_process_instance_id
                                            and l.FAULT_TYPE = '10123190101')
                                    and @send_time@
-                                   and m.male_guest_state = '2')
+                                   and m.male_guest_state = '2'
+                                   and barrier_number <> 'нч'
+                                   )
                          group by areaid, barrier_number
                         having count(process_instance_id) > 1)
                  group by areaid) t8,

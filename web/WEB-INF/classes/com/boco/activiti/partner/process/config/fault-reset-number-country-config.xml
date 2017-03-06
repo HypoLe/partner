@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="GB2312"?>
+<sheetQuery>
+	<byCounty>
+		<![CDATA[
+ select
+        m.process_instance_id,
+        m.theme,
+        m.city,
+        m.country,
+        m.station_name,
+        to_char( m.create_time,'YYYY-MM-DD HH24:MI:SS'),
+        to_char( m.send_time,'YYYY-MM-DD HH24:MI:SS'),
+        m.engineer,
+        m.assignee,
+        m.parent_process_instance_id,
+        decode(m.male_guest_state,
+               2,
+               (select task_def_key_name
+                  from pnr_act_transfer_office_main
+                 where process_instance_id =
+                       m.parent_process_instance_id),
+               m.task_def_key_name) as task_def_key_name,
+        decode(m.male_guest_state,
+               2,
+               (select task_def_key
+                  from pnr_act_transfer_office_main
+                 where process_instance_id =
+                       m.parent_process_instance_id),
+               m.task_def_key) as task_def_key,
+                           decode(m.male_guest_state,
+                                2,
+                                (select  to_char(last_reply_time,'YYYY-MM-DD HH24:MI:SS')
+                                   from pnr_act_transfer_office_main
+                                  where process_instance_id =
+                                        m.parent_process_instance_id),
+                                to_char(m.last_reply_time,'YYYY-MM-DD HH24:MI:SS')) as last_reply_time,
+                                m.barrier_number
+           from taw_system_area a, pnr_act_transfer_office_main m
+           where a.areaid = m.country
+                   and a.@parentareaid@
+            and THEMEINTERFACE = 'maleGuest'
+            and m.task_def_key in
+                ('acheck', 'twoSpotChecks', 'auditReport', 'archive')
+            and exists
+          (select 1
+                   from pnr_act_transfer_office_handle l
+                  where l.process_instance_id = m.process_instance_id
+                    and l.FAULT_TYPE = '10123190101')
+            and @send_time@ 
+            and nvl(m.male_guest_state, '0') in ('0', '3')
+            and m.theme like '(重修)%'
+     and @country@
+     
+union all    
+                    
+  select 
+        m.process_instance_id,
+        m.theme,
+        m.city,
+        m.country,
+        m.station_name,
+        to_char( m.create_time,'YYYY-MM-DD HH24:MI:SS'),
+        to_char( m.send_time,'YYYY-MM-DD HH24:MI:SS'),
+        m.engineer,
+        m.assignee,
+        m.parent_process_instance_id,
+        decode(m.male_guest_state,
+               2,
+               (select task_def_key_name
+                  from pnr_act_transfer_office_main
+                 where process_instance_id =
+                       m.parent_process_instance_id),
+               m.task_def_key_name) as task_def_key_name,
+        decode(m.male_guest_state,
+               2,
+               (select task_def_key
+                  from pnr_act_transfer_office_main
+                 where process_instance_id =
+                       m.parent_process_instance_id),
+               m.task_def_key) as task_def_key,
+                           decode(m.male_guest_state,
+                                2,
+                                (select to_char(last_reply_time,'YYYY-MM-DD HH24:MI:SS')
+                                   from pnr_act_transfer_office_main
+                                  where process_instance_id =
+                                        m.parent_process_instance_id),
+                                to_char(m.last_reply_time,'YYYY-MM-DD HH24:MI:SS')) as last_reply_time,
+                                m.barrier_number
+           from taw_system_area a, pnr_act_transfer_office_main m
+           where a.areaid = m.country
+                   and a.@parentareaid@
+            and THEMEINTERFACE = 'maleGuest'
+            and m.task_def_key = 'auditor'
+            and exists
+          (select 1
+                   from pnr_act_transfer_office_handle l
+                  where l.process_instance_id =
+                        m.parent_process_instance_id
+                    and l.FAULT_TYPE = '10123190101')
+            and @send_time@ 
+            and m.male_guest_state = '2'
+            and m.theme like '(重修)%'                   
+            and @country@
+     
+     union all 
+     
+      select m.process_instance_id,
+       m.theme,
+       m.city,
+       m.country,
+       m.station_name,
+       to_char(m.create_time, 'YYYY-MM-DD HH24:MI:SS'),
+       to_char(m.send_time, 'YYYY-MM-DD HH24:MI:SS'),
+       m.engineer,
+       m.assignee,
+       m.parent_process_instance_id,
+       decode(m.male_guest_state,
+              2,
+              (select task_def_key_name
+                 from pnr_act_transfer_office_main
+                where process_instance_id = m.parent_process_instance_id),
+              m.task_def_key_name) as task_def_key_name,
+       decode(m.male_guest_state,
+              2,
+              (select task_def_key
+                 from pnr_act_transfer_office_main
+                where process_instance_id = m.parent_process_instance_id),
+              m.task_def_key) as task_def_key,
+       decode(m.male_guest_state,
+              2,
+              (select to_char(last_reply_time, 'YYYY-MM-DD HH24:MI:SS')
+                 from pnr_act_transfer_office_main
+                where process_instance_id = m.parent_process_instance_id),
+              to_char(m.last_reply_time, 'YYYY-MM-DD HH24:MI:SS')) as last_reply_time,
+       m.barrier_number
+  from taw_system_area a, pnr_act_transfer_office_main m
+   where a.areaid = m.country
+   and a.@parentareaid@
+   and m.THEMEINTERFACE = 'maleGuest'
+   and @country@
+   and ((m.task_def_key in
+       ('acheck', 'twoSpotChecks', 'auditReport', 'archive') and
+       nvl(m.male_guest_state, '0') in ('0', '3') and exists
+        (select 1
+            from pnr_act_transfer_office_handle l
+           where l.process_instance_id = m.process_instance_id
+             and l.FAULT_TYPE = '10123190101')) or
+       (m.task_def_key = 'auditor' and m.male_guest_state = '2' and exists
+        (select 1
+            from pnr_act_transfer_office_handle l
+           where l.process_instance_id = m.parent_process_instance_id
+             and l.FAULT_TYPE = '10123190101'))) 
+   and @send_time@
+   and barrier_number in
+       (select barrier_number
+          from (select areaid,
+                       barrier_number,
+                       count(process_instance_id) - 1 as t_us_num
+                  from (select a.areaid, m.barrier_number, process_instance_id
+                          from taw_system_area              a,
+                               pnr_act_transfer_office_main m
+                         where a.areaid = m.country
+                          and a.@parentareaid@
+                           and THEMEINTERFACE = 'maleGuest'
+                           and m.task_def_key in ('acheck',
+                                                  'twoSpotChecks',
+                                                  'auditReport',
+                                                  'archive')
+                           and exists
+                         (select 1
+                                  from pnr_act_transfer_office_handle l
+                                 where l.process_instance_id =
+                                       m.process_instance_id
+                                   and l.FAULT_TYPE = '10123190101')
+                           and @send_time@
+                           and @country@
+                           and nvl(m.male_guest_state, '0') in ('0', '3')
+                           and barrier_number <> '无'
+                        union all
+                        select a.areaid, m.barrier_number, process_instance_id
+                          from taw_system_area              a,
+                               pnr_act_transfer_office_main m
+                         where a.areaid = m.country
+                          and a.@parentareaid@
+                           and THEMEINTERFACE = 'maleGuest'
+                           and m.task_def_key = 'auditor'
+                           and exists
+                         (select 1
+                                  from pnr_act_transfer_office_handle l
+                                 where l.process_instance_id =
+                                       m.parent_process_instance_id
+                                   and l.FAULT_TYPE = '10123190101')
+                           and @send_time@
+                           and @country@
+                           and m.male_guest_state = '2'
+                           and barrier_number <> '无')
+                 group by areaid, barrier_number
+                having count(process_instance_id) > 1))
+		]]>
+	</byCounty>
+</sheetQuery>
