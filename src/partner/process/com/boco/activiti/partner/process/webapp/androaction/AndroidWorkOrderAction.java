@@ -3193,14 +3193,13 @@ public class AndroidWorkOrderAction extends NewSheetAction {
 					.getParameter("sceneName"));
 		 String copyName =StaticMethod.nullObject2String(request
 					.getParameter("copyName"));
-		 
+		Map<String, Object> resultMap = null;
 		if(!"".equals(sceneTemplate)){
 			ISceneTemplateService sceneTemplateService = (ISceneTemplateService)getBean("sceneTemplateMaleGuestService");
 			Map<String,String> param = new HashMap<String,String>();
 			param.put("operateType", "android");
 			param.put("processType", "transferOffice");//流程类型：非故障触发（抢修）
-			
-			sceneTemplateService.saveSceneTemplate(request,processInstanceId, "auditor", param);
+			resultMap = sceneTemplateService.saveSceneTemplate(request,processInstanceId, "auditor", param);
 		}
 		
 		//msg-start
@@ -3247,7 +3246,7 @@ public class AndroidWorkOrderAction extends NewSheetAction {
 					date = new Date();
 				}
 				pnrTransferOffice.setLastReplyTime(date);
-				
+				pnrTransferOffice.setWorkerProjectAmount(Double.parseDouble(resultMap.get("totalAmount").toString()));//场景模板金额--回单环节
 				pnrTransferOffice.setTransferCopyScenesName(copyName);//场景模板相关数据
 				pnrTransferOffice.setTransferMainScenesName(sceneName);
 				pnrTransferOffice.setRecentCopyScenesName(copyName);
@@ -3481,16 +3480,14 @@ public class AndroidWorkOrderAction extends NewSheetAction {
 					.getParameter("copyName"));
 //		System.out.println("----------sceneAmount------------:"+sceneAmount);
 //		System.out.println("----------sceneTemplate------------:"+sceneTemplate);
-		
+		Map<String, Object> resultMap = null;
 		if(!"".equals(sceneTemplate)){
 			ISceneTemplateService sceneTemplateService = (ISceneTemplateService)getBean("sceneTemplateMaleGuestService");
 			Map<String,String> param = new HashMap<String,String>();
 			param.put("operateType", "android");
 			param.put("processType", "maleGuest");//流程类型：公客
-			
-			sceneTemplateService.saveSceneTemplate(request,processInstanceId, "auditor", param);
+			resultMap = sceneTemplateService.saveSceneTemplate(request,processInstanceId, "auditor", param);
 		}
-		
 
 		IPnrTransferOfficeHandleService transferHandleService = (IPnrTransferOfficeHandleService) getBean("pnrTransferOfficeHandleService");
 		PnrTransferOfficeHandle entity = new PnrTransferOfficeHandle();
@@ -3523,7 +3520,7 @@ public class AndroidWorkOrderAction extends NewSheetAction {
 			pnrTransferOffice.setLastReplyTime(new Date());
 			//改变工单状态：改为8，达到隐藏工单的效果
 //			pnrTransferOffice.setState(8);
-			
+			pnrTransferOffice.setWorkerProjectAmount(Double.parseDouble(resultMap.get("totalAmount").toString()));//场景模板金额--回单环节
 			pnrTransferOffice.setTransferCopyScenesName(copyName);//场景模板相关数据
 			pnrTransferOffice.setTransferMainScenesName(sceneName);
 			pnrTransferOffice.setRecentCopyScenesName(copyName);

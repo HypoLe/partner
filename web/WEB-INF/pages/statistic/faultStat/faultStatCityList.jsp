@@ -140,7 +140,9 @@ var jq=$.noConflict(); //jquery交出控制权，以免和EXTJS冲突
 			</c:choose>
 			</display:column>
 			<display:column sortable="false" headerClass="sortable" title="故障重修率"  property="faultRebuildRate" />
-			<display:column sortable="false" headerClass="sortable" title="材料金额"  property="materialMoney" />
+			<display:column sortable="false" headerClass="sortable" title="材料金额">
+				<fmt:formatNumber value="${faultStatCityList.materialMoney}" pattern="##.##" maxFractionDigits='2' minFractionDigits='0'  />
+			</display:column>
 			
 			<display:setProperty name="export.rtf" value="false" />
 			<display:setProperty name="export.pdf" value="false" />

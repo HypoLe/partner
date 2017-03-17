@@ -31,6 +31,7 @@ import com.boco.activiti.partner.process.service.ISceneTemplateService;
 import com.boco.eoms.base.util.ApplicationContextHolder;
 import com.boco.eoms.base.util.StaticMethod;
 import com.boco.eoms.deviceManagement.common.service.CommonSpringJdbcService;
+import com.boco.eoms.partner.process.util.CommonUtils;
 
 /**
  * 场景模板 服务类 实现
@@ -516,7 +517,8 @@ public class SceneTemplateMaleGuestServiceImpl extends JdbcDaoSupport implements
 		 String  num ="";  
 		 final List<Map> vmaps = new ArrayList();
 		
-		
+		 //计算施工队环节项目金额估算
+		 double totalAmount = 0L;
 		//手机回传的信息
 		if(param!=null && "android".equals(param.get("operateType"))){
 			
@@ -533,7 +535,6 @@ public class SceneTemplateMaleGuestServiceImpl extends JdbcDaoSupport implements
 			num= json.getString("sceneUnit");
 
 		    JSONArray jsonArray=json.getJSONArray("materialData"); 
-				  
 			    for(int i=0;i<jsonArray.length();i++){ 
 				    JSONObject material=(JSONObject) jsonArray.get(i); 				    
 				       Map  vmap = new HashMap();			
@@ -547,6 +548,11 @@ public class SceneTemplateMaleGuestServiceImpl extends JdbcDaoSupport implements
 					   vmap.put("oldPrice", material.getString("materialPrice"));
 					   vmap.put("initialPrice", material.getString("originalMaterialPrice"));
 					   vmap.put("totalPrice", material.getString("materialRental"));
+					   
+					   if(material.getString("materialRental") != null && !"".equals(material.getString("materialRental"))){
+						   totalAmount+= Double.parseDouble(material.getString("materialRental"));
+					   }
+					   
 					   vmap.put("isUtilize", StaticMethod.nullObject2String(request.getParameter("isUtilize"),"0"));
 					   vmap.put("itemNo", material.getString("materialId"));
 					   
@@ -623,6 +629,12 @@ public class SceneTemplateMaleGuestServiceImpl extends JdbcDaoSupport implements
 			insertSelRelTasks(flinkType,fprocessInstanceId,mainSceneNo,copySceneNo,fprocessType);
 		    insertItemTask(flinkType,fprocessInstanceId,mainSceneNo,copySceneNo,fsceneName,fcopyName,fdispose,funit,fnum,fprocessType);
 			insertDataTask(fprocessInstanceId,flinkType,vmaps,fprocessType);
+		}
+		
+		if(param!=null && "android".equals(param.get("operateType"))){
+			Map<String, Object> resultMap = new HashMap<String, Object>();
+			resultMap.put("totalAmount", Double.toString(CommonUtils.reservedDecimalPlaces(totalAmount,2)));
+			return resultMap;
 		}
 		
 		return null;
