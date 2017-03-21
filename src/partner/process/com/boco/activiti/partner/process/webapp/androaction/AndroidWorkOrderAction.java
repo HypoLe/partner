@@ -3200,6 +3200,9 @@ public class AndroidWorkOrderAction extends NewSheetAction {
 			param.put("operateType", "android");
 			param.put("processType", "transferOffice");//流程类型：非故障触发（抢修）
 			resultMap = sceneTemplateService.saveSceneTemplate(request,processInstanceId, "auditor", param);
+		}else{
+			resultMap = new HashMap<String, Object>();
+			resultMap.put("totalAmount", "0");
 		}
 		
 		//msg-start
@@ -3487,6 +3490,9 @@ public class AndroidWorkOrderAction extends NewSheetAction {
 			param.put("operateType", "android");
 			param.put("processType", "maleGuest");//流程类型：公客
 			resultMap = sceneTemplateService.saveSceneTemplate(request,processInstanceId, "auditor", param);
+		}else{
+			resultMap = new HashMap<String, Object>();
+			resultMap.put("totalAmount", "0");
 		}
 
 		IPnrTransferOfficeHandleService transferHandleService = (IPnrTransferOfficeHandleService) getBean("pnrTransferOfficeHandleService");
